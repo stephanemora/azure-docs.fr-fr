@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970550"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067220"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
-Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
+Azure Security Center utilise le [contrôle d’accès en fonction du rôle d’Azure (RBAC)](../role-based-access-control/role-assignments-portal.md), qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
 
 Security Center évalue la configuration de vos ressources pour identifier les vulnérabilités et les problèmes de sécurité. Dans Security Center, vous ne voyez les informations relatives à une ressource que lorsque vous avez reçu le rôle de propriétaire, de collaborateur ou de lecteur pour l’abonnement ou le groupe de ressources auquel appartient la ressource.
 
@@ -45,7 +45,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 |Modifier une stratégie de sécurité|-|✔|-|-|✔|
 |Ajouter/attribuer des initiatives (y compris) des standards de conformité réglementaire)|-|-|-|-|✔|
 |Changer le niveau de tarification de l’abonnement|-|✔|-|-|✔|
-|Activer/désactiver le provisionnement automatique|-|✔|✔|-|✔|
+|Activer/désactiver le provisionnement automatique|-|✔|-|✔|✔|
 |Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Correction rapide !](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Ignorer les alertes|-|✔|-|✔|✔|
 |Afficher les alertes et les recommandations|✔|✔|✔|✔|✔|

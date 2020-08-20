@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 487177b4a114ba7537ac4f1aa74a4e2472455d4b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369558"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066064"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -195,8 +195,7 @@ Les utilisateurs de ce rôle peuvent lire des informations de base relatives aux
 Ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Connect et n’est pas prévu ni pris en charge pour une autre utilisation.
 
 ### <a name="directory-writers"></a>[Enregistreurs de répertoire](#directory-writers-permissions)
-
-Il s’agit d’un rôle hérité qui doit être attribué aux applications ne prenant pas en charge le [framework de consentement](../develop/quickstart-register-app.md). Vous ne devez pas l’affecter à tous les utilisateurs.
+Les utilisateurs de ce rôle peuvent lire et mettre à jour les informations de base des utilisateurs, des groupes et des principaux de service. Attribuez ce rôle uniquement aux applications qui ne prennent pas en charge [l’infrastructure de consentement](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Vous ne devez pas l’affecter à tous les utilisateurs.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrateur Dynamics 365/Administrateur CRM](#crm-service-administrator-permissions)
 
@@ -270,6 +269,7 @@ Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non val
 * Inviteur
 * Administrateur du support technique
 * Lecteur du Centre de messages
+* Administrateur de mots de passe
 * Lecteur de rapports
 
 > [!IMPORTANT]
@@ -391,7 +391,7 @@ Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les infor
 
 ### <a name="privileged-role-administrator"></a>[Administrateur de rôle privilégié](#privileged-role-administrator-permissions)
 
-Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory et Azure AD Privileged Identity Management. De plus, ce rôle permet de gérer tous les aspects de Privileged Identity Management et des unités administratives.
+Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory et Azure AD Privileged Identity Management. Ils peuvent créer et gérer des groupes qui peuvent être affectés à des rôles Azure AD. De plus, ce rôle permet de gérer tous les aspects de Privileged Identity Management et des unités administratives.
 
 > [!IMPORTANT]
 > Ce rôle donne la possibilité de gérer les attributions de tous les rôles Azure AD, y compris le rôle d’administrateur général. Ce rôle n’inclut pas d’autres capacités privilégiées dans Azure AD, comme la création ou la mise à jour des utilisateurs. Toutefois, les utilisateurs affectés à ce rôle peuvent s’accorder ou accorder à d’autres des privilèges supplémentaires en leur attribuant des rôles supplémentaires.
@@ -506,7 +506,7 @@ Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous
 | --- | --- |
 |Autorisations générales|<p>Créer des utilisateurs et des groupes</p><p>Créer et gérer des vues utilisateur</p><p>Gérer les tickets de support Office<p>Mettre à jour les stratégies d’expiration de mot de passe|
 | <p>Tous les utilisateurs, notamment les administrateurs</p>|<p>Gérer les licences</p><p>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal</p>
-| Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>|
+| Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Administrateur de groupes<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Administrateur de mots de passe<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>|
 
 > [!IMPORTANT]
 > Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
@@ -545,11 +545,11 @@ Peut créer et gérer tous les aspects des inscriptions d’applications et des 
 | microsoft.directory/appRoleAssignments/update | Mettez à jour des attributions de rôles d’applications dans Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/delete | Supprimez des attributions de rôles d’applications dans Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/read | Lisez les propriétés du groupe de connecteurs de proxy d’application dans Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/update | Mettez à jour toutes les propriétés du groupe de connecteurs de proxy d’application dans Azure Active Directory. |
+| microsoft.directory/connectorGroups/allProperties/read | Lisez les propriétés du groupe de connecteurs de proxy d’application dans Azure Active Directory. |
+| microsoft.directory/connectorGroups/allProperties/update | Mettez à jour toutes les propriétés du groupe de connecteurs de proxy d’application dans Azure Active Directory. |
 | microsoft.directory/connectorGroups/create | Créez des groupes de connecteurs de proxy d’application dans Azure Active Directory. |
 | microsoft.directory/connectorGroups/delete | Supprimez des groupes de connecteurs de proxy d’application dans Azure Active Directory. |
-| microsoft.directory/connectors/everything/read | Lisez toutes les propriétés du connecteur de proxy d’application dans Azure Active Directory. |
+| microsoft.directory/connectors/allProperties/read | Lisez toutes les propriétés du connecteur de proxy d’application dans Azure Active Directory. |
 | microsoft.directory/connectors/create | Créez des connecteurs de proxy d’application dans Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/read | Lisez la propriété policies.applicationConfiguration dans Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/update | Mettez à jour la propriété policies.applicationConfiguration dans Azure Active Directory. |
@@ -747,6 +747,9 @@ Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisen
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Créez et supprimez des modèles de rôles d’annuaire (DirectoryRoleTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Créez et supprimez des domaines, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/groups/allProperties/allTasks | Créez et supprimez des groupes, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Mettez à jour les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Créez des groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Supprimez les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
 | microsoft.directory/groupSettings/allProperties/allTasks | Créez et supprimez des paramètres de groupes (groupSettings), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Créez et supprimez des modèles de paramètres de groupes (groupSettingTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
 | microsoft.directory/loginTenantBranding/allProperties/allTasks | Créez et supprimez une personnalisations de client de connexion (loginTenantBranding), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
@@ -997,22 +1000,36 @@ Peut lire et écrire des informations d’annuaire de base. Pour accorder l’ac
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.directory/groups/create | Créez des groupes dans Azure Active Directory. |
-| microsoft.directory/groups/createAsOwner | Créez des groupes dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
 | microsoft.directory/groups/appRoleAssignments/update | Mettez à jour la propriété groups.appRoleAssignments dans Azure Active Directory. |
-| microsoft.directory/groups/basic/update | Mettez à jour des propriétés de base sur des groupes dans Azure Active Directory. |
+| microsoft.directory/groups/assignLicense | Gérez les licences des groupes dans Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Mettez à jour des propriétés de base sur des groupes dans Azure Active Directory.  |
+| microsoft.directory/groups/classification/update | Mettez à jour la propriété de classification du groupe dans Azure Active Directory. |
+| microsoft.directory/groups/create | Créez des groupes dans Azure Active Directory. |
+| microsoft.directory/groups/groupType/update | Mettez à jour la propriété groupType d’un groupe dans Azure Active Directory. |
 | microsoft.directory/groups/members/update | Mettez à jour la propriété groups.members dans Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Mettez à jour la propriété groups.owners dans Azure Active Directory. |
+| microsoft.directory/groups/reprocessLicenseAssignment | Traitez à nouveau l’attribution des licences pour un groupe dans Azure Active Directory. |
+| microsoft.directory/groups/securityEnabled/update | Mettez à jour la propriété secutiryEnabled d’un groupe dans Azure Active Directory. |
 | microsoft.directory/groups/settings/update | Mettez à jour la propriété groups.settings dans Azure Active Directory. |
+| microsoft.directory/groups/visibility/update | Mettez à jour la propriété de visibilité du groupe. |
 | microsoft.directory/groupSettings/basic/update | Mettez à jour des propriétés de base sur des paramètres de groupe dans Azure Active Directory. |
-| microsoft.directory/groupSettings/create | Créez des paramètres de groupe dans Azure Active Directory. |
+| microsoft.directory/groupSettings/create | Créez groupSettings dans Azure Active Directory. |
 | microsoft.directory/groupSettings/delete | Supprimez des paramètres de groupe dans Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/basic/update | Mettez à jour les propriétés de base d’oAuth2PermissionGrants dans Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/create | Créez des octrois d’autorisation OAuth2 dans Azure Active Directory. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Gérez les secrets et les informations d’identification de l’approvisionnement des applications. |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | Démarrez, redémarrez et suspendez les travaux de synchronisation de l’approvisionnement des applications. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Créez et gérez le schéma et les tâches de synchronisation de l’approvisionnement des applications. |
 | microsoft.directory/users/appRoleAssignments/update | Mettez à jour la propriété users.appRoleAssignments dans Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Gérez les licences sur des utilisateurs dans Azure Active Directory. |
 | microsoft.directory/users/basic/update | Mettez à jour des propriétés de base sur des utilisateurs dans Azure Active Directory. |
-| microsoft.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory. |
+| microsoft.directory/users/disable | Désactivez un compte d’utilisateur dans Azure Active Directory. |
+| microsoft.directory/users/enable | Activez un compte d’utilisateur dans Azure Active Directory. |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory, en demandant aux utilisateurs de s’authentifier à nouveau lors de leur prochaine connexion. |
 | microsoft.directory/users/manager/update | Mettez à jour la propriété users.manager dans Azure Active Directory. |
-| microsoft.directory/users/userPrincipalName/update | Mettez à jour la propriété users.userPrincipalName dans Azure Active Directory. |
+| microsoft.directory/users/reprocessLicenseAssignment | Traitez à nouveau l’attribution des licences pour un utilisateur dans Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName /update | Mettez à jour la propriété users.userPrincipalName dans Azure Active Directory. |
+
 
 ### <a name="exchange-service-administrator-permissions"></a>Autorisations d’administrateur de service Exchange
 
@@ -1409,7 +1426,6 @@ Peut gérer les services cloud des applications Office, notamment la gestion des
 | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-| microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Lisez et mettez à jour la visibilité des messages Nouveautés. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
@@ -1581,7 +1597,10 @@ Peut gérer les attributions de rôles dans Azure AD et tous les aspects de Pri
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Mettez à jour les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Créez des groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Supprimez les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+| microsoft.directory/privilegedIdentityManagement/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Lisez et configurez la propriété servicePrincipals.appRoleAssignedTo dans Azure Active Directory. |
 | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Lisez et configurez la propriété servicePrincipals.oAuth2PermissionGrants dans Azure Active Directory. |
 | microsoft.directory/administrativeUnits/allProperties/allTasks | Créez et gérez des unités administratives (y compris les membres). |
@@ -1892,7 +1911,7 @@ Gestionnaires d’appareils | Déprécié | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utilisateurs d’appareils | Déprécié | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | d29b2b05-8046-44ba-8758-1e26182fcf32
-Enregistreurs de répertoire | Non affiché, car il ne doit pas être utilisé | 9360feb5-f418-4baa-8175-e2a00bac4301
+Enregistreurs de répertoire | Enregistreurs de répertoire | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrateur de services Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrateur de flux d’utilisateurs ID externe | Administrateur de flux d’utilisateurs ID externe | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrateur d’attribut de flux d’utilisateurs ID externe | Administrateur d’attribut de flux d’utilisateurs ID externe | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

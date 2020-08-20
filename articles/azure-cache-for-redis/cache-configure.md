@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010305"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009611"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -185,12 +185,12 @@ Chaque niveau tarifaire est associé à des limites spécifiques concernant les 
 
 | Métrique du cache Azure pour Redis | Informations complémentaires |
 | --- | --- |
-| Utilisation de la bande passante réseau |[Performances du cache - Bande passante disponible](cache-faq.md#cache-performance) |
+| Utilisation de la bande passante réseau |[Performances du cache - Bande passante disponible](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Clients connectés |[Configuration du serveur Redis par défaut - maxclients](#maxclients) |
 | Charge du serveur |[Graphiques d’utilisation - Charge du serveur Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilisation de la mémoire |[Performance du cache - Taille](cache-faq.md#cache-performance) |
+| Utilisation de la mémoire |[Performance du cache - Taille](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
-Pour mettre à niveau votre cache, cliquez sur **Mettre à niveau maintenant** afin de modifier le niveau tarifaire et de [mettre à l’échelle](#scale) votre cache. Pour plus d’informations sur le choix d’un niveau tarifaire, consultez la page [Que sont les offres de cache Azure pour Redis et quelle taille dois-je utiliser ?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Pour mettre à niveau votre cache, cliquez sur **Mettre à niveau maintenant** afin de modifier le niveau tarifaire et de [mettre à l’échelle](#scale) votre cache. Pour plus d’informations sur le choix d’un niveau tarifaire, consultez [Choix du niveau approprié](cache-overview.md#choosing-the-right-tier).
 
 
 ### <a name="scale"></a>Scale
@@ -414,7 +414,7 @@ Les nouvelles instances de cache Azure pour Redis sont configurées avec les val
   * P4 (53 à 530 Go) - jusqu’à 64 bases de données
   * Tous les caches de niveau Premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache Premium avec cluster Redis activé soit effectivement 1 et que la commande [Sélectionner](https://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-faq.md#what-are-redis-databases)
+Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-development-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -505,4 +505,4 @@ Pour déplacer votre cache vers un nouvel abonnement, cliquez sur **Déplacer**.
 Pour plus d’informations sur le déplacement des ressources d’un groupe de ressources vers un autre et d’un abonnement vers un autre, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur l’utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
+* Pour plus d’informations sur l’utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-development-faq.md#how-can-i-run-redis-commands).

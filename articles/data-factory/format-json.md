@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2fc2ccdc7a0520bd156bde8c1da36e19a9e2af1e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537695"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042188"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Suivez cet article si vous souhaitez **analyser des fichiers JSON ou écrire des données au format JSON**. 
@@ -84,7 +85,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Le type de formatSettings doit être défini sur **JsonReadSettings**. | Oui      |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu’il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
 
 ### <a name="json-as-sink"></a>JSON en tant que récepteur
 

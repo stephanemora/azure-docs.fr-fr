@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034703"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067492"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database pour PostgreSQL - Chiffrement double d’infrastructure
 
@@ -36,7 +36,7 @@ L’implémentation aux couches d’infrastructure prend également en charge de
 
 Le chiffrement double d’infrastructure pour Azure Database pour PostgreSQL offre les avantages suivants :
 
-1. **Ajout de diversité d’implémentation de chiffrement** - le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de l’implémentation basée sur le logiciel.
+1. **Diversité supplémentaire de l’implémentation du chiffrement** - Le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de celle basée sur le logiciel.
 2. **Erreurs d’implémentation**- Deux couches de chiffrement au niveau de l’infrastructure protègent des erreurs de mise en cache ou de gestion de la mémoire dans des couches supérieures qui exposent des données en texte clair. En outre, les deux couches protègent également des erreurs dans l’implémentation du chiffrement en général.
 
 Cette combinaison offre une protection renforcée contre les menaces courantes et les faiblesses exploitées pour attaquer le chiffrement.
@@ -54,7 +54,7 @@ Les fonctionnalités de chiffrement fournies par Azure Database pour PostgreSQL 
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Les scénarios 2 et 4 auront un impact important sur les performances sur le serveur Azure Database pour PostgreSQL en raison de la couche supplémentaire de chiffrement de l’infrastructure.
+> - Les scénarios 2 et 4 auront un impact sur les performances du serveur Azure Database pour PostgreSQL en raison de la couche supplémentaire de chiffrement de l’infrastructure.
 > - La configuration du double chiffrement de l’infrastructure pour Azure Database pour PostgreSQL est uniquement autorisée pendant la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier le chiffrement de stockage. Toutefois, vous pouvez toujours activer le chiffrement des données à l’aide de clés gérées par le client pour le serveur créé avec/sans le chiffrement double de l’infrastructure.
 
 ## <a name="limitations"></a>Limites

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034704"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066404"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database pour MySQL Chiffrement double d’infrastructure
 
@@ -36,7 +36,7 @@ L’implémentation aux couches d’infrastructure prend également en charge de
 
 Le chiffrement double d’infrastructure pour Azure Database pour MySQL offre les avantages suivants :
 
-1. **Ajout de diversité d’implémentation de chiffrement** - le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de l’implémentation basée sur le logiciel.
+1. **Diversité supplémentaire de l’implémentation du chiffrement** - Le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de celle basée sur le logiciel.
 2. **Erreurs d’implémentation**- Deux couches de chiffrement au niveau de l’infrastructure protègent des erreurs de mise en cache ou de gestion de la mémoire dans des couches supérieures qui exposent des données en texte clair. En outre, les deux couches protègent également des erreurs dans l’implémentation du chiffrement en général.
 
 Cette combinaison offre une protection renforcée contre les menaces courantes et les faiblesses exploitées pour attaquer le chiffrement.
@@ -54,7 +54,7 @@ Les fonctionnalités de chiffrement fournies par Azure Database pour MySQL peuve
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Les scénarios 2 et 4 auront un impact important sur les performances sur le serveur Azure Database pour MySQL en raison de la couche supplémentaire de chiffrement de l’infrastructure.
+> - Les scénarios 2 et 4 peuvent introduire une baisse de 5 à 10 % du débit en fonction du type de charge de travail pour le serveur Azure Database pour MySQL en raison de la couche supplémentaire de chiffrement d’infrastructure.
 > - La configuration du double chiffrement de l’infrastructure pour Azure Database pour MySQL est uniquement autorisée pendant la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier le chiffrement de stockage. Toutefois, vous pouvez toujours activer le chiffrement des données à l’aide de clés gérées par le client pour le serveur créé avec/sans le chiffrement double de l’infrastructure.
 
 ## <a name="limitations"></a>Limites

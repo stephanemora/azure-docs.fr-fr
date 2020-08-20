@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035823"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067254"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -44,7 +44,8 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - Les principes de sécurité pour l’exécution des données à impact commercial élevé dans Azure. Pour en savoir plus sur la sécurité des données, commencez par la [documentation sur la sécurité Azure](../../../security/index.yml).
 2.  Document de conception technique. Ce document doit contenir :
     - Un schéma fonctionnel de la solution.
-    - Le dimensionnement des composants de calcul, de stockage et de mise en réseau dans Azure. Pour le dimensionnement SAP des machines virtuelles Azure, consultez la [note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533).
+    - Le dimensionnement des composants de calcul, de stockage et de mise en réseau dans Azure. Pour le dimensionnement SAP des machines virtuelles Azure, consultez [SAP 
+    -  note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
     - L’architecture de continuité d’activité et de reprise d’activité.
     - Informations détaillées sur les versions des packs de support SE, DB, noyau et SAP. Toutes les versions de SE prises en charge par SAP NetWeaver ou S/4HANA ne sont pas nécessairement prises en charge sur les machines virtuelles Azure. Il en va de même pour les versions de SGBD. Vérifiez les sources suivantes pour aligner et, si nécessaire, mettre à niveau les versions de SAP, les versions de SGBD et les versions de SE afin de garantir le support SAP et Azure. Vous devez disposer de combinaisons de mises en production prises en charge par SAP et Azure pour bénéficier du support complet de SAP et Microsoft. Si nécessaire, planifiez la mise à niveau de certains composants logiciels. Vous trouverez plus de détails sur les logiciels SAP, SE et SGBD pris en charge ici :
         - [Note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Cette note définit les versions minimum des SE prises en charge sur les machines virtuelles Azure. Elle définit également les versions minimum requises pour la plupart des bases de données non HANA. Enfin, elle indique le dimensionnement SAP pour les types de machines virtuelles Azure pris en charge par SAP.
@@ -56,14 +57,16 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
         - [Note de support SAP n° 2555629 - SAP HANA 2.0 Dynamic Tiering – Prise en charge de l’hyperviseur et du cloud](https://launchpad.support.sap.com/#/notes/2555629)
         - [Note de support SAP n° 1662610 - Détails de prise en charge pour SIOS Protection Suite pour Linux](https://launchpad.support.sap.com/#/notes/1662610)
         - Notes SAP pour d’autres produits SAP spécifiques.     
-    - Nous recommandons des conceptions strictes à trois niveaux pour les systèmes de production SAP. Nous vous déconseillons de combiner ASCS, DBMS et/ou les serveurs d’applications sur une même machine virtuelle. Azure prend en charge l’utilisation de configurations de cluster multi-SID pour SAP Central Services sur les systèmes d’exploitation Windows invités sur Azure. Toutefois, cette configuration n’est pas prise en charge pour SAP Central Services sur les systèmes d’exploitation Linux sur Azure. Vous trouverez la documentation du scénario du système d’exploitation invité Windows dans les articles suivants :
-        - [Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
-        - [Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+    - Azure prend en charge l’utilisation de configurations de cluster multi-SID pour SAP Central Services sur les systèmes d’exploitation invités Windows, SLES et RHEL. Gardez à l’esprit que plus vous placez d’instances ASCS/SCS sur un tel cluster multi-SID, plus le rayon d’impact peut augmenter. Vous trouverez la documentation du scénario du système d’exploitation invité correspondant dans les articles suivants :
+        - [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+        - [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+        - [Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+        - [Guide multi-SID de haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur Red Hat Enterprise Linux for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
     - Architecture de haute disponibilité et de récupération d’urgence.
         - En fonction des objectifs RTO et RPO, définissez l’architecture de haute disponibilité et de récupération d’urgence.
         - Pour une haute disponibilité dans une zone, vérifiez ce que le SGBD souhaité peut offrir dans Azure. La plupart des packages SGBD offrent les méthodes synchrones d’un serveur de secours synchrone, ce que nous recommandons pour les systèmes de production. Consultez aussi la documentation SAP pour les différentes bases de données en commençant par [Facteurs à prendre en compte pour le déploiement SGBD de machines virtuelles Azure pour les charges de travail SAP](./dbms_guide_general.md) et les documents connexes.
            L’utilisation du Clustering de basculement Windows Server avec une configuration de disque partagé pour la couche SGBD comme [décrit pour SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), par exemple, n’est pas prise en charge. Utilisez plutôt des solutions comme :
-           - [SQL Server Always On](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [SQL Server AlwaysOn](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Réplication de système HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Pour la récupération d’urgence dans les régions d’Azure, passez en revue les solutions offertes par les différents fournisseurs de SGBD. La plupart d’entre eux prennent en charge la réplication asynchrone ou la copie des journaux de transaction.
@@ -74,11 +77,11 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
 4.  Conception des services de base. Cette conception doit inclure les éléments suivants :
     - Conception Active Directory et DNS.
     - Topologie de réseau dans Azure et affectation de différents systèmes SAP.
-    - Structure d’[accès basée sur les rôles](../../../role-based-access-control/overview.md) pour les équipes afin d’assurer la gestion de l’infrastructure et des applications SAP dans Azure.
+    - Structure de[contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../../role-based-access-control/overview.md) pour les équipes afin d’assurer la gestion de l’infrastructure et des applications SAP dans Azure.
     - Topologie des groupes de ressources.
     - [Stratégie de balisage](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Convention d’affectation de noms pour les machines virtuelles, et autres composants d’infrastructure et/ou noms logiques.
-5.  Contrat de support Premier Microsoft. Identifiez votre responsable technique de compte Microsoft (TAM). Pour connaître les exigences de support SAP, lisez la [note de support SAP n° 2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.  Contrat de support Premier ou Professionnel Microsoft. Identifiez votre gestionnaire de compte technique (TAM) Microsoft si vous disposez d’un contrat de support Premier avec Microsoft. Pour connaître les exigences de support SAP, lisez la [note de support SAP n° 2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Nombre d’abonnements Azure et quota principal pour les abonnements. Au besoin, [ouvrez des demandes de support pour augmenter les quotas d’abonnements Azure](../../../azure-portal/supportability/resource-manager-core-quotas-request.md).
 7.  Plan de réduction et de migration des données pour la migration des données SAP vers Azure. Pour les systèmes SAP NetWeaver, SAP propose des directives afin de limiter les gros volumes de données. Consultez [ce guide SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) consacré à la gestion des données dans les systèmes SAP ERP. Certains de ces contenus s’appliquent également aux systèmes NetWeaver et S/4HANA en général.
 8.  Une approche de type déploiement automatisé. L’objectif de l’automatisation des déploiements d’infrastructures sur Azure est de déployer de manière déterministe et d’obtenir des résultats déterministes. Beaucoup de clients utilisent des scripts basés sur PowerShell ou sur l’interface CLI. Cependant, différentes technologies open source vous permettent de déployer une infrastructure Azure pour SAP, et même pour installer les logiciels SAP. Vous trouverez des exemples sur GitHub :
@@ -103,9 +106,10 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - Passez en revue les ressources dans les notes de support SAP, dans le répertoire matériel SAP HANA et dans SAP PAM. Assurez-vous qu’aucune modification n’est apportée aux machines virtuelles prises en charge pour Azure, aux versions de système d’exploitation prises en charge pour ces types de machines virtuelles et aux versions SAP et de SGBD.
         - Validez à nouveau le dimensionnement de votre application et de l'infrastructure que vous déployez sur Azure. Si vous déplacez des applications existantes, vous pouvez souvent extraire le SAPS nécessaire de l’infrastructure utilisée et de la [page web du benchmark SAP](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) et le comparer avec les numéros de SAPS répertoriés sur la [note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Consultez également [cet article sur les évaluations SAPS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208).
         - Évaluez et testez le dimensionnement de vos machines virtuelles Azure en fonction du débit de stockage et du débit réseau maximum des types de machines virtuelles que vous avez choisis durant la phase de planification. Les données sont disponibles ici :
-           -  [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache*  pour le dimensionnement.
-           -  [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache*  pour le dimensionnement.
+           -  [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
+           -  [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
    2. Stockage.
+        - Vérifiez le document [Types de stockage Azure pour une charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage).
         - Utilisez au minimum le [stockage Disque SSD Standard Azure](../../windows/disks-types.md#standard-ssd) pour les machines virtuelles représentant des couches Application SAP et pour un déploiement de SGBD non sensibles aux performances.
         - En général, nous déconseillons l’utilisation de [disques HDD Standard Azure](../../windows/disks-types.md#standard-hdd).
         - Utilisez [Stockage Premium Azure](../../windows/disks-types.md#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance.
@@ -125,7 +129,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
             -  Le placement des couches Application SAP et SGBD SAP sur différents réseaux virtuels Azure non appairés n’est pas pris en charge.
             -  Vous pouvez utiliser des [règles de groupe de sécurité d’application et de groupe de sécurité réseau](../../../virtual-network/security-overview.md) pour définir les itinéraires entre la couche d’application SAP et la couche SGBD SAP.
         - Assurez-vous que la [mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est activée sur les machines virtuelles utilisées dans la couche application SAP et la couche SGBD SAP. N'oubliez pas que différents niveaux de SE sont nécessaires pour prendre en charge la mise en réseau accélérée dans Azure :
-            - Windows Server 2012 R2 ou version ultérieure.
+            - Windows Server 2012 R2 ou ultérieur.
             - SUSE Linux 12 SP3 ou version ultérieure.
             - RHEL 7.4 ou version ultérieure.
             - Oracle Linux 7.5. Si vous utilisez le noyau RHCKL, la version 3.10.0-862.13.1. EL7 est requise. Si vous utilisez le noyau Oracle UEK, la version 5 est requise.
@@ -174,7 +178,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
    3. Testez votre séquence de sauvegarde/restauration et le minutage, et apportez les corrections adéquates si nécessaire. Vérifiez que les temps de sauvegarde sont suffisants. Vous devez également tester les activités de restauration et de restauration dans le temps. Vérifiez que les temps de restauration sont dans les objectifs RTO de vos contrats SLA, que votre RTO dépende d’une base de données ou d’un processus de restauration de machine virtuelle.
    4. Testez l’architecture et la fonctionnalité de récupération d’urgence inter-régions.
 1. Vérifications de sécurité.
-   1. Testez la validité de votre architecture d’accès basé sur les rôles Azure. L’objectif est de séparer et de limiter l’accès et les autorisations des différentes équipes. Par exemple, les membres de l’équipe SAP Basis doivent pouvoir déployer des machines virtuelles et assigner des disques du Stockage Azure à un réseau virtuel Azure donné. Cependant, l’équipe SAP Basis ne doit pas être en mesure de créer ses propres réseaux virtuels ou de modifier les paramètres des réseaux virtuels existants. Les membres de l’équipe réseau ne doivent pas être en mesure de déployer des machines virtuelles sur des réseaux virtuels dans lesquels des machines virtuelles sont exécutées sur les couches Application SAP et SGBD. Les membres de cette équipe ne doivent pas non plus être en mesure de modifier les attributs des machines virtuelles, ni même de supprimer des machines virtuelles ou des disques.  
+   1. Testez la validité de votre architecture de contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’objectif est de séparer et de limiter l’accès et les autorisations des différentes équipes. Par exemple, les membres de l’équipe SAP Basis doivent pouvoir déployer des machines virtuelles et assigner des disques du Stockage Azure à un réseau virtuel Azure donné. Cependant, l’équipe SAP Basis ne doit pas être en mesure de créer ses propres réseaux virtuels ou de modifier les paramètres des réseaux virtuels existants. Les membres de l’équipe réseau ne doivent pas être en mesure de déployer des machines virtuelles sur des réseaux virtuels dans lesquels des machines virtuelles sont exécutées sur les couches Application SAP et SGBD. Les membres de cette équipe ne doivent pas non plus être en mesure de modifier les attributs des machines virtuelles, ni même de supprimer des machines virtuelles ou des disques.  
    1.  Vérifiez que les [règles du groupe de sécurité et les règles ASC](../../../virtual-network/security-overview.md) fonctionnent comme prévu et protègent les ressources protégées.
    1.  Assurez-vous que toutes les ressources qui doivent être chiffrées le sont. Définissez et implémentez des processus pour sauvegarder les certificats, les stocker, y accéder et restaurer les entités chiffrées.
    1.  Utilisez [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour les disques de système d’exploitation, si possible du point de vue de la prise en charge du système d’exploitation.
@@ -207,8 +211,8 @@ Au cours de cette phase, vous déployez généralement des systèmes de dévelop
 11. Assurez-vous que vos machines virtuelles sont déployées avec le [groupe de placements de proximité Azure](../../linux/co-location.md) adéquat, comme décrit dans [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
 11. Effectuez toutes les autres vérifications de la preuve de concept avant d’appliquer la charge de travail.
 12. Au fur et à mesure que la charge de travail s’applique, enregistrez la consommation de ressources des systèmes dans Azure. Comparez cette consommation avec les enregistrements de votre ancienne plateforme. Ajustez le dimensionnement des machines virtuelles des futurs déploiements si vous constatez des différences importantes. Gardez à l’esprit que, quand vous réduisez la taille, le stockage et la bande passante réseau des machines virtuelles sont également réduits.
-    - [Tailles des machines virtuelles Windows dans Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    - [Tailles des machines virtuelles Linux dans Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    - [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Expérimentez la fonctionnalité et les processus de copie du système. L’objectif est de faciliter la copie d’un système de développement ou d’un système de test afin que les équipes de projet bénéficient rapidement de nouveaux systèmes. Envisagez d’utiliser [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) pour ces tâches.
 14. Vous pouvez optimiser et affiner les accès, les autorisations et les processus basés sur les rôles Azure de votre équipe afin d’être sûr de bénéficier de la séparation des tâches. En même temps, assurez-vous que toutes les équipes peuvent effectuer leurs tâches dans l’infrastructure Azure.
 15. Testez les procédures de haute disponibilité et de récupération d’urgence pour permettre à votre personnel d’exécuter ces tâches. Identifiez les défauts et adaptez les nouvelles fonctionnalités Azure que vous intégrez à vos déploiements.

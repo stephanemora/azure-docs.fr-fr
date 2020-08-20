@@ -1,14 +1,14 @@
 ---
 title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072812"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987101"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -35,8 +35,9 @@ Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le f
 Pour vérifier les paramètres à l’intérieur d’une machine, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée et la machine doit disposer d’une identité managée par le système. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante. L’identité est utilisée pour authentifier la machine lorsqu’elle lit et écrit dans le service de configuration d’invité. L’extension n’est pas requise pour Arc Connected Machines, car elle est incluse dans l’agent Arc Connected Machines.
 
 > [!IMPORTANT]
-> L’extension Guest Configuration et une identité managée sont requises pour l’audit des machines virtuelles Azure. Référez-vous à > L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à l’échelle, assignez l’initiative de stratégie suivante : > déployer l’extension à l’échelle, assigner les définitions de stratégie suivantes : 
->  - [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> L’extension Guest Configuration et une identité managée sont requises pour l’audit des machines virtuelles Azure. Pour déployer l’extension à l’échelle, attribuez l’initiative de stratégie suivante :
+> 
+> - [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limites définies sur l’extension
 
@@ -69,18 +70,37 @@ Le tableau suivant affiche une liste des systèmes d’exploitation pris en char
 |Microsoft|Windows Server|2012 ou version ultérieure|
 |Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3 ou version ultérieure|
-|Red Hat|Red Hat Enterprise Linux|7.4 à 7.8, 9.0 ou version ultérieure|
+|Red Hat|Red Hat Enterprise Linux|7.4 à 7.8|
 |SUSE|SLES|12 SP3 ou version ultérieure|
 
 Les images de machine virtuelle personnalisées sont prises en charge par les stratégies de configuration d’invité, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
+## <a name="network-requirements"></a>Configuration requise pour le réseau
+
+Dans Azure, les machines virtuelles peuvent utiliser leur carte réseau locale ou une liaison privée pour communiquer avec le service Guest Configuration.
+
+Les machines Azure Arc se connectent à l’aide de l’infrastructure réseau locale pour atteindre les services Azure et signaler l’état de conformité.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Communiquer via des réseaux virtuels dans Azure
+
+Les machines virtuelles utilisant des réseaux virtuels pour la communication requièrent un accès sortant vers les centres de données Azure sur le port `443`. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du groupe de sécurité réseau. L’étiquette de service « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
+
+### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
+
+Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des stratégies Guest Configuration à l’ordinateur.
+
+Le trafic est acheminé à l’aide de l’[IP publique virtuelle](../../../virtual-network/what-is-ip-address-168-63-129-16.md) d’Azure pour établir un canal sécurisé et authentifié avec les ressources de la plateforme Azure.
+
+### <a name="azure-arc-connected-machines"></a>Machines connectées à Azure Arc
+
+Les nœuds situés en dehors d’Azure et qui sont connectés par le biais d’Azure Arc requièrent une connexion au service Guest Configuration.
+Des détails sur la configuration requise du réseau et du proxy sont fournis dans la [documentation Azure Arc](../../../azure-arc/servers/overview.md).
 
 Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
 
 ## <a name="managed-identity-requirements"></a>Exigences relatives à l’identité managée
 
-Les stratégies de l’initiative [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) activent une identité managée affectée par le système, s’il n’en n’existe pas. L’initiative comporte deux définitions de stratégie qui gèrent la création d’identités. Les conditions IF dans les définitions de stratégie garantissent un comportement correct en fonction de l’état actuel de la ressource de la machine dans Azure.
+Les définitions de stratégie de l’initiative [Déployer les prérequis pour activer les stratégies Guest Configuration sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) activent une identité managée affectée par le système, s’il n’en n’existe pas. L’initiative comporte deux définitions de stratégie qui gèrent la création d’identités. Les conditions IF dans les définitions de stratégie garantissent un comportement correct en fonction de l’état actuel de la ressource de la machine dans Azure.
 
 Si la machine n’a pas d’identité managée, la stratégie actuelle est la suivante : [\[Préversion\] : Ajouter une identité managée affectée par le système pour activer les attributions Guest Configuration sur les machines virtuelles sans identité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -182,8 +202,8 @@ Des exemples de stratégie intégrée de configuration d’invité sont disponib
 
 - Découvrez comment afficher les détails de chaque paramètre à partir de la [vue de conformité de la configuration d’invité](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
-- Consultez la [Structure de définition Azure Policy](definition-structure.md).
-- Consultez la page [Compréhension des effets de Policy](effects.md).
+- Consultez la [Structure de définition Azure Policy](./definition-structure.md).
+- Consultez la page [Compréhension des effets de Policy](./effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](../how-to/get-compliance-data.md).
 - Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).

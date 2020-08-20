@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829395"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120573"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -35,7 +35,7 @@ Ce guide est une introduction à la plateforme Azure pour les développeurs d’
 
 Avec tous les services qu’offre Azure, il peut être ardu d’identifier les services dont vous avez besoin pour prendre en charge votre architecture de solution. Cette section met en évidence les services Azure que les développeurs utilisent couramment. Pour obtenir la liste de tous les services Azure, consultez la [documentation d’Azure](../../index.yml).
 
-Tout d’abord, vous devez choisir la manière dont vous souhaitez héberger votre application dans Azure. Devez-vous gérer toute votre infrastructure en tant que machine virtuelle (VM) ? Pouvez-vous utiliser les installations de gestion de plateforme fournies par Azure ? Vous avez peut-être besoin uniquement d’un framework sans serveur pour héberger l’exécution de code ?
+Tout d’abord, vous devez choisir la manière dont vous souhaitez héberger votre application dans Azure. Devez-vous gérer toute votre infrastructure en tant que machine virtuelle ? Pouvez-vous utiliser les installations de gestion de plateforme fournies par Azure ? Vous avez peut-être besoin uniquement d’un framework sans serveur pour héberger l’exécution de code ?
 
 Votre application a besoin d’un stockage sur le cloud et Azure propose plusieurs options pour cela. Vous pouvez bénéficier de l’authentification en entreprise d’Azure. Il existe également des outils de développement et de surveillance basés sur le cloud, et la plupart des services d’hébergement offrent une intégration DevOps.
 
@@ -64,7 +64,7 @@ Vous pouvez migrer vos applications existantes vers App Service en utilisant l�
 
 > **Quand les utiliser** : utilisez App Service quand vous migrez des applications web existantes vers Azure et quand vous avez besoin d’une plateforme d’hébergement complètement managée pour vos applications web. Vous pouvez également utiliser App Service lorsque vous avez besoin de prendre en charge les clients mobiles ou d’exposer des API REST avec votre application.
 >
-> **Prise en main** : App Service permet de créer et de déployer facilement votre première [application web](../../app-service/app-service-web-get-started-dotnet.md), [application mobile](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [application API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Prise en main** : App Service permet de créer et de déployer facilement votre première [application web](../../app-service/quickstart-dotnetcore.md), [application mobile](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [application API](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Essayez-le** : App Service vous permet de configurer une application de courte durée dans le but d’essayer la plateforme sans avoir à vous inscrire pour obtenir un compte Azure. Essayez la plateforme et [créez votre application Azure App Service](https://tryappservice.azure.com/).
 
@@ -76,7 +76,7 @@ En raison du niveau de contrôle que vous avez avec les machines virtuelles, vou
 
 > **Quand les utiliser** : utilisez Machines virtuelles lorsque vous voulez un contrôle total sur votre infrastructure d’applications ou pour migrer des charges de travail d’application locales vers Azure sans avoir à apporter de modifications.
 >
-> **Prise en main** : créez une [machine virtuelle Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) ou une [machine virtuelle Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) à partir du portail Azure.
+> **Prise en main** : créez une [machine virtuelle Linux](../../virtual-machines/linux/quick-create-portal.md) ou une [machine virtuelle Windows](../../virtual-machines/windows/quick-create-portal.md) à partir du portail Azure.
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (sans serveur)
 
@@ -141,11 +141,6 @@ Les conteneurs Docker, forme de virtualisation du système d’exploitation, vou
 
 Azure permet d’utiliser des conteneurs dans vos applications de plusieurs façons différentes.
 
-- **Extension Azure Docker VM** : permet de configurer votre machine virtuelle avec les outils Docker pour agir en tant qu’hôte Docker.
-
-  > **Quand les utiliser** : lorsque vous souhaitez générer des déploiements de conteneurs cohérents pour vos applications sur une machine virtuelle ou lorsque vous souhaitez utiliser [Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Prise en main** : [créez un environnement Docker dans Azure à l’aide de l’extension Docker VM](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Azure Kubernetes Service** : permet la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Pour plus d’informations sur Azure Kubernetes Service, consultez [Présentation d’Azure Kubernetes Service](../../aks/intro-kubernetes.md).
 
@@ -290,7 +285,7 @@ Outre des identités de compte Azure individuelles, également appelées *utilis
 
 ### <a name="manage-your-subscriptions"></a>Gérer vos abonnements
 
-Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Pour obtenir la liste des offres d’abonnement disponibles par type, consultez [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement. Ils ont également un administrateur de services fédérés qui a le contrôle sur tous les services figurant dans l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
+Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Pour obtenir la liste des offres d’abonnement disponibles par type, consultez [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement. Ils ont également un administrateur de services fédérés qui a le contrôle sur tous les services figurant dans l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Groupes de ressources
 
@@ -302,7 +297,7 @@ Azure Resource Explorer est un excellent outil de visualisation des ressources q
 
 Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recommandé de fournir aux utilisateurs les privilèges minimaux nécessaires pour effectuer une tâche donnée.
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer des ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
+- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer des ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md)
 
   > **Quand les utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
   >

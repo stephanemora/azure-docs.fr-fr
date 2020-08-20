@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/05/2020
 ms.author: daperlov
-ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905279"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le système de métadonnées Common Data Model (CDM) permet de partager facilement des données et leur signification entre des applications et des processus d’entreprise. Pour plus d’informations, consultez la vue d’ensemble de [Common Data Model](https://docs.microsoft.com/common-data-model/).
 
-Dans Azure Data Factory, les utilisateurs peuvent transformer, vers et depuis, des entités CDM stockées dans [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) à l’aide de flux de données de mappage. Choisissez entre modèle.json et des sources de style de manifeste CDM et écrivez dans les fichiers de manifeste CDM.
+Dans Azure Data Factory, les utilisateurs peuvent transformer les données des entités CDM à la fois sous forme de model.json et de manifeste stocké dans [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) à l’aide de flux de données de mappage. Vous pouvez également recevoir des données au format CDM à l’aide des références d’entité CDM qui déposeront vos données au format CSV ou Parquet dans des dossiers partitionnés. 
 
 > [!NOTE]
 > Le connecteur de format Common Data Model (CDM) pour les flux de données ADF est actuellement disponible en préversion publique.
@@ -29,7 +29,7 @@ Dans Azure Data Factory, les utilisateurs peuvent transformer, vers et depuis, d
 Le modèle Common Data Model est disponible en tant que [jeu de données inline](data-flow-source.md#inline-datasets) dans le flux de données de mappage, en tant que source et récepteur.
 
 > [!NOTE]
-> Lorsque vous écrivez des entités CDM, vous devez avoir une définition d’entité CDM existante (schéma de métadonnées) déjà définie. Le récepteur de flux de données ADF lira ce fichier d’entité CDM et importera le schéma dans votre récepteur pour le mappage de champs.
+> Lorsque vous écrivez des entités CDM, vous devez avoir une définition d’entité CDM existante (schéma de métadonnées) déjà définie pour l’utiliser comme référence. Le récepteur de flux de données ADF lira ce fichier d’entité CDM et importera le schéma dans votre récepteur pour le mappage de champs.
 
 ### <a name="source-properties"></a>Propriétés de sources
 
@@ -52,9 +52,28 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Entité de corpus | Chemin d’accès vers la référence d’entité | Oui | String | entité |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
+### <a name="sink-settings"></a>Paramètres de récepteur
+
+* Pointez sur le fichier de référence d’entité CDM qui contient la définition de l’entité que vous souhaitez écrire.
+
+![entity settings](media/data-flow/common-data-model-111.png "Référence d'entité")
+
+* Définissez le chemin d’accès à la partition et le format des fichiers de sortie que vous souhaitez qu’ADF utilise pour l’écriture de vos entités.
+
+![entity format](media/data-flow/common-data-model-222.png "Format d’entité")
+
+* Définissez l’emplacement du fichier de sortie ainsi que l’emplacement et le nom du fichier manifeste.
+
+![cdm location](media/data-flow/common-data-model-333.png "Emplacement CDM")
+
+
 #### <a name="import-schema"></a>Importer un schéma
 
-CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection**. Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM à pointer.
+CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection**. Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM vers lequel pointer.
+
+Lors du mappage des colonnes de flux de données aux propriétés des entités dans la transformation du récepteur, cliquez sur l’onglet « Mappage » et sélectionnez « Importer le schéma ». ADF lira la référence d’entité vers laquelle vous avez pointé dans vos options de récepteur, ce qui vous permet de mapper le schéma CDM cible.
+
+![CDM sink settings](media/data-flow/common-data-model-444.png "Mappage CDM")
 
 > [!NOTE]
 >  Lorsque vous utilisez le type de source model.json qui provient de flux de données Power BI ou Power Platform, vous pouvez rencontrer des erreurs « le chemin d’accès du corpus est Null ou vide » de la transformation source. Cela est probablement dû à des problèmes de mise en forme du chemin d’accès de l’emplacement de la partition dans le fichier model.json. Pour résoudre ce problème, procédez comme suit : 
@@ -95,7 +114,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Le format doit être `cdm` | Oui | `cdm` | format |
+| Format | Le format doit être `cdm`. | Oui | `cdm` | format |
 | Emplacement racine : conteneur | Nom de conteneur du dossier CDM | Oui | String | fileSystem |
 | Emplacement racine : chemin d’accès au dossier | Emplacement du dossier racine du dossier CDM | Oui | String | folderPath |
 | Fichier manifeste : Chemin d’accès de l'entité | Chemin d’accès du dossier de l’entité dans le dossier racine | non | String | entityPath |
@@ -138,4 +157,4 @@ CDMSource sink(allowSchemaDrift: true,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créez une [Transformation de la source](data-flow-source.md) dans le flux de données de mappage.
+Créer une [transformation de source](data-flow-source.md) dans le flux de données de mappage.

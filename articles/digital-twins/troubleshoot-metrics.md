@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: cc270ebb12b27c6461b00a4f7042bc3c829d02ef
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812246"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905197"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -32,9 +32,14 @@ Les métriques sont activées par défaut. Vous pouvez afficher les métriques A
 
     Cette page affiche les métriques de votre instance Azure Digital Twins. Vous pouvez également créer des vues personnalisées de vos métriques en sélectionnant dans la liste celles que vous souhaitez afficher.
     
-3. Vous pouvez choisir d’envoyer vos données de métriques à un point de terminaison Event Hubs ou un compte Stockage Azure en cliquant dans le menu sur **Paramètres de diagnostic**, puis sur **Ajouter un paramètre de diagnostic**.
+3. Vous pouvez choisir d’envoyer vos données de métriques à un point de terminaison Event Hubs ou à un compte Stockage Azure en sélectionnant **Paramètres de diagnostic**dans le menu, puis **Ajouter un paramètre de diagnostic**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
+
+    Pour plus d’informations sur ce processus, consultez [*Résolution des problèmes : Configurer les diagnostics*](troubleshoot-diagnostics.md).
+
+4. Vous pouvez choisir de configurer des alertes pour vos données de métriques en sélectionnant **Alertes** dans le menu, puis **+ Nouvelle règle d’alerte**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Capture d’écran montrant la page Alertes et le bouton à ajouter.":::
 
     Pour plus d’informations sur ce processus, consultez [*Résolution des problèmes : Configurer les diagnostics*](troubleshoot-diagnostics.md).
 

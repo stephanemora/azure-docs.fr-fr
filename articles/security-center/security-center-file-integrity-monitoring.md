@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519335"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042664"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -26,12 +26,16 @@ Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de f
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **Mise à la disposition générale**
-- Rôles nécessaires : Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). Le **lecteur** peut visualiser les résultats.
-- Clouds :
-    - ✔ Clouds commerciaux
-    - ✔ Cloud du secteur public des États-Unis
-    - ✘ Cloud du secteur public de la Chine / Autres clouds du secteur public
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Mise à la disposition générale|
+|Prix :|Niveau standard|
+|Rôles et autorisations obligatoires :|Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Le **lecteur** peut visualiser les résultats.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>En quoi consiste la fonctionnalité FIM dans Security Center ?

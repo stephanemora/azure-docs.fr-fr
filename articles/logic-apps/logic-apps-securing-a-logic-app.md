@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 07/03/2020
-ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/11/2020
+ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423301"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066727"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -110,45 +110,9 @@ Dans le corps, incluez la propriété `KeyType` en tant que `Primary` ou `Second
 
 ### <a name="enable-azure-active-directory-oauth"></a>Activer Azure Active Directory OAuth
 
-Si votre application logique démarre avec un [Déclencheur de demande](../active-directory/develop/index.yml), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en créant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de demande. Avant d’activer cette authentification, passez en revue les considérations suivantes :
+Si votre application logique démarre avec un [déclencheur de requête](../active-directory/develop/index.yml), vous pouvez activer [Azure Active Directory Open Authentication](../connectors/connectors-native-reqres.md) (Azure AD OAuth) en définissant ou en ajoutant une stratégie d’autorisation pour les appels entrants adressés au déclencheur de requête. Lorsque votre application logique reçoit une demande entrante incluant un jeton d’authentification, Azure Logic Apps compare les revendications du jeton à celles de chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
 
-* Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
-
-* Votre application logique est limitée à un nombre maximal de stratégies d’autorisation. Chaque stratégie d’autorisation a également un nombre maximal de [revendications](../active-directory/develop/developer-glossary.md#claim). Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Une stratégie d’autorisation doit inclure au moins la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) en tant qu’ID de l’émetteur Azure AD. Pour plus d’informations sur les jetons d’accès, consultez [Jetons d’accès de la Plateforme d’identités Microsoft](../active-directory/develop/access-tokens.md).
-
-Pour activer Azure AD OAuth, procédez comme suit pour ajouter une ou plusieurs stratégies d’autorisation à votre application logique.
-
-1. Dans le [portail Azure](https://portal.microsoft.com), recherchez et ouvrez votre application logique dans le concepteur d’applications logiques.
-
-1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Autorisation**. Une fois le volet Autorisation ouvert, sélectionnez **Ajouter une stratégie**.
-
-   ![Sélectionner « Autorisation » > « Ajouter une stratégie »](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Fournissez des informations sur la stratégie d’autorisation en spécifiant les [types de revendication](../active-directory/develop/developer-glossary.md#claim) et les valeurs que votre application logique attend dans le jeton d’authentification présenté par chaque appel entrant au déclencheur de requête :
-
-   ![Fournir des informations pour la stratégie d’autorisation](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Propriété | Obligatoire | Description |
-   |----------|----------|-------------|
-   | **Nom de la stratégie** | Oui | Nom que vous voulez utiliser pour la stratégie d’autorisation |
-   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (ID JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID de l’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
-   |||
-
-1. Pour ajouter une autre revendication, sélectionnez l’une des options suivantes :
-
-   * Pour ajouter un autre type de revendication, sélectionnez **Ajouter une revendication standard**, sélectionnez le type de revendication, puis spécifiez sa valeur.
-
-   * Pour ajouter votre propre revendication, sélectionnez **Ajouter une revendication personnalisée** et spécifiez la valeur de revendication personnalisée.
-
-1. Pour ajouter une autre stratégie d’autorisation, sélectionnez **Ajouter une stratégie**. Répétez les étapes précédentes pour configurer la stratégie.
-
-1. Quand vous avez terminé, sélectionnez **Enregistrer**.
-
-Votre application logique est maintenant configurée pour utiliser Azure AD OAuth pour autoriser les requêtes entrantes. Lorsque votre application logique reçoit une demande entrante incluant un jeton d’authentification, Azure Logic Apps compare les revendications du jeton à celles de chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
-
-Supposons, par exemple, que votre application logique dispose d’une stratégie d’autorisation qui requiert deux types de revendication, Émetteur et Audience. Cet exemple de [jeton d’accès](../active-directory/develop/access-tokens.md) décodé comprend ces deux types de revendications :
+Supposons, par exemple, que votre application logique dispose d’une stratégie d’autorisation qui requiert deux types de revendication, **Émetteur** et **Public ciblé**. Cet exemple de [jeton d’accès](../active-directory/develop/access-tokens.md) décodé comprend ces deux types de revendications :
 
 ```json
 {
@@ -191,6 +155,93 @@ Supposons, par exemple, que votre application logique dispose d’une stratégie
 }
 ```
 
+#### <a name="considerations-for-enabling-azure-oauth"></a>Considérations relatives à l’activation d’Azure OAuth
+
+Avant d’activer cette authentification, passez en revue les considérations suivantes :
+
+* Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
+
+* Votre application logique est limitée à un nombre maximal de stratégies d’autorisation. Chaque stratégie d’autorisation a également un nombre maximal de [revendications](../active-directory/develop/developer-glossary.md#claim). Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Une stratégie d’autorisation doit inclure au moins la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) en tant qu’ID de l’émetteur Azure AD. Pour plus d’informations sur les jetons d’accès, consultez [Jetons d’accès de la Plateforme d’identités Microsoft](../active-directory/develop/access-tokens.md).
+
+<a name="define-authorization-policy-portal"></a>
+
+#### <a name="define-authorization-policy-in-azure-portal"></a>Définir la stratégie d’autorisation dans le portail Azure
+
+Afin d’activer Azure AD OAuth pour votre application logique dans le portail Azure, procédez comme suit pour ajouter une ou plusieurs stratégies d’autorisation à votre application logique :
+
+1. Dans le [portail Azure](https://portal.microsoft.com), recherchez et ouvrez votre application logique dans le concepteur d’applications logiques.
+
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Autorisation**. Une fois le volet Autorisation ouvert, sélectionnez **Ajouter une stratégie**.
+
+   ![Sélectionner « Autorisation » > « Ajouter une stratégie »](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Fournissez des informations sur la stratégie d’autorisation en spécifiant les [types de revendication](../active-directory/develop/developer-glossary.md#claim) et les valeurs que votre application logique attend dans le jeton d’authentification présenté par chaque appel entrant au déclencheur de requête :
+
+   ![Fournir des informations pour la stratégie d’autorisation](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Nom de la stratégie** | Oui | Nom que vous voulez utiliser pour la stratégie d’autorisation |
+   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (ID JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID de l’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
+   |||
+
+1. Pour ajouter une autre revendication, sélectionnez l’une des options suivantes :
+
+   * Pour ajouter un autre type de revendication, sélectionnez **Ajouter une revendication standard**, sélectionnez le type de revendication, puis spécifiez sa valeur.
+
+   * Pour ajouter votre propre revendication, sélectionnez **Ajouter une revendication personnalisée** et spécifiez la valeur de revendication personnalisée.
+
+1. Pour ajouter une autre stratégie d’autorisation, sélectionnez **Ajouter une stratégie**. Répétez les étapes précédentes pour configurer la stratégie.
+
+1. Quand vous avez terminé, sélectionnez **Enregistrer**.
+
+<a name="define-authorization-policy-template"></a>
+
+#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Définir la stratégie d’autorisation dans un modèle Resource Manager
+
+Afin d’activer Azure AD OAuth dans le modèle Resource Manager pour le déploiement de votre application logique, dans la section `properties` de la [définition de ressource de votre application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), ajoutez un objet `accessControl`, s’il n’en existe aucun, qui contient un objet `triggers`. Dans l’objet `triggers`, ajoutez un objet `openAuthenticationPolicies` dans lequel vous définissez une ou plusieurs stratégies d’autorisation en suivant cette syntaxe :
+
+```json
+"resources": [
+   {
+      // Start logic app resource definition
+      "properties": {
+         "state": "<Enabled-or-Disabled>",
+         "definition": {<workflow-definition>},
+         "parameters": {<workflow-definition-parameter-values>},
+         "accessControl": {
+            "triggers": {
+               "openAuthenticationPolicies": {
+                  "policies": {
+                     "<policy-name>": {
+                        "type": "AAD",
+                        "claims": [
+                           {
+                              "name": "<claim-name>",
+                              "values": "<claim-value>"
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+         },
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+      ]
+   }
+   // End logic app resource definition
+],
+```
+
+Pour plus d’informations sur la section `accessControl`, consultez [Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager](#restrict-inbound-ip-template) et [Référence du modèle de workflow Microsoft.Logic](/templates/microsoft.logic/2019-05-01/workflows).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Limiter les adresses IP entrantes
@@ -213,6 +264,8 @@ Si vous souhaitez que votre application logique se déclenche uniquement comme u
 
 > [!NOTE]
 > Indépendamment de l’adresse IP, vous pouvez toujours exécuter une application logique comportant un déclencheur en fonction de la demande en utilisant la demande [API REST Logic Apps : Déclencheurs de workflow – Exécuter](/rest/api/logic/workflowtriggers/run) ou la Gestion des API. Cependant, ce scénario nécessite encore une [authentification](../active-directory/develop/authentication-vs-authorization.md) auprès de l’API REST Azure. Tous les événements s’affichent dans le journal d’audit Azure. Veillez à définir les stratégies de contrôle d’accès en conséquence.
+
+<a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager
 
@@ -946,7 +999,7 @@ Vous pouvez utiliser Azure Logic Apps dans [Azure Government](../azure-governmen
 
 * Pour exécuter votre propre code ou effectuer une transformation XML, [créez et appelez une fonction Azure](../logic-apps/logic-apps-azure-functions.md), au lieu respectivement d’utiliser la [fonctionnalité de code inline](../logic-apps/logic-apps-add-run-inline-code.md) ou de fournir des [assemblys à utiliser comme mappages](../logic-apps/logic-apps-enterprise-integration-maps.md). En outre, configurez l’environnement d’hébergement de votre application de fonction de façon à respecter vos exigences d’isolation.
 
-  Par exemple, pour répondre aux exigences du niveau d’impact 5, créez votre application de fonction avec le [plan App Service](../azure-functions/functions-scale.md#app-service-plan) suivant le [niveau tarifaire **isolé**](../app-service/overview-hosting-plans.md), ainsi qu’un [environnement ASE (App Service Environment)](../app-service/environment/intro.md) qui utilise également le niveau tarifaire **Isolé**. Dans cet environnement, les applications de fonction s’exécutent sur des machines virtuelles et des réseaux virtuels Azure dédiés, ce qui assure à vos applications l’isolement réseau en plus de l’isolation du calcul, ainsi que des capacités de scale-out maximales. Pour plus d’informations, consultez [Conseils d’isolation pour le niveau d’impact 5 Azure Government – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Par exemple, pour répondre aux exigences du niveau d’impact 5, créez votre application de fonction avec le [plan App Service](../azure-functions/functions-scale.md#app-service-plan) suivant le [niveau tarifaire **isolé**](../app-service/overview-hosting-plans.md), ainsi qu’un [environnement ASE (App Service Environment)](../app-service/environment/intro.md) qui utilise également le niveau tarifaire **Isolé**. Dans cet environnement, les applications de fonction s’exécutent sur des machines virtuelles et des réseaux virtuels Azure dédiés, ce qui assure à vos applications l’isolement réseau en plus de l’isolation du calcul, ainsi que des capacités de Scale-out maximales. Pour plus d’informations, consultez [Conseils d’isolation pour le niveau d’impact 5 Azure Government – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Pour plus d’informations, consultez les rubriques suivantes :<p>
 

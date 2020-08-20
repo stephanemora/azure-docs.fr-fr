@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371411"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835950"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administration des services pour Recherche cognitive Azure sur le portail Azure
 
@@ -56,9 +56,9 @@ En ce qui concerne l’accès au point de terminaison, toute personne ayant acc�
 * L’accès en lecture seule au service est un droit de requête, généralement accordé à une application cliente en lui fournissant l’URL et une clé API de requête.
 * L’accès en lecture-écriture permet d’ajouter, de supprimer ou de modifier des objets serveur, notamment des clés API, des index, des indexeurs, des sources de données et des planifications. L’accès en lecture-écriture est accordé par la fourniture de l’URL, d’une clé API administrateur.
 
-Les droits d’accès à l’appareil d’approvisionnement de services sont accordés par le biais d’attributions de rôles. [RBAC (Contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. 
+Les droits d’accès à l’appareil d’approvisionnement de services sont accordés par le biais d’attributions de rôles. Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. 
 
-Dans le cadre de Recherche cognitive Azure, les [attributions de rôles RBAC](search-security-rbac.md) déterminent qui peut effectuer les tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api) :
+Dans le cadre de Recherche cognitive Azure, les [attributions de rôles Azure](search-security-rbac.md) déterminent les personnes qui peut effectuer les tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api) :
 
 * Créer ou supprimer un service
 * Mettre à l’échelle le service

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318111"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828504"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -121,7 +121,7 @@ Un groupe d’actions est une collection de notifications et d’actions qui peu
 
 
 ### <a name="what-is-an-action-rule"></a>Qu'est-ce qu'une règle d'action ?
-Une règle d’action vous permet de modifier le comportement d’un ensemble d’alertes correspondant à certains critères. Vous pouvez ainsi répondre à certaines exigences, comme désactiver des actions d’alerte lors d'une fenêtre de maintenance. Vous pouvez également appliquer un groupe d’actions à un ensemble d’alertes plutôt que de les appliquer directement aux règles d’alerte. Consultez [Règles d’action](platform/alerts-action-rules.md).
+Une règle d’action vous permet de modifier le comportement d’un ensemble d’alertes correspondant à certains critères. Vous pouvez ainsi répondre à certaines exigences, comme désactiver des actions d’alerte lors d’une fenêtre de maintenance. Vous pouvez également appliquer un groupe d’actions à un ensemble d’alertes plutôt que de les appliquer directement aux règles d’alerte. Consultez [Règles d’action](platform/alerts-action-rules.md).
 
 ## <a name="agents"></a>Agents
 
@@ -137,7 +137,7 @@ L’extension Azure Diagnostic est destinée aux machines virtuelles Azure et co
 Le trafic vers Azure Monitor utilise le circuit ExpressRoute de peering Microsoft. Consultez la [documentation ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) pour une description des différents types de trafic ExpressRoute. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Comment vérifier qu’un agent Log Analytics est en mesure de communiquer avec Azure Monitor ?
-Dans le panneau de configuration de l’ordinateur de l’agent, sélectionnez **Paramètres et sécurité**, **Microsoft Monitoring Agent**. Sous l'onglet **Azure Log Analytics (OMS)** , une icône en forme de coche verte confirme que l’agent est en mesure de communiquer avec le Azure Monitor. Une icône d’avertissement jaune signifie que l’agent rencontre des problèmes. L'arrêt du service **Microsoft Monitoring Agent** constitue une cause courante. Utilisez le Gestionnaire de contrôle des services pour redémarrer le service.
+Dans le Panneau de configuration de l’ordinateur de l’agent, sélectionnez **Paramètres et sécurité**, **Microsoft Monitoring Agent. Sous l'onglet **Azure Log Analytics (OMS)** , une icône en forme de coche verte confirme que l’agent est en mesure de communiquer avec le Azure Monitor. Une icône d’avertissement jaune signifie que l’agent rencontre des problèmes. L'arrêt du service **Microsoft Monitoring Agent** constitue une cause courante. Utilisez le Gestionnaire de contrôle des services pour redémarrer le service.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Comment interrompre la communication de l'agent Log Analytics avec Azure Monitor ?
 Pour les agents connectés directement à Log Analytics, ouvrez le Panneau de configuration et sélectionnez **Sécurité et paramètres**, **Microsoft Monitoring Agent**. Sous l'onglet **Azure Log Analytics (OMS)** , supprimez tous les espaces de travail répertoriés. Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs gérés par Log Analytics. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. 
@@ -207,7 +207,7 @@ Le Concepteur de vues n’est disponible que pour des utilisateurs disposant d�
 * [Configurer un serveur ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurer un serveur Java](app/java-agent.md)
 
-*Combien de ressources Application Insights je dois déployer ?*
+*Combien de ressources Application Insights déployer ?*
 
 * [Guide pratique pour concevoir votre déploiement Application Insights : une ou plusieurs ressources Application Insights ?](app/separate-resources.md)
 
@@ -315,7 +315,7 @@ Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [Geo
 
 * Télémétrie de navigateur : nous collectons l’adresse IP de l’expéditeur.
 * Télémétrie de serveur : le module Application Insights collecte l’adresse IP du client. Elle n’est pas collectée si `X-Forwarded-For` est défini.
-* Pour en savoir plus sur la façon dont les données d’adresse IP et de géolocalisation sont collectées dans Application Insights, voir cet [article](./app/ip-collection.md).
+* Pour en savoir plus sur la façon dont les données d’adresse IP et de géolocalisation sont collectées dans Application Insights, consultez cet [article](./app/ip-collection.md).
 
 
 Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](https://apmtips.com/posts/2016-07-05-client-ip-address/)
@@ -509,6 +509,15 @@ La plupart des données Application Insights ont une latence de moins de 5 minu
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>Les réponses HTTP 502 et 503 ne sont pas toujours capturées par Application Insights
+
+Les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » ne sont pas toujours capturées par Application Insights. Si seul le code JavaScript côté client est utilisé pour l’analyse, ce comportement est prévisible, car la réponse d’erreur est retournée avant la page contenant l’en-tête HTML avec l’extrait de code JavaScript d’analyse rendu. 
+
+Si la réponse 502 ou 503 a été envoyée à partir d’un serveur sur lequel l’analyse côté serveur est activée, les erreurs sont collectées par le Kit de développement logiciel (SDK) Application Insights. 
+
+Toutefois, dans certains cas, même lorsque l’analyse côté serveur est activée sur le serveur web d’une application, une erreur 502 ou 503 n’est pas capturée par Application Insights. De nombreux serveurs web modernes n’autorisent pas un client à communiquer directement, mais utilisent plutôt des solutions comme les proxys inverses pour transmettre des informations entre le client et les serveurs web frontaux. 
+
+Dans ce scénario, une réponse 502 ou 503 peut être renvoyée à un client en raison d’un problème au niveau de la couche du proxy inverse et cela n’est pas capturé par Application Insights. Pour aider à détecter les problèmes au niveau de cette couche, vous devrez peut-être transférer les journaux de votre proxy inverse vers Log Analytics et créer une règle personnalisée pour vérifier les réponses 502/503. Pour en savoir plus sur les causes courantes des erreurs 502 et 503, consultez [l’article de résolution des problèmes d’Azure App Service pour les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible »](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
 
@@ -661,7 +670,7 @@ Si vos machines virtuelles sont déjà connectées à un espace de travail Log A
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Puis-je intégrer un nouvel espace de travail ? 
 Si vos machines virtuelles ne sont pas actuellement connectées à un espace de travail Log Analytics existant, vous devez créer un nouvel espace de travail pour stocker vos données. La création d’un nouvel espace de travail par défaut se fait automatiquement lorsque vous configurez une seule machine virtuelle Azure pour Azure Monitor pour machines virtuelles via le portail Azure.
 
-Si vous choisissez d’utiliser la méthode basée sur un script, ces étapes sont décrites dans l’article [Activer Azure Monitor pour machines virtuelles à l’aide d’Azure PowerShell ou d’un modèle Resource Manager](insights/vminsights-enable-at-scale-powershell.md). 
+Si vous choisissez d’utiliser la méthode basée sur un script, ces étapes sont décrites dans l’article [Activer Azure Monitor pour machines virtuelles à l’aide d’Azure PowerShell ou d’un modèle Resource Manager](./insights/vminsights-enable-powershell.md). 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Que dois-je faire si ma machine virtuelle envoie déjà des rapports à un espace de travail existant ?
 Si vous collectez déjà des données à partir de vos machines virtuelles, il se peut que vous l’ayez déjà configuré de façon à ce que les rapports des données soient transmis à un espace de travail Log Analytics existant.  Si cet espace de travail se trouve dans l’une des régions que nous prenons en charge, vous pouvez y activer Azure Monitor pour machines virtuelles.  Si l’espace de travail que vous utilisez déjà ne se trouve pas dans l’une des régions que nous prenons en charge, vous ne pouvez pas intégrer Azure Monitor pour machines virtuelles pour l’instant.  Nous mettons tout en œuvre pour prendre en charge de nouvelles régions.
@@ -682,7 +691,7 @@ Si vous avez commencé l’intégration et que des messages indiquant que la mac
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Je ne vois pas de données dans les graphiques de performances de ma machine virtuelle ou certaines sont manquantes
 Nos graphiques de performances ont été mis à jour pour utiliser les données stockées dans la table *InsightsMetrics*.  Pour afficher les données de ces graphiques, vous devez effectuer une mise à niveau pour utiliser la nouvelle solution VM Insights.  Pour plus d’informations, reportez-vous à notre [FAQ sur la disponibilité générale](insights/vminsights-ga-release-faq.md).
 
-Si vous ne voyez pas les données de performances dans le tableau du disque ou dans certains graphiques de performances, vos compteurs de performances ne sont peut-être pas configurés dans l’espace de travail. Pour résoudre ce problème, exécutez le [script PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell) suivant.
+Si vous ne voyez pas les données de performances dans le tableau du disque ou dans certains graphiques de performances, vos compteurs de performances ne sont peut-être pas configurés dans l’espace de travail. Pour résoudre ce problème, exécutez le [script PowerShell](./insights/vminsights-enable-powershell.md) suivant.
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Quelle est la différence entre la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles et celle de Service Map ?

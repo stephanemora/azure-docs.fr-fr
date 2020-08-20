@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373689"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120760"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -131,7 +131,7 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
 
     Vous pouvez également utiliser des scripts init si les problèmes d’installation persistent avec les bibliothèques Python. Cette approche n’est pas officiellement prise en charge. Pour plus d’informations, consultez [Scripts init à étendue au réseau en cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Erreur d'importation Databricks : impossible d'importer le nom « Timedelta » à partir de « pandas._libs.tslibs »**  : Si cette erreur apparaît lorsque vous utilisez le Machine Learning automatisé, exécutez les deux lignes suivantes dans votre notebook :
+* **Erreur d’importation Databricks : impossible d’importer le nom `Timedelta` à partir de `pandas._libs.tslibs`**  : Si cette erreur apparaît lorsque vous utilisez le Machine Learning automatisé, exécutez les deux lignes suivantes dans votre notebook :
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Machine learning automatisé
 
-* **TensorFlow** : Depuis la version 1.5.0 du kit de développement logiciel (SDK), le Machine Learning automatisé n’installe pas les modèles tensorflow par défaut. Pour installer tensorflow et l’utiliser avec vos expériences de ML automatisées, installez tensorflow==1.12.0 via CondaDependecies. 
+* **TensorFlow** : Depuis la version 1.5.0 du Kit de développement logiciel (SDK), le Machine Learning automatisé n’installe pas de modèles TensorFlow par défaut. Pour installer TensorFlow et l’utiliser avec vos expériences de ML automatisé, installez tensorflow==1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -302,6 +302,47 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **Échec d’automl_setup** : 
+    * Sur Windows, exécutez automl_setup à partir d’une invite Anaconda. Pour installer Miniconda, cliquez [ici](https://docs.conda.io/en/latest/miniconda.html).
+    * Assurez-vous que Conda 64 bits est installé au lieu de la version 32 bits à l’aide de la commande `conda info`. La `platform` doit être `win-64` pour Windows ou `osx-64` pour Mac.
+    * Assurez-vous que Conda 4.4.10 ou une version ultérieure est installé. Vous pouvez vérifier la version à l’aide de la commande `conda -V`. Si une version précédente est installée, vous pouvez la mettre à jour à l’aide de la commande : `conda update conda`.
+    * Linux – `gcc: error trying to exec 'cc1plus'`
+      *  Si l’erreur `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` est rencontrée, installez le package build-essentials à l’aide de la commande `sudo apt-get install build-essential`.
+      * Transmettez un nouveau nom comme premier paramètre à automl_setup pour créer un nouvel environnement Conda. Affichez les environnements Conda existants à l’aide de `conda env list` et supprimez-les avec `conda env remove -n <environmentname>`.
+      
+* **Échec d’automl_setup_linux.sh** : Si automl_setup_linus.sh échoue sur Ubuntu Linux avec l’erreur : `unable to execute 'gcc': No such file or directory`-
+  1. Assurez-vous que les ports de sortie 53 et 80 sont activés. Sur une machine virtuelle Azure, vous pouvez le faire à partir du portail Azure en sélectionnant la machine virtuelle et en cliquant sur Mise en réseau.
+  2. Exécutez la commande `sudo apt-get update`
+  3. Exécutez la commande `sudo apt-get install build-essential --fix-missing`
+  4. Exécutez de nouveau `automl_setup_linux.sh`
+
+* **Échec de configuration.ipynb**  :
+  * Pour un environnement Conda local, assurez-vous d’abord qu’automl_setup s’est bien exécutée.
+  * Assurez-vous que le paramètre subscription_id est correct. Recherchez le subscription_id dans le portail Azure en sélectionnant Tous les services, puis Abonnements. Les caractères « < » et « > » ne doivent pas être inclus dans la valeur subscription_id. Par exemple, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` a le format valide.
+  * Assurez-vous que le Contributeur ou le Propriétaire a accès à l’abonnement.
+  * Vérifiez que la région est l’une des régions prises en charge : `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`.
+  * Vérifiez l’accès à la région à l’aide du portail Azure.
+  
+* **Échec de l’importation d’AutoMLConfig** : La version 1.0.76 de Machine Learning automatisé a fait l’objet de modifications qui nécessitent de désinstaller la version précédente avant de passer à la nouvelle version. Si `ImportError: cannot import name AutoMLConfig` est rencontré après une mise à niveau à partir d’une version du Kit de développement logiciel (SDK) antérieure à v1.0.76 vers v1.0.76 ou une version ultérieure, résolvez l’erreur en exécutant : `pip uninstall azureml-train automl` puis `pip install azureml-train-auotml`. Le script automl_setup.cmd le fait automatiquement. 
+
+* **Échec de workspace.from_config** : Si l’appel ws = Workspace.from_config()' échoue -
+  1. Assurez-vous que le notebook configuration.ipynb s’est exécuté correctement.
+  2. Si le notebook est exécuté à partir d’un dossier qui ne se trouve pas sous le dossier dans lequel `configuration.ipynb` a été exécuté, copiez le dossier aml_config et le fichier config.json qu’il contient dans le nouveau dossier. Workspace.from_config lit le fichier config.json pour le dossier du notebook ou son dossier parent.
+  3. Si vous utilisez un nouvel abonnement, un nouveau groupe de ressources, un nouvel espace de travail ou une nouvelle région, veillez à exécuter à nouveau le notebook `configuration.ipynb`. La modification directe de config.json ne fonctionnera que si l’espace de travail existe déjà dans le groupe de ressources spécifié sous l’abonnement spécifié.
+  4. Si vous souhaitez modifier la région, modifiez l’espace de travail, le groupe de ressources ou l’abonnement. `Workspace.create` ne crée pas ni ne met à jour un espace de travail s’il existe déjà, même si la région spécifiée est différente.
+  
+* **Échec de l’exemple de notebook** : Si un exemple de notebook échoue avec une erreur indiquant que la propriété, la méthode ou la bibliothèque n’existe pas :
+  * Assurez-vous que le noyau approprié a été sélectionné dans le notebook Jupyter. Le noyau est affiché en haut à droite de la page du notebook. La valeur par défaut est azure_automl. Notez que le noyau est enregistré dans le cadre du notebook. Par conséquent, si vous basculez vers un nouvel environnement Conda, vous devrez sélectionner le nouveau noyau dans le notebook.
+      * Pour Azure Notebooks, il doit s’agir de Python 3.6. 
+      * Pour les environnements Conda locaux, il doit s’agir du nom de l’environnement Conda que vous avez spécifié dans automl_setup.
+  * Assurez-vous que le notebook est destiné à la version du Kit de développement logiciel (SDK) que vous utilisez. Vous pouvez vérifier la version du Kit de développement logiciel (SDK) en exécutant `azureml.core.VERSION` dans une cellule de notebook Jupyter. Vous pouvez télécharger la version précédente des exemples de notebooks à partir de GitHub en cliquant sur le bouton `Branch`, en sélectionnant l’onglet `Tags`, puis en sélectionnant la version.
+
+* **L’importation de NumPy échoue dans Windows** : Certains environnements Windows rencontrent une erreur lors du chargement de NumPy avec la dernière version de Python 3.6.8. Si vous rencontrez ce problème, essayez avec la version 3.6.7 de Python.
+
+* **L’importation de NumPy échoue** : Vérifiez la version de TensorFlow dans l’environnement Conda de Machine Learning automatisé. Les versions prises en charge sont celles antérieures à la version 1.13. Désinstallez TensorFlow de l’environnement s’il s’agit de la version 1.13 ou d’une version ultérieure. Vous pouvez vérifier la version de TensorFlow et la désinstaller comme suit :
+  1. Démarrez un interpréteur de commandes, puis activez l’environnement Conda dans lequel les packages de ML automatisé sont installés.
+  2. Entrez `pip freeze` et recherchez `tensorflow` : le cas échéant, la version indiquée doit être antérieure à la version 1.13.
+  3. Si la version indiquée n’est pas une version prise en charge, exécutez `pip uninstall tensorflow` dans l’interpréteur de commandes et entrez « y » pour confirmer.
 
 ## <a name="deploy--serve-models"></a>Déployer et traiter des modèles
 
@@ -382,5 +423,5 @@ Consultez d’autres articles de résolution des problèmes liés à Azure Machi
 * [Résolution des problèmes de déploiement Docker liés à Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Déboguer des pipelines de machine learning](how-to-debug-pipelines.md)
 * [Déboguer la classe ParallelRunStep du kit SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
-* [Débogage interactif d’une instance de Capacité de calcul Machine Learning avec VS Code](how-to-set-up-vs-code-remote.md)
+* [Débogage interactif d’une instance de Capacité de calcul Machine Learning avec VS Code](how-to-debug-visual-studio-code.md)
 * [Utiliser Application Insights pour déboguer des pipelines de machine learning](how-to-debug-pipelines-application-insights.md)

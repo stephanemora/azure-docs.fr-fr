@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432013"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067169"
 ---
 # <a name="configure-the-model-conversion"></a>Configurer la conversion de modèle
 
@@ -49,6 +49,12 @@ Le contenu du fichier doit respecter le schéma JSON suivant :
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -130,6 +136,12 @@ Le mode `none` a la surcharge d’exécution la plus basse et des temps de charg
 ### <a name="coordinate-system-overriding"></a>Substitution du système de coordonnées
 
 * `axis` : pour remplacer les vecteurs d’unités du système de coordonnées. Les valeurs par défaut sont `["+x", "+y", "+z"]`. En théorie, le format FBX contient un en-tête dans lequel ces vecteurs sont définis, et la conversion utilise ces informations pour transformer la scène. Le format glTF définit également un système de coordonnées fixe. Dans la pratique, certaines ressources contiennent des informations incorrectes dans leur en-tête ou ont été enregistrées avec une convention de système de coordonnées différente. Cette option vous permet de remplacer le système de coordonnées pour compenser cela. Par exemple : `"axis" : ["+x", "+z", "-y"]` va échanger l’axe Z et l’axe Y et maintenir l’orientation du système de coordonnées en inversant le sens de l’axe Y.
+
+### <a name="node-meta-data"></a>Métadonnées de nœud
+
+* `metadataKeys` : vous permet de spécifier les clés des propriétés de métadonnées de nœud que vous souhaitez conserver dans le résultat de la conversion. Vous pouvez spécifier des clés exactes ou des clés génériques . Les clés génériques sont au format « ABC* » et correspondent à n’importe quelle clé commençant par « ABC ». Les types de valeurs de métadonnées pris en charge sont `bool`, `int`, `float` et `string`.
+
+    Pour les fichiers GLTF, ces données proviennent de l’[objet extras sur les nœuds](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Pour les fichiers FBX, ces données proviennent des données `Properties70` sur `Model nodes`. Pour plus d’informations, consultez la documentation de votre outil de ressource 3D.
 
 ### <a name="no-loc-textvertex-format"></a>Format :::no-loc text="Vertex":::
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489875"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904536"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Quel que soit le type d’authentification utilisé, le contrôle d’accès en 
 * [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [machine virtuelle de notebooks Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) avec le SDK déjà installé.
 
 ## <a name="interactive-authentication"></a>Authentification interactive
+
+> [!IMPORTANT]
+> L’authentification interactive utilise votre navigateur et nécessite des cookies (notamment des cookies tiers). Si vous avez désactivé les cookies, vous risquez de recevoir un message d’erreur tel que « Nous n’avons pas pu vous connecter ». Cette erreur peut également se produire si vous avez activé [l’authentification multifacteur Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 La plupart des exemples de la documentation et des exemples utilisent l’authentification interactive. Par exemple, lors de l’utilisation du SDK, deux appels de fonction vous invitent automatiquement à utiliser un flux d’authentification basée sur l’interface utilisateur :
 

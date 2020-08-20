@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999579"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832992"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Vue d’ensemble - Authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure
 
@@ -46,6 +46,8 @@ Avant d’activer l’authentification AD DS pour des partages de fichiers Azur
     Vous pouvez activer la fonctionnalité sur un environnement AD DS local nouveau ou existant. Les identités utilisées pour l’accès doivent être synchronisées à Azure AD. Le locataire Azure AD et le partage de fichiers auquel vous accédez doivent être associés au même abonnement.
 
 - Joignez le domaine d’un ordinateur local ou d’une machine virtuelle Azure à AD DS en local. Pour plus d’informations sur la façon de joindre un domaine, reportez-vous à [Joindre un ordinateur à un domaine](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Si votre ordinateur n’est pas joint à un domaine AD DS, vous pouvez toujours utiliser les informations d’identification AD pour l’authentification si votre ordinateur a une ligne de vue sur le contrôleur de domaine Active Directory.
 
 - Sélectionnez ou créez un compte de stockage Azure.  Pour des performances optimales, nous vous recommandons de déployer le compte de stockage dans la même région que celle du client à partir duquel vous prévoyez d’accéder au partage. Ensuite, [montez le partage de fichiers Azure](storage-how-to-use-files-windows.md) avec la clé de votre compte de stockage. Le montage avec la clé de compte de stockage vérifie la connectivité.
 
@@ -81,7 +83,7 @@ Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation
 
 ![Diagramme de workflow AD pour Files](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Les identités utilisées pour accéder aux partages de fichiers Azure doivent être synchronisées avec Azure AD pour appliquer les autorisations de fichiers au niveau du partage via le modèle de [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md). Les [DACL de style Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) sur des fichiers/répertoires reportés provenant de serveurs de fichiers existants seront conservées et appliquées. Il en résulte une intégration fluide à votre environnement AD DS d’entreprise. Lorsque vous remplacez des serveurs de fichiers locaux par des partages de fichiers Azure, les utilisateurs existants peuvent accéder aux partages de fichiers Azure à partir de leurs clients actuels à l’aide d’une expérience d’authentification unique, sans modification des informations d’identification utilisés.  
+Les identités utilisées pour accéder aux partages de fichiers Azure doivent être synchronisées avec Azure AD pour appliquer les autorisations de fichiers au niveau du partage via le modèle de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Les [DACL de style Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) sur des fichiers/répertoires reportés provenant de serveurs de fichiers existants seront conservées et appliquées. Il en résulte une intégration fluide à votre environnement AD DS d’entreprise. Lorsque vous remplacez des serveurs de fichiers locaux par des partages de fichiers Azure, les utilisateurs existants peuvent accéder aux partages de fichiers Azure à partir de leurs clients actuels à l’aide d’une expérience d’authentification unique, sans modification des informations d’identification utilisés.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

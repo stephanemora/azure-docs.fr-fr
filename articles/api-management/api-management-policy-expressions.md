@@ -1,6 +1,6 @@
 ---
 title: Expressions de stratégie de la Gestion des API Azure | Microsoft Docs
-description: Découvrez les expressions de stratégie dans la Gestion des API Azure.
+description: Découvrez les expressions de stratégie dans la Gestion des API Azure. Consultez des exemples et affichez des ressources disponibles supplémentaires.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249816"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844238"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie dans C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.

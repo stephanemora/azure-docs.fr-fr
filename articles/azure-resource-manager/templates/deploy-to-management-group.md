@@ -3,16 +3,16 @@ title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321800"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002909"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
-À mesure que votre organisation arrive mûrit, vous pouvez déployer un modèle Azure Resource Manager (modèle ARM) pour créer des ressources au niveau du groupe d’administration. Par exemple, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès en fonction du rôle](../../role-based-access-control/overview.md) pour un groupe d’administration. Avec des modèles au niveau du groupe d’administration, vous pouvez de façon déclarative appliquer des stratégies et assigner des rôles au niveau du groupe d’administration.
+À mesure que votre organisation arrive mûrit, vous pouvez déployer un modèle Azure Resource Manager (modèle ARM) pour créer des ressources au niveau du groupe d’administration. Par exemple, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) pour un groupe d’administration. Avec des modèles au niveau du groupe d’administration, vous pouvez de façon déclarative appliquer des stratégies et assigner des rôles au niveau du groupe d’administration.
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 
@@ -357,6 +357,6 @@ L’exemple suivant assigne une définition de stratégie existante au groupe d'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Pour en savoir plus sur l’attribution de rôles, consultez [Ajouter des attributions de rôle Azure à l’aide de modèles Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Pour obtenir un exemple de déploiement des paramètres d’espace de travail pour Azure Security Center, consultez [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Vous pouvez également déployer des modèles au [niveau de l’abonnement](deploy-to-subscription.md) et au [niveau du locataire](deploy-to-tenant.md).

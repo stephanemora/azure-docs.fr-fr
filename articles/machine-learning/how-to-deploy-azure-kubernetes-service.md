@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758881"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120828"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes 
 > Le processus de création ou d’attachement est une tâche unique. Une fois qu’un cluster AKS est connecté à l’espace de travail, vous pouvez l’utiliser pour les déploiements. Vous pouvez détacher ou supprimer le cluster AKS si vous n’en avez plus besoin. Une fois qu’il est détaché ou supprimé, vous ne pourrez plus déployer sur le cluster.
 
 > [!IMPORTANT]
-> Il est fortement recommandé d’effectuer un débogage local avant de procéder au déploiement sur le service web. Pour plus d’informations, consultez [Débogage local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
+> Nous vous recommandons de procéder à un débogage local avant le déploiement sur le service web. Pour plus d’informations, consultez [Déboguer localement](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
 >
 > Vous pouvez également vous reporter à Azure Machine Learning – [Déploiement sur un notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
 
@@ -63,7 +63,7 @@ Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes 
 
 - Les extraits de code __CLI__ de cet article partent du principe que vous avez créé un document `inferenceconfig.json`. Pour plus d’informations sur la création de ce document, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
 
-- Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le kit SDK, puis attachez-le à l’espace de travail AML.
+- Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le Kit SDK, puis attachez-le à l’espace de travail AML.
 
 - Si vous attachez un cluster AKS pour lequel [une plage d’adresses IP autorisées a accès au serveur d’API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), activez les plages d’adresses IP du plan de contrôle AML pour le cluster AKS. Le plan de contrôle AML est déployé sur les régions jumelées et déploie des pods d’inférence sur le cluster AKS. Le déploiement des pods d’inférence n’est pas possible sans accès au serveur d’API. Utilisez les [plages d’adresses IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) des deux [régions jumelées]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) lors de l’activation des plages d’adresses IP dans un cluster AKS.
 
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer 
 
 ### <a name="understand-the-deployment-processes"></a>Comprendre le processus de déploiement
 
-Le mot « déploiement » est utilisé à la fois dans Kubernetes et Azure Machine Learning. « Déploiement » a des significations très différentes dans ces deux contextes. Dans Kubernetes, une `Deployment` est une entité concrète, spécifiée avec un fichier YAML déclaratif. Une `Deployment` Kubernetes a un cycle de vie défini et des relations concrètes avec d’autres entités Kubernetes, telles que `Pods` et `ReplicaSets`. Vous pouvez en savoir plus sur Kubernetes à partir des documents et des vidéos sur [Qu’est-ce que Kubernetes ?](https://aka.ms/k8slearning).
+Le mot « déploiement » est utilisé à la fois dans Kubernetes et Azure Machine Learning. « Déploiement » a des significations différentes dans ces deux contextes. Dans Kubernetes, une `Deployment` est une entité concrète, spécifiée avec un fichier YAML déclaratif. Une `Deployment` Kubernetes a un cycle de vie défini et des relations concrètes avec d’autres entités Kubernetes, telles que `Pods` et `ReplicaSets`. Vous pouvez en savoir plus sur Kubernetes à partir des documents et des vidéos sur [Qu’est-ce que Kubernetes ?](https://aka.ms/k8slearning).
 
 Dans Azure Machine Learning, le « déploiement » est utilisé dans le sens le plus général pour mettre à disposition et nettoyer vos ressources de projet. Les étapes qu’Azure Machine Learning prend en compte dans le cadre du déploiement sont les suivantes :
 

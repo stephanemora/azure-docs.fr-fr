@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171803"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008999"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Azure Resource Graph pour le benchmark de sécurité Azure
 
@@ -26,7 +26,7 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Aide** : Azure Resource Graph permet d’accéder aux types et aux propriétés des ressources sur la base des contrôles d’accès en fonction du rôle (RBAC). Auditez et passez en revue régulièrement l’accès accordé aux principaux de sécurité (utilisateurs, groupes et comptes de service) pour vous assurer que les requêtes retournent les résultats des ressources appropriées.
+**Aide** : Azure Resource Graph permet d’accéder aux types et aux propriétés des ressources sur la base du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Auditez et passez en revue régulièrement l’accès accordé aux principaux de sécurité (utilisateurs, groupes et comptes de service) pour vous assurer que les requêtes retournent les résultats des ressources appropriées.
 
 * [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 

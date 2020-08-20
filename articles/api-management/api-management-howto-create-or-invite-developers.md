@@ -1,6 +1,6 @@
 ---
 title: Gestion des comptes d’utilisateur dans Gestion des API Azure | Microsoft Docs
-description: Apprenez à créer ou à inviter des utilisateurs dans Gestion des API Azure.
+description: Apprenez à créer ou à inviter des utilisateurs dans Gestion des API Azure. Affichez les ressources supplémentaires à utiliser après la création d’un compte de développeur.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ec482af2878ba302a4658314723b96fb9a42999
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250456"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904885"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Gestion des comptes d’utilisateur dans Gestion des API Azure
 
@@ -25,13 +25,13 @@ Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-a-new-developer"></a><a name="create-developer"> </a>Créer un développeur
+## <a name="create-a-new-developer"></a><a name="create-developer"> </a>Création d’un développeur
 
 Pour ajouter un nouvel utilisateur, procédez comme suit :
 
@@ -44,7 +44,7 @@ Pour ajouter un nouvel utilisateur, procédez comme suit :
 
 Par défaut, les comptes de développeurs nouvellement créés sont **actifs**. Ils sont associés au groupe **Développeurs**. Les comptes de développeurs dont l'état est **actif** peuvent être utilisés pour accéder à toutes les API auxquelles ils sont abonnés. Pour associer les développeurs nouvellement créés à d'autres groupes, consultez la rubrique [Association de groupes à des développeurs][How to associate groups with developers].
 
-## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Inviter un développeur
+## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Invitation d’un développeur
 Pour inviter un développeur, procédez comme suit :
 
 1. Sélectionnez l’onglet **Utilisateurs** à gauche de l’écran.

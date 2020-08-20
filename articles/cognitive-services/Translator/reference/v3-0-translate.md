@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090856"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903984"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0 : Translate
 
@@ -136,7 +136,7 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 100 éléments.
-* L’intégralité du texte inclus dans la requête ne peut pas dépasser 5 000 caractères, espaces compris.
+* L’intégralité du texte inclus dans la demande ne peut pas dépasser 10 000 caractères, espaces comprises.
 
 ## <a name="response-body"></a>Response body
 

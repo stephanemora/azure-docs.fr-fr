@@ -4,16 +4,30 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905123"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
-Vous pouvez utiliser plusieurs technologies différentes pour déployer le code de votre projet Azure Functions sur Azure. Cet article présente une liste exhaustive des technologies existantes, indique la disponibilité de ces technologies selon l’environnement d’exécution d’Azure Functions, explique le fonctionnement de chaque méthode et fournit des recommandations sur le choix de la meilleure méthode à utiliser dans divers scénarios. Les différents outils qui prennent en charge le déploiement sur Azure Functions sont adaptés à la technologie sous-jacente à leur contexte. En général, le déploiement zip est la technologie de déploiement recommandée pour Azure Functions.
+Vous pouvez utiliser plusieurs technologies différentes pour déployer le code de votre projet Azure Functions sur Azure. Cet article fournit une vue d’ensemble des méthodes de déploiement disponibles et des recommandations sur la meilleure méthode à utiliser dans différents scénarios. Il fournit également une liste exhaustive et des détails clés sur les technologies de déploiement sous-jacentes. 
+
+## <a name="deployment-methods"></a>Méthodes de déploiement
+
+La technologie de déploiement que vous utilisez pour publier du code sur Azure est généralement déterminée par la manière dont vous publiez votre application. La méthode de déploiement appropriée est déterminée par les besoins spécifiques et le stade dans le cycle de développement. Par exemple, pendant le développement et les tests, vous pouvez procéder à un déploiement directement à partir de votre outil de développement, tel que Visual Studio Code. Lorsque votre application est en production, vous êtes plus susceptible de publier en continu à partir du contrôle de code source ou en utilisant un pipeline de publication automatisé, qui comprend une validation et des tests supplémentaires.  
+
+Le tableau suivant décrit les méthodes de déploiement disponibles pour votre projet Azure Functions.
+
+| Type&nbsp;de déploiement | Méthodes | Idéal pour… |
+| -- | -- | -- |
+| Outils | &bull;&nbsp;[Publication&nbsp;Visual&nbsp;Studio&nbsp;Code](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publication Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publication Core Tools](functions-run-local.md#publish) | Déploiements pendant le développement et autres déploiements ponctuels. Les déploiements sont gérés localement par les outils. | 
+| Géré par App Service| &bull;&nbsp;[Centre de&nbsp;déploiement&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Déploiements&nbsp;de conteneur](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Déploiement continu (CI/CD) à partir du contrôle de code source ou d’un registre de conteneurs. Les déploiements sont gérés par la plateforme App Service (Kudu).|
+| Pipelines externes|&bull;&nbsp;[Pipelines DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Actions GitHub](functions-how-to-github-actions.md) | Les pipelines de production et DevOps qui incluent une validation, des tests et d’autres actions supplémentaires sont exécutés dans le cadre d’un déploiement automatisé. Les déploiements sont gérés par le pipeline. |
+
+Bien que des déploiements Azure Functions spécifiques utilisent la meilleure technologie en fonction de leur contexte, la plupart des méthodes de déploiement sont basées sur le [déploiement zip](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Disponibilité des technologies de déploiement
 

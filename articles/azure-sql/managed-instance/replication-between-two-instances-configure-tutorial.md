@@ -12,29 +12,37 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422910"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920107"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutoriel : Configurer la réplication entre deux instances managées
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-La réplication transactionnelle vous permet de répliquer des données d’une base de données vers une autre hébergée sur SQL Server ou [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (préversion publique). SQL Managed Instance peut être une base de données du serveur de publication, une base de données du serveur de distribution ou un abonné dans la topologie de réplication. Consultez [Configurations de réplication transactionnelle](replication-transactional-overview.md#common-configurations) pour connaître les configurations disponibles.
+La réplication transactionnelle vous permet de répliquer des données d’une base de données vers une autre hébergée sur SQL Server ou [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). SQL Managed Instance peut être une base de données du serveur de publication, une base de données du serveur de distribution ou un abonné dans la topologie de réplication. Consultez [Configurations de réplication transactionnelle](replication-transactional-overview.md#common-configurations) pour connaître les configurations disponibles. 
 
-> [!NOTE]
-> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
+La réplication transactionnelle est actuellement disponible en préversion publique pour SQL Managed Instance. 
 
-Ce tutoriel explique comment configurer une instance managée en tant que base de données du serveur de publication ou base de données du serveur de distribution, puis une deuxième instance managée en tant qu’abonné.  
+Dans ce tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+>
+> - Configurer une instance gérée en tant que base de données du serveur de publication et base de données du serveur de distribution de réplication
+> - Configurer une instance managée en tant que serveur de distribution de réplication
 
 ![Répliquer entre deux instances managées](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - Cet article vise à guider un utilisateur avancé dans la configuration de la réplication avec SQL Managed Instance de bout en bout, en commençant par la création du groupe de ressources. Si vous avez déjà déployé des instances managées, passez directement à l’[étape 4](#4---create-a-publisher-database) pour créer la base de données du serveur de publication, ou à l’[étape 6](#6---configure-distribution) si vous avez déjà une base de données du serveur de publication et un abonné et que vous êtes prêt à commencer la configuration de la réplication.  
-  > - Cet article configure votre serveur de publication et votre serveur de distribution sur la même instance managée. Pour placer la base de données du serveur de distribution sur une instance managée distincte, consultez le tutoriel [Configurer la réplication transactionnelle entre Azure SQL Managed Instance et SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Ce tutoriel s’adresse à un public expérimenté et suppose que l’utilisateur est familiarisé avec le déploiement ainsi qu’avec la connexion aux instances managées et aux machines virtuelles SQL Server dans Azure. 
+
+
+> [!NOTE]
+> - Cet article décrit l’utilisation de la [réplication transactionnelle](/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](../database/auto-failover-group-overview.md), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## <a name="requirements"></a>Spécifications
 

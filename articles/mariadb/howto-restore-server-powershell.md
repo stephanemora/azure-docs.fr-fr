@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: 1fc4c0497095c2ab4e1210ab71bc5597713499b7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120464"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833247"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Comment sauvegarder et restaurer un serveur Azure Database for MariaDB à l’aide de PowerShell
 
@@ -132,4 +133,4 @@ Le nouveau serveur créé lors d’une restauration ne dispose pas des points de
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Personnaliser les paramètres du serveur Azure Database for MariaDB à l’aide de PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Comment générer une chaîne de connexion à Azure Database for MariaDB avec PowerShell](howto-connection-string-powershell.md)

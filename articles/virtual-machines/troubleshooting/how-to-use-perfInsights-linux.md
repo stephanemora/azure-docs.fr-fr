@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526797"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121389"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -99,6 +99,7 @@ Les informations relatives à la machine virtuelle Linux, au système d’exploi
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat or /var/log/sa [`**`]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -112,7 +113,9 @@ Les informations relatives à la machine virtuelle Linux, au système d’exploi
 - [Métadonnées d’instance de machine virtuelle Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
->[`*`] Les informations PCI ne sont pas encore collectées sur les distributions Debian et SLES
+>[`*`] Les informations PCI ne sont pas encore collectées sur les distributions Debian et SLES.
+> 
+>[`**`] /var/log/sysstat ou/var/log/sa contient les fichiers de rapport d’activité système (SAR) qui sont collectés par le package sysstat. Si le package sysstat n’est pas installé sur la machine virtuelle, l’outil PerfInsights recommande de l’installer.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Exécuter PerfInsights Linux sur votre machine virtuelle
 
@@ -121,7 +124,7 @@ Les informations relatives à la machine virtuelle Linux, au système d’exploi
 #### <a name="tool-requirements"></a>Exigences de l’outil
 
 - Cet outil doit être exécuté sur la machine virtuelle qui présente le problème de performances.
-- Python 2.7 doit être installé sur la machine virtuelle
+- Python 3.x ou Python 2.7 doit être installé sur la machine virtuelle.
 
 - Les distributions prises en charge sont les suivantes :
 

@@ -1,5 +1,5 @@
 ---
-title: Gestion des prospects pour la Place de marché commerciale | Place de marché Azure et AppSource
+title: Gestion des prospects pour le marketplace commercial | Place de marché Azure et AppSource
 description: Vue d’ensemble des différentes questions relatives à la publication d’offres et d’artefacts techniques sur la Place de marché Azure et AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119444"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035176"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Gestion des prospects pour la Place de marché commerciale
+# <a name="lead-management-for-the-commercial-marketplace"></a>Gestion des prospects pour le marketplace commercial
 
 Les clients sont au centre de toute entreprise prospère. Dans la transformation actuelle de l’acquisition des produits, les responsables marketing doivent s’attacher à établir un lien direct avec les clients et à nouer une relation. C’est pourquoi la génération de prospects de haute qualité est un outil essentiel pour votre cycle de vente. Une fois votre offre publiée dans l'[Espace partenaires](https://partner.microsoft.com/), des outils vous permettent de recevoir systématiquement les informations de contact des clients qui manifestent leur l’intérêt pour votre produit ou qui le déploient sur la Place de marché. 
 

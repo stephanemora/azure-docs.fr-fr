@@ -1,7 +1,7 @@
 ---
 title: Gérer des comptes de développeurs à l'aide de groupes dans Gestion des API Azure
 titleSuffix: Azure API Management
-description: Apprenez à gérer des comptes de développeurs à l'aide de groupes dans Gestion des API Azure.
+description: Apprenez à gérer des comptes de développeurs à l’aide de groupes dans Gestion des API Azure. Créez des groupes, puis associez-les à des produits ou des développeurs.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 16ab72a67a021338bd8e186c32015c271240d224
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250530"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851220"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
 
@@ -26,8 +26,8 @@ Dans Gestion des API, les groupes permettent de gérer la visibilité des produi
 
 Le service Gestion des API possède les groupes système suivants, qui ne sont pas modifiables :
 
-* **Administrateurs** : les administrateurs d’abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
-* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
+* **Administrateurs** : les administrateurs des abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
+* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
 * **Invités** : les utilisateurs non authentifiés du portail des développeurs, comme les prospects, qui consultent le portail des développeurs d’une instance d’API Management appartiennent à ce groupe. Ils peuvent recevoir certains accès en lecture seule, comme la possibilité d'afficher les API, mais pas de les appeler.
 
 Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés][leverage external groups in associated Azure Active Directory tenants]. Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
@@ -53,7 +53,7 @@ Cette section montre comment ajouter un nouveau groupe à votre compte Gestion d
 3. Entrez un nom unique pour le groupe, et éventuellement une description.
 4. Appuyez sur **Créer**.
 
-    ![Ajouter un groupe](./media/api-management-howto-create-groups/groups001.png)
+    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups001.png)
 
 Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour modifier le **nom** ou la **description** du groupe, cliquez sur le nom du groupe, puis sur **Paramètres**.<br/>Pour supprimer le groupe, cliquez sur son nom, puis appuyez sur **Supprimer**.
 

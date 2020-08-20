@@ -1,6 +1,6 @@
 ---
 title: Contrôle d’accès pour la supervision à distance - Azure | Microsoft Docs
-description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès en fonction du rôle (RBAC) dans l’accélérateur de solution de supervision à distance.
+description: Cet article fournit des informations sur la façon dont vous pouvez configurer le contrôle d’accès en fonction du rôle (RBAC) dans l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920714"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008982"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configurer le contrôle d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
 
-Cet article fournit des informations sur la façon de configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance. Les contrôles d’accès en fonction du rôle vous permettent de limiter l’accès de certains utilisateurs à des fonctionnalités spécifiques de la solution.
+Cet article fournit des informations sur la façon de configurer le contrôle d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance. Le contrôle d’accès en fonction du rôle vous permet de limiter l’accès de certains utilisateurs à des fonctionnalités spécifiques de la solution.
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment les contrôles d’accès en fonction du rôle sont implémentés dans l’accélérateur de solution de supervision à distance.
+Dans cet article, vous avez appris comment le contrôle d’accès en fonction du rôle est implémenté dans l’accélérateur de solution de supervision à distance.
 
 Consultez [Configurer des contrôles d’accès pour l’explorateur Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) pour en savoir plus sur la gestion des accès à l’explorateur Time Series Insights dans l’accélérateur de solution de supervision à distance.
 

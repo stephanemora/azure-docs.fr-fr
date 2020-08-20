@@ -1,22 +1,22 @@
 ---
 title: Collaboration sur la base de connaissances - QnA Maker
-description: QnA Maker permet aux utilisateurs de collaborer sur une base de connaissances. Cette fonctionnalité est fournie avec le contrôle d’accès en fonction du rôle Azure.
+description: QnA Maker permet aux utilisateurs de collaborer sur une base de connaissances. Cette fonctionnalité est fournie avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054046"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926845"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Collaboration avec les auteurs et les éditeurs
 
 La collaboration est fournie au niveau de la ressource QnA Maker pour vous permettre de limiter l’accès des collaborateurs en fonction du rôle du collaborateur. En savoir plus sur les [concepts](../Concepts/role-based-access-control.md) d’authentification des collaborateurs QnA Maker.
 
-## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Ajouter un accès en fonction du rôle (contrôle d’accès en fonction du rôle) à votre ressource QnA Maker
+## <a name="add-azure-role-based-access-control-azure-rbac-to-your-qna-maker-resource"></a>Ajouter un contrôle d’accès en fonction du rôle Azure (Azure RBAC) à votre ressource QnA Maker
 
-QnA Maker permet aux utilisateurs de collaborer sur toutes les bases de connaissances dans la même ressource QnA Maker. Cette fonctionnalité est fournie avec le [contrôle d'accès en fonction du rôle](../../../active-directory/role-based-access-control-configure.md) Azure.
+QnA Maker permet aux utilisateurs de collaborer sur toutes les bases de connaissances dans la même ressource QnA Maker. Cette fonctionnalité est fournie avec le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../../active-directory/role-based-access-control-configure.md).
 
 ## <a name="access-at-the-qna-maker-resource-level"></a>Accès au niveau de la ressource QnA Maker
 

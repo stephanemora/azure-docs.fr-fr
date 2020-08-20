@@ -3,12 +3,12 @@ title: Intégration en tant que partenaire Azure Event Grid
 description: Intégration en tant que type de rubrique de partenaire Azure Event Grid. Découvrez comment fonctionnent le modèle de ressource et le flux de publication des rubriques de partenaire.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826787"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Intégration en tant que partenaire Azure Event Grid
 
@@ -91,7 +91,7 @@ Le modèle de ressource suivant est destiné aux rubriques de partenaire.
 ### <a name="partner-topic-types"></a>Types de rubrique de partenaire
 * Ressource : `partnerTopicTypes`
 * Utilisée par : Clients
-* Description : Les types de rubriques de partenaire sont des types de ressource au niveau locataire, permettant aux clients de découvrir la liste des types de rubriques de partenaire approuvés. L’URL est de type https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes).
+* Description : Les types de rubriques de partenaire sont des types de ressources à l’échelle du locataire qui permettent aux clients de découvrir la liste des types de rubriques de partenaire approuvés. L’URL est de type https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes).
 * Étendue : Global
 
 ## <a name="publish-events-to-event-grid"></a>Publier des événements sur Event Grid
@@ -153,10 +153,10 @@ Après la publication sur le point de terminaison partnerNamespace, vous recevez
 ## <a name="references"></a>References
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [Modèle ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [Modèle ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schéma de modèle ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [API REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Extension CLI](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [Extension CLI](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>Kits SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

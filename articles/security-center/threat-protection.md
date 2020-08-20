@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037186"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041984"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -54,11 +54,15 @@ Azure Security Center s’intègre aux services Azure pour superviser et protég
 
     Quand Microsoft Defender ATP détecte une menace, il déclenche une alerte. L’alerte s’affiche dans le tableau de bord de Security Center. À partir du tableau de bord, vous pouvez accéder à la console Microsoft Defender ATP et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Pour plus d’informations sur Microsoft Defender ATP, consultez [Intégrer des serveurs au service Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Détection des attaques sans fichier** <a name="windows-fileless"></a> - Les attaques sans fichier ciblant des points de terminaison sont courantes. Pour éviter d’être détectées, les attaques sans fichier injectent des charges utiles malveillantes en mémoire. Les charges utiles des attaquants sont conservées dans la mémoire des processus compromis et effectuent un large éventail d’activités malveillantes.
+* **Détection d’attaques sans fichier**<a name="windows-fileless"></a> : les attaques sans fichier injectent des charges utiles malveillantes en mémoire pour ne pas être détectées par les techniques d’analyse sur disque. La charge utile de l’attaquant est alors conservée dans la mémoire des processus compromis et effectue un large éventail d’activités malveillantes.
 
-    Avec la détection des attaques sans fichier, les techniques d’investigation automatique de la mémoire identifient les comportements, les techniques et les kits de ressources des attaques sans fichier. Cette solution analyse régulièrement votre machine au moment de l’exécution et extrait des insights directement de la mémoire des processus critiques de sécurité.
+    Avec la détection des attaques sans fichier, les techniques d’investigation automatique de la mémoire identifient les comportements, les techniques et les kits de ressources des attaques sans fichier. Cette solution analyse régulièrement votre machine au moment de l’exécution et extrait des insights directement de la mémoire des processus. Des insights spécifiques pour Linux incluent l’identification des éléments suivants : 
 
-    Elle trouve des preuves de l’exploitation, de l’injection de code et de l’exécution de charges utiles malveillantes. La détection des attaques sans fichier génère des alertes de sécurité détaillées qui accélèrent le tri des alertes, la corrélation et le temps de réponse en aval. Cette approche complète les solutions EDR basées sur les événements, en offrant une couverture de détection plus large.
+    - Trousses à outils et logiciels d’exploration de données de chiffrement connus 
+    - Code d’interpréteur de commandes, qui est un petit morceau de code généralement utilisé comme charge utile dans l’exploitation d’une vulnérabilité logicielle
+    - Injection d’un exécutable malveillant dans la mémoire du processus
+
+    La détection d’attaques sans fichier génère des alertes de sécurité détaillées contenant les descriptions accompagnées de métadonnées de processus supplémentaires, telles que l’activité réseau. Cela accélère le triage des alertes, la corrélation et le temps de réponse en aval. Cette approche complète les solutions EDR basées sur les événements et offre une couverture de détection accrue.
 
     Pour obtenir des détails sur les alertes de détection des attaques sans fichier, consultez la [table de référence des alertes](alerts-reference.md#alerts-windows).
 
@@ -110,12 +114,13 @@ Pour plus d’informations sur les plans App Service, consultez [Plans App Servi
 
 ### <a name="availability"></a>Disponibilité
 
-- État de sortie : **Disponibilité générale**
-- Rôles nécessaires : L’**administrateur de sécurité** peut ignorer les alertes. Le **Lecteur de sécurité** peut afficher les résultats.
-- Clouds :<br>
-    ✔ Clouds commerciaux<br>
-    ✘ US Gov<br>
-    ✘ Chine Gov, autres Gov
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Mise à la disposition générale|
+|Prix :|Niveau standard|
+|Rôles et autorisations obligatoires :|L’**administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -146,14 +151,13 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ### <a name="availability"></a>Disponibilité
 
-- État de sortie :
-    - [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilité générale)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (préversion)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (préversion)
-- Clouds :<br>
-    ✔ Clouds commerciaux<br>
-    ✔ US Gov<br>
-    ✘ Chine Gov, autres Gov
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|[Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilité générale)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (préversion)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (préversion)|
+|Prix :|Niveau standard|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|||
+
 
 ### <a name="whats-protected"></a>Qu’est-ce qui est protégé ?
 

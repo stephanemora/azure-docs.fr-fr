@@ -3,16 +3,16 @@ title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321766"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002777"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
-Pour simplifier la gestion des ressources, vous pouvez utiliser un modèle Resource Manager pour déployer des ressources au niveau de votre abonnement Azure. Par exemple, vous pouvez déployer des [stratégies](../../governance/policy/overview.md) et des [contrôles d’accès en fonction du rôle](../../role-based-access-control/overview.md) sur votre abonnement, ce qui les applique à l’ensemble de votre abonnement. Vous pouvez également créer des groupes de ressources au sein de l’abonnement et déployer des ressources sur ces groupes de ressources dans l’abonnement.
+Pour simplifier la gestion des ressources, vous pouvez utiliser un modèle Resource Manager pour déployer des ressources au niveau de votre abonnement Azure. Par exemple, vous pouvez déployer des [stratégies](../../governance/policy/overview.md) et un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) sur votre abonnement, ce qui les applique à l’ensemble de votre abonnement. Vous pouvez également créer des groupes de ressources au sein de l’abonnement et déployer des ressources sur ces groupes de ressources dans l’abonnement.
 
 > [!NOTE]
 > Vous pouvez déployer sur 800 différents groupes de ressources dans un déploiement de niveau abonnement.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Contrôle d’accès
 
-Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+Pour en savoir plus sur l’attribution de rôles, consultez [Ajouter des attributions de rôle Azure à l’aide de modèles Resource Manager](../../role-based-access-control/role-assignments-template.md).
 
 L’exemple suivant crée un groupe de ressources, lui applique un verrou et attribue un rôle à un principal.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 9804992aee318fdc34815bdbe4187144704cd667
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099771"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053914"
 ---
 # <a name="what-is-batch-transcription"></a>Qu’est-ce que la transcription par lots ?
 
@@ -346,4 +346,4 @@ Vous trouverez l’exemple dans le répertoire `samples/batch` du [référentiel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Référence de l’API de reconnaissance vocale v3](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

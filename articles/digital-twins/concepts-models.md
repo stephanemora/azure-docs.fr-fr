@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562427"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042630"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -36,8 +36,8 @@ Azure Digital Twins utilise le **langage DTDL _version 2_**. Pour plus d’info
 Dans une définition de modèle, l’élément de code de niveau supérieur est une **interface**. Celle-ci encapsule le modèle entier, le reste du modèle étant défini dans l’interface. 
 
 Une interface de modèle DTDL peut contenir de zéro à un grand nombre des champs suivants :
-* **Propriété** : certaines propriétés sont des champs de données représentant l’état d’une entité ; c’est par exemple le cas des propriétés dans de nombreux langages de programmation orientés objet. Contrairement à la télémétrie, qui est un événement de données lié au temps, les propriétés ont un stockage de sauvegarde et peuvent être lues à tout moment.
-* **Télémétrie** : les champs de télémétrie représentent des mesures ou des événements, et sont souvent utilisés pour décrire des lectures de capteur d’appareil. La télémétrie n’est pas stockée sur un jumeau numérique, mais ressemble davantage à un flux d’événements de données prêts à être envoyés quelque part. 
+* **Propriété** : certaines propriétés sont des champs de données représentant l’état d’une entité ; c’est par exemple le cas des propriétés dans de nombreux langages de programmation orientés objet. Les propriétés ont un stockage de sauvegarde et peuvent être lues à tout moment.
+* **Télémétrie** : les champs de télémétrie représentent des mesures ou des événements, et sont souvent utilisés pour décrire des lectures de capteur d’appareil. Contrairement aux propriétés, la télémétrie n’est pas stockée sur un jumeau numérique. Il s’agit d’une série d’événements de données limités dans le temps qui doivent être traités au fur et à mesure qu’ils se produisent. Pour plus d’informations sur les différences entre les propriétés et la télémétrie, consultez la section [*Propriétés et télémétrie*](#properties-vs-telemetry) ci-dessous.
 * **Composant** : les composants vous permettent, le cas échéant, de créer votre interface de modèle en tant qu’assembly d’autres interfaces. Un exemple de composant est une interface *frontCamera*, ainsi qu’une autre interface de composant *backCamera*, utilisées pour la définition d’un modèle de *téléphone*. Vous devez commencer par définir une interface pour le composant *frontCamera*, comme s’il s’agissait de son propre modèle, puis la référencer lors de la définition de *téléphone*.
 
     Utilisez un composant pour décrire un élément qui fait partie intégrante de votre solution mais n’a pas besoin d’identité séparée, et qu’il n’est pas nécessaire de créer, supprimer ou réorganiser de manière indépendante dans le graphique de jumeaux. Si vous souhaitez que les entités aient des existences indépendantes dans le graphique de jumeaux, représentez-les en tant que jumeaux numériques séparés de différents modèles connectés par des *relations* (voir la puce suivante).
@@ -47,7 +47,25 @@ Une interface de modèle DTDL peut contenir de zéro à un grand nombre des cham
 * **Relation** : les relations vous permettent de représenter la manière dont un jumeau numérique peut être impliqué avec d’autres jumeaux numériques. Elles peuvent avoir différents sens sémantiques. Par exemple *contains* (« floor contains room »), *cools* (« hvac cools room »), *isBilledTo* (« compressor is billed to user »), etc. Les relations permettent à la solution de fournir un graphique d’entités associées.
 
 > [!NOTE]
-> La spec pour le langage DTDL définit également des **commandes**, c’est-à-dire des méthodes qui peuvent être exécutées sur un jumeau numérique (comme une commande de réinitialisation ou d’allumage/extinction d’un ventilateur). Cependant, les *commandes ne sont actuellement pas prises en charge dans Azure Digital Twins*.
+> La [spec pour le langage DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) définit également des **commandes**, c’est-à-dire des méthodes qui peuvent être exécutées sur un jumeau numérique (comme une commande de réinitialisation ou d’allumage/extinction d’un ventilateur). Cependant, les *commandes ne sont actuellement pas prises en charge dans Azure Digital Twins*.
+
+### <a name="properties-vs-telemetry"></a>Propriétés et télémétrie
+
+Voici quelques conseils supplémentaires sur la distinction entre les champs DTDL **Propriétés** et **Télémétrie** dans Azure Digital Twins.
+
+Les différences entre les propriétés et la télémétrie pour les modèles Azure Digital Twins sont les suivantes :
+* Les **propriétés** sont supposées avoir un stockage de sauvegarde. Cela signifie que vous pouvez lire une propriété à tout moment et en récupérer la valeur. Si la propriété est accessible en écriture, vous pouvez également stocker une valeur dans la propriété.  
+* La **télémétrie** ressemble davantage à un flux d’événements. Il s’agit d’un ensemble de messages de données qui ont des durées de vie courtes. Si vous ne configurez pas l’écoute pour l’événement et les actions à entreprendre lorsqu’il se produit, il n’y a plus de trace de l’événement par la suite. Vous ne pouvez pas y revenir et le lire plus tard. 
+  - En termes C#, la télémétrie est comme un événement C#. 
+  - En termes IoT, la télémétrie est généralement une mesure unique envoyée par un appareil.
+
+La **télémétrie** est souvent utilisée avec les appareils IoT, car de nombreux appareils ne sont pas en mesure de stocker les valeurs de mesure qu’ils génèrent, ou n’en ont pas besoin. Ils les envoient simplement sous forme de flux d’événements de « télémétrie ». Dans ce cas, vous ne pouvez pas interroger l’appareil à tout moment pour connaître la valeur la plus récente du champ de télémétrie. Au lieu de cela, vous devez écouter les messages envoyés par l’appareil et effectuer des actions à mesure que les messages arrivent. 
+
+Par conséquent, lors de la conception d’un modèle dans Azure Digital Twins, vous utiliserez probablement des **propriétés** dans la plupart des cas pour modéliser vos jumeaux. Cela vous permet de disposer du stockage de sauvegarde et de lire et d’interroger les champs de données.
+
+La télémétrie et les propriétés collaborent souvent pour traiter l’entrée de données provenant des appareils. Comme toute entrée dans Azure Digital Twins se fait via des [API](how-to-use-apis-sdks.md), vous utiliserez généralement votre fonction d’entrée pour lire les événements de télémétrie ou de propriété des appareils et définirez une propriété dans ADT en réponse. 
+
+Vous pouvez également publier un événement de télémétrie à partir de l’API Azure Digital Twins. Comme pour toute autre télémétrie, il s’agit d’un événement de courte durée qui nécessite un écouteur pour le traiter.
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Spécificités de l’implémentation du langage DTDL dans Azure Digital Twins
 
@@ -204,14 +222,7 @@ L’interface d’extension ne peut pas modifier les définitions des interfaces
 
 ## <a name="validating-models"></a>Validation des modèles
 
-> [!TIP]
-> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins.
-
-Il existe un exemple de validation de documents de modèle indépendant du langage permettant de vérifier que le langage DTDL est correct. Il se trouve ici : [**Exemple de validateur DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-L’exemple de validateur DTDL s’appuie sur une bibliothèque d’analyseur DTDL .NET, disponible sur NuGet comme bibliothèque côté client : [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Vous pouvez également vous servir directement de la bibliothèque pour concevoir votre propre solution de validation. Dans ce cas, veillez à utiliser une version compatible avec celle d’Azure Digital Twins. Pendant la préversion, il s’agit de la version *3.7.0*.
-
-Pour plus d’informations sur la bibliothèque d’analyseur, et notamment des exemples d’utilisation, consultez [*Guide pratique pour analyser et valider les modèles*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

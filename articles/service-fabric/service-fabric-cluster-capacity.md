@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247775"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904817"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -155,7 +155,7 @@ Les besoins en capacité de votre cluster sont déterminés par vos exigences sp
 
 #### <a name="virtual-machine-sizing"></a>Tailles des machines virtuelles
 
-**Pour les charges de travail de production, la taille de référence de machine virtuelle recommandée est Standard V2_V2 ou équivalent avec un minimum de 50 Go de mémoire sur disque SSD local.** Il est recommandé d’utiliser un disque SSD local de 50 Go au minimum, mais certaines charges de travail (comme celles qui exécutent des conteneurs Windows) nécessitent des disques plus volumineux. Lorsque vous choisissez d’autres [tailles de machines virtuelles](../virtual-machines/sizes-general.md) pour les charges de travail de production, gardez à l’esprit les contraintes suivantes :
+**Pour les charges de travail de production, la taille de référence de machine virtuelle recommandée est [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (ou équivalent) avec un minimum de 50 Go de mémoire sur disque SSD local 2 cœurs et 4 Gio de mémoire.** Il est recommandé d’utiliser un disque SSD local de 50 Go au minimum, mais certaines charges de travail (comme celles qui exécutent des conteneurs Windows) nécessitent des disques plus volumineux. Lorsque vous choisissez d’autres [tailles de machines virtuelles](../virtual-machines/sizes-general.md) pour les charges de travail de production, gardez à l’esprit les contraintes suivantes :
 
 - Les tailles de machine virtuelle de base partielle comme Standard A0 ne sont pas prises en charge.
 - La *série-A* de tailles de machines virtuelles n’est pas prise en charge pour des raisons de performances.

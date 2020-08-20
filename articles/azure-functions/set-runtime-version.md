@@ -2,26 +2,26 @@
 title: Comment cibler des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure.
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/22/2020
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77151953"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830867"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
-Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Trois versions majeures sont disponibles : [1.x, 2.x et 3.x](functions-versions.md). Par défaut, les applications de fonction sont créées dans la version 2.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
+Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Trois versions majeures sont disponibles : [1.x, 2.x et 3.x](functions-versions.md). Par défaut, les applications de fonction sont créées dans la version 3.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Mises à jour de versions automatiques et manuelles
 
-Azure Functions vous permet de cibler une version spécifique du runtime en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` dans une Function App. L’application de fonction est conservée sur la version majeure spécifiée jusqu’à ce que vous décidiez de passer à une nouvelle version.
+Azure Functions vous permet de cibler une version spécifique du runtime en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` dans une Function App. L’application de fonction est conservée sur la version majeure spécifiée jusqu’à ce que vous décidiez de passer à une nouvelle version. Si vous spécifiez uniquement la version majeure, l’application de fonction est automatiquement mise à jour vers les nouvelles versions mineures du runtime quand elles deviennent disponibles. Les nouvelles versions mineures ne devraient pas introduire de changements importants. 
 
-Si vous spécifiez uniquement la version majeure, l’application de fonction est automatiquement mise à jour vers les nouvelles versions mineures du runtime quand elles deviennent disponibles. Les nouvelles versions mineures ne devraient pas introduire de changements importants. Si vous spécifiez une version mineure (par exemple, « 2.0.12345 »), l’application de fonction est maintenue sur cette version jusqu’à ce que vous la changiez explicitement.
+Si vous spécifiez une version mineure (par exemple, « 2.0.12345 »), l’application de fonction est maintenue sur cette version jusqu’à ce que vous la changiez explicitement. Les anciennes versions mineures sont régulièrement supprimées de l’environnement de production. Après cela, votre application de fonction s’exécute sur la version la plus récente au lieu de la version définie dans `FUNCTIONS_EXTENSION_VERSION`. Pour cette raison, vous devez résoudre rapidement tout problème concernant votre application de fonction qui nécessite une version mineure spécifique, de sorte que vous puissiez cibler la version principale à la place. Les suppressions de versions mineures sont annoncées sur la page des [annonces App Service](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
-> Si vous l’épinglez à une version spécifique d’Azure Functions, puis tentez de publier sur Azure à l’aide de Visual Studio, une fenêtre de dialogue s’affiche vous invitant à mettre à jour vers la dernière version ou à annuler la publication. Pour éviter ce problème, ajoutez la propriété `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` dans votre fichier `.csproj`.
+> Si vous l’épinglez à une version principale spécifique d’Azure Functions, puis tentez de publier sur Azure à l’aide de Visual Studio, une fenêtre de dialogue s’affiche vous invitant à mettre à jour vers la dernière version ou à annuler la publication. Pour éviter ce problème, ajoutez la propriété `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` dans votre fichier `.csproj`.
 
 Quand une nouvelle version est disponible publiquement, une invite dans le portail vous donne la possibilité de basculer vers cette version. Après le passage à une nouvelle version, vous avez toujours la possibilité d’utiliser le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` pour revenir à une version précédente.
 

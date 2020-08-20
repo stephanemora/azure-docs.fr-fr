@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche de lignes à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à ajouter une couche de lignes à une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Découvrez comment ajouter des lignes aux cartes. Consultez les exemples qui utilisent le Kit de développement logiciel (SDK) web Azure Maps pour ajouter des couches de lignes aux cartes et pour personnaliser les lignes avec des symboles et des dégradés de couleurs.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 366de0d17a1cdd62b95d39b1ad04b9bc76bec52c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c834ae6061fce6f2fc2f4cd7c4d80e036775b156
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286930"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010206"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Ajouter un calque de lignes à la carte
 

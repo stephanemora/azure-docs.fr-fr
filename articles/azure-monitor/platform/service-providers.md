@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315443"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921088"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 
@@ -40,7 +40,7 @@ Il existe deux façons pour les administrateurs de fournisseurs de services d’
 
 Les avantages de l’architecture distribuée sont les suivants :
 
-* Le client peut confirmer des niveaux spécifiques d’autorisations via la [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) ou peut gérer l’accès aux journaux à l’aide de son propre [accès basé sur les rôles](../../role-based-access-control/overview.md).
+* Le client peut confirmer des niveaux spécifiques d’autorisations via la [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) ou peut gérer l’accès aux journaux à l’aide de son propre [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 * Les journaux peuvent être collectés à partir de tous les types de ressources, et non uniquement des données de machines virtuelles basées sur agent. Par exemple, les journaux d’activité d’audit Azure.
 * Chaque client peut avoir des paramètres différents pour son espace de travail, par exemple, pour la rétention ou la limitation des données.
 * Elle permet l’isolation entre les clients pour répondre aux exigences réglementaires et de conformité.
@@ -90,4 +90,3 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 * Générer des rapports de synthèse à l’aide de [Power BI](./powerbi.md)
 
 * Intégrer des clients à la [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)
-

@@ -1,19 +1,17 @@
 ---
 title: FAQ sur Windows Virtual Desktop – Azure
 description: Foire aux questions et meilleures pratiques concernant Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504413"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121117"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
 
@@ -25,7 +23,7 @@ Si vous souhaitez créer des pools d’hôtes et d’autres objets, vous devez d
 
 Vous devez disposer du rôle Administrateur de l’accès utilisateur sur un groupe d’applications pour publier des groupes d’applications auprès d’utilisateurs ou de groupes d’utilisateurs.
 
-Pour limiter un administrateur à la seule gestion de sessions d’utilisateurs, comme l’envoi de messages aux utilisateurs, la déconnexion des utilisateurs, etc., vous pouvez créer des rôles personnalisés. Par exemple : 
+Pour limiter un administrateur à la seule gestion de sessions d’utilisateurs, comme l’envoi de messages aux utilisateurs, la déconnexion des utilisateurs, etc., vous pouvez créer des rôles personnalisés. Par exemple :
 
 ```powershell
 "actions": [
@@ -49,8 +47,6 @@ Pour limiter un administrateur à la seule gestion de sessions d’utilisateurs,
 Lorsqu’un utilisateur est affecté à un groupe d’applications, le service effectue une simple attribution de rôle Azure. Par conséquent, le compte Azure Active Directory (AD) de l’utilisateur et l’instance Azure AD du groupe d’applications doivent se trouver au même emplacement. Tous les objets de service, tels que les pools d’hôtes, les groupes d’applications et les espaces de travail, doivent également se trouver dans la même instance Azure AD que le compte de l’utilisateur.
 
 Vous pouvez créer des machines virtuelles dans un autre compte Azure AD tant que vous synchronisez le service Active Directory avec le compte Azure AD de l’utilisateur dans le même réseau virtuel (VNET).
-
-Azure Lighthouse ne prend pas entièrement en charge la gestion de l’environnement Windows Virtual Desktop. Étant donné qu’Azure Lighthouse ne prend pas actuellement en charge la gestion des utilisateurs sur plusieurs locataires Azure AD, les clients d’Azure Lighthouse doivent toujours se connecter au compte Azure AD que les clients utilisent pour gérer les utilisateurs.
 
 ## <a name="what-are-location-restrictions"></a>Que sont les restrictions d’emplacement ?
 
@@ -116,7 +112,7 @@ Une fois que vous avez créé un pool d’hôtes, vous ne pouvez plus en modifie
 
 Les limitations ou quotas dans FSLogix dépendent de la structure de stockage utilisée pour stocker les fichiers VHD(X) de profil utilisateur.
 
-Le tableau suivant donne un exemple du nombre de ressources dont un profil FSLogix a besoin pour prendre en charge chaque utilisateur. Les besoins peuvent varier considérablement en fonction de l’utilisateur, des applications et de l’activité de chaque profil. 
+Le tableau suivant donne un exemple du nombre de ressources dont un profil FSLogix a besoin pour prendre en charge chaque utilisateur. Les besoins peuvent varier considérablement en fonction de l’utilisateur, des applications et de l’activité de chaque profil.
 
 | Ressource | Condition requise |
 |---|---|
@@ -134,3 +130,11 @@ Ces facteurs peuvent influer sur la limite d’échelle des pools d’hôtes :
 - Il existe des restrictions sur le nombre de cœurs que vous pouvez créer par région et par abonnement. Par exemple, si vous avez un abonnement Accord Entreprise, vous pouvez créer 350 cœurs. Pour déterminer le nombre de machines virtuelles que vous pouvez créer chaque fois que vous exécutez le modèle, vous devez diviser 350 par le nombre par défaut de cœurs par machine virtuelle ou par votre propre limite de cœurs. Pour plus d’informations, consultez [Limites de machines virtuelles – Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Le nom du préfixe de machine virtuelle et le nombre de machines virtuelles est inférieur à 15 caractères. Pour plus d’informations, consultez [Règles de nommage et restrictions pour les ressources Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Puis-je gérer des environnements Windows Virtual Desktop à l’aide d’Azure Lighthouse ?
+
+Azure Lighthouse ne prend pas entièrement en charge la gestion d’environnements Windows Virtual Desktop. Étant donné qu’Azure Lighthouse ne prend pas actuellement en charge la gestion des utilisateurs sur plusieurs locataires Azure AD, les clients d’Azure Lighthouse doivent toujours se connecter au compte Azure AD que les clients utilisent pour gérer les utilisateurs.
+
+Vous ne pouvez pas non plus utiliser les abonnements de bac à sable de fournisseur de solutions Cloud avec le service Windows Virtual Desktop. Pour plus d’informations, consultez [Compte de bac à sable d’intégration](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Enfin, si vous avez activé le fournisseur de ressources à partir du compte propriétaire du fournisseur de solutions Cloud, les comptes client du fournisseur de services Cloud ne peuvent pas modifier le fournisseur de ressources.

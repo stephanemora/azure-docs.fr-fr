@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 230304677b78f00b2d1288c846f8bf704cd8a497
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407467"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009643"
 ---
-Il est possible que votre organisation exige des actions supplémentaires de la part des propriétaires d’abonnement pour configurer correctement une inscription d’application (et donc pour terminer la configuration d’une instance Azure Digital Twins utilisable). Les étapes requises peuvent varier en fonction des paramètres spécifiques de votre organisation.
+Il est possible que votre organisation exige des actions supplémentaires de la part des propriétaires/administrateurs d’abonnement pour configurer correctement une inscription d’application (et donc pour terminer la configuration d’une instance Azure Digital Twins utilisable). Les étapes requises peuvent varier en fonction des paramètres spécifiques de votre organisation.
 
-Voici quelques activités courantes qu’un propriétaire peut devoir effectuer. Ces opérations et d’autres peuvent être effectuées à partir de la page [*Inscriptions d’applications Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) dans le portail Azure.
-* Accordez le consentement administrateur pour l’inscription d’application. Votre organisation peut avoir activé globalement l’option *Consentement administrateur requis* dans Azure AD pour toutes les inscriptions d’applications au sein de votre abonnement. Si c’est le cas, le propriétaire devra sélectionner ce bouton pour votre société dans la page *Autorisations de l’API* de l’inscription d’application pour que celle-ci soit valide :
+Voici quelques activités courantes qu’un propriétaire/administrateur peut devoir effectuer. Ces opérations et d’autres peuvent être effectuées à partir de la page [*Inscriptions d’applications Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) dans le portail Azure.
+* Accordez le consentement administrateur pour l’inscription d’application. Votre organisation peut avoir activé globalement l’option *Consentement administrateur requis* dans Azure AD pour toutes les inscriptions d’applications au sein de votre abonnement. Si c’est le cas, le propriétaire/l’administrateur devra sélectionner ce bouton pour votre société dans la page *Autorisations de l’API* de l’inscription d’application pour que celle-ci soit valide :
 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Vue du portail du bouton « Consentement administrateur requis » sous Autorisations de l’API":::
   - Si le consentement a été accordé avec succès, l’entrée pour Azure Digital Twins doit alors indiquer une valeur d’*État* _Accordé pour **(votre société)**_

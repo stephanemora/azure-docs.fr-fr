@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659660"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829592"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -42,7 +42,7 @@ L’exploration de métriques nécessite que le fournisseur de ressources *Micro
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Vous ne disposez pas de droits d’accès à votre ressource suffisants.
 
-Dans Azure, l’accès aux métriques est contrôlé par le [contrôle d’accès en fonction du rôle (RBAC, role-based access control)](../../role-based-access-control/overview.md). Vous devez être membre du [lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader), du [contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou du [contributeur](../../role-based-access-control/built-in-roles.md#contributor) pour explorer les métriques d’une ressource, quelle qu’elle soit.
+Dans Azure, l’accès aux métriques est contrôlé par le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Vous devez être membre du [lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader), du [contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou du [contributeur](../../role-based-access-control/built-in-roles.md#contributor) pour explorer les métriques d’une ressource, quelle qu’elle soit.
 
 **Solution :** Assurez-vous que vous disposez des autorisations suffisantes pour la ressource dont vous explorez les métriques.
 
@@ -68,7 +68,7 @@ En [verrouillant les limites de l’axe y du graphique](metrics-charts.md#lock-b
 
 La collecte des métriques de **SE invité** nécessite la configuration de l’extension Diagnostics Azure ou son activation à l’aide du panneau **Paramètres de diagnostic** de votre ressource.
 
-**Solution :** Si l’extension Diagnostics Azure est activée mais que vos métriques ne s’affichent toujours pas, suivez les étapes décrites dans le [guide de résolution des problèmes liés à l’extension Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consultez également les étapes de résolution des problèmes à la section [Impossible de choisir l’espace de noms et les métriques de SE invité](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics).
+**Solution :** Si l’extension Diagnostics Azure est activée mais que vos métriques ne s’affichent toujours pas, suivez les étapes décrites dans le [guide de résolution des problèmes liés à l’extension Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consultez également les étapes de résolution des problèmes à la section [Impossible de choisir l’espace de noms et les métriques de SE invité](#cannot-pick-guest-os-namespace-and-metrics).
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Message « Erreur durant la récupération des données » sur le tableau de bord
 
@@ -106,7 +106,7 @@ Par défaut, les métriques de SE invité sont stockées dans le compte de Stock
     > [!WARNING]
     > Vous ne pouvez pas utiliser [l’agent Log Analytics](agents-overview.md#log-analytics-agent) (également appelé Microsoft Monitoring Agent ou « MMA ») pour envoyer le **SE invité** dans un compte de stockage.
 
-1. Assurez-vous que le fournisseur de ressources **Microsoft.Insights** est [inscrit pour votre abonnement](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Assurez-vous que le fournisseur de ressources **Microsoft.Insights** est [inscrit pour votre abonnement](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Vérifiez que le compte de stockage n’est pas protégé par le pare-feu. Le Portail Azure a besoin d’accéder au compte de stockage afin de récupérer les données de métriques et de tracer les graphiques.
 

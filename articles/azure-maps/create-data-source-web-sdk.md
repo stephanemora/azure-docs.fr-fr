@@ -1,6 +1,6 @@
 ---
 title: Créer une source de données pour une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir comment créer une source de données et comment l’ajouter à une carte avec le SDK web Microsoft Azure Maps.
+description: 'Découvrez comment créer une source de données pour une carte. En savoir plus sur les sources de données utilisées par le Kit de développement logiciel (SDK) web Azure Maps : Sources GeoJSON et mosaïques vectorielles.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fea2c4fab51db59c9159853e9b0bdaec0bcdbb56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285728"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009084"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
 Le SDK web Azure Maps stocke les données dans des sources de données. L’utilisation de sources de données optimise les opérations sur les données pour l’interrogation et le rendu. Il existe actuellement deux types de sources de données :
 
-**Source de données GeoJSON**
+- **Source GeoJSON** : gère les données d’emplacement brutes au format GeoJSON localement. Convient aux petits et moyens jeux de données (jusqu’à des centaines de milliers de formes).
+- **Source de mosaïque vectorielle** : charge des données formatées sous forme de mosaïques vectorielles pour la vue actuelle de la carte, en fonction du système de mosaïque des cartes. Convient aux jeux de données volumineux ou énormes (des millions ou milliards de formes).
+
+## <a name="geojson-data-source"></a>Source de données GeoJSON
 
 Une source de données GeoJSON charge et stocke des données localement en utilisant la classe `DataSource`. Les données GeoJSON peuvent être créées manuellement ou à l’aide des classes d’assistance de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La classe `DataSource` fournit des fonctions pour l’importation de fichiers GeoJSON locaux ou distants. Les fichiers GeoJSON distants doivent être hébergés sur un point de terminaison CORs. La classe `DataSource` fournit des fonctionnalités pour les données de point de clustering. Les données peuvent aussi être facilement ajoutées, supprimées et mises à jour avec la classe `DataSource`. Le code suivant illustre la façon dont les données GeoJSON peuvent être créées dans Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Supposons que vous voulez remplacer toutes les données d’une `DataSource`. Si vous faites des appels aux fonctions `clear` puis `add`, la carte va se réafficher deux fois, ce qui peut entraîner un certain délai. Utilisez à la place la fonction `setShapes`, qui va supprimer et remplacer toutes les données de la source de données, et déclencher un seul réaffichage de la carte.
 
-**Source de mosaïque vectorielle**
+## <a name="vector-tile-source"></a>Source de mosaïque vectorielle
 
 Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Une couche de vignette vectorielle est un fichier compressé au format **PBF**. Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
 
@@ -88,7 +91,7 @@ Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github
 > [!TIP]
 > Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `{azMapsDomain}`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.
 
-Pour afficher les données d’une source de vignette vectorielle sur la carte, connectez la source à l’une des couches de rendu de données. Toutes les couches qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer` dans les options. Le code suivant charge le service de vignette vectorielle Débit de circulation Azure Maps comme une source de vignette vectorielle, puis l’affiche sur une carte à l’aide d’une couche de lignes. Cette source de vignette vectorielle comporte un seul jeu de données dans la couche source, appelé « Débit de circulation ». Les données de lignes de ce jeu de données possèdent une propriété nommée `traffic_level` qui est utilisée dans ce code pour sélectionner la couleur et mettre à l’échelle la taille des lignes.
+Pour afficher les données d’une source de vignette vectorielle sur la carte, connectez la source à l’une des couches de rendu de données. Toutes les couches qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer` dans les options. Le code suivant charge le service de mosaïque vectorielle Débit de circulation Azure Maps comme source de mosaïque vectorielle, puis l’affiche sur une carte à l’aide d’une couche de lignes. Cette source de vignette vectorielle comporte un seul jeu de données dans la couche source, appelé « Débit de circulation ». Les données de lignes de ce jeu de données possèdent une propriété nommée `traffic_level` qui est utilisée dans ce code pour sélectionner la couleur et mettre à l’échelle la taille des lignes.
 
 ```javascript
 //Create a vector tile source and add it to the map.

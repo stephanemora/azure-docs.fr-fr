@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer des travaux de bases de données élastiques avec Transact-SQL (T-SQL)
+title: Créer et gérer des travaux de base de données élastique (préversion) avec Transact-SQL (T-SQL)
 description: Exécuter des scripts sur plusieurs bases de données avec l’agent de travail de base de données élastique à l’aide de Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031100"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119111"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Cet article fournit de nombreux exemples de scénarios pour commencer à utiliser les travaux élastiques à l’aide de T-SQL.

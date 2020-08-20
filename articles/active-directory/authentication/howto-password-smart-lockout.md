@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035415"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065979"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -24,7 +24,7 @@ Le verrouillage intelligent empêche les personnes malveillantes de deviner vos 
 
 ## <a name="how-smart-lockout-works"></a>Fonctionnement du verrouillage intelligent
 
-Par défaut, le verrouillage intelligent empêche les tentatives de connexion au compte pendant une minute après 10 tentatives infructueuses. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps.
+Par défaut, le verrouillage intelligent empêche les tentatives de connexion au compte pendant une minute après 10 tentatives infructueuses. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps. Afin de minimiser les moyens dont dispose un attaquant pour contourner ce comportement, nous ne divulguons pas le rythme auquel la période de verrouillage s’allonge au fil des tentatives de connexion infructueuses.
 
 Le verrouillage intelligent suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
 

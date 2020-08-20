@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534632"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042273"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -34,9 +34,15 @@ Pour éviter la fatigue liée aux alertes, Security Center limite le volume des 
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **Mise à la disposition générale**
-- Rôles nécessaires : **Administrateur de la sécurité** ou **Propriétaire de l’abonnement** 
-- Clouds : ✔ Clouds commerciaux ✔ US Gov (partiel) ✘ Nationaux/souverains (China Gov, autres clouds Gov)
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Mise à la disposition générale|
+|Prix :|Niveau gratuit|
+|Rôles et autorisations obligatoires :|**Administrateur de la sécurité**<br>**Propriétaire de l’abonnement** |
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov (partiel)<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurer des notifications par e-mail pour les alertes <a name="email"></a>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 9d03866858c9f8af521b27c5e36f882d9e0e177d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9df4ac8b9dc3385868a72d31da93bec00eeb57bf
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404971"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042868"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -160,8 +160,8 @@ Votre niveau de sécurité est basé sur le nombre de recommandations Security C
 |**Transparent Data Encryption sur les bases de données SQL doit être activé**|Activer le chiffrement transparent des données pour protéger les données au repos et respecter les exigences de conformité.<br>(Stratégie associée : Transparent Data Encryption sur les bases de données SQL doit être activé)|Faible|**O**|SQL|
 |**L’évaluation des vulnérabilités doit être activée sur SQL Database**|L’évaluation des vulnérabilités peut découvrir et suivre les potentielles vulnérabilités de base de données, et vous aider à y remédier.<br>(Stratégie associée : L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL)|Élevé|**O**|SQL|
 |**L’évaluation des vulnérabilités doit être activée sur SQL Managed Instance**|L’évaluation des vulnérabilités peut découvrir et suivre les potentielles vulnérabilités de base de données, et vous aider à y remédier.<br>(Stratégie associée : L’évaluation des vulnérabilités doit être activée sur SQL Managed Instance.|Élevé|**O**|SQL|
-|**Les vulnérabilités de vos serveurs SQL Server sur des machines doivent être corrigées**|L’évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux bonnes pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|Élevé|N|SQL|
-|**Les vulnérabilités sur vos bases de données SQL doivent être corrigées**|L’évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux bonnes pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.<br>(Stratégie associée : Les vulnérabilités sur vos bases de données SQL doivent être corrigées)|Élevé|N|SQL|
+|**Les résultats de l’évaluation des vulnérabilités de vos serveurs SQL sur des machines doivent être corrigés (préversion)**|L’évaluation des vulnérabilités SQL analyse votre base de données à la recherche de vulnérabilités de sécurité et expose tout écart par rapport aux meilleures pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|Élevé|N|SQL|
+|**Les résultats de l’évaluation des vulnérabilités sur vos bases de données SQL doivent être corrigés**|L’évaluation des vulnérabilités SQL analyse votre base de données à la recherche de vulnérabilités de sécurité et expose tout écart par rapport aux meilleures pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.<br>(Stratégie associée : Les vulnérabilités sur vos bases de données SQL doivent être corrigées)|Élevé|N|SQL|
 ||||||
 
 

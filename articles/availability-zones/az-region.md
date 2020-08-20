@@ -4,56 +4,124 @@ description: Pour créer des applications hautement disponibles et résilientes 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/05/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: e13d7a1cb35d2b0c9544a8be36f834efc6970501
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cf1fc81ea63db21d2e864c00e1987eec3d376b59
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759646"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853158"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Régions prenant en charge les Zones de disponibilité dans Azure
 
 Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Pour plus d’informations sur les Zones de disponibilité, consultez [Régions et Zones de disponibilité dans Azure](az-overview.md).
 
-## <a name="services-support-by-region"></a>Prise en charge des services par région
-
 Cette section répertorie les régions et services Azure qui prennent en charge les Zones de disponibilité.
 
 Pour voir les services disponibles dans chaque région, ainsi que la feuille de route à venir pour la disponibilité, consultez [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
 
-| Service |États-Unis: USA Centre|États-Unis: USA Est|États-Unis: USA Est 2|États-Unis: USA Ouest 2|Europe : France Centre|Europe : Europe Nord|Europe : Sud du Royaume-Uni|Europe : Europe Ouest|Asie-Pacifique : Japon Est|Asie-Pacifique : Asie Sud-Est|Asie-Pacifique : Australie Est|
-|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-| **Calcul**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Machines virtuelles Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Machines virtuelles Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| ILB Azure App Service Environments | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Stockage**   |            |              |           |           |                |              |          |             |            |                |                |
-| Disques managés                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Stockage redondant interzone          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| **Mise en réseau**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Adresse IP standard        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Passerelle VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
-| Passerelle ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
-| Application Gateway (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
-| Pare-feu Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| **Bases de données**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Explorateur de données Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
-| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;(Préversion) | &#10003;       | &#10003;(Préversion)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
-| Cache Azure pour Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;  |
-| **Analyse**                       |            |              |           |           |                |              |          |             |            |                |                |
-| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |  &#10003;              |
-| **Intégration**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Service Bus (Niveau Premium uniquement) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |  &#10003;              |
-| Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
-| **Identité**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Services de domaine Azure AD | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+## <a name="americas"></a>Amérique
+
+| Service | USA Centre | USA Est | USA Est 2 | USA Ouest 2 |
+| --- | :---: | :---: | :---: | :---: |
+| **Calcul** |  |  |  |  |
+| Machines virtuelles Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Machines virtuelles Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ILB Azure App Service Environments | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Stockage** |  |  |  |  |
+| Disques managés                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Stockage redondant interzone             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Mise en réseau** |  |  |  |  |
+| Adresse IP standard                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Standard Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Application Gateway (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Pare-feu Azure                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Bases de données** |  |  |  |  |
+| Explorateur de données Azure                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| SQL Database                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: (Préversion) |
+| Cache Azure pour Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Analyse** |  |  |  |  |
+| Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Intégration** |  |  |  |  |
+| Service Bus (Niveau Premium uniquement)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Identité** |  |  |  |  |
+| Services de domaine Azure AD           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
+## <a name="europe"></a>Europe
+
+| Service | France Centre | Europe Nord | Sud du Royaume-Uni | Europe Ouest |
+| --- | :---: | :---: | :---: | :---: |
+| **Calcul** |  |  |  |  |
+| Machines virtuelles Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Machines virtuelles Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ILB Azure App Service Environments | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Stockage** |  |  |  |  |
+| Disques managés                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Stockage redondant interzone             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Mise en réseau** |  |  |  |  |
+| Adresse IP standard                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Standard Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Application Gateway (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Pare-feu Azure                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Bases de données** |  |  |  |  |
+| Explorateur de données Azure                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| SQL Database                       | :heavy_check_mark: | :heavy_check_mark: (Préversion) | :heavy_check_mark: | :heavy_check_mark: |
+| Cache Azure pour Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Analyse** |  |  |  |  |
+| Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Intégration**  |  |  |  |  |
+| Service Bus (Niveau Premium uniquement)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Identité** |  |  |  |  |
+| Services de domaine Azure AD           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
+## <a name="asia-pacific"></a>Asie-Pacifique
+
+| Service | Japon Est | Asie Sud-Est | Australie Est |
+| --- | :---: | :---: | :---: |
+| **Calcul** |  |  |  |
+| Machines virtuelles Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Machines virtuelles Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ILB Azure App Service Environments | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: |  |
+| **Stockage** |  |  |  |
+| Disques managés                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Stockage redondant interzone             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Mise en réseau** |  |  |  |
+| Adresse IP standard                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Standard Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Passerelle ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Application Gateway (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Pare-feu Azure                     | :heavy_check_mark: | :heavy_check_mark: |  |
+| **Bases de données** |  |  |  |
+| Explorateur de données Azure                | :heavy_check_mark: | :heavy_check_mark: |  |
+| SQL Database                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Cache Azure pour Redis              | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Analyse** |  |  |  |
+| Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| **Intégration** |  |  |  |
+| Service Bus (Niveau Premium uniquement)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: |  |
+| **Identité** |  |  |  |
+| Services de domaine Azure AD           | :heavy_check_mark: | :heavy_check_mark: |  |
+
+## <a name="other"></a>Autres
 
 Azure offre également une prise en charge Zones de disponibilité dans les régions suivantes :
 

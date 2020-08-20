@@ -1,19 +1,20 @@
 ---
-title: 'Scénario : Router le trafic via une NVA'
+title: 'Scénario : Acheminer le trafic via une appliance virtuelle réseau (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Router le trafic via une NVA
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142964"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853207"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -25,47 +26,108 @@ Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un
 >* [Article concernant PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Architecture du scénario
+## <a name="design"></a><a name="design"></a>Conception
 
-Dans **Figure 1**, il y a deux hubs : **Hub 1** et **Hub 2**.
+Dans ce scénario, nous allons utiliser la convention d’affectation de noms :
 
-* **Hub 1** et **Hub 2** sont connectés directement aux réseaux virtuels de NVA **VNET 2** et **VNET 4**.
+* « Réseaux virtuels NVA » pour les réseaux virtuels où les utilisateurs ont déployé une NVA et ont connecté d’autres réseaux virtuels en tant que spokes (VNet 2 et VNet 4 dans la **matrice de connectivité** ci-dessous).
+* « Spokes NVA » pour les réseaux virtuels connectés à un réseau virtuel NVA (VNet 5, VNet 6, VNet 7 et VNet 8 dans la **matrice de connectivité** ci-dessous).
+* « Réseaux virtuels non-NVA » pour les réseaux virtuels connectés à Azure Virtual WAN qui n’ont pas de NVA ni d’autres réseaux virtuels appairés avec eux (VNet 1 et VNet 3 dans la **matrice de connectivité** ci-dessous).
+* « Hubs » pour les hubs Virtual WAN gérés par Microsoft, où les réseaux virtuels NVA sont connectés. Les réseaux virtuels spokes NVA n’ont pas besoin d’être connectés aux hubs Virtual WAN, mais uniquement à aux réseaux virtuels NVA.
 
-* **VNET 5** et **VNET 6** sont appairés avec **VNET 2**.
+La matrice de connectivité suivante résume les flux pris en charge dans ce scénario :
 
-* **VNET 7** et **VNET 8** sont appairés avec **VNET 4**.
+**Matrice de connectivité**
 
-* **Les VNET 5, 6, 7 et 8** sont des réseaux en étoile, qui ne sont pas directement connectés à un hub virtuel.
+| Du             | Par :|   *Spokes NVA*|*Réseaux virtuels NVA*|*Réseaux virtuels non-NVA*|*Branches*|
+|---|---|---|---|---|---|
+| **Spokes NVA**   | &#8594; | UDR 0/0  |  Peering |   UDR 0/0    |  UDR 0/0  |
+| **Réseaux virtuels NVA**    | &#8594; |   statique |      X   |        X     |      X    |
+| **Réseaux virtuels non-NVA**| &#8594; |   statique |      X   |        X     |      X    |
+| **Branches**     | &#8594; |   statique |      X   |        X     |      X    |
+
+Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Tenez compte des éléments suivants :
+
+* Les spokes NVA ne sont pas gérés par Virtual WAN. Par conséquent, les mécanismes avec lesquels ils communiquent avec d’autres réseaux virtuels ou branches sont gérés par l’utilisateur. La connectivité au réseau virtuel NVA est assurée par un appairage de réseaux virtuels, et un itinéraire par défaut vers 0.0.0.0/0 pointant vers la NVA en tant que tronçon suivant doit couvrir la connectivité à Internet, à d’autres spokes et à des branches
+* Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans le Tableau 1, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes tels que VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA
+* De même, les branches et les réseaux virtuels NVA ne connaissent aucun spoke NVA, étant donné que les spokes NVA ne sont pas connectés aux hubs VWAN. Par conséquent, les itinéraires statiques seront également nécessaires ici.
+
+Compte tenu du fait que les spokes NVA ne sont pas gérés par Virtual WAN, toutes les autres lignes affichent le même modèle de connectivité. Par conséquent, une seule table de routage (celle par défaut) effectue les opérations suivantes :
+
+* Réseaux virtuels (réseaux virtuels non-hub et réseaux virtuels de hub d’utilisateurs) :
+  * Table de routage associée : **Par défaut**
+  * Propagation aux tables de routage : **Par défaut**
+* Branches :
+  * Table de routage associée : **Par défaut**
+  * Propagation aux tables de routage : **Par défaut**
+
+Toutefois, dans ce scénario, nous devons réfléchir aux itinéraires statiques à configurer. Chaque itinéraire statique a deux composants, l’un dans le hub Virtual WAN qui indique aux composants Virtual WAN la connexion à utiliser pour chaque spoke, et l’autre dans cette connexion spécifique qui pointe vers l’adresse IP concrète assignée à la NVA (ou à un équilibreur de charge devant plusieurs NVA), comme le montre la **Figure 1** :
 
 **Figure 1**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 1":::
+:::image type="content" source="media/routing-scenarios/nva/nva-static-concept.png" alt-text="Figure 1":::
+
+Avec cela, les itinéraires statiques dont nous avons besoin dans la table par défaut pour envoyer le trafic vers les spokes NVA derrière le réseau virtuel NVA sont les suivants :
+
+| Description | Table de routage | Itinéraire statique              |
+| ----------- | ----------- | ------------------------- |
+| Réseau virtuel 2       | Default     | 10.2.0.0/16 -> eastusconn |
+| VNet 4       | Default     | 10.4.0.0/16 -> weconn     |
+
+Désormais, le réseau étendu virtuel sait à quelle connexion envoyer les paquets, mais la connexion doit savoir ce qu’il faut faire lors de la réception de ces paquets : c’est là que les tables de routage de connexion sont utilisées. Ici, nous utiliserons les préfixes plus courts (/24 au lieu de /16 qui est plus long), pour nous assurer que ces itinéraires ont la préférence sur les itinéraires importés à partir de réseaux virtuels NVA (VNet 2 et VNet 4) :
+
+| Description | Connexion | Itinéraire statique            |
+| ----------- | ---------- | ----------------------- |
+| VNet 5       | eastusconn | 10.2.1.0/24 -> 10.2.0.5 |
+| VNet 6       | eastusconn | 10.2.2.0/24 -> 10.2.0.5 |
+| VNet 7       | weconn     | 10.4.1.0/24 -> 10.4.0.5 |
+| VNet 8       | weconn     | 10.4.2.0/24 -> 10.4.0.5 |
+
+Désormais, les réseaux virtuels NVA, les réseaux virtuels non-NVA et les branches savent comment atteindre tous les spokes NVA. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Architecture
+
+Dans la **Figure 2**, il y a deux hubs : **Hub1** et **Hub2**.
+
+* **Hub1** et **Hub2** sont connectés directement aux réseaux virtuels NVA **VNet 2** et **VNet 4**.
+
+* **VNet 5** et **VNet 6** sont appairés avec **VNet 2**.
+
+* **VNet 7** et **VNet 8** sont appairés avec **VNet 4**.
+
+* Les **VNets 5, 6, 7 et 8** sont des spokes indirects, qui ne sont pas directement connectés à un hub virtuel.
+
+**Figure 2**
+
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Workflow du scénario
 
 Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
-1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la  **Figure 1**, ils y a une **connexion VNET 2 (eastusconn)** et une **connexion VNET 4 (weconn)** .
+1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la **Figure 2**, il y a une **connexion VNet 2 (eastusconn)** et une **connexion VNet 4 (weconn)** .
 
    Vérifiez que des itinéraires définis par l’utilisateur (UDR) sont configurés :
-   * De VNET 5 et 6 à l’IP NVA de VNET 2
-   * De VNET 7 et 8 à l’IP NVA de VNET 4 
+   * De VNet 5 et VNet 6 à l’IP NVA de VNet 2
+   * De VNet 7 et VNet 8 à l’IP NVA de VNet 4 
    
-   Vous n’avez pas à connecter VNET 5,6,7,8 directement aux hubs virtuels. Assurez-vous que les NSG dans les VNET 5,6,7,8 autorisent le trafic pour la branche (VPN/ER/P2S) ou aux VNET connectés à leurs VNET distants. Par exemple, les VNET 5,6 doivent garantir que les NSG autorisent le trafic pour les préfixes d’adresses locaux et les VNET 7,8 qui sont connectés au hub distant 2. 
+   Vous n’avez pas à connecter les VNets 5, 6, 7 et 8 directement aux hubs virtuels. Assurez-vous que les NSG dans les VNets 5, 6, 7 et 8 autorisent le trafic pour la branche (VPN/ER/P2S) ou aux réseaux virtuels connectés à leurs réseaux virtuels distants. Par exemple, les VNets 5 et 6 doivent garantir que les NSG autorisent le trafic pour les préfixes d’adresses locaux et les VNets 7 et 8 qui sont connectés au Hub 2 distant.
 
-2. Ajoutez une entrée d’itinéraire statique agrégée pour les VNET 2,5,6 à la table de routage par défaut du Hub 1. 
+2. Ajoutez une entrée d’itinéraire statique agrégé pour les VNets 2, 5 et 6 à la table de routage par défaut du Hub 1.
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemple":::
 
-3. Configurez un itinéraire statique pour les VNET 5, 6 dans la connexion de réseau virtuel du VNET 2. Pour configurer la configuration du routage pour une connexion de réseau virtuel, consultez [routage de hub virtuel](how-to-virtual-hub-routing.md#routing-configuration).
+3. Configurez un itinéraire statique pour les VNets 5 et 6 dans la connexion de réseau virtuel de VNet 2. Pour configurer la configuration du routage pour une connexion de réseau virtuel, consultez [routage de hub virtuel](how-to-virtual-hub-routing.md#routing-configuration).
 
-4. Ajoutez une entrée d’itinéraire statique agrégée pour les VNET 4,7,8 à la table de route par défaut du Hub 1.
+4. Ajoutez une entrée d’itinéraire statique agrégé pour les VNet 4, 7 et 8 à la table de routage par défaut de Hub 1.
 
-5. Répétez les étapes 2, 3 et 4 pour la table de route par défaut du Hub 2.
+5. Répétez les étapes 2, 3 et 4 pour la table de routage par défaut de Hub 2.
 
-Cela entraînera des modifications de configuration de routage, comme illustré dans la figure ci-dessous
+Cela entraîne des modifications de configuration de routage, comme l’illustre la **Figure 3** ci-dessous.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Résultat":::
+**Figure 3**
+
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figure 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

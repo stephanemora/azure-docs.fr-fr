@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023991"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120641"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -105,7 +105,9 @@ Stockage Azure contient tous les fichiers de données d’une base de données. 
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
-Comme les sauvegardes sont basées sur des instantanés de fichiers, elles sont quasi instantanées. La séparation du stockage et du calcul permet de pousser l’opération de sauvegarde/restauration vers la couche de stockage afin de réduire la charge de traitement sur le réplica de calcul principal. Par conséquent, la sauvegarde de base de données n’influence pas les performances du nœud de calcul principal. De même, les restaurations sont effectuées en rétablissant les instantanés de fichier et n’ont donc pas la taille d’une opération de données. La restauration est une opération à temps constant, et même les bases de données de plusieurs téraoctets peuvent être restaurées en quelques minutes au lieu de plusieurs heures ou jours. La création de nouvelles bases de données en restaurant une sauvegarde existante tire également parti de cette fonctionnalité : la création de copies de base de données à des fins de développement ou de test, notamment des bases de données de plusieurs téraoctets, est réalisable en minutes.
+Comme les sauvegardes sont basées sur des instantanés de fichiers, elles sont quasi instantanées. La séparation du stockage et du calcul permet de pousser l’opération de sauvegarde/restauration vers la couche de stockage afin de réduire la charge de traitement sur le réplica de calcul principal. Par conséquent, la sauvegarde de base de données n’influence pas les performances du nœud de calcul principal. De même, la restauration à un instant dans le passé est effectuée en rétablissant les instantanés de fichier et n’a donc pas la taille d’une opération de données. La restauration d’une base de données Hyperscale dans la même région Azure est une opération à temps constant, et même les bases de données de plusieurs téraoctets peuvent être restaurées en quelques minutes au lieu de plusieurs heures ou jours. La création de nouvelles bases de données en restaurant une sauvegarde existante tire également parti de cette fonctionnalité : la création de copies de base de données à des fins de développement ou de test, notamment des bases de données de plusieurs téraoctets, est réalisable en minutes.
+
+Pour la géorestauration de bases de données Hyperscale, consultez [Restauration d’une base de données Hyperscale dans une autre région](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Avantages de scalabilité et de performances
 
@@ -156,7 +158,7 @@ Pour plus d’informations sur les contrats SLA Hyperscale, consultez [SLA pour 
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Récupération d’urgence pour les bases de données Hyperscale
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restauration d’une base de données Hyperscale dans une zone géographique différente
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Restauration d’une base de données Hyperscale dans une autre région
 
 Si vous avec besoin de restaurer une base de données Hyperscale dans Azure SQL Database dans une région autre que celle dans laquelle elle est actuellement hébergée, à des fins de récupération d’urgence, d’exploration, de relocalisation ou pour tout autre motif, la méthode principale consiste à opérer une géo-restauration de la base de données. La procédure à suivre est exactement la même que celle utilisée pour restaurer une base de données dans SQL Database dans une autre région :
 
@@ -224,7 +226,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Instance managée SQL | L'option Azure SQL Managed Instance n'est actuellement pas prise en charge avec les bases de données Hyperscale. |
 | Pools élastiques |  Les pools élastiques ne sont actuellement pas pris en charge avec Hyperscale.|
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données d’Hyperscale vers non-Hyperscale consiste à exporter/importer à l’aide d’un fichier bacpac ou d’autres technologies de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS, etc.) L’exportation et l’importation bacpac à partir du portail Azure, à partir de PowerShell à l’aide des cmdlets [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), à partir d’Azure CLI à l’aide des commandes [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) et [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import), et d’une [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export), ne sont pas prises en charge. L’exportation et l’importation bacpac pour des bases de données Hyperscale de plus petite taille (jusqu’à 200 Go) est prise en charge à l’aide de SSMS et de [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versions 18.4 et ultérieures. Pour des bases de données plus volumineuses, l’exportation et l’importation bacpac peuvent prendre beaucoup de temps et échouer pour différentes raisons.|
-| Migration de bases de données avec des objets OLTP en mémoire | Hyperscale ne prend en charge que les objets OLTP en mémoire non persistants (types de tables, SP et fonctions natifs).  Les tables et autres objets OLTP en mémoire persistants doivent être supprimés et recréés en tant qu'objets sur disque avant de migrer une base de données vers le niveau de service Hyperscale.|
+| Migration de bases de données avec des objets OLTP en mémoire | Hyperscale prend en charge une partie des objets OLTP en mémoire, notamment les types de tables à mémoire optimisée, les variables de table et les modules compilés en mode natif. Toutefois, lorsqu’un des types d’objets OLTP en mémoire est présent dans la base de données en cours de migration, la migration des niveaux de service Premium et Critique pour l’entreprise vers Hyperscale n’est pas prise en charge. Pour migrer une telle base de données vers Hyperscale, tous les objets OLTP en mémoire et leurs dépendances doivent être supprimés. Une fois la base de données migrée, ces objets peuvent être recréés. Les tables à mémoire optimisée durables et non durables ne sont actuellement pas prises en charge dans Hyperscale et doivent être recréées en tant que tables de disques.|
 | Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale. |
 | Copie de base de données | Vous ne pouvez pas encore utiliser la copie de base de données pour créer une base de données dans Azure SQL Hyperscale. |
 | Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement TDE (Transparent Data Encryption) à l'aide d'Azure Key Vault (communément appelé Bring-Your-Own-Key ou BYOK) est actuellement disponible en préversion. |

@@ -1,18 +1,18 @@
 ---
 title: Comment déployer Azure Files | Microsoft Docs
-description: Découvrez comment déployer Azure Files du début à la fin.
+description: Découvrez comment déployer Azure Files du début à la fin. Transférez des données dans Azure Files. Montez automatiquement sur les ordinateurs ou serveurs nécessaires.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510806"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034496"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.

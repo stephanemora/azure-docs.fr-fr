@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047304"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904494"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personnaliser un modèle de personne avec le site web Video Indexer
 
@@ -126,9 +126,20 @@ Pour visualiser le contenu d’un de vos modèles de personne, sélectionnez la 
 
 ### <a name="manage-a-person"></a>Gérer une personne
 
-Si vous sélectionnez **Gérer**, vous voyez tous les visages à partir desquels ce modèle de personne est entraîné. Ces visages proviennent des occurrences de cette personne dans des vidéos qui utilisent ce modèle de personne ou d’images que vous avez chargées manuellement.
+Si vous sélectionnez **Gérer**, vous voyez la fenêtre **Détails de la personne** avec tous les visages à partir desquels ce modèle de personne est formé. Ces visages proviennent des occurrences de cette personne dans des vidéos qui utilisent ce modèle de personne ou d’images que vous avez chargées manuellement.
+
+> [!TIP]
+> Vous pouvez accéder à la fenêtre **Détails de la personne** en cliquant sur le nom de la personne ou en cliquant sur **Gérer**, comme indiqué ci-dessus.
+
+#### <a name="add-a-face"></a>Ajouter un visage
 
 Vous pouvez ajouter plus de visages à la personne en sélectionnant **Ajouter des images**.
+
+#### <a name="delete-a-face"></a>Supprimer un visage
+
+Sélectionnez l’image que vous souhaitez supprimer et cliquez sur **Supprimer**.
+
+#### <a name="rename-and-delete-the-person"></a>Renommer et supprimer la personne 
 
 Vous pouvez utiliser le volet de gestion pour renommer la personne et supprimer la personne du modèle de personne.
 

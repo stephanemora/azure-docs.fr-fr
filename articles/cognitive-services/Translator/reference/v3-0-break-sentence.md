@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588630"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904001"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3.0 : BreakSentence
 
@@ -61,7 +61,7 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 100 éléments.
-* La valeur texte d’un élément de tableau ne peut pas dépasser 10 000 caractères, espaces compris.
+* La valeur texte d’un élément de tableau ne peut pas dépasser 50 000 caractères, espaces comprises.
 * L’intégralité du texte inclus dans la demande ne peut pas dépasser 50 000 caractères, espaces compris.
 * Si le paramètre de requête `language` est spécifié, tous les éléments du tableau doivent être dans la même langue. Sinon, la détection automatique de la langue est appliquée indépendamment à chaque élément du tableau.
 

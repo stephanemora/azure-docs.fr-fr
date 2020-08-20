@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117316"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829694"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -60,7 +60,7 @@ Chaque application requiert des attributs différents pour créer un utilisateur
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (valeur calculée non stockée sur l’utilisateur)|
 
-Le schéma défini ci-dessus est représenté à l’aide de la charge utile JSON ci-dessous. Notez qu’en plus des attributs requis par l’application, la représentation JSON contient les attributs obligatoires « id », « externalId » et « meta ».
+Le schéma défini ci-dessus est représenté à l’aide de la charge utile JSON ci-dessous. Notez qu’en plus des attributs requis par l’application, la représentation JSON contient les attributs obligatoires `id`, `externalId` et `meta`.
 
 ```json
 {
@@ -134,7 +134,7 @@ Plusieurs points de terminaison sont définis dans la RFC SCIM. Vous pouvez comm
 |/Group|Permet d’effectuer des opérations CRUD sur un objet groupe.|
 |/ServiceProviderConfig|Fournit des détails sur les fonctionnalités de la norme SCIM prises en charge, par exemple les ressources prises en charge et la méthode d’authentification.|
 |/ResourceTypes|Spécifie les métadonnées relatives à chaque ressource.|
-|/Schemas|L’ensemble des attributs pris en charge par chaque client et chaque fournisseur de services peut varier. Un fournisseur de services peut inclure les attributs « name », « title » et « emails », tandis qu’un autre fournisseur de services va utiliser les attributs « name », « title » et « phoneNumbers ». Le point de terminaison /Schemas permet la découverte des attributs pris en charge.|
+|/Schemas|L’ensemble des attributs pris en charge par chaque client et chaque fournisseur de services peut varier. Un fournisseur de services peut inclure `name`, `title` et `emails`, tandis qu’un autre fournisseur de services utilise `name`, `title` et `phoneNumbers`. Le point de terminaison /Schemas permet la découverte des attributs pris en charge.|
 |/Bulk|Les opérations en bloc vous permettent d’effectuer des opérations sur un grand nombre d’objets ressource à la fois (par exemple, pour mettre à jour les appartenances dans un grand groupe).|
 
 
@@ -149,7 +149,7 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 * Prise en charge de la création d'utilisateurs et de groupes (facultatif), conformément à la section [3.3 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Prise en charge de la modification d'utilisateurs ou de groupes avec des demandes de correctifs, conformément à la [section 3.5.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Prise en charge de la récupération d'une ressource connue pour un utilisateur ou un groupe créé plus tôt, conformément à la [section 3.4.1 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Prise en charge de l'exécution de requêtes d'utilisateurs ou de groupes, conformément à la [section 3.4.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalid`, et les groupes sont interrogés via `displayName`.  
+* Prise en charge de l'exécution de requêtes d'utilisateurs ou de groupes, conformément à la [section 3.4.2 du protocole SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Par défaut, les utilisateurs sont récupérés par leur `id` et interrogés via leur `username` et `externalId`, et les groupes sont interrogés via `displayName`.  
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
 * Prise en charge de l'exécution de requêtes de groupes par ID et par membre, conformément à la section 3.4.2 du protocole SCIM.  
 * Acceptation d’un jeton du porteur unique pour l’authentification et l’autorisation d’Azure AD dans votre application.
@@ -745,7 +745,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Plages d’adresses IP
-Le service d’approvisionnement Azure AD peut actuellement opérer sous n’importe quelle plage d’adresses IP Azure. Un travail est en cours pour consolider l’ensemble des plages d’adresses IP sur lesquelles le service opère. Ce document sera mis à jour une fois la liste de plages d’adresses IP consolidée. 
+Le service d’approvisionnement d’Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory et AzureActiveDirectoryDomainServices, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Le travail est en cours pour consolider uniquement les plages d’adresses IP sous AzureActiveDirectory. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Étape 3 : Créer un point de terminaison SCIM
 
@@ -915,10 +915,10 @@ Envoyez une requête GET au contrôleur de jetons pour obtenir un jeton du porte
 
 ***Exemple 1. Interroger le service pour obtenir un utilisateur correspondant***
 
-Azure Active Directory interroge le service pour trouver un utilisateur avec une valeur d’attribut externalId correspondant à la valeur d’attribut mailNickname d’un utilisateur dans Azure AD. La requête est exprimée dans le protocole HTTP (Hypertext Transfer Protocol) comme dans cet exemple, jyoung étant un exemple de mailNickname d’utilisateur dans Azure Active Directory.
+Azure Active Directory interroge le service pour trouver un utilisateur avec une valeur d’attribut `externalId` correspondant à la valeur d’attribut mailNickname d’un utilisateur dans Azure AD. La requête est exprimée dans le protocole HTTP (Hypertext Transfer Protocol) comme dans cet exemple, jyoung étant un exemple de mailNickname d’utilisateur dans Azure Active Directory.
 
 >[!NOTE]
-> Il s'agit simplement d'un exemple. Tous les utilisateurs n’auront pas d’attribut mailNickname, et la valeur dont dispose un utilisateur peut ne pas être unique dans le répertoire. De plus, l’attribut utilisé pour la correspondance (dans ce cas, externalId) est configurable dans les [mappages d’attribut Azure AD](customize-application-attributes.md).
+> Il s'agit simplement d'un exemple. Tous les utilisateurs n’auront pas d’attribut mailNickname, et la valeur dont dispose un utilisateur peut ne pas être unique dans le répertoire. De plus, l’attribut utilisé pour la correspondance (dans ce cas, `externalId`) est configurable dans les [mappages d’attribut Azure AD](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ Dans l’exemple de code, la requête est traduite en un appel à la méthode Qu
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-Dans l’exemple de requête, pour un utilisateur avec une valeur d’attribut externalId donnée, les valeurs des arguments transmis à la méthode QueryAsync sont :
+Dans l’exemple de requête, pour un utilisateur avec une valeur d’attribut `externalId` donnée, les valeurs des arguments transmis à la méthode QueryAsync sont :
 
 * parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
@@ -948,7 +948,7 @@ Dans l’exemple de requête, pour un utilisateur avec une valeur d’attribut e
 
 ***Exemple 2. Approvisionner un utilisateur***
 
-Si la réponse à une requête du service web pour un utilisateur avec une valeur d’attribut externalId correspondant à la valeur d’attribut mailNickname d’un utilisateur ne renvoie aucun utilisateur, Azure Active Directory demande que le service approvisionne un utilisateur correspondant à celui d’Azure Active Directory.  Voici un exemple de requête : 
+Si la réponse à une requête du service web pour un utilisateur avec une valeur d’attribut `externalId` correspondant à la valeur d’attribut mailNickname d’un utilisateur ne renvoie aucun utilisateur, Azure Active Directory demande que le service approvisionne un utilisateur correspondant à celui d’Azure Active Directory.  Voici un exemple de requête : 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1191,7 +1191,7 @@ La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fin
 |--|--|--|--|
 |Nom d’utilisateur et mot de passe (non recommandé ou pris en charge par Azure AD)|Facile à implémenter|Non sécurisé - [Votre Pa$$word n’a pas d’importance](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Prise en charge au cas par cas pour les applications de la galerie. Pas de prise en charge pour les applications ne figurant pas dans la galerie.|
 |Jeton de porteur de longue durée|Les jetons de longue durée ne nécessitent aucune intervention de la part d’un utilisateur. Ils sont simples à utiliser par les administrateurs qui configurent le provisionnement.|Les jetons de longue durée peuvent être difficiles à partager avec un administrateur sans utiliser de méthodes non sécurisées telles que la messagerie électronique. |Prise en charge pour toutes les applications (celles de la galerie et les autres). |
-|Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie. La prise en charge pour les applications qui ne figurent pas dans la galerie est prévue prochainement.|
+|Octroi du code d’autorisation OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée.  Un utilisateur doit être physiquement présent lors de l’autorisation initiale, ce qui ajoute un niveau de responsabilité. |Nécessite la présence d’un utilisateur. Si l’utilisateur quitte l’organisation, le jeton n’est plus valide et l’autorisation doit être recommencée.|Prise en charge pour les applications de la galerie, mais pas pour les autres. La prise en charge des applications n’appartenant pas à la galerie est dans notre backlog.|
 |Octroi d’informations d’identification de client OAuth|Les jetons d’accès ont une durée de vie beaucoup plus courte que les mots de passe. Ils comportent un mécanisme d’actualisation automatisée, ce qui n’est pas le cas des jetons de porteur de longue durée. L’octroi du code d’autorisation et l’octroi d’informations d’identification du client permettent de créer le même type de jeton d’accès. L’utilisation de l’une ou l’autre de ces méthodes est donc transparente pour l’API.  Le provisionnement peut être entièrement automatisé, et de nouveaux jetons peuvent être demandés sans l’assistance d’un utilisateur. ||Pas de prise en charge pour les applications de la galerie ni pour les autres. La prise en charge est dans notre backlog.|
 
 > [!NOTE]

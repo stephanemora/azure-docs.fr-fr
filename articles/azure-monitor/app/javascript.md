@@ -2,14 +2,14 @@
 title: Azure Application Insights pour les applications web JavaScript
 description: Obtenir les nombres de sessions et d’affichage de page, les données de client web, les applications monopages (SPA) et les modèles d’utilisation de suivi. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531317"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905823"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -107,11 +107,11 @@ Voici les options de configuration disponibles
 | Nom | Type | Description
 |------|------|----------------
 | src | chaîne **[obligatoire]** | URL complète de l’emplacement à partir duquel charger le kit de développement logiciel (SDK). Cette valeur est utilisée pour l’attribut « src » d’une balise &lt;script/&gt; ajoutée dynamiquement. Vous pouvez utiliser l’emplacement de CDN public ou votre propre hébergement privé.
-| name | chaîne *[facultatif]* | Le nom global du kit de développement logiciel (SDK) initialisé est par défaut appInsights. ```window.appInsights``` sera donc une référence à l’instance initialisée. Remarque : Si vous fournissez une valeur de nom ou qu’une instance précédente semble être assignée (via le nom global appInsightsSDK), cette valeur de nom sera également définie dans l’espace de noms global comme ```window.appInsightsSDK=<name value>```, ce qui est requis par le code d’initialisation du kit de développement logiciel (SDK) pour garantir son initialisation et la mise à jour du squelette d’extrait de code et des méthodes de proxy.
+| name | chaîne *[facultatif]* | Le nom global du Kit de développement logiciel (SDK) initialisé est par défaut `appInsights`. ```window.appInsights``` sera donc une référence à l’instance initialisée. Remarque : Si vous fournissez une valeur de nom ou qu’une instance précédente semble être assignée (via le nom global appInsightsSDK), cette valeur de nom sera également définie dans l’espace de noms global comme ```window.appInsightsSDK=<name value>```, ce qui est requis par le code d’initialisation du kit de développement logiciel (SDK) pour garantir son initialisation et la mise à jour du squelette d’extrait de code et des méthodes de proxy.
 | ld | nombre en ms *[facultatif]* | Définit le délai de chargement avant de tenter de charger le kit de développement logiciel (SDK). La valeur par défaut est 0 ms et toute valeur négative ajoute immédiatement une balise de script sue l’&lt;en-tête&gt; région de la page, ce qui bloque l’événement de chargement de la page jusqu’à ce que le script soit chargé (ou échoue).
 | useXhr | booléen *[facultatif]* | Ce paramètre est utilisé uniquement pour les échecs de chargement du kit de développement logiciel (SDK). La création de rapports tente d’abord d’utiliser la récupération (fetch) () si elle est disponible, puis de revenir à XHR, en définissant cette valeur sur true pour simplement ignorer la vérification de l’extraction. L’utilisation de cette valeur est requise uniquement si votre application est utilisée dans un environnement où la récupération (fetch) ne parviendrait pas à envoyer les événements d’échec.
-| crossOrigin | chaîne *[facultatif]* | Si vous incluez ce paramètre, la balise de script ajoutée pour télécharger le kit de développement logiciel (SDK) inclut l’attribut crossOrigin avec cette valeur de chaîne. Lorsqu’il n’est pas défini (valeur par défaut), aucun attribut crossOrigin n’est ajouté. Les valeurs recommandées ne sont pas définies (valeur par défaut); ""; ou «anonymous » (pour toutes les valeurs valides, consultez [Attribut HTML : crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
-| cfg | Objet **[obligatoire]** | La configuration est passée au kit de développement logiciel (SDK) Application Insights pendant l’initialisation.
+| crossOrigin | chaîne *[facultatif]* | Si vous incluez ce paramètre, la balise de script ajoutée pour télécharger le kit de développement logiciel (SDK) inclut l’attribut crossOrigin avec cette valeur de chaîne. Lorsqu’il n’est pas défini (valeur par défaut), aucun attribut crossOrigin n’est ajouté. Les valeurs recommandées ne sont pas définies (valeur par défaut) ; "" ; ou « anonymous » (pour toutes les valeurs valides, consultez [Attribut HTML : documentation `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
+| cfg | Objet **[obligatoire]** | La configuration est passée au Kit de développement logiciel (SDK) Application Insights pendant l’initialisation.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envoi de données de télémétrie au portail Azure
 
@@ -195,9 +195,9 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | enableResponseHeaderTracking | false | Si la valeur est true, les en-têtes de réponse de requête d’extraction AJAX & Fetch sont suivis, la valeur par défaut est false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Définit le mode de traçage distribué. Si le mode AI_AND_W3C ou le mode W3C sont définis, les en-têtes de contexte de trace W3C (traceparent/tracestate) sont générés et inclus dans toutes les demandes sortantes. AI_AND_W3C est fourni à des fins de compatibilité descendante avec tous les services instrumentés Application Insights hérités. Consultez l’exemple [ici](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | La valeur par défaut est false. Si la valeur est true, inclure le texte des données d’erreur de réponse dans l’événement de dépendance sur les demandes AJAX ayant échoué.
-| enableAjaxPerfTracking | false | La valeur par défaut est false. Indicateur pour activer la recherche et l’inclusion de la fenêtre de navigateur supplémentaire. les minutages des performances dans les indicateurs de performances d’Ajax (XHR et fetch) signalés.
+| enableAjaxPerfTracking | false | La valeur par défaut est false. Indicateur pour activer la recherche et l’inclusion de minutages supplémentaires de window.performance du navigateur dans les métriques `ajax` (XHR et fetch) signalées.
 | maxAjaxPerfLookupAttempts | 3 | La valeur par défaut est 3. Nombre maximal de fois où la fenêtre est recherchée. les minutages de performances (si disponibles) sont nécessaires, car tous les navigateurs remplissent la fenêtre de performances avant de signaler la fin de la demande XHR et les requêtes de récupération (fetch) sont ajoutées après son achèvement.
-| ajaxPerfLookupDelay | 25 | La valeur par défaut est 25 ms. Délai d’attente avant la nouvelle tentative de recherche de fenêtre de minutage des performances pour une requête Ajax, le temps est exprimé en millisecondes et est transmis directement à setTimeout().
+| ajaxPerfLookupDelay | 25 | La valeur par défaut est 25 ms. Délai d’attente avant la nouvelle tentative de recherche de minutages de windows.performance pour une requête `ajax`, le temps est exprimé en millisecondes et est transmis directement à setTimeout().
 | enableUnhandledPromiseRejectionTracking | false | Si la valeur est true, les rejets de promesse non gérés sont collectés et signalés comme une erreur JavaScript. Quand disableExceptionTracking a la valeur true (ne pas suivre les exceptions), la valeur de configuration est ignorée et les rejets de promesse non gérés ne sont pas signalés.
 
 ## <a name="single-page-applications"></a>Applications monopages
@@ -219,6 +219,38 @@ En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilis
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="correlation"></a>Corrélation
+
+La corrélation entre le client et le serveur est prise en charge pour :
+
+- les requêtes XHR/AJAX 
+- les requêtes fetch 
+
+La corrélation entre le client et le serveur **n’est pas prise en charge** pour les requêtes `GET` et `POST`.
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Activer la corrélation entre composants entre le client AJAX et les requêtes serveur
+
+Pour activer la corrélation `CORS`, le client doit envoyer deux en-têtes de demande supplémentaires, `Request-Id` et `Request-Context`, et le côté serveur doit être en mesure d’accepter les connexions avec ces en-têtes. L’envoi de ces en-têtes est activé en définissant `enableCorsCorrelation: true` dans la configuration du Kit de développement logiciel (SDK) JavaScript. 
+
+Selon la configuration de `Access-Control-Allow-Headers` côté serveur, il est souvent nécessaire d’étendre la liste côté serveur en ajoutant manuellement `Request-Id` et `Request-Context`.
+
+Access-Control-Allow-Headers : `Request-Id` `Request-Context`, `<your header>`
+
+Si l’un de vos serveurs tiers avec lequel le client communique ne peut pas accepter les en-têtes `Request-Id` et `Request-Context`, et que vous ne pouvez pas mettre à jour leur configuration, vous devez les placer dans une liste d’exclusion via la propriété de configuration `correlationHeaderExcludeDomains`. Cette propriété prend en charge les caractères génériques.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>Explorer les données côté navigateur/client
 

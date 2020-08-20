@@ -3,16 +3,16 @@ title: Autorisations et rôles Azure
 description: Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et la gestion des identités et des accès (IAM) pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533306"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920073"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
-Le service Azure Container Registry prend en charge un ensemble de [rôles Azure intégrés](../role-based-access-control/built-in-roles.md) fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) d’Azure pour attribuer des autorisations spécifiques aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
+Le service Azure Container Registry prend en charge un ensemble de [rôles Azure intégrés](../role-based-access-control/built-in-roles.md) fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/index.yml) pour attribuer des autorisations spécifiques aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
 
 | Rôle/autorisation       | [Accéder à Resource Manager](#access-resource-manager) | [Créer/supprimer le Registre](#create-and-delete-registry) | [Pousser (push) l’image](#push-image) | [Extraire (pull) l’image](#pull-image) | [Supprimer les données d’image](#delete-image-data) | [Changer de stratégies](#change-policies) |   [Signer les images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |

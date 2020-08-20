@@ -3,12 +3,12 @@ title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003492"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509873"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -73,19 +73,19 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Kubernetes Service provider
      az provider register --namespace Microsoft.ContainerService
-   
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
-   
+
      # Feature register: enables installing the add-on
      az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-     
+
      # Use the following to confirm the feature has registered
      az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].   {Name:name,State:properties.state}"
-     
+
      # Once the above shows 'Registered' run the following to propagate the update
      az provider register -n Microsoft.ContainerService
      ```
@@ -135,7 +135,7 @@ Une fois les étapes préalables ci-dessus accomplies, installez le module compl
      <a name="migrate-from-v1"></a>
      > [!NOTE]
      > Si le bouton **Activer un module complémentaire** est grisé, cela signifie que l’abonnement n’a pas encore été ajouté à la préversion. Si le bouton **Désactiver un module complémentaire** est activé et qu’un message d’avertissement de migration v2 s’affiche, cela signifie que le module complémentaire v1 est installé et doit être supprimé avant d’attribuer des définitions de stratégie v2. Le module complémentaire v1 _obsolète_ sera automatiquement remplacé par le module complémentaire v2 à compter du 24 août 2020. Les nouvelles versions v2 des définitions de stratégie doivent ensuite être affectées. Pour effectuer la mise à niveau maintenant, procédez comme suit :
-     > 
+     >
      > 1. Vérifiez que le module complémentaire v1 est installé sur votre cluster AKS en visitant la page **stratégies (préversion)** sur votre cluster AKS, et que le cluster AKS affiche le messahe « The current cluster uses Azure Policy add-on v1... » (Le cluster actuel utilise le module complémentaire on Azure Policy v1).
      > 1. [Supprimez le module complémentaire](#remove-the-add-on-from-aks).
      > 1. Cliquez sur le bouton **Activer l’extension** pour installer la version v2 du module complémentaire.
@@ -185,16 +185,16 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -205,7 +205,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
 1. Votre cluster Kubernetes activé pour Azure Arc. Pour plus d’informations, consultez [Intégration d’un cluster Kubernetes à Azure Arc](../../../azure-arc/kubernetes/connect-cluster.md).
 
-1. Munissez-vous de l’ID de ressource Azure complet du cluster Kubernetes compatible avec Azure Arc. 
+1. Munissez-vous de l’ID de ressource Azure complet du cluster Kubernetes compatible avec Azure Arc.
 
 1. Ouvrez des ports pour le module complémentaire. Le module complémentaire Azure Policy utilise ces domaines et ports pour extraire des définitions et affectations de stratégie, et rendre compte de la conformité du cluster à Azure Policy.
 
@@ -226,7 +226,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
    - Azure PowerShell
 
-     ```azure powershell-interactive
+     ```azurepowershell-interactive
      $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
 
      @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
@@ -289,16 +289,16 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-     
+
      # Provider register: Register the Azure Policy provider
      az provider register --namespace 'Microsoft.PolicyInsights'
      ```
 
    - Azure PowerShell
-   
+
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-   
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -310,7 +310,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
      ```bash
      # Get the kube-apiserver pod name
      kubectl get pods -n kube-system
-   
+
      # Find the aadClientID value
      kubectl exec <kube-apiserver pod name> -n kube-system cat /etc/kubernetes/azure.json
      ```
@@ -393,21 +393,20 @@ Recherchez les définitions de stratégie intégrées pour la gestion de votre c
 
 1. Définissez **Étendue** sur le groupe de gestion, l’abonnement ou le groupe de ressources du cluster Kubernetes auquel s’appliquera l’affectation de stratégie.
 
-   > [!NOTE]    
+   > [!NOTE]
    > Lors de l’affectation de la définition d’Azure Policy pour Kubernetes, l’**Étendue** doit inclure la ressource de cluster. Pour un cluster de moteur AKS, l’**Étendue** doit être le groupe de ressources du cluster.
 
-1. Donnez un **Nom** et une **Description** à l’affectation de stratégie, qui permettront de l’identifier facilement.    
+1. Donnez un **Nom** et une **Description** à l’affectation de stratégie, qui permettront de l’identifier facilement.
 
-1. Définissez l’[Application de la stratégie](./assignment-structure.md#enforcement-mode) sur l’une des valeurs.    
-   souhaité ci-dessous.   
+1. Définissez l’[application de stratégie](./assignment-structure.md#enforcement-mode) sur l’une des valeurs ci-dessous.
 
-   - **Activé** - Appliquer la stratégie sur le cluster. Les demandes d’admission Kubernetes avec des violations sont refusées.    
+   - **Activé** - Appliquer la stratégie sur le cluster. Les demandes d’admission Kubernetes avec des violations sont refusées.
 
    - **Désactivé** - Ne pas appliquer la stratégie sur le cluster. Les demandes d’admission Kubernetes avec des violations ne sont pas refusées. Les résultats de l’évaluation de la conformité sont toujours disponibles. Lors du déploiement de nouvelles définitions de stratégies sur Des clusters en cours d’exécution, l’option _Désactivé_ est utile pour tester la définition de stratégie, étant donné que les demandes d’admission avec des violations ne sont pas refusées.
 
-1. Sélectionnez **Suivant**. 
+1. Sélectionnez **Suivant**.
 
-1. Définir les **valeurs de paramètres** 
+1. Définir les **valeurs de paramètres**
 
    - Pour exclure les espaces de noms Kubernetes de l’évaluation de stratégie, répertoriez les espaces de noms dans le paramètre **Exclusions d’espaces de noms**. Il est recommandé d’exclure _Kube-System_, _Gatekeeper-System_ et _Azure-arc_.
 

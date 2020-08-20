@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Service Bus
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475983"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067237"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l’aide de clés gérées par Microsoft. 
@@ -21,7 +21,7 @@ L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue q
 > [!NOTE]
 > Il existe quelques inconvénients à la clé gérée par le client pour le chiffrement côté service. 
 >   * Cette fonctionnalité est prise en charge par le niveau de service [Azure Service Bus Premium](service-bus-premium-messaging.md). Elle ne peut pas être activée pour les espaces de noms Service Bus de niveau standard.
->   * Le chiffrement ne peut être activé que pour les espaces de noms nouveaux ou vides. Si l’espace de noms contient des données, l’opération de chiffrement échoue.
+>   * Le chiffrement ne peut être activé que pour les espaces de noms nouveaux ou vides. Si l’espace de noms contient des files d’attente ou des rubriques, l’opération de chiffrement échoue.
 
 Vous pouvez utiliser Azure Key Vault pour gérer vos clés et effectuer un audit sur leur utilisation. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
 
@@ -44,7 +44,7 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 
 Après avoir activé une clé gérée par le client, vous devez l’associer à votre espace de noms Azure Service Bus. Service Bus prend uniquement en charge Azure Key Vault. Si vous activez l'option **Chiffrement à l'aide de la clé gérée par le client** dans la section précédente, vous devez importer la clé dans Azure Key Vault. En outre, les fonctionnalités **Suppression réversible** et **Ne pas vider** doivent être configurées pour la clé. Ces paramètres peuvent être configurés à l'aide de [PowerShell](../key-vault/general/soft-delete-powershell.md) ou de l'[interface CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/about-keys-secrets-and-certificates.md).
+1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
 1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
 
     ```azurecli-interactive
@@ -323,5 +323,3 @@ Dans cette étape, vous allez mettre à jour l’espace de noms Service Bus avec
 Voir les articles suivants :
 - [Vue d’ensemble de Service Bus](service-bus-messaging-overview.md)
 - [Vue d'ensemble de Key Vault](../key-vault/general/overview.md)
-
-

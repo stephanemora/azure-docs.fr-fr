@@ -2,18 +2,18 @@
 title: Fonctionnalités de FHIR prises en charge dans Azure - API Azure pour FHIR
 description: Cet article détaille les fonctionnalités de la spécification de FHIR qui sont implémentées dans l’API Azure pour FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808027"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142517"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -103,7 +103,7 @@ Tous les types de paramètre de recherche sont pris en charge.
 | `_count`                | Oui       | Oui       | Oui       |         |
 | `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
 | `_include`              | Non        | Oui       | Non        |         |
-| `_revinclude`           | Non        | Non        | Non        |         |
+| `_revinclude`           | Non        | Oui       | Non        | Les éléments inclus sont limités à 100. |
 | `_contained`            | Non        | Non        | Non        |         |
 | `_elements`             | Non        | Non        | Non        |         |
 

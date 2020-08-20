@@ -9,12 +9,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293699"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053760"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Créer des utilisateurs invités Azure AD et les définir comme administrateurs Azure AD
 
@@ -133,9 +133,9 @@ Suivez ces étapes pour définir un utilisateur invité Azure AD comme administr
 
 ## <a name="limitations"></a>Limitations
 
-Le portail Azure présente une limitation qui empêche la sélection d’un utilisateur invité Azure AD comme administrateur Azure AD pour SQL Database, SQL Managed Instance et Azure Synapse. Pour les comptes invités extérieurs à votre instance Azure AD comme *\@outlook.com*, *\@hotmail.com*, *\@live.com* ou *\@gmail.com*, le sélecteur d’administrateur AD présente ces comptes, mais ils sont grisés et ne peuvent pas être sélectionnés. Utilisez les [commandes PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) mentionnées ci-dessus pour définir l’administrateur Azure AD. Un groupe Azure AD contenant l’utilisateur invité peut aussi être défini comme administrateur Azure AD pour le serveur logique SQL.
+Le portail Azure présente une limitation qui empêche la sélection d’un utilisateur invité Azure AD comme administrateur Azure AD pour SQL Managed Instance. Pour les comptes invités extérieurs à votre instance Azure AD comme *\@outlook.com*, *\@hotmail.com*, *\@live.com* ou *\@gmail.com*, le sélecteur d’administrateur AD présente ces comptes, mais ils sont grisés et ne peuvent pas être sélectionnés. Utilisez les [commandes PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) mentionnées ci-dessus pour définir l’administrateur Azure AD. Un groupe Azure AD contenant l’utilisateur invité peut aussi être défini comme administrateur Azure AD pour l’instance gérée SQL.
 
-Cette fonctionnalité sera activée pour SQL Database et Azure Synapse avant la mise à disposition générale de cette fonctionnalité.
+Cette fonction sera activée pour SQL Managed Instance avant la mise à disposition générale de cette fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519695"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042318"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporter les alertes et recommandations de sécurité
 
@@ -31,12 +31,14 @@ Cet article décrit l’ensemble des outils qui sont à votre disposition pour e
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **En disponibilité générale**
-- Rôles et autorisations obligatoires :
-    - **Lecteur** sur l’abonnement contenant la configuration d’exportation
-    - **Rôle d’administrateur de sécurité** sur le groupe de ressources (ou **Propriétaire**)
-    - Doit également disposer d’autorisations en écriture sur la ressource cible
-- Clouds : ✔ Clouds commerciaux ✔ US Gov ✘ China Gov, autres gov
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Mise à la disposition générale|
+|Prix :|Niveau gratuit|
+|Rôles et autorisations obligatoires :|**Lecteur** sur l’abonnement contenant la configuration d’exportation<br>**Rôle d’administrateur de sécurité** sur le groupe de ressources (ou **Propriétaire**)<br>Doit également disposer d’autorisations en écriture sur la ressource cible|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Configuration d’une exportation continue

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089938"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042498"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Supprimer les alertes de la protection contre les menaces d’Azure Security Center
 
@@ -21,9 +21,15 @@ Cette page explique comment utiliser les règles de suppression d’alerte pour 
 
 ## <a name="availability"></a>Disponibilité
 
-- État de sortie : **Préversion**
-- Rôles nécessaires : **L’Administrateur de la sécurité** et le **Propriétaire** peuvent créer/supprimer des règles. Le **Lecteur de sécurité** et le **Lecteur** peuvent consulter les règles.
-- Clouds : ✔ Clouds commerciaux ✔ Nationaux/souverains (US Gov, China Gov, autres clouds Gov)
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|PRÉVERSION|
+|Prix :|Niveau gratuit<br>(La plupart des alertes de sécurité sont uniquement destinées au niveau Standard.)|
+|Rôles et autorisations obligatoires :|**L’Administrateur de la sécurité** et le **Propriétaire** peuvent créer/supprimer des règles.<br>Le **Lecteur de sécurité** et le **Lecteur** peuvent consulter les règles.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>Que sont les règles de suppression ?

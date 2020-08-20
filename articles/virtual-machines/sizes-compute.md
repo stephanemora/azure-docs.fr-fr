@@ -4,16 +4,16 @@ description: Répertorie les différentes tailles optimisées pour le calcul pou
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: b945348f6fabfa698e45c111241fbfcef088d45e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 58ade8dfdde2c906cbe7c61a232f2643708e19b2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058076"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832465"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à calcul optimisé
 
@@ -35,3 +35,5 @@ Affichant le coût le plus bas par heure, la série Fsv2 offre le meilleur rappo
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
+
+Pour plus d’informations sur la façon dont Azure nomme ses machines virtuelles, consultez [Conventions de nommage des tailles de machines virtuelles Azure](./vm-naming-conventions.md).

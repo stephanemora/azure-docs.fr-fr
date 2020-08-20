@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f280e6754d40ad5dc8cbfa4b760e090d0b5b81aa
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461355"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846477"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel .Node.js Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ ms.locfileid: "87461355"
 > * [SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Connecteur Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -57,7 +59,7 @@ ms.locfileid: "87461355"
 * Correction du bogue survenant quand l’utilisateur fournit des options de nouvelle tentative partielles
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* Empêcher Webpack de résoudre les modules appelés avec require
+* Empêcher webpack de résoudre les modules appelés avec require
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * Correction d’un bogue de longue date où les RU (unités de requête) étaient toujours signalé comme 0 pour les requêtes d’agrégation
@@ -183,7 +185,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Amélioration de l’expérience de navigateur
-Bien qu’il était possible d’utiliser le SDK v2 dans le navigateur, cette expérience n’était pas optimale. Vous deviez effectuer un polyfill sur plusieurs bibliothèques intégrées node.js et utiliser un programme d'installation de logiciels indésirables regroupés (bundler) comme Webpack ou Parcel. Le SDK v3 améliore considérablement l’expérience prête pour les utilisateurs de navigateur.
+Bien qu’il était possible d’utiliser le SDK v2 dans le navigateur, cette expérience n’était pas optimale. Vous deviez effectuer un polyfill sur plusieurs bibliothèques intégrées node.js et utiliser un programme d’installation d’offre groupée (bundler) comme webpack ou Parcel. Le SDK v3 améliore considérablement l’expérience prête pour les utilisateurs de navigateur.
 
 * Remplacement des éléments internes des requêtes par la récupération (fetch) (n° 245)
 * Suppression de l’utilisation d’un tampon (n° 330)

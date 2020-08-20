@@ -6,19 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539547"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843383"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 
-Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront mises hors service en septembre 2019 (c’était initialement prévu pour juillet 2019). Un outil de migration est disponible dans le Portail Azure pour les clients qui utilisent des règles d’alerte classiques et qui souhaitent déclencher la migration eux-mêmes.
-
 > [!NOTE]
-> En raison de retards dans le déploiement de l’outil de migration, la date de mise hors service des alertes classiques a été repoussée au 31 août 2019 (la date annoncée à l’origine était le 30 juin 2019).
+> Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor sont mises hors service, bien qu’elles soient toujours utilisées pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. La date de mise hors service de ces alertes a été repoussée. Une nouvelle date sera annoncée prochainement.
+>
 
 Si vous choisissez de migrer volontairement vos règles d’alerte classiques vers de nouvelles règles d’alerte, n’oubliez pas qu’il existe certaines différences entre les deux systèmes. Cet article décrit ces différences et explique comment préparer la modification.
 

@@ -1,6 +1,6 @@
 ---
 title: Mesures Azure Storage Analytics (classique)
-description: Découvrez comment utiliser les mesures Storage Analytics dans le Stockage Azure.
+description: Découvrez comment utiliser les mesures Storage Analytics dans le Stockage Azure. En savoir plus sur les métriques de transaction et de capacité, leur mode de stockage, leur activation et bien plus encore.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5613453667e3bb278f4da22ebed4502def70235b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7d7db5a756e5d75cb4f9719f54d95f9cee1e8d2f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828045"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesures Azure Storage Analytics (classique)
 
@@ -146,18 +146,16 @@ Dans la section **Supervision (classique)** du volet de menu du compte de stocka
 
 Si vous souhaitez télécharger les métriques pour un stockage à long terme ou pour les analyser localement, vous devez utiliser un outil ou écrire du code pour lire les tables. Vous devez télécharger les métriques par minute pour analyse. Les tables ne sont pas visibles si vous répertoriez toutes les tables dans votre compte de stockage, mais vous pouvez y accéder directement par nom. De nombreux outils de consultation du stockage prennent en charge ces tables et vous permettent de les afficher directement. Pour obtenir la liste des outils disponibles, consultez la rubrique relative aux [outils clients du Stockage Azure](/azure/storage/storage-explorers).
 
-||||  
+|Mesures|Noms de tables|Notes| 
 |-|-|-|  
-|**Métriques**|**Noms de tables**|**Remarques**|  
 |Métriques toutes les heures|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Dans les versions antérieures au 15 août 2013, ces tables étaient connues sous les noms suivants :<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Les mesures pour le service Fichier sont disponibles depuis la version du 5 avril 2015.|  
 |Métriques par minute|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Ne peut être activé qu’avec PowerShell ou de manière programmatique.<br /><br /> Les mesures pour le service Fichier sont disponibles depuis la version du 5 avril 2015.|  
 |Capacité|$MetricsCapacityBlob|Service Blob uniquement.|  
 
 Vous trouverez des informations complètes sur les schémas de ces tables dans la section [Schéma de table de mesures Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema). Les exemples de lignes ci-dessous montrent uniquement un sous-ensemble des colonnes disponibles, mais illustrent les différentes façons dont les mesures de stockage enregistrent ces informations :  
 
-||||||||||||  
+|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|Disponibilité|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilité**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

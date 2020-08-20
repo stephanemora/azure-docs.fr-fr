@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: c6780d952b9ce6ea58fc6c8a2509a4526add7149
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028267"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905089"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Créer un jeu de données d’apprentissage pour un modèle personnalisé
 
@@ -42,7 +42,7 @@ Vérifiez que votre jeu de données d’apprentissage respecte également les cr
 
 ## <a name="upload-your-training-data"></a>Charger vos données d’entraînement
 
-Une fois que vous avez combiné l’ensemble des documents de formulaire que vous utiliserez pour l’entraînement, vous devez charger cet ensemble sur un conteneur de stockage blob Azure. Si vous ignorez comment créer un compte de stockage Azure avec un conteneur, consultez le [démarrage rapide du stockage Azure pour le portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Une fois que vous avez combiné l’ensemble des documents de formulaire que vous utiliserez pour l’entraînement, vous devez charger cet ensemble sur un conteneur de stockage blob Azure. Si vous ignorez comment créer un compte de stockage Azure avec un conteneur, consultez le [démarrage rapide du stockage Azure pour le portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Utilisez le niveau de performance standard.
 
 Si vous souhaitez utiliser des données étiquetées manuellement, vous devrez également charger les fichiers *.labels.json* et *.ocr.json* correspondant à vos documents d’apprentissage. Vous pouvez vous servir de [l’outil Exemple d’étiquetage](./quickstarts/label-tool.md) (ou de votre propre interface utilisateur) pour générer ces fichiers.
 

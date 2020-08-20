@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846307"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 

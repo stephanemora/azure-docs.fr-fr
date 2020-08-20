@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851982"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gestion dans Azure Data Factory
 
@@ -57,6 +57,12 @@ Pour remplacer les paramètres modèle Resource Manager générés lors de la pu
 Les déclencheurs déterminent à quel moment l’exécution d’un pipeline doit être lancée. Actuellement, les déclencheurs peuvent figurer dans une planification d’horloge, opérer à intervalles réguliers ou dépendre d’un événement. Pour plus d’informations, découvrez comme [déclencher une exécution](concepts-pipeline-execution-triggers.md#trigger-execution). Le hub de gestion vous permet de créer, modifier, supprimer ou afficher l’état actuel d’un déclencheur.
 
 ![Gérer les paramètres personnalisés](media/author-management-hub/management-hub-triggers.png)
+
+### <a name="global-parameters"></a>Paramètres globaux
+
+Les paramètres globaux représentent des constantes d’une fabrique de données, qui peuvent être consommées par un pipeline dans n’importe quelle expression. Pour plus d’informations, consultez [Paramètres globaux](author-global-parameters.md).
+
+![Créer des paramètres globaux](media/author-global-parameters/create-global-parameter-3.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

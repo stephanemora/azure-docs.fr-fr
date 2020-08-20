@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 15b6de6a03bc5dd67650076beac603845b99ff59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 711bcc06a65483921492aaad819b961fc09740d4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286187"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067033"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à GPU optimisé
 
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU uniques, multiples ou fractionnaires. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement.
 
-- Les tailles des séries [NC](nc-series.md), [NCv2](ncv2-series.md) et [NCv3](ncv3-series.md) sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond (Deep Learning). Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques à hautes performances. La série NC utilise le processeur Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) et les machines virtuelles de la série NCv2 et NCv3 sont dotées du processeur Intel Xeon E5-2690 v4 (Broadwell).
+- Les tailles des séries [NC](nc-series.md), [NCv2](ncv2-series.md), [NCv3](ncv3-series.md) et [NCT4_v3](nct4-v3-series.md) sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond (Deep Learning). La série NCT4v3 est axée sur les charges de travail d’inférence comprenant le GPU Tesla T4 de NVIDIA et le processeur AMD EPYC2 Rome. Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques à hautes performances. La série NC utilise le processeur Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) et les machines virtuelles de la série NCv2 et NCv3 sont dotées du processeur Intel Xeon E5-2690 v4 (Broadwell).
 
 - Les tailles des séries [ND](nd-series.md) et [NDv2](ndv2-series.md) sont destinées à l’exécution de scénarios d’apprentissage et d’inférence pour l’apprentissage profond (Deep Learning). Elles utilisent le GPU NVIDIA Tesla P40 et le processeur Intel Xeon E5-2690 v4 (Broadwell). La série NDv2 utilise le processeur Intel Xeon Platinum 8168 (Skylake).
 

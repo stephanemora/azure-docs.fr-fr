@@ -9,21 +9,21 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415044"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852291"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis un point de terminaison REST. Il s’appuie sur l’article [Activité de copie dans Azure Data Factory](copy-activity-overview.md), qui constitue une présentation de l’activité de copie.
 
-Les différences entre ce connecteur REST, un [connecteur HTTP](connector-http.md) et le [connecteur Table Web](connector-web-table.md) sont les suivantes :
+Les différences entre ce connecteur REST, un [connecteur HTTP](connector-http.md) et le [connecteur Table web](connector-web-table.md) sont les suivantes :
 
 - Le **connecteur REST** prend spécifiquement en charge la copie de données à partir d’API RESTful. 
 - Le **connecteur HTTP** est générique pour récupérer des données à partir de n’importe quel point de terminaison HTTP, par exemple pour télécharger un fichier. Avant que ce connecteur REST soit disponible, vous utiliserez peut-être un connecteur HTTP pour copier des données à partir d’une API RESTful, ce qui est pris en charge mais moins fonctionnel comparé au connecteur REST.
@@ -62,7 +62,7 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 | type | La propriété **type** doit être définie sur **RestService**. | Oui |
 | url | URL de base du service REST. | Oui |
 | enableServerCertificateValidation | Indique s'il convient de valider ou non le certificat TLS/SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
-| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
+| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonymous**, **Basic**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
@@ -107,7 +107,8 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 | servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple `https://management.core.windows.net`.| Oui |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auquel votre application AAD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
 
 **Exemple**
 
@@ -141,7 +142,7 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple `https://management.core.windows.net`.| Oui |
 
 **Exemple**
 
@@ -319,7 +320,7 @@ Les **règles de pagination** sont définies en tant que dictionnaire dans un je
 
 | Valeur | Description |
 |:--- |:--- |
-| Headers.*response_header* OR Headers[’response_header’] | « response_header » est défini par l’utilisateur et fait référence à un nom d’en-tête dans la réponse HTTP en cours, dont la valeur sera être utilisée pour émettre la requête suivante. |
+| Headers.*response_header* OR Headers[’response_header’] | « response_header » est défini par l’utilisateur et fait référence à un nom d’en-tête dans la réponse HTTP actuelle, dont la valeur sera utilisée pour émettre la prochaine requête. |
 | Expression JSONPath commençant par « $ » (représentant la racine du corps de la réponse) | Le corps de la réponse ne doit contenir qu’un seul objet JSON. L’expression JSONPath doit retourner une seule valeur primitive qui sera utilisée pour émettre la requête suivante. |
 
 **Exemple :**

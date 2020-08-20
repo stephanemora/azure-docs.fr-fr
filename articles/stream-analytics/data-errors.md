@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041045"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053148"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytics
 
-Les erreurs de données sont des erreurs qui se produisent lors du traitement des données.  Souvent, ces erreurs surviennent pendant les opérations de désérialisation, de sérialisation et d’écriture de données.  Lorsque des erreurs de données se produisent, Stream Analytics écrit des informations détaillées et des exemples d’événements dans les journaux de diagnostic.  Dans certains cas, un résumé de ces informations est également fourni par l’intermédiaire des notifications du portail.
+Les erreurs de données sont des erreurs qui se produisent lors du traitement des données.  Souvent, ces erreurs surviennent pendant les opérations de désérialisation, de sérialisation et d’écriture de données.  Lorsque des erreurs de données se produisent, Stream Analytics écrit des informations détaillées et des exemples d’événements dans les journaux de diagnostic. Activez les journaux de diagnostic dans votre travail pour obtenir ces détails supplémentaires. Dans certains cas, un résumé de ces informations est également fourni par l’intermédiaire des notifications du portail.
 
 Cet article décrit les différents types d’erreurs, leurs causes et les détails des journaux de ressources pour les erreurs de données d’entrée et de sortie.
 
@@ -166,7 +166,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="lateinputevent"></a>LateInputEvent
 
 * Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à la fenêtre de tolérance d’arrivée tardive.
-* Notification de portail fournie : Non 
+* Notification de portail fournie : Non
 * Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée tardifs sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux
@@ -182,7 +182,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à 5 minutes.
-* Notification de portail fournie : Non 
+* Notification de portail fournie : Non
 * Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée précoces sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux
@@ -198,7 +198,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
 * Cause : L’événement est considéré comme en désordre en raison de la fenêtre de tolérance de désordre définie.
-* Notification de portail fournie : Non 
+* Notification de portail fournie : Non
 * Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée dans le désordre sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux

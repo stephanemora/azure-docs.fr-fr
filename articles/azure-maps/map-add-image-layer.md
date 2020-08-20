@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche d’images à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à superposer une image sur une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
+description: Découvrez comment ajouter des images à une carte. Découvrez comment utiliser le Kit de développement logiciel (SDK) web Azure Maps pour personnaliser les couches d’images et les images de superposition sur des ensembles fixes de coordonnées.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286947"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010223"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 

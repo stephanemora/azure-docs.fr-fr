@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169610"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927434"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169610"
 
 ## <a name="configure-registry-authentication"></a>Configurer l’authentification du registre
 
-Dans un scénario de production où vous fournissez l’accès à des services et applications « sans affichage », il est recommandé de configurer l’accès au registre avec un [principal de service](../container-registry/container-registry-auth-service-principal.md). Un principal de service vous permet de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
+Dans un scénario de production où vous fournissez l’accès à des services et applications « sans affichage », il est recommandé de configurer l’accès au registre avec un [principal de service](../container-registry/container-registry-auth-service-principal.md). Un principal de service vous permet de fournir un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../container-registry/container-registry-roles.md) à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
 Azure Container Registry offre des [options d’authentification](../container-registry/container-registry-authentication.md) supplémentaires.
 

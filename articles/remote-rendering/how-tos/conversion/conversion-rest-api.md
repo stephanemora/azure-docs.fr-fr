@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857790"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985612"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utiliser l’API REST de conversion de modèle
 
@@ -53,6 +53,8 @@ Retourne l’ID de la conversion en cours dans un document JSON. Le nom de champ
 
 #### <a name="request-body"></a>Corps de la demande
 
+> [!NOTE]
+> Tout ce qui se trouve sous `input.folderPath` sera récupéré pour effectuer la conversion sur Azure. Si `input.folderPath` n’est pas spécifié, tout le contenu du conteneur est récupéré. Tous les blobs et dossiers récupérés doivent avoir [un nom de fichier Windows valide](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -79,7 +81,7 @@ Si votre compte ARR n’est pas lié à votre compte de stockage, cette interfac
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Retourne l’ID de la conversion en cours dans un document JSON. Le nom de champ est « conversionId ».
+Retourne l’ID de la conversion en cours dans un document JSON. Le nom du champ est `conversionId`.
 
 #### <a name="request-body"></a>Corps de la demande
 
@@ -88,6 +90,8 @@ Le corps de la demande est le même que dans l’appel de création REST ci-dess
 > [!NOTE]
 > Ces jetons d’URI SAP sont les chaînes de requête, non l’URI complet. 
 
+> [!NOTE]
+> Tout ce qui se trouve sous `input.folderPath` sera récupéré pour effectuer la conversion sur Azure. Si `input.folderPath` n’est pas spécifié, tout le contenu du conteneur est récupéré. Tous les blobs et dossiers récupérés doivent avoir [un nom de fichier Windows valide](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

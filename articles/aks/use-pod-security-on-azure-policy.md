@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050458"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987356"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Sécuriser les pods avec Azure Policy (préversion)
 
 Pour améliorer la sécurité de votre cluster AKS, vous pouvez contrôler quelles fonctions sont accordées aux pods et si quelque chose va à l'encontre de la politique de l'entreprise. Cet accès est défini par le biais de stratégies intégrées fournies par le module complémentaire [Azure Policy pour AKS][kubernetes-policy-reference]. Le contrôle supplémentaire sur les aspects de sécurité de la spécification de votre pod, comme les privilèges racine, permet une adhésion de sécurité plus stricte et une meilleure visibilité sur ce qui est déployé dans votre cluster. Si un pod ne remplit pas les conditions spécifiées dans la stratégie, Azure Policy peut empêcher le pod de démarrer ou signaler une violation. Cet article explique comment utiliser Azure Policy pour limiter le déploiement de pods dans AKS.
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -47,7 +43,7 @@ Ce document suppose que vous disposez des éléments suivants, qui sont déploy�
 
 Dans un cluster AKS, un contrôleur d’admission est utilisé pour intercepter les requêtes envoyées au serveur d’API lorsqu’une ressource doit être créée. Le contrôleur d’admission peut ensuite *valider* la requête de ressource par rapport à un ensemble de règles à l’endroit où elle doit être créée.
 
-Auparavant, la fonctionnalité [Stratégie de sécurité des pods (version préliminaire)](use-pod-security-policies.md) était activée via le projet Kubernetes pour limiter les pods pouvant être déployés. Cette fonctionnalité n’est plus en cours de développement actif dans le projet Kubernetes.
+Auparavant, la fonctionnalité [Stratégie de sécurité des pods (version préliminaire)](use-pod-security-policies.md) était activée via le projet Kubernetes pour limiter les pods pouvant être déployés.
 
 Via le module complémentaire Azure Policy, un cluster AKS peut utiliser des politiques Azure intégrées qui sécurisent des pods et d’autres ressources Kubernetes similaires à la stratégie de sécurité des pods utilisée auparavant. Le module complémentaire Azure Policy pour AKS installe une instance gérée de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), un contrôleur d’admission de validation. Azure Policy pour Kubernetes est intégré à l’agent open source Open Policy qui s’appuie sur le[langage de stratégie Rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
@@ -283,7 +279,7 @@ Vous trouverez ci-dessous un résumé des changements de comportement entre la s
 |Installation|Activez la fonctionnalité de stratégie de sécurité des pods |Installez le module complémentaire Azure Policy
 |Déployer des stratégies| Déployer la ressource de stratégie de sécurité des pods| Affectez des stratégies Azure à l’étendue de l’abonnement ou du groupe de ressources. Le module complémentaire Azure Policy est requis pour les applications de ressources Kubernetes.
 | Stratégies par défaut | Lorsque la stratégie de sécurité des pods est activée dans AKS, les stratégies privilégiées et non restreintes par défaut sont appliquées. | Après l’activation du module complémentaire Azure Policy, aucune stratégie n’est appliquée par défaut. Vous devez explicitement activer les stratégies dans Azure Policy.
-| Qui peut créer et attribuer une stratégie | L’administrateur de cluster crée une ressource de stratégie de sécurité des pods | Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Via l’API, les utilisateurs peuvent affecter des stratégies dans l’étendue de la ressource de cluster AKS. Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Dans le portail Azure, les stratégies peuvent être appliquées au niveau du groupe d’administration, de l’abonnement ou des groupes de ressources.
+| Qui peut créer et attribuer une stratégie | L’administrateur de cluster crée une ressource de stratégie de sécurité des pods | Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Via l’API, les utilisateurs peuvent affecter des stratégies dans l’étendue de la ressource de cluster AKS. Les utilisateurs doivent avoir un rôle minimal d’autorisations « propriétaire » ou « contributeur de stratégie de ressource » sur le groupe de ressources du cluster AKS. - Dans le portail Azure, les stratégies peuvent être appliquées au niveau du groupe d’administration, de l’abonnement ou du groupe de ressources.
 | Autorisation des stratégies| Les utilisateurs et les comptes de service requièrent des autorisations explicites pour utiliser des stratégies de sécurité des pods. | Aucune affectation supplémentaire n’est requise pour autoriser des stratégies. Une fois les stratégies affectées dans Azure, tous les utilisateurs du cluster peuvent utiliser ces stratégies.
 | Applicabilité de la stratégie | L’utilisateur administrateur ignore la mise en œuvre des stratégies de sécurité des pods. | Tous les utilisateurs (administrateur & non-administrateur) voient les mêmes stratégies. Il n’existe aucune casse particulière basée sur les utilisateurs. L’application de stratégie peut être exclue au niveau de l’espace de noms.
 | Étendue de la stratégie | Les stratégies de sécurité des pods n'ont pas d'espace de noms | Les modèles de contrainte utilisés par Azure Policy n’ont pas d’espaces de noms.

@@ -1,6 +1,6 @@
 ---
 title: Optimiser Azure Data Lake Storage Gen2 pour les performances | Microsoft Docs
-description: Conseils de réglage des performances d’Azure Data Lake Storage Gen2
+description: Découvrez comment optimiser les performances d’Azure Data Lake Storage Gen2. Ingérez des données, structurez votre jeu de données, et bien plus encore.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f38dc72a45d84b549baa17c34f2c64ac35b83e3e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285388"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905403"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimiser Azure Data Lake Storage Gen2 pour les performances
 

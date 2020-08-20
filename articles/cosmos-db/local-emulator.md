@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028236"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119519"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -507,6 +507,8 @@ Aidez-vous des conseils suivants pour résoudre les problèmes rencontrés avec 
 - Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et ouvrez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 - Si vous recevez un message **Service indisponible**, il se peut que l’émulateur n’arrive pas à initialiser la pile réseau. Vérifiez si les clients Pulse Secure ou Juniper Networks sont installés, car leurs pilotes de filtre réseau peuvent être à l’origine du problème. La désinstallation des pilotes de filtre de réseau tiers permet généralement de résoudre le problème. Vous pouvez également démarrer l’émulateur avec l’option /DisableRIO, pour passer la communication réseau de l’émulateur à Winsock standard. 
+
+- Si vous rencontrez des problèmes de connectivité indiquant **« Interdit »,« message »:« La requête est effectuée avec un chiffrement ou un protocole de chiffrement en transit interdit. Vérifiez le paramètre de protocole minimum autorisé SSL/TLS… »** , cela peut être dû à des changements globaux dans le système d’exploitation (par exemple, Insider Preview Build 20170) ou dans les paramètres du navigateur qui activent TLS 1.3 par défaut. Une erreur similaire peut se produire lors de l’utilisation du Kit de développement logiciel (SDK) pour exécuter une requête sur l’émulateur Cosmos, par exemple **Microsoft.Azure.Documents.DocumentClientException: La requête est effectuée avec un chiffrement ou un protocole de chiffrement en transit interdit. Vérifiez le paramètre de protocole minimum autorisé SSL/TLS**. Ceci est en attente pour le moment, car l’émulateur Cosmos fonctionne uniquement avec le protocole TLS 1.2. La solution recommandée consiste à modifier les paramètres et à utiliser par défaut TLS 1.2 ; par exemple, dans IIS Manager, accédez à « Sites » -> « Sites web par défaut » et recherchez les « Liaisons de site » pour le port 8081, puis modifiez-les pour désactiver TLS 1.3. Une opération similaire peut être effectuée pour le navigateur web via les options « Paramètres ».
 
 - Lorsque l’émulateur est en cours d’exécution, si votre ordinateur se met en mode veille ou exécute une mise à jour du système d’exploitation, le message **Le service est actuellement indisponible** peut s’afficher. Réinitialisez les données de l’émulateur en cliquant avec le bouton droit sur l’icône qui apparaît dans la zone de notification Windows, puis en sélectionnant **Réinitialiser les données**.
 

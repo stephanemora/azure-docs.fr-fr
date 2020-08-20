@@ -4,12 +4,12 @@ description: Découvrez-en plus sur les partenaires Azure Monitor et comment vou
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318332"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142403"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -184,6 +184,16 @@ PagerDuty, la principale solution de gestion des incidents, propose une excellen
 
 [Consultez la documentation.][pagerduty-doc]
 
+## <a name="promitor"></a>Promitor
+
+![Logo Promitor](./media/partners/promitor.png)
+
+Promitor est un système de récupération Azure Monitor qui rend les métriques disponibles dans les systèmes tels qu’Atlassian Statuspage, Prometheus et StatsD.
+
+Envoyez (push) toutes les métriques à Azure Monitor et consommez-les là où vous en avez besoin.
+
+[En savoir plus.][promitor-doc]
+
 ## <a name="qradar"></a>QRadar
 
 ![Logo QRadar](./media/partners/qradar.png)
@@ -293,6 +303,7 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 [newrelic-doc]: https://newrelic.com/azure "Documentation de NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentation d’OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentation de PagerDuty."
+[promitor-doc]: https://promitor.io/ "Documentation Promitor."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Documentation de QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentation de ScienceLogic."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Documentation de Serverless360."

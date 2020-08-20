@@ -1,7 +1,7 @@
 ---
 title: Autoriser l’accès aux données avec une identité managée
 titleSuffix: Azure Storage
-description: Découvrez comment utiliser des identités managées pour les ressources Azure, afin d’autoriser l’accès à des données blob et de files d’attente à partir d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques et autres.
+description: Utilisez des identités managées pour les ressources Azure afin d’autoriser l’accès à des données de blob et de files d’attente à partir d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, etc.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8273be760b37c12f3db7a393e59ab8ead291ec02
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808886"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827994"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure
 
@@ -45,9 +45,9 @@ Après l’authentification, la bibliothèque de client d’identité Azure obti
 
 Pour plus d’informations sur la bibliothèque cliente Azure Identity pour .NET, consultez [Bibliothèque cliente Azure Identity pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Pour obtenir une documentation de référence sur la bibliothèque cliente Azure Identity, consultez [Espace de noms Azure.Identity](/dotnet/api/azure.identity).
 
-### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Attribuer des rôles de contrôle d’accès en fonction du rôle (RBAC) pour accéder aux données
+### <a name="assign-azure-roles-for-access-to-data"></a>Attribuer des rôles Azure pour l’accès aux données
 
-Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob ou de file d’attente, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, le principale de sécurité doit se voir attribuer un rôle RBAC qui accorde l’accès aux données blob ou de file d’attente dans le stockage Azure. Pour plus d’informations sur l’attribution d’autorisations via RBAC, consultez la section intitulée **Attribuer des rôles RBAC pour les droits d’accès** dans [Autoriser l’accès aux blobs et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob ou de file d’attente, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, le principal de sécurité doit se voir attribuer un rôle Azure qui accorde l’accès aux données de blob ou de file d’attente dans Stockage Azure. Pour plus d’informations sur l’attribution d’autorisations via RBAC, consultez la section intitulée **Attribuer des rôles Azure pour les droits d’accès** dans [Autoriser l’accès aux blobs et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Authentifier l’utilisateur dans l’environnement de développement
 
@@ -61,7 +61,7 @@ Si votre environnement de développement ne prend pas en charge l’authentifica
 
 #### <a name="create-the-service-principal"></a>Créer le principal du service
 
-Pour créer un principal du service avec Azure CLI et attribuer un rôle RBAC, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Indiquez également l’étendue de l’attribution de rôle. Pour plus d’informations sur les rôles intégrés fournis pour le Stockage Azure, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+Pour créer un principal du service avec Azure CLI et attribuer un rôle Azure, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Indiquez également l’étendue de l’attribution de rôle. Pour plus d’informations sur les rôles intégrés fournis pour Stockage Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Si vous ne disposez pas des autorisations suffisantes pour attribuer un rôle au principal du service, vous devrez peut-être demander au propriétaire du compte ou à l’administrateur d’effectuer l’attribution de rôle.
 
@@ -87,7 +87,7 @@ La commande `az ad sp create-for-rbac` retourne une liste de propriétés de pri
 ```
 
 > [!IMPORTANT]
-> La propagation des attributions de rôles RBAC peut prendre plusieurs minutes.
+> La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
 
 #### <a name="set-environment-variables"></a>Définir des variables d’environnement
 

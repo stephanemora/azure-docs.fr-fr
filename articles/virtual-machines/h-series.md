@@ -5,15 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 797a036b9cf2e77dfbcdf8dc7596179c4673e6a6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e9f876f3d20af01867283f550590b3af23dec662
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513738"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926618"
 ---
 # <a name="h-series"></a>Série H
 
@@ -42,51 +42,8 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-
-## <a name="supported-os-images-linux"></a>Images de système d’exploitation prises en charge (Linux)
- 
-La Place de marché Azure présente de nombreuses distributions Linux qui prennent en charge la connectivité RDMA :
-  
-* **HPC basé sur centOS** : pour les machines virtuelles non compatibles SR-IOV, HPC version 6.5 basé sur CentOS ou une version ultérieure, jusqu’à 7.5 convient. Pour les machines virtuelles de série H, les versions 7.1 à 7.5 sont recommandées. Les pilotes RDMA et Intel MPI 5.1 sont installés sur la machine virtuelle.
-  Pour les machines virtuelles SR-IOV, les pilotes RDMA sont préchargés et divers packages MPI sont installés sur HPC CentOS 7.6.
-  Pour les autres images de machine virtuelle RHEL/CentOS, ajoutez l’extension InfiniBandLinux pour activer InfiniBand. Cette extension de machine virtuelle Linux installe les pilotes Mellanox OFED (sur les machines virtuelles SR-IOV) pour la connectivité RDMA. La cmdlet PowerShell suivante installe la dernière version (version 1.0) de l’extension InfiniBandDriverLinux sur une machine virtuelle existante compatible RDMA. La machine virtuelle compatible RDMA est nommée *myVM* et est déployée dans le groupe de ressources nommé *myResourceGroup* dans la région *USA Ouest* comme suit :
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
-  ```
-  Les extensions de machine virtuelle peuvent également être incluses dans les modèles Azure Resource Manager pour faciliter le déploiement, avec l’élément JSON suivant :
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverLinux",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-  
-  La commande suivante installe la version 1.0 de l’extension InfiniBandDriverLinux sur toutes les machines virtuelles RDMA d’un groupe de machines virtuelles identiques existant nommé *myVMSS* et déployé dans le groupe de ressources nommé *myResourceGroup* :
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-  
-  > [!NOTE]
-  > Sur les images HPC basées sur CentOS, les mises à jour du noyau sont désactivées dans le fichier de configuration **yum** . Cela s’explique par le fait que les pilotes RDMA Linux sont distribués sous forme de package RPM, et que les mises à jour du pilote peuvent ne pas fonctionner si le noyau est mis à jour.
-  >
-  
-
-* **SUSE Linux Enterprise Server** : SLES 12 SP3 pour HPC, SLES 12 SP3 pour HPC (Premium), SLES 12 SP1 pour HPC, SLES 12 SP1 pour HPC (Premium), SLES 12 SP4 et SLES 15. Les pilotes RDMA sont installés et les packages Intel MPI sont distribués sur la machine virtuelle. Installez MPI en exécutant la commande suivante :
-
-  ```bash
-  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  ```
-  
-* **Ubuntu** : Ubuntu Server 16.04 LTS, 18.04 LTS. Configurez les pilotes RDMA sur la machine virtuelle et inscrivez-vous auprès d’Intel pour télécharger Intel MPI :
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
-
-  Pour plus d’informations sur l’activation InfiniBand, la configuration de MPI, consultez [Activer InfiniBand](./workloads/hpc/enable-infiniband.md).
+> [!NOTE]
+> Parmi les [machines virtuelles compatibles RDMA](sizes-hpc.md#rdma-capable-instances), les séries H ne sont pas compatibles avec SR-IOV. Par conséquent, les [images de machine virtuelle](./workloads/hpc/configure.md#vm-images) prises en charge, les exigences de [pilote InfiniBand](./workloads/hpc/enable-infiniband.md) et les [bibliothèques MPI](./workloads/hpc/setup-mpi.md) prises en charge sont différentes de celles des machines virtuelles compatibles SR-IOV.
 
 ## <a name="other-sizes"></a>Autres tailles
 
@@ -99,7 +56,7 @@ La Place de marché Azure présente de nombreuses distributions Linux qui prenne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’optimisation de votre application HPC pour Azure et obtenir des exemples, consultez [Charges de travail HPC](./workloads/hpc/overview.md).
+- En savoir plus sur [la configuration de vos machines virtuelles](./workloads/hpc/configure.md), [l’activation d’InfiniBand](./workloads/hpc/enable-infiniband.md), [la configuration de MPI](./workloads/hpc/setup-mpi.md) et l’optimisation des applications HPC pour Azure dans l’article relatif aux [charges de travail HPC](./workloads/hpc/overview.md).
 - Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).
 - Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

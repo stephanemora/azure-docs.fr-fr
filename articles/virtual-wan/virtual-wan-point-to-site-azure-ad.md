@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077479"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832516"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurer l’authentification Azure Active Directory pour une connexion VPN utilisateur
 
@@ -23,14 +23,14 @@ Pour utiliser ce type de connexion, un client doit être configuré sur l’ordi
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Créer un WAN
-> * Créer un hub
-> * Créer une configuration P2S
-> * Télécharger un profil de client VPN
-> * Appliquer la configuration P2S à un hub
-> * Connecter un réseau virtuel à un hub
-> * Télécharger et appliquer la configuration de client VPN
-> * Afficher votre WAN virtuel
+> * Créer un réseau étendu virtuel
+> * Créer un hub virtuel
+> * Créer une configuration VPN d’utilisateur
+> * Télécharger un profil VPN d’utilisateur de réseau étendu virtuel
+> * Appliquer la configuration VPN d’utilisateur à un hub virtuel
+> * Connecter un réseau virtuel à un hub virtuel
+> * Télécharger et appliquer la configuration du client VPN utilisateur
+> * Afficher votre réseau étendu virtuel
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -46,7 +46,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-virtual-wan"></a><a name="wan"></a>Créer un WAN virtuel
+## <a name="create-a-virtual-wan"></a><a name="wan"></a>Créer un réseau étendu virtuel
 
 Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
@@ -66,7 +66,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 ## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>Créer un hub virtuel vide
 
-1. Sous votre WAN virtuel, sélectionnez Hubs, puis cliquez sur **+ Nouveau hub**.
+1. Sous votre réseau étendu virtuel, sélectionnez Hubs, puis cliquez sur **+ Nouveau hub**.
 
    ![nouveau site](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. Dans la page Créer un hub virtuel, renseignez les champs suivants.
@@ -81,9 +81,9 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 3. Cliquez sur **Vérifier + créer**.
 4. Dans la page **Validation effectuée**, cliquez sur **Créer**.
 
-## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Créer une configuration P2S
+## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>Créer une configuration VPN d’utilisateur
 
-Une configuration P2S définit les paramètres permettant de connecter des clients distants.
+Une configuration VPN d’utilisateur définit les paramètres permettant de connecter des clients distants.
 
 1. Sous votre WAN virtuel, sélectionnez **Configurations de VPN utilisateur**.
 
@@ -93,7 +93,16 @@ Une configuration P2S définit les paramètres permettant de connecter des clien
 
    ![nouvelle configuration](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Entrez les informations et cliquez sur **Créer**
+3. Entrez les informations et cliquez sur **Créer**.
+
+   * **Nom de la configuration** : entrez le nom que vous souhaitez utiliser pour votre configuration VPN d’utilisateur.
+   * **Type de tunnel** : sélectionnez OpenVPN.
+   * **Méthode d’authentification** : sélectionnez Azure Active Directory.
+   * **Public ciblé** : saisissez l’ID de l’application d’entreprise [Azure VPN](openvpn-azure-ad-tenant.md) inscrite dans votre locataire Azure AD. 
+   * **Émetteur** - `https://sts.windows.net/<your Directory ID>/`
+   * **Locataire AAD** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
 
    ![nouvelle configuration](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
@@ -111,11 +120,11 @@ Une configuration P2S définit les paramètres permettant de connecter des clien
 6. Cliquez sur **Confirmer**.
 7. L’opération peut prendre jusqu’à 30 minutes.
 
-## <a name="download-vpn-profile"></a><a name="device"></a>Télécharger le profil VPN
+## <a name="download-user-vpn-profile"></a><a name="device"></a>Télécharger un profil VPN d’utilisateur
 
 Utilisez le profil VPN pour configurer vos clients.
 
-1. Dans la page de votre WAN virtuel, cliquez sur **Configurations de VPN utilisateur**.
+1. Dans la page de votre réseau étendu virtuel, cliquez sur **Configurations de VPN utilisateur**.
 2. En haut de la page, cliquez sur **Télécharger la configuration de VPN utilisateur**.
 3. Une fois que le fichier a terminé la création, vous pouvez cliquer sur le lien pour le télécharger.
 4. Utilisez le fichier de profil pour configurer les clients VPN.
@@ -125,7 +134,7 @@ Utilisez le profil VPN pour configurer vos clients.
 Pour établir une connexion, vous devez télécharger Azure VPN Client et importer le profil de client VPN téléchargé au cours des étapes précédentes sur chaque ordinateur à connecter au réseau virtuel.
 
 > [!NOTE]
-> L’authentification Azure AD est prise en charge uniquement pour les connexions de protocole OpenVPN&reg;.
+> L’authentification Azure AD n’est prise en charge que pour les connexions de protocole OpenVPN&reg;.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Pour télécharger le client VPN Azure
@@ -188,13 +197,12 @@ Utilisez ce [lien](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt
 2. Dans la page Vue d’ensemble, chaque point sur la carte représente un hub.
 3. Dans la section des hubs et des connexions, vous pouvez voir l’état du hub, le site, la région, l’état de la connexion VPN et les octets entrés et sortis.
 
-
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

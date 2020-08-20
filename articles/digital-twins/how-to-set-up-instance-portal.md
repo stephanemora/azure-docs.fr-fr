@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408154"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009646"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -24,27 +24,13 @@ Cette version de cet article suit ces étapes manuellement, une par une, à l’
 * Pour suivre ces étapes manuellement à l’aide de CLI, consultez la version CLI de cet article : [*Guide pratique : Configurer une instance et l’authentification (CLI)* ](how-to-set-up-instance-cli.md).
 * Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [*Guide pratique : Configurer une instance et l’authentification (procédure scriptée)* ](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Ensuite, connectez-vous au [portail Azure](https://ms.portal.azure.com/) avec vos informations d’identification.
-
-## <a name="prerequisites-permission-requirements"></a>Configuration requise : Spécifications relatives aux autorisations
-
-Pour pouvoir suivre toutes les étapes de cet article, vous devez être classifié comme Propriétaire dans votre abonnement Azure. 
-
-Vous pouvez vérifier votre niveau d’autorisation dans la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure (vous pouvez utiliser ce lien ou Rechercher *Abonnements* avec la barre de recherche du portail). Recherchez le nom de l’abonnement que vous utilisez, et affichez votre rôle dans la colonne *Mon rôle*. Si vous êtes un propriétaire, cette valeur est *Propriétaire* :
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Vue de la page Abonnements dans le portail Azure, affichant l’utilisateur en tant que propriétaire" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Si vous constatez que la valeur est *Contributeur* ou autre chose que *Propriétaire*, vous pouvez procéder de l’une des façons suivantes :
-* Contactez le propriétaire de votre abonnement et demandez-lui d’effectuer les étapes de cet article en votre nom.
-* Contactez le propriétaire de votre abonnement ou une personne disposant du rôle Administration de l’accès utilisateur sur l’abonnement, et demandez-lui de vous élever au rang de Propriétaire de l’abonnement afin que vous disposiez des autorisations nécessaires pour continuer. Le fait que cela soit approprié dépend de votre organisation et de votre rôle au sein de celle-ci.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Créer l’instance Azure Digital Twins
 
-Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital Twins** à l’aide du portail Azure.
+Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital Twins** à l’aide du [portail Azure](https://ms.portal.azure.com/). Accédez au portail et connectez-vous avec vos informations d’identification.
 
-Après vous être connecté au [portail Azure](https://ms.portal.azure.com/), commencez par sélectionner _Créer une ressource_ dans le menu de la page d’accueil des services Azure.
+Une fois dans le portail, commencez par sélectionner _Créer une ressource_ dans le menu de la page d’accueil des services Azure.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Sélection de l’option « créer une ressource » dans la page d’accueil du portail Azure":::
 
@@ -62,7 +48,7 @@ Sur la page *Créer une ressource*, renseignez les valeurs ci-dessous :
 
 Quand vous avez terminé, sélectionnez _Vérifier + créer_. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés et appuyer sur _Créer_. 
 
-### <a name="verify-success"></a>Vérifier la réussite de l’exécution
+### <a name="verify-success-and-collect-important-values"></a>Vérifier la réussite de l’exécution et collecter les valeurs importantes
 
 Après avoir appuyé sur *Créer*, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indique quand le déploiement a réussi, et vous pourrez sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
 
@@ -87,7 +73,7 @@ Commencez par ouvrir la page de votre instance Azure Digital Twins dans le porta
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Sélection de l’ajout d’une attribution de rôle à partir de la page « Contrôle d’accès (IAM) »":::
 
-Sur la page *Ajouter une attribution de rôle* ci-dessous, renseignez les valeurs (elles doivent être complétées par un propriétaire de l’abonnement Azure) :
+Sur la page *Ajouter une attribution de rôle* ci-dessous, renseignez les valeurs (elles doivent être complétées par un utilisateur disposant des [autorisations suffisantes](#prerequisites-permission-requirements) dans l’abonnement Azure) :
 * **Rôle** : Sélectionnez *Azure Digital Twins Owner (préversion)* dans le menu déroulant.
 * **Attribuer l’accès à** : Sélectionnez *Utilisateur, groupe ou principal de service Azure AD* dans le menu déroulant.
 * **Select** : Recherchez le nom ou l’adresse e-mail de l’utilisateur à attribuer. Lorsque vous sélectionnez le résultat, l’utilisateur s’affiche dans une section *Membres sélectionnés*.

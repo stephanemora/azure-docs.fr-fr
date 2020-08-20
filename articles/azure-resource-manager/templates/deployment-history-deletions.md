@@ -2,24 +2,22 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248977"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986506"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
 Chaque fois que vous déployez un modèle, les informations concernant le déploiement sont écrites dans l’historique de déploiement. L'historique de déploiement de chaque groupe de ressources est limité à 800 déploiements.
 
-Azure Resource Manager commencera bientôt à supprimer automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur. **Cette fonctionnalité n’a pas encore été ajoutée à Azure. Nous vous informons de cette modification à venir, au cas où vous souhaiteriez refuser.**
+Azure Resource Manager supprime automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Cette suppression automatique est un changement de comportement par rapport au passé. Auparavant, vous deviez supprimer manuellement les déploiements de l’historique des déploiements pour éviter d’obtenir une erreur. **Cette modification a été implémentée le 6 août 2020.**
 
 > [!NOTE]
 > La suppression d'un déploiement de l'historique n'a aucun impact sur les ressources déployées.
->
-> Si vous avez un [verrou CanNotDelete](../management/lock-resources.md) sur un groupe de ressources, les déploiements pour ce groupe de ressources ne peuvent pas être supprimés. Vous devez supprimer le verrou pour tirer parti des suppressions automatiques dans l’historique de déploiement.
 
 ## <a name="when-deployments-are-deleted"></a>Lors de la suppression des déploiements
 
@@ -35,6 +33,24 @@ Les déploiements sont supprimés de votre historique lorsque vous approchez la 
 En plus des déploiements, vous déclenchez également des suppressions lorsque vous exécutez l’[opération de simulation](template-deploy-what-if.md) ou validez un déploiement.
 
 Lorsque vous donnez à un déploiement le même nom qu’un autre dans l’historique, vous réinitialisez sa place dans l’historique. Le déploiement passe au rang le plus récent dans l’historique. Vous pouvez également réinitialiser le rang d’un déploiement lorsque vous [restaurer ce déploiement](rollback-on-error.md) après une erreur.
+
+## <a name="remove-locks-that-block-deletions"></a>Supprimer les verrous qui bloquent les suppressions
+
+Si vous avez un [verrou CanNotDelete](../management/lock-resources.md) sur un groupe de ressources, les déploiements pour ce groupe de ressources ne peuvent pas être supprimés. Vous devez supprimer le verrou pour tirer parti des suppressions automatiques dans l’historique de déploiement.
+
+Pour utiliser PowerShell afin de supprimer un verrou, exécutez les commandes suivantes :
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Pour utiliser Azure CLI afin de supprimer un verrou, exécutez les commandes suivantes :
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Refuser les suppressions automatiques
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 08/08/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 85c9bd3ecd5af861cfb93c18528416e06479ae93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558561"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119179"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
@@ -54,6 +54,9 @@ Le fichier de configuration définit les éléments suivants :
 - autorité ou instance cloud et ID du locataire ;
 - ID client que vous avez obtenu à partir de l’inscription de l’application ;
 - secret client ou certificat.
+
+> [!NOTE]
+> Les extraits de code .Net dans le reste de l’article référencent la [configuration](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) de l’exemple [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -286,7 +289,7 @@ X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithAuthority(new Uri(config.Authority))
                                           .WithClientClaims(certificate, claims)
-                                          .Build();```
+                                          .Build();
 ```
 
 Encore une fois, pour plus d’informations, consultez [Assertions clientes](msal-net-client-assertions.md).
@@ -330,16 +333,16 @@ ConfidentialClientApplication cca =
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Application démon conçue pour appeler des API web - acquisition d’un jeton](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md?tabs=java)
 
 ---

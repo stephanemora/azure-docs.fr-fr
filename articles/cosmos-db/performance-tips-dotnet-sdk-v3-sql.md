@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850258"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987254"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -107,7 +107,7 @@ En cas d’exécution sur le protocole TCP, le client optimise la latence en uti
 
 Dans les scénarios où vous disposez de peu d’accès et que vous remarquez un nombre de connexions supérieur par rapport au mode de passerelle, vous pouvez :
 
-* Configurez la propriété [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) sur `PrivatePortPool` (effective avec la version du framework > = 4.6.1 et la version .net core > = 2.0) : Cette propriété permet au kit de développement logiciel (SDK) d’utiliser un petit pool de ports éphémères pour différents points de terminaison de destination Azure Cosmos DB.
+* Configurez la propriété [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) sur `PrivatePortPool` (en vigueur avec la version d’infrastructure >= 4.6.1 et la version de .NET Core >= 2.0) : Cette propriété permet au kit de développement logiciel (SDK) d’utiliser un petit pool de ports éphémères pour différents points de terminaison de destination Azure Cosmos DB.
 * Configurez la propriété [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) afin qu’elle soit supérieure ou égale à 10 minutes. Les valeurs recommandées sont comprises entre 20 minutes et 24 heures.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ Lorsque vous travaillez sur Azure Functions, les instances doivent également su
 
 **Désactiver la réponse de contenu sur les opérations d’écriture**
 
-Pour les charges de travail qui ont des charges utiles de création fluctuantes, affectez la valeur false à l’option de requête EnableContentResponseOnWrite. Le service ne renvoie plus la ressource créée ou mise à jour au kit de développement logiciel (SDK). Normalement, l’objet est créé par l’application et n’a donc pas besoin d’être retourné par le service. Les valeurs d’en-tête comme la charge de requête sont toujours accessibles. Cela peut améliorer les performances, car le kit de développement logiciel (SDK) n’a plus besoin d’allouer de la mémoire ou de sérialiser le corps de la réponse. Cela réduit également l’utilisation de la bande passante réseau pour améliorer encore les performances.  
+Pour les charges de travail qui ont des charges utiles de création intensives, attribuez la valeur false à l’option de requête EnableContentResponseOnWrite. Le service ne renvoie plus la ressource créée ou mise à jour au kit de développement logiciel (SDK). Normalement, l’objet est créé par l’application et n’a donc pas besoin d’être retourné par le service. Les valeurs d’en-tête comme la charge de requête sont toujours accessibles. Cela peut améliorer les performances, car le kit de développement logiciel (SDK) n’a plus besoin d’allouer de la mémoire ou de sérialiser le corps de la réponse. Cela réduit également l’utilisation de la bande passante réseau pour améliorer encore les performances.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };

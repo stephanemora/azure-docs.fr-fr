@@ -3,12 +3,12 @@ title: Afficher les journaux d’activité Azure pour surveiller les ressources
 description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le Portail Microsoft Azure, PowerShell, l’interface de ligne de commande Azure et REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75474415"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827059"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
@@ -191,7 +191,7 @@ Les opérations REST à utiliser avec le journal d’activité font partie de l�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Les journaux d’activité Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md).
+* Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Pour voir plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application dans Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](../templates/deployment-history.md).
 * Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](lock-resources.md).

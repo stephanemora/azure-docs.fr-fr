@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche de mosaïques à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à superposer une couche de mosaïques sur une carte à l’aide du SDK web Microsoft Azure Maps. Les couches de mosaïques vous permettent d’afficher des images sur une carte.
+description: Découvrez comment superposer des images sur des cartes. Consultez un exemple qui utilise le Kit de développement logiciel (SDK) web Azure Maps pour ajouter une couche de mosaïques contenant un calque de radar météo à une carte.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: bb277a3413a21011b537b47bdc8fc1979c8e81c5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c96916c029c9c49ad7d4c493fed8859354508ebe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279557"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010172"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Ajouter une couche de mosaïques à une carte
 

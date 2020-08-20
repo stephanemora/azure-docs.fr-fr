@@ -2,20 +2,27 @@
 title: Dépassement du quota de déploiement
 description: Explique comment résoudre l'erreur liée à la présence de plus de 800 déploiements dans l'historique du groupe de ressources.
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391177"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987050"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Résoudre l'erreur liée à un nombre de déploiements supérieur à 800
 
 L'historique de déploiement de chaque groupe de ressources est limité à 800 déploiements. Cet article décrit l'erreur que vous recevez lorsqu'un déploiement échoue pour cause de dépassement du quota des 800 déploiements autorisés. Pour résoudre cette erreur, supprimez des déploiements de l'historique du groupe de ressources. La suppression d'un déploiement de l'historique n'a aucun impact sur les ressources déployées.
 
-> [!NOTE]
-> Azure Resource Manager commencera bientôt à supprimer automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Vous pouvez toujours voir cette erreur si vous avez refusé les suppressions automatiques. Pour plus d'informations, consultez [Suppressions automatiques de l'historique de déploiement](deployment-history-deletions.md).
+Azure Resource Manager supprime automatiquement les déploiements de votre historique lorsque vous vous approchez de la limite. Vous pouvez toujours voir cette erreur pour l’une des raisons suivantes :
+
+1. Vous disposez d’un verrou CanNotDelete sur le groupe de ressources qui empêche les suppressions de l’historique de déploiement.
+1. Vous avez refusé les suppressions automatiques.
+1. Un grand nombre de déploiements s’exécutent simultanément et les suppressions automatiques ne sont pas assez rapides pour réduire le nombre total.
+
+Pour plus d’informations sur la suppression du verrou ou l’activation des suppressions automatiques, consultez [Suppressions automatiques de l’historique de déploiement](deployment-history-deletions.md).
+
+Cet article explique comment supprimer manuellement des déploiements de l’historique.
 
 ## <a name="symptom"></a>Symptôme
 

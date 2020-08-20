@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087756"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926805"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-hdfs-connector.md)
 > * [Version actuelle](connector-hdfs.md)
@@ -253,10 +254,10 @@ Pour utiliser DistCp pour copier des fichiers en l’état de HDFS vers le stock
 
 * Les services MapReduce et YARN sont activés.  
 * YARN version 2.5 ou ultérieure.  
-* Le serveur HDFS est intégré à votre banque de données cible : Stockage d'objets blob Azure ou de votre lac de données Azure :  
+* Le serveur HDFS est intégré à votre banque de données cible : **Stockage Blob Azure** ou **Azure Data Lake Store (ADLS Gen1)**  : 
 
     - Le système de fichiers d’objet blob Azure est pris en charge en mode natif depuis Hadoop 2.7. Vous devez uniquement spécifier le chemin d’accès JAR dans la configuration de l’environnement Hadoop.
-    - Le système de fichiers d’Azure Data Lake Store est empaqueté depuis Hadoop 3.0.0-alpha1. Si la version de votre cluster Hadoop est antérieure à cette version, vous devez importer manuellement les packages JAR associés à Azure Data Lake Storage Gen2 (Azure-datalake-Store.jar) dans le cluster à partir d’[ici](https://hadoop.apache.org/releases.html)et spécifier le chemin d’accès du fichier JAR dans la configuration de l’environnement Hadoop.
+    - Le système de fichiers d’Azure Data Lake Store est empaqueté depuis Hadoop 3.0.0-alpha1. Si la version de votre cluster Hadoop est antérieure à cette version, vous devez importer manuellement les packages JAR associés à Azure Data Lake Store (azure-datalake-store.jar) dans le cluster à partir d’[ici](https://hadoop.apache.org/releases.html) et spécifier le chemin d’accès du fichier JAR dans la configuration de l’environnement Hadoop.
 
 * Préparez un dossier temporaire dans HDFS. Ce dossier temporaire est utilisé pour stocker le script d'interpréteur de commandes DistCp afin qu’il occupe un espace exprimable en Ko.
 * Assurez-vous que le compte d’utilisateur fourni dans le service lié HDFS a l’autorisation d’effectuer les opérations suivantes :

@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 9dc2cee785b28db7446eb8ed8b89e27f4516aba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84ab4ba247ef75eec2110edc31cf4e35a705adbf
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736881"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042851"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format Binaire dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Le format Binaire est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).
@@ -86,7 +87,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Le type de formatSettings doit être défini sur **BinaryReadSettings**. | Oui      |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu’il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
 
 ```json
 "activities": [

@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275001"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042477"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
 Dans une stratégie d’accès conditionnel, un administrateur peut s’aider des signaux des conditions telles que le risque, la plateforme d’appareil ou l’emplacement pour prendre de meilleures décisions en matière de stratégie. 
 
-![Définir une stratégie d’accès conditionnel et spécifier des conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[ ![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Il est possible de combiner plusieurs conditions pour créer des stratégies d’accès conditionnel spécifiques parfaitement adaptées aux besoins.
 
@@ -60,21 +60,28 @@ Par exemple, certaines organisations ne souhaitent pas exiger l’authentificati
 
 Pour plus d’informations sur les emplacements, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](location-condition.md).
 
-## <a name="client-apps-preview"></a>Applications clientes (préversion)
+## <a name="client-apps"></a>Applications clientes
 
-Par défaut, les stratégies d’accès conditionnel s’appliquent aux applications basées sur un navigateur ainsi qu’aux applications qui utilisent des protocoles d’authentification moderne. En plus de ces applications, les administrateurs peuvent choisir d’inclure les clients Exchange ActiveSync et d’autres clients qui utilisent des protocoles hérités.
+Par défaut, toutes les stratégies d’accès conditionnel nouvellement créées s’appliquent à tous les types d’applications clientes, même si la condition des applications clientes n’est pas configurée. 
 
 > [!NOTE]
-> La condition Configurer l’option Oui/Non dans les applications clientes a été supprimée pour qu’il soit plus facile de voir quelles applications clientes sont sélectionnées. Cela n’a aucun impact sur les applications clientes auxquelles s’applique une stratégie existante.
+> Le comportement de la condition des applications clientes a été mis à jour en août 2020. Si vous disposez de stratégies d’accès conditionnel, elles restent inchangées. Toutefois, si vous cliquez sur une stratégie, le bouton bascule de configuration a été supprimé et les applications clientes auxquelles la stratégie s’applique sont sélectionnées.
 
-- Browser
-   - Cette option inclut les applications web qui utilisent des protocoles comme SAML, WS-Federation, OpenID Connect, ou les services inscrits en tant que clients confidentiels OAuth.
-- Applications mobiles et clients de bureau
-   - Clients d’authentification moderne
-      - Cette option inclut les applications comme les applications de bureau et de téléphone Office.
+> [!IMPORTANT]
+> Les connexions à partir des clients d’authentification hérités ne prennent pas en charge MFA ni ne transmettent d’informations relatives à l’état de l’appareil à Azure AD. Elles seront donc bloquées par les contrôles d’octroi d’accès conditionnel, comme MFA ou la conformité des appareils. Si vous avez des comptes qui doivent utiliser l’authentification héritée, vous devez soit exclure ces comptes de la stratégie, soit configurer la stratégie pour qu’elle s’applique uniquement aux clients d’authentification modernes.
+
+Lorsqu’il est réglé sur **Oui**, le bouton bascule **Configuration** s’applique aux éléments cochés, tandis que lorsqu’il est réglé sur **Non**, il s’applique à toutes les applications clientes, y compris les clients d’authentification modernes et hérités. Ce bouton bascule n’apparaît pas dans les stratégies créées avant août 2020.
+
+- Clients d’authentification moderne
+   - Browser
+      - Cette option inclut les applications web qui utilisent des protocoles comme SAML, WS-Federation, OpenID Connect, ou les services inscrits en tant que clients confidentiels OAuth.
+   - Applications mobiles et clients de bureau
+      -  Cette option inclut les applications comme les applications de bureau et de téléphone Office.
+- Clients d’authentification hérités
    - Clients Exchange ActiveSync
-      - Par défaut, cela inclut toute utilisation du protocole EAS (Exchange ActiveSync). La sélection de **Appliquer la stratégie uniquement aux plateformes prises en charge** permet de limiter aux plateformes prises en charge comme iOS, Android et Windows.
+      - Cela inclut toute utilisation du protocole EAS (Exchange ActiveSync).
       - Si une stratégie bloque l’utilisation d’Exchange ActiveSync, l’utilisateur concerné reçoit un e-mail de mise en quarantaine. Cet e-mail contient des informations sur la raison du blocage et fournit éventuellement des instructions de correction.
+      - Les administrateurs peuvent appliquer la stratégie uniquement aux plateformes prises en charge (par exemple, iOS, Android et Windows) via l’API MS Graph d’accès conditionnel.
    - Autres clients
       - Cette option inclut les clients qui utilisent des protocoles d’authentification de base/hérités qui ne prennent pas en charge l’authentification moderne.
          - SMTP authentifié : utilisé par les clients POP et IMAP pour envoyer des e-mails.

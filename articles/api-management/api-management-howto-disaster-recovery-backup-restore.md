@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250445"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830255"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -169,19 +169,24 @@ Définissez la valeur de l’en-tête de la demande `Content-Type` sur `applicat
 
 La sauvegarde est une opération longue qui peut prendre plusieurs minutes. Si la demande a réussi et que le processus de sauvegarde a commencé, vous recevez le code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Quand la sauvegarde est en cours, vous continuez à recevoir le code d’état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de sauvegarde a réussi.
 
-Tenez compte des contraintes suivantes quand vous faites une demande de sauvegarde ou de restauration :
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Contraintes lors de la création d’une requête de sauvegarde ou de restauration
 
 -   Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 -   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service**, comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
 -   La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
--   Les **données d’utilisation** servant à la création des rapports analytiques **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][azure api management rest api] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
--   En outre, les éléments suivants ne font pas partie des données de sauvegarde : les certificats TLS/SSL de domaine personnalisé et tous les certificats intermédiaires ou racines téléchargés par le client, le contenu du portail des développeurs et les paramètres d’intégration du réseau virtuel.
--   La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
--   **Autorisez** l’accès depuis le plan de contrôle au compte de stockage Azure, si le [pare-feu][azure-storage-ip-firewall] est activé pour celui-ci. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage utilisé comme destination de sauvegarde ou source de restauration. 
+-   **Autorisez** l’accès depuis le plan de contrôle au compte de stockage Azure, si le [pare-feu][azure-storage-ip-firewall] est activé pour celui-ci. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage utilisé comme destination de sauvegarde ou source de restauration. Cela est dû au fait que les demandes adressées à Stockage Azure ne font pas l’objet d’une traduction d’adresse réseau source en adresse IP publique dans Calcul > (Plan de contrôle de gestion des API Azure). La demande de stockage inter-région fera l’objet d’une traduction d’adresse réseau source.
 
-> [!NOTE]
-> Si vous tentez d’effectuer des sauvegardes/restaurations à partir de/vers un service gestion des API en utilisant un compte de stockage sur lequel le [pare-feu][azure-storage-ip-firewall] est activé dans la même région Azure, ceci ne fonctionnera pas. Cela est dû au fait que les demandes adressées à Stockage Azure ne font pas l’objet d’une traduction d’adresse réseau source en adresse IP publique dans Calcul > (Plan de contrôle de gestion des API Azure). La demande de stockage inter-région fera l’objet d’une traduction d’adresse réseau source.
+#### <a name="what-is-not-backed-up"></a>Éléments non sauvegardés
+-   Les **données d’utilisation** servant à la création des rapports analytiques **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][azure api management rest api] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
+-   Certificats [TLS/SSL de domaine personnalisé](configure-custom-domain.md)
+-   [Certificat d’autorité de certification personnalisé](api-management-howto-ca-certificates.md) qui inclut des certificats intermédiaires ou racines chargés par le client
+-   Paramètres d’intégration du [réseau virtuel](api-management-using-with-vnet.md).
+-   Configuration d’[identité managée](api-management-howto-use-managed-service-identity.md).
+-   Configuration des [diagnostics Azure Monitor](api-management-howto-use-azure-monitor.md).
+-   Paramètres [de chiffrement et des protocoles](api-management-howto-manage-protocols-ciphers.md).
+
+La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restauration d’un service Gestion des API
 

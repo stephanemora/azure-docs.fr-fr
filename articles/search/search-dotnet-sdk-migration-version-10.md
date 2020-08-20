@@ -1,5 +1,5 @@
 ---
-title: Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche cognitive Azure
+title: Mettre à niveau vers la version 10 du Kit de développement logiciel (SDK) .NET
 titleSuffix: Azure Cognitive Search
 description: Migrez le code vers le SDK .NET Recherche cognitive Azure version 10 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905779"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche cognitive Azure
 

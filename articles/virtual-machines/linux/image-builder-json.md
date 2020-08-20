@@ -3,17 +3,17 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830340"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -116,7 +116,7 @@ Cette section facultative peut être utilisée pour s’assurer que les dépenda
     "dependsOn": [],
 ```
 
-Pour plus d’informations, consultez [Définir les dépendances des ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+Pour plus d’informations, consultez [Définir les dépendances des ressources](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identité
 
@@ -137,23 +137,24 @@ Prise en charge par Image Builder d’une identité affectée par l’utilisateu
 * Prise en charge d’une seule identité
 * Non-prise en charge des noms de domaine personnalisés
 
-Pour en savoir plus, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Pour plus d’informations sur le déploiement de cette fonctionnalité, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Pour en savoir plus, consultez [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md).
+Pour plus d’informations sur le déploiement de cette fonctionnalité, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## <a name="properties-source"></a>Propriétés : source
 
-La section `source` fournit des informations sur l’image source qui sera utilisée par le générateur d’images.
+Image Builder prend actuellement en charge uniquement les images et les machines virtuelles HyperV de 1re génération ; la section `source` contient des informations sur l’image source qui sera utilisée par Image Builder.
 
 L’API nécessite un « SourceType » qui définit la source pour la génération d’image. Il en existe actuellement trois types :
 - PlatformImage : indique que l’image source est une image de la Place de marché.
 - ManagedImag : utilisez cette option au démarrage à partir d’une image managée classique.
 - SharedImageVersion : cette option s’applique lorsque vous utilisez une version d’image dans une galerie d’images partagées comme source.
 
+
 > [!NOTE]
-> Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
+> Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Source PlatformImage 
-Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support). 
+Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](../windows/image-builder-overview.md#os-support). 
 
 ```json
         "source": {
@@ -191,7 +192,10 @@ Vous pouvez également spécifier des informations de plan, par exemple :
 ```
 ### <a name="managedimage-source"></a>Source ManagedImage
 
-Définit l’image source comme une image managée existante d’un disque dur virtuel généralisé ou d’une machine virtuelle. L’image managée source doit provenir d’un système d’exploitation pris en charge et se trouver dans la même région que votre modèle de générateur d’images Azure. 
+Définit l’image source comme une image managée existante d’un disque dur virtuel généralisé ou d’une machine virtuelle.
+
+> [!NOTE]
+> L’image managée source doit provenir d’un système d’exploitation pris en charge et se trouver dans la même région que votre modèle Azure VM Image Builder. 
 
 ```json
         "source": { 
@@ -204,7 +208,11 @@ Définit l’image source comme une image managée existante d’un disque dur v
 
 
 ### <a name="sharedimageversion-source"></a>Source SharedImageVersion
-Définit l’image source comme une version d’image existante dans une galerie d’images partagées. La version d’image doit provenir d’un système d’exploitation pris en charge, et l’image doit être répliquée dans la même région que votre modèle de générateur d’images Azure. 
+Définit l’image source comme une version d’image existante dans une galerie d’images partagées.
+
+> [!NOTE]
+> L’image managée source doit provenir d’un système d’exploitation pris en charge et se trouver dans la même région que votre modèle Azure VM Image Builder. Si ce n’est pas le cas, veuillez répliquer la version de l’image dans la région du modèle Image Builder.
+
 
 ```json
         "source": { 
@@ -365,7 +373,7 @@ Propriétés de personnalisation :
 - **validExitCodes** - Facultatif. Des codes valides peuvent être retournés par le script/la commande en ligne, permettant ainsi d’éviter le signalement d’un échec du script/de la commande en ligne.
 - **runElevated** - Facultatif, booléen avec prise en charge de l’exécution de commandes et de scripts avec des autorisations élevées.
 - **sha256Checksum** - Valeur de la somme de contrôle sha256 du fichier. Vous la générez localement, puis Image Builder vérifie la somme de contrôle et valide.
-    * Pour générer la somme de contrôle sha256, utiliser une commande PowerShell [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) sur Windows
+    * Pour générer la somme de contrôle sha256, utiliser une commande PowerShell [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) sur Windows
 
 
 ### <a name="file-customizer"></a>Personnalisateur de fichier
@@ -559,7 +567,7 @@ Une galerie d’images partagées est constituée des éléments suivants :
 - Définitions d’image : regroupement logique d’images. 
 - Versions d’image : il s’agit d’un type d’image utilisé pour le déploiement d’une machine virtuelle ou d’un groupe identique. Des versions d’image peuvent être répliquées vers d’autres régions où des machines virtuelles doivent être déployées.
  
-Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une galerie et une définition d’image, consultez [Images partagées](shared-images.md). 
+Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une galerie et une définition d’image, consultez [Images partagées](../shared-images-cli.md). 
 
 ```json
 {

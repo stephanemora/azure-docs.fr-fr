@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555527"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927417"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Éditions Entreprise et De base d’Azure Machine Learning 
 
@@ -112,7 +112,7 @@ Découvrez comment [mettre à niveau un espace de travail De base vers l’édit
 
 | Fonctionnalités     | Édition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Prise en charge du[contrôle d’accès en fonction du rôle ](how-to-assign-roles.md) (RBAC)                                           | Tous                     |
+| Prise en charge du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](how-to-assign-roles.md)                                           | Tous                     |
 | Prise en charge du [réseau virtuel (Vnet)](how-to-enable-virtual-network.md) pour calcul                                         | Tous                     |
 | Authentification du point de terminaison scoring                                                    | Tous                     |
 | [Espace de travail avec liaison privée](how-to-configure-private-link.md)                                                            | Tous                     |

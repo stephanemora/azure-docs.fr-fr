@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535108"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920397"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Contrôle d’accès en fonction du rôle pour StorSimple
 
@@ -163,7 +163,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## <a name="add-users-to-the-custom-role"></a>Ajouter des utilisateurs au rôle personnalisé
 
-Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle. Quand vous accordez un accès, gardez à l’esprit que l’enfant hérite de l’accès accordé au niveau du nœud parent. Pour plus d’informations, accédez à [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle. Quand vous accordez un accès, gardez à l’esprit que l’enfant hérite de l’accès accordé au niveau du nœud parent. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 1. Accédez à **Contrôle d’accès (IAM)** . Cliquez sur **+ Ajouter** dans le panneau Contrôle d’accès.
 

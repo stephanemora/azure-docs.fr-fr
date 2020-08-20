@@ -1,19 +1,17 @@
 ---
 title: Attachement d’application MSIX Windows Virtual Desktop - Azure
 description: Comment configurer l’attachement d’application MSIX pour Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291504"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010155"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurer l’attachement d’application MSIX
 
@@ -202,12 +200,12 @@ Si votre application utilise un certificat qui n’est pas approuvé publiquemen
 
 1. Cliquez avec le bouton droit sur le package et sélectionnez **Propriétés**.
 2. Dans la fenêtre qui s’affiche, sélectionnez l’onglet **Signatures numériques**. Il ne doit y avoir qu’un seul élément dans la liste de l’onglet, comme illustré dans l’image suivante. Sélectionnez cet élément pour le mettre en surbrillance, puis sélectionnez **Détails**.
-3. Lorsque la fenêtre Détails de la signature numérique s'affiche, sélectionnez l'onglet **Général**, puis **Installer le certificat**.
+3. Lorsque la fenêtre Détails de la signature numérique s’affiche, sélectionnez l’onglet **Général**, **Afficher le certificat**, puis **Installer le certificat**.
 4. Quand le programme d’installation s’ouvre, sélectionnez **Machine locale** comme emplacement de stockage, puis sélectionnez **Suivant**.
 5. Si le programme d’installation vous demande si vous souhaitez autoriser l’application à apporter des modifications à votre appareil, sélectionnez **Oui**.
 6. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Parcourir**.
 7. Lorsque la fenêtre Sélectionner un magasin de certificats s’affiche, sélectionnez **Personnes autorisées**, puis sélectionnez **OK**.
-8. Sélectionnez **Terminer**.
+8. Sélectionnez **Suivant** et **Terminer**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Préparer les scripts PowerShell pour l’attachement de l’application MSIX
 
@@ -220,7 +218,7 @@ L’attachement d’application MSIX comprend quatre phases distinctes qui doive
 
 Chaque phase crée un script PowerShell. Des exemples de scripts pour chaque phase sont disponibles [ici](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-the-powershell-script"></a>Stocker le script PowerShell
+### <a name="stage-powershell-script"></a>Indexer un script PowerShell
 
 Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du GUID de volume dans le disque dur virtuel. Pour récupérer le GUID du volume :
 
@@ -264,88 +262,48 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     #MSIX app attach staging sample
 
     #region variables
-
     $vhdSrc="<path to vhd>"
-
     $packageName = "<package name>"
-
     $parentFolder = "<package parent folder>"
-
     $parentFolder = "\" + $parentFolder + "\"
-
     $volumeGuid = "<vol guid>"
-
     $msixJunction = "C:\temp\AppAttach\"
-
     #endregion
 
     #region mountvhd
-
     try
-
     {
-
-    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
-
-    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
-
+          Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+          Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
     }
-
     catch
-
     {
-
-    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
-
+          Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
     }
-
     #endregion
 
     #region makelink
-
     $msixDest = "\\?\Volume{" + $volumeGuid + "}\"
-
     if (!(Test-Path $msixJunction))
-
     {
-
-    md $msixJunction
-
+         md $msixJunction
     }
 
     $msixJunction = $msixJunction + $packageName
-
     cmd.exe /c mklink /j $msixJunction $msixDest
-
     #endregion
 
     #region stage
-
-    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime]
-    | Out-Null
-
+    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
-
-    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
-
-    $asTaskAsyncOperation =
-    $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
-    [Windows.Management.Deployment.DeploymentProgress])
-
+    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
+    $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-
     $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
-
     $path = ([System.Uri]$path).AbsoluteUri
-
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
-
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
-
     $task
-
     #endregion
     ```
 
@@ -357,17 +315,12 @@ Pour exécuter le script d’inscription, exécutez les applets de commande Powe
 #MSIX app attach registration sample
 
 #region variables
-
 $packageName = "<package name>"
-
 $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
-
 #endregion
 
 #region register
-
 Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
-
 #endregion
 ```
 
@@ -379,15 +332,11 @@ Pour ce script, remplacez l'espace réservé de **$packageName** par le nom du p
 #MSIX app attach deregistration sample
 
 #region variables
-
 $packageName = "<package name>"
-
 #endregion
 
 #region deregister
-
 Remove-AppxPackage -PreserveRoamableApplicationData $packageName
-
 #endregion
 ```
 
@@ -399,21 +348,14 @@ Pour ce script, remplacez l'espace réservé de **$packageName** par le nom du p
 #MSIX app attach de staging sample
 
 #region variables
-
 $packageName = "<package name>"
-
 $msixJunction = "C:\temp\AppAttach\"
-
 #endregion
 
 #region deregister
-
 Remove-AppxPackage -AllUsers -Package $packageName
-
 cd $msixJunction
-
 rmdir $packageName -Force -Verbose
-
 #endregion
 ```
 
@@ -440,7 +382,7 @@ Voici comment configurer les licences pour une utilisation hors connexion :
 2. Mettez à jour les variables suivantes dans le script de l’étape 3 :
       1. `$contentID` est la valeur ContentID du fichier de licence non codé (.xml). Vous pouvez ouvrir le fichier de licence dans l’éditeur de texte de votre choix.
       2. `$licenseBlob` est la chaîne entière pour l’objet Blob de licence dans le fichier de licence encodé (.bin). Vous pouvez ouvrir le fichier de licence encodé dans l’éditeur de texte de votre choix.
-3. Exécutez le script suivant depuis une invite admin PowerShell ISE. Un bon emplacement pour effectuer l’installation de la licence est à la fin du [script de stockage](#stage-the-powershell-script) qui doit également être exécuté à partir d’une invite admin.
+3. Exécutez le script suivant depuis une invite admin PowerShell ISE. Un bon emplacement pour effectuer l’installation de la licence est à la fin du [script de stockage](#stage-powershell-script) qui doit également être exécuté à partir d’une invite admin.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"

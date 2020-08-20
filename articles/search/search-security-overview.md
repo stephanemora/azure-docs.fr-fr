@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: cc02890cb5293e48a8065b63f4f9c799c5dda7f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081033"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829286"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
-Cet article décrit les principales fonctionnalités de sécurité de Recherche cognitive Azure qui peuvent protéger le contenu et les opérations. 
+Cet article décrit les principales fonctionnalités de sécurité de Recherche cognitive Azure qui peuvent protéger le contenu et les opérations.
 
-+ Au niveau de la couche de stockage, le chiffrement au repos est effectué au niveau de la plateforme, mais Recherche cognitive offre également une option de « chiffrement double » pour les clients qui souhaitent bénéficier de la double protection des clés gérées par l’utilisateur et de celles gérées par Microsoft.
++ Au niveau de la couche de stockage, le chiffrement au repos est intégré pour l’ensemble du contenu géré par le service enregistré sur le disque, y compris les index, les cartes de synonymes et les définitions d’indexeurs, de sources de données et d’ensembles de compétences. Recherche cognitive Azure prend également en charge l’ajout de clés gérées par le client (CMK) pour le chiffrement supplémentaire du contenu indexé. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.
 
 + La sécurité du trafic entrant protège le point de terminaison du service Recherche à des niveaux de sécurité plus élevés : depuis des clés API sur la demande à des règles de trafic entrant dans le pare-feu et à des points de terminaison privés qui protègent intégralement votre service de l’Internet public.
 
@@ -29,29 +30,41 @@ Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architectu
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Transmissions et stockage chiffrés
 
-Le chiffrement est omniprésent dans Recherche cognitive Azure : il commence aux connexions et aux transmissions, et s’étend au contenu stocké sur disque. Pour les services de recherche sur l’Internet public, Recherche cognitive Azure écoute sur le port HTTPS 443. Toutes les connexions client-à-service utilisent le chiffrement TLS 1.2. Les versions antérieures (1.0 et 1.1) ne sont pas prises en charge.
+Dans Recherche cognitive Azure, le chiffrement commence aux connexions et aux transmissions, et s’étend au contenu stocké sur disque. Pour les services de recherche sur l’Internet public, Recherche cognitive Azure écoute sur le port HTTPS 443. Toutes les connexions client-à-service utilisent le chiffrement TLS 1.2. Les versions antérieures (1.0 et 1.1) ne sont pas prises en charge.
 
-### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos
+Pour les données gérées en interne par le service de recherche, le tableau suivant décrit les [modèles de chiffrement de données](../security/fundamentals/encryption-atrest.md#data-encryption-models). Certaines fonctionnalités, telles que la base de connaissances, l’enrichissement incrémentiel et l’indexation basée sur un indexeur, lisent ou écrivent dans des structures de données dans d’autres services Azure. Ces services disposent de leur propre niveau de prise en charge du chiffrement, distinct de Recherche cognitive Azure.
 
-Recherche cognitive Azure stocke les définitions d’index et le contenu, les définitions de sources de données, les définitions d’indexeurs, les définitions d’ensembles de compétences et les mappages de synonymes.
+| Modèle | Clés&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Spécifications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | S’applique à |
+|------------------|-------|-------------|--------------|------------|
+| chiffrement côté serveur | Clés managées par Microsoft | Aucune (intégré) | Aucune, disponible pour tous les niveaux de service, dans toutes les régions, pour le contenu créé après le 24 janvier 2018. | Contenu (index et cartes de synonymes) et définitions (indexeurs, sources de données, ensembles de compétences) |
+| chiffrement côté serveur | clés gérées par le client | Azure Key Vault | Disponible pour les niveaux de service facturables, dans toutes les régions, pour le contenu créé après janvier 2019. | Contenu (index et cartes de synonymes) sur les disques de données |
+| double chiffrement côté serveur | clés gérées par le client | Azure Key Vault | Disponible sur les niveaux de service facturables, dans certaines régions, sur les services de recherche après le 1er août 2020. | Contenu (index et cartes de synonymes) sur les disques de données et les disques temporaires |
 
-Sur la couche de stockage, les données sont chiffrées sur disque avec des clés gérées par Microsoft. Vous ne pouvez pas activer ou désactiver le chiffrement, ni visualiser les paramètres de chiffrement dans le portail ou programmatiquement. Le chiffrement est entièrement internalisé, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).
+### <a name="service-managed-keys"></a>Clés gérées par le service
 
-En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](../storage/common/storage-service-encryption.md), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.
+Le chiffrement géré par le service est une opération interne de Microsoft qui est basée sur [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) et qui utilise le [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles des index qui ne sont pas entièrement chiffrés (créés avant janvier 2018).
 
-> [!NOTE]
-> Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris au niveau gratuit, dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.
+### <a name="customer-managed-keys-cmk"></a>Clés gérées par le client (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Chiffrement avec une clé gérée par le client
+Les clés gérées par le client nécessitent un service facturable supplémentaire, Azure Key Vault, qui peut se trouver dans une autre région que l’instance Recherche cognitive Azure, mais qui doit être sous le même abonnement. L’activation du chiffrement CMK a pour effet d’augmenter la taille de l’index et dégrader les performances des requêtes. Sur la base des observations effectuées à ce jour, vous pouvez vous attendre à une augmentation de 30 à 60 % des temps de requête, même si les performances réelles varient en fonction de la définition d’index et des types de requêtes. En raison de cet incidence sur les performances, nous vous recommandons de n’activer cette fonctionnalité que sur les index qui en ont réellement besoin. Pour plus d’informations, consultez [Configurer des clés de chiffrement gérées par le client dans Recherche cognitive Azure](search-security-manage-encryption-keys.md).
 
-Les clients qui veulent une protection supplémentaire du stockage peuvent chiffrer les données et les objets avant leur stockage et leur chiffrement sur le disque. Cette approche est basée sur une clé appartenant à l’utilisateur, gérée et stockée via Azure Key Vault, indépendamment de Microsoft. Le chiffrement du contenu avant son chiffrement sur disque est appelé « double chiffrement ». Actuellement, vous pouvez double-chiffrer de façon sélective les index et les mappages de synonymes. Pour plus d’informations, consultez [Clés de chiffrement gérées par le client dans Recherche cognitive Azure](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> Le chiffrement CMK est en disponibilité générale pour les services de recherche créés après janvier 2019. Il n’est pas pris en charge sur les services gratuits (partagés). 
->
->L’activation de cette fonctionnalité a pour effet d’augmenter la taille de l’index et dégrader les performances des requêtes. Sur la base des observations effectuées à ce jour, vous pouvez vous attendre à une augmentation de 30 à 60 % des temps de requête, même si les performances réelles varient en fonction de la définition d’index et des types de requêtes. En raison de cet incidence sur les performances, nous vous recommandons de n’activer cette fonctionnalité que sur les index qui en ont réellement besoin.
+### <a name="double-encryption"></a>Double chiffrement 
+
+Dans Recherche cognitive Azure, le double chiffrement est une extension de CMK. Il s’agit d’un chiffrement à deux reprises (une fois par CMK, et une nouvelle fois par des clés gérées par le service) et de portée globale, comprenant le stockage à long terme qui est écrit sur un disque de données et le stockage à court terme écrit sur des disques temporaires. La différence entre CMK avant et après le 1er août 2020, et ce qui fait de CMK une fonctionnalité de double chiffrement dans Recherche cognitive Azure, est le chiffrement supplémentaire de données au repos sur les disques temporaires.
+
+Le double chiffrement est actuellement disponible sur les nouveaux services créés dans ces régions après le 1er août :
+
++ USA Ouest 2
++ USA Est
++ États-Unis - partie centrale méridionale
++ Gouvernement américain - Virginie
++ Gouvernement des États-Unis – Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -114,7 +127,7 @@ Si vous avez besoin d’un contrôle précis par utilisateur sur les résultats 
 
 ## <a name="administrative-rights"></a>Droits d’administration
 
-[RBAC (Contrôle d’accès en fonction du rôle)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour le provisionnement de ressources Azure. Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles RBAC déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 En revanche, les droits d’administrateur sur le contenu hébergé sur le service, comme la possibilité de créer ou de supprimer un index, sont conférés via des clés API, comme décrit dans la [section précédente](#index-access).
 
@@ -124,6 +137,12 @@ En revanche, les droits d’administrateur sur le contenu hébergé sur le servi
 ## <a name="certifications-and-compliance"></a>Certifications et conformité
 
 Recherche cognitive Azure a été certifié conforme à plusieurs standards mondiaux, régionaux et spécifiques à des secteurs pour le cloud public et Azure Government. Pour obtenir la liste complète, téléchargez le livre blanc [**Microsoft Azure Compliance Offerings**](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) depuis la page des rapports d’audit officiels.
+
+Pour la conformité, vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour mettre en œuvre les meilleures pratiques de haute sécurité d’[Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark est un ensemble de recommandations de sécurité, codifiées en contrôles de sécurité qui correspondent aux principales actions que vous devez prendre pour atténuer les menaces pesant sur les services et les données. Il existe actuellement 11 contrôles de sécurité, dont la [Sécurité réseau](../security/benchmarks/security-control-network-security.md), [Journalisation et surveillance](../security/benchmarks/security-control-logging-monitoring.md), et [Protection des données](../security/benchmarks/security-control-data-protection.md), pour n’en nommer que quelques-uns.
+
+Azure Policy est une capacité intégrée à Azure qui vous permet de gérer la conformité de plusieurs normes, y compris celles d’Azure Security Benchmark. Pour les critères de référence bien connus, Azure Policy fournit des définitions intégrées qui fournissent à la fois des critères et une réponse actionnable en cas de non-conformité. 
+
+Pour Recherche cognitive Azure, il existe actuellement une définition intégrée. Elle concerne la journalisation des diagnostics. Grâce à cette intégration, vous pouvez attribuer une stratégie qui identifie tout service de recherche auquel il manque la journalisation des diagnostics, puis l’active. Pour plus d’informations, consultez [Contrôles de conformité réglementaire d’Azure Policy pour Recherche cognitive Azure](security-controls-policy.md).
 
 ## <a name="see-also"></a>Voir aussi
 

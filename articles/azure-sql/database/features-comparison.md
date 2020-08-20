@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: e7f80c7db4af7c676881d92e8fe86d62a45e3310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049575"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119349"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -97,7 +97,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Non | Oui, mais uniquement dans l’instance. Si vous utilisez des itinéraires Service Broker distants, essayez de consolider des bases de données de plusieurs instances SQL Server distribuées en une seule instance gérée SQL pendant la migration et utilisez uniquement des itinéraires locaux. Voir [Différences de Service Broker](../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker) |
 | [Paramètres de configuration du serveur](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Non | Oui - voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Instructions SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | La plupart - voir Instructions individuelles | Oui - voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Non. Voir [Tâches élastiques](elastic-jobs-overview.md). | Oui - voir [Différences entre agents SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Non - voir [Travaux élastiques (préversion)](elastic-jobs-overview.md) | Oui - voir [Différences entre agents SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [Audit SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Non - voir [Audit de base de données SQL](auditing-overview.md) | Oui - voir [Vérification des différences](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Fonctions stockées sur système](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Procédures stockées sur système](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Certaines - voir Procédures stockées individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |

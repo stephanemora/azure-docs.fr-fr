@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 50398632f47d889ecb79b32faef94c9c5923789c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540558"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833451"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)
 
@@ -44,7 +44,7 @@ Lorsque vous activez l’accès aux machines virtuelles juste-à-temps, vous pou
 
 Si d’autres règles existent déjà pour les ports sélectionnés, celles-ci sont prioritaires sur les nouvelles règles de « refus de tout le trafic entrant ». S’il n’existe aucune règle sur les ports sélectionnés, alors les nouvelles règles sont prioritaires dans le groupe de sécurité réseau et Pare-feu Azure.
 
-Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations [Contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) sur cette machine virtuelle. Si la requête est approuvée, Security Center configure les NSG et Pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés à partir de l’adresse IP (ou de la plage d’adresses IP) correspondante, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Les connexions déjà établies ne sont pas interrompues.
+Quand un utilisateur demande l’accès à une machine virtuelle, Security Center vérifie que cet utilisateur dispose des autorisations de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) sur cette machine virtuelle. Si la requête est approuvée, Security Center configure les NSG et Pare-feu Azure afin d’autoriser le trafic entrant vers les ports sélectionnés à partir de l’adresse IP (ou de la plage d’adresses IP) correspondante, pendant la durée spécifiée. Après expiration du délai, Security Center restaure les groupes de sécurité réseau à leur état précédent. Les connexions déjà établies ne sont pas interrompues.
 
 > [!NOTE]
 > L’accès JAT ne prend pas en charge les machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
@@ -67,13 +67,17 @@ Lorsque Security Center trouve une machine qui peut tirer parti de l’accès J
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Quelles sont les autorisations nécessaires pour configurer et utiliser l’accès JAT ?
 
-Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec JIT, vous devez disposer des informations suivantes :
+Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec l’accès JAT, vous aurez besoin des détails du tableau ci-dessous.
+
+> [!TIP]
+> Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.
 
 | Pour permettre à un utilisateur de : | Autorisations à définir|
 | --- | --- |
 | Configurer ou modifier une stratégie juste-à-temps pour une machine virtuelle | *Attribuez ces actions au rôle :*  <ul><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> Dans le cadre d’un abonnement, d’un groupe de ressources de machine virtuelle : <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Demander l’accès JIT à une machine virtuelle | *Attribuez ces actions à l’utilisateur :*  <ul><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  Dans le cadre d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle :<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  Dans le cadre d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle :<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 |Lire les stratégies JIT| *Attribuez ces actions à l’utilisateur :*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|||
 
 
 

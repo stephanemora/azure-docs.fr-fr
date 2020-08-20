@@ -1,6 +1,6 @@
 ---
 title: Comparaison des fonctionnalités des niveaux de la Gestion des API Azure | Microsoft Docs
-description: Cet article compare les niveaux de la Gestion des API en fonction des fonctionnalités qu’ils proposent.
+description: Comparez les niveaux de service de Gestion des API en fonction des fonctionnalités qu’ils proposent. Consultez un tableau qui récapitule les principales fonctionnalités disponibles dans chaque niveau tarifaire.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284334"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905140"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparaison des fonctionnalités des niveaux de la Gestion des API Azure
 
@@ -26,7 +26,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 > [!IMPORTANT]
 > Veuillez noter que le niveau développeur est uniquement pour les cas d’utilisation et les évaluations hors production. Il ne propose pas de SLA.
 
-| Fonctionnalité                                                                                      | Consommation | Développeur | De base | standard | Premium |
+| Fonctionnalité                                                                                      | Consommation | Développeur | De base | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Intégration à Azure AD<sup>1</sup>                                                             | Non          | Oui       | Non    | Oui      | Oui     |
 | Prise en charge du réseau virtuel                                                               | Non          | Oui       | Non    | Non       | Oui     |

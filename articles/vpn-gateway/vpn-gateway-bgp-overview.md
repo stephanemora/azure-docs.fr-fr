@@ -1,6 +1,6 @@
 ---
 title: 'BGP et la passerelle VPN Azure : Vue d’ensemble'
-description: Cet article fournit une vue d’ensemble du protocole BGP avec les passerelles VPN Azure.
+description: En savoir plus sur le protocole BGP (Border Gateway Protocol) dans Azure VPN, le protocole Internet standard pour échanger des informations de routage et d’accessibilité entre les réseaux.
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 368532eb05ade95a979029871733e057cbdcd6d6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708091"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035550"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>À propos du protocole BGP avec la passerelle VPN Azure
 Cet article fournit une vue d’ensemble de la prise en charge du protocole BGP (Border Gateway Protocol) avec la passerelle VPN Azure.

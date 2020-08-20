@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927281"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -59,7 +59,7 @@ Procurez-vous un [compte Microsoft Azure](https://azure.microsoft.com/).
 Assurez-vous que votre compte Azure dispose des autorisations nécessaires pour la réplication de machines virtuelles vers Azure.
 
 - Vérifiez les [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) nécessaires pour répliquer des machines vers Azure.
-- Vérifiez et modifiez les autorisations [d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md). 
+- Vérifiez et modifiez les autorisation de [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) . 
 
 
 

@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8ca3d7475472c6980be85299046624bdcf8cae11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254455"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042834"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Suivez cet article si vous souhaitez **analyser des fichiers de texte délimité ou écrire des données au format de texte délimité**. 
@@ -90,7 +91,7 @@ Prise en charge des **paramètres de lecture du texte délimité** sous `formatS
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSettings**. | Oui      |
 | skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. | Non       |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu’il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
 
 ```json
 "activities": [
@@ -135,7 +136,7 @@ Prise en charge des **paramètres d’écriture du texte délimité** sous `form
 | Propriété      | Description                                                  | Obligatoire                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextWriteSettings**. | Oui                                                   |
-| fileExtension | L’extension de fichier utilisée pour nommer les fichiers de sortie, par exemple, `.csv`, `.txt`. Elle doit être spécifiée lorsque `fileName` n’est pas spécifié dans le jeu de données de sortie DelimitedText. Quand le nom de fichier est configuré dans le jeu de données de sortie, il est utilisé comme nom de fichier du récepteur et le paramètre d’extension de fichier est ignoré.  | Oui lorsque le nom de fichier n’est pas spécifié dans le jeu de données de sortie |
+| fileExtension | Extension de fichier utilisée pour nommer les fichiers de sortie, par exemple : `.csv`, `.txt`. Elle doit être spécifiée lorsque `fileName` n’est pas spécifié dans le jeu de données de sortie DelimitedText. Quand le nom de fichier est configuré dans le jeu de données de sortie, il est utilisé comme nom de fichier du récepteur et le paramètre d’extension de fichier est ignoré.  | Oui lorsque le nom de fichier n’est pas spécifié dans le jeu de données de sortie |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -177,7 +178,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Effacer le contenu du dossier | Pour effacer le contenu du dossier de destination avant l’écriture de données | non | `true` ou `false` | truncate |
+| Effacer le contenu du dossier | Si le dossier de destination est vidé avant l’écriture | non | `true` ou `false` | truncate |
 | Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Comme les données de la colonne : String <br> Sortie dans un fichier unique : `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 | Tout mettre entre guillemets | Placer toutes les valeurs entre guillemets | non | `true` ou `false` | quoteAll |
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609348"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009237"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
-La compétence de **reconnaissance optique de caractères (OCR)** reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles d’apprentissage automatique fournis par [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
+La compétence de **reconnaissance optique de caractères (OCR)** reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles Machine Learning fournis par l’API [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
 
-+ L'API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) est utilisée pour les langues autres que l'anglais. 
-+ Pour l'anglais, la nouvelle API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) est utilisée.
++ Pour l’anglais, l’espagnol, l’allemand, le français, l’italien, le portugais et le néerlandais, la nouvelle API [« Lecture »](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) est utilisée.
++ Pour toutes les autres langues, l’API [« OCR »](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) est utilisée.
 
 La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fichiers pris en charge sont les suivants :
 

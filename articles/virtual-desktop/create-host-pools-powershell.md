@@ -1,19 +1,17 @@
 ---
 title: Créer un pool d’hôtes Windows Virtual Desktop via PowerShell – Azure
 description: Découvrez comment créer un pool d’hôtes dans Windows Virtual Desktop avec des cmdlets PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a4ba5494cb65738f5443915c013571b98854a91
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543416"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121151"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Windows Virtual Desktop avec PowerShell
 
@@ -118,6 +116,32 @@ Pour inscrire les agents Windows Virtual Desktop, procédez comme suit sur chaqu
 
 >[!IMPORTANT]
 >Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](../security-center/security-center-just-in-time.md). Nous vous recommandons également de ne pas attribuer vos machines virtuelles à une adresse IP publique.
+
+## <a name="update-the-agent"></a>Mettre à jour l’agent
+
+Vous devrez mettre à jour l’agent si vous vous trouvez dans l’une des situations suivantes :
+
+- Vous souhaitez migrer une session précédemment inscrite vers un nouveau pool d’hôtes.
+- L’hôte de la session n’apparaît pas dans votre pool d’hôtes après une mise à jour.
+
+Pour mettre à jour l’agent :
+
+1. Connectez-vous à la machine virtuelle en tant qu’administrateur.
+2. Accédez à **Services**, puis arrêtez les processus **Rdagent** et **Chargeur d’agent Bureau à distance**.
+3. Ensuite, recherchez les MSI de l’agent et du chargeur de démarrage. Ils se trouvent soit dans le dossier **C:\DeployAgent**, soit dans l’emplacement où vous les avez enregistrés lors de l’installation.
+4. Recherchez les fichiers suivants et désinstallez-les :
+     
+     - Microsoft.RDInfra.RDAgent.Installer-x64-verx.x.x
+     - Microsoft.RDInfra.RDAgentBootLoader.Installer-x64
+
+   Pour désinstaller ces fichiers, cliquez avec le bouton droit sur chaque nom de fichier, puis sélectionnez **Désinstaller**.
+5. Si vous le souhaitez, vous pouvez également supprimer les paramètres de registre suivants :
+     
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. Une fois que vous avez désinstallé ces éléments, vous devez supprimer toutes les associations avec l’ancien pool d’hôtes. Si vous souhaitez réinscrire cet hôte auprès du service, suivez les instructions figurant dans [Inscrire les machines virtuelles dans le pool d’hôtes Windows Virtual Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,14 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 08/06/2020
 ms.author: amverma
-ms.openlocfilehash: f9717105c9241777d72a8943e87f33ab31c8038c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.reviewer: jushiman
+ms.openlocfilehash: b7655f4cb13e80d6262c3d4871c1ab69f4a6a051
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288483"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905465"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
@@ -42,4 +43,7 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
+- En savoir plus sur [la configuration de vos machines virtuelles](./workloads/hpc/configure.md), [l’activation d’InfiniBand](./workloads/hpc/enable-infiniband.md), [la configuration de MPI](./workloads/hpc/setup-mpi.md) et l’optimisation des applications HPC pour Azure dans l’article relatif aux [charges de travail HPC](./workloads/hpc/overview.md).
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).
+- Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

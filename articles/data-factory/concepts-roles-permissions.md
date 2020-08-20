@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263243"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036349"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -29,18 +29,18 @@ Cet article décrit les rôles requis pour créer et gérer des ressources Azure
 Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
 
 Les exigences applicables à la création et à la gestion des ressources enfants pour Data Factory (jeux de données, services liés, pipelines, déclencheurs et runtimes d’intégration) sont les suivantes :
-- Pour créer et gérer des ressources enfants dans le Portail Azure, vous devez appartenir au rôle **Contributeurs de Data Factory** au niveau du groupe de ressources ou à un niveau supérieur.
+- Pour créer et gérer des ressources enfants dans le portail Azure, vous devez appartenir au rôle **Contributeur de Data Factory** au niveau du **groupe de ressources** ou à un niveau supérieur.
 - Pour créer et gérer des ressources enfants à l’aide de PowerShell ou du Kit de développement logiciel (SDK), le rôle **Contributeur** au niveau du groupe de ressources ou à un niveau supérieur est suffisant.
 
 Pour découvrir des exemples d’instructions concernant l’ajout d’un utilisateur à un rôle, consultez l’article décrivant comment [ajouter des rôles](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Définir des autorisations
 
-Après avoir créé une fabrique de données, vous allez sans doute vouloir permettre à d’autres utilisateurs de l’utiliser. Pour accorder cet accès à d’autres utilisateurs, vous devez les ajouter au rôle **Contributeur de Data Factory** lequel est intégré au groupe de ressources qui contient la fabrique de données.
+Après avoir créé une fabrique de données, vous allez sans doute vouloir permettre à d’autres utilisateurs de l’utiliser. Pour accorder cet accès à d’autres utilisateurs, vous devez les ajouter au rôle **Contributeur de Data Factory**, lequel est intégré au **groupe de ressources** qui contient la fabrique de données.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Portée du rôle Contributeur de Data Factory
 
-L’appartenance au rôle **Contributeur de Data Factory** permet aux utilisateurs d’effectuer les opérations suivantes :
+L’appartenance au rôle **Contributeur de Data Factory** permet aux utilisateurs d’effectuer les opérations suivantes :
 - Créer, modifier et supprimer des fabriques de données et des ressources enfants, y compris des jeux de données, des services liés, des pipelines, des déclencheurs et des runtimes d’intégration.
 - Déployer des modèles Resource Manager. Le déploiement Resource Manager est la méthode de déploiement utilisée par Data Factory dans le portail Microsoft Azure.
 - Gérer les alertes App Insights pour une fabrique de données.
@@ -50,7 +50,7 @@ Pour plus d’informations sur ce rôle, voir [Rôle Contributeur de Data Factor
 
 ### <a name="resource-manager-template-deployment"></a>Déploiement de modèle Resource Manager
 
-Le rôle **Contributeur de Data Factory**, au niveau du groupe de ressources ou au-delà, permet aux utilisateurs de déployer des modèles Resource Manager. Par conséquent, les membres de ce rôle peuvent utiliser des modèles Resource Manager pour déployer des fabriques de données et leurs ressources enfants, y compris des jeux de données, des services liés, des pipelines, des déclencheurs et des runtimes d’intégration. Toutefois, l’appartenance à ce rôle ne permet pas à l’utilisateur de créer d’autres ressources.
+Le rôle **Contributeur de Data Factory**, au niveau du groupe de ressources ou au-delà, permet aux utilisateurs de déployer des modèles Resource Manager. Par conséquent, les membres de ce rôle peuvent utiliser des modèles Resource Manager pour déployer des fabriques de données et leurs ressources enfants, y compris des jeux de données, des services liés, des pipelines, des déclencheurs et des runtimes d’intégration. L’appartenance à ce rôle ne permet pas à l’utilisateur de créer d’autres ressources.
 
 Les autorisations pour les référentiels Azure et GitHub sont indépendantes des autorisations Data Factory. Par conséquent, un utilisateur disposant des autorisations de référentiel et uniquement membre du rôle Lecteur peut modifier les ressources enfant Data Factory et apporter des modifications au référentiel, mais il ne peut pas publier ces modifications.
 

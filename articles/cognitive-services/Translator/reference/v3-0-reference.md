@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592268"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121015"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -147,11 +147,11 @@ Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeto
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
 
-Le service Translator est désormais disponible avec des fonctionnalités de réseau virtuel dans certaines régions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`). Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Le service Translator est désormais disponible avec des capacités de réseau virtuel (VNET) dans toutes les régions du cloud public Azure. Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Après avoir activé cette capacité, vous devez utiliser le point de terminaison personnalisé pour appeler Translator. Vous ne pouvez pas utiliser le point de terminaison du traducteur global (« api.cognitive.microsofttranslator.com ») et vous ne pouvez pas vous authentifier avec un jeton d’accès.
 
-Vous obtiendrez le point de terminaison personnalisé après avoir créé la [ressource du traducteur](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Vous pouvez trouver le point de terminaison personnalisé après avoir créé une [ressource de traduction](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) et autorisé l’accès à partir des réseaux et points terminaux privés sélectionnés.
 
 |headers|Description|
 |:-----|:----|

@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: aef9c6781c87ff4e84e46de711308319755e4630
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057617"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042069"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)
 
-En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), vous pouvez autoriser un autre utilisateur ou principal de service à créer des abonnements facturés sur votre compte. Dans cet article, vous allez apprendre à utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) pour partager la capacité de créer des abonnements et à effectuer un audit des créations d’abonnements. Vous devez disposer du rôle Propriétaire pour le compte que vous souhaitez partager.
+En tant que client Azure en [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), vous pouvez autoriser un autre utilisateur ou principal de service à créer des abonnements facturés sur votre compte. Dans cet article, vous allez apprendre à utiliser le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) pour partager la capacité de créer des abonnements et à effectuer un audit des créations d’abonnements. Vous devez disposer du rôle Propriétaire pour le compte que vous souhaitez partager.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -180,7 +180,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
 Pour effectuer le suivi des abonnements créés par le biais de cette API, utilisez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs). Il est impossible d’utiliser le portail Azure, l’interface CLI ou PowerShell pour effectuer le suivi de la création d’abonnement.
 
-1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`.
+1. En tant qu’administrateur locataire du locataire Azure AD, [élevez l’accès](../../role-based-access-control/elevate-access-global-admin.md), puis affectez un rôle de lecteur à l’utilisateur d’audit sur l’étendue `/providers/microsoft.insights/eventtypes/management`. Cet accès est disponible dans le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader), le rôle [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 1. En tant qu’utilisateur d’audit, appelez [l’API des journaux d’activité de locataire](/rest/api/monitor/tenantactivitylogs) pour voir les activités de création d’abonnement. Exemple :
 
     ```

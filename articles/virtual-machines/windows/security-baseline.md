@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4e62fd43c062d9d33292eac36a16d809bc926c98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445214"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009832"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -384,7 +384,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -444,7 +444,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -556,11 +556,11 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 **Responsabilité** : Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Grâce au contrôle d’accès en fonction du rôle (RBAC), vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI, ou d’Azure PowerShell.
+**Aide** : Grâce au contrôle d’accès en fonction du rôle Azure (Azure RBAC), vous pouvez séparer les tâches au sein de votre équipe et n’accorder aux utilisateurs que les accès à votre machine virtuelle dont ils ont besoin pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées sur la machine virtuelle, vous pouvez autoriser uniquement certaines actions. Vous pouvez configurer le contrôle d’accès pour la machine virtuelle dans le portail Azure, à l’aide d’Azure CLI, ou d’Azure PowerShell.
 
-* [Contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -624,7 +624,7 @@ Microsoft utilise le protocole TLS (Transport Layer Security) pour protéger le
 
 * [Gérer les mises à jour et les correctifs de vos machines virtuelles](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -913,11 +913,11 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
+**Aide** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Présentation d’Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Comment configurer Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -1125,7 +1125,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 * [Organisation des ressources Azure à l’aide de catégories](../../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

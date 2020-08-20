@@ -1,6 +1,6 @@
 ---
 title: Ajouter un certificat d’autorité de certification personnalisé - Gestion des API Azure | Microsoft Docs
-description: Découvrez comment ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure.
+description: Découvrez comment ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure. Vous pouvez également consulter les instructions pour supprimer un certificat.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70073606"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852070"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Guide pratique pour ajouter un certificat d’autorité de certification personnalisé dans la Gestion des API Azure
 
@@ -56,7 +56,7 @@ Suivez les étapes ci-dessous pour charger un nouveau certificat d’autorité d
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Supprimer un certificat client
 
-Pour supprimer un certificat, cliquez sur le menu contextuel **...** , puis sélectionnez **Supprimer** à côté du certificat.
+Pour supprimer un certificat, cliquez sur le menu contextuel **...**, puis sélectionnez **Supprimer** à côté du certificat.
 
 ![Supprimer des certificats d’autorité de certification](media/api-management-howto-ca-certificates/04.png)  
 

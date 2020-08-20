@@ -3,12 +3,13 @@ title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure critiques en appliquant un verrou à tous les utilisateurs et rôles.
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057583"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827280"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -21,7 +22,7 @@ En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonneme
 
 Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources de cette étendue héritent du même verrou. Même les ressources que vous ajoutez par la suite héritent du verrou du parent. Le verrou le plus restrictif de l’héritage est prioritaire.
 
-Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md).
+Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
 

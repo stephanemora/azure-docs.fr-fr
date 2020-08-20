@@ -3,18 +3,18 @@ title: Installer HCX (Hybrid Cloud Extension)
 description: Configurer la solution HCX (Hybrid Cloud Extension) VMware pour votre cloud privé AVS (Azure VMware Solution)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475445"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904991"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installer HCX pour Azure VMware Solution
 
 Dans cet article, nous explorons les procédures pour configurer la solution HCX (Hybrid Cloud Extension) VMware pour votre cloud privé AVS (Azure VMware Solution). HCX permet la migration de vos charges de travail VMware vers le cloud et d’autres sites connectés par le biais de différents types de migration HCX intégrés pris en charge.
 
-HCX Advanced, l’installation par défaut, prend en charge jusqu’à trois sites vCenter. Les clients pour qui cela ne suffit pas ont la possibilité d’activer le module complémentaire HCX Enterprise par le biais du Support. L’installation de HCX Enterprise entraîne des frais supplémentaires pour les clients après la disponibilité générale, mais fournit des [fonctionnalités supplémentaires](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, l’installation par défaut, prend en charge jusqu’à trois connexions de site (localement ou cloud vers cloud). Si plus de trois connexions de site sont requises, les clients ont la possibilité d’activer le module complémentaire HCX Enterprise via le support, qui est actuellement disponible en préversion. HCX Enterprise entraîne des frais supplémentaires pour les clients après la disponibilité générale, mais fournit des [fonctionnalités supplémentaires](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Commencez par passer en revue minutieusement les sections [Avant de commencer](#before-you-begin), [Exigences de la version logicielle](#software-version-requirements) et [Prérequis](#prerequisites). 
@@ -22,7 +22,7 @@ Commencez par passer en revue minutieusement les sections [Avant de commencer](#
 Ensuite, nous parcourrons pas à pas toutes les procédures nécessaires pour :
 
 > [!div class="checklist"]
-> * Déployer HCX OVA sur site
+> * Déployer HCX OVA localement (connecteur)
 > * Activer et configurer HCX
 > * Configurer la liaison montante réseau et le maillage du service
 > * Terminer la configuration en vérifiant l’état de l’appliance
@@ -36,11 +36,14 @@ Une fois l’installation terminée, vous pouvez appliquer les étapes suivantes
 * Consultez [Migration des machines virtuelles avec VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) dans la documentation de VMware.
 * Consultez éventuellement les [considérations relatives au déploiement de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Consultez éventuellement les ressources VMware associées sur HCX, comme la [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) VMware vSphere sur HCX. 
-* Commandez une activation d’AVS HCX Enterprise via les canaux de support AVS.
+* Demandez une activation d’AVS HCX Enterprise via les canaux de support AVS.
 
-Le dimensionnement des charges de travail par rapport aux ressources de calcul et de stockage est une étape de planification essentielle lors de la préparation à l’utilisation de la solution AVS Private Cloud HCX. Traitez cette étape de dimensionnement dans le cadre de la planification initiale de l’environnement de cloud privé.   
+Le dimensionnement des charges de travail par rapport aux ressources de calcul et de stockage est une étape de planification essentielle lorsque vous vous préparez à utiliser la solution AVS Private Cloud HCX. Traitez cette étape de dimensionnement dans le cadre de la planification initiale de l’environnement de cloud privé. 
+
+Vous pouvez également dimensionner les charges de travail en effectuant une évaluation AVS dans le portail Azure Migrate (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) ).
 
 ## <a name="software-version-requirements"></a>Exigences de la version logicielle
+
 Les composants d’infrastructure doivent exécuter la version minimale requise. 
                                                          
 | Type de composant    | Exigences de l’environnement source    | Exigences de l’environnement de destination   |

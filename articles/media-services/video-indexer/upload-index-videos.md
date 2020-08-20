@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052492"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904256"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -58,6 +58,13 @@ L’article décrit comment télécharger et indexer vos vidéos avec les option
 
 Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Video Indexer, consultez l’article [conteneur d’entrée/formats de fichiers](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
+## <a name="video-files-storage"></a>Stockage de fichiers vidéo
+
+- Avec un compte Video Indexer payant, vous créez un compte Video Indexer connecté à votre abonnement Azure et un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte Video Indexer connecté à Azure](connect-to-azure.md).
+- Les fichiers vidéo sont stockés dans le stockage Azure par Azure Media Services. Il n’existe aucune limite de temps.
+- Vous pouvez toujours supprimer vos fichiers vidéo et audio, ainsi que les métadonnées et les insights qui ont été extraits par Video Indexer. Lorsque vous supprimez un fichier à partir de Video Indexer, le fichier, ses métadonnées et ses insights sont définitivement supprimés de Video Indexer. Toutefois, si vous avez implémenté votre propre solution de sauvegarde dans le stockage Azure, le fichier demeure dans votre stockage Azure.
+- La persistance d’une vidéo est identique, que le chargement soit effectué à partir du site web de Video Indexer ou à l’aide de l’API de chargement.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Télécharger et indexer une vidéo à l’aide du site web Video Indexer
 
 > [!NOTE]
@@ -132,7 +139,7 @@ Le prix dépend de l’option d’indexation sélectionnée.
 
 #### <a name="priority"></a>priority
 
-Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Low**, **Normal** (par défaut) et **High**.
+Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse**, **Normale** (valeur par défaut) et **Haute**.
 
 Le paramètre **priority** est uniquement pris en charge dans les comptes payants.
 
@@ -141,6 +148,9 @@ Le paramètre **priority** est uniquement pris en charge dans les comptes payant
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. Il passe ensuite à l’indexation et à l’analyse de la vidéo. Lorsque Video Indexer a terminé l’analyse, vous recevrez une notification avec l’ID de la vidéo.  
 
 Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
+
+Pour SingleBitrate, le coût de l’encodeur standard s’applique à chaque sortie. Si la hauteur de la vidéo est supérieure ou égale à 720, Video Indexer l’encode au format 1280 x 720. Sinon, au format 640 x 468.
+Le paramètre par défaut est [l’encodage sensible au contenu](../latest/content-aware-encoding.md).
 
 Pour exécuter les travaux d’indexation et d’encodage, le [compte Azure Media Services connecté à votre compte Video Indexer](connect-to-azure.md), nécessite des unités réservées. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Dans la mesure où il s’agit de tâches de calcul intensif, un type d’unité S3 est fortement recommandé. Le nombre d’unités de demande définit le nombre maximal de travaux pouvant s’exécuter en parallèle. La suggestion de base de référence est 10 unités de demande S3. 
 

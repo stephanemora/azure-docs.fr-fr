@@ -1,7 +1,7 @@
 ---
 title: Vue d’ensemble du compte de stockage
 titleSuffix: Azure Storage
-description: Découvrez les options de création et d’utilisation des comptes de stockage Azure.
+description: Lisez une vue d’ensemble des comptes de stockage dans Stockage Azure. Passez en revue les noms des comptes, les niveaux de performance, les niveaux d’accès, la redondance, le chiffrement, les points de terminaison, etc.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043634"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034649"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur la création d’un compte de stockage Azure, con
 
 Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes de stockage universels v2 prennent en charge les services de stockage Azure suivants :
 
-- Objets blob (tous les types : Block, Append, Page)
+- Objets blob (tous les types : de blocs, d’ajout et de pages)
 - Data Lake Gen2
 - Fichiers
 - Disques
@@ -78,7 +78,7 @@ Les comptes FileStorage offrent des caractéristiques de performances dédiées 
 
 Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de stockage :
 
-- Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+- Les noms de compte de stockage doivent avoir entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 - Le nom de votre compte de stockage doit être unique dans Azure. Deux comptes de stockage ne peuvent avoir le même nom.
 
 ## <a name="performance-tiers"></a>Niveaux de performances
@@ -150,7 +150,7 @@ Chaque requête envoyée à votre compte de stockage doit en avoir l’autorisat
 Vous pouvez accorder l’accès aux données de votre compte de stockage à l’aide de l’une des méthodes suivantes :
 
 - **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
-- **Autorisation par clé partagée :** Utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
+- **Autorisation par clé partagée :** utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
 - **Signature d’accès partagé :** Utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage si vous n’utilisez pas l’autorisation Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
 > [!NOTE]

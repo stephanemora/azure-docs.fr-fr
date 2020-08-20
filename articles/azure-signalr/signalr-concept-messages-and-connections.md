@@ -4,14 +4,14 @@ description: Présentation des concepts clés concernant les messages et les con
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75392807"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853447"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messages et connexions dans Azure SignalR Service
 
@@ -36,7 +36,13 @@ Pour la facturation, seuls les messages envoyés à partir d’Azure SignalR Ser
 
 Les messages de plus de 2 Ko sont comptabilisés comme plusieurs messages de 2 Ko chacun. Le graphique du nombre de messages dans le portail Azure est mis à jour tous les 100 messages par hub.
 
-Par exemple, imaginez que vous avez trois clients et un serveur d’applications. Un client envoie un message de 4 Ko pour permettre au serveur de diffuser vers tous les clients. Il y a huit messages comptabilisés : un message entre le service et le serveur d’applications, et trois messages entre le service et les clients. Chaque message est comptabilisé comme deux messages de 2 Ko chacun.
+Par exemple, imaginez que vous avez un serveur d’applications et trois clients :
+
+Le serveur d’applications diffuse un message de 1 ko à tous les clients connectés : le message du serveur d’applications au service est considéré comme un message entrant gratuit. Seuls les trois messages envoyés à partir du service à chaque client sont facturés en tant que messages sortants.
+
+Le client A envoie un message de 1 ko à un autre client B, sans passer par le serveur d’applications. Le message du client A au service est un message entrant gratuit. Le message du service au client B est facturé comme message sortant.
+
+Si vous avez trois clients et un serveur d’applications. Un client envoie un message de 4 Ko pour permettre au serveur de diffuser vers tous les clients. Il y a huit messages facturés comptabilisés : un message entre le service et le serveur d’applications, et trois messages entre le service et les clients. Chaque message est comptabilisé comme deux messages de 2 Ko chacun.
 
 ## <a name="how-connections-are-counted"></a>Mode de calcul des connexions
 
@@ -46,13 +52,13 @@ Le nombre de connexions indiqué dans le portail Azure inclut les connexions ser
 
 Par exemple, imaginez que vous utilisez deux serveurs d’applications et que vous définissez cinq hubs dans le code. Le nombre de connexions serveur sera de 50 : 2 serveurs d’applications * 5 hubs * 5 connexions par hub.
 
-ASP.NET SignalR calcule le nombre de connexions serveur de manière différente. Il inclut un hub par défaut en plus des hubs que vous définissez. Par défaut, chaque serveur d’applications a besoin de cinq connexions serveur initiales supplémentaires. Le nombre de connexions initiales pour le hub par défaut reste cohérent avec le nombre des autres hubs.
+ASP.NET SignalR calcule le nombre de connexions serveur de manière différente. Il inclut un hub par défaut en plus des hubs que vous définissez. Par défaut, chaque serveur d’applications a besoin de cinq connexions serveur initiales supplémentaires. Le nombre de connexions initiales pour le hub par défaut reste cohérent avec les autres hubs.
 
-Pendant la durée de vie du serveur d’applications, le service et le serveur d’applications conservent l’état de la connexion de synchronisation et effectuent des ajustements aux connexions serveur pour améliorer les performances et la stabilité du service. Par conséquent, le numéro de connexion au serveur peut changer de temps en temps.
+Le service et le serveur d’applications continuent à synchroniser l’état de la connexion et à ajuster les connexions au serveur pour obtenir de meilleures performances et une meilleure stabilité du service.  Par conséquent, le numéro de connexion au serveur peut changer de temps en temps.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Mode de calcul du trafic entrant/sortant
 
-La distinction entre le trafic entrant et le trafic sortant est basée sur la perspective d’Azure SignalR Service. Le trafic est calculé en octets.
+Le message envoyé au service est un message entrant. Le message envoyé à partir du service est un message sortant. Le trafic est calculé en octets.
 
 ## <a name="related-resources"></a>Ressources associées
 

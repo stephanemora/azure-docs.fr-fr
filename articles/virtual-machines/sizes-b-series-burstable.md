@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 81bfde964fa993b69bc464214dab0810a8f2bfe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292064"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832584"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
@@ -92,18 +92,21 @@ Pour un D16s_v3 disposant de 16 processeurs virtuels et de 64 Gio de mémoire, l
 
 ## <a name="q--a"></a>Questions et réponses
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>Q : Que se passe-t-il s’il n’y a plus de crédits ?
+**R** : Une fois les crédits épuisés, la machine virtuelle revient aux performances de ligne de base.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q : Comment obtenir 135 % des performances de base d’une machine virtuelle ?
 
 **R** : Ce pourcentage est réparti sur les huit processeurs virtuels qui composent la taille de la machine virtuelle. Par exemple, si votre application utilise 4 des 8 cœurs travaillant au traitement par lots et que chacun de ces 4 processeurs virtuels est utilisé à 30 %, la quantité totale des performances du processeur de la machine virtuelle serait égale à 120 %.  Ce qui signifie que votre machine virtuelle générerait un crédit temps basé sur le delta de 15 % à partir de vos performances de base.  Cela signifie également que lorsque vous disposez de crédits, cette même machine virtuelle peut utiliser la totalité des 8 processeurs virtuels pour obtenir une performance de processeur maximale de 800 %.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q : Comment puis-je surveiller mes soldes de crédit et de consommation ?
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q : Comment puis-je surveiller mon solde créditeur et ma consommation ?
 
 **R** : Nous allons présenter deux nouvelles mesures dans les semaines à venir. La mesure **Credit** vous permettra d’afficher les crédits cumulés par votre machine virtuelle et la mesure **ConsumedCredit** d’afficher le nombre de crédits de processeur utilisés par votre machine virtuelle.    Ces mesures figurent sur le volet des mesures du portail ou sont visibles par programme via les API Azure Monitor.
 
 Pour en savoir plus sur l’accès aux données de mesure pour Azure, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>Q : Comment les crédits sont-ils cumulés ?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q : Comment les crédits sont-ils accumulés et consommés ?
 
 **R** : Les taux de cumul et d’utilisation de la machine virtuelle sont définis pour qu’une machine virtuelle s’exécutant exactement à son niveau de performances de base ne génère aucun cumul net ou n’utilise aucun crédit.  Une machine virtuelle connaît une augmentation nette de ses crédits chaque fois qu’elle s’exécute sous son niveau de performances de base, et une diminution nette de ses crédits chaque fois qu’elle utilise le processeur à un niveau plus élevé de performances.
 
@@ -146,7 +149,7 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 39dbf7d9ad933dd47f0a566f02b5e276e4b615a3
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87514147"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041746"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Générer et stocker des clés SSH dans le portail Azure
 
@@ -22,17 +22,17 @@ Vous pouvez créer une clé SSH quand vous créez une machine virtuelle pour la 
 
 Si vous disposez de clés existantes et souhaitez simplifier leur utilisation dans le portail, vous pouvez les télécharger et les stocker dans Azure en vue de les réutiliser.
 
-Pour plus d’informations sur la création et l’utilisation de clés SSH avec des machines virtuelles Linux, consultez (Utiliser des clés SSH pour se connecter à des machines virtuelles Linux) [./linux/ssh-from-windows.md].
+Pour plus d’informations sur la création et l’utilisation de clés SSH avec des machines virtuelles Linux, consultez [Utiliser des clés SSH pour se connecter à des machines virtuelles Linux](./linux/ssh-from-windows.md).
 
 ## <a name="generate-new-keys"></a>Générer de nouvelles clés
 
-1. Ouvrez le [portail Azure](https://portal.azure.com.
+1. Ouvrez le [Portail Azure](https://portal.azure.com).
 
 1. En haut de la page, tapez *SSH* pour rechercher. Sous **Marketplace*, sélectionnez **Clés SSH**.
 
 1. Dans la page **Clé SSH**, sélectionnez **Créer**.
 
-:::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Créer un nouveau groupe de ressources et générer une paire de clés SSH":::
+   :::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Créer un nouveau groupe de ressources et générer une paire de clés SSH":::
 
 1. Dans **Groupe de ressources** sélectionnez **Créer nouveau** afin de créer un nouveau groupe de ressources pour stocker vos clés. Tapez un nom pour votre groupe de ressources, puis sélectionnez **OK**.
 
@@ -48,7 +48,7 @@ Pour plus d’informations sur la création et l’utilisation de clés SSH avec
 
 1. Dans la fenêtre contextuelle qui s’affiche, sélectionnez **Télécharger la clé privée et créer une ressource**. Cela a pour effet de télécharger la clé SSH en tant que fichier .pem.
 
-:::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Télécharger la clé privée en tant que fichier. pem":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Télécharger la clé privée en tant que fichier. pem":::
 
 1. Une fois le fichier. pem téléchargé, vous pouvez le déplacer quelque part sur votre ordinateur où il est facile de pointer dessus à partir de votre client SSH.
 
@@ -68,13 +68,13 @@ Par exemple, tapez `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`.
 
 Vous pouvez également charger une clé SSH publique à stocker dans Azure. Pour plus d’informations sur la création d’une paire de clés SSH, consultez [Utiliser des clés SSH pour se connecter à des machines virtuelles Linux](./linux/ssh-from-windows.md).
 
-1. Ouvrez le [portail Azure](https://portal.azure.com.
+1. Ouvrez le [Portail Azure](https://portal.azure.com).
 
 1. En haut de la page, tapez *SSH* pour rechercher. Sous **Marketplace*, sélectionnez **Clés SSH**.
 
 1. Dans la page **Clé SSH**, sélectionnez **Créer**.
 
-:::image type="content" source="./media/ssh-keys/upload.png" alt-text="Charger une clé publique SSH à stocker dans Azure":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Charger une clé publique SSH à stocker dans Azure":::
 
 1. Dans **Groupe de ressources** sélectionnez **Créer nouveau** afin de créer un nouveau groupe de ressources pour stocker vos clés. Tapez un nom pour votre groupe de ressources, puis sélectionnez **OK**.
 
@@ -92,4 +92,4 @@ Une fois la clé chargée, vous pouvez choisir de l’utiliser lors de la créat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’utilisation des clés SSH avec des machines virtuelles Azure, consultez (Utiliser des clés SSH pour se connecter à des machines virtuelles Linux) [./linux/ssh-from-windows.md].
+Pour en savoir plus sur l’utilisation des clés SSH avec des machines virtuelles Azure, consultez [Utiliser des clés SSH pour se connecter à des machines virtuelles Linux](./linux/ssh-from-windows.md).

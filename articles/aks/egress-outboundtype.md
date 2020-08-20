@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244444"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067356"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
@@ -60,7 +60,7 @@ Vous trouverez ci-dessous une topologie de réseau déployée dans des clusters 
 
 Si `userDefinedRouting` est défini, AKS ne configure pas automatiquement les chemins de sortie. Vous devez configurer la sortie vous-même.
 
-Le cluster AKS doit être déployé dans un réseau virtuel existant qui contient un sous-réseau préalablement configuré. En effet, quand vous utilisez l’architecture SLB (équilibreur de charge standard), vous devez configurer une sortie explicite. Cette architecture requiert l’envoi explicite du trafic sortant vers une appliance comme un pare-feu, une passerelle ou un proxy, ou pour permettre à la traduction d’adresses réseau (NAT) d’être effectuée par une adresse IP publique attribuée à l’équilibreur de charge standard ou à l’appliance.
+Le cluster AKS doit être déployé dans un réseau virtuel existant qui contient un sous-réseau préalablement configuré. En effet, quand vous n’utilisez pas l’architecture SLB (équilibreur de charge standard), vous devez configurer une sortie explicite. Cette architecture requiert l’envoi explicite du trafic sortant vers une appliance comme un pare-feu, une passerelle ou un proxy, ou pour permettre à la traduction d’adresses réseau (NAT) d’être effectuée par une adresse IP publique attribuée à l’équilibreur de charge standard ou à l’appliance.
 
 Le fournisseur de ressources AKS déploie un équilibreur de charge standard. L’équilibreur de charge n’est configuré avec aucune règle et [n’entraîne pas de frais tant qu’une règle n’a pas été mise en place](https://azure.microsoft.com/pricing/details/load-balancer/). AKS ne configure **pas** automatiquement une adresse IP publique pour l’équilibreur SLB front-end et il ne configure pas non plus automatiquement le pool back-end de l’équilibreur de charge.
 

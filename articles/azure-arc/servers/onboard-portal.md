@@ -1,20 +1,15 @@
 ---
 title: Connecter des machines hybrides à Azure à partir du portail Azure
 description: Dans cet article, vous allez apprendre à installer l’agent et à connecter des machines à Azure à l’aide d’Azure Arc pour serveurs (préversion) à partir du portail Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.date: 07/23/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bc9bc034abce789046803bbcad5b750984c905cb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809525"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120981"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connecter des machines hybrides à Azure à partir du portail Azure
 
@@ -50,7 +45,9 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
 1. Dans la page **Générer un script**, dans la liste déroulante **Système d’exploitation**, sélectionnez le système d’exploitation sur lequel le script s’exécutera.
 
 1. Si la machine communique via un serveur proxy pour se connecter à Internet, sélectionnez **Suivant : Server proxy**.
+
 1. Sous l’onglet **Serveur proxy**, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine doit utiliser pour communiquer avec le serveur proxy. Saisissez la valeur au format `http://<proxyURL>:<proxyport>`.
+
 1. Sélectionnez **Vérifier + générer**.
 
 1. Sous l’onglet **Vérifier + générer**, passez en revue les informations de résumé, puis sélectionnez **Télécharger**. Si vous avez encore besoin d’apporter des modifications, sélectionnez **Précédent**.
@@ -65,7 +62,7 @@ Vous pouvez installer l’agent Connected Machine manuellement en exécutant le 
 >* Pour installer ou désinstaller l’agent, vous devez disposer d’autorisations d’*administrateur*.
 >* Vous devez tout d’abord télécharger et copier le package Installer dans un dossier sur le serveur cible, ou à partir d’un dossier réseau partagé. Si vous exécutez le package Installer sans aucune option, il démarre un assistant de configuration que vous pouvez suivre pour une installation interactive de l’agent.
 
-Si la machine doit communiquer avec le service via un serveur proxy, après avoir installé l’agent, vous devez exécuter une commande qui est décrite plus loin dans cet article. Cette dernière définit la variable d’environnement système du serveur proxy `https_proxy`.
+Si la machine doit communiquer avec le service via un serveur proxy, après avoir installé l’agent, vous devez exécuter une commande qui est décrite dans les étapes ci-dessous. Cette commande définit la variable d’environnement système `https_proxy` du serveur proxy.
 
 Si vous n’êtes pas familiarisé avec les options de ligne de commande pour les packages Windows Installer, passez en revue [Options de ligne de commande standard Msiexec](/windows/win32/msi/standard-installer-command-line-options) et [Options de ligne de commande Msiexec](/windows/win32/msi/command-line-options).
 
@@ -75,13 +72,32 @@ Par exemple, exécutez le programme d’installation avec le paramètre `/?` pou
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Pour installer l’agent silencieusement et créer un fichier journal d’installation dans le dossier `C:\Support\Logs` existant, exécutez la commande suivante.
+1. Pour installer l’agent silencieusement et créer un fichier journal d’installation dans le dossier `C:\Support\Logs` existant, exécutez la commande suivante.
 
-```dos
-msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
-```
+    ```dos
+    msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+    ```
 
-Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Le répertoire des journaux est *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Le répertoire des journaux est *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+
+2. Si la machine doit communiquer via un serveur proxy, exécutez la commande suivante pour définir la variable d’environnement du serveur proxy :
+
+    ```powershell
+    [Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
+    $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+    # For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+    Restart-Service -Name himds
+    ```
+
+    >[!NOTE]
+    >L’agent ne prend pas en charge la configuration de l’authentification proxy dans cette préversion.
+    >
+
+3. Après avoir installé l’agent, vous devez le configurer pour qu’il communique avec le service Azure Arc en exécutant la commande suivante :
+
+    ```dos
+    "%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"
+    ```
 
 ### <a name="install-with-the-scripted-method"></a>Effectuer l’installation à l’aide de la méthode de script
 
@@ -97,34 +113,13 @@ Si le démarrage de l’agent échoue une fois l’installation terminée, reche
 
 Si le démarrage de l’agent échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux. Le répertoire des journaux est *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
-### <a name="configure-the-agent-proxy-setting"></a>Configurer le paramètre de l’agent proxy
-
-Pour définir la variable d’environnement du serveur proxy, exécutez la commande suivante :
-
-```powershell
-# If a proxy server is needed, execute these commands with the proxy URL and port.
-[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
-Restart-Service -Name himds
-```
-
->[!NOTE]
->L’agent ne prend pas en charge la configuration de l’authentification proxy dans cette préversion.
->
-
-### <a name="configure-agent-communication"></a>Configurer la communication de l’agent
-
-Après avoir installé l’agent, vous devez exécuter la commande suivante pour configurer l’agent afin qu’il communique avec le service Azure Arc :
-
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
 ## <a name="install-and-validate-the-agent-on-linux"></a>Installer et valider l’agent sur Linux
 
 L’agent Connected Machine pour Linux est fourni dans le format de package par défaut pour la distribution (. RPM ou. DEB) qui est hébergée dans le [dépôt de packages](https://packages.microsoft.com/) de Microsoft. Le [bundle de script shell `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) effectue les opérations suivantes :
 
 - Configure la machine hôte pour télécharger le package de l’agent à partir de packages.microsoft.com.
 - Installe le package du fournisseur de ressources hybrides.
+- Inscrit la machine auprès d’Azure Arc
 
 Si vous le souhaitez, vous pouvez configurer l’agent avec vos informations de proxy en incluant le paramètre `--proxy "{proxy-url}:{proxy-port}"`.
 
@@ -150,18 +145,9 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 ```
 
-### <a name="configure-the-agent-communication"></a>Configurer la communication de l’agent
-
-Après avoir installé l’agent, exécutez la commande suivante pour le configurer afin qu’il communique avec le service Azure Arc :
-
-`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
->[!NOTE]
->Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
-
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc pour serveurs (préversion), accédez au portail Azure pour vérifier que le serveur a été correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc pour serveurs (préversion), accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

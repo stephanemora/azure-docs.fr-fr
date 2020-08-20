@@ -1,6 +1,6 @@
 ---
 title: Stratégies dans Gestion des API Azure | Microsoft Docs
-description: Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API.
+description: Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API. Consultez des exemples de code et affichez des ressources disponibles supplémentaires.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905514"
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
@@ -27,7 +27,7 @@ Les stratégies sont appliquées au niveau de la passerelle qui se trouve entre 
 
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow][Control flow] et [Set variable][Set variable], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][Advanced policies] et [Expressions de stratégie][Policy expressions].
 
-## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Comprendre la configuration de la stratégie
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Configuration de la stratégie
 
 La définition de la stratégie est un simple document XML qui décrit une séquence d'instructions entrantes et sortantes. Le code XML peut être modifié directement dans la fenêtre de définition. Une liste d’instructions est fournie à droite. Les instructions applicables à la portée actuelle sont activées et mises en surbrillance.
 
@@ -60,7 +60,7 @@ La configuration est composée des sections `inbound`, `backend`, `outbound` et 
 
 S'il existe une erreur lors du traitement d'une demande, les autres étapes des sections `inbound`, `backend` ou `outbound` sont ignorées et l'exécution passe aux instructions de la section `on-error`. En plaçant des instructions de stratégie dans la section `on-error`, vous pouvez consulter l'erreur à l'aide de la propriété `context.LastError`, inspecter et personnaliser la réponse à l'erreur à l'aide de la stratégie `set-body`, puis configurer ce qui se passe si une erreur se produit. Il existe des codes d'erreur pour les étapes intégrées et pour les erreurs qui peuvent se produire pendant le traitement d'instructions de stratégie. Pour plus d'informations, consultez [Gestion des erreurs dans les stratégies de gestion des API](./api-management-error-handling-policies.md).
 
-## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Comment configurer des stratégies
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Configuration des stratégies
 
 Pour plus d’informations sur la façon de configurer des stratégies, consultez [Définir ou modifier des stratégies](set-edit-policies.md).
 

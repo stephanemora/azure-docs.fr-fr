@@ -2,17 +2,17 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321749"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002761"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
-À mesure que votre organisation évolue, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles](../../role-based-access-control/overview.md) dans votre locataire Azure AD. Avec les modèles au niveau du locataire, vous pouvez appliquer de façon déclarative des stratégies et attribuer des rôles à un niveau global.
+À mesure que votre organisation évolue, vous pouvez être amené à définir et attribuer des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles Azure (Azure RBAC)](../../role-based-access-control/overview.md) dans votre locataire Azure AD. Avec les modèles au niveau du locataire, vous pouvez appliquer de façon déclarative des stratégies et attribuer des rôles à un niveau global.
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 
@@ -27,7 +27,6 @@ Pour les stratégies Azure, utilisez :
 Pour le contrôle d’accès en fonction du rôle, utilisez :
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 Pour les modèles imbriqués qui sont déployés sur des groupes d’administration, des abonnements ou des groupes de ressources, utilisez :
 
@@ -252,5 +251,5 @@ Le [modèle suivant](https://github.com/Azure/azure-quickstart-templates/tree/ma
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Pour en savoir plus sur l’attribution de rôles, consultez [Ajouter des attributions de rôle Azure à l’aide de modèles Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Vous pouvez également déployer des modèles au [niveau de l’abonnement](deploy-to-subscription.md) ou au [niveau du groupe d'administration](deploy-to-management-group.md).

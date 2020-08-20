@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321103"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828453"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertes de journal de résolution de problèmes dans Azure Monitor  
 
@@ -190,7 +190,7 @@ Chaque règle d’alerte de journal créée dans Azure Monitor dans le cadre de 
 
 ## <a name="alert-rule-quota-was-reached"></a>Le quota de la règle d’alerte a été atteint
 
-Le nombre de règles d’alerte de recherche dans les journaux par abonnement et par ressource est soumis aux limites de quota décrites [ici](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Le nombre de règles d’alerte de recherche dans les journaux par abonnement et par ressource est soumis aux limites de quota décrites [ici](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Étapes recommandées
     
@@ -226,4 +226,3 @@ Si vous avez atteint la limite de quota, les étapes suivantes peuvent vous aide
 - En savoir plus sur les [alertes de journal dans Azure](./alerts-unified-log.md).
 - En savoir plus sur [Application Insights](../log-query/log-query-overview.md).
 - Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).
-

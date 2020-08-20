@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9274e147bcaec4b3e63a6720e369946d64e94628
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905225"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -104,11 +104,11 @@ Les exemples fournis dans cet article utilisent le Kit de développement logicie
 Les itinéraires d’événements sont définis à l’aide d’API de plan de données. 
 
 Une définition d’itinéraire peut contenir les éléments suivants :
-* ID de l’itinéraire que vous souhaitez utiliser ;
+* nom de l’itinéraire que vous souhaitez utiliser ;
 * nom du point de terminaison que vous souhaitez utiliser ;
 * filtre définissant les événements envoyés au point de terminaison. 
 
-À défaut d’ID d’itinéraire, aucun message n’est acheminé en dehors d’Azure Digital Twins. S’il existe un ID d’itinéraire et que le filtre est `true`, tous les messages sont routés vers le point de terminaison. Si un ID d’itinéraire et un filtre différent sont ajoutés, les messages sont filtrés en fonction du filtre.
+À défaut de nom d’itinéraire, aucun message n’est acheminé en dehors d’Azure Digital Twins. S’il existe un nom d’itinéraire et que le filtre est `true`, tous les messages sont acheminés vers le point de terminaison. Si un nom d’itinéraire et un filtre différent sont ajoutés, les messages sont filtrés en fonction du filtre.
 
 Un itinéraire doit permettre la sélection de plusieurs notifications et types d’événements. 
 

@@ -1,5 +1,5 @@
 ---
-title: Apprentissage automatique responsable - Préversion
+title: Apprentissage automatique responsable (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez ce qu’est l’apprentissage automatique responsable et comment l’utiliser dans Azure Machine Learning
 services: machine-learning
@@ -8,17 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201938"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829388"
 ---
-# <a name="responsible-machine-learning-ml-preview"></a>Apprentissage automatique responsable - Préversion
+# <a name="what-is-responsible-machine-learning-preview"></a>Qu’est-ce que l’apprentissage automatique responsable ? (préversion)
 
-Cet article explique ce qu’est l’apprentissage automatique responsable et comment le mettre en pratique avec Azure Machine Learning.
+Cet article explique ce qu’est l’apprentissage automatique (ML) responsable et comment le mettre en pratique avec Azure Machine Learning.
+
+## <a name="responsible-machine-learning-principles"></a>Principes de l’apprentissage automatique responsable
 
 La confiance doit toujours rester au cœur du développement et de l’utilisation des systèmes d’intelligence artificielle. Confiance dans la plateforme, le processus et les modèles. Chez Microsoft, l’apprentissage automatique responsable englobe les valeurs et principes suivants :
 
@@ -26,11 +28,12 @@ La confiance doit toujours rester au cœur du développement et de l’utilisati
   - Interpréter et expliquer le comportement d’un modèle
   - Évaluer et atténuer la partialité d’un modèle
 - Protéger les personnes et leurs données
-  - Empêcher l’exposition des données avec la confidentialité différentielle  
+  - Empêcher l’exposition des données avec la confidentialité différentielle
+  - Utiliser des données chiffrées à l’aide du chiffrement homomorphe
 - Contrôler le processus d’apprentissage automatique de bout en bout
   - Documenter le cycle de vie de l’apprentissage automatique avec des feuilles de données
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Piliers de l’apprentissage automatique responsable":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Les piliers du ML responsable (interprétabilité, confidentialité différentielle, chiffrement homomorphe, piste d’audit) dans Azure Machine Learning":::
 
 À l’heure où l’intelligence artificielle et les systèmes autonomes s’intègrent plus profondément dans la structure de la société, il est important de faire l’effort d’anticiper et d’atténuer les conséquences inattendues de ces technologies.
 
@@ -40,7 +43,7 @@ Les systèmes de boîte opaque peuvent être problématiques, car il est diffici
 
 Pour créer des systèmes d’intelligence artificielle interprétables, utilisez [InterpretML](https://github.com/interpretml/interpret), un package open source créé par Microsoft. Vous pouvez [utiliser InterpretML à l’intérieur d’Azure Machine Learning](how-to-machine-learning-interpretability.md) pour [interpréter et expliquer vos modèles d’apprentissage automatique](how-to-machine-learning-interpretability-aml.md), dont des [modèles d’apprentissage automatique automatisé](how-to-machine-learning-interpretability-automl.md).
 
-## <a name="assess-and-mitigate-model-unfairness"></a>Évaluer et atténuer la partialité d’un modèle
+## <a name="mitigate-fairness-in-machine-learning-models"></a>Atténuer l’impartialité dans les modèles Machine Learning
 
 Les systèmes d’intelligence artificielle étant de plus en plus mis à contribution pour les prises de décision quotidiennes, il est extrêmement important qu’ils fonctionnent bien pour fournir des résultats impartiaux ne lésant personne.
 
@@ -64,6 +67,16 @@ L’implémentation de systèmes de confidentialité différentielle est diffici
 > [!NOTE]
 > Veuillez noter que nous allons renommer le kit de ressources et présenterons le nouveau nom dans les semaines à venir. 
 
+## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Travailler sur des données chiffrées à l’aide du chiffrement homomorphe
+
+Dans les solutions traditionnelles de calcul et de stockage cloud, le cloud doit disposer d’un accès non chiffré aux données client pour le calcul. Cet accès expose les données aux opérateurs de cloud. La confidentialité des données repose sur des stratégies de contrôle d’accès implémentées par le cloud et auxquelles le client fait confiance.
+
+Le chiffrement homomorphe permet d’effectuer des calculs sur des données chiffrées sans avoir à accéder à une clé secrète (déchiffrement). Les résultats des calculs sont chiffrés et peuvent être révélés uniquement par le propriétaire de la clé secrète. En utilisant le chiffrement homomorphe, les opérateurs de cloud n’auront jamais un accès non chiffré aux données qu’ils stockent et calculent. Les calculs sont effectués directement sur les données chiffrées. La confidentialité des données repose sur un chiffrement de pointe, et le propriétaire des données contrôle toutes les informations diffusées. Pour plus d’informations sur le chiffrement homomorphe chez Microsoft, consultez [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+Pour commencer à utiliser le chiffrement homomorphe dans Azure Machine Learning, utilisez les liaisons Python [à inférence chiffrée](https://pypi.org/project/encrypted-inference/) pour [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL est une bibliothèque de chiffrement homomorphe open source qui permet d’effectuer des ajouts et des multiplications sur des entiers chiffrés ou des nombres réels. Pour en savoir plus sur Microsoft SEAL, accédez à [Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou consultez la [page de projet Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+
+Consultez l’exemple suivant pour apprendre à [déployer un service web d’inférence chiffré dans Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documenter le cycle de vie de l’apprentissage automatique avec des feuilles de données
 
 La documentation des informations adéquates dans le processus d’apprentissage automatique est la clé de la prise de décisions responsables à chaque étape. Les feuilles de données sont un moyen de documenter les ressources d’apprentissage automatique utilisées et créées dans le cadre du cycle de vie de l’apprentissage automatique.
@@ -83,5 +96,5 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure Machine
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Utilisez le chiffrement homomorphe pour [déployer un service web d’inférence chiffré](how-to-homomorphic-encryption-seal.md).
+- Pour plus d’informations et en savoir plus sur les meilleures pratiques, consultez la [boîte à outils de l’innovation responsable](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/).
 - En savoir plus sur l’ensemble de recommandations [À PROPOS DE L’APPRENTISSAGE AUTOMATIQUE](https://www.partnershiponai.org/about-ml/) pour la documentation de système d’apprentissage automatique.

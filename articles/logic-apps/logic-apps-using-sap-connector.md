@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086606"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833893"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -128,7 +128,7 @@ Ces conditions préalables s’appliquent lorsque vos applications logiques s’
 
 * Par défaut, le programme d’installation SAP place les fichiers d’assembly dans le dossier d’installation par défaut. Vous devez copier ces fichiers d’assembly vers un autre emplacement, en fonction de votre scénario, comme suit :
 
-  Pour les applications logiques qui s’exécutent dans un ISE, suivez les étapes décrites dans les [conditions préalables pour l’environnement de service d’intégration](#sap-ise). Pour les applications logiques qui s’exécutent dans une instance Azure mutualisée et utilisent la passerelle de données locale, copiez les fichiers d’assembly du dossier d’installation par défaut vers le dossier d’installation de la passerelle de données. Si vous rencontrez des problèmes avec la passerelle de données, passez en revue les points suivants :
+  * Pour les applications logiques qui s’exécutent dans un ISE, suivez les étapes décrites dans les [conditions préalables pour l’environnement de service d’intégration](#sap-ise). Pour les applications logiques qui s’exécutent dans une instance Azure mutualisée et utilisent la passerelle de données locale, copiez les fichiers d’assembly du dossier d’installation par défaut vers le dossier d’installation de la passerelle de données. Si vous rencontrez des problèmes avec la passerelle de données, passez en revue les points suivants :
 
   * Vous devez installer la version 64 bits pour la bibliothèque de client SAP, car la passerelle de données s’exécute uniquement sur des systèmes 64 bits. Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
 
@@ -727,7 +727,10 @@ L’exemple suivant est un appel RFC avec un paramètre de table ayant un champ
 
 ```
 
-L’exemple suivant comprend des préfixes pour les espaces de noms. Vous pouvez déclarer tous les préfixes à la fois, ou vous pouvez déclarer un nombre quelconque de préfixes comme attributs d’un nœud. L’alias d’espace de noms RFC `ns0` est utilisé comme racine et paramètres pour le type de base. Notez que les types complexes sont déclarés sous un espace de noms différent pour les types RFC avec l’alias `ns3` au lieu de l’espace de noms RFC standard avec l’alias `ns0`.
+L’exemple suivant comprend des préfixes pour les espaces de noms. Vous pouvez déclarer tous les préfixes à la fois, ou vous pouvez déclarer un nombre quelconque de préfixes comme attributs d’un nœud. L’alias d’espace de noms RFC `ns0` est utilisé comme racine et paramètres pour le type de base.
+
+> [!NOTE]
+> Les types complexes sont déclarés sous un espace de noms différent pour les types RFC avec l’alias `ns3` au lieu de l’espace de noms RFC standard avec l’alias `ns0`.
 
 ```xml
 
@@ -883,7 +886,7 @@ L’exemple suivant est un exemple d’enregistrement de données avec des segme
 
 ```
 
-L’exemple suivant est un enregistrement de données avec des segments groupés. Cela inclut un nœud parent de groupe, `E2EDKT1002GRP`, et plusieurs nœuds enfants, notamment `E2EDKT1002` et `E2EDKT2001`. 
+L’exemple suivant est un enregistrement de données avec des segments groupés. L’enregistrement inclut un nœud parent de groupe, `E2EDKT1002GRP`, et plusieurs nœuds enfants, notamment `E2EDKT1002` et `E2EDKT2001`. 
 
 ```xml
 
@@ -900,7 +903,7 @@ L’exemple suivant est un enregistrement de données avec des segments groupés
 
 ```
 
-La méthode recommandée consiste à créer un identificateur IDoc à utiliser avec tRFC. Vous pouvez définir cet identificateur de transaction, `tid`, à l’aide de l’[opération Envoyer un IDoc](https://docs.microsoft.com/connectors/sap/#send-idoc) dans l’API du connecteur SAP.
+La méthode recommandée consiste à créer un identificateur IDoc à utiliser avec tRFC. Vous pouvez définir cet identificateur de transaction, `tid`, à l’aide de l’[opération Envoyer un IDoc](/connectors/sap/#send-idoc) dans l’API du connecteur SAP.
 
 L’exemple suivant est une méthode alternative pour définir l’identificateur de transaction, ou `tid`. Dans cet exemple, le dernier nœud de segment d’enregistrement de données et le nœud de données IDoc sont fermés. Ensuite, l’identificateur unique, `guid`, est utilisé comme identificateur tRFC pour détecter les doublons. 
 

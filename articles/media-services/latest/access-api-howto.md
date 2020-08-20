@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090159"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035793"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenir des informations d’identification pour accéder à l’API Media Services  
 
@@ -45,7 +45,7 @@ Cet article décrit les étapes permettant d’obtenir des informations d’iden
 La page **Accès d’API** vous permet de sélectionner la méthode d’authentification que vous souhaitez utiliser pour vous connecter à l’API. Elle fournit également les valeurs dont vous avez besoin pour vous connecter à l’API.
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Media Services.
-2. Choisissez comment vous connecter à l’API Media Services.
+2. Sélectionnez le panneau **Accès d’API (nouveau)** dans la barre de navigation de gauche.
 3. Sous **Se connecter à l’API Media Services**, sélectionnez la version de l’API Media Services à laquelle vous souhaitez vous connecter (V3 est la dernière version du service).
 
 ### <a name="service-principal-authentication--recommended"></a>Authentification d’un principal du service (recommandée)

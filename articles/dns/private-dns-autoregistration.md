@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71963713"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042749"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qu’est-ce que la fonctionnalité d’inscription automatique des zones privées Azure DNS ?
 
@@ -29,6 +29,7 @@ Vous pouvez activer l’inscription automatique en sélectionnant l’option «�
 
 * L’inscription automatique est possible uniquement pour les machines virtuelles. Pour toutes les autres ressources, comme les équilibreurs de charge internes, vous pouvez créer manuellement des enregistrements DNS dans la zone DNS privée qui est liée au réseau virtuel.
 * Les enregistrements DNS sont créés automatiquement uniquement pour la carte réseau principale des machines virtuelles. Si vos machines virtuelles ont plusieurs cartes réseau, vous pouvez créer manuellement les enregistrements DNS pour les autres interfaces réseau.
+* Les enregistrements DNS sont créés automatiquement uniquement si la carte réseau principale des machines virtuelles utilise le protocole DHCP. Si des adresses IP statiques sont configurées (par exemple, pour utiliser [plusieurs adresses IP dans Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)), l’inscription automatique ne crée pas d’enregistrements pour cette machine virtuelle.
 * L’inscription automatique pour IPv6 (enregistrements AAAA) n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

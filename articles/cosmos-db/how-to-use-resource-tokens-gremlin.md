@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211dce8a2810d9eb07bf0f388753afd50add4945
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263559"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87919954"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
 
@@ -102,5 +102,5 @@ Avec un seul compte Gremlin, vous pouvez émettre un nombre illimité de jetons.
 Une erreur courante que les applications rencontrent quand elles utilisent des jetons de ressource est « Autorisations insuffisantes fournies dans l’en-tête d’autorisation pour la demande correspondante. Réessayez avec un autre en-tête d’autorisation. » Cette erreur est retournée quand une traversée Gremlin tente d’écrire une arête ou un sommet, mais que le jeton de ressource accorde seulement des autorisations *Lecture*. Inspectez votre traversée pour voir si elle contient une des étapes suivantes : *.addV()* , *.addE()* , *.drop()* ou *.property()* .
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Contrôle d’accès en fonction du rôle (RBAC)](role-based-access-control.md) dans Azure Cosmos DB
+* [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](role-based-access-control.md) dans Azure Cosmos DB
 * [Découvrir comment sécuriser l’accès aux données](secure-access-to-data.md) dans Azure Cosmos DB

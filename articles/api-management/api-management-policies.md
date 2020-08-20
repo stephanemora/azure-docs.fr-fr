@@ -1,6 +1,6 @@
 ---
 title: Stratégies dans Gestion des API Azure | Microsoft Docs
-description: Découvrez les stratégies disponibles dans Gestion des API Azure.
+description: Découvrez les stratégies disponibles dans Gestion des API Azure. Les stratégies permettent à l’éditeur de modifier le comportement de l’API via la configuration.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252843"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905667"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).  
@@ -28,26 +28,26 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
   
 ##  <a name="policies"></a><a name="ProxyPolicies"></a> Stratégies  
   
--   [Accès aux stratégies de restriction](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
+-   [Stratégies de restriction des accès](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.  
     -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.  
     -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.  
-    -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.  
-    -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.  
+    -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP et/ou plages d’adresses en particulier.  
+    -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par abonnement.  
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.  
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.  
 -   [Stratégies avancées](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Control flow](api-management-advanced-policies.md#choose) : applique de manière conditionnelle les instructions des stratégies en fonction de l’évaluation des expressions booléennes.  
     -   [Forward request](api-management-advanced-policies.md#ForwardRequest) : transfère la demande vers le service principal.
     -   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) : empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié.
-    -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) : envoie des messages au format spécifié à une cible de message définie par une entité Enregistreur.
+    -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) : envoie des messages au format spécifié à une cible de message définie par une entité Enregistreur.
     -   [Mock response](api-management-advanced-policies.md#mock-response) : abandonne l’exécution du pipeline et renvoie une réponse factice indiquée directement à l’appelant.
     -   [Retry](api-management-advanced-policies.md#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.  
     -   [Return response](api-management-advanced-policies.md#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.  
     -   [Send one way request](api-management-advanced-policies.md#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.  
     -   [Send request](api-management-advanced-policies.md#SendRequest) : envoie une demande à l’URL indiquée.
     -   [Définir le proxy HTTP](api-management-advanced-policies.md#SetHttpProxy) : vous permet de router les demandes transférées via un proxy HTTP.
-    -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de contexte nommée pour permettre d’y accéder ultérieurement.  
+    -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de contexte nommée pour permettre d’y accéder ultérieurement.  
     -   [Set request method](api-management-advanced-policies.md#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.  
     -   [Set status code](api-management-advanced-policies.md#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.  
     -   [Trace](api-management-advanced-policies.md#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](./api-management-howto-api-inspector.md), aux données de télémétrie Application Insights et aux journaux de ressources.  

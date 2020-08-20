@@ -1,18 +1,18 @@
 ---
 title: Ajouter/supprimer un point de terminaison de serveur Azure File Sync | Microsoft Docs
-description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
+description: Apprenez à ajouter ou supprimer un point de terminaison de serveur à l’aide d’Azure File Sync. Un point de terminaison de serveur est un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509470"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905055"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.

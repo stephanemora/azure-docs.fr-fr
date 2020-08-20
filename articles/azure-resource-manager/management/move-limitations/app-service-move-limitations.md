@@ -2,13 +2,13 @@
 title: Déplacer des ressources Azure App Service
 description: Utilisez Azure Resource Manager pour déplacer des ressources App Service vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655785"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042055"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Conseils de déplacement de ressources App Service
 
@@ -23,7 +23,8 @@ Lors du déplacement d’une application web entre des abonnements, les instruct
     - Plans App Service
     - Certificats TLS/SSL chargés ou importés
     - Environnements App Service
-- Toutes les ressources App Service du groupe de ressources doivent être déplacées simultanément. Veuillez noter que les environnements App Service ne peuvent pas être déplacés vers un nouveau groupe de ressources ni vers un nouvel abonnement.
+- Toutes les ressources App Service du groupe de ressources doivent être déplacées simultanément.
+- Les environnements ASE ne peuvent pas être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement. Toutefois, vous pouvez déplacer une application web et un plan App Service vers un nouvel abonnement sans déplacer l’environnement ASE. Après le déplacement, l’application web n’est plus hébergée dans l’environnement ASE.
 - Vous pouvez déplacer un certificat lié à une application web sans supprimer les liaisons TLS, tant que le certificat est déplacé avec toutes les autres ressources du groupe de ressources.
 - Les ressources App Service ne peuvent être déplacées qu’à partir du groupe de ressources dans lequel elles ont été créées à l’origine. Si une ressource App Service ne se trouve plus dans son groupe de ressources d’origine, redéplacez-la vers ce groupe. Déplacez ensuite la ressource entre les abonnements.
 

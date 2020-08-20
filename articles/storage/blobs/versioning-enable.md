@@ -1,24 +1,28 @@
 ---
 title: Activer et gérer le contrôle de version des objets blob (préversion)
 titleSuffix: Azure Storage
-description: Découvrez comment activer le contrôle de version des objets blob dans le Portail Azure ou à l’aide d’un modèle Azure Resource Manager.
+description: Découvrez comment activer le contrôle de version des blobs (préversion) dans le portail Azure ou à l’aide d’un modèle Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086045"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067271"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Activer et gérer le contrôle de version des objets blob
+# <a name="enable-and-manage-blob-versioning-preview"></a>Activer et gérer le contrôle de version des objets blob (préversion)
 
-Vous pouvez activer ou désactiver le contrôle de version des objets blob (préversion) pour le compte de stockage à tout moment à l’aide du Portail Azure ou d’un modèle Azure Resource Manager.
+Vous pouvez activer le contrôle de version du stockage d’objets blob (version préliminaire) pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
+
+Cet article explique comment activer ou désactiver le contrôle de version des blobs pour le compte de stockage à l’aide du portail Azure ou d’un modèle de Resource Manager.
+
+Vous devez vous inscrire à la préversion avant d’activer le contrôle de version des blobs. Pour en savoir plus sur le contrôle de version des blobs, notamment sur la façon de s’inscrire à la préversion, consultez [Contrôle de version des blobs (préversion)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Activer la gestion des versions des objets blob
 

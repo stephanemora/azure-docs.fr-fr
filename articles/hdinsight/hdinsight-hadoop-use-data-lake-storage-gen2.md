@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534581"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849979"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -106,6 +106,7 @@ Vous pouvez [télécharger un exemple de fichier de modèle](https://github.com/
 | `<RESOURCEGROUPNAME>` | Le groupe de ressources dans lequel vous souhaitez créer le cluster et le compte de stockage. |
 | `<MANAGEDIDENTITYNAME>` | Le nom de l’identité managée qui recevra les autorisations sur votre compte Azure Data Lake Storage Gen2. |
 | `<STORAGEACCOUNTNAME>` | Nouveau compte Azure Data Lake Storage Gen2 qui sera créé. |
+| `<FILESYSTEMNAME>`  | Nom du système de fichiers que ce cluster doit utiliser dans le compte de stockage. |
 | `<CLUSTERNAME>` | Nom de votre cluster HDInsight |
 | `<PASSWORD>` | Le mot de passe que vous avez choisi pour vous connecter au cluster à l’aide de SSH et du tableau de bord Ambari. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Ensuite, connectez-vous au portail. Ajoutez la nouvelle identité managée affectée par l’utilisateur au rôle **Contributeur aux données Blob du stockage** sur le compte de stockage. Cette étape est décrite à l’étape 3 sous [Utilisation du Portail Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-Une fois que vous avez défini le rôle de l’identité managée affectée par l’utilisateur, déployez le modèle en utilisant l’extrait de code suivant.
+ > [!IMPORTANT]
+ > Assurez-vous que votre compte de stockage dispose de l’identité affectée par l’utilisateur avec les autorisations de rôle **Contributeur aux données Blob du stockage**. Sinon, la création du cluster échouera.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

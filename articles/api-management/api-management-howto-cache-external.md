@@ -1,6 +1,6 @@
 ---
 title: Utiliser un cache externe dans Gestion des API Azure | Microsoft Docs
-description: Découvrez comment configurer et utiliser un cache externe dans Gestion des API Azure.
+description: Découvrez comment configurer et utiliser un cache externe dans Gestion des API Azure. L’utilisation d’un cache externe vous permet de pallier quelques limites du cache intégré.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,18 +11,18 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 3f1f3d0fd0164a37c8011dc82a95337c89e103df
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250632"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904953"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Utiliser un cache externe compatible Redis dans Gestion des API Azure
 
 En plus de l’utilisation du cache intégré, Gestion des API Azure permet la mise en cache externe compatible Redis, par ex. dans un Cache Azure pour Redis.
 
-L’utilisation d’un cache externe permet de pallier quelques limites du cache intégré :
+L’utilisation d’un cache externe vous permet de pallier quelques limites du cache intégré :
 
 * Éviter que votre cache soit régulièrement effacé lors des mises à jour de Gestion des API
 * Obtenir un plus grand contrôle sur la configuration de votre cache

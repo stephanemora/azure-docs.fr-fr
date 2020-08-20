@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 49c44b17247f14b8826df7652dc9eb025953b748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c0b03db281a054410b3c4f44e278dbccf32029f
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094529"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042681"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Suivez cet article lorsque vous souhaitez **analyser les fichiers XML**. 
@@ -86,7 +87,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | validationMode | Spécifie s’il faut valider le schéma XML.<br>Les valeurs autorisées sont **none** (aucun) (valeur par défaut, pas de validation), **xsd** (validation avec XSD), **dtd** (validation avec DTD). | Non |
 | namespacePrefixes | Mappage URI d’espace de noms à préfixe utilisé pour nommer les champs lors de l’analyse du fichier xml.<br/>Si un fichier XML a un espace de noms et que celui-ci est activé, par défaut, le nom du champ est le même que dans le document XML.<br>Si un élément est défini pour l’URI d’espace de noms dans ce mappage, le nom du champ est `prefix:fieldName`. | Non |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu’il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -94,7 +95,7 @@ Dans les flux de données de mappage, vous pouvez lire et écrire des données a
 
 ### <a name="source-properties"></a>Propriétés de source
 
-Le tableau ci-dessous liste les propriétés prises en charge par une source XML. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**. Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior). Lorsque vous utilisez un jeu de données Inline, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties). 
+Le tableau ci-dessous liste les propriétés prises en charge par une source XML. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**. Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior). Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties). 
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |

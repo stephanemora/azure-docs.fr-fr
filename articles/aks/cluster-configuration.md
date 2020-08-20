@@ -3,15 +3,15 @@ title: Configuration de clusters dans Azure Kubernetes Service (AKS)
 description: Découvrez comment configurer un cluster dans Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252009"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008795"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 Si vous souhaitez créer des pools de nœuds Gen1 ordinaires, vous pouvez omettre la balise `--aks-custom-headers` personnalisée.
 
+
+## <a name="ephemeral-os-preview"></a>Système d’exploitation éphémère (préversion)
+
+Par défaut, le disque du système d’exploitation d’une machine virtuelle Azure est automatiquement répliqué sur le stockage Azure pour éviter la perte de données si la machine virtuelle devait être déplacée vers un autre hôte. Toutefois, comme les conteneurs ne sont pas conçus pour conserver l’état local, ce comportement offre une valeur limitée tout en présentant certains inconvénients, notamment un approvisionnement plus lent des nœuds et une latence en lecture/écriture plus faible.
+
+En revanche, les disques de système d’exploitation éphémères sont stockés uniquement sur l’ordinateur hôte, comme un disque temporaire. Cela permet de réduire la latence en lecture/écriture, tout en accélérant la mise à l’échelle des nœuds et la mise à niveau des clusters.
+
+À l’instar du disque temporaire, un disque de système d’exploitation éphémère est inclus dans le prix de la machine virtuelle, ce qui signifie que vous n’encourez aucun coût de stockage supplémentaire.
+
+Inscrivez la fonctionnalité `EnableEphemeralOSDiskPreview` :
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+Quelques minutes peuvent être nécessaires pour que l’état **Inscrit** s’affiche. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Pour installer l’extension CLI aks-preview, utilisez les commandes Azure CLI suivantes :
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Pour mettre à jour l’extension CLI aks-preview, utilisez les commandes Azure CLI suivantes :
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Utiliser un système d’exploitation éphémère sur les nouveaux clusters (préversion)
+
+Configurez le cluster pour qu’il utilise des disques de système d’exploitation éphémères lors de sa création. Utilisez l’indicateur `--aks-custom-headers` pour définir le système d’exploitation éphémère comme type de disque de système d’exploitation pour le nouveau cluster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+Si vous souhaitez créer un cluster ordinaire à l’aide de disques de système d’exploitation attachés au réseau, vous pouvez le faire en omettant la balise `--aks-custom-headers` personnalisée. Vous pouvez également choisir d’ajouter des pools de nœuds de système d’exploitation éphémère comme indiqué ci-dessous.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Utiliser un système d’exploitation éphémère sur les clusters existants (préversion)
+Configurez un nouveau pool de nœuds pour utiliser les disques de système d’exploitation éphémères. Utilisez l’indicateur `--aks-custom-headers` pour définir le système d’exploitation éphémère comme type de disque de système d’exploitation pour ce pool de nœuds.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> Grâce au système d’exploitation éphémère, vous pouvez déployer des images de machine virtuelle et d’instance jusqu’au maximum de la capacité du cache de la machine virtuelle. Dans le cas d’AKS, la configuration de disque de système d’exploitation du nœud par défaut utilise 100 Gio, ce qui signifie que vous avez besoin d’une taille de machine virtuelle dont le cache est supérieur à 100 Gio. La référence Standard_DS2_v2 par défaut a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Vous pouvez également réduire la taille par défaut du disque du système d’exploitation en utilisant `--node-osdisk-size`. La taille minimale des images AKS est 30 Gio. 
+
+Si vous souhaitez créer des pools de nœuds avec des disques de système d’exploitation attachés au réseau, vous pouvez le faire en omettant la balise `--aks-custom-headers` personnalisée.
+
 ## <a name="custom-resource-group-name"></a>Nom du groupe de ressources personnalisé
 
 Lorsque vous déployez un cluster Azure Kubernetes Service dans Azure, un deuxième groupe de ressources est créé pour les nœuds Worker. Par défaut, AKS nomme le groupe de ressources de nœud `MC_resourcegroupname_clustername_location`, mais vous pouvez également choisir son nom.
@@ -259,6 +320,7 @@ Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas q
 - Pour plus d’informations sur la mise à niveau de votre cluster vers la dernière version de Kubernetes, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)](upgrade-cluster.md).
 - En savoir plus sur [`containerd` et Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Consultez la liste des [questions fréquentes sur AKS](faq.md) pour trouver des réponses à certaines questions courantes concernant AKS.
+- En savoir plus sur les [disques de système d’exploitation éphémères](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->
