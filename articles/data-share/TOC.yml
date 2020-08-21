@@ -8,6 +8,8 @@
       href: supported-data-stores.md
 - name: Démarrages rapides
   items:
+    - name: Créer un partage de données - Portail Azure
+      href: share-your-data-portal.md
     - name: Créer un partage de données - Modèle ARM
       displayName: Resource Manager
       href: share-your-data-arm.md
@@ -52,6 +54,9 @@
       href: security.md
     - name: Récupération d'urgence
       href: disaster-recovery.md
+    - name: Partager des données Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
 - name: Informations de référence
   items:
     - name: .NET

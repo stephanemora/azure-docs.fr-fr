@@ -61,6 +61,12 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Utilisation d’Armclient
           href: connection-monitor-preview-create-using-arm-client.md
+    - name: Migrer dans le Moniteur de connexion (préversion)
+      items:
+        - name: Depuis Network Performance Monitor
+          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+        - name: Depuis le Moniteur de connexion
+          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnostiquer des problèmes de réseau sur une machine virtuelle
       items:
         - name: Installer une extension de machine virtuelle

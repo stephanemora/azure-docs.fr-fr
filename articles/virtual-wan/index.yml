@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
-  ms.openlocfilehash: 14336a28630e7a62a19e2b3a51934950cf12e2f8
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/19/2020
+  ms.openlocfilehash: 1a0a64864c4e8229b4a0f2211af06920fc1e73cc
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564033"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88654546"
 landingContent:
 - title: À propos du WAN virtuel
   linkLists:
@@ -39,24 +39,60 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: Créer une connexion VPN (point à site) utilisateur
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurer l’automatisation pour les partenaires Virtual WAN
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: Stratégies par défaut pour la connectivité IPsec
       url: virtual-wan-ipsec.md
+    - text: Conseils d’automatisation pour les partenaires Virtual WAN
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une NVA dans un hub
+      url: how-to-nva-hub.md
+    - text: Configurer IPsec sur ExpressRoute pour Virtual WAN
+      url: vpn-over-expressroute.md
+    - text: Connecter une passerelle VPN à Virtual WAN
+      url: connect-virtual-network-gateway-vwan.md
 - title: Architecture
   linkLists:
   - linkListType: concept
     links:
     - text: Migrer vers Virtual WAN
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: Architecture du réseau de transit global
       url: virtual-wan-global-transit-network-architecture.md
     - text: Architecture de connectivité SD-WAN
       url: sd-wan-connectivity-architecture.md
+- title: Routage
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: À propos du routage de hub virtuel
+      url: about-virtual-hub-routing.md
+    - text: Scénario - Router le trafic via une NVA
+      url: scenario-route-through-nva.md
+    - text: Scénario - Any-to-any
+      url: scenario-any-to-any.md
+    - text: Scénario - Isoler des réseaux virtuels
+      url: scenario-isolate-vnets.md
+    - text: Scénario - Réseaux virtuels de services partagés
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer le routage de hub virtuel
+      url: how-to-virtual-hub-routing.md
+- title: Surveillance
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Superviser avec Azure Monitor Insights
+      url: azure-monitor-insights.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer les métriques et les journaux Azure Monitor
+      url: azure-monitor-insights.md
 - title: Informations de référence
   linkLists:
   - linkListType: reference
