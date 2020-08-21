@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: Utiliser des groupes de placements de proximité (préversion)
           href: reduce-latency-ppg.md
-        - name: Mettre à niveau l’image de nœud (préversion)
+        - name: Mettre à niveau l’image de nœud
           href: node-image-upgrade.md
         - name: Traiter les mises à jour de système d’exploitation des nœuds
           href: node-updates-kured.md
