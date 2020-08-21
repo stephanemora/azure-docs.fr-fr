@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041984"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272499"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -230,7 +230,6 @@ Certaines configurations réseau peuvent empêcher Security Center de générer 
 
 Pour obtenir la liste des alertes de la couche réseau Azure, consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-azurenetlayer).
 
-Pour plus d’informations sur la façon dont Security Center peut utiliser les signaux liés au réseau pour appliquer la protection contre les menaces, consultez [Détections de DNS heuristiques dans Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 

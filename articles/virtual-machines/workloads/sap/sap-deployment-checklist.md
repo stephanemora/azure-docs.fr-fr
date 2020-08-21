@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067254"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511140"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -114,7 +114,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
         - En général, nous déconseillons l’utilisation de [disques HDD Standard Azure](../../windows/disks-types.md#standard-hdd).
         - Utilisez [Stockage Premium Azure](../../windows/disks-types.md#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance.
         - Utilisez [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/).
-        - Utilisez l'Accélérateur d'écriture Azure pour les lecteurs de journaux SGBD avec M-Series. Tenez compte des limites et de l’utilisation de l’Accélérateur d’écriture décrites dans [Accélérateur d’écriture](../../linux/how-to-enable-write-accelerator.md).
+        - Utilisez l'Accélérateur d'écriture Azure pour les lecteurs de journaux SGBD avec M-Series. Tenez compte des limites et de l’utilisation de l’Accélérateur d’écriture décrites dans [Accélérateur d’écriture](../../how-to-enable-write-accelerator.md).
         - Pour les différents types de SGBD, consultez la [documentation générique relative au SGBD lié à SAP](./dbms_guide_general.md) et la documentation spécifique au SGBD auxquelles le document générique vous renvoie.
         - Pour plus d’informations sur SAP HANA, consultez [Configurations et opérations de l’infrastructure SAP HANA sur Azure](./hana-vm-operations.md).
         - Ne montez jamais de disques de données Azure dans une machine virtuelle Azure Linux en utilisant l’ID d’appareil. À la place, utilisez l’identificateur unique universel (UUID). Soyez prudent, par exemple lorsque vous utilisez des outils graphiques pour monter des disques de données Azure. Examinez les entrées dans /etc/fstab pour vérifier que l’UUID est utilisé pour le montage des disques. Vous trouverez plus d’informations dans [cet article](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).

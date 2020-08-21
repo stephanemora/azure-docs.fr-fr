@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829694"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235466"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -751,7 +751,7 @@ Le service d’approvisionnement d’Azure AD fonctionne actuellement dans le c
 
 Maintenant que vous avez conçu votre schéma et compris l'implémentation d'Azure AD SCIM, vous pouvez commencer à développer votre point de terminaison SCIM. Plutôt que de réaliser l’ensemble de la procédure et de créer l’implémentation entièrement par vous-même, vous pouvez vous appuyer sur un certain nombre de bibliothèques SCIM open source publiées par la communauté SCIM.
 
-Le [code de référence](https://aka.ms/SCIMReferenceCode) .NET Core open source publié par l’équipe de provisionnement Azure AD est une ressource qui peut vous permettre de démarrer rapidement votre développement. Après avoir créé votre point de terminaison SCIM, il vous faudra le tester. Vous pouvez utiliser la collection de [tests Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fournie dans le cadre du code de référence ou vous servir des exemples de requêtes/réponses fournis [ci-dessus](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+Le [code de référence](https://aka.ms/SCIMReferenceCode) .NET Core open source publié par l’équipe de provisionnement Azure AD est une ressource qui peut vous permettre de démarrer rapidement votre développement. Après avoir créé votre point de terminaison SCIM, il vous faudra le tester. Vous pouvez utiliser la collection de [tests Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fournie dans le cadre du code de référence ou vous servir des exemples de requêtes/réponses fournis [ci-dessus](#user-operations).  
 
    > [!Note]
    > Le code de référence est destiné à vous permettre de commencer à créer votre point de terminaison SCIM et est fourni « tel quel ». Les contributions de la communauté sont très utiles pour la création et la gestion du code.
@@ -799,7 +799,7 @@ Le kit SDK .NET Core comprend un certificat de développement HTTPS qui peut êt
 * Microsoft.SCIM.WebHostSample : https://localhost:5001
 * IIS Express : https://localhost:44359/
 
-Pour plus d’informations sur le protocole HTTPS dans ASP.NET Core, utilisez le lien suivant : [Appliquer le protocole HTTPS dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Pour plus d’informations sur le protocole HTTPS dans ASP.NET Core, utilisez le lien suivant : [Appliquer le protocole HTTPS dans ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Gestion de l’authentification du point de terminaison
 
@@ -1168,12 +1168,12 @@ Une fois le cycle initial démarré, vous pouvez sélectionner **Journaux d’ap
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Étape 5 : Publier votre application dans la galerie d’applications Azure AD
 
-Si vous créez une application qui sera utilisée par plusieurs locataires, vous pouvez la rendre disponible dans la galerie d’applications Azure AD. Cela facilite pour les organisations la découverte de l’application et la configuration de l’approvisionnement. Vous pouvez facilement publier votre application dans la galerie Azure AD et mettre l’approvisionnement à la disposition d’autres utilisateurs. Découvrez les étapes [ici](../develop/howto-app-gallery-listing.md). Microsoft vous aidera à intégrer votre application à la galerie, à tester votre point de terminaison et à publier la [documentation](../saas-apps/tutorial-list.md) d'intégration destinée aux clients. 
+Si vous créez une application qui sera utilisée par plusieurs locataires, vous pouvez la rendre disponible dans la galerie d’applications Azure AD. Cela facilite pour les organisations la découverte de l’application et la configuration de l’approvisionnement. Vous pouvez facilement publier votre application dans la galerie Azure AD et mettre l’approvisionnement à la disposition d’autres utilisateurs. Découvrez les étapes [ici](../azuread-dev/howto-app-gallery-listing.md). Microsoft vous aidera à intégrer votre application à la galerie, à tester votre point de terminaison et à publier la [documentation](../saas-apps/tutorial-list.md) d'intégration destinée aux clients. 
 
 ### <a name="gallery-onboarding-checklist"></a>Liste de vérification d’intégration à la galerie
 Suivez la liste de vérification ci-dessous pour vous assurer que votre application est intégrée rapidement et que les clients bénéficient d’une expérience de déploiement sans heurts. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
 > [!div class="checklist"]
-> * Prise en charge d’un point de terminaison de groupe et d’utilisateur [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (un seul est obligatoire, mais il est recommandé de disposer des deux)
+> * Prise en charge d’un point de terminaison de groupe et d’utilisateur [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (un seul est obligatoire, mais il est recommandé de disposer des deux)
 > * Prise en charge d’au moins 25 demandes par seconde par locataire (obligatoire)
 > * Établissement de contacts d’ingénierie et de support pour guider l’intégration des clients à la galerie de publications (obligatoire)
 > * Trois informations d’identification de test sans date d’expiration pour l’application (obligatoire)

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829286"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225272"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
@@ -36,7 +36,7 @@ Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architectu
 
 Dans Recherche cognitive Azure, le chiffrement commence aux connexions et aux transmissions, et s’étend au contenu stocké sur disque. Pour les services de recherche sur l’Internet public, Recherche cognitive Azure écoute sur le port HTTPS 443. Toutes les connexions client-à-service utilisent le chiffrement TLS 1.2. Les versions antérieures (1.0 et 1.1) ne sont pas prises en charge.
 
-Pour les données gérées en interne par le service de recherche, le tableau suivant décrit les [modèles de chiffrement de données](../security/fundamentals/encryption-atrest.md#data-encryption-models). Certaines fonctionnalités, telles que la base de connaissances, l’enrichissement incrémentiel et l’indexation basée sur un indexeur, lisent ou écrivent dans des structures de données dans d’autres services Azure. Ces services disposent de leur propre niveau de prise en charge du chiffrement, distinct de Recherche cognitive Azure.
+Pour les données gérées en interne par le service de recherche, le tableau suivant décrit les [modèles de chiffrement de données](../security/fundamentals/encryption-models.md). Certaines fonctionnalités, telles que la base de connaissances, l’enrichissement incrémentiel et l’indexation basée sur un indexeur, lisent ou écrivent dans des structures de données dans d’autres services Azure. Ces services disposent de leur propre niveau de prise en charge du chiffrement, distinct de Recherche cognitive Azure.
 
 | Modèle | Clés&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Spécifications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | S’applique à |
 |------------------|-------|-------------|--------------|------------|
@@ -54,7 +54,7 @@ Les clés gérées par le client nécessitent un service facturable supplémenta
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Double chiffrement 
+### <a name="double-encryption"></a>Double chiffrement
 
 Dans Recherche cognitive Azure, le double chiffrement est une extension de CMK. Il s’agit d’un chiffrement à deux reprises (une fois par CMK, et une nouvelle fois par des clés gérées par le service) et de portée globale, comprenant le stockage à long terme qui est écrit sur un disque de données et le stockage à court terme écrit sur des disques temporaires. La différence entre CMK avant et après le 1er août 2020, et ce qui fait de CMK une fonctionnalité de double chiffrement dans Recherche cognitive Azure, est le chiffrement supplémentaire de données au repos sur les disques temporaires.
 
@@ -74,7 +74,7 @@ Les fonctionnalités de sécurité du trafic entrant protègent le point de term
 
 ### <a name="public-access-using-api-keys"></a>Accès public avec des clés API
 
-Par défaut, un service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
+Par défaut, un service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée.
 
 Il existe deux niveaux d’accès à votre service de recherche, qui sont activés par les deux clés API suivantes :
 
@@ -92,15 +92,15 @@ L’authentification est requise à chaque requête, chaque requête étant comp
 
 Pour contrôler davantage l’accès à votre service de recherche, vous pouvez créer des règles de pare-feu de trafic entrant qui autorisent l’accès à une adresse IP spécifique ou à une plage d’adresses IP. Toutes les connexions clientes doivent être effectuées via une adresse IP autorisée, sans quoi la connexion est refusée.
 
-Vous pouvez utiliser le portail pour [configurer l’accès du trafic entrant](service-configure-firewall.md). 
+Vous pouvez utiliser le portail pour [configurer l’accès du trafic entrant](service-configure-firewall.md).
 
-Vous pouvez aussi utiliser les API REST de gestion. L’API version 13-03-2020 avec le paramètre [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) vous permet de restreindre l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, autorisées à accéder à votre service de recherche. 
+Vous pouvez aussi utiliser les API REST de gestion. L’API version 13-03-2020 avec le paramètre [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) vous permet de restreindre l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, autorisées à accéder à votre service de recherche.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Point de terminaison privé (pas de trafic Internet)
 
-Un [point de terminaison privé](../private-link/private-endpoint-overview.md) pour Recherche cognitive Azure permet à un client d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) d’accéder de façon sécurisée aux données d’un index de recherche grâce à une [liaison privée](../private-link/private-link-overview.md). 
+Un [point de terminaison privé](../private-link/private-endpoint-overview.md) pour Recherche cognitive Azure permet à un client d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) d’accéder de façon sécurisée aux données d’un index de recherche grâce à une [liaison privée](../private-link/private-link-overview.md).
 
-Le points de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour les connexions à votre service de recherche. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public. Un réseau virtuel permet une communication sécurisée entre des ressources, avec votre réseau local ainsi qu’avec Internet. 
+Le points de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour les connexions à votre service de recherche. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public. Un réseau virtuel permet une communication sécurisée entre des ressources, avec votre réseau local ainsi qu’avec Internet.
 
 Bien que cette solution soit la plus sécurisée, l’utilisation de services supplémentaires représente un coût supplémentaire : veillez donc à avoir une compréhension claire des avantages avant de la mettre en place. Pour plus d’informations sur les coûts, consultez la [page Tarification](https://azure.microsoft.com/pricing/details/private-link/). Pour plus d’informations sur la façon dont ces composants fonctionnent ensemble, regardez la vidéo en haut de cet article. L’option du point de terminaison privé est présentée à partir de 5:48 dans la vidéo. Pour obtenir des instructions sur la configuration du point de terminaison, consultez [Créer un point de terminaison privé pour Recherche cognitive Azure](service-create-private-endpoint.md).
 
@@ -140,7 +140,7 @@ Recherche cognitive Azure a été certifié conforme à plusieurs standards mond
 
 Pour la conformité, vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour mettre en œuvre les meilleures pratiques de haute sécurité d’[Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark est un ensemble de recommandations de sécurité, codifiées en contrôles de sécurité qui correspondent aux principales actions que vous devez prendre pour atténuer les menaces pesant sur les services et les données. Il existe actuellement 11 contrôles de sécurité, dont la [Sécurité réseau](../security/benchmarks/security-control-network-security.md), [Journalisation et surveillance](../security/benchmarks/security-control-logging-monitoring.md), et [Protection des données](../security/benchmarks/security-control-data-protection.md), pour n’en nommer que quelques-uns.
 
-Azure Policy est une capacité intégrée à Azure qui vous permet de gérer la conformité de plusieurs normes, y compris celles d’Azure Security Benchmark. Pour les critères de référence bien connus, Azure Policy fournit des définitions intégrées qui fournissent à la fois des critères et une réponse actionnable en cas de non-conformité. 
+Azure Policy est une capacité intégrée à Azure qui vous permet de gérer la conformité de plusieurs normes, y compris celles d’Azure Security Benchmark. Pour les critères de référence bien connus, Azure Policy fournit des définitions intégrées qui fournissent à la fois des critères et une réponse actionnable en cas de non-conformité.
 
 Pour Recherche cognitive Azure, il existe actuellement une définition intégrée. Elle concerne la journalisation des diagnostics. Grâce à cette intégration, vous pouvez attribuer une stratégie qui identifie tout service de recherche auquel il manque la journalisation des diagnostics, puis l’active. Pour plus d’informations, consultez [Contrôles de conformité réglementaire d’Azure Policy pour Recherche cognitive Azure](security-controls-policy.md).
 
