@@ -9,16 +9,16 @@ ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b138dab2a97537a93b8d873f79b6ee9c00b4af4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 816e4e439bb98ced8bbc5b5d8a7d38ef65aee33f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126741"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010964"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Accorder l’accès en fonction du rôle pour des utilisateurs à Azure Maps
 
-Pour octroyer le *contrôle d’accès en fonction du rôle* (RBAC), vous devez attribuer soit un groupe Azure AD soit des principaux de sécurité à une ou plusieurs définitions de rôle de contrôle d’accès Azure Maps. Pour afficher les définitions de rôle RBAC disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*.
+Pour octroyer le *contrôle d’accès en fonction du rôle Azure (Azure RBAC)* , vous devez attribuer soit un groupe Azure AD, soit des principaux de sécurité à une ou plusieurs définitions de rôle Azure Maps. Pour afficher les définitions de rôle Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*.
 
 * Pour gérer efficacement un grand nombre d’accès des utilisateurs à Azure Maps, consultez [Groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
 * Pour que les utilisateurs soient autorisés à s’authentifier auprès de l’application, les utilisateurs doivent être créés dans Azure AD. Consultez [Ajouter ou supprimer des utilisateurs à l’aide d’Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
@@ -27,7 +27,7 @@ En savoir plus sur [Azure AD](https://docs.microsoft.com/azure/active-directory/
 
 1. Accédez à votre **compte Azure Maps**. Sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôles**.
 
-    ![Octroyer le RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
+    ![Accorder l’accès à l’aide d’Azure RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Sous l’onglet **Attributions de rôle**, sous **Rôle**, sélectionnez une définition de rôle Azure Maps intégrée, comme **Lecteur de données Azure Maps** ou **Contributeur aux données Azure Maps**. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**. Sélectionnez le principal par nom. Ensuite, sélectionnez **Enregistrer**.
 

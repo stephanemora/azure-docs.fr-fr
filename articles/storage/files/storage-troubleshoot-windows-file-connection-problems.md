@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs
-description: Résoudre les problèmes liés à Azure Files sous Windows
+description: Résolution des problèmes liés à Azure Files sous Windows. Consultez les problèmes courants liés à Azure Files lorsque vous vous connectez à partir de clients Windows et découvrez les résolutions possibles.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259980"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927213"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -305,27 +305,27 @@ Pour résoudre ce problème, ajustez la valeur de Registre **DirectoryCacheEntry
  
 Par exemple, spécifiez la valeur 0x100000 pour voir si les performances sont meilleures.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Erreur AadDsTenantNotFound active l’authentification du service de domaine Active Directory (AAD DS) pour Azure Files « Impossible de localiser des abonnés actifs avec l’ID aad-tenant-id »
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Erreur AadDsTenantNotFound active l’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files « Impossible de localiser des abonnés actifs avec l’ID aad-tenant-id »
 
 ### <a name="cause"></a>Cause
 
-L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) sur un compte de stockage où [AAD Domain Services (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire AAD de l’abonnement associé.  
+L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) sur un compte de stockage où [Azure AD Domain Services (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire Azure AD de l’abonnement associé.  
 
 ### <a name="solution"></a>Solution
 
-Activez AAD DS sur le locataire AAD de l’abonnement sur lequel votre compte de stockage est déployé. Pour créer un domaine managé, vous devez disposer des privilèges d’administrateur du locataire AAD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Activez Azure AD DS sur le locataire Azure AD de l’abonnement sur lequel votre compte de stockage est déployé. Pour créer un domaine managé, vous devez disposer des privilèges d’administrateur du locataire Azure AD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>L’erreur Erreur système 1359 est survenue. Une erreur interne est survenue lors de l’accès SMB aux partages de fichiers avec l’authentification de Service de domaine Azure Active Directory (AAD DS) activée
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>L’erreur Erreur système 1359 est survenue. Une erreur interne est survenue lors de l’accès SMB aux partages de fichiers avec l’authentification Azure Active Directory Domain Services (Azure AD DS) activée
 
 ### <a name="cause"></a>Cause
 
-L’erreur Erreur système 1359 est survenue. Une erreur interne se produit lorsque vous essayez de vous connecter à votre partage de fichiers avec l’authentification AAD DS activée sur un AAD DS avec un nom de domaine DNS commençant par un caractère numérique. Par exemple, si le nom de domaine DNS AAD DS est « 1domain », vous obtiendrez cette erreur lors de la tentative de montage du partage de fichiers à l’aide des informations d’identification AAD. 
+L’erreur Erreur système 1359 est survenue. Une erreur interne se produit lorsque vous essayez de vous connecter à votre partage de fichiers avec l’authentification Azure AD DS activée sur une instance Azure AD DS avec un nom DNS de domaine commençant par un caractère numérique. Par exemple, si le nom DNS de domaine Azure AD DS est « 1domain », vous obtiendrez cette erreur lors de la tentative de montage du partage de fichiers à l’aide des informations d’identification Azure AD. 
 
 ### <a name="solution"></a>Solution
 
-Actuellement, vous pouvez envisager de redéployer votre AAD DS à l’aide d’un nouveau nomde domaine DNS qui s’applique aux règles ci-dessous :
+Actuellement, vous pouvez envisager de redéployer votre instance Azure AD DS à l’aide d’un nouveau nom DNS de domaine qui s’applique aux règles ci-dessous :
 - Les noms ne peuvent pas commencer par un caractère numérique.
 - Les noms doivent comprendre entre 3 et 63 caractères.
 

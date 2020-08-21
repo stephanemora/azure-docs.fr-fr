@@ -3,21 +3,21 @@ title: Accorder des autorisations à des utilisateurs sur des stratégies de lab
 description: Découvrez comment accorder des autorisations aux utilisateurs sur des stratégies de laboratoire spécifique dans DevTest Labs selon les besoins de chaque utilisateur
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855777"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835678"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques
 ## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment utiliser PowerShell pour accorder à des utilisateurs des autorisations sur une stratégie de laboratoire particulière. De cette façon, les autorisations peuvent être appliquées selon les besoins de chaque utilisateur. Par exemple, vous pouvez accorder à un utilisateur la possibilité de modifier les paramètres de stratégie d’une machine virtuelle, mais pas les stratégies de coût.
 
 ## <a name="policies-as-resources"></a>Stratégies en tant que ressources
-Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md) , RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
+Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
-Dans DevTest Labs, une stratégie est un type de ressource qui active l’action RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Chaque stratégie de laboratoire est une ressource de type stratégie et peut être affectée comme étendue à un rôle RBAC.
+Dans DevTest Labs, une stratégie est un type de ressource qui active l’action RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Chaque stratégie de laboratoire est une ressource de type stratégie et peut être affectée comme étendue à un rôle Azure.
 
 Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture sur la stratégie **Tailles de machine virtuelle autorisées**, vous créez un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/** , puis vous affectez les utilisateurs appropriés à ce rôle personnalisé dans l’étendue de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
@@ -88,4 +88,3 @@ Après avoir accordé aux utilisateurs des autorisations sur des stratégies de 
 * [Créer un modèle de laboratoire](devtest-lab-create-template.md)
 * [Créer des artefacts personnalisés pour vos machines virtuelles](devtest-lab-artifact-author.md)
 * [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md)
-

@@ -6,22 +6,54 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3719956df0dce62ee69d8e306ff2cad27197616d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567308"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831020"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scénario : Isolation personnalisée pour réseaux virtuels
 
-Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario d’isolation personnalisée pour réseaux virtuels, l’objectif est d’empêcher un ensemble spécifique de réseaux virtuels de pouvoir atteindre d’autres ensembles de réseaux virtuels spécifiques. Toutefois, les réseaux virtuels sont nécessaires pour atteindre toutes les branches (VPN/ER/VPN utilisateur).
+Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario d’isolation personnalisée pour réseaux virtuels, l’objectif est d’empêcher un ensemble spécifique de réseaux virtuels de pouvoir atteindre d’autres ensembles de réseaux virtuels spécifiques. Toutefois, les réseaux virtuels sont nécessaires pour atteindre toutes les branches (VPN/ER/VPN utilisateur). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
-Dans ce scénario, les connexions VPN, ExpressRoute et VPN utilisateur (collectivement appelées branches) sont associées à la même table de routage (table de routage par défaut). Toutes les connexions VPN, ExpressRoute et VPN utilisateur propagent des itinéraires dans le même ensemble de tables de routage. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+## <a name="design"></a><a name="design"></a>Conception
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>Workflow du scénario
+Pour déterminer le nombre de tables de routage nécessaires, vous pouvez créer une matrice de connectivité. Pour ce scénario, celle-ci se présente comme suit, où chaque cellule indique si une source (ligne) peut communiquer avec une destination (colonne) :
+
+| Du | Par :| *Réseaux virtuels bleus* | *Réseaux virtuels rouges* | *Branches*|
+|---|---|---|---|---|
+| **Réseaux virtuels bleus** |   &#8594;|      X        |               |       X      |
+| **Réseaux virtuels rouges**  |   &#8594;|              |       X       |       X      |
+| **Branches**   |   &#8594;|     X        |       X       |       X      |
+
+Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique.
+
+Le nombre de modèles de ligne différents sera le nombre de tables de routage dont nous aurons besoin dans ce scénario. Ici, trois tables de routage de routage sont appelées **RT_BLUE** et **RT_RED** pour les réseaux virtuels, et **Par défaut** pour les branches. N’oubliez pas que les branches doivent toujours être associées à la table de routage Par défaut.
+
+Les branches devront apprendre les préfixes des réseaux virtuels rouges et bleus, de sorte que tous les réseaux virtuels se propagent à la table Par défaut (en plus de la table d’origine **RT_BLUE** ou **RT_RED**). Les réseaux virtuels bleus et rouges devront apprendre les préfixes des branches, afin que les branches se propagent elles aussi aux tables de routage **RT_BLUE** et **RT_RED**. Voici donc la conception finale :
+
+* Réseaux virtuels bleus :
+  * Table de routage associée : **RT_BLUE**
+  * Propagation aux tables de routage : **RT_BLUE** et **Par défaut**
+* Réseaux virtuels rouges :
+  * Table de routage associée : **RT_RED**
+  * Propagation aux tables de routage : **RT_RED** et **Par défaut**
+* Branches :
+  * Table de routage associée : **Par défaut**
+  * Propagation aux tables de routage : **RT_BLUE**, **RT_RED** et **Par défaut**
+
+> [!NOTE]
+> Étant donné que toutes les branches doivent être associées à la table de routage Par défaut et se propager vers le même ensemble de tables de routage, toutes les branches ont le même profil de connectivité. Autrement dit, le concept Rouge/Bleu des réseaux virtuels ne peut pas être appliqué aux branches.
+
+> [!NOTE]
+> Si votre WAN virtuel est déployé sur plusieurs régions, vous devez créer les tables de routage **RT_BLUE** et **RT_RED** dans chaque hub, et les itinéraires de chaque connexion de réseau virtuel doivent être propagés aux tables de routage dans chaque hub virtuel à l’aide des étiquettes de propagation.
+
+Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+
+## <a name="workflow"></a><a name="architecture"></a>Flux de travail
 
 Dans **figure 1**, il y a des connexions de réseaux virtuels en bleu et en rouge.
 
@@ -31,10 +63,10 @@ Dans **figure 1**, il y a des connexions de réseaux virtuels en bleu et en roug
 Suivez les étapes ci-dessous lors de la configuration du routage.
 
 1. Créez deux tables de routage personnalisées dans le Portail Azure, **RT_BLUE** et **RT_RED**.
-2. Pour la table de routage **RT_BLUE**, sous :
-   * **Association** : Sélectionner tous les réseaux virtuels en bleu
+2. Pour la table de routage **RT_BLUE**, pour les paramètres suivants :
+   * **Association** : Sélectionnez tous les réseaux virtuels bleus.
    * **Propagation** : Pour les branches, sélectionnez l’option pour les branches, ce qui implique que les connexions de branche (VPN/ER/P2S) propageront les itinéraires vers cette table de routage.
-3. Répétez les mêmes étapes pour la table de routage **RT_RED** pour les réseaux virtuels en rouge et les branches (VPN/ER/P2S).
+3. Répétez les mêmes étapes pour la table de routage **RT_RED** pour les réseaux virtuels rouges et les branches (VPN/ER/P2S).
 
 Cela entraînera des modifications de configuration de routage, comme illustré dans la figure ci-dessous
 

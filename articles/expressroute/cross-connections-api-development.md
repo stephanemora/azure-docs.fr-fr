@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187024"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921620"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Développement et intégration de l’API ExpressRoute CrossConnnections
 
@@ -30,7 +30,7 @@ Avantages de la migration vers la ressource expressRouteCrossConnections :
 
 * Toutes les futures améliorations apportées aux partenaires ExpressRoute seront disponibles sur la ressource ExpressRouteCrossConnection.
 
-* Les partenaires peuvent appliquer un [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) à la ressource expressRouteCrossConnection. Ces contrôles peuvent définir des autorisations pour lesquelles les comptes d’utilisateurs peuvent modifier la ressource expressRouteCrossConnection et ajouter/mettre à jour/supprimer des configurations de Peering.
+* Les partenaires peuvent appliquer un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) à la ressource expressRouteCrossConnection. Ces contrôles peuvent définir des autorisations pour lesquelles les comptes d’utilisateurs peuvent modifier la ressource expressRouteCrossConnection et ajouter/mettre à jour/supprimer des configurations de Peering.
 
 * La ressource expressRouteCrossConnection expose des API qui peuvent être utiles pour la résolution des problèmes de connexion ExpressRoute. Cela comprend la table ARP, le résumé de la table de route BGP et les détails de la table de route BGP. Cette capacité n’est pas prise en charge par les API de déploiement classiques.
 

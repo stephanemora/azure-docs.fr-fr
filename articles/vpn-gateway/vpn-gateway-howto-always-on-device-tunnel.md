@@ -1,19 +1,19 @@
 ---
 title: Configurer un tunnel VPN Always On
 titleSuffix: Azure VPN Gateway
-description: Étapes de configuration d’un tunnel VPN Always On pour la passerelle VPN
+description: Découvrez comment utiliser des passerelles avec Windows 10 Always On pour établir et configurer des tunnels d’appareils permanents vers Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e64d2223740942fe35ae8a730303bee8893c2489
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983119"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035601"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurer un tunnel de périphérique VPN Always On
 

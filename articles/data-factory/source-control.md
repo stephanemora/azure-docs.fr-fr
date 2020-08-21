@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674596"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067407"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -93,7 +93,7 @@ Le volet de configuration affiche les paramètres du dépôt de code Azure Repos
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Utiliser un autre locataire Azure Active Directory
 
-Le dépôt Git Azure Repos peut se trouver dans un autre locataire Azure Active Directory. Pour définir un autre locataire Azure AD, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez.
+Le dépôt Git Azure Repos peut se trouver dans un autre locataire Azure Active Directory. Pour définir un autre locataire Azure AD, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez. Pour plus d’informations, consultez la rubrique [Modifier l’administrateur d’abonnement](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator).
 
 ### <a name="use-your-personal-microsoft-account"></a>Ajouter votre compte Microsoft personnel
 
@@ -211,11 +211,11 @@ Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de public
 
 ### <a name="permissions"></a>Autorisations
 
-En règle générale, vous ne souhaitez pas autoriser tous les membres de l’équipe à mettre à jour la fabrique. Les paramètres des autorisations suivants sont recommandés :
+En règle générale, vous ne souhaitez pas autoriser tous les membres de l’équipe à mettre à jour la fabrique de données. Les paramètres des autorisations suivants sont recommandés :
 
-*   Tous les membres de l’équipe doivent disposer d'autorisations de lecture dans la fabrique de données.
-*   Seul un ensemble sélectionné de personnes doit être autorisé à publier sur la fabrique. Pour ce faire, elles doivent avoir le rôle **Contributeurs de Data Factory** sur le groupe de ressources où se trouve la fabrique. Pour plus d’informations sur les autorisations, consultez [Rôles et autorisations pour Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Tous les membres de l’équipe doivent disposer d’autorisations de lecture dans la fabrique de données.
+*   Seul un ensemble sélectionné de personnes doit être autorisé à publier sur la fabrique de données. Pour ce faire, ces personnes doivent avoir le rôle **Contributeur de Data Factory** sur le **groupe de ressources** contenant la fabrique de données. Pour plus d’informations sur les autorisations, consultez [Rôles et autorisations pour Azure Data Factory](concepts-roles-permissions.md).
+
 Il est recommandé de ne pas autoriser les archivages directs dans la branche de collaboration. Cette restriction peut aider à éviter les bogues, car chaque archivage passe par un processus de demande de tirage décrit dans [Création de branches de fonctionnalités](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Utilisation de mots de passe à partir d’Azure Key Vault

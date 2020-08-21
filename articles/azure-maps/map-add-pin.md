@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche de symboles à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir comment utiliser la couche de symboles pour personnaliser un symbole et ajouter des symboles sur une carte à l’aide du SDK web Microsoft Azure Maps.
+description: En savoir plus sur l’ajout de symboles personnalisés, tels que du texte ou des icônes, aux cartes. Voir comment utiliser les sources de données et les couches de symboles dans le Kit de développement logiciel (SDK) web Azure Maps à cette fin.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c10e47ea10939b60c6c334229fb18ec2702af11f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286916"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010189"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 

@@ -1,18 +1,18 @@
 ---
 title: Migrer des données vers Azure File Sync avec Azure Data Box
-description: Migrez des données en bloc d’une manière compatible avec Azure File Sync.
+description: Migrez des données en bloc hors connexion d’une manière compatible avec Azure File Sync. Évitez les conflits de fichiers et conservez les listes de contrôle d’accès et l’horodatage des fichiers et des dossiers après avoir activé la synchronisation.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514390"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034343"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrer des données en bloc vers Azure File Sync avec Azure Data Box
 Vous pouvez migrer des données en bloc vers Azure File Sync de deux manières :
@@ -88,6 +88,13 @@ Désactivez le mode de transfert de données hors connexion uniquement lorsque l
 
 > [!IMPORTANT]
 > Une fois le transfert de données hors connexion désactivé, il n’existe aucun moyen de l’activer, même si le partage intermédiaire de la migration en bloc est toujours disponible.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Azure File Sync et les fichiers amorcés dans le cloud
+
+Si vous avez amorcé des fichiers dans un partage de fichiers Azure par d’autres moyens que DataBox, par exemple via AzCopy, RoboCopy à partir d’une sauvegarde cloud ou toute autre méthode, vous devez toujours suivre le [processus de transfert de données hors connexion](#process-for-offline-data-transfer) décrit dans cet article. Il vous suffit d’ignorer DataBox comme méthode de transfert de vos fichiers vers le cloud. Toutefois, il est primordial de s’assurer que vous suivez toujours le processus d’amorçage des fichiers dans un *partage de fichiers intermédiaire* et non le partage de fichiers connecté Azure File Sync final.
+
+> [!WARNING]
+> **Suivez le processus d’amorçage des fichiers dans un partage intermédiaire et non le partage de fichiers connecté Azure File Sync final**. Si vous ne le faites pas, des conflits de fichiers peuvent survenir (les deux versions de fichiers seront stockées) et les fichiers supprimés sur le serveur actif peuvent revenir, s’ils existent encore dans votre ancien ensemble de fichiers. En outre, les modifications de dossiers sont fusionnées les unes avec les autres, ce qui rend très difficile la distinction entre les espaces de noms après une telle erreur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Planifier un déploiement de la fonctionnalité Synchronisation de fichiers Azure](storage-sync-files-planning.md)
