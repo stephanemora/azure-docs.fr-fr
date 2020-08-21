@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 08/14/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 577c184f78c5784b29db7562f3c33a3cb7518f0c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1d84d25e5605ede064ddc853a4249ba49d59513d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142041"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257757"
 ---
 ::: zone target="docs"
 
@@ -352,7 +352,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
-Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud ou en Europe de l’Ouest et que vous avez sélectionné l’option d’expédition autogérée pendant la création de la commande, suivez ces instructions. 
+Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud, en Europe de l'Ouest ou dans le cadre d'une offre US Government et que vous avez sélectionné l'option d'expédition autogérée pendant la création de la commande, suivez ces instructions. 
 
 1. Notez le code d’autorisation indiqué dans la page Préparation de l’expédition de l’interface utilisateur web locale de la Data Box une fois cette étape terminée.
 2. Mettez l’appareil hors tension et débranchez les câbles. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.

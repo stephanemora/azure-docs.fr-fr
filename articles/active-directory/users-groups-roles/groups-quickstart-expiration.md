@@ -1,6 +1,6 @@
 ---
 title: Guide de démarrage rapide sur la stratégie d’expiration de groupe - Azure AD | Microsoft Docs
-description: Expiration des groupes Office 365 - Azure Active Directory
+description: Expiration des groupes Microsoft 365 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582848"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213726"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l’expiration des groupes Office 365 dans Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l'expiration des groupes Microsoft 365 dans Azure Active Directory
 
-Dans le cadre de ce démarrage rapide, vous allez définir la stratégie d’expiration de vos groupes Office 365. Lorsque les utilisateurs peuvent configurer leurs propres groupes, les groupes inutilisés risquent de se multiplier. L’une des façons de gérer les groupes inutilisés consiste à configurer l’expiration de ces groupes afin de minimiser la tâche de suppression manuelle des groupes.
+Dans le cadre de ce démarrage rapide, vous allez définir la stratégie d'expiration de vos groupes Microsoft 365. Lorsque les utilisateurs peuvent configurer leurs propres groupes, les groupes inutilisés risquent de se multiplier. L’une des façons de gérer les groupes inutilisés consiste à configurer l’expiration de ces groupes afin de minimiser la tâche de suppression manuelle des groupes.
 
 La stratégie d’expiration est simple :
 
 - Les groupes présentant des activités utilisateur sont automatiquement renouvelés à l’approche de l’expiration.
 - Les propriétaires de groupe sont invités à renouveler un groupe sur le point d’expirer.
 - Un groupe non renouvelé est supprimé.
-- Un groupe Office 365 supprimé peut être restauré dans les 30 jours par son propriétaire ou par un administrateur Azure AD.
+- Un groupe Microsoft 365 supprimé peut être restauré dans un délai de 30 jours par son propriétaire ou par un administrateur Azure AD.
 
 > [!NOTE]
 > Les groupes bénéficient désormais de l’intelligence Azure AD, qui corrèle leur renouvellement automatique à leur utilisation récente. Cette décision de renouvellement est basée sur l’activité des utilisateurs dans les groupes des services Office 365 tels qu’Outlook, SharePoint, Teams, Yammer, etc.
@@ -49,7 +49,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
   
    ![Page des paramètres de groupe en libre-service](./media/groups-quickstart-expiration/self-service-settings.png)
 
-3. Définissez l’option **Les utilisateurs peuvent créer des groupes Office 365** sur **Oui**.
+3. Définissez l'option **Les utilisateurs peuvent créer des groupes Microsoft 365** sur **Oui**.
 
 4. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour enregistrer les paramètres des groupes.
 
@@ -63,11 +63,11 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 3. Fournissez une adresse e-mail à laquelle les notifications d’expiration doivent être envoyées si un groupe est dépourvu de propriétaire.
 
-4. Pour ce démarrage rapide, définissez l’option **Activer l’expiration de ces groupes Office 365** sur **Tous**.
+4. Pour ce démarrage rapide, définissez l'option **Activer l'expiration de ces groupes Microsoft 365** sur **Tous**.
 
 5. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour enregistrer les paramètres d’expiration.
 
-Et voilà ! Dans le cadre de ce démarrage rapide, vous avez configuré la stratégie d’expiration des groupes Office 365 sélectionnés.
+Et voilà ! Dans le cadre de ce démarrage rapide, vous avez configuré la stratégie d'expiration des groupes Microsoft 365 sélectionnés.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -75,12 +75,12 @@ Et voilà ! Dans le cadre de ce démarrage rapide, vous avez configuré la stra
 
 1. Vérifiez que vous êtes connecté au [portail Azure](https://portal.azure.com) avec un compte d’administrateur général pour votre organisation Azure AD.
 2. Sélectionnez **Azure Active Directory** > **Groupes** > **Expiration**.
-3. Définissez l’option **Activer l’expiration de ces groupes Office 365** sur **Aucun**.
+3. Définissez l'option **Activer l'expiration de ces groupes Microsoft 365** sur **Aucun**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Pour désactiver la création d’utilisateurs pour les groupes
 
 1. Sélectionnez **Azure Active Directory** > **Groupes** > **Général**. 
-2. Définissez l’option **Les utilisateurs peuvent créer des groupes Office 365 dans les portails Azure** sur **Non**.
+2. Définissez l'option **Les utilisateurs peuvent créer des groupes Microsoft 365 sur les portails Azure** sur **Non**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

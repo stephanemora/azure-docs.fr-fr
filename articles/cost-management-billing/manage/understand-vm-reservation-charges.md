@@ -4,14 +4,14 @@ description: Découvrez comment la remise d’instance de machine virtuelle rés
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018380"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192208"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comment la remise de réservation Azure est-elle appliquée aux machines virtuelles ?
 
@@ -56,11 +56,15 @@ Quand vous exécutez des instances de machine virtuelle Windows, la réservation
 
 ## <a name="discount-can-apply-to-different-sizes"></a>La remise peut s'appliquer à différentes tailles
 
-Quand vous achetez une instance de machine virtuelle réservée, si vous sélectionnez **Optimisé pour** : **Flexibilité de taille d’instance**, l’étendue de la remise dépend de la taille de machine virtuelle que vous sélectionnez. La réservation peut s’appliquer aux tailles des machines virtuelles dans le même groupe de gammes de tailles. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Lorsque vous achetez une instance de machine virtuelle réservée et sélectionnez **Optimisé pour la flexibilité de la taille d'instance**, la remise s'applique à la taille de machine virtuelle que vous sélectionnez. Elle peut également s'appliquer à d'autres tailles de machines virtuelles appartenant au même groupe de flexibilité de taille d'instance de série. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>La remise s’applique au type de service correspondant uniquement
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Les machines virtuelles de stockage Premium ne bénéficient pas des remises non Premium.
 
-Une remise de réservation s’applique uniquement à l’utilisation de la machine virtuelle où la valeur `ServiceType` dans `AdditionalInfo` correspond à la réservation achetée. L'application de la remise de réservation ne tient pas compte du compteur utilisé pour les machines virtuelles et évalue uniquement `ServiceType`. Déterminez le type de service pour lequel vous avez acheté la machine virtuelle. Vous pouvez échanger une réservation de machine virtuelle de stockage non Premium contre une réservation de stockage Premium, et inversement.
+Voici un exemple. Supposons que vous ayez acheté une réservation pour cinq machines virtuelles Standard_D1. La remise de réservation s'applique uniquement aux machines virtuelles Standard_D1 ou à d'autres machines virtuelles de la même famille d'instances. La remise ne s'applique pas aux machines virtuelles Standard_DS1 ou à d'autres tailles du groupe de flexibilité de taille d'instance DS1.
+
+L'application de la remise de réservation ne tient pas compte du compteur utilisé pour les machines virtuelles et évalue uniquement ServiceType. Examinez la valeur `ServiceType` de `AdditionalInfo` pour déterminer les informations de série/groupe de flexibilité d'instance pour vos machines virtuelles. Les valeurs sont disponibles dans votre fichier CSV d'utilisation.
+
+Vous ne pouvez pas modifier directement le groupe ou la série de flexibilité d'instance de la réservation après l'achat. Cependant, vous pouvez *échanger* une réservation de machine virtuelle entre un groupe ou une série de flexibilité d'instance et un(e) autre.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Services qui obtiennent des remises de réservation de machines virtuelles
 

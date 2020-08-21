@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835780"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565704"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Présentation d’Azure Static Web Apps - Préversion
 
@@ -32,10 +32,10 @@ Avec les applications Static Web Apps, les ressources statiques sont séparées 
 
 - **Hébergement web** pour le contenu statique comme le HTML, le CSS, le JavaScript et les images.
 - **Prise en charge d’API** intégrée fournie par Azure Functions.
-- **Intégration GitHub interne** où les modifications du référentiel déclenchent les compilations les déploiements.
+- **Intégration GitHub de première classe** dans laquelle les modifications du référentiel déclenchent des compilations et des déploiements.
 - **contenu statique distribué à l’échelle mondiale**, ce qui rapproche le contenu de vos utilisateurs.
 - **Certificats SSL gratuits**, automatiquement renouvelés.
-- **Domaines personnalisés**\* pour fournir des personnalisations à votre application.
+- **Domaines personnalisés** pour fournir des personnalisations à votre application.
 - **Modèle de sécurité transparent** avec proxy inverse lors de l’appel des API, ce qui ne requiert aucune configuration CORS.
 - **Intégrations de fournisseurs d’authentification** avec Azure Active Directory, Facebook, Google, GitHub et Twitter.
 - **Définition de rôle d’autorisation personnalisable** et assignations.
@@ -44,11 +44,9 @@ Avec les applications Static Web Apps, les ressources statiques sont séparées 
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Ce que vous pouvez faire avec les applications Static Web Apps
 
-- **Créer des applications JavaScript modernes** avec des frameworks et des bibliothèques comme [Angular](getting-started.md#tabpanel_CeZOj-G++Q_angular), [React](getting-started.md#tabpanel_CeZOj-G++Q_react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) avec un back-end [Azure Functions](apis.md).
+- **Créer des applications JavaScript modernes** avec des frameworks et des bibliothèques comme [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) avec un back-end [Azure Functions](apis.md).
 - **Publier des sites statiques** avec des frameworks comme [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Déployer des applications web** avec des frameworks comme [Next.js](deploy-nextjs.md) et [Nuxt.js](deploy-nuxtjs.md).
-
-\* Les inscriptions de domaine apex ne sont pas prises en charge dans la préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

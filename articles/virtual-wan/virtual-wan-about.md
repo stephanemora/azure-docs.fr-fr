@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513143"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604703"
 ---
-# <a name="about-azure-virtual-wan"></a>À propos d'Azure Virtual WAN
+# <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
 Azure Virtual WAN est un service de mise en réseau qui combine un grand nombre de fonctionnalités de mise en réseau, de sécurité et de routage pour fournir une interface opérationnelle unique. Ces fonctionnalités sont les suivantes : connectivité de branche (via une automatisation de la connectivité à partir d’appareils partenaires d’Azure Virtual WAN, tels que SD-WAN ou un CPE VPN), connectivité VPN site à site, connectivité VPN d’utilisateurs distants (point à site), connectivité privée (ExpressRoute), connectivité intra-cloud (connectivité transitive pour les réseaux virtuels), interconnectivité ExpressRoute de VPN, routage, Pare-feu Azure et chiffrement de connexion privée. Il n’est pas nécessaire d’avoir tous ces cas d’usage pour commencer à utiliser Virtual WAN. Vous pouvez simplement commencer avec un seul cas d’usage puis ajuster votre réseau au fur et à mesure de son évolution.
 
@@ -98,15 +98,15 @@ Le routeur peut avoir quatre états de routage : Provisionné, Provisionnement,
 * Un état **Aucun** indique que le hub virtuel n’a pas provisionné le routeur. Cela peut se produire si le réseau étendu virtuel est de type *De base* ou que le hub virtuel a été déployé avant que le service ne soit mis à disposition.
 * Un état **Échec** indique un échec pendant l’instanciation. Pour instancier ou réinitialiser le routeur, vous pouvez rechercher l’option **Réinitialiser le routeur** en accédant à la page de vue d’ensemble du hub virtuel dans le portail Azure.
 
-Chaque routeur de hub virtuel prend en charge un débit agrégé pouvant atteindre 50 Gbits/s. La connectivité entre les connexions de réseau virtuel suppose une charge de travail totale de 2000 machines virtuelles sur tous les réseaux virtuels d’un réseau étendu virtuel.
+Chaque routeur de hub virtuel prend en charge un débit agrégé pouvant atteindre 50 Gbits/s. La connectivité entre les connexions de réseau virtuel suppose une charge de travail totale de 2000 machines virtuelles sur tous les réseaux virtuels connectés à un même hub virtuel.
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Connectivité de transit entre le réseau privé virtuel et ExpressRoute
 
-Virtual WAN permet la connectivité de transit entre le réseau privé virtuel et ExpressRoute. Cela implique que les sites connectés au VPN ou les utilisateurs distants puissent communiquer avec les sites connectés à ExpressRoute. En outre, l’**indicateur Branche à branche** est censé être activé. Cet indicateur se trouve dans les paramètres Azure Virtual WAN au sein du portail Azure. La gestion des routes est assurée en totalité par le routeur de hub virtuel, qui permet également la connectivité de transit entre les réseaux virtuels.
+Virtual WAN permet la connectivité de transit entre le réseau privé virtuel et ExpressRoute. Cela implique que les sites connectés au VPN ou les utilisateurs distants puissent communiquer avec les sites connectés à ExpressRoute. Il existe également une hypothèse implicite selon laquelle l'**indicateur Branche à branche** est activé et le protocole BGP est pris en charge pour les connexions VPN et ExpressRoute. Cet indicateur se trouve dans les paramètres Azure Virtual WAN du portail Azure. La gestion des routes est assurée en totalité par le routeur de hub virtuel, qui permet également la connectivité de transit entre les réseaux virtuels.
 
 ### <a name="custom-routing"></a><a name="routing"></a>Routage personnalisé
 
-Virtual WAN fournit des améliorations de routage avancées. Possibilité de définir des tables de routage personnalisées, d’optimiser le routage de réseau virtuel avec association et propagation de route, de regrouper de façon logique les tables de routage avec des étiquettes et de simplifier de nombreux scénarios de routage d’appliance virtuelle réseau ou de services partagés.
+Virtual WAN fournit des améliorations de routage avancées. Possibilité de définir des tables de routage personnalisées, d'optimiser le routage du réseau virtuel avec association et propagation d'itinéraires, de regrouper de façon logique les tables de routage avec des étiquettes et de simplifier de nombreux scénarios de routage d'appliance virtuelle réseau (NVA) ou de services partagés.
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Appairage de réseaux virtuels global
 
@@ -120,17 +120,21 @@ Azure Virtual WAN offre la possibilité de chiffrer votre trafic ExpressRoute. C
 
 Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
 
-## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tables de routage dans les réseaux étendus virtuels De base et Standard
+## <a name="route-tables-for-basic-and-standard-virtual-wans"></a><a name="route"></a>Tables de routage pour les réseaux étendus virtuels De base et Standard
 
-Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de routage préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des routes préexistantes et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
+Les tables de routage disposent désormais de fonctionnalités d’association et de propagation. Une table de routage préexistante est une table de routage qui n’a pas ces fonctionnalités. Si le routage de hub comporte des itinéraires préexistants et que vous souhaitez utiliser les nouvelles fonctionnalités, tenez compte des éléments suivants :
 
-* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
+* **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez la fin du déploiement dans Azure, prévue pour la semaine du 17 août. En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis essayer de créer de nouvelles tables de routage (disponible dans la section Tables de routage du hub sur le portail Azure).
 
-* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez la fin du déploiement dans Azure, prévue pour la semaine du 17 août. En présence d'itinéraires préexistants dans la section Routage du hub sur le portail Azure, vous devez d'abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Afficher les dernières mises à jour des fonctionnalités
+
+Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionnalités Virtual WAN sur la page [Mises à jour Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
