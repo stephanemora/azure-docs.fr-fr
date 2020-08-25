@@ -4,15 +4,15 @@ description: Tutoriel - Découvrez comment exécuter des scripts Python dans le 
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853311"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185109"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutoriel : Exécuter des scripts Python par le biais d’Azure Data Factory avec Azure Batch
 
@@ -67,8 +67,7 @@ Ici, vous allez créer des conteneurs d’objets blob pour stocker vos fichiers 
 1. Connectez-vous à l’Explorateur Stockage à l’aide de vos informations d’identification Azure.
 1. À l’aide du compte de stockage lié à votre compte Batch, créez deux conteneurs d’objets blob (un pour les fichiers d’entrée, un pour les fichiers de sortie) en suivant les étapes indiquées dans [Créer un conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Dans cet exemple, nous allons appeler notre conteneur d’entrée `input`et notre conteneur de sortie `output`.
-1. Chargez `main.py` et [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) dans votre conteneur d’entrée `input` à l’aide de l’Explorateur Stockage en suivant les étapes de la section [Gestion des objets blob dans un conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).
-
+1. Chargez [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) dans votre conteneur d’entrée `input` à l’aide de l’Explorateur Stockage en suivant les étapes de la section [Gestion des objets blob dans un conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).
 
 ## <a name="develop-a-script-in-python"></a>Développer un script en Python
 

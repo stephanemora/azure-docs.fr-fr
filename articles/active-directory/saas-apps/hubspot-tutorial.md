@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HubSpot.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68944444"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutoriel : Intégration d’Azure AD à HubSpot
 
@@ -106,9 +101,9 @@ Dans cette section, vous allez configurer l’authentification unique Azure AD 
 
 1. Dans le volet **Configuration SAML de base**, pour configurer le *mode initié par le fournisseur d’identité*, effectuez les étapes suivantes :
 
-    1. Dans le champ **Identificateur**, entrez une URL au format suivant : https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<ID CLIENT\>.
+    1. Dans le champ **Identificateur**, entrez une URL au format suivant : https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
-    1. Dans le champ **URL de réponse**, entrez une URL au format suivant : https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<ID CLIENT\>.
+    1. Dans le champ **URL de réponse**, entrez une URL au format suivant : https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
 
     ![Informations d’authentification unique dans Domaine et URL HubSpot](common/idp-intiated.png)
 
@@ -183,7 +178,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **brittasimon\@\<votre_domaine_d’entreprise>.\<extension>\>** . Par exemple, **brittasimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **brittasimon\@\<your-company-domain>.\<extension\>** . Par exemple, **brittasimon\@contoso.com**.
 
     1. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 

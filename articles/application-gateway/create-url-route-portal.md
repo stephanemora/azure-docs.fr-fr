@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312194"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205572"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="prerequisites"></a>Prérequis
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
@@ -204,7 +204,11 @@ Examinez les paramètres sous l’onglet **Vérifier + créer**, puis sélection
 
    L’écouteur sur le port 8080 route cette demande vers le pool back-end *Vidéo*.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources, puis **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activation du protocole TLS de bout en bout sur Azure Application Gateway](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Activer le protocole TLS de bout en bout sur Azure Application Gateway](application-gateway-backend-ssl.md)

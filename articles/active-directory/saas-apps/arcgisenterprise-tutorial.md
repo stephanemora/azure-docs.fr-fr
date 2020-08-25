@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à ArcGIS Enterprise | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ArcGIS Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57eda7e1d5ffedf7d5b867bfa7a59850fbadaf99
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905004"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Enterprise
 
@@ -48,8 +43,6 @@ Pour configurer l’intégration d’Azure AD à ArcGIS Enterprise, vous avez be
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
-
-
 
 * ArcGIS Enterprise prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
 * ArcGIS Enterprise prend en charge l’attribution d’utilisateurs **Juste-à-temps**
@@ -132,21 +125,30 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
 
 ### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurer l’authentification unique ArcGIS Enterprise
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous en tant qu’administrateur à votre site d’entreprise ArcGIS Enterprise.
+1. Pour automatiser la configuration dans ArcGIS Enterprise, vous devez installer l’**extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
 
-2. Sélectionnez **Organization > EDIT SETTINGS** (Organisation > Modifier les paramètres).
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Une fois l’extension ajoutée au navigateur, le fait de cliquer sur **Configurer ArcGIS Enterprise** vous redirige vers l’application ArcGIS Enterprise. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à ArcGIS Enterprise. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous voulez configurer ArcGIS Enterprise manuellement, connectez-vous à votre site d’entreprise ArcGIS Enterprise en tant qu’administrateur.
+
+
+1. Sélectionnez **Organization > EDIT SETTINGS** (Organisation > Modifier les paramètres).
 
     ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
 
-3. Sélectionnez l’onglet **Sécurité**.
+1. Sélectionnez l’onglet **Sécurité**.
 
     ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
 
-4. Faites défiler jusqu’à la section **Enterprise Logins via SAML** (Connexions d’entreprise via SAML), puis sélectionnez **SET ENTERPRISE LOGIN** (Définir les connexions d’entreprise).
+1. Faites défiler jusqu’à la section **Enterprise Logins via SAML** (Connexions d’entreprise via SAML), puis sélectionnez **SET ENTERPRISE LOGIN** (Définir les connexions d’entreprise).
 
     ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
 
-5. Dans la section **Set Identity Provider** (Configurer le fournisseur d’identité), effectuez les étapes suivantes :
+1. Dans la section **Set Identity Provider** (Configurer le fournisseur d’identité), effectuez les étapes suivantes :
 
     ![Configuration d’ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 

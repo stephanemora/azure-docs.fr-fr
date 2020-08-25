@@ -1,21 +1,21 @@
 ---
-title: Créer et partager un notebook Jupyter sur Azure Notebooks (préversion)
-description: Créez et exécutez rapidement un notebook Jupyter sur Azure Notebooks (préversion), puis partagez-le avec d’autres utilisateurs.
+title: Créer et partager un Jupyter Notebook sur la préversion d’Azure Notebooks
+description: Créez et exécutez rapidement un Jupyter Notebook sur Azure Notebooks (préversion), puis partagez-le avec d’autres utilisateurs.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849397"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589331"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Créer et partager un notebook dans Azure Notebooks (préversion)
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Dans ce guide de démarrage rapide, vous créez et exécutez un notebook Jupyter sur Azure Notebooks, puis vous le partagez avec d’autres utilisateurs. Jupyter vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations sur un canevas partageable, le notebook. Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation.
+Dans ce guide de démarrage rapide, vous créez et exécutez un Jupyter Notebook sur Azure Notebooks, puis vous le partagez avec d’autres utilisateurs. Jupyter vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations sur un canevas partageable, le notebook. Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des Jupyter Notebooks dans le cloud sans aucune installation.
 
 ## <a name="prerequisites"></a>Prérequis
 Aucun.
@@ -91,7 +91,7 @@ Aucun.
 
 1. Cliquez sur l’icône Enregistrer pour enregistrer votre travail :
 
-    ![Icône Enregistrer dans la barre d’outils du notebook Jupyter](media/quickstarts/hello-results-save-icon.png)
+    ![Icône Enregistrer dans la barre d’outils du Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
 1. Sélectionnez la commande de menu **Fichier** > **Fermer et arrêter** pour arrêter le serveur et fermer la fenêtre du navigateur.
 
@@ -106,4 +106,4 @@ Sur la page des projets, vous pouvez également utiliser le menu **Partager** po
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un Jupyter Notebook pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Spotinst | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Spotinst.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5490ff6c6143dff258d74e013bb9d4c821aab625
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76263283"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Spotinst
 
@@ -79,18 +75,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Lancé par le fournisseur d’identité, effectuez les étapes suivantes :
 
-    a. Vérifiez **Définir des URL supplémentaires**.
-
-    b. Dans la zone de texte **État de relais**, tapez une valeur : `<ID>`
-
-1. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
-
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > La valeur État de relais n’est pas la valeur réelle. Vous mettrez à jour la valeur de l’état de relais avec la valeur réelle en suivant les explications données plus loin dans le tutoriel.
+   1. Vérifiez que l’**URL de réponse** est définie sur : https://console.spotinst.com/auth/saml.
+   1. Dans **État de relais**, entrez votre ID d’organisation Spotinst, que vous pouvez également vérifier sous l’onglet **SSO**.
+   1. L’**URL de connexion** doit être vide.
 
 1. Cliquez sur **Enregistrer**.
 
@@ -160,7 +149,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     b. Cliquez sur **BROWSE** (PARCOURIR) pour charger le fichier xml de métadonnées que vous avez téléchargé du portail Azure.
 
-    c. Cliquez sur **ENREGISTRER**.
+    c. Cliquez sur **ENREGISTRER**.
 
 ### <a name="create-spotinst-test-user"></a>Créer un utilisateur de test Spotinst
 
@@ -186,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     * Dans la zone de texte **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon\@contoso.com`.
 
-    * Sélectionnez les détails propres à votre organisation pour **Organization Role (Rôle de l’organisation), Account Role (Rôle de compte) et Accounts (Comptes)** .
+    * Sélectionnez les détails propres à votre organisation pour **Organization Role (Rôle de l’organisation), Account Role (Rôle de compte) et Accounts (Comptes)**.
 
 2. Si vous avez configuré l’application en mode initié par le **fournisseur d’identité**, vous n’avez aucune opération à effectuer dans cette section. Spotinst prend en charge le provisionnement juste-à-temps, option qui est activée par défaut. S’il n’existe pas déjà, un utilisateur est créé lors d’une tentative d’accès à Spotinst.
 

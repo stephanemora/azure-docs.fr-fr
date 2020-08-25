@@ -1,21 +1,21 @@
 ---
 title: 'Tutoriel : créer et exécuter un notebook Jupyter - Azure Notebooks Preview'
-description: Apprenez à créer et exécuter un notebook Jupyter dans Azure Notebooks Preview qui illustre le processus de régression linéaire en science des données.
+description: Découvrez comment créer et exécuter un notebook Jupyter dans Azure Notebooks Preview qui illustre le processus de régression linéaire en science des données.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846910"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589249"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Ce tutoriel vous guide tout au long du processus d’utilisation d’Azure Notebooks pour créer un notebook Jupyter complet qui illustre une régression linéaire simple. Au cours de ce tutoriel, vous vous familiarisez avec l’interface utilisateur du notebook Jupyter, ce qui inclut la création de différentes cellules, l’exécution des cellules et la présentation du notebook sous forme de diaporama.
+Ce tutoriel vous guide tout au long du processus d’utilisation d’Azure Notebooks pour créer un notebook Jupyter complet qui illustre une régression linéaire simple. Au cours de ce tutoriel, vous allez vous familiariser avec l’interface utilisateur du notebook Jupyter, notamment la création de différentes cellules, l’exécution des cellules et la présentation du notebook sous forme de diaporama.
 
 Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Toutefois, comme ce tutoriel commence avec un nouveau projet et un notebook vide, vous pouvez assister à sa création étape par étape.
 

@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Atlassian Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb3522898a40dc79e8465af813633015568f1c8
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033736"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517646"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutoriel : Intégrer Atlassian Cloud à Azure Active Directory
 
@@ -77,6 +73,16 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec Atlas
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
+
+1. Pour automatiser la configuration dans Atlassian Cloud, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Install the extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Une fois l’extension ajoutée au navigateur, le fait de cliquer sur **Configurer Atlassian Cloud** vous redirige vers l’application Atlassian Cloud. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Atlassian Cloud. Cette extension de navigateur configure automatiquement l’application pour vous.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous voulez configurer manuellement Atlassian Cloud, connectez-vous à votre site d’entreprise Atlassian Cloud en tant qu’administrateur, puis effectuez les étapes suivantes.
 
 1. Avant de commencer, accédez à l'instance de votre produit Atlassian et copiez/enregistrez son URL.
    > [!NOTE]

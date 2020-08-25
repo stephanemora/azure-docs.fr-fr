@@ -1,21 +1,21 @@
 ---
 title: Accorder aux applications l’autorisation d’accéder à un coffre de clés Azure - Azure Key Vault | Microsoft Docs
-description: Découvrez comment accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés
+description: Découvrez comment inscrire manuellement un principal de service et fournir un accès à Azure Key Vault à l’aide d’une stratégie de contrôle d’accès, ce qui peut être nécessaire dans certains cas.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: d0607b1adb76fd32ce9f4dc9ebede92c7aa96862
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406246"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588719"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 

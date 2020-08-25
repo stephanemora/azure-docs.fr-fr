@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e9c4470ea16f1840274a6fa8613822b20d6772b3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b867f5bcbbdc5deab2d67f356df69ee870c21f3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310877"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142245"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Démarrage rapide : Créer un jumeau de module azureiotsecurity
 
@@ -76,7 +76,7 @@ Pour en savoir plus sur la personnalisation des propriétés des jumeaux de modu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour savoir comment configurer les alertes personnalisées...
+Passez à l’article suivant pour savoir comment examiner des recommandations de sécurité...
 
 > [!div class="nextstepaction"]
-> [Configurer les alertes personnalisées](quickstart-create-custom-alerts.md)
+> [Investiguer les recommandations de sécurité](quickstart-investigate-security-recommendations.md)

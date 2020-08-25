@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Datadog | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Datadog.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b7845bdd-7bcd-4888-84fd-2551345054ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7329c042618623806f28aacf5282e1ab6c718c5f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472284"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Datadog
 
@@ -44,7 +40,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Datadog prend en charge l’authentification unique lancée par le **fournisseur de services**.
-* Après avoir configuré Datadog, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Une fois que vous avez configuré Datadog, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## <a name="adding-datadog-from-the-gallery"></a>Ajout de Datadog depuis la galerie
@@ -59,7 +55,7 @@ Pour configurer l’intégration de Datadog dans Azure AD, vous devez ajouter D
 1. Sélectionnez **Datadog** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datadog"></a>Configurer et tester l’authentification unique Azure AD pour Datadog
+## <a name="configure-and-test-azure-ad-sso-for-datadog"></a>Configurer et tester l’authentification unique Azure AD pour Datadog
 
 Configurez et testez l’authentification unique Azure AD avec Datadog à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Datadog associé.
 
@@ -89,7 +85,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique Datadog](mailto:xuefwu@microsoft.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique Datadog](mailto:support@datadoghq.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Cliquez sur **Enregistrer**.
 
@@ -134,11 +130,11 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 ## <a name="configure-datadog-sso"></a>Configurer l’authentification unique Datadog
 
-Pour configurer l’authentification unique côté **Datadog**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Datadog](mailto:xuefwu@microsoft.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Datadog**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Datadog](mailto:support@datadoghq.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-datadog-test-user"></a>Créer un utilisateur de test Datadog
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Datadog. Travaillez en collaboration avec l’[équipe du support technique Datadog](mailto:xuefwu@microsoft.com) pour ajouter les utilisateurs sur la plateforme Datadog.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Datadog. Travaillez en collaboration avec l’[équipe du support technique Datadog](mailto:support@datadoghq.com) pour ajouter les utilisateurs sur la plateforme Datadog.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

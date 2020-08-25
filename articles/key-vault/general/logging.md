@@ -1,21 +1,21 @@
 ---
 title: Journalisation d’Azure Key Vault | Microsoft Docs
-description: Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés.
+description: Découvrez comment superviser l’accès à vos coffres de clés en activant la journalisation pour Azure Key Vault, ce qui enregistre les informations dans un compte de stockage Azure que vous fournissez.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585914"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 

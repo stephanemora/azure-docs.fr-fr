@@ -3,14 +3,14 @@ title: Créer une fonction dans Azure qui répond à des requêtes HTTP
 description: Découvrez comment créer une fonction à partir de la ligne de commande, puis comment publier le projet local sur un hébergement serverless dans Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d63ae61dbaf969c021b0f1744e716068de88e4f8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847684"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547373"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Démarrage rapide : Créer une fonction dans Azure qui répond à des requêtes HTTP
 
@@ -82,19 +82,19 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-Dans un dossier vide, exécutez la commande suivante pour générer le projet Functions à partir d’un [archétype Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+Dans un dossier vide, exécutez la commande suivante pour générer le projet Functions à partir d’un [archétype Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Utilisez `-DjavaVersion=11` si vous souhaitez déployer des fonctions Java 11. Pour en savoir plus, consultez la page [Versions Java](functions-reference-java.md#java-versions). 
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
 ```
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8"
 ```
 ---
 
@@ -111,8 +111,6 @@ Fournissez les valeurs suivantes à l’invite :
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
 Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifactId_, qui est `fabrikam-functions` dans cet exemple. 
-
-Pour exécuter Java 11 dans Azure, vous devez modifier les valeurs dans le fichier pom.xml. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
 
 ::: zone-end  
 Accédez au dossier du projet :

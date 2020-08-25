@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290112"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245738"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt TLS à l’aide du portail Azure
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="prerequisites"></a>Prérequis
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
@@ -259,6 +259,10 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
     Votre site IIS sécurisé apparaît maintenant comme dans l’exemple suivant :
 
     ![Tester l’URL de base dans la passerelle d’application](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources, puis **Supprimer le groupe de ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

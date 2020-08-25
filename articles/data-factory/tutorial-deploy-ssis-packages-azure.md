@@ -9,17 +9,17 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/06/2020
+ms.date: 08/11/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 76c936cb0c1a95ca1bf5919cbf2753fb6f050687
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 840ccb00fdc91cc44fee46500bbc7237fe55ff2a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971009"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185517"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -127,93 +127,99 @@ Dans la page **Paramètres généraux** du volet **Configuration du runtime d’
 
 ### <a name="deployment-settings-page"></a>Page Paramètres de déploiement
 
-Dans la page **Paramètres de déploiement** du volet **Configuration du runtime d’intégration**, effectuez les étapes suivantes.
+Dans la page **Paramètres de déploiement** du volet **Installation du runtime d’intégration**, vous disposez des options permettant de créer des magasins de packages Azure-SSIS IR ou SSISDB.
 
-   1. Cochez la case **Créer un catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance pour stocker vos projets/packages/environnements/journaux d’exécution** afin de choisir si vous souhaitez déployer vos packages dans un SSISDB (modèle de déploiement de projet). Sinon, il n’est pas nécessaire de créer de SSISDB si vous souhaitez déployer vos packages dans le système de fichiers, Azure Files ou une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance (modèle de déploiement de package).
+#### <a name="creating-ssisdb"></a>Création de SSISDB
+
+Dans la page **Paramètres de déploiement** du volet **Installation du runtime d’intégration**, si vous souhaitez déployer vos packages dans SSISDB (Modèle de déploiement de projet), cochez la case **Créer un catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance pour stocker vos projets/packages/environnements/journaux d’exécution**. Autrement, si vous souhaitez déployer vos packages dans le système de fichiers, Azure Files ou une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance (modèle de déploiement de package), il n’est pas nécessaire de créer de SSISDB ni de cocher la case.
+
+Quel que soit votre modèle de déploiement, si vous souhaitez utiliser SQL Server Agent hébergé par Azure SQL Managed Instance afin d’orchestrer ou de planifier les exécutions de vos packages, cela est activé par SSISDB ; vous pouvez donc cocher quand même cette case. Pour plus d’informations, consultez [Planifier des exécutions de packages SSIS par le biais de l’agent Azure SQL Managed Instance](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
    
-      Quel que soit votre modèle de déploiement, cochez cette case pour indiquer que vous souhaitez utiliser SQL Server Agent hébergé par Azure SQL Managed Instance afin d’orchestrer ou de planifier les exécutions de vos packages, car il est activé par SSISDB. Pour plus d’informations, consultez [Planifier des exécutions de packages SSIS par le biais de l’agent Azure SQL Managed Instance](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
+Si vous cochez la case, effectuez les étapes suivantes pour apporter votre propre serveur de base de données afin d’héberger la base de données SSISDB que nous allons créer et gérer en votre nom.
+
+   ![Paramètres de déploiement pour SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
-      Si vous cochez cette case, vous devez apporter votre propre serveur de base de données pour héberger le SSISDB que nous allons créer et gérer à votre place.
+   1. Pour **Abonnement**, sélectionnez l’abonnement Azure comprenant votre serveur de base de données pour héberger la base de données SSISDB. 
 
-      ![Paramètres de déploiement pour SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+   1. Pour **Emplacement**, sélectionnez l’emplacement de votre serveur de base de données pour héberger la base de données SSISDB. Nous vous recommandons de sélectionner le même emplacement que celui de runtime d’intégration.
+
+   1. Pour **Point de terminaison du serveur de base de données du catalogue**, sélectionnez le point de terminaison de votre serveur de base de données pour héberger SSISDB. 
    
-      1. Pour **Abonnement**, sélectionnez l’abonnement Azure comprenant votre serveur de base de données pour héberger la base de données SSISDB. 
+      En fonction du serveur de base de données sélectionné, l’instance SSISDB peut être créée à pour vous en tant que base de données unique, dans le cadre d’un pool élastique ou dans une instance managée. Elle peut être accessible dans un réseau public ou en la joignant à un réseau virtuel. Pour obtenir des conseils sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer SQL Database et SQL Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      1. Pour **Emplacement**, sélectionnez l’emplacement de votre serveur de base de données pour héberger la base de données SSISDB. Nous vous recommandons de sélectionner le même emplacement que celui de runtime d’intégration.
+      Si vous sélectionnez un serveur Azure SQL Database avec des règles de pare-feu IP/points de terminaison de service de réseau virtuel ou une instance managée avec un point de terminaison privé pour héberger le catalogue SSISDB, ou si vous avez besoin d’accéder à des données locales sans configurer un runtime d’intégration (IR) auto-hébergé, vous devez joindre votre Azure-SSIS IR à un réseau virtuel. Pour plus d’informations, consultez [Créer un runtime Azure-SSIS IR dans un réseau virtuel](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
-      1. Pour **Point de terminaison du serveur de base de données du catalogue**, sélectionnez le point de terminaison de votre serveur de base de données pour héberger SSISDB. 
+   1. Cochez la case **Utiliser l’authentification Azure AD avec l’identité managée pour votre ADF** afin de choisir la méthode d’authentification de votre serveur de base de données pour héberger le catalogue SSISDB. Vous choisissez l’authentification SQL ou l’authentification Azure AD avec l’identité managée de votre fabrique de données.
+
+      Si vous cochez la case, vous devez ajouter l’identité managée de votre fabrique de données à un groupe Azure AD avec autorisations d’accès à votre serveur de base de données. Pour plus d’informations, consultez [Créer un runtime Azure-SSIS IR avec l’authentification AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
    
-         En fonction du serveur de base de données sélectionné, l’instance SSISDB peut être créée à pour vous en tant que base de données unique, dans le cadre d’un pool élastique ou dans une instance managée. Elle peut être accessible dans un réseau public ou en la joignant à un réseau virtuel. Pour obtenir des conseils sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer SQL Database et SQL Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
+   1. Pour **Nom d’utilisateur administrateur**, entrez le nom d’utilisateur d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
 
-         Si vous sélectionnez un serveur Azure SQL Database avec des règles de pare-feu IP/points de terminaison de service de réseau virtuel ou une instance managée avec un point de terminaison privé pour héberger le catalogue SSISDB, ou si vous avez besoin d’accéder à des données locales sans configurer un runtime d’intégration (IR) auto-hébergé, vous devez joindre votre Azure-SSIS IR à un réseau virtuel. Pour plus d’informations, consultez [Créer un runtime Azure-SSIS IR dans un réseau virtuel](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+   1. Pour **Mot de passe administrateur**, entrez le mot de passe d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
 
-      1. Cochez la case **Utiliser l’authentification AAD avec l’identité managée pour votre ADF** afin de choisir la méthode d’authentification de votre serveur de base de données pour héberger le catalogue SSISDB. Vous choisissez l’authentification SQL ou l’authentification Azure AD avec l’identité managée de votre fabrique de données.
+   1. Pour **Niveau de service de base de données de catalogue**, sélectionnez le niveau de service de votre serveur de base de données pour héberger le catalogue SSISDB. Sélectionnez le niveau De base, Standard ou Premium, ou sélectionnez un nom de pool élastique.
 
-         Si vous cochez la case, vous devez ajouter l’identité managée de votre fabrique de données à un groupe Azure AD avec autorisations d’accès à votre serveur de base de données. Pour plus d’informations, consultez [Créer un runtime Azure-SSIS IR avec l’authentification AAD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Suivant**.
+
+#### <a name="creating-azure-ssis-ir-package-stores"></a>Création de magasins de packages Azure-SSIS IR
+
+Dans la page **Paramètres de déploiement** du volet **Installation du runtime d’intégration**, si vous souhaitez gérer vos packages qui sont déployés dans MSDB, le système de fichiers ou Azure Files (modèle de déploiement de package) avec des magasins de packages Azure-SSIS IR, cochez la case **Créer des magasins de packages pour gérer les packages qui sont déployés dans le système de fichiers/Azure Files/une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance**.
    
-      1. Pour **Nom d’utilisateur administrateur**, entrez le nom d’utilisateur d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
-
-      1. Pour **Mot de passe administrateur**, entrez le mot de passe d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
-
-      1. Pour **Niveau de service de base de données de catalogue**, sélectionnez le niveau de service de votre serveur de base de données pour héberger le catalogue SSISDB. Sélectionnez le niveau De base, Standard ou Premium, ou sélectionnez un nom de pool élastique.
-
-   1. Cochez la case **Créer des magasins de packages pour gérer les packages qui sont déployés dans le système de fichiers/Azure Files/une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance** afin de choisir si vous souhaitez gérer vos packages qui sont déployés dans MSDB, le système de fichiers ou Azure Files (modèle de déploiement de package) avec des magasins de packages Azure-SSIS IR.
+Le magasin de packages Azure-SSIS IR vous permet d’importer/d’exporter/de supprimer/d’exécuter des packages et de superviser/d’arrêter l’exécution de packages par le biais de SSMS, à l’image du [magasin de packages SSIS hérités](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Pour plus d’informations, consultez [Gérer les packages SSIS avec des magasins de packages Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
    
-      Le magasin de packages Azure-SSIS IR vous permet d’importer/d’exporter/de supprimer/d’exécuter des packages et de superviser/d’arrêter l’exécution de packages par le biais de SSMS, à l’image du [magasin de packages SSIS hérités](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Pour plus d’informations, consultez [Gérer les packages SSIS avec des magasins de packages Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
+Si vous cochez cette case, vous pouvez ajouter plusieurs magasins de packages à votre runtime d’intégration Azure-SSIS en sélectionnant **Nouveau**. À l’inverse, un magasin de packages peut être partagé par plusieurs runtimes d’intégration Azure-SSIS.
+
+![Paramètres de déploiement pour MSDB/le système de fichiers/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+
+Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivantes.
    
-      Si vous cochez cette case, vous pouvez ajouter plusieurs magasins de packages à votre runtime d’intégration Azure-SSIS en sélectionnant **Nouveau**. À l’inverse, un magasin de packages peut être partagé par plusieurs runtimes d’intégration Azure-SSIS.
+   1. Dans **Nom du magasin de packages**, entrez le nom de votre magasin de packages. 
 
-      ![Paramètres de déploiement pour MSDB/le système de fichiers/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+   1. Dans **Service lié du magasin de packages**, sélectionnez votre service lié existant qui stocke les informations d’accès pour le système de fichiers/Azure Files/Azure SQL Managed Instance où vos packages sont déployés ou créez-en un en sélectionnant **Nouveau**. Dans le volet **Nouveau service lié**, effectuez les étapes suivantes. 
 
-      Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivantes.
-   
-      1. Dans **Nom du magasin de packages**, entrez le nom de votre magasin de packages. 
+      ![Paramètres de déploiement pour les services liés](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
-      1. Dans **Service lié du magasin de packages**, sélectionnez votre service lié existant qui stocke les informations d’accès pour le système de fichiers/Azure Files/Azure SQL Managed Instance où vos packages sont déployés ou créez-en un en sélectionnant **Nouveau**. Dans le volet **Nouveau service lié**, effectuez les étapes suivantes. 
-
-         ![Paramètres de déploiement pour les services liés](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
-
-         1. Dans **Nom**, entrez le nom de votre service lié. 
+      1. Dans **Nom**, entrez le nom de votre service lié. 
          
-         1. Dans **Description**, entrez la description de votre service lié. 
+      1. Dans **Description**, entrez la description de votre service lié. 
          
-         1. Dans **Type**, sélectionnez **Stockage Fichier Azure**, **Azure SQL Managed Instance** ou **Système de fichiers**.
+      1. Dans **Type**, sélectionnez **Stockage Fichier Azure**, **Azure SQL Managed Instance** ou **Système de fichiers**.
 
-         1. Vous pouvez ignorer **Se connecter via le runtime d’intégration**, car nous utilisons toujours votre runtime d’intégration Azure-SSIS pour extraire les informations d’accès des magasins de packages.
+      1. Vous pouvez ignorer **Se connecter via le runtime d’intégration**, car nous utilisons toujours votre runtime d’intégration Azure-SSIS pour extraire les informations d’accès des magasins de packages.
 
-         1. Si vous sélectionnez **Stockage Fichier Azure**, effectuez les étapes suivantes. 
+      1. Si vous sélectionnez **Stockage Fichier Azure**, effectuez les étapes suivantes. 
 
-            1. Pour **Méthode de sélection de compte**, sélectionnez **À partir d’un abonnement Azure** ou **Entrer manuellement**.
+         1. Pour **Méthode de sélection de compte**, sélectionnez **À partir d’un abonnement Azure** ou **Entrer manuellement**.
          
-            1. Si vous sélectionnez **À partir d’un abonnement Azure**, sélectionnez l’**abonnement Azure**, le **nom du compte de stockage** et le **partage de fichiers** appropriés.
+         1. Si vous sélectionnez **À partir d’un abonnement Azure**, sélectionnez l’**abonnement Azure**, le **nom du compte de stockage** et le **partage de fichiers** appropriés.
             
-            1. Si vous sélectionnez **Entrer manuellement**, entrez `\\<storage account name>.file.core.windows.net\<file share name>` pour **Hôte**, `Azure\<storage account name>` pour **Nom d’utilisateur** et `<storage account key>` pour **Mot de passe** ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
+         1. Si vous sélectionnez **Entrer manuellement**, entrez `\\<storage account name>.file.core.windows.net\<file share name>` pour **Hôte**, `Azure\<storage account name>` pour **Nom d’utilisateur** et `<storage account key>` pour **Mot de passe** ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
 
-         1. Si vous sélectionnez **Azure SQL Managed Instance**, effectuez les étapes suivantes. 
+      1. Si vous sélectionnez **Azure SQL Managed Instance**, effectuez les étapes suivantes. 
 
-            1. Sélectionnez **Chaîne de connexion** pour entrer la chaîne manuellement ou le **coffre de clés Azure** où elle est stockée en tant que secret.
+         1. Sélectionnez **Chaîne de connexion** pour entrer la chaîne manuellement ou le **coffre de clés Azure** où elle est stockée en tant que secret.
          
-            1. Si vous sélectionnez **Chaîne de connexion**, effectuez les étapes suivantes. 
+         1. Si vous sélectionnez **Chaîne de connexion**, effectuez les étapes suivantes. 
 
-               1. Pour **Nom de domaine complet**, entrez `<server name>.<dns prefix>.database.windows.net` ou `<server name>.public.<dns prefix>.database.windows.net,3342` comme point de terminaison privé ou public de votre instance gérée SQL Azure, respectivement. Si vous entrez le point de terminaison privé, **Tester la connexion** n’est pas applicable, car l’interface utilisateur d’ADF ne peut pas l’atteindre.
+            1. Pour **Nom de domaine complet**, entrez `<server name>.<dns prefix>.database.windows.net` ou `<server name>.public.<dns prefix>.database.windows.net,3342` comme point de terminaison privé ou public de votre instance gérée SQL Azure, respectivement. Si vous entrez le point de terminaison privé, **Tester la connexion** n’est pas applicable, car l’interface utilisateur d’ADF ne peut pas l’atteindre.
 
-               1. Pour **Nom de la base de données**, entrez `msdb`.
+            1. Pour **Nom de la base de données**, entrez `msdb`.
                
-               1. Pour **Type d’authentification**, sélectionnez **Authentification SQL**, **Identité gérée** ou **Principal du service**.
+            1. Pour **Type d’authentification**, sélectionnez **Authentification SQL**, **Identité gérée** ou **Principal du service**.
 
-               1. Si vous sélectionnez **Authentification SQL**, entrez les **nom d’utilisateur** et **mot de passe** appropriés ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
+            1. Si vous sélectionnez **Authentification SQL**, entrez les **nom d’utilisateur** et **mot de passe** appropriés ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
 
-               1. Si vous sélectionnez **Identité gérée**, accordez à votre instance gérée ADF l’accès à votre instance gérée SQL Azure.
+            1. Si vous sélectionnez **Identité gérée**, accordez à votre instance gérée ADF l’accès à votre instance gérée SQL Azure.
 
-               1. Si vous sélectionnez **Principal du service**, entrez les **ID principal de service** et la **clé du principal de service** appropriés ou sélectionnez le **coffre de clés Azure** où la clé est stockée en tant que secret.
+            1. Si vous sélectionnez **Principal du service**, entrez les **ID principal de service** et la **clé du principal de service** appropriés ou sélectionnez le **coffre de clés Azure** où la clé est stockée en tant que secret.
 
-         1. Si vous sélectionnez **Système de fichiers**, entrez le chemin d’accès UNC du dossier dans lequel vos packages sont déployés pour **Hôte** ainsi que les **nom d’utilisateur** et **mot de passe** appropriés, ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
+      1. Si vous sélectionnez **Système de fichiers**, entrez le chemin d’accès UNC du dossier dans lequel vos packages sont déployés pour **Hôte** ainsi que les **nom d’utilisateur** et **mot de passe** appropriés, ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
 
-         1. Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Créer**.
+      1. Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Créer**.
 
-      Vos magasins de packages ajoutés s’affichent dans la page **Paramètres de déploiement**. Pour les supprimer, activez leurs cases à cocher, puis sélectionnez **Supprimer**.
+   1. Vos magasins de packages ajoutés s’affichent dans la page **Paramètres de déploiement**. Pour les supprimer, activez leurs cases à cocher, puis sélectionnez **Supprimer**.
 
-   1. Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Suivant**.
+Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Suivant**.
 
 ### <a name="advanced-settings-page"></a>Page Paramètres avancés
 

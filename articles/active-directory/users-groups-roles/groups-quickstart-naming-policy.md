@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582822"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213672"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
-Dans ce démarrage rapide, vous allez configurer une stratégie de nommage dans votre organisation Azure Active Directory (Azure AD) pour les groupes Office 365 créés par l’utilisateur, afin de faciliter le tri et la recherche de groupes dans votre organisation. Par exemple, vous pouvez utiliser la stratégie d’affectation de noms pour :
+Dans ce démarrage rapide, vous allez configurer une stratégie de nommage dans votre organisation Azure Active Directory (Azure AD) pour les groupes Microsoft 365 créés par l’utilisateur, afin de faciliter le tri et la recherche de groupes dans votre organisation. Par exemple, vous pouvez utiliser la stratégie d’affectation de noms pour :
 
 * communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe ;
 * faciliter le classement des groupes dans le carnet d’adresses ;

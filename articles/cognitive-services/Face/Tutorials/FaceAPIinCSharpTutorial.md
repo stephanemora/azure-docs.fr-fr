@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 1decd57c8389cb826c370d47793b793c24f9e6b8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d5d16181eb4dda08f002587545f99fab757b6b0e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833672"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586424"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutoriel : Créer une application WPF (Windows Presentation Framework) pour afficher les données sur les visages dans une image
 
@@ -53,7 +53,7 @@ Suivez ces étapes pour créer un projet d’application WPF.
 1. Dans Visual Studio, ouvrez la boîte de dialogue Nouveau projet. Développez **Installé** et **Visual C#** , puis sélectionnez **Application WPF (.NET Framework)** .
 1. Nommez l’application **FaceTutorial**, puis cliquez sur **OK**.
 1. Récupérez les packages NuGet requis. Cliquez avec le bouton droit sur votre projet dans l’Explorateur de solutions et sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez et installez le package suivant :
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.5.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1)
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.6.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)
 
 ## <a name="add-the-initial-code"></a>Ajouter le code initial
 

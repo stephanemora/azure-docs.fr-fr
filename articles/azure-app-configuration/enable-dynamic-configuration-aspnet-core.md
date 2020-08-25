@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856521"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585013"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
@@ -57,6 +57,9 @@ Une *clé Sentinel* est une clé spéciale qui sert à signaler que la configura
 1. Pour **Clé**, entrez *TestApp:Settings:Sentinel*. Pour **Valeur**, entrez 1. Laissez **Étiquette** et **Type de contenu** vides.
 
 1. Sélectionnez **Appliquer**.
+
+    > [!NOTE]
+    > Si vous n’utilisez pas une clé Sentinel, vous devez inscrire manuellement chaque clé que vous souhaitez surveiller.
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
@@ -159,6 +162,9 @@ Une *clé Sentinel* est une clé spéciale qui sert à signaler que la configura
     }
     ```
     ---
+
+    > [!TIP]
+    > Pour en savoir plus sur le modèle d’options pour la lecture des valeurs de configuration, consultez  [Modèles d’options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Mettez à jour la méthode `Configure`, en ajoutant l’intergiciel (middleware) `UseAzureAppConfiguration` afin de permettre la mise à jour des paramètres de configuration inscrits pour être actualisés pendant que l’application web ASP.NET Core continue de recevoir des requêtes.
 

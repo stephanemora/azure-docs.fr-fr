@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 08/17/2020
+ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171922"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510910"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Postman à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -25,9 +25,9 @@ ms.locfileid: "86171922"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-L’un des moyens les plus simples d’explorer les [API REST de la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice) consiste à utiliser Postman ou un autre outil de test web pour formuler des requêtes HTTP et inspecter les réponses. Avec les bons outils et ces instructions, vous pouvez envoyer des requêtes et afficher les réponses avant d’écrire un code.
+Cet article explique comment formuler des requêtes API REST de façon interactive à l’aide des [API REST de la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice) et d’un API client pour envoyer et recevoir les requêtes. Avec un API client et ces instructions, vous pouvez envoyer des requêtes et afficher les réponses avant d’écrire un code.
 
-Cet article explique comment formuler des demandes de manière interactive. Vous pouvez également [télécharger et importer une collection Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) pour utiliser des requêtes prédéfinies.
+L’article utilise l’application Postman. Vous pouvez [télécharger et importer une collection Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) si vous préférez utiliser des requêtes prédéfinies. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -61,14 +61,14 @@ Quel que soit l’outil, vous devez choisir une commande (GET, POST, PUT, etc.),
 
 Remarquez le préfixe HTTPS, le nom du service, le nom de l’objet (dans ce cas, la collection d’index) et la [version de l’API](search-api-versions.md). La version de l'API est une chaîne en minuscules obligatoire, spécifiée au format `?api-version=2020-06-30` pour la version actuelle. Les versions d’API sont régulièrement mises à jour. Le fait d’inclure la version d’API sur chaque demande vous permet de bénéficier du contrôle absolu sur la version utilisée.  
 
-Un en-tête de requête se compose de deux éléments, le type de contenu et la clé API utilisée pour s’authentifier auprès de la Recherche cognitive Azure. Remplacez la clé API administrateur (YOUR-AZURE-SEARCH-ADMIN-API-KEY) par une valeur valide. 
+Un en-tête de requête se compose de deux éléments : `Content-Type` et la `api-key` utilisée pour s’authentifier auprès de la Recherche cognitive Azure. Remplacez la clé API administrateur (YOUR-AZURE-SEARCH-ADMIN-API-KEY) par une valeur valide. 
 
 ```http
 api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
 Content-Type: application/json
 ```
 
-Dans Postman, formulez une requête similaire à celle de la capture d’écran suivante. Choisissez **GET** comme verbe, indiquez l’URL, puis cliquez sur **Envoyer**. Cette commande se connecte à la Recherche cognitive Azure, lit la collection d’index et retourne le code d’état HTTP 200 en cas de réussite de la connexion. Si votre service a déjà des index, la réponse inclut également les définitions de ces index.
+Dans Postman, formulez une requête similaire à celle de la capture d’écran suivante. Choisissez **GET** comme commande, indiquez l’URL, puis cliquez sur **Envoyer**. Cette commande se connecte à la Recherche cognitive Azure, lit la collection d’index et retourne le code d’état HTTP 200 en cas de réussite de la connexion. Si votre service a déjà des index, la réponse inclut également les définitions de ces index.
 
 ![URL et en-tête de requête Postman](media/search-get-started-postman/postman-url.png "URL et en-tête de requête Postman")
 
@@ -80,7 +80,7 @@ L’URL est étendue pour inclure le nom d’index `hotels`.
 
 Pour faire cela dans Postman :
 
-1. Remplacez le verbe par **PUT**.
+1. Définissez la commande sur **PUT**.
 
 2. Copiez dans cette URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30`.
 
@@ -92,7 +92,7 @@ Pour faire cela dans Postman :
 
 ### <a name="index-definition"></a>Définition de l’index
 
-La collection de champs définit la structure du document. Chaque document doit comporter ces champs, et chaque champ doit avoir un type de données. Les champs de chaîne sont utilisés lors de recherches en texte intégral. Vous devrez peut-être transtyper les données numériques sous forme de chaînes, pour qu’il soit possible d’effectuer des recherches dans le contenu.
+La collection de champs définit la structure du document. Chaque document doit comporter ces champs, et chaque champ doit avoir un type de données. Les champs de chaîne sont utilisés dans la recherche en texte intégral. Si vous avez besoin de données numériques pouvant faire l’objet d’une recherche, vous devez caster les données numériques comme chaînes.
 
 Les attributs du champ déterminent l’action autorisée. Les API REST autorisent de nombreuses actions par défaut. Par exemple, toutes les chaînes peuvent être soumises à des recherches, récupérables et filtrables et sont à choix multiples par défaut. Bien souvent, il suffit de définir des attributs pour désactiver un comportement.
 
@@ -128,13 +128,13 @@ Lorsque vous envoyez cette demande, vous devez obtenir une réponse HTTP 201, in
 
 ## <a name="2---load-documents"></a>2 – Charger des documents
 
-Les étapes de création et de remplissage d’index sont des opérations distinctes. Dans la Recherche cognitive Azure, l’index contient toutes les données pouvant faire l’objet de recherches, que vous pouvez fournir en tant que documents JSON. L’[API REST Add, Update ou Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) est utilisée pour cette tâche. 
+Les étapes de création et de remplissage d’index sont des opérations distinctes. Dans la Recherche cognitive Azure, l’index contient toutes les données pouvant faire l’objet de recherches. Dans ce scénario, les données sont fournies sous forme de documents JSON. L’[API REST Add, Update ou Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) est utilisée pour cette tâche. 
 
 L’URL est étendue pour inclure les collections `docs` et l’opération `index`.
 
 Pour faire cela dans Postman :
 
-1. Remplacez le verbe par **POST**.
+1. Définissez la commande sur **POST**.
 
 2. Copiez dans cette URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30`.
 
@@ -241,13 +241,13 @@ Si vous obtenez HTTP 207, cela signifie qu'au moins un document n'a pas pu êtr
 
 ## <a name="3---search-an-index"></a>3 – Rechercher dans un index
 
-Maintenant qu’un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant à l’aide de l’[API REST Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Maintenant qu’un index et qu’un ensemble de documents sont chargés, vous pouvez émettre des requêtes les concernant à l’aide de l’[API REST Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 L’URL est étendue pour inclure une expression de requête spécifiée à l’aide de l’opérateur de recherche.
 
 Pour faire cela dans Postman :
 
-1. Remplacez le verbe par **GET**.
+1. Définissez la commande sur **GET**.
 
 2. Copiez dans cette URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30`.
 

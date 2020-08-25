@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Gérer la gouvernance des balises'
 description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142263"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545503"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
 
@@ -45,7 +45,7 @@ Comme pour toute bonne implémentation des contrôles de gouvernance, les exigen
 
 ## <a name="configure-the-costcenter-tag"></a>Configurer la balise CostCenter
 
-Dans un environnement Azure géré par Azure Policy en particulier, les spécifications de balise _CostCenter_ exigent les mesures suivantes :
+Dans un environnement Azure géré par Azure Policy en particulier, les spécifications d’étiquette _CostCenter_ exigent les mesures suivantes :
 
 - Refuser les groupes de ressources qui ne contiennent pas la balise _CostCenter_
 - Modifier les ressources qui ne contiennent pas la balise _CostCenter_ en l’ajoutant à partir du groupe de ressources parent
@@ -107,7 +107,7 @@ Cette règle de stratégie utilise l’opération **add** au lieu de **addOrRepl
 
 ## <a name="configure-the-env-tag"></a>Configurer la balise Env
 
-Dans un environnement Azure géré par Azure Policy en particulier, les spécifications de balise _Env_ exigent les mesures suivantes :
+Dans un environnement Azure géré par Azure Policy en particulier, les spécifications d’étiquette _Env_ exigent les mesures suivantes :
 
 - Modifier la balise _Env_ sur le groupe de ressources en fonction du schéma de nommage du groupe de ressources
 - Modifier la balise _Env_ de toutes les ressources du groupe de ressources pour qu’elle soit identique à celle du groupe de ressources parent

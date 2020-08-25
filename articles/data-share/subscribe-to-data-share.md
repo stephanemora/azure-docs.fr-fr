@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512089"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258628"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -93,38 +93,35 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    Pour le champ **Nom de partage reçu**, vous pouvez conserver la valeur par défaut spécifiée par le fournisseur de données ou spécifier le nouveau nom du partage reçu. 
 
-   ![Compte Data Share cible](./media/target-data-share.png "Compte Data Share cible") 
-
-1. Une fois que vous avez accepté les conditions d’utilisation et spécifié un emplacement pour votre partage, sélectionnez *Accepter et configurer*. Un abonnement de partage est créé.
-
-   Pour un partage basé sur des instantanés, l’écran suivant vous demande de sélectionner un compte de stockage cible où vos données seront copiées. 
+   Une fois que vous avez accepté les conditions d’utilisation et spécifié un compte Data Share pour gérer votre partage reçu, sélectionnez **Accepter et configurer**. Un abonnement de partage est créé. 
 
    ![Options d’acceptation](./media/accept-options.png "Options d’acceptation") 
 
-   Si vous préférez accepter l’invitation maintenant et configurer votre magasin de données cible plus tard, sélectionnez *Accepter et configurer plus tard*. Pour poursuivre la configuration de votre stockage plus tard, consultez la page [Configurer des mappages de jeux de données](how-to-configure-mapping.md) afin de connaître le détail des étapes à suivre pour reprendre la configuration de votre partage de données. 
-
-   Pour un partage sur place, consultez la page [Configurer des mappages de jeux de données](how-to-configure-mapping.md) afin de connaître le détail des étapes à suivre pour reprendre la configuration de votre partage de données. 
+   Vous accédez alors au partage reçu dans votre compte Data Share. 
 
    Si vous ne souhaitez pas accepter l’invitation, sélectionnez *Reject* (Rejeter). 
 
-## <a name="configure-storage"></a>Configurer le stockage
-1. Sous *Target Storage Settings* (Paramètres du stockage cible), sélectionnez l’abonnement, le groupe de ressources et le compte de stockage à utiliser pour la réception de vos données. 
+## <a name="configure-received-share"></a>Configurer un partage reçu
+Suivez les étapes ci-dessous pour configurer l’emplacement où vous souhaitez recevoir les données.
 
-   ![Paramètres du stockage cible](./media/target-storage-settings.png "Stockage cible") 
+1. Sélectionnez l’onglet **Jeux de données**. Cochez la case en regard du jeu de données auquel vous souhaitez affecter une destination. Sélectionnez **+ Mapper à la cible** pour choisir un magasin de données cible. 
 
-1. Pour recevoir une mise à jour régulière de vos données, veillez à activer les paramètres d’instantané. Notez que vous ne voyez la planification des paramètres de capture instantanée que si votre fournisseur de données l’a incluse dans le partage de données. 
+   ![Mapper sur cible](./media/dataset-map-target.png "Mapper sur cible") 
 
-   ![Paramètres d’instantané](./media/snapshot-settings.png "Paramètres d’instantané") 
+1. Sélectionnez un type de magasin de données cible dans lequel vous souhaitez que les données arrivent. Tous les fichiers de données ou les tables dans le magasin de données cible ayant le même chemin et le même nom seront remplacés. 
 
-1. Sélectionnez *Enregistrer*. 
+   Pour les partages sur place, sélectionnez un magasin de données à l’emplacement spécifié. L’emplacement est le centre de données Azure où se trouve le magasin de données source du fournisseur de données. Une fois le jeu de données mappé, vous pouvez suivre le lien dans le chemin cible pour accéder aux données.
 
-> [!IMPORTANT]
-> Si vous recevez des données SQL et que vous souhaitez les recevoir dans une source SQL, consultez le guide pratique [Configurer un mappage de jeux de données](how-to-configure-mapping.md) pour découvrir comment configurer un serveur SQL Server comme destination de votre jeu de données. 
+   ![Compte de stockage cible](./media/dataset-map-target-sql.png "Stockage cible") 
+
+1. Pour le partage basé sur un instantané, si le fournisseur de données a créé une planification d’instantané pour fournir une mise à jour régulière des données, vous pouvez également activer la planification des instantanés en sélectionnant l’onglet **Planification d’instantanés**. Cochez la case en regard de la planification d’instantané et sélectionnez **+ Activer**.
+
+   ![Activer la planification d’instantané](./media/enable-snapshot-schedule.png "Activer la planification d’instantané")
 
 ## <a name="trigger-a-snapshot"></a>Déclencher une capture instantanée
 Ces étapes s’appliquent seulement au partage basé sur des instantanés.
 
-1. Vous pouvez déclencher une capture instantanée sous l’onglet Received Shares -> Details (Partages reçus -> Détails) en sélectionnant **Trigger snapshot** (Déclencher la capture instantanée). Ici, vous pouvez déclencher une capture instantanée complète ou incrémentielle de vos données. Si vous recevez des données de votre fournisseur de données pour la première fois, sélectionnez l’option de copie complète. 
+1. Vous pouvez déclencher un instantané en sélectionnant l’onglet **Détails** puis **Déclencher un instantané**. Ici, vous pouvez déclencher une capture instantanée complète ou incrémentielle de vos données. Si vous recevez des données de votre fournisseur de données pour la première fois, sélectionnez l’option de copie complète. 
 
    ![Déclencher un instantané](./media/trigger-snapshot.png "Déclencher un instantané") 
 
@@ -133,7 +130,7 @@ Ces étapes s’appliquent seulement au partage basé sur des instantanés.
    ![Jeux de données consommateur](./media/consumer-datasets.png "Mappage de jeu de données consommateur") 
 
 ## <a name="view-history"></a>Afficher l’historique
-Pour voir un historique de vos captures instantanées, accédez à Received Shares -> History (Partages reçus -> Historique). Vous trouverez ici un historique de toutes les captures instantanées générées au cours des 60 derniers jours. 
+Cette étape s’applique uniquement au partage basé sur un instantané. Pour afficher l’historique de vos instantanés, sélectionnez l’onglet **Historique**. Vous trouverez ici un historique de tous les instantanés générés au cours des 30 derniers jours. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez découvert comment accepter et recevoir un partage Azure Data Share. Pour en savoir plus sur les concepts liés à Azure Data Share, consultez [Concepts : Terminologie propre à Azure Data Share](terminology.md).

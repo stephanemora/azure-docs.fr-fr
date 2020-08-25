@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473436"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224711"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -37,7 +37,7 @@ Dans ce didacticiel, vous apprendrez à :
 
 ## <a name="set-up-feature-management"></a>Configurer la gestion des fonctionnalités
 
-Ajoutez une référence au package NuGet `Microsoft.FeatureManagement` pour utiliser le gestionnaire de fonctionnalités .NET Core.
+Ajoutez une référence aux packages NuGet `Microsoft.FeatureManagement.AspNetCore` et `Microsoft.FeatureManagement` pour utiliser le gestionnaire de fonctionnalités .NET Core.
     
 Le gestionnaire de fonctionnalités de .NET Core `IFeatureManager` obtient les indicateurs de fonctionnalités à partir du système de configuration natif du framework. En conséquence, vous pouvez définir les indicateurs de fonctionnalités de votre application à l’aide de n’importe quelle source de configuration prise en charge par .NET Core, notamment le fichier *appsettings.json* local ou des variables d’environnement. `IFeatureManager` s’appuie sur l’injection de dépendances .NET Core. Vous pouvez inscrire les services de gestion des fonctionnalités à l’aide de conventions standard :
 
@@ -206,6 +206,8 @@ public class HomeController : Controller
 Dans les contrôleurs MVC, vous pouvez utiliser un attribut `FeatureGate` pour déterminer si l’ensemble d’une classe de contrôleur ou une action spécifique est activée. Le contrôleur `HomeController` suivant exige que `FeatureA` soit défini sur *on* avant l’exécution de toute action que contient la classe de contrôleur :
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 L’action `Index` suivante exige que `FeatureA` soit défini sur *on* pour pouvoir être exécutée :
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {

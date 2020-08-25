@@ -1,5 +1,5 @@
 ---
-title: Se connecter à l’aide de PHP – Azure Database pour MySQL
+title: 'Démarrage rapide : Se connecter à l’aide de PHP – Azure Database pour MySQL'
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code PHP, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ea1042d28102734429640c7e3c66fc6f1a70f950
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870129"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185874"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser PHP pour se connecter et interroger des données
+# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utilisation de PHP pour se connecter et interroger des données dans Azure Database pour MySQL
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL en utilisant une application [PHP](https://secure.php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de PHP et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis

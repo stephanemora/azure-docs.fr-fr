@@ -2,7 +2,7 @@
 title: Empaquetage dynamique dans Azure Media Services v3
 titleSuffix: Azure Media Services
 description: Cet article donne une vue d’ensemble de l’empaquetage dynamique dans Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
-ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489773"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604581"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetage dynamique dans Media Services v3
 
@@ -80,8 +80,10 @@ Votre client de streaming peut spécifier les formats Smooth Streaming suivants�
 
 Les étapes qui suivent présentent un workflow de streaming Media Services courant dans lequel l’empaquetage dynamique est utilisé avec l’Encodeur Standard dans Azure Media Services.
 
-1. Téléchargez un fichier d’entrée, tel qu’un fichier QuickTime/MOV ou MXF. On parle également dans ce cas de fichier source ou mezzanine. Pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par l’encodeur standard](media-encoder-standard-formats.md).
+1. [Charger un fichier d'entrée](job-input-from-http-how-to.md), tel qu’un fichier MP4, QuickTime/MOV, ou d’un autre format de fichier pris en charge. On parle également dans ce cas de fichier source ou mezzanine. Pour obtenir la liste des formats pris en charge, consultez [Formats pris en charge par l’encodeur standard](media-encoder-standard-formats.md).
 1. [Encodez](#encode-to-adaptive-bitrate-mp4s) votre fichier mezzanine en un ensemble de fichiers MP4 à vitesse de transmission adaptative H.264/AAC.
+
+    Si vous avez déjà encodé des fichiers et voulez simplement les copier et les diffuser, utilisez : les API [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) et [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Par conséquent, un nouveau fichier MP4 avec un manifeste de diffusion en continu (fichier. ISM) sera créé.
 1. Publier l’élément multimédia de sortie qui contient le fichier au débit adaptatif MP4 défini. Vous publiez en créant un [localisateur de streaming](streaming-locators-concept.md).
 1. Générez des URL qui ciblent différents formats (HLS, MPEG-DASH et Smooth Streaming). Le *point de terminaison de streaming* s’occupe de distribuer le manifeste et les requêtes appropriés pour tous ces différents formats.
     

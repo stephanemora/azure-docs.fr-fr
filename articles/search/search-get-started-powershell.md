@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519811"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506003"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans PowerShell à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Sauf si vous utilisez le portail, le service doit contenir un index pour vous pe
 
 Un index doit contenir un nom et une collection de champs. La collection de champs définit la structure d'un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans les résultats de la recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme *clé* pour l’identité du document.
 
-Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons volontairement tronqué dans ce démarrage rapide par souci de concision.
+Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand et utilisé dans d’autres articles pas à pas. Par souci de concision, les définitions de champs ont été découpées dans ce démarrage rapide.
 
 1. Collez cet exemple dans PowerShell pour créer un objet **$body** contenant le schéma d’index.
 
@@ -179,7 +179,7 @@ Cet index est nommé « hotels-quickstart » et contient les définitions de c
 
 ## <a name="2---load-documents"></a>2 – Charger des documents
 
-Pour envoyer (push) des documents, utilisez une requête HTTP POST au point de terminaison de l’URL de votre index. Pour cette tâche, l’API REST est destinée à l’[ajout, la mise à jour ou la suppression de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Pour envoyer des documents, utilisez une requête HTTP POST au point de terminaison de l’URL de votre index. Pour cette tâche, l’API REST est destinée à l’[ajout, la mise à jour ou la suppression de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Collez cet exemple dans PowerShell pour créer un objet **$body** contenant les documents que vous souhaitez charger. 
 
@@ -319,7 +319,7 @@ Pour envoyer (push) des documents, utilisez une requête HTTP POST au point de t
 
 Cette étape explique comment interroger un index à l’aide de [l’API Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Utilisez des guillemets simples pour la recherche $urls. Les chaînes de requête contiennent des caractères **$** , et vous n'êtes pas tenu de les placer en échappement si l'intégralité de la chaîne est placée entre guillemets simples.
+Utilisez des guillemets simples pour la recherche $urls. Les chaînes de requêtes contiennent des caractères **$** et vous n’êtes pas tenu de les placer en échappement si l’intégralité de la chaîne est placée entre guillemets simples.
 
 1. Définissez le point de terminaison vers la collection de documents *hotels-quickstart* et ajoutez un paramètre **search** à transmettre dans une chaîne de requête. 
   
@@ -378,7 +378,7 @@ Essayez quelques autres exemples de requête pour avoir un aperçu de la syntaxe
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 

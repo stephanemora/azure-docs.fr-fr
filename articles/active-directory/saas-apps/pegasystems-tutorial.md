@@ -2,25 +2,21 @@
 title: 'Didacticiel : Intégration d’Azure Active Directory à Pega Systems | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et Pega Systems.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026807"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Didacticiel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -234,7 +230,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     a. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon@\<<votre_domaine_d’entreprise.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
     c. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
