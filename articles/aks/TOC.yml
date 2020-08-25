@@ -366,6 +366,8 @@
           href: ssh.md
         - name: Outils de performance Linux
           href: troubleshoot-linux.md
+        - name: Rechercher les événements Resource Health (préversion)
+          href: aks-resource-health.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492154"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722719"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutoriel : Créer une approbation de forêt sortante pour un domaine local dans Azure Active Directory Domain Services
 
@@ -128,7 +128,7 @@ Les scénarios courants suivants vous permettent de vérifier que l’approbatio
 
 Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine managé. Utilisez cette machine virtuelle pour vérifier que votre utilisateur local peut s’authentifier sur une machine virtuelle. Si nécessaire, [créez une machine virtuelle Windows et joignez-la au domaine managé][join-windows-vm].
 
-1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) et vos informations d’identification d’administrateur Azure AD DS.
+1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](../bastion/bastion-overview.md) et vos informations d’identification d’administrateur Azure AD DS.
 1. Ouvrez une invite de commandes et utilisez la commande `whoami` pour afficher le nom unique de l’utilisateur actuellement authentifié :
 
     ```console
@@ -150,7 +150,7 @@ Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine m
 
 #### <a name="enable-file-and-printer-sharing"></a>Activer le partage de fichiers et d’imprimantes
 
-1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) et vos informations d’identification d’administrateur Azure AD DS.
+1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources Azure AD DS en utilisant [Azure Bastion](../bastion/bastion-overview.md) et vos informations d’identification d’administrateur Azure AD DS.
 
 1. Ouvrez **Paramètres Windows**, puis recherchez et sélectionnez **Centre Réseau et partage**.
 1. Sélectionnez l’option permettant de **modifier les paramètres de partage avancés**.
