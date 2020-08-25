@@ -1,15 +1,15 @@
 ---
 title: Créer une application blockchain - Azure Blockchain Workbench
 description: Préversion du tutoriel sur la création d’une application blockchain pour Azure Blockchain Workbench.
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073110"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784026"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutoriel : Créer une application blockchain pour Azure Blockchain Workbench
 
@@ -40,7 +40,7 @@ Suivez les étapes pour créer les fichiers d’application, ou vous pouvez [té
 
 ## <a name="configuration-file"></a>Fichier de configuration
 
-Les métadonnées de configuration définissent les workflows généraux et le modèle d’interaction de l’application blockchain. Les métadonnées de configuration représentent les étapes de flux de travail et le modèle d’interaction de l’application blockchain.
+Les métadonnées de configuration définissent les workflows généraux et le modèle d’interaction de l’application blockchain. Les métadonnées de configuration représentent les étapes de flux de travail et le modèle d’interaction de l’application blockchain. Pour plus d’informations sur le contenu des fichiers de configuration, consultez [Azure Blockchain Workflow configuration reference](configuration.md) (Référence de configuration de flux de travail Azure Blockchain).
 
 1. Dans votre éditeur favori, créez un fichier nommé `HelloBlockchain.json`.
 2. Ajoutez le texte JSON suivant pour définir la configuration de l’application blockchain.
@@ -211,8 +211,6 @@ La section des rôles d’application définit les rôles d’utilisateur autori
 ### <a name="workflows"></a>Workflows
 
 Les flux de travail définissent une ou plusieurs étapes et actions du contrat. Dans le scénario de requête-réponse, la première étape (état) du flux de travail implique qu’un demandeur (rôle) effectue une action (transition) pour envoyer une requête (fonction). L’étape suivante (état) implique qu’un répondeur (rôle) effectue une action (transition) pour envoyer une réponse (fonction). Le flux de travail d’une application peut impliquer des propriétés, fonctions et états nécessaires pour décrire le flux d’un contrat.
-
-Pour plus d’informations sur le contenu des fichiers de configuration, consultez [Azure Blockchain Workflow configuration reference](configuration.md) (Référence de configuration de flux de travail Azure Blockchain).
 
 ## <a name="smart-contract-code-file"></a>Fichier de code de contrat intelligent
 
