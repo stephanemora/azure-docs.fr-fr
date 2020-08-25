@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923830"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607215"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
@@ -36,14 +36,12 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Option 1 (par défaut) : Créer un équilibreur de charge public (référence SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**Référence Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références (SKU), consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
-
-Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. 
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
 
@@ -51,7 +49,7 @@ Quand vous créez un équilibreur de charge public, vous créez une adresse IP 
 
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **myResourceGroupLB** dans la zone de texte.|
@@ -102,7 +100,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -130,7 +128,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -213,7 +211,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -237,7 +235,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -256,7 +254,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 
 6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Surveillance** |  |
     | Diagnostics de démarrage | Sélectionnez **Désactivé** |
@@ -286,7 +284,7 @@ Pour plus d’informations sur les connexions sortantes, consultez [Connexions s
 
 3. Pour configurer les règles de trafic sortant, utilisez les valeurs suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **myOutboundRule**. |
     | Adresse IP du serveur frontal | Sélectionnez **Créer nouveau**. </br> Dans **Nom**, entrez **LoadBalancerFrontEndOutbound**. </br> Sélectionnez **Adresse IP** ou **Préfixe d’adresse IP**. </br> Sélectionnez **Créer** sous **Adresse IP publique** ou **Préfixe d’adresse IP publique**. </br> Pour Nom, entrez **myPublicIPOutbound** ou **myPublicIPPrefixOutbound**. </br> Sélectionnez **Ajouter**.|
@@ -317,14 +315,12 @@ Pour plus d’informations sur les connexions sortantes, consultez [Connexions s
 
 8. Sélectionnez **Enregistrer**.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Option n°2 : Créer un équilibreur de charge public (référence SKU De base)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**Référence De base**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références (SKU), consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
-
-Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. 
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
 
@@ -332,7 +328,7 @@ Quand vous créez un équilibreur de charge public, vous créez une adresse IP 
 
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis tapez **myResourceGroupLB** dans la zone de texte.|
@@ -422,7 +418,7 @@ Créez le pool d’adresses principal **myBackendPool** afin d’inclure des mac
 
 3. Dans la page **Ajouter un pool de back-ends**, entrez ou sélectionnez :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **myBackendPool**. |
     | Réseau virtuel | Sélectionnez **myVNet**. |
@@ -440,7 +436,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -468,7 +464,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -501,7 +497,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -523,7 +519,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | Sélectionnez **myVNet** |
@@ -538,7 +534,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 
 6. Sous l’onglet **Gestion**, sélectionnez ou entrez :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |---|---|
     | **Surveillance** | |
     | Diagnostics de démarrage | Sélectionnez **Désactivé** |
@@ -579,9 +575,9 @@ Les machines virtuelles créées lors des étapes précédentes doivent être aj
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis dans la liste de ressources, sélectionnez **myVM1** qui se trouve dans le groupe de ressources **myResourceGroupLB**.
 
-2. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
+2. Sur la page **Vue d'ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
 
-4. Entrez le nom d’utilisateur et le mot de passe saisis pendant la création de la machine virtuelle.
+4. Entrez le nom d'utilisateur et le mot de passe saisis lors de la création de la machine virtuelle.
 
 5. Sélectionnez **Connecter**.
 

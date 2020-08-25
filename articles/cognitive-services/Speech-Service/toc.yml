@@ -3,10 +3,8 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que le service de reconnaissance vocale\_?"
+    - name: Présentation du service Speech
       href: overview.md
-    - name: Essayez le service Speech gratuitement
-      href: get-started.md
     - name: Prise en charge de la langue et de la voix
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md
