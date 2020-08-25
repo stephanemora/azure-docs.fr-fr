@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498971"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653815"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Préparer Azure pour la reprise d’activité locale sur Azure
 
@@ -94,4 +94,4 @@ La création du réseau virtuel prend quelques secondes. Une fois qu’il est cr
 - Pour la reprise d’activité Hyper-V, [préparez les serveurs Hyper-V locaux](hyper-v-prepare-on-premises-tutorial.md).
 - Pour la reprise d’activité du serveur physique, [configurez le serveur de configuration et l’environnement source](physical-azure-disaster-recovery.md)
 - [En savoir plus](../virtual-network/virtual-networks-overview.md) sur les réseaux Azure.
-- [En savoir plus](../virtual-machines/windows/managed-disks-overview.md) sur les disques managés.
+- [En savoir plus](../virtual-machines/managed-disks-overview.md) sur les disques managés.
