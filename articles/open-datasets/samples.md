@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: a25f0ddeb35aaf880682780fd61bcbc3cedbad08
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c24363caac1db8dd8ce21b690ef989b2beb97f2d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930316"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506054"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exemples de notebooks Jupyter montrant comment enrichir les données avec Open Datasets 
 Les exemples de notebooks Jupyter pour Azure Open Datasets montrent comment charger des jeux de données ouverts et les utiliser pour enrichir les données de démonstration. Les techniques utilisent Apache Spark et Pandas à des fins de traitement des données.
@@ -43,3 +43,4 @@ Les exemples de notebooks Jupyter pour Azure Open Datasets montrent comment char
 * [Tutoriel : Modélisation de régression avec Machine Learning automatisé et jeu de données ouvert](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Kit de développement logiciel (SDK) Python pour Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catalogue Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)
+* [Créer un jeu de données Azure Machine Learning à partir d’Azure Open Datasets](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à Yodeck | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Yodeck.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8eed884ed9d957ede4ae9fc192ae5a8e501b652e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086471"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutoriel : Intégration d’Azure Active Directory à Yodeck
 
@@ -119,13 +115,23 @@ Pour configurer l’authentification unique Azure AD avec Yodeck, effectuez les 
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configurer l’authentification unique Yodeck
 
+1. Pour automatiser la configuration dans **Yodeck**, vous devez installer l’**extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
+
+    ![image](./media/target-process-tutorial/install_extension.png)
+
+1. Une fois l’extension ajoutée au navigateur, le fait de cliquer sur **Configurer Yodeck** vous redirige vers l’application Yodeck. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Yodeck. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+
+    ![Configuration](common/setup-sso.png)
+
+    **Si vous souhaitez configurer l'application manuellement, procédez comme suit :**
+
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Yodeck en tant qu’administrateur.
 
-2. Cliquez sur **User Settings** dans l’angle supérieur droit de la page et sélectionnez **Account Settings**.
+1. Cliquez sur **User Settings** dans l’angle supérieur droit de la page et sélectionnez **Account Settings**.
 
     ![Configuration de Yodeck](./media/yodeck-tutorial/configure1.png)
 
-3. Sélectionnez **SAML** et effectuez les opérations suivantes :
+1. Sélectionnez **SAML** et effectuez les opérations suivantes :
 
     ![Configuration de Yodeck](./media/yodeck-tutorial/configure2.png)
 
@@ -203,7 +209,7 @@ Pour se connecter à Yodeck, les utilisateurs d’Azure AD doivent être approvi
 
     ![Ajouter un employé](./media/yodeck-tutorial/user2.png)
 
-4. Dans la page de boîte de dialogue **User Details** , procédez comme suit :
+4. Dans la page de boîte de dialogue **Détails de l'utilisateur**, procédez comme suit :
 
     ![Ajouter un employé](./media/yodeck-tutorial/user3.png)
 

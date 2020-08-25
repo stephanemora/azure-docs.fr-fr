@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer des files d’attente Stockage Azure dans le
 description: Utilisez le portail Azure pour créer une file d’attente. Ensuite, utilisez le portail Azure pour ajouter un message, en afficher les propriétés et l’enlever de la file d’attente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808966"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213488"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Démarrage rapide : Créer une file d’attente et ajouter un message à l’aide du portail Azure
 
@@ -40,8 +40,8 @@ Pour créer une file d’attente dans le portail Azure, effectuez les étapes su
 Ajoutez ensuite un message à la nouvelle file d’attente. La taille maximale d’un message est de 64 Ko.
 
 1. Sélectionnez la nouvelle file d’attente dans la liste des files d’attente du compte de stockage.
-1. Sélectionnez le bouton **+ Ajouter un message** pour ajouter un message à la file d’attente. Entrez un message dans le champ **Texte du message**. 
-1. Spécifiez le délai d’expiration du message. Un message peut rester dans la file d’attente pendant une durée maximale de 7 jours.
+1. Sélectionnez le bouton **+ Ajouter un message** pour ajouter un message à la file d’attente. Entrez un message dans le champ **Texte du message**.
+1. Spécifiez le délai d’expiration du message. Les valeurs valides qui peuvent être entrées dans le champ **Expire dans** vont de 1 seconde à 7 jours. Sélectionnez **Message n’expire jamais** pour indiquer qu’un message doit rester dans la file d’attente jusqu’à ce qu’il soit supprimé explicitement.
 1. Indiquez si le message doit être encodé au format Base64. L’encodage des données binaires est recommandé.
 1. Sélectionnez le bouton **OK** pour ajouter le message.
 
@@ -53,7 +53,7 @@ Une fois que vous avez ajouté un message, le portail Azure affiche une liste de
 
 ![Capture d’écran montrant les propriétés des messages](media/storage-quickstart-queues-portal/view-message-properties.png)
 
-## <a name="dequeue-a-message"></a>Enlever un message de la file d’attente
+## <a name="dequeue-a-message"></a>Supprimer un message de la file d’attente
 
 Vous pouvez enlever un message du haut de la file d’attente dans le portail Azure. Le message est alors supprimé. 
 

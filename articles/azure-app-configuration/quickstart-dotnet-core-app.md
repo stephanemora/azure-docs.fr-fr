@@ -1,18 +1,19 @@
 ---
 title: Démarrage rapide pour Azure App Configuration avec .NET Core | Microsoft Docs
-description: Guide de démarrage rapide pour utiliser Azure App Configuration avec des applications .NET Core
+description: Dans ce démarrage rapide, créez une application .NET Core avec Azure App Configuration pour centraliser le stockage et la gestion des paramètres d’application en dehors de votre code.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cabe5b0564ec63335800a999bebec67ec970587
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856788"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590249"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Démarrage rapide : Créer une application .NET Core avec App Configuration
 

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Base de connaissances de test avec des questions pa
 description: Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissances dans votre ressource QnA Maker pour les réponses attendues, les scores de confiance et les invites multitours.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337731"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531067"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Démarrage rapide : Base de connaissances de test avec des questions par lots et les réponses attendues
 
@@ -16,7 +16,7 @@ Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissan
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * [Créez un service QnA Maker](create-publish-knowledge-base.md) ou utilisez un service existant, qui utilise la langue anglaise.
 * Téléchargez l’[exemple de fichier multitour `.docx`](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Téléchargez l’[outil de test par lot](https://aka.ms/qnamakerbatchtestingtool), puis extrayez le fichier exécutable du fichier `.zip`.
@@ -61,7 +61,7 @@ Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissan
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Créer un fichier de test par lot avec des ID de question
 
-Pour pouvoir utiliser l’outil de test par lot, créez un fichier sous le nom `batch-test-data-1.tsv` avec un éditeur de texte. Le fichier doit contenir les colonnes suivantes, séparées par une tabulation.
+Pour pouvoir utiliser l’outil de test par lot, créez un fichier sous le nom `batch-test-data-1.tsv` avec un éditeur de texte. Le fichier doit être au format UTF-8 et contenir les colonnes suivantes, séparées par une tabulation.
 
 |Champs du fichier d'entrée TSV|Notes|Exemple|
 |--|--|--|

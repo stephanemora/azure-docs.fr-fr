@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374845"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604697"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -119,7 +119,7 @@ Les solutions de connectivité à définition logicielle gèrent généralement 
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Que se passe-t-il si j’utilise un appareil qui n’est pas dans la liste des partenaires Virtual WAN ? Puis-je toujours l’utiliser pour me connecter au VPN Azure Virtual WAN ?
 
-Oui, si l’appareil prend en charge IPsec IKEv1 ou IKEv2. Les partenaires Virtual WAN automatisent la connectivité de l’appareil aux points de terminaison du VPN Azure. Cela implique des étapes d’automatisation comme « chargement des informations de branche », « IPsec et configuration » et « connectivité ». Comme votre appareil ne vient pas d’un écosystème de partenaires Virtual WAN, vous devez vous-même récupérer la configuration d’Azure et mettre à jour votre appareil pour configurer la connectivité IPsec.
+Oui, si l’appareil prend en charge IPsec IKEv1 ou IKEv2. Les partenaires Virtual WAN automatisent la connectivité de l’appareil aux points de terminaison du VPN Azure. Cela implique l’automatisation d’étapes telles que « chargement des informations de branche », « IPsec et configuration » et « connectivité ». Comme votre appareil ne vient pas d’un écosystème de partenaires Virtual WAN, vous devez vous-même récupérer la configuration d’Azure et mettre à jour votre appareil pour configurer la connectivité IPsec.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Comment les nouveaux partenaires qui ne figurent pas dans votre liste de partenaires de lancement sont-ils intégrés ?
 
@@ -187,7 +187,7 @@ Non. Virtual WAN ne nécessite pas ExpressRoute à partir de chaque site. Vos si
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Existe-t-il une limite de débit réseau ou de connexions lors de l’utilisation d’Azure Virtual WAN ?
 
-Le débit réseau s’exprime par service dans un hub Virtual WAN. Vous pouvez avoir autant de réseaux WAN virtuels que vous le souhaitez, mais chaque WAN virtuel autorise 1 hub par région. Dans chaque hub, le débit agrégé VPN peut atteindre jusqu’à 20 Gbit/s, le débit agrégé ExpressRoute jusqu’à 20 Gbit/s et le débit agrégé VPN utilisateur/VPN de point à site jusqu’à 20 Gbit/s. Le routeur dans le hub virtuel prend en charge jusqu’à 50 Gbit/s pour les flux de trafic de réseau virtuel à réseau virtuel et suppose une charge de travail totale de machine virtuelle de 2 000 sur tous les réseaux virtuels dans les hubs Virtual WAN.
+Le débit réseau s’exprime par service dans un hub Virtual WAN. Vous pouvez avoir autant de réseaux WAN virtuels que vous le souhaitez, mais chaque WAN virtuel autorise 1 hub par région. Dans chaque hub, le débit agrégé VPN peut atteindre jusqu’à 20 Gbit/s, le débit agrégé ExpressRoute jusqu’à 20 Gbit/s et le débit agrégé VPN utilisateur/VPN de point à site jusqu’à 20 Gbit/s. Le routeur dans le hub virtuel prend en charge jusqu’à 50 Gbit/s pour les flux de trafic de réseau virtuel à réseau virtuel, et suppose une charge de travail totale de 2000 machines virtuelles parmi tous les réseaux virtuels connectés à un même hub virtuel.
 
 Lorsque des sites VPN se connectent à un hub, ils le font à l’aide de connexions. Virtual WAN prend en charge jusqu’à 1 000 connexions ou 2 000 tunnels IPsec par hub virtuel. Lorsque les utilisateurs distants se connectent au hub virtuel, ils se connectent à la passerelle VPN P2S, qui prend en charge jusqu’à 10 000 utilisateurs en fonction de l’unité d’échelle (bande passante) choisie pour la passerelle VPN P2S dans le hub virtuel.
 
@@ -215,7 +215,7 @@ Le trafic suit le modèle suivant : appareil de branche -> ISP -> périmètre r
 
 Oui. Une connexion Internet et un appareil physique qui prend en charge IPsec, de préférence parmi nos [partenaires Virtual WAN](../articles/virtual-wan/virtual-wan-locations-partners.md) intégrés. Si vous le souhaitez, vous pouvez gérer manuellement la configuration et la connectivité à Azure à partir de l’appareil de votre choix.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Comment activer l’itinéraire par défaut (0.0.0.0/0) dans une connexion (VPN, ExpressRoute ou Réseau virtuel Microsoft Azure) :
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Comment activer la route par défaut (0.0.0.0/0) dans une connexion (VPN, ExpressRoute ou Réseau virtuel) ?
 
 Un hub virtuel peut propager un itinéraire par défaut appris à une connexion de réseau virtuel/VPN site à site/ExpressRoute si l’indicateur est « Activé » sur la connexion. Cet indicateur est visible lorsque l’utilisateur modifie une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Par défaut, cet indicateur est désactivé lorsqu’un site ou un circuit ExpressRoute est connecté à un hub. Il est activé par défaut lorsqu’une connexion de réseau virtuel est ajoutée pour connecter un réseau virtuel à un hub virtuel. L’itinéraire par défaut ne provient pas du hub Virtual WAN ; il est propagé s’il est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté.
 
@@ -239,23 +239,27 @@ Lorsque plusieurs circuits ExpressRoute sont connectés à un hub virtuel, le po
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Un réseau étendu virtuel préfère-t-il ExpressRoute à un VPN pour le trafic sortant d’Azure ?
 
-Oui 
+Oui.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Lorsqu’un hub Virtual WAN dispose d’un circuit ExpressRoute et d’un site VPN qui lui est connecté, qu’est-ce qui ferait qu’une route de connexion VPN serait préférable à ExpressRoute ?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>Lorsqu’un hub Virtual WAN dispose d’un circuit ExpressRoute et d’un site VPN qui lui est connecté, qu’est-ce qui ferait qu’une route de connexion VPN serait préférable à ExpressRoute ?
 
-Quand un circuit ExpressRoute est connecté à un hub virtuel, les routeurs de périphérie Microsoft constituent le premier nœud pour la communication entre l’environnement local et Azure. Ces routeurs de périphérie communiquent avec les passerelles ExpressRoute du WAN virtuel qui, à leur tour, apprennent les routes auprès du routeur de hub virtuel, qui contrôle toutes les routes entre les diverses passerelles dans le WAN virtuel. Les routeurs de périphérie Microsoft traitent les routes ExpressRoute de hub virtuel avec une préférence plus élevée que les routes apprises à partir de l’environnement local. Quelle qu’en soit la raison, si la connexion VPN devient le support principal à partir duquel le hub virtuel apprend les routes (p. ex., les scénarios de basculement entre ExpressRoute et VPN), à moins que le site VPN possède un chemin AS plus long, le hub virtuel continue à partager les routes apprises via le VPN avec la passerelle ExpressRoute, ce qui fait que les routeurs de périphérie Microsoft préfèrent les routes VPN aux routes locales. 
+Quand un circuit ExpressRoute est connecté à un hub virtuel, les routeurs de périphérie Microsoft constituent le premier nœud pour la communication entre l’environnement local et Azure. Ces routeurs de périphérie communiquent avec les passerelles ExpressRoute du WAN virtuel qui, à leur tour, apprennent les routes auprès du routeur de hub virtuel qui contrôle toutes les routes entre les diverses passerelles dans Virtual WAN. Les routeurs de périphérie Microsoft traitent les routes ExpressRoute de hub virtuel avec une préférence plus élevée que les routes apprises à partir de l’environnement local. Quelle qu’en soit la raison, si la connexion VPN devient le support principal à partir duquel le hub virtuel apprend les routes (par exemple dans les scénarios de basculement entre ExpressRoute et VPN), à moins que le site VPN n’ait un chemin AS plus long, le hub virtuel continuera à partager les routes apprises via le VPN avec la passerelle ExpressRoute, ce qui fait que les routeurs de périphérie Microsoft préfèreront les routes VPN aux routes locales.
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Lorsque deux hubs (hub 1 et 2) sont connectés et qu’un circuit ExpressRoute est connecté comme un nœud papillon aux deux hubs, quel est le chemin d’un réseau virtuel connecté au hub 1 lui permettant d’atteindre un réseau virtuel connecté dans le hub 2 ?
 
-Le comportement actuel consiste à préférer le chemin du circuit ExpressRoute à la connectivité de hub à hub pour la connectivité de réseau virtuel à réseau virtuel. Toutefois, cela n’est pas recommandé dans une configuration de réseau WAN virtuel. L’équipe de réseau WAN virtuel travaille sur un correctif pour activer la préférence pour la connectivité de hub à hub par rapport au chemin ExpressRoute. La recommandation est de faire en sorte que plusieurs circuits ExpressRoute (différents fournisseurs) se connectent à un seul hub et utilisent la connectivité de hub à hub fournie par Virtual WAN pour les flux de trafic inter-régionaux.
+Le comportement actuel consiste à préférer le chemin du circuit ExpressRoute à la connectivité de hub à hub pour la connectivité de réseau virtuel à réseau virtuel. Toutefois, cela n’est pas recommandé dans une configuration de réseau WAN virtuel. L’équipe Virtual WAN travaille sur un correctif pour activer la préférence pour la connectivité de hub à hub par rapport au chemin ExpressRoute. La recommandation est de faire en sorte que plusieurs circuits ExpressRoute (différents fournisseurs) se connectent à un seul hub et utilisent la connectivité de hub à hub fournie par Virtual WAN pour les flux de trafic inter-régionaux.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
 
 IPv6 n’est pas pris en charge dans le hub Virtual WAN et ses passerelles. Si vous disposez d’un réseau virtuel qui prend en charge IPv6 et que vous voulez le connecter à Virtual WAN, ce scénario n’est pas pris en charge actuellement.
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Quelle est la version d’API recommandée pour être utilisée par les scripts qui automatisent différentes fonctionnalités de réseau étendu virtuel ?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Quelle est la version d’API recommandée pour une utilisation par les scripts qui automatisent différentes fonctionnalités de Virtual WAN ?
 
 Cela nécessite au minimum la version 05-01-2020 (1er mai 2020). 
+
+### <a name="are-there-any-virtual-wan-limits"></a>Existe-t-il des limites pour Virtual WAN ?
+
+Consultez la section [Limites applicables à Virtual WAN](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) dans la page sur les limites d’abonnement et de service.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quelles sont les différences entre les types de Virtual WAN (de base et standard) ?
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986812"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258273"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de données et de débit pour l’API Analyse de texte
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Découvrez dans cet article les limites de taille et de débit auxquelles vous �
 
 | Limite | Valeur |
 |------------------------|---------------|
-| Taille maximale de document | 5 120 caractères mesurés par [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Taille maximale d’une demande | 1 Mo |
+| Taille maximale de document | 5 120 caractères mesurés par [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). S’applique également à l’Analyse de texte pour le conteneur d’intégrité. |
+| Taille maximale d’une demande | 1 Mo. S’applique également à l’Analyse de texte pour le conteneur d’intégrité. |
 
 Le nombre maximal de documents que vous pouvez envoyer dans une même demande dépend de la version et de la fonctionnalité d’API que vous utilisez.
 
@@ -48,7 +48,7 @@ Les limites suivantes ont évolué dans l’API v3. Le dépassement des limites 
 | Extraction d’expressions clés | 10 |
 | Reconnaissance d’entité nommée | 5 |
 | Liaison d’entités | 5 |
-
+| Analyse de texte pour le conteneur d’intégrité | 1 000 |
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 | Fonctionnalité | Nombre maximal de documents par demande | 
@@ -63,7 +63,7 @@ Les limites suivantes ont évolué dans l’API v3. Le dépassement des limites 
 
 ## <a name="rate-limits"></a>Limites du taux de transfert
 
-Votre limite de débit varie en fonction de votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Ces limites sont les mêmes pour les deux versions de l’API.
+Votre limite de débit varie en fonction de votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Ces limites sont les mêmes pour les deux versions de l’API. Ces limites du taux de transfert ne s’appliquent pas à l’Analyse de texte pour le conteneur d’intégrité démuni de limite définie du taux d’intégrité.
 
 | Niveau          | Demandes par seconde | Requêtes par minute |
 |---------------|---------------------|---------------------|

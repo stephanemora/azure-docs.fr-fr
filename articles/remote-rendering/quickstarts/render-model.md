@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565516"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509363"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
@@ -84,7 +84,7 @@ Plus tard, nous déploierons ce projet sur un appareil HoloLens et nous nous con
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Créer une session et voir le modèle par défaut
 
-Sélectionnez le bouton de **lecture** de Unity pour démarrer la session. Dans le panneau *Game*, un message d’état doit apparaître en superposition en bas de la fenêtre d’affichage. Différents changements d’état ont lieu au cours de la session. À l’état **Starting**, la machine virtuelle distante est lancée, ce qui prend plusieurs minutes. En cas de réussite, l’état devient **Ready**. À présent, la session passe à l’état **Connecting**. Elle tente alors d’atteindre le runtime de rendu sur cette machine virtuelle. En cas de réussite, l’exemple passe à l’état **Connected**. À ce stade, il commence à télécharger le modèle pour le rendu. De par la taille du modèle, le téléchargement peut prendre quelques minutes supplémentaires. Le modèle rendu à distance s’affiche alors.
+Sélectionnez le bouton de **lecture** de Unity pour démarrer la session. Dans le panneau *Game*, un message d’état doit apparaître en superposition en bas de la fenêtre d’affichage. Différents changements d’état ont lieu au cours de la session. À l’état **Starting**, le serveur est lancé, ce qui prend plusieurs minutes. En cas de réussite, l’état devient **Ready**. À présent, la session passe à l’état **Connecting**. Elle tente alors d’atteindre le runtime de rendu sur ce serveur. En cas de réussite, l’exemple passe à l’état **Connected**. À ce stade, il commence à télécharger le modèle pour le rendu. De par la taille du modèle, le téléchargement peut prendre quelques minutes supplémentaires. Le modèle rendu à distance s’affiche alors.
 
 ![Sortie de l’exemple](media/arr-sample-output.png)
 

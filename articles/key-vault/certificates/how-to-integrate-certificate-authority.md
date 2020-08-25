@@ -7,15 +7,15 @@ manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964496"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588923"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Intégration de Key Vault à l’autorité de certification DigiCert
 
@@ -105,7 +105,7 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzureKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 $issuerName = "DigiCertCA"
 ```
@@ -131,6 +131,16 @@ Si le certificat émis est à l’état « désactivé » sur le portail Azure
  ![Propriétés du certificat](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+- Puis-je générer un certificat avec caractères génériques DigiCert par le biais de KeyVault ? 
+   Oui. Cela dépend de la façon dont vous avez configuré votre compte DigiCert.
+- Si nous devions créer un certificat EV, comment le spécifier ? 
+   Quand vous créez un certificat, cliquez sur Configuration de stratégie avancée, puis spécifiez le type de certificat. Les valeurs prises en charge sont les suivantes : OV-SSL, EV-SSL
+- Y a-t-il un délai dans la création d’un certificat DigiCert à l’aide de l’intégration par rapport à l’acquisition d’un certificat directement par le biais de DigiCert ?
+   Non. Lors de la création d’un certificat, c’est le processus de vérification qui peut prendre du temps, et cette vérification dépend du processus suivi par DigiCert.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

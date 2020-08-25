@@ -1,17 +1,17 @@
 ---
 title: 'Tutoriel : Initialiser le matériel - Azure FXT Edge Filer'
-description: Guide pratique pour définir un mot de passe initial sur les nœuds Azure FXT Edge Filer
+description: Découvrez comment vous connecter au nœud matériel et définir un mot de passe initial sur des nœuds Azure FXT Edge Filer.
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4fae7795cdd61e3eb465285163bcd6c0dd9f7db2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75550889"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184922"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Tutoriel : Définir des mots de passe pour le matériel
 

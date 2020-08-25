@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504650"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245092"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer et utiliser des jeux de réplicas pour la résilience ou la géolocalisation dans Azure Active Directory Domain Services (préversion)
 
@@ -42,11 +42,11 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
-* Un domaine managé Azure Active Directory Domain Services créé à l’aide de jeux de réplicas et configurés dans votre locataire Azure AD.
+* Un domaine managé Azure Active Directory Domain Services créé à l’aide d’un modèle de déploiement Azure Resource Manager et configuré dans votre locataire Azure AD.
     * Si nécessaire, [créez et configurez un domaine managé Azure Active Directory Domain Services][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Veillez à créer un domaine managé qui utilise des jeux de réplicas. Un domaine managé existant créé avant cette préversion ne prend pas en charge les jeux de réplicas. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [changez de référence SKU pour un domaine managé][howto-change-sku].
+    > Les domaines managés créés à l’aide du modèle de déploiement classique ne peuvent pas utiliser de jeux de réplicas. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [changez de référence SKU pour un domaine managé][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

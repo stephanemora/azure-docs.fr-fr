@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564548"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566248"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -58,7 +58,10 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
    > - Azure Sentinel peut s’exécuter sur des espaces de travail dans toute [région couverte par la mise à disposition générale de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine et Allemagne (souveraines). Les données générées par Azure Sentinel (comme des incidents, des signets et des règles d’alerte, qui peuvent contenir des données client provenant de ces espaces de travail) sont enregistrées dans les régions Europe (pour les espaces de travail situés en Europe), Australie (pour les espaces de travail situés en Australie) ou USA Est (pour les espaces de travail situés dans toute autre région).
 
    >[!IMPORTANT]
-   > - Une fois que Azure Sentinel est activé sur un espace de travail, le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements n’est pas pris en charge. Si vous devez déplacer l’espace de travail, contactez [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+   >
+   > - Une fois déployé dans un espace de travail, Azure Sentinel **ne prend actuellement pas en charge** le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements. 
+   >
+   >   Si vous avez déjà déplacé l’espace de travail, désactivez toutes les règles actives dans **Analytics**, puis réactivez-les après cinq minutes. Cela doit fonctionner la plupart du temps, mais ce n’est, pour rappel, pas pris en charge et est sous votre entière responsabilité.
 
 1. Sélectionnez **Ajouter Azure Sentinel**.
   

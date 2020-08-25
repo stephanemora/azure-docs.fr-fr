@@ -1,7 +1,7 @@
 ---
 title: Effectuer une mise à niveau de l’API Vision par ordinateur vers v3.0
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment effectuer une mise à niveau des versions v2.0 et v2.1 de l’API Vision par ordinateur vers la version v3.0.
+description: Découvrez comment effectuer une mise à niveau vers l’API de lecture Vision par ordinateur v3.0 à partir de la version v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136571"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214182"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Effectuer une mise à niveau de l’API Vision par ordinateur vers v3.0 à partir de v 2.0 et v 2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Mettre à niveau vers l’API de lecture Vision par ordinateur v3.0 à partir de v2.0/v2.1
 
-Ce guide vous montre comment modifier votre code existant pour migrer des versions v2.0 ou v2.1 de l’API Vision par ordinateur vers la version v3.0 pour les utilisateurs de l’API REST. 
+Ce guide montre comment mettre à niveau votre code d’API REST Vision par ordinateur v2.0 ou v2.1 vers les opérations de lecture v3.0. 
 
 ## <a name="upgrade-batch-read-file-to-read"></a>Effectuer une mise à niveau de `Batch Read File` vers `Read`
 

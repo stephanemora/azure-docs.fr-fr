@@ -1,18 +1,18 @@
 ---
-title: Créer une base de données Azure pour MySQL à l’aide d’un modèle Resource Manager
-description: Dans cet article, découvrez comment créer un serveur Azure Database pour MySQL avec intégration de réseau virtuel, à l’aide d’un modèle Azure Resource Manager.
+title: 'Démarrage rapide : Créer une instance Azure DB pour MySQL - Modèle Resource Manager'
+description: Dans ce guide de démarrage rapide, découvrez comment créer un serveur Azure Database pour MySQL avec intégration de réseau virtuel, à l’aide d’un modèle Azure Resource Manager.
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 72ace8a94d16b79f756c83393db2b39a1c0df714
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed908c4711812302fffac2e1ce59d2196426b74c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134849"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185857"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide d’un modèle ARM
 

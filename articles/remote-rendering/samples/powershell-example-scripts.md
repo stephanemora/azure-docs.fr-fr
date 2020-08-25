@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052291"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506509"
 ---
 # <a name="example-powershell-scripts"></a>Exemples de scripts PowerShell
 
@@ -26,21 +26,21 @@ Le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering) c
 Pour exécuter les exemples de scripts, vous avez besoin d’une configuration fonctionnelle d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Installez Azure PowerShell :
-    1. Ouvrir PowerShell avec des droits d’administrateur
+    1. Ouvrez une fenêtre PowerShell avec des droits d’administrateur.
     1. Exécutez l’instruction suivante : `Install-Module -Name Az -AllowClobber`
 
 1. Si vous recevez des erreurs concernant l’exécution des scripts, vérifiez que votre [stratégie d’exécution](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) est correctement configurée :
-    1. Ouvrir PowerShell avec des droits d’administrateur
+    1. Ouvrez une fenêtre PowerShell avec des droits d’administrateur.
     1. Exécutez l’instruction suivante : `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Préparer un compte de stockage Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
 1. Connectez-vous à l’abonnement qui contient votre compte Azure Remote Rendering :
-    1. Ouvrez PowerShell.
+    1. Ouvrez une fenêtre PowerShell.
     1. Exécutez `Connect-AzAccount`, puis suivez les instructions à l’écran.
 
-> [!NOTE]
-> Si votre organisation a plusieurs abonnements, vous devrez peut-être spécifier les arguments SubscriptionId et Tenant. Pour plus d’informations, consultez la [documentation sur Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > [!NOTE]
+    > Si votre organisation a plusieurs abonnements, vous devrez peut-être spécifier les arguments SubscriptionId et Tenant. Pour plus d’informations, consultez la [documentation sur Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Téléchargez le dossier *Scripts* à partir du [dépôt GitHub Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering).
 
@@ -86,9 +86,9 @@ Pour `region`, consultez la [liste des régions disponibles](../reference/region
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Cette structure doit être remplie si vous souhaitez exécuter **RenderingSession.ps1**.
+Cette structure doit être remplie si vous souhaitez exécuter **RenderingSession.ps1** :
 
-- **vmSize :** sélectionnez la taille de la machine virtuelle. Sélectionnez *Standard* ou *Premium*. Arrêtez les sessions de rendu lorsque vous n’en avez plus besoin.
+- **vmSize :** sélectionnez la taille de la machine virtuelle. Sélectionnez [*standard*](../reference/vm-sizes.md) ou [*premium*](../reference/vm-sizes.md). Arrêtez les sessions de rendu lorsque vous n’en avez plus besoin.
 - **maxLeaseTime :** durée souhaitée du bail pour la machine virtuelle. Celle-ci sera arrêtée lorsque le bail expirera. La durée du bail peut être prolongée (voir ci-dessous).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
@@ -191,7 +191,7 @@ L’utilisation d’un compte de stockage lié est la meilleure façon d’utili
 
 1. Chargez tous les fichiers de `assetConversionSettings.modelLocation` dans le conteneur d’objets blob d’entrée sous le `inputFolderPath` donné.
 1. Appelez l’[API REST de conversion des modèles](../how-tos/conversion/conversion-rest-api.md) pour lancer la [conversion du modèle](../how-tos/conversion/model-conversion.md)
-1. Interroger l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci
+1. Interrogez l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci.
 1. Affichez les informations concernant l’emplacement du fichier converti (compte de stockage, conteneur de sortie, chemin du fichier dans le conteneur).
 
 ### <a name="access-to-storage-via-shared-access-signatures"></a>Accéder au stockage via des signatures d’accès partagé
@@ -202,13 +202,13 @@ L’utilisation d’un compte de stockage lié est la meilleure façon d’utili
 
 Avec cette opération, vous pouvez :
 
-1. Charger le fichier local à partir de `assetConversionSettings.localAssetDirectoryPath` dans le conteneur d’objets blob d’entrée
-1. Générer un URI SAS pour le conteneur d’entrée
-1. Générer un URI SAS pour le conteneur de sortie
-1. Appeler l’[API REST de conversion des modèles](../how-tos/conversion/conversion-rest-api.md) pour lancer la [conversion du modèle](../how-tos/conversion/model-conversion.md)
-1. Interroger l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci
-1. Afficher les informations concernant l’emplacement du fichier converti (compte de stockage, conteneur de sortie, chemin du fichier dans le conteneur)
-1. Afficher l’URI SAS du modèle converti dans le conteneur d’objets blob de sortie
+1. Charger le fichier local à partir de `assetConversionSettings.localAssetDirectoryPath` dans le conteneur d’objets blob d’entrée.
+1. Générer un URI SAS pour le conteneur d’entrée.
+1. Générer un URI SAS pour le conteneur de sortie.
+1. Appeler l’[API REST de conversion des modèles](../how-tos/conversion/conversion-rest-api.md) pour lancer la [conversion du modèle](../how-tos/conversion/model-conversion.md).
+1. Interroger l’état de la conversion jusqu’à la réussite ou l’échec de celle-ci.
+1. Afficher les informations concernant l’emplacement du fichier converti (compte de stockage, conteneur de sortie, chemin du fichier dans le conteneur).
+1. Afficher l’URI SAS du modèle converti dans le conteneur d’objets blob de sortie.
 
 ### <a name="additional-command-line-options"></a>Options supplémentaires de la ligne de commande
 
@@ -249,7 +249,7 @@ Par exemple, vous pouvez combiner plusieurs options de la façon suivante :
 
 Si vous souhaitez exécuter uniquement certaines étapes du processus, vous pouvez procéder de la façon suivante :
 
-Chargez uniquement les données à partir du LocalAssetDirectoryPath donné :
+Chargez uniquement les données à partir du LocalAssetDirectoryPath donné.
 
 ```PowerShell
 .\Conversion.ps1 -Upload

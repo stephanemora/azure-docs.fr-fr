@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbc06b657525880f22bd5fb38e902f906d438c9c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089496"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565908"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Démarrage rapide : Création de votre première application web statique
 
@@ -98,7 +98,7 @@ Une fois que vous êtes connecté avec GitHub, entrez les informations relatives
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Bouton Compilation suivante":::
 
 > [!NOTE]
->  En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
+>  En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à la [page d’accueil GitHub](https://github.com), puis cliquez sur l’image de votre compte pour ouvrir le menu déroulant. Cliquez sur **Paramètres**, puis sur **Applications > Applications OAuth autorisées > Azure Static Web Apps** et enfin, sélectionnez **Autoriser**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
 
 ### <a name="build"></a>Build
 

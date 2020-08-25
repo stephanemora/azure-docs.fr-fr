@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038543"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226008"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
@@ -34,7 +34,8 @@ Pour mettre à niveau un abonnement et passer au niveau Standard, vous devez avo
 ## <a name="enable-your-azure-subscription"></a>Activer un abonnement Azure
 
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
-2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
+
+1. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
    ![Vue d’ensemble de Security Center][2]
 
@@ -49,21 +50,25 @@ Quelques minutes après le premier lancement de Security Center peuvent s’affi
 
 Pour tirer pleinement parti de Security Center, vous devez suivre les étapes ci-dessous afin de passer au niveau Standard et d’installer l’agent Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Effectuer la mise à niveau vers le niveau tarifaire Standard
-Pour suivre les démarrages rapides et les tutoriels Security Center, vous devez passer au niveau Standard. Il existe un essai gratuit de Security Center Standard. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
+## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
+
+Dans le cadre des guides de démarrage rapide et des didacticiels de Security Center, vous devez passer au niveau Standard. Il existe un essai gratuit de Security Center Standard. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. Dans la barre latérale de Security Center, sélectionnez **Bien démarrer**.
  
-   ![Bien démarrer][4]
+   ![Prise en main](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. Dans **Mise à niveau**, Security Center liste les abonnements et les espaces de travail éligibles à l’intégration. 
-   - Vous pouvez cliquer sur le menu déroulant **Appliquer votre version d’évaluation** pour afficher la liste de tous les abonnements et espaces de travail avec leur éligibilité pour la version d'évaluation.
-   -    Vous pouvez mettre à niveau des abonnements et espaces de travail qui ne sont pas éligibles pour la version d’évaluation.
-   -    Vous pouvez sélectionner des espaces de travail et abonnements éligibles pour démarrer votre évaluation.
-3. Cliquez sur **Démarrer la version d'évaluation** pour démarrer votre version d’évaluation sur les abonnements sélectionnés.
+    L’onglet **Mise à jour** répertorie les abonnements et les espaces de travail éligibles à l’intégration.
+
+1. Dans la liste **Sélectionner les espaces de travail pour activer le niveau standard sur**, sélectionnez les espaces de travail à mettre à niveau.
 
 
-  ![Alertes de sécurité][9]
+    > [!TIP]
+    > Si vous sélectionnez un espace de travail éligible à un essai gratuit, la prochaine étape activera un essai. Si les espaces de travail ne sont pas éligibles à l’essai, une mise à jour sera appliquée et entraînera des frais.
+
+1. Sélectionnez **Mettre à niveau** pour mettre à niveau les espaces de travail sélectionnés vers le niveau standard.
+
 
 ## <a name="automate-data-collection"></a>Automatiser la collecte de données
 Azure Security Center collecte des données à partir de machines virtuelles Azure et d’ordinateurs extérieurs à Azure pour effectuer un monitoring des menaces et des failles de sécurité. Les données sont collectées à l’aide de l’agent Log Analytics, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Par défaut, Security Center vous crée un nouvel espace de travail.
@@ -73,9 +78,9 @@ Quand le provisionnement automatique est activé, Security Center installe l’a
 Pour activer le provisionnement automatique de l’agent Log Analytics :
 
 1. Dans le menu principal de Security Center, sélectionnez **Tarification et paramètres**.
-2. Cliquez sur l’abonnement dont vous souhaitez changer les paramètres.
-3. Dans l’onglet **Collecte des données**, définissez **Provisionnement automatique** sur **On** (activé).
-4. Sélectionnez **Enregistrer**.
+1. Cliquez sur l’abonnement dont vous souhaitez changer les paramètres.
+1. Dans l’onglet **Collecte des données**, définissez **Provisionnement automatique** sur **On** (activé).
+1. Sélectionnez **Enregistrer**.
 ---
   ![Activer l’approvisionnement automatique][6]
 
@@ -84,7 +89,7 @@ Grâce à ces nouvelles informations sur les machines virtuelles Azure, Security
   ![Recommandations][8]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez de suivre les tutoriels et les démarrages rapides suivants, conservez le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez de suivre les tutoriels et les guides de démarrage rapide suivants, conservez le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Tarifs et paramètres**.
 2. Cliquez sur l’abonnement que vous souhaitez remplacer par le niveau gratuit.

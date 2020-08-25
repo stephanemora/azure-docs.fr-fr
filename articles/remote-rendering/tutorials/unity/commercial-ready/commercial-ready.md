@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e827f7eff707f5a7c467f53eacab6973bff2ef2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076430"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510927"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutoriel : Création d’une application Azure Remote Rendering prête à la commercialisation
 
@@ -78,13 +78,13 @@ Pour plus d’informations, consultez :
 
 Votre cas d’usage peut exiger un démarrage rapide, entre le lancement de l’application et l’affichage du modèle 3D. Par exemple, pendant une réunion importante pour laquelle il est essentiel que tout soit prêt et opérationnel à l’avance. Un autre exemple s’illustre dans l’étude d’un modèle 3D de CAO, où une itération de conception prompte entre une application CAO et une réalité mixte est décisive en termes de performances.
 
-Azure Remote Rendering demande des modèles 3D prétraités, alors qu’Azure prend actuellement quelques minutes pour créer une machine virtuelle et charger un modèle destiné au rendu. Rendre ce processus aussi transparent et rapide que possible nécessite la préparation anticipée des données du modèle 3D et de la session ARR (Azure Remote Rendering).
+Azure Remote Rendering demande des modèles 3D prétraités, alors qu’Azure prend actuellement quelques minutes pour créer une session et charger un modèle destiné au rendu. Rendre ce processus aussi transparent et rapide que possible nécessite la préparation anticipée des données du modèle 3D et de la session ARR (Azure Remote Rendering).
 
 Les suggestions partagées ici ne font pour l’instant pas partie d’Azure Remote Rendering standard, mais vous pouvez les implémenter vous-même pour accélérer vos propres démarrages.
 
 ### <a name="initiate-early"></a>Initialisation préalable
 
-Pour réduire un temps de démarrage, la solution la plus simple consiste à déplacer la création et l’initialisation de la machine virtuelle le plus tôt possible dans le workflow de l’utilisateur. Une stratégie s’attache à initialiser la session dès qu’il est su qu’une session ARR sera nécessaire. C’est souvent le cas lorsque l’utilisateur commence à charger un modèle 3D dans le stockage Blob Azure pour l’utiliser avec Azure Remote Rendering. Dans ce cas, la création de sessions et l’initialisation de machines virtuelles peuvent être lancées en même temps que le chargement du modèle 3D, afin que les deux flux de travail s’exécutent en parallèle.
+Pour réduire le temps de démarrage, la solution la plus simple consiste à déplacer la création et l’initialisation de la session le plus tôt possible dans le workflow de l’utilisateur. Une stratégie s’attache à initialiser la session dès qu’il est su qu’une session ARR sera nécessaire. C’est souvent le cas lorsque l’utilisateur commence à charger un modèle 3D dans le stockage Blob Azure pour l’utiliser avec Azure Remote Rendering. Dans ce cas, la création et l’initialisation de session peuvent être lancées en même temps que le chargement du modèle 3D, afin que les deux flux de travail s’exécutent en parallèle.
 
 Ce processus peut être simplifié davantage en veillant à ce que les conteneurs d’entrée et de sortie du stockage Blob Azure choisis se trouvent dans le même centre de données régional que la session Azure Remote Rendering.
 
@@ -92,41 +92,41 @@ Ce processus peut être simplifié davantage en veillant à ce que les conteneur
 
 Si vous savez que vous aurez besoin d’Azure Remote Rendering ultérieurement, vous pouvez planifier une date et une heure précises pour démarrer la session Azure Remote Rendering.
 
-Il est possible de proposer cette option par le biais d’un portail web dans lequel les utilisateurs peuvent à la fois télécharger un modèle 3D et planifier un moment auquel l’afficher par la suite. C’est également un bon endroit pour demander la précision d’autres préférences, telles que le rendu Standard ou Premium. Le rendu Premium peut convenir s’il est préférable d’afficher une combinaison de ressources dans laquelle la taille idéale est plus difficile à déterminer automatiquement, ou s’il faut s’assurer que la région Azure dispose de machines virtuelles disponibles à ce moment-là.
+Il est possible de proposer cette option par le biais d’un portail web dans lequel les utilisateurs peuvent à la fois télécharger un modèle 3D et planifier un moment auquel l’afficher par la suite. C’est également un bon endroit pour demander la précision d’autres préférences, telles que le rendu [*Standard*](../../../reference/vm-sizes.md) ou [*Premium*](../../../reference/vm-sizes.md). Le rendu *Premium* peut convenir s’il est préférable d’afficher une combinaison de ressources dans laquelle la taille idéale est plus difficile à déterminer automatiquement, ou s’il faut s’assurer que la région Azure dispose de machines virtuelles disponibles à ce moment-là.
 
 ### <a name="session-pooling"></a>Regroupement de sessions
 
 Dans les situations les plus exigeantes, une autre option se présente avec le regroupement de sessions, au sein duquel une ou plusieurs sessions sont créées et initialisées à tout moment. La création d’un pool de sessions est destinée à l’utilisation immédiate par un utilisateur demandeur. L’inconvénient de cette approche réside dans la facturation du service qui démarre aussitôt la machine virtuelle initialisée. Il n’est pas toujours rentable de garder en permanence un pool de sessions en cours d’exécution, mais en s’appuyant sur l’analytique, il peut être possible de prévoir les pics de charge, ou d’associer ce pool à la stratégie de planification ci-dessus pour prédire le moment où des sessions seront nécessaires et ajuster ainsi le pool de sessions en conséquence.
 
-Cette stratégie permet également d’optimiser le choix entre les sessions Standard et Premium d’une manière plus dynamique, car il peut s’avérer beaucoup plus rapide de basculer entre les deux types au sein d’une même session utilisateur, par exemple lorsqu’un modèle de complexité Premium est affiché en premier, suivi d’un modèle pouvant fonctionner en session Standard. Si ces sessions utilisateur sont relativement longues, d’importantes économies peuvent en résulter.
+Cette stratégie permet également d’optimiser le choix entre les sessions *Standard* et *Premium* d’une manière plus dynamique, car il peut s’avérer beaucoup plus rapide de basculer entre les deux types au sein d’une même session utilisateur, par exemple lorsqu’un modèle de complexité *Premium* est affiché en premier, suivi d’un modèle pouvant fonctionner en session *Standard*. Si ces sessions utilisateur sont relativement longues, d’importantes économies peuvent en résulter.
 
 Pour plus d’informations sur les sessions Azure Remote Rendering, consultez :
 
 * [Sessions Remote Rendering](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
 
-## <a name="standard-vs-premium-vm-routing-strategies"></a>Stratégies de routage sur une machine virtuelle Standard ou Premium
+## <a name="standard-vs-premium-server-size-routing-strategies"></a>Stratégies de routage sur une machine virtuelle Standard ou Stratégies de routage de taille de serveur Premium
 
-La nécessité de décider de la création d’une machine virtuelle Standard ou Premium représente un défi au niveau de la conception de votre expérience utilisateur et de votre système de bout en bout. Bien que l’utilisation de sessions Premium uniquement soit une option, les sessions Standard utilisent beaucoup moins de ressources de calcul Azure, et sont moins onéreuses que la solution Premium. Voici donc une excellente motivation pour utiliser des sessions Standard lorsque cela est possible, et utiliser seulement la solution Premium lorsqu’elle est nécessaire.
+La nécessité de décider de la création d’une taille de serveur *Standard* ou *Premium* représente un défi au niveau de la conception de votre expérience utilisateur et de votre système de bout en bout. Bien que l’utilisation de sessions *Premium* uniquement soit une option, les sessions *Standard* utilisent beaucoup moins de ressources de calcul Azure, et sont moins onéreuses que la solution *Premium*. Voici donc une excellente motivation pour utiliser des sessions *Standard* dans la mesure du possible, et utiliser seulement la solution *Premium* en cas de nécessité.
 
 Nous partageons ici plusieurs options, de la moins aboutie à la plus complète, pour répondre au désir de gérer des choix de session.
 
 ### <a name="use-only-standard-or-premium"></a>Utiliser uniquement Standard ou Premium
 
-Si vous êtes certain que vos besoins seront *toujours* inférieurs au seuil instauré entre les niveaux Standard et Premium, votre décision s’en trouvera grandement simplifiée. Utiliser simplement Standard. Gardez à l’esprit, par contre, que l’impact sur l’expérience utilisateur est conséquente si la somme totale de la complexité des ressources chargées est rejetée comme étant trop complexe pour une session Standard.
+Si vous êtes certain que vos besoins seront *toujours* inférieurs au seuil instauré entre les niveaux *Standard* et *Premium*, votre décision s’en trouvera grandement simplifiée. Utilisez simplement *Standard*. Gardez toutefois à l’esprit que l’impact sur l’expérience utilisateur est conséquente si la somme totale de la complexité des ressources chargées est rejetée comme étant trop complexe pour une session *Standard*.
 
-De même, si vous prévoyez qu’une grande partie des utilisations dépassera le seuil entre les niveaux Standard et Premium, ou si le coût n’est pas un facteur déterminant dans votre cas d’usage, le choix systématique de la solution Premium demeure également une option qui vous permet de simplifier les choses.
+De même, si vous prévoyez qu’une grande partie des utilisations dépassera le seuil entre les niveaux *Standard* et *Premium*, ou si le coût n’est pas un facteur déterminant dans votre cas d’usage, le choix systématique de la solution *Premium* demeure également une option qui vous permet de simplifier les choses.
 
 ### <a name="ask-the-user"></a>Demander à l’utilisateur
 
-Si vous souhaitez vraiment prendre en charge les deux solutions Standard et Premium, le moyen le plus simple pour déterminer le type de session de machine virtuelle à instancier consiste à le demander à l’utilisateur quand il sélectionne les ressources 3D à afficher. Le difficulté de cette approche vient de ce qu’elle implique la compréhension par l’utilisateur de la notion de complexité de la ressource 3D, ou même des quelques ressources qui seront affichées. En général, c’est la raison pour laquelle elle n’est pas recommandée. Si l’utilisateur sélectionne le mauvais choix en optant pour Standard, l’expérience utilisateur obtenue peut être compromise à un moment inopportun.
+Si vous souhaitez vraiment prendre en charge les deux solutions *Standard* et *Premium*, le moyen le plus simple pour déterminer le type de session de machine virtuelle à instancier consiste à le demander à l’utilisateur quand il sélectionne les ressources 3D à afficher. Le difficulté de cette approche vient de ce qu’elle implique la compréhension par l’utilisateur de la notion de complexité de la ressource 3D, ou même des quelques ressources qui seront affichées. En général, c’est la raison pour laquelle elle n’est pas recommandée. Si l’utilisateur sélectionne le mauvais choix en optant pour *Standard*, l’expérience utilisateur obtenue peut être compromise à un moment inopportun.
 
 ### <a name="analyze-the-3d-model"></a>Analyser le modèle 3D
 
-Une autre approche relativement simple consiste à analyser la complexité des ressources 3D sélectionnées. Si la complexité du modèle est inférieure au seuil pour Standard, lancez une session Standard, sinon initiez une session Premium. Ici, le défi réside dans le fait qu’une seule session peut finalement être utilisée pour afficher plusieurs modèles, parmi lesquels certains peuvent dépasser le seuil de complexité d’une session Standard, entraînant l’incapacité à utiliser la même session de façon fluide pour une séquence de ressources 3D différentes.
+Une autre approche relativement simple consiste à analyser la complexité des ressources 3D sélectionnées. Si la complexité du modèle est inférieure au seuil pour *Standard*, lancez une session *Standard*, sinon initiez une session *Premium*. Ici, le défi réside dans le fait qu’une seule session peut finalement être utilisée pour afficher plusieurs modèles, parmi lesquels certains peuvent dépasser le seuil de complexité d’une session *Standard*, entraînant l’incapacité à utiliser la même session de façon fluide pour une séquence de ressources 3D différentes.
 
 ### <a name="automatic-switching"></a>Basculement automatique
 
-Le basculement automatique entre les sessions Standard et Premium peut s’avérer très judicieux dans une conception de système qui comprend également un regroupement de sessions. Cette stratégie permet une optimisation plus poussée de l’exploitation des ressources. À mesure que l’utilisateur charge des modèles pour l’affichage, la complexité est déterminée et la taille de session correcte est demandée auprès du service de regroupement de sessions.
+Le basculement automatique entre les sessions *Standard* et *Premium* peut s’avérer très judicieux dans une conception de système qui comprend également un regroupement de sessions. Cette stratégie permet une optimisation plus poussée de l’exploitation des ressources. À mesure que l’utilisateur charge des modèles pour l’affichage, la complexité est déterminée et la taille de session correcte est demandée auprès du service de regroupement de sessions.
 
 ## <a name="working-with-networks"></a>Utilisation des réseaux
 
@@ -213,7 +213,7 @@ En fonction du cas d’usage anticipé, déterminez le meilleur emplacement ou l
 
 Si votre cas d’usage présente des modèles d’utilisation dans lesquels la même ressource 3D peut être chargée plusieurs fois, le serveur principal effectuera le suivi des modèles qui sont déjà convertis pour une utilisation avec ARR, afin qu’un modèle ne soit pré-traité qu’une seule fois pour plusieurs sélections ultérieures. Un exemple de révision de conception représente l’endroit où une équipe accède à une ressource 3D d’origine, commune. Chaque membre de l’équipe est censé passer en revue le modèle à l’aide d’ARR, à un moment donné dans son flux de travail. Ainsi, seul le premier affichage déclenchera l’étape de pré-traitement. Les affichages suivants rechercheront le fichier post-traitement associé, dans le conteneur de sortie SAS.
 
-Selon le cas d’usage, vous souhaiterez probablement déterminer la taille appropriée de la machine virtuelle Azure Remote Rendering, Standard ou Premium, et la rendre potentiellement persistante, pour chaque ressource ou groupe de ressources 3D qui seront affichés ensemble au cours de la même session.  
+Selon le cas d’usage, vous souhaiterez probablement déterminer la taille appropriée de serveur Azure Remote Rendering, *Standard* ou *Premium*, et la rendre potentiellement persistante, pour chaque ressource ou groupe de ressources 3D qui seront affichés ensemble au cours de la même session.  
 
 ### <a name="on-device-model-selection-list"></a>Liste de sélection de modèles sur l’appareil
 

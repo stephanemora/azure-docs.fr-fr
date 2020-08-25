@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Chatwork | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Chatwork.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0982ee1d-7ae2-415b-9e47-cfc72e1885ca
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 368b87a4abd5b55a807f7184c3a56876169b2517
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293389"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Chatwork
 
@@ -87,7 +83,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Chatwork](mailto:info@support.chatwork.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion privée que vous avez définie après la **configuration de l’authentification unique Chatwork**.
+
+1. L’application Chatwork s’attend à ce que la valeur de l’attribut **Identificateur unique de l’utilisateur** corresponde à l’adresse e-mail inscrite dans Chatwork. L’attribut est mappé par défaut à **user.principalname**. Si le nom du principal est différent de l’adresse e-mail, mappez l’**Identificateur unique de l’utilisateur** à **user.mail**.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -129,11 +127,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-chatwork-sso"></a>Configurer l’authentification unique Chatwork
 
-Pour configurer l’authentification unique côté **Chatwork**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique de Chatwork](mailto:info@support.chatwork.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Chatwork**, consultez le [Guide d’administration Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf), puis configurez un paramètre Chatwork.
 
 ### <a name="create-chatwork-test-user"></a>Créer un utilisateur de test Chatwork
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Chatwork. Collaborez avec l’ [équipe du support technique de Chatwork](mailto:info@support.chatwork.com) pour ajouter les utilisateurs à la plateforme Chatwork. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Chatwork. Accédez au [Guide d’administration Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf), puis ajoutez l’utilisateur dans la plateforme Chatwork.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

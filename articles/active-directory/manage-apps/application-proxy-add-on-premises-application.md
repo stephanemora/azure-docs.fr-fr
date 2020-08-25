@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080760"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212803"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -32,7 +31,7 @@ Ce didacticiel :
 > * ajoute une application locale à votre client Azure AD ;
 > * vérifie qu’un utilisateur de test peut se connecter à l’application à l’aide d’un compte Azure AD.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
 Pour intégrer une application locale à Azure AD, vous devez :
 
@@ -235,6 +234,10 @@ Pour tester l’authentification auprès de l’application :
 
 Pour tout dépannage, consultez [Résoudre les problèmes de proxy d'application et les messages d'erreur](application-proxy-troubleshoot.md).
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Quand vous n’avez plus besoin des ressources créées dans ce tutoriel, supprimez-les.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez préparé votre environnement local pour utiliser le service Proxy d'application, puis vous avez installé et inscrit le connecteur du Proxy d'application. Ensuite, vous avez ajouté une application à votre locataire Azure AD. Vous avez vérifié qu’un utilisateur peut se connecter à l’application à l’aide d’un compte Azure AD.
@@ -250,4 +253,4 @@ Voici les étapes que vous avez effectuées :
 Vous êtes prêt à configurer l’application pour une authentification unique. Utilisez le lien suivant pour choisir une méthode d’authentification unique et trouver des tutoriels dédiés à l’authentification unique.
 
 > [!div class="nextstepaction"]
-> [Configurer l’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configurer l’authentification unique](sso-options.md#choosing-a-single-sign-on-method)

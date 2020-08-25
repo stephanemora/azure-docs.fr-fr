@@ -4,12 +4,12 @@ description: Dans ce didacticiel explique comment créer un coffre Recovery Serv
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372550"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263416"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -156,7 +156,7 @@ Si vous prévoyez de continuer avec les tutoriels suivants, ne nettoyez pas les 
 
 1. Sur le tableau de bord **myRecoveryServicesVault**, sous **Éléments de sauvegarde**, sélectionnez **3** pour ouvrir le menu Éléments de sauvegarde.
 
-    ![Éléments de sauvegarde](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Ouvrir le menu Éléments de sauvegarde](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. Dans le menu **Éléments de sauvegarde**, sélectionnez **Machine virtuelle Azure** pour ouvrir la liste des machines virtuelles associées au coffre.
 
@@ -185,7 +185,7 @@ Si vous prévoyez de continuer avec les tutoriels suivants, ne nettoyez pas les 
 
 1. Quand le coffre est vide, sélectionnez **Supprimer**.
 
-    ![Sélectionner Arrêter la sauvegarde pour supprimer le coffre](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Sélectionner Supprimer](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Après la suppression du coffre, vous revenez à la liste des coffres Recovery Services.
 

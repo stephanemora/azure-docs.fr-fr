@@ -1,19 +1,17 @@
 ---
 title: Modifications récentes de Data Lake Analytics
 description: Cet article fournit la liste actualisée des modifications récentes apportées à Data Lake Analytics.
-services: data-lake-analytics
 author: xujiang1
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: e78389ffc06f1b4cd4e39c15ac66215d514e9bc1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476314"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263178"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Nouveautés de Data Lake Analytics
 
@@ -35,14 +33,13 @@ Quand vous soumettez le travail Azure Data Lake Analytics depuis n’importe que
 
 La version du runtime sera mise à jour de façon non périodique. Le runtime précédent restera disponible pendant un certain temps. Dès qu’une nouvelle version bêta sera prête pour la préversion, elle sera également disponible ici.
 
-Voici les versions actuellement disponibles du runtime.
+> [!CAUTION]
+> - Le choix d’un runtime différent de la valeur par défaut est susceptible d’interrompre vos travaux U-SQL. Il est fortement recommandé de ne pas utiliser les versions autres que celles par défaut pour la production, mais à des fins de test uniquement.
+> - La version du common language runtime, qui n’est pas définie par défaut, a un cycle de vie fixe. Elle expirera automatiquement.
 
-- release-20200124live_adl_16283022_2 --> **la version actuelle par défaut**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+La version suivante est la version actuelle du common language runtime par défaut.
+
+- release-20200124live_adl_16283022_2
 
 Pour savoir comment résoudre les échecs du runtime U-SQL, reportez-vous à [Résoudre les échecs du runtime U-SQL](runtime-troubleshoot.md).
 

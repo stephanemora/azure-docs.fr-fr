@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847702"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507112"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Découvrez comment exécuter des inférences par lots sur de grandes quantités de données, de façon asynchrone et en parallèle avec Azure Machine Learning. ParallelRunStep fournit des capacités de parallélisme prêtes à l’emploi.
+Cet article explique comment exécuter votre modèle Azure Machine Learning en parallèle, en évaluant rapidement de grandes quantités de données. 
 
-Avec ParallelRunStep, il est facile de mettre à l’échelle des inférences hors connexion vers de gros clusters de machines, sur des téraoctets de données structurées ou non structurées, en améliorant la productivité et en optimisant les coûts.
+L’inférence sur des jeux de données volumineux ou avec des modèles compliqués peut prendre du temps. La classe `ParallelRunStep` vous permet d’effectuer le traitement en parallèle, et d’obtenir ainsi des résultats globaux plus rapidement. Même si l’exécution d’une seule évaluation est assez rapide, de nombreux scénarios (détection d’objets, traitement vidéo, traitement en langage naturel, etc.) impliquent l’exécution de nombreuses évaluations. 
+
+Avec `ParallelRunStep`, il est facile de mettre à l’échelle les inférences par lot vers de gros clusters d’ordinateurs. Ces clusters peuvent gérer des téraoctets de données structurées ou non structurées avec une productivité et des coûts optimisés.
 
 Dans cet article, vous apprenez à effectuer les tâches suivantes :
 

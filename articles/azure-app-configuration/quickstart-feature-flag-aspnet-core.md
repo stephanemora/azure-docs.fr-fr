@@ -3,15 +3,16 @@ title: Démarrage rapide pour l’ajout d’indicateurs de fonctionnalité à AS
 description: Ajouter des indicateurs de fonctionnalité à des applications ASP.NET Core et les gérer dans Azure App Configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760139"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235262"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -114,7 +115,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 1. Ajoutez un secret nommé **ConnectionStrings:AppConfig** à Secret Manager.
 
-    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin App Configuration. Dans la commande suivante, remplacez la valeur de `<your_connection_string>` par la chaîne de connexion de votre magasin App Configuration. La chaîne de connexion se trouve sous **Clés d’accès** dans le portail Azure.
+    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin App Configuration. Dans la commande suivante, remplacez la valeur de `<your_connection_string>` par la chaîne de connexion de votre magasin App Configuration. La clé de connexion en lecture seule se trouve sous **Clés d’accès** dans le portail Azure.
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
@@ -186,7 +187,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---

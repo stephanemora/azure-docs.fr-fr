@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration d’Azure Active Directory à Uberflip | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Uberflip.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048473"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutoriel : Intégration d’Azure Active Directory à Uberflip
 
@@ -153,7 +149,7 @@ Dans cette section, créez un utilisateur de test nommé B. Simon dans le portai
 
     1. Dans la zone **Nom**, entrez **BSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BSimon\@\<votre_domaine_d’entreprise>.\<extension>** . Par exemple **BSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur**, entrez **BSimon\@\<yourcompanydomain>.\<extension>** . Par exemple **BSimon\@contoso.com**.
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 

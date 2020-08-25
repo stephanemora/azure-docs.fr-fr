@@ -1,6 +1,6 @@
 ---
 title: Exemples de modèles Azure Resource Manager - Azure Front Door
-description: Exemples de modèles Azure Resource Manager pour Azure Front Door
+description: Apprenez-en davantage sur les exemples de modèles Resource Manager pour Azure Front Door, notamment les modèles pour la création d’une instance Front Door de base et la configuration de la limitation du débit Front Door.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: 47db565288d1bfe1f98c58536e726eb7ec55d0a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084634"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182185"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modèles de déploiement Azure Resource Manager pour Front Door
 

@@ -1,20 +1,20 @@
 ---
-title: 'Azure Arc pour serveurs (préversion) : vue d’ensemble'
-description: Découvrez comment utiliser Azure Arc pour serveurs afin de gérer les machines hébergées en dehors d’Azure comme s’il s’agissait d’une ressource Azure.
+title: Vue d’ensemble des serveurs avec Azure Arc (préversion)
+description: Découvrez comment utiliser les serveurs avec Azure Arc (préversion) afin de gérer les machines hébergées en dehors d’Azure comme s’il s’agissait d’une ressource Azure.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121797"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211324"
 ---
-# <a name="what-is-azure-arc-for-servers-preview"></a>Présentation d’Azure Arc pour serveurs (préversion)
+# <a name="what-is-azure-arc-enabled-servers-preview"></a>Qu’est-ce qu’un serveur avec Azure Arc (préversion) ?
 
-Azure Arc pour serveurs (préversion) vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud, de la même façon que vous gérez des machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est gérée dans le cadre d’un groupe de ressources au sein d’un abonnement et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes.
+Les serveurs avec Azure Arc (préversion) vous permettent de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud, de la même façon que vous gérez des machines virtuelles Azure natives. Quand une machine hybride est connectée à Azure, elle devient une machine connectée et est traitée comme une ressource dans Azure. Chaque machine connectée possède un ID de ressource, est gérée dans le cadre d’un groupe de ressources au sein d’un abonnement et tire parti des constructions Azure standard, comme Azure Policy et l’application d’étiquettes.
 
 Pour bénéficier de cette expérience avec vos machines hybrides hébergées en dehors d’Azure, vous devez installer Azure Connected Machine sur chaque machine que vous envisagez de connecter à Azure. Cet agent ne fournit aucune autre fonctionnalité et ne remplace pas l’agent Azure [Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-intro.md).
 
@@ -24,7 +24,7 @@ Pour bénéficier de cette expérience avec vos machines hybrides hébergées en
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Quand vous connectez votre machine à la fonctionnalité Azure Arc pour serveurs (préversion), celle-ci permet d’effectuer les tâches de gestion de la configuration suivantes :
+Quand vous connectez votre machine aux serveurs avec Azure Arc (préversion), cela active la possibilité d’effectuer les tâches de gestion de la configuration suivantes :
 
 - Affecter des [configurations invité Azure Policy](../../governance/policy/concepts/guest-configuration.md) à l’aide de la même expérience que lors de l’attribution de stratégie pour des machines virtuelles Azure.
 
@@ -36,14 +36,14 @@ Les données de journal collectées et stockées dans un espace de travail Log A
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Avec Azure Arc pour serveurs (préversion), seules certaines régions sont prises en charge :
+Avec les serveurs avec Azure Arc (préversion), seules certaines régions sont prises en charge :
 
 - USAEst
 - WestUS2
 - WestEurope
 - AsieSudEst
 
-Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. En cas de panne régionale, si vous avez plusieurs emplacements qui assurent un service géographiquement redondant, l’idéal est de connecter les machines de chaque emplacement à une région Azure distincte.
+Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. En cas de panne régionale, si vous avez plusieurs emplacements qui prennent en charge un service géographiquement redondant, l’idéal est de connecter les machines de chaque emplacement à une région Azure distincte.
 
 ### <a name="agent-status"></a>État de l’agent
 
@@ -51,4 +51,4 @@ L’agent Connected Machine envoie des messages de pulsation au service de faço
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant d’évaluer ou d’activer Arc pour les serveurs (préversion) sur plusieurs machines hybrides, consultez l’article [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour comprendre ce qui est nécessaire, les détails techniques sur l’agent, et les méthodes de déploiement.
+Avant d’évaluer ou d’activer les serveurs compatibles avec Arc (préversion) sur plusieurs machines hybrides, consultez l’article [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour comprendre ce qui est nécessaire, les détails techniques sur l’agent et les méthodes de déploiement.

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: fff032d37fa0746695736e0dbdde73c6bcaade4b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a786baf70dfd9063c635fd27d43d198b3bd89bfb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445676"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272125"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutoriel : Intégrer Remote Rendering dans une application holographique HoloLens
 
@@ -99,14 +99,15 @@ Nous commençons par ajouter les includes nécessaires. Ajoutez l’instruction 
 #include <AzureRemoteRendering.h>
 ```
 
-...et cette directive `include` supplémentaire au fichier HolographicAppMain.cpp :
+... et ces directives `include` supplémentaires au fichier HolographicAppMain.cpp :
 
 ```cpp
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
+#include <windows.perception.spatial.h>
 ```
 
-Pour simplifier le code, nous définissons le raccourci d’espace de noms suivant en haut du fichier HolographicAppMain.h, après la directive `include` :
+Pour simplifier le code, nous définissons le raccourci d’espace de noms suivant en haut du fichier HolographicAppMain.h, après les directives `include` :
 
 ```cpp
 namespace RR = Microsoft::Azure::RemoteRendering;
@@ -297,7 +298,7 @@ namespace HolographicApp
         bool m_modelLoadTriggered = false;
         float m_modelLoadingProgress = 0.f;
         bool m_modelLoadFinished = false;
-
+        bool m_needsCoordinateSystemUpdate = true;
     }
 ```
 
@@ -420,9 +421,13 @@ void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, 
 
 ### <a name="per-frame-update"></a>Mise à jour image par image
 
-Nous devons graduer (tick) le client une fois par cycle de simulation. La classe `HolographicApp1Main` fournit un bon raccordement pour les mises à jour par image. Par ailleurs, nous devons interroger l’état de la session et voir si elle est passée à l’état `Ready`. Si nous sommes parvenus à nous connecter, il ne nous restera plus qu’à charger le modèle via `StartModelLoading`.
+Nous devons mettre à jour le client une fois par cycle de simulation et effectuer des mises à jour d’état supplémentaires. La fonction `HolographicAppMain::Update` fournit un bon raccordement pour les mises à jour par image.
 
-Ajoutez le code suivant au corps de la fonction `HolographicApp1Main::Update` :
+#### <a name="state-machine-update"></a>Mise à jour de machine à états
+
+Nous devons interroger l’état de la session et voir si elle est passée à l’état `Ready`. Si nous sommes parvenus à nous connecter, il ne nous restera plus qu’à charger le modèle via `StartModelLoading`.
+
+Ajoutez le code suivant au corps de la fonction `HolographicAppMain::Update` :
 
 ```cpp
 // Updates the application state once per frame.
@@ -485,9 +490,57 @@ HolographicFrame HolographicAppMain::Update()
         }
     }
 
+    if (m_needsCoordinateSystemUpdate && m_stationaryReferenceFrame && m_graphicsBinding)
+    {
+        // Set the coordinate system once. This must be called again whenever the coordinate system changes.
+        winrt::com_ptr<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem> ptr{ m_stationaryReferenceFrame.CoordinateSystem().as<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem>() };
+        m_graphicsBinding->UpdateUserCoordinateSystem(ptr.get());
+        m_needsCoordinateSystemUpdate = false;
+    }
+
     // Rest of the body:
     ...
 }
+```
+
+#### <a name="coordinate-system-update"></a>Mise à jour du système de coordonnées
+
+Nous devons convenir d’un système de coordonnées à utiliser avec le service de rendu. Pour accéder au système de coordonnées que nous souhaitons utiliser, nous avons besoin du `m_stationaryReferenceFrame` créé à la fin de la fonction `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`.
+
+Ce système de coordonnées ne change généralement pas ; il s’agit donc d’une initialisation ponctuelle. Elle doit être appelée à nouveau si votre application modifie le système de coordonnées.
+
+Le code ci-dessus définit le système de coordonnées une fois dans la fonction `Update` dès que nous avons un système de coordonnées de référence et une session connectée.
+
+#### <a name="camera-update"></a>Mise à jour de la caméra
+
+Nous devons mettre à jour les plans de découpage de caméra afin que la caméra du serveur reste synchronisée avec la caméra locale. Nous pouvons le faire à la fin de la fonction `Update` :
+
+```cpp
+    ...
+    if (m_isConnected)
+    {
+        // Any near/far plane values of your choosing.
+        constexpr float fNear = 0.1f;
+        constexpr float fFar = 10.0f;
+        for (HolographicCameraPose const& cameraPose : prediction.CameraPoses())
+        {
+            // Set near and far to the holographic camera as normal
+            cameraPose.HolographicCamera().SetNearPlaneDistance(fNear);
+            cameraPose.HolographicCamera().SetFarPlaneDistance(fFar);
+        }
+
+        // The API to inform the server always requires near < far. Depth buffer data will be converted locally to match what is set on the HolographicCamera.
+        auto settings = *m_api->CameraSettings();
+        settings->NearPlane(std::min(fNear, fFar));
+        settings->FarPlane(std::max(fNear, fFar));
+        settings->EnableDepth(true);
+    }
+
+    // The holographic frame will be used to get up-to-date view and projection matrices and
+    // to present the swap chain.
+    return holographicFrame;
+}
+
 ```
 
 ### <a name="rendering"></a>Rendu

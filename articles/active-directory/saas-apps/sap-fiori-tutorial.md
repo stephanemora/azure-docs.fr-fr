@@ -2,26 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897762"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543391"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori
 
@@ -126,7 +121,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la zone **Provider Name** (Nom du fournisseur), remplacez **T01122** par **http:\//T01122**, puis sélectionnez **Save** (Enregistrer).
 
     > [!NOTE]
-    > Par défaut, le nom du fournisseur est au format \<sid>\<client>. Azure AD attend le nom au format \<protocole>://\<nom>. Nous vous conseillons de conserver https\://\<sid>\<client> comme nom du fournisseur, afin de pouvoir configurer plusieurs moteurs ABAP SAP Fiori dans Azure AD.
+    > Par défaut, le nom du fournisseur est au format \<sid>\<client>. Azure AD attend le nom au format \<protocol>://\<name>. Nous vous conseillons de conserver https\://\<sid>\<client> pour le nom du fournisseur, afin de pouvoir configurer plusieurs moteurs ABAP SAP Fiori dans Azure AD.
 
     ![Nom du fournisseur mis à jour dans la page de configuration SAML 2.0 du système ABAP T01/122 dans SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 

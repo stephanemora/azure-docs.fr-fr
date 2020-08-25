@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à 8x8 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81e63a073882dea3a7aea32d5e9f4d3d5c48f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018591"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à 8x8
 
@@ -48,7 +44,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * 8x8 prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
 
-* Après avoir configuré 8x8, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Une fois que vous avez configuré 8x8, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -64,7 +60,7 @@ Pour configurer l’intégration de 8x8 à Azure AD, vous devez ajouter 8x8 à 
 1. Dans la section **Ajouter à partir de la galerie**, tapez **8x8** dans la zone de recherche.
 1. Sélectionnez **8x8** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Configurer et tester l’authentification unique Azure AD pour 8x8
+## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Configurer et tester l’authentification unique Azure AD pour 8x8
 
 Configurez et testez l’authentification unique Azure AD avec 8x8 pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans 8x8.
 
@@ -139,7 +135,15 @@ La partie suivante de ce tutoriel dépend du type d’abonnement que vous avez a
 
 ### <a name="configure-8x8-configuration-manager"></a>Configurer le Gestionnaire de configuration 8x8
 
-1. Connectez-vous au [Gestionnaire de configuration](https://vo-cm.8x8.com/) 8x8.
+1. Pour automatiser la configuration dans 8x8, vous devez installer l’**extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Une fois l’extension ajoutée au navigateur, le fait de cliquer sur **Configurer 8x8** vous redirige vers l’application 8x8. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à 8x8. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous voulez configurer 8x8 manuellement, connectez-vous au [Gestionnaire de configuration](https://vo-cm.8x8.com/) 8x8 en tant qu’administrateur.
 
 1. Dans la page d’accueil, cliquez sur **Identity Management** (Gestion des identités).
 

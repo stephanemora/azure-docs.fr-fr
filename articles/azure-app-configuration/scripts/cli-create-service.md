@@ -1,7 +1,7 @@
 ---
 title: Exemple de script Azure CLI - Créer un magasin Azure App Configuration
 titleSuffix: Azure App Configuration
-description: Utiliser un script Azure CLI pour créer un magasin Azure App Configuration
+description: Créez un magasin Azure App Configuration à l’aide d’un exemple de script Azure CLI. Consultez les liens des articles de référence pour connaître les commandes utilisées dans le script.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 17be6dee1d5077a45dd14f403ed6e2c13b1e19b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7b3221c55cef6207ea38ac1375202acd8b8ab4f1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494857"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588301"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Créer un magasin Azure App Configuration
 

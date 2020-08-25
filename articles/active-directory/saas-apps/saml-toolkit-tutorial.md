@@ -2,25 +2,21 @@
 title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Azure AD SAML Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa37cef84bb1d2cb92f2bb0e4a227c5be60fa345
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166308"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit
 
@@ -161,7 +157,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Créer un utilisateur de test Azure AD SAML Toolkit
 
-Dans cette section, un utilisateur appelé B. Simon est créé dans Azure AD SAML Toolkit. Azure AD SAML Toolkit prend en charge l’approvisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Azure AD SAML Toolkit, un utilisateur est créé après l’authentification.
+Dans cette section, un utilisateur appelé B. Simon est créé dans Azure AD SAML Toolkit. Créez un utilisateur de test dans l’outil en inscrivant un nouvel utilisateur, puis fournissez tous les détails de l’utilisateur. 
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
