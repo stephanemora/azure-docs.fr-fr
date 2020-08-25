@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251485"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du Portail Azure
@@ -144,10 +144,10 @@ Une fois le déploiement terminé, notez l’adresse IP privée de la machine vi
    |Paramètre  |Valeur  |
    |---------|---------|
    |Nom     |FW-DNAT-test|
-   |Abonnement     |\<votre abonnement\>|
-   |Resource group     |**Utiliser l’existant** : RG-DNAT-Test |
+   |Abonnement     |\<your subscription\>|
+   |Resource group     |**Utiliser l’existant** : RG-DNAT-Test |
    |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
-   |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
+   |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
 5. Sélectionnez **Revoir + créer**.
