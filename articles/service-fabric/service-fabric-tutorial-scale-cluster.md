@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à effectuer un scale-out et
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257102"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716882"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -833,7 +833,7 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Augmenter les ressources du nœud 
-Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud en remplaçant le type de nœud d’origine par un nouveau type de nœud (avec image du système d’exploitation ou référence SKU de machine virtuelle mise à jour). Pour plus d’informations, consultez [Effectuer un scale-up d’un type de nœud Azure Service Fabric](service-fabric-scale-up-node-type.md).
+Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud en remplaçant le type de nœud d’origine par un nouveau type de nœud (avec image du système d’exploitation ou référence SKU de machine virtuelle mise à jour). Pour plus d’informations, consultez [Effectuer un scale-up d’un type de nœud Azure Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Ne tentez jamais une modification sur place d’une référence SKU de machine virtuelle ou d’une image de système d’exploitation, car cette opération est dangereuse et non prise en charge.

@@ -182,6 +182,8 @@
           href: geo-disaster-recovery.md
     - name: Sécurité
       items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
         - name: Authentifier la remise des événements aux gestionnaires d’événements
           href: security-authentication.md
         - name: Authentifier les clients de publication
