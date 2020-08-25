@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251906"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
@@ -73,12 +73,12 @@ Dans les étapes de cette section, vous devrez remplacer les paramètres du tabl
 
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
-| **\<nom_groupe_ressources>**  | myResourceGroupZLB (sélectionnez un groupe de ressources existant) |
-| **\<nom_réseau_virtuel>** | myVNet          |
-| **\<nom_région>**          | Europe Ouest      |
-| **\<espace_d’adressage_IPv4>**   | 10.0.0.0\16          |
-| **\<nom_sous-réseau>**          | myBackendSubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.0.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroupZLB (sélectionnez un groupe de ressources existant) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europe Ouest      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -129,7 +129,7 @@ Dans cette section, vous créez des règles de groupe de sécurité réseau pour
     - **azureuser**, pour le nom d’utilisateur administrateur.    
     - **myResourceGroupZLB**, pour le **Groupe de ressources**. Sélectionnez **Utiliser l’existant**, puis **myResourceGroupZLB**.
 2. Sélectionnez **OK**.
-3. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle. Choisissez **Select**.
+3. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle. Choisissez **Sélectionner**.
 4. Entrez ces valeurs pour les paramètres de la machine virtuelle :
     - **zone 1**, pour la zone de disponibilité dans laquelle vous placez la machine virtuelle.
     -  **MyVNet**. Vérifiez qu’il est sélectionné en tant que réseau virtuel.
@@ -146,7 +146,7 @@ Dans cette section, vous créez des règles de groupe de sécurité réseau pour
 
 1. Dans le menu le plus à gauche, sélectionnez **Toutes les ressources**. Puis dans la liste de ressources, sélectionnez **myVM1**. Il se trouve dans le groupe de ressources **myResourceGroupZLB**.
 2. Sur la page **Vue d’ensemble**, sélectionnez **Connexion** pour utiliser RDP pour accéder à la machine virtuelle.
-3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur et le mot de passe que vous avez indiqué lors de la création de la machine virtuelle. Pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle, vous devrez peut-être sélectionner **Plus de choix**. Puis **Utiliser un autre compte**. Et enfin sélectionner **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion.
+3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur et le mot de passe que vous avez indiqué lors de la création de la machine virtuelle. Pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle, vous devrez peut-être sélectionner **Plus de choix**. Ensuite, sélectionnez **Utiliser un autre compte**. Et enfin sélectionner **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion.
 4. Sur le bureau du serveur, accédez à **Outils d’administration Windows** > **Windows PowerShell**.
 6. Dans la fenêtre **PowerShell**, exécutez les commandes suivantes pour installer le serveur IIS. Ces commandes suppriment également le fichier iisstart.htm par défaut, puis ajoutent un nouveau fichier iisstart.htm qui affiche le nom de la machine virtuelle :
 
@@ -195,7 +195,7 @@ Utilisez une sonde d’intégrité pour permettre à l’équilibrage de charge 
     - **2**, pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
 4. Sélectionnez **OK**.
 
-   ![Ajoutez une sonde d’intégrité](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
+   ![Ajouter une sonde d’intégrité](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 

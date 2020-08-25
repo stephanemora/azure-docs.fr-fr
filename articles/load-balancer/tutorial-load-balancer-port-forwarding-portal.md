@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82207885"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
@@ -74,12 +74,12 @@ Dans les étapes de cette section, vous devrez remplacer les paramètres du tabl
 
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
-| **\<nom_groupe_ressources>**  | myResourceGroupLB (sélectionnez un groupe de ressources existant) |
-| **\<nom_réseau_virtuel>** | myVNet          |
-| **\<nom_région>**          | Europe Ouest      |
-| **\<espace_d’adressage_IPv4>**   | 10.3.0.0\16          |
-| **\<nom_sous-réseau>**          | myBackendSubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.3.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroupLB (sélectionnez un groupe de ressources existant) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europe Ouest      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -117,7 +117,7 @@ Dans les étapes de cette section, vous devrez remplacer les paramètres du tabl
    1. Pour **Sélectionner un équilibreur de charge**, faites défiler la liste déroulante et sélectionnez **MyLoadBalancer**. 
    1. Sous **Sélectionner un pool principal**, sélectionnez **Créer**, puis tapez *MyBackendPool* et sélectionnez **Créer**. 
    
-   ![Créez un réseau virtuel](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
+   ![Créer un réseau virtuel](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
    
 1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
    
@@ -144,14 +144,14 @@ Créez une règle de groupe de sécurité réseau (NSG) pour les machines virtue
    
 1. Dans la boîte de dialogue **Ajouter une règle de sécurité de trafic entrant**, tapez ou sélectionnez les informations suivantes :
    
-   - **Source** : Sélectionnez **Balise du service**.  
-   - **Balise du service source** : Sélectionnez **Internet**. 
-   - **Plages de ports de destination** : Entrez *80*.
+   - **Source** : sélectionnez **Balise du service**.  
+   - **Étiquette du service source** : sélectionnez **Internet**. 
+   - **Plages de ports de destination** : tapez *80*.
    - **Protocole** : Sélectionnez **TCP**. 
-   - **Action** : Sélectionnez **Autoriser**.  
-   - **Priorité** : Entrez *100*. 
-   - **Name** : Entrez *MyHTTPRule*. 
-   - **Description** : Entrez *Autoriser HTTP*. 
+   - **Action** : sélectionnez **Autoriser**.  
+   - **Priorité** : tapez *100*. 
+   - **Nom** : tapez *MyHTTPRule*. 
+   - **Description** : tapez *Autoriser HTTP*. 
    
 1. Sélectionnez **Ajouter**. 
    
