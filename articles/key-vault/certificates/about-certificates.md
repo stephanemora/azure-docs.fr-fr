@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 38ae6bec99498440d7bf7e68e2d5c397e696192a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115671"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604905"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -84,7 +84,8 @@ Quand un certificat Key Vault est créé de zéro, une stratégie doit être fou
 Globalement, une stratégie de certificat contient les informations suivantes (les définitions correspondantes se trouvent [ici](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)) :  
 
 -   Propriétés du certificat X.509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat X.509.  
--   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et ReuseKeyOnRenewal. Ces champs indiquent au coffre de clés comment générer une clé.  
+-   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et ReuseKeyOnRenewal. Ces champs indiquent au coffre de clés comment générer une clé. 
+     - Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, Oct (répertorié [ici](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Propriétés du secret : propriétés du secret comme le type de contenu de secret adressable pour générer la valeur du secret, pour récupérer le certificat en tant que secret.  
 -   Actions de la durée de vie : actions de la durée de vie du certificat KV. Chaque action de la durée de vie contient :  
 
