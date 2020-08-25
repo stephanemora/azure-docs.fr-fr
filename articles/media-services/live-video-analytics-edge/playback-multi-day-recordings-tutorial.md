@@ -3,12 +3,12 @@ title: Lecture d’enregistrements sur plusieurs jours - Azure
 description: Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433657"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649089"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours  
 
@@ -40,7 +40,7 @@ Nous vous recommandons de lire les pages de documentation suivantes :
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple 
 
-Dans le cadre du [tutoriel CVR](continuous-video-recording-tutorial.md), vous avez créé un compte Media Services. Pour les besoins de ce tutoriel, vous devez disposer d’un accès API complet à ce compte. Vous pouvez utiliser les étapes décrites dans [Récupérer des informations d’identification afin d’accéder à l’API Media Services](../latest/access-api-howto.md#use-the-azure-portal) pour créer un principal de service. Vous devez pouvoir récupérer un bloc JSON à partir du portail Azure, ressemblant à ceci :
+Dans le cadre du [tutoriel CVR](continuous-video-recording-tutorial.md), vous avez créé un compte Media Services. Pour les besoins de ce tutoriel, vous devez disposer d’un accès API complet à ce compte. Vous pouvez utiliser les étapes décrites dans [Récupérer des informations d’identification afin d’accéder à l’API Media Services](../latest/access-api-howto.md?tabs=portal) pour créer un principal de service. Vous devez pouvoir récupérer un bloc JSON à partir du portail Azure, ressemblant à ceci :
 
 ```
 {
