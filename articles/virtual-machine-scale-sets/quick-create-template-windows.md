@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: a4cd39186eb55cb03bd97994baa1898e196fb3c2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 03863171cb05c0557611fb8cd3c0ade667e7d79e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082809"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650075"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle ARM
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json" range="1-397" highlight="236-325":::
+:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 
 Ces ressources Azure sont définies dans les modèles suivants :
 
@@ -48,7 +48,7 @@ Ces ressources Azure sont définies dans les modèles suivants :
 
 ### <a name="define-a-scale-set"></a>Définir un groupe identique
 
-La partie en surbrillance correspond à la définition des ressources de groupe identique. Pour créer un groupe identique avec un modèle, vous définissez les ressources appropriées. Les parties essentielles du type de ressource de groupe de machines virtuelles identiques sont :
+Pour créer un groupe identique avec un modèle, vous définissez les ressources appropriées. Les parties essentielles du type de ressource de groupe de machines virtuelles identiques sont :
 
 | Propriété                     | Description de la propriété                                  | Exemple de valeur de modèle                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
