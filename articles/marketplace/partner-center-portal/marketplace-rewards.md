@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496013"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606754"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
@@ -27,7 +27,7 @@ Vous serez contacté par un membre de l’équipe de récompenses lorsque votre 
 
 Pour les partenaires Transact, lorsque vous augmentez vos ventes facturées par le biais de la plateforme Place de marché, vous déverrouillez les avantages par niveau.
 
-La configuration minimale requise pour publier en vitrine est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur la place de marché en tant que plateforme.
+La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur la place de marché en tant que plateforme.
 
 Vous bénéficierez d’un support technique pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [évaluer vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

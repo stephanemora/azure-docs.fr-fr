@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460981"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263025"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -28,7 +28,7 @@ Corrigez les problèmes de préparation à l’évaluation comme suit :
 Type de démarrage non pris en charge | Azure ne prend pas en charge les machines virtuelles associées au type de démarrage EFI. Nous vous recommandons de convertir le type de démarrage en BIOS avant d’effectuer une migration. <br/><br/>Vous pouvez utiliser Azure Migrate Server Migration pour gérer la migration de ces machines virtuelles. Celui-ci permet de convertir le type de démarrage de la machine virtuelle en BIOS au cours de la migration.
 Système d’exploitation Windows pris en charge de manière conditionnelle | Le système d’exploitation n’est plus pris en charge et a besoin d’un programme Custom Support Agreement (CSA) pour bénéficier d’une [prise en charge dans Azure](https://aka.ms/WSosstatement). Envisagez de mettre à niveau avant d’effectuer la migration vers Azure.
 Système d’exploitation Windows non pris en charge | Azure ne prend en charge que [certaines versions du système d’exploitation Windows](https://aka.ms/WSosstatement). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure.
-Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure.
+Systèmes d’exploitation Linux approuvés sous condition | Azure n’approuve que [certaines versions du système d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). Envisagez de mettre à niveau la machine avant d’effectuer la migration vers Azure. Pour plus d’informations, voyez également [ici](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment).
 Systèmes d’exploitation Linux non approuvés | La machine peut démarrer dans Azure, mais Azure ne fournit aucune prise en charge du système d’exploitation. Envisagez de mettre à niveau vers une [version approuvée de Linux](../virtual-machines/linux/endorsed-distros.md) avant d’effectuer la migration vers Azure.
 Système d’exploitation inconnu | Le système d’exploitation de la machine virtuelle a été spécifié comme étant du type « Autre » dans vCenter Server. Ce comportement empêche Azure Migrate de vérifier la préparation de la machine virtuelle à Azure. Vérifiez que le système d’exploitation est [pris en charge](https://aka.ms/azureoslist) par Azure avant de procéder à la migration.
 Version de bit non prise en charge | Les machines virtuelles dotées d’un système d’exploitation 32 bits peuvent être démarrées dans Azure. Toutefois, il est recommandé d’effectuer une mise à niveau vers la version 64 bits avant de procéder à la migration vers Azure.
@@ -74,7 +74,6 @@ Pour les serveurs physiques, les informations sur la version mineure du système
 
 Azure Migrate Server Assessment peut recommander des références SKU de machine virtuelle Azure avec davantage de cœurs et de mémoire que la répartition locale actuelle en fonction du type d’évaluation :
 
-
 - La recommandation en matière de référence SKU de machine virtuelle varie en fonction des propriétés d’évaluation.
 - Cela est affecté par le type d’évaluation que vous effectuez dans Server Assessment : une évaluation effectuée *En fonction des performances* et une évaluation effectuée *Localement*.
 - Pour les évaluations en fonction des performances, Server Assessment prend en compte les données d’utilisation des machines virtuelles locales (processeur, mémoire, utilisation des disques et du réseau) afin de déterminer la référence SKU de machine virtuelle cible appropriée pour vos machines virtuelles locales. Il ajoute également un facteur de confort pour déterminer l’utilisation effective.
@@ -88,7 +87,7 @@ Nous disposons d’une machine virtuelle locale avec quatre cœurs et huit Go d
 - Si l’évaluation est basée sur les performancess, d’après l’utilisation effective de l’UC et de la mémoire (50 % de 4 cœurs * 1,3 = 2,6 cœurs et 50 % de 8 Go de mémoire * 1,3 = 5,3 Go de mémoire), la référence SKU de machine virtuelle la moins coûteuse avec quatre cœurs (nombre de cœurs pris en charge le plus proche) et huit Go de mémoire (taille de mémoire prise en charge la plus proche) est celle qui est recommandée.
 - [En savoir](concepts-assessment-calculation.md#types-of-assessments) plus sur le dimensionnement de l’évaluation.
 
-## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Références SKU de disque Azure plus volumineuses qu’en local dans une évaluation de machine virtuelle Azure
+## <a name="why-is-the-recommended-azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Pourquoi les références (SKU) de disque Azure recommandées à la suite d’une évaluation de machine virtuelle Azure sont-elles plus volumineuses qu’en local ?
 
 Azure Migrate Server Assessment peut recommander un disque plus volumineux en fonction du type d’évaluation.
 - Dans Server Assessment, le dimensionnement du disque dépend de deux propriétés d’évaluation : le critère de dimensionnement et le type de stockage.
@@ -97,14 +96,26 @@ Azure Migrate Server Assessment peut recommander un disque plus volumineux en fo
 
 Par exemple, si vous avez un disque local avec 32 Go de mémoire, mais que la valeur d’IOPS en lecture et écriture agrégée pour le disque est de 800 IOPS, Server Assessment recommande un disque Premium (en raison des exigences d’IOPS plus élevées), puis recommande une référence SKU de disque capable de prendre en charge la taille et les IOPS nécessaires. La correspondance la plus proche dans cet exemple serait P15 (256 Go, 1100 IOPS). Par conséquent, même si la taille nécessaire au disque local était de 32 Go, Server Assessment a recommandé un disque avec une plus grande taille en raison de l’exigence élevée du disque local concernant les IOPS.
 
-## <a name="utilized-corememory-percentage-missing"></a>Pourcentage de noyau/mémoire utilisé manquant
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Pourquoi les données de performances sont-elles manquantes pour une partie ou la totalité des machines virtuelles dans mon rapport d’évaluation ?
 
-Server Assessment signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » lorsque l’appliance Azure Migrate ne peut pas collecter les données de performances pour les machines virtuelles locales appropriées.
+Pour l’évaluation « En fonction des performances », le rapport d’évaluation signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » quand l’appliance Azure Migrate ne peut pas collecter les données de performances pour les machines virtuelles locales. Vérifiez :
 
-- Cela peut se produire si les machines virtuelles sont désactivées pendant la durée de l’évaluation. L’appliance ne peut pas collecter les données de performances d’une machine virtuelle lorsque celle-ci est désactivée.
-- S’il manque uniquement les compteurs de mémoire et si vous tentez d’évaluer des machines virtuelles Hyper-V, vérifiez si la mémoire dynamique est activée sur ces machines. Il existe un problème connu pour les machines virtuelles Hyper-V qui empêche l’appliance Azure Migrate de collecter les données d’utilisation de la mémoire pour les machines virtuelles sur lesquelles la mémoire dynamique n’est pas activée.
-- Si l’un des compteurs de performances est manquant, Azure Migrate Server Assessment a recours aux cœurs et à la mémoire alloués, et recommande une taille de machine virtuelle adaptée.
+- Si les machines virtuelles sont sous tension pendant que vous créez l’évaluation.
+- S’il manque uniquement les compteurs de mémoire et si vous tentez d’évaluer des machines virtuelles Hyper-V, vérifiez si la mémoire dynamique est activée sur ces dernières. Il existe un problème connu qui empêche l’appliance Azure Migrate de collecter les données d’utilisation de la mémoire pour les machines virtuelles de ce type.
 - En l'absence de tous les compteurs de performances, assurez-vous que les exigences d’accès aux ports à des fins d'évaluation sont respectées. Apprenez-en plus sur les conditions d’accès aux ports à des fins d'évaluation de [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) et du [serveur physique](./migrate-support-matrix-physical.md#port-access).
+Remarque : Si l’un des compteurs de performances est manquant, Azure Migrate : Server Assessment se base à la place sur les cœurs et la mémoire alloués localement pour recommander une taille de machine virtuelle.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Pourquoi la note de confiance de mon évaluation est faible ?
+
+La note de confiance pour les évaluations « En fonction des performances » dépend du pourcentage de [points de données disponibles](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) nécessaires pour calculer l’évaluation. Voici les raisons pour lesquelles une évaluation pourrait obtenir une note de confiance faible :
+
+- Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte et « recalculez » l’évaluation.
+ 
+- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles dans la période d’évaluation. Vérifiez que les machines virtuelles étaient sous tension pendant la durée de l’évaluation et que les connexions sortantes sur les ports 443 sont autorisées. Pour les machines virtuelles Hyper-V, si la mémoire dynamique est activée, des compteurs de mémoire font défaut, aboutissant à une note de confiance faible. « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance. 
+
+- Peu de machines virtuelles ont été créées après que la découverte dans Évaluation de serveur a commencé. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
+
+[Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sur les notes de confiance.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>La licence du système d'exploitation est-elle incluse dans une évaluation de machine virtuelle Azure ?
 
@@ -133,10 +144,6 @@ La catégorie de disponibilité n’est peut-être pas correctement marquée com
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Nombre de cartes réseau détectées supérieur à la valeur réelle pour les serveurs physiques
 
 Cela peut se produire si la virtualisation Hyper-V est activée sur le serveur physique. Azure Migrate détecte actuellement les cartes réseau physiques et virtuelles sur ces serveurs. D’où le fait que le nombre de cartes réseau détectées soit supérieur au nombre réel.
-
-
-## <a name="low-confidence-rating-on-physical-server-assessments"></a>Classement des évaluations de serveurs physiques avec un niveau de confiance faible
-Le classement est attribué en fonction de la disponibilité des points de données requis pour le calcul de l’évaluation. Lorsque la virtualisation Hyper-V est activée sur des serveurs physiques, un niveau de confiance faible qui n’est peut-être pas affecté correctement aux évaluations du serveur physique entraîne un écart. Azure Migrate détecte actuellement les cartes réseau physiques et virtuelles sur ces serveurs. Le débit du réseau est capturé sur les cartes réseau virtuelles détectées, mais pas sur les cartes réseau physiques. En raison de l’absence de points de données sur les cartes réseau physiques, le niveau de confiance peut être impacté et se traduire par un mauvais classement. À l’avenir, cet écart sera tenu en compte.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualisation des dépendances dans Azure Government
 

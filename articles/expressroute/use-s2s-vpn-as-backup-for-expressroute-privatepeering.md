@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206870"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244769"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Utilisation du VPN site à site comme solution de secours pour le Peering privé ExpressRoute
 
-Dans l’article intitulé [Conception pour une récupération d’urgence avec le Peering privé ExpressRoute][DR-PP], nous avons abordé la nécessité de disposer d’une solution de connectivité de secours pour la connectivité de Peering privé ExpressRoute et de l’utilisation de circuits ExpressRoute géoredondants à cet effet. Dans cet article, nous allons étudier comment tirer parti du VPN site à site (S2S) et l’entretenir comme solution de secours pour le Peering privé ExpressRoute. 
+Dans l’article intitulé [Conception pour une récupération d’urgence avec le Peering privé ExpressRoute][DR-PP], nous avons abordé la nécessité de disposer d’une solution de connectivité de secours pour la connectivité de Peering privé ExpressRoute et de l’utilisation de circuits ExpressRoute géoredondants à cet effet. Cet article explique comment tirer parti d’un VPN site à site (S2S) et le gérer en guise de solution de secours pour le Peering privé ExpressRoute. 
 
 Contrairement aux circuits ExpressRoute géoredondants, vous pouvez utiliser la combinaison de récupération d’urgence ExpressRoute-VPN uniquement en mode actif-passif. L’une des principales difficultés de l’utilisation d’une connectivité réseau de secours en mode passif est que la connexion passive échoue souvent en même temps que la connexion principale. L’absence de maintenance active est la raison la plus fréquente des échecs de la connexion passive. Par conséquent, dans cet article, nous allons nous concentrer sur la manière de vérifier et d’entretenir activement la connectivité VPN S2S comme solution de secours d’un Peering privé ExpressRoute.
 
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Configuration du flux de trafic symétrique
 
-Nous avons noté que lorsqu’un itinéraire local donné est publié via ExpressRoute et VPN S2S, Azure préfère le chemin ExpressRoute. Pour forcer Azure à préférer le chemin VPN S2S aux circuits ExpressRoute coexistants, vous devez publier des itinéraires plus spécifiques (préfixe plus long avec un masque de sous-réseau plus grand) via la connexion VPN. Notre objectif ici est d’utiliser les connexions VPN en secours uniquement. Par conséquent, le comportement de sélection du chemin d’accès par défaut d’Azure est conforme à notre objectif. 
+Nous avons noté que lorsqu’un itinéraire local donné est publié via ExpressRoute et VPN S2S, Azure préfère le chemin ExpressRoute. Pour forcer Azure à préférer le chemin VPN S2S aux circuits ExpressRoute coexistants, vous devez publier des itinéraires plus spécifiques (préfixe plus long avec un masque de sous-réseau plus grand) via la connexion VPN. Notre objectif ici est d’utiliser les connexions VPN en guise de solution de secours uniquement. Par conséquent, le comportement de sélection du chemin d’accès par défaut d’Azure est conforme à notre objectif. 
 
 Il est de notre responsabilité de veiller à ce que le trafic destiné à Azure à partir d’un emplacement local privilégie également le chemin ExpressRoute au VPN S2S. La préférence locale par défaut des routeurs CE et des pare-feu dans notre configuration locale est 100. Par conséquent, en configurant la préférence locale des itinéraires reçus via les Peerings privés ExpressRoute supérieurs à 100 (par exemple, 150), nous pouvons faire en sorte que le trafic destiné à Azure préfère le circuit ExpressRoute à l’état stable.
 

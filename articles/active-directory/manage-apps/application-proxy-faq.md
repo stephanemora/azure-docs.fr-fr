@@ -2,25 +2,21 @@
 title: Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory | Microsoft Docs
 description: Découvrez les réponses aux questions fréquentes (FAQ) sur l’utilisation de la fonctionnalité Proxy d’application Azure AD pour publier des applications locales internes destinées à des utilisateurs distants.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042103"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589161"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -90,6 +86,15 @@ Le proxy d’application nécessite Windows Server 2012 R2 ou une version ult�
 
 
 ## <a name="application-configuration"></a>Configuration de l’application
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Je reçois une erreur concernant un certificat non valide ou un mot de passe peut-être incorrect
+
+Une fois le certificat SSL chargé, vous recevez le message « certificat non valide, mot de passe peut-être incorrect » sur le portail.
+
+Voici quelques conseils pour résoudre cette erreur :
+- Vérifiez les problèmes liés au certificat. Installez le certificat sur votre ordinateur local. Si vous ne rencontrez aucun problème, cela signifie que le certificat est correct.
+- Assurez-vous que le mot de passe ne contient pas de caractères spéciaux. Pour le test, le mot de passe ne doit contenir que des caractères 0-9, A-Z et a-z.
+- Si le certificat a été créé avec le fournisseur de stockage de clés pour les Logiciels Microsoft, l’algorithme RSA doit être utilisé.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Quelle est la durée du délai d’expiration back-end par défaut « long » ? Peut-il être prolongé ?
 

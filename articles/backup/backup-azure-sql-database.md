@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server sur Azure
 description: Cet article explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922895"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612535"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -27,7 +27,7 @@ Cette solution exploite les API natives de SQL pour effectuer des sauvegardes de
 
 * Une fois que vous avez spécifié la machine virtuelle SQL Server que vous voulez protéger et dont vous voulez interroger des bases de données, le service Sauvegarde Azure installe une extension de sauvegarde de charge de travail sur la machine virtuelle nommée `AzureBackupWindowsWorkload`.
 * Cette extension se compose d’un coordinateur et d’un plug-in SQL. Alors que le coordinateur est responsable du déclenchement des flux de travail pour diverses opérations, comme le configuration de la sauvegarde, la sauvegarde et la restauration, le plug-in est responsable du flux de données réel.
-* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Le compte `NT SERVICE\AzureWLBackupPluginSvc` est un [compte de service virtuel](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) et ne nécessite donc pas de gestion des mots de passe. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#set-vm-permissions).
+* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Le compte `NT SERVICE\AzureWLBackupPluginSvc` est un [compte de service virtuel](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) et ne nécessite donc pas de gestion des mots de passe. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, il se peut que vous receviez une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#set-vm-permissions).
 * Lorsque vous déclenchez la configuration de la protection sur les bases de données sélectionnées, le service de sauvegarde configure le coordinateur avec les planifications de sauvegarde et d’autres détails de stratégie, ce que l’extension met en cache localement sur la machine virtuelle.
 * À l’heure planifiée, le coordinateur communique avec le plug-in et démarre le streaming des données de sauvegarde à partir du serveur SQL avec l’infrastructure VDI.  
 * Le plug-in envoie les données directement au coffre Recovery Services, ce qui élimine la nécessité d’un emplacement intermédiaire. Les données sont chiffrées et stockées par le service de Sauvegarde Azure dans des comptes de stockage.
@@ -51,7 +51,7 @@ Avant de commencer, contrôlez les points suivants :
 * Crée un compte NT SERVICE\AzureWLBackupPluginSvc pour découvrir les bases de données sur la machine virtuelle. Ce compte est utilisé pour la sauvegarde et la restauration, et doit disposer d’autorisations d’administrateur système SQL.
 * Découvre les bases de données en cours d’exécution sur une machine virtuelle ; Sauvegarde Azure utilise le compte NT AUTHORITY\SYSTEM. Ce compte doit être une connexion publique sur SQL.
 
-Si vous n’avez pas créé la machine virtuelle SQL Server dans la Place de marché Azure, ou si vous êtes sur SQL 2008 et 2008 R2, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**.
+Si vous n’avez pas créé la machine virtuelle SQL Server dans la Place de marché Azure, ou si vous êtes sur SQL 2008 et 2008 R2, il se peut que vous receviez une erreur **UserErrorSQLNoSysadminMembership**.
 
 Pour accorder des autorisations dans le cas de **SQL 2008** et **2008 R2** s’exécutant sur Windows 2008 R2, voir [ici](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050871"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235296"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Éliminer les mauvais mots de passe à l’aide de Protection de mots de passe d’Azure Active Directory
 
 De nombreux conseils de sécurité recommandent de ne pas utiliser le même mot de passe à plusieurs endroits, de le rendre complexe et d’éviter les mots de passe simples comme *Motdepasse123*. Vous pouvez fournir à vos utilisateurs des [conseils sur la manière de choisir des mots de passe](https://www.microsoft.com/research/publication/password-guidance), mais les mots de passe faibles ou non sécurisés restent souvent utilisés. Protection de mots de passe d’Azure AD détecte et bloque les mots de passe faibles connus et leurs variantes, mais peut aussi bloquer d’autres termes faibles propres à votre organisation.
 
-Grâce à Protection de mots de passe d’Azure AD, les listes globales de mots de passe interdits par défaut sont automatiquement appliquées à tous les utilisateurs du cloud. Pour répondre aux besoins de votre entreprise et de votre sécurité, vous pouvez définir des entrées dans une liste personnalisée de mots de passe interdits. Lorsque les utilisateurs modifient ou réinitialisent leurs mots de passe, ces listes de mots de passe interdits sont vérifiées pour imposer l’utilisation de mots de passe forts.
+Grâce à Protection de mots de passe d’Azure AD, les listes globales de mots de passe interdits par défaut sont automatiquement appliquées à tous les utilisateurs dans un locataire Azure AD. Pour répondre aux besoins de votre entreprise et de votre sécurité, vous pouvez définir des entrées dans une liste personnalisée de mots de passe interdits. Lorsque les utilisateurs modifient ou réinitialisent leurs mots de passe, ces listes de mots de passe interdits sont vérifiées pour imposer l’utilisation de mots de passe forts.
 
 Vous devez utiliser des fonctionnalités supplémentaires telles que [Microsoft Azure Multi-Factor Authentication](concept-mfa-howitworks.md), et non pas seulement vous fier à des mots de passe forts imposés par Protection de mots de passe d’Azure AD. Pour plus d’informations sur l’utilisation de plusieurs couches de sécurité pour vos événements de connexion, consultez [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ L’équipe Azure AD Identity Protection analyse en permanence les données de t
 
 Lorsqu’un mot de passe est modifié ou réinitialisé pour tout utilisateur d’un locataire d’Azure AD, la version actuelle de la liste globale de mots de passe interdits est utilisée pour vérifier la force du mot de passe. Ce contrôle de validation permet à tous les clients Azure AD de disposer de mots de passe plus forts.
 
-La liste globale de mots de passe interdits est automatiquement appliquée à tous les utilisateurs du cloud dans un locataire Azure AD. Il n’y a rien à activer ni à configurer, et elle ne peut pas être désactivée.
+La liste globale de mots de passe interdits est automatiquement appliquée à tous les utilisateurs dans un locataire Azure AD. Il n’y a rien à activer ni à configurer, et elle ne peut pas être désactivée. Cette liste globale de mots de passe interdits est appliquée aux utilisateurs lorsqu’ils modifient ou réinitialisent leur propre mot de passe via Azure AD.
 
 > [!NOTE]
 > Les cybercriminels utilisent également des stratégies similaires dans leurs attaques pour identifier les mots de passe faibles courants et leurs variations. Afin d’améliorer la sécurité, Microsoft ne publie pas le contenu de la liste globale de mots de passe interdits.
@@ -99,7 +99,7 @@ Bien que la liste globale de mots de passe interdits soit petite par rapport à 
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scénarios hybrides locaux
 
-De nombreuses organisations disposent d’un modèle d’identité hybride qui comprend des environnements Active Directory Domain Services (AD DS) locaux. Pour étendre les avantages de sécurité de Protection de mots de passe d’Azure AD dans votre environnement AD DS, vous pouvez installer des composants sur vos serveurs locaux. Ces agents requièrent des événements de modification de mot de passe dans l’environnement AD DS local pour se conformer à la même stratégie de mot de passe que les utilisateurs du cloud uniquement.
+De nombreuses organisations disposent d’un modèle d’identité hybride qui comprend des environnements Active Directory Domain Services (AD DS) locaux. Pour étendre les avantages de sécurité de Protection de mots de passe d’Azure AD dans votre environnement AD DS, vous pouvez installer des composants sur vos serveurs locaux. Ces agents requièrent des événements de modification de mot de passe dans l’environnement AD DS local pour se conformer à la même stratégie de mot de passe que dans Azure AD.
 
 Pour plus d’informations, consultez [Appliquer Protection de mots de passe d’Azure AD pour AD DS](concept-password-ban-bad-on-premises.md).
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186448"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606519"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer la machine source pour l’installation Push de l’agent de mobilité
 
@@ -59,6 +59,7 @@ Sur chaque ordinateur Linux que vous souhaitez protéger, procédez ainsi :
 11. Dans l’onglet **Gérer les comptes**, sélectionnez **Ajouter un compte**.
 12. Ajoutez le compte que vous venez de créer.
 13. Entrez les informations d’identification utilisées lors de l’activation de la réplication d’un ordinateur.
+1. Étape supplémentaire pour la mise à jour ou la protection des machines SUSE Linux Enterprise Server 11 SP3. [Vérifiez que la dernière version est disponible dans le serveur de configuration](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Protection antivirus sur les machines répliquées
 

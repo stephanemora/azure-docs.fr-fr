@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 05/22/2020
+ms.date: 08/17/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6d23a148521506adf0c0fc16913a32aab5eb7a30
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135565"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545537"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
@@ -77,7 +77,7 @@ Azure Policy n’agit pas sur une ressource sur laquelle il est supposé agir et
 
 #### <a name="cause"></a>Cause
 
-L’attribution de stratégie a été configurée pour [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) sur _Désactivé_. Si le mode de mise en conformité est désactivé, l’effet de stratégie n’est pas appliqué et il n’y a aucune entrée dans le journal d’activité.
+L’attribution de stratégie a été configurée pour [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) sur _Désactivé_. Si le mode d’application est désactivé, l’effet de stratégie n’est pas appliqué et il n’y a aucune entrée dans le journal d’activité.
 
 #### <a name="resolution"></a>Résolution
 

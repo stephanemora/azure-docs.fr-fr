@@ -1,32 +1,32 @@
 ---
 title: Comparaison entre Microsoft AppSource et la Place de marché Azure
-description: 'Cet article explique les différences entre les vitrines de la place de marché commerciale Microsoft : Microsoft AppSource et la Place de marché Azure.'
+description: 'Cet article explique les différences entre les magasins en ligne de la place de marché commerciale Microsoft : Microsoft AppSource et la Place de marché Azure.'
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121807"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607475"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparaison entre Microsoft AppSource et la Place de marché Azure
 
-La Place de marché commerciale Microsoft comprend [Microsoft AppSource](https://appsource.microsoft.com) et la [Place de marché Azure](https://azuremarketplace.microsoft.com). Chaque vitrine a ses spécificités et s’adresse à différents publics cibles, ce qui vous permet de mettre votre solution ou votre service à la disposition des bons clients.
+La Place de marché commerciale Microsoft comprend [Microsoft AppSource](https://appsource.microsoft.com) et la [Place de marché Azure](https://azuremarketplace.microsoft.com). Chaque magasin en ligne a ses spécificités et s’adresse à différents publics cibles, ce qui vous permet de mettre votre solution ou votre service à la disposition des bons clients.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Différences entre les deux vitrines
+## <a name="understanding-the-differences-between-online-stores"></a>Différences entre les deux magasins en ligne
 
-Pour choisir une vitrine, identifiez tout d’abord le public cible de votre offre. Si vous ciblez des publics dans plusieurs vitrines, vous pouvez effectuer une seule publication pour vendre dans plusieurs vitrines.
+Pour choisir un magasin en ligne, identifiez tout d’abord le public cible de votre offre. Si vous ciblez des publics dans plusieurs magasins en ligne, vous pouvez effectuer une seule publication pour vendre dans plusieurs magasins.
 
 | Place de marché Azure | AppSource |
 |:--- |:--- |
 | Développeurs et professionnels de l’informatique | Utilisateurs et décisionnaires de l’entreprise |
 
-Le tableau suivant décrit les avantages de l’utilisation d’une vitrine :
+Le tableau suivant décrit les avantages de l’utilisation d’un magasin en ligne :
 
 | Avantages | Place de marché Azure | AppSource |
 |:--- |:--- | :--- |

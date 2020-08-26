@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372006"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206143"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
@@ -25,7 +25,7 @@ Cet article inclut les didacticiels suivants :
 
 - Générer un package de support
 - Arrêter ou redémarrer votre appareil
-- Télécharger les fichiers manifeste ou de nomenclature
+- Télécharger les fichiers manifeste ou de nomenclature (BOM)
 - Afficher la capacité disponible sur l’appareil
 - Ignorer la validation de la somme de contrôle
 
@@ -62,7 +62,7 @@ Pour arrêter votre appareil, effectuez les étapes suivantes.
 
     ![Arrêter Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Lorsque vous êtes invité à confirmer l’opération, cliquez sur **OK** pour continuer.
+3. Quand il vous est demandé de confirmer l’opération, sélectionnez **OK** pour continuer.
 
     ![Arrêter Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -83,31 +83,30 @@ Pour redémarrer votre Data Box, suivez les étapes ci-dessous.
 
 Les fichiers manifeste ou de nomenclature contiennent la liste des fichiers copiés dans Data Box ou Data Box Heavy. Ces fichiers sont générés pour un ordre d’importation quand vous préparez l’appareil pour l’expédition.
 
-Avant de commencer, vérifiez que l’étape **Préparer l’expédition** est terminée pour votre appareil. Pour télécharger les fichiers manifeste ou de nomenclature pour votre ordre d’importation, effectuez les étapes suivantes :
+Avant de commencer, effectuez ces étapes pour télécharger les fichiers manifeste ou de nomenclature pour votre ordre d’importation :
 
-1. Accédez à l’interface utilisateur web locale de votre appareil. Vous pouvez voir que la préparation de l’expédition est terminée pour l’appareil. Au terme de la préparation de l’appareil, son état passe à **Prêt pour l’expédition**.
+1. Accédez à l’interface utilisateur web locale de votre appareil. Vérifiez que l’étape de **préparation de l’expédition** est terminée pour l’appareil. Au terme de la préparation de l’appareil, son état passe à **Prêt pour l’expédition**.
 
-    ![Appareil prêt pour l’expédition](media/data-box-portal-admin/ready-to-ship.png)
+    ![Appareil prêt pour l’expédition](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Sélectionnez **Télécharger la liste de fichiers** pour télécharger la liste des fichiers copiés dans votre Data Box.
 
-    ![Sélection de Télécharger la liste de fichiers](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. Dans l’Explorateur de fichiers, vous pouvez voir que des listes distinctes de fichiers sont générées en fonction du protocole utilisé pour se connecter à l’appareil et du type de stockage Azure utilisé.
 
-    ![Fichiers pour le type de stockage et le protocole de connexion](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Fichiers pour le type de stockage et le protocole de connexion](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    Le tableau suivant mappe les noms de fichiers au type de stockage Azure et au protocole de connexion utilisés.
 
     |Nom de fichier  |Type de stockage Azure  |Protocole de connexion utilisé |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Objets blob de blocs         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Objets blob de pages         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Objets blob de pages         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Objets blob de blocs         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Disque managé         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Disque managé         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Objets blob de blocs         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Objets blob de pages         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Objets blob de pages         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Objets blob de blocs         |REST         |
 
 Utilisez cette liste pour vérifier les fichiers chargés dans le compte de stockage Azure une fois la Data Box renvoyée au centre de données Azure. Vous trouverez ci-dessous un exemple de fichier manifeste.
 

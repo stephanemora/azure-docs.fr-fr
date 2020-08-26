@@ -1,7 +1,7 @@
 ---
 title: Visualisation des journaux de flux de groupe de sécurité réseau Azure - Power BI
 titleSuffix: Azure Network Watcher
-description: Cette page explique comment utiliser Power BI pour visualiser les journaux de flux NSG.
+description: Découvrez comment utiliser Power BI pour visualiser des journaux de flux de groupe de sécurité réseau pour vous permettre d’afficher des informations sur le trafic IP dans Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1ef2e32614b5a57208f91ac0fe5a4c17affa38e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738547"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272635"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 

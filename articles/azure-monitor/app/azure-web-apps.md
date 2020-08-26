@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 33ad4503b744b4737c2d63f74e146a79d36080e1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079686"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258737"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -114,16 +114,14 @@ Les applications web Python basées sur App Service ne prennent pas en charge la
 
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
-* Sélectionnez **Paramètres** >** **Paramètres de l’application** **
-   * Sous Paramètres de l’application, ajoutez un nouveau **nom de paramètre d’application** et la **valeur** associée :
+* **Paramètres** **>** **Configuration**
+   * Sous Paramètres d’application, cliquez sur **Nouveau paramètre d’application** :
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valeur: `true`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
-
-![Capture d’écran de l’interface utilisateur Paramètres de l’application](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 Pour désactiver la supervision côté client, supprimez la paire clé-valeur associée dans les paramètres de l’application, ou définissez la valeur sur false.
 
@@ -133,16 +131,14 @@ La supervision côté client est **activée par défaut** pour les applications 
 
 Si vous avez besoin de désactiver la supervision côté client, effectuez les étapes suivantes :
 
-* Sélectionnez **Paramètres** > **Paramètres de l’application**
-   * Sous Paramètres de l’application, ajoutez un nouveau **nom de paramètre d’application** et la **valeur** associée :
+* **Paramètres** **>** **Configuration**
+   * Sous Paramètres d’application, cliquez sur **Nouveau paramètre d’application** :
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valeur: `false`
 
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
-
-![Capture d’écran de l’interface utilisateur Paramètres de l’application](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 

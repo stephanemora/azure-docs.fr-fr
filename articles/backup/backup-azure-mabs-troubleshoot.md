@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: a4882867f9bbe5123df275b8d1c69fe4e163f294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054840"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522842"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -27,6 +27,39 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 - Si l’installation push échoue, vérifiez si l’agent DPM est déjà présent. Si c’est le cas, désinstallez l’agent et recommencez l’installation
 - [Assurez-vous qu’aucun autre processus ou logiciel antivirus n’interfère avec la sauvegarde Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
 - Vérifiez que le service SQL Agent est en cours d'exécution et défini sur automatique dans le serveur MABS<br>
+
+## <a name="configure-antivirus-for-mabs-server"></a>Configurer un antivirus pour serveur MABS
+
+MABS est compatible avec les logiciels antivirus les plus connus. Pour éviter les conflits, nous vous recommandons d'effectuer les opérations suivantes :
+
+1. **Désactiver l'analyse en temps réel** : désactivez l'analyse en temps réel par le logiciel antivirus pour les éléments suivants :
+    - `C:\Program Files<MABS Installation path>\XSD`
+    - `C:\Program Files<MABS Installation path>\Temp`
+    - La lettre de lecteur du volume de stockage de sauvegarde moderne
+    - Journaux des réplicas et des transferts : Pour cela, désactivez l’analyse en temps réel du fichier **dpmra.exe**, situé dans le dossier `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin`. L'analyse en temps réel dégrade les performances, car l'antivirus analyse les réplicas chaque fois que MABS est synchronisé avec le serveur protégé, puis analyse tous les fichiers affectés chaque fois que MABS applique les modifications aux réplicas.
+    - Console d'administration : Pour éviter un impact sur les performances, désactivez l’analyse en temps réel du processus **csc.exe**. Le processus **csc.exe** représente le compilateur C\#, et l’analyse en temps réel peut dégrader les performances, car l'antivirus analyse les fichiers que le processus **csc.exe** émet lors de la génération des messages XML. Le processus **CSC.exe** se trouve aux emplacements suivants :
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - Pour l’agent MARS installé sur le serveur MABS, nous vous recommandons d’exclure les fichiers et emplacements suivants :
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` en tant que processus
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - L’emplacement de travail (si vous n’utilisez pas l’emplacement standard)
+2. **Désactivez l'analyse en temps réel sur le serveur protégé** : Désactivez l’analyse en temps réel du processus **dpmra.exe**, qui se trouve dans le dossier `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, sur le serveur protégé.
+3. **Configurez l’antivirus pour supprimer les fichiers infectés sur les serveurs protégés et le serveur MABS** : Pour empêcher la corruption des données des réplicas et des points de récupération, configurez l'antivirus de façon à supprimer les fichiers infectés au lieu de les nettoyer ou de les mettre en quarantaine automatiquement. Avec le nettoyage et la mise en quarantaine automatiques, l’antivirus peut modifier des fichiers, entraînant des modifications que MABS ne peut pas détecter.
+
+Vous devez exécuter une synchronisation manuelle avec une cohérence. Vérifiez le travail chaque fois que l’antivirus supprime un fichier du réplica, même si ce réplica est marqué comme étant incohérent.
+
+### <a name="mabs-installation-folders"></a>Dossiers d'installation MABS
+
+Les dossiers d’installation par défaut de DPM sont les suivants :
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+Vous pouvez également exécuter la commande suivante pour rechercher le chemin du dossier d’installation :
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## <a name="invalid-vault-credentials-provided"></a>Informations d’identification du coffre fournies non valides
 

@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905344"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235243"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -109,7 +109,7 @@ Vous pouvez effectuer l’attachement à une ressource dans l’Explorateur Stoc
 * [Utiliser une chaîne de connexion](#use-a-connection-string). Utilisez cette option si vous disposez d’une chaîne de connexion à un compte de stockage. L’Explorateur Stockage prend en charge les chaînes de connexion de clé et de [signature d’accès partagé](storage/common/storage-dotnet-shared-access-signature-part-1.md).
 * [Utiliser un URI de signature d’accès partagé](#use-a-shared-access-signature-uri). Si vous disposez d’un [URI de signature d’accès partagé](storage/common/storage-dotnet-shared-access-signature-part-1.md) à un conteneur d’objets blob, un partage de fichiers, une file d’attente ou une table, utilisez-le pour effectuer l’attachement à la ressource. Pour obtenir un URI de signature d’accès partagé, vous pouvez utiliser l’[Explorateur Stockage](#generate-a-sas-in-storage-explorer) ou le [portail Azure](https://portal.azure.com).
 * [Utiliser un nom et une clé](#use-a-name-and-key). Si vous connaissez l’une ou l’autre des clés de compte de votre compte de stockage, vous pouvez utiliser cette option pour vous connecter rapidement. Recherchez vos clés dans la page du compte de stockage en sélectionnant **Paramètres** > **Clés d’accès** dans le [portail Azure](https://portal.azure.com).
-* [Attacher à un émulateur local](#attach-to-a-local-emulator) Si vous utilisez un des émulateurs disponibles du stockage Azure, utilisez cette option pour vous connecter facilement à votre émulateur.
+* [Attacher à un émulateur local](#attach-to-a-local-emulator) Si vous utilisez un des émulateurs de stockage Azure disponibles, servez-vous de cette option pour vous connecter facilement à votre émulateur.
 * [Se connecter à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Utilisez cette option si vous disposez d’une chaîne de connexion à une instance CosmosDB.
 * [Se connecter à Azure Data Lake Store par URI](#connect-to-azure-data-lake-store-by-uri). Utilisez cette option si vous disposez d’un URI à Azure Data Lake Store.
 

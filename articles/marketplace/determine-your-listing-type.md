@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498070"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607431"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM de la place de marché. Qui plus est, la sélection de l’option de publication et du type d’offre définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
 
-Pour configurer votre offre, vous devez comprendre les concepts clés du marché suivants : les options de publication, la configuration et les types d’offre, ainsi que les appels à l’action qui définissent comment et où votre offre est présentée dans les vitrines de la place de marché.
+Pour configurer votre offre, vous devez comprendre les concepts clés du marché suivants : les options de publication, la configuration et les types d’offre, ainsi que les appels à l’action qui définissent comment et où votre offre est présentée dans les magasins en ligne de la place de marché.
 
 Cet article portera sur les éléments suivants :
 
-- Détermination de la vitrine appropriée pour votre solution
-- Options de publication et appels à l’action disponibles dans chaque vitrine
-- Types d’offre disponibles pour chaque option de publication
+- Détermination du magasin en ligne approprié pour votre solution.
+- Options de publication et appels à l’action disponibles dans chaque magasin en ligne.
+- Types d’offre disponibles pour chaque option de publication.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Options de publication sur la place de marché commerciale
 
@@ -37,8 +37,8 @@ Le tableau suivant présente les options de publication disponibles pour les typ
 | **Image conteneur** |  |  | Place de marché Azure | Place de marché Azure |   |
 | **Module IoT Edge** |  |  | Place de marché Azure | Place de marché Azure |   |
 | **Services managés** |  |  |  | Place de marché Azure |   |
-| **Services de conseil** | Les deux vitrines |  |  |  |   |
-| **Application SaaS** | Les deux vitrines | Les deux vitrines | Les deux vitrines |  | Les deux vitrines* |
+| **Services de conseil** | Les deux magasins en ligne |  |  |  |   |
+| **Application SaaS** | Les deux magasins en ligne | Les deux magasins en ligne | Les deux magasins en ligne |  | Les deux magasins en ligne * |
 | **Application Microsoft 365** | AppSource | AppSource |  |  | AppSource**  |
 | **Complément Dynamics 365** |  AppSource | AppSource |  |  |   |
 | **PowerApps** | AppSource |AppSource  |  |  |   |
@@ -61,19 +61,19 @@ Les options de publication disponibles offrent un engagement client différenci�
 > [!Note]
 > Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Pour plus d’informations, consultez l’article [Fonctionnalités de transaction de la place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-## <a name="selecting-a-storefront"></a>Sélection d’une vitrine
+## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
 
-Chaque vitrine répond à des exigences propres aux clients et cible des publics spécifiques. Le type de votre offre, les capacités de transaction et la catégorie déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque vitrine en fonction du public cible :
+Chaque magasin en ligne répond à des exigences propres aux clients et cible des publics spécifiques. Le type de votre offre, les capacités de transaction et la catégorie déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du public cible :
 
 **Microsoft AppSource** cible les utilisateurs professionnels à la recherche de solutions sectorielles et de services de conseil pour Dynamics 365, Microsoft 365 et Power Platform.
 
 **Place de marché Azure** cible les professionnels de l’informatique et les développeurs qui cherchent des solutions conçues pour ou sur Azure, ainsi que des services de conseil qui accélèrent leur utilisation d’Azure.
 
-Sélectionnez la catégorie et la sous-catégorie qui correspondent le mieux à votre public cible. Par exemple, un pare-feu d’applications web doit être publié sur Place de marché Azure, sous la catégorie Sécurité, puisque le public concerné est celui des professionnels de l’informatique. Une application de gestion des contrats doit plutôt être publiée sur AppSource sous la catégorie Ventes, étant donné que le public visé est celui des utilisateurs professionnels. La sélection d’une catégorie ou d’une sous-catégorie incorrecte peut entraîner la publication de votre offre sur la mauvaise vitrine.
+Sélectionnez la catégorie et la sous-catégorie qui correspondent le mieux à votre public cible. Par exemple, un pare-feu d’applications web doit être publié sur Place de marché Azure, sous la catégorie Sécurité, puisque le public concerné est celui des professionnels de l’informatique. Une application de gestion des contrats doit plutôt être publiée sur AppSource sous la catégorie Ventes, étant donné que le public visé est celui des utilisateurs professionnels. La sélection d’une catégorie ou d’une sous-catégorie incorrecte peut entraîner la publication de votre offre sur le mauvais magasin en ligne.
 
-### <a name="publishing-to-both-storefronts-saas-offers-only"></a>Publication sur les deux vitrines (offres SaaS uniquement)
+### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publication sur les deux magasins en ligne (offres SaaS uniquement)
 
-Les offres SaaS peuvent être publiées sur Place de marché Azure ou AppSource. Si votre offre Saas est destinée *à la fois* à un public technique (Place de marché Azure) et à un public commercial (AppSource), sélectionnez une catégorie et/ou une sous-catégorie applicable à chaque vitrine. Les offres publiées dans les deux vitrines doivent avoir une proposition de valeur qui s’étend aux professionnels de l’informatique *et* aux utilisateurs professionnels.
+Les offres SaaS peuvent être publiées sur Place de marché Azure ou AppSource. Si votre offre Saas est destinée *à la fois* à un public technique (Place de marché Azure) et à un public commercial (AppSource), sélectionnez une catégorie et/ou une sous-catégorie applicable à chaque magasin en ligne. Les offres publiées dans les deux magasins en ligne doivent avoir une proposition de valeur qui s’étend aux professionnels de l’informatique *et* aux utilisateurs professionnels.
 
 > [!IMPORTANT]
 > Les offres SaaS avec facturation à l’usage sont disponibles sur Place de marché Azure et le portail Azure. Les offres SaaS avec des plans privés uniquement sont disponibles sur le portail Azure.
@@ -91,7 +91,7 @@ Par exemple, une offre avec facturation à l’usage et un plan privé uniquemen
 
 ### <a name="categories"></a>Catégories
 
-Les catégories et sous-catégories sont mappées à chaque vitrine en fonction du public cible. Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre offre et au public cible. Vous pouvez sélectionner :
+Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du public cible. Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre offre et au public cible. Vous pouvez sélectionner :
 
 - une catégorie au minimum et trois au maximum. Vous avez la possibilité de choisir une catégorie principale et une catégorie secondaire.
 - Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si vous ne sélectionnez aucune sous-catégorie, votre offre sera tout de même détectable sous la catégorie sélectionnée.
@@ -102,4 +102,4 @@ Les catégories et sous-catégories sont mappées à chaque vitrine en fonction 
 
 - Après avoir choisi une option de publication, vous êtes prêt à [sélectionner le type d’offre](./publisher-guide-by-offer-type.md) qui sera utilisé pour présenter votre offre.
 - Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
-- Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
+- Passez en revue les modèles de publication par magasin en ligne pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.

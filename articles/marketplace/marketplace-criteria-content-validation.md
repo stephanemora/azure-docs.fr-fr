@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035108"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604402"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
@@ -50,8 +50,8 @@ Cet article explique les exigences et les recommandations relatives aux nouvelle
 | 1 | Titre de l’offre |<ul><li>Doit contenir uniquement des lettres minuscules, des caractères alphanumériques, des tirets ou des traits de soulignement. Le titre n’est plus modifiable après publication.</li><li>Décrit l’offre de la solution.</li><li>Correspond à la promotion en ligne de la solution sur le site web du partenaire. | Contient des mots de recherche clés. |
 | 2 | Informations techniques : Configuration |<ul><li>Pour une application SaaS (software as a service), indiquez si vous voulez simplement lister votre application ou si vous voulez permettre aux clients de l’acheter via Azure.</li><li>Sélectionnez le texte à afficher sur le bouton d’acquisition de votre offre : *Gratuit*, *Essai gratuit* ou *Me contacter*.</li><li>Dans la fenêtre contextuelle, sélectionnez seulement un produit éligible si votre application utilise la technologie : Cortana Intelligence, modèles de solution Power BI ou Power Apps. |  |
 | 3 | Test drive | Sélectionnez *Oui* ou *Non* | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> |
-| 4 | Informations sur les vitrines : Résumé de l’offre | Apparaît dans la page de recherche de votre application et comporte un maximum de 100 caractères. | |
-| 5 | Informations sur les vitrines : Secteurs d’activité | Secteurs d’activité (au plus 2) : sélectionnez les secteurs d’activité les mieux appropriés à votre application. | |
+| 4 | Détails du magasin en ligne : Résumé de l’offre | Apparaît dans la page de recherche de votre application et comporte un maximum de 100 caractères. | |
+| 5 | Détails du magasin en ligne : Secteurs d’activité | Secteurs d’activité (au plus 2) : sélectionnez les secteurs d’activité les mieux appropriés à votre application. | |
 | 6 | Description de l’offre | <ul><li>Le HTML simple est autorisé, y compris les balises \<p>, \<em>, \<ul>, \<li>, \<ol> ainsi que les balises d’en-tête. Bande passante 3 000 caractères.</li><li>Contient 2 ou 3 paragraphes.</li><li>Description claire et succincte de l’offre de solution.</li><li>La description est complète et indique le public cible, le type d’utilisateur et les points d’intérêt (proposition de valeur).</li><li>Rédigée sous une forme narrative avec des phrases courtes et faciles à comprendre. | <ul><li>Secteur d’activité cible indiqué (le cas échéant).</li><li>Mise en forme soignée, chaque en-tête de paragraphe comportant une phrase ou une expression résumant le contenu suivant exposé avec des puces (s’il y a lieu) pour mettre l’accent sur les avantages clés. L’objectif est que le lecteur comprenne l’offre d’un simple coup d’œil grâce à un format clair et lisible, sans avoir à lire de paragraphes.</li><li>Un espace sépare chaque paragraphe. La description se lit comme une brochure automobile. Autrement dit, elle est complète et décrit l’offre simplement, sans jargon technique. | 
 | 7 | Artefacts marketing | Les logos s’affichent correctement. | <ul><li>Logos : Petit (48 x 48 pixels), moyen (90 x 90 pixels) et grand (entre 216 x 216 et 350 x 350 pixels) sont requis.</li><li>Capture d’écran (au plus 5) : Nécessite une image .PNG avec une résolution de 1280 x 720 pixels. |
 | 8 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Sélectionnez au moins un élément dans la fenêtre contextuelle.</li><li>Ne sélectionnez pas de catégories auxquelles la solution n’est pas adaptée.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | Bande passante 3 catégories sélectionnées, le cas échéant. |

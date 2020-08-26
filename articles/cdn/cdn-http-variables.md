@@ -1,6 +1,6 @@
 ---
 title: Variables HTTP pour le moteur de règles Azure CDN | Microsoft Docs
-description: Les variables HTTP vous permettent de récupérer les métadonnées de requête et de réponse HTTP.
+description: Découvrez les variables HTTP qui vous permettent d’obtenir des métadonnées sur les requêtes et réponses HTTP pour certaines fonctionnalités du moteur de règles. Utilisez des métadonnées pour modifier une demande/réponse.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203576"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192681"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP pour le moteur de règles Azure CDN
 Les variables HTTP vous permettent de récupérer les métadonnées de requête et de réponse HTTP. Ces métadonnées peuvent ensuite servir à modifier une requête ou une réponse de façon dynamique. L’utilisation de variables HTTP est limitée aux fonctionnalités de moteur de règles suivantes :
@@ -102,7 +102,7 @@ Les délimiteurs sont décrits dans le tableau suivant.
 | / | Délimite une variable HTTP ou un modèle. |
 | // | Recherche et remplace toutes les instances du modèle spécifié. |
 | /= | Recherche, copie et réécrit toutes les occurrences du modèle spécifié. |
-| . | Convertit la valeur associée à la variable HTTP en minuscules. |
+| , | Convertit la valeur associée à la variable HTTP en minuscules. |
 | ^ | Convertit la valeur associée à la variable HTTP en majuscules. |
 | ,, | Convertit toutes les instances du caractère spécifié dans la valeur associée à la variable HTTP en minuscules. |
 | ^^ | Convertit toutes les instances du caractère spécifié dans la valeur associée à la variable HTTP en majuscules. |

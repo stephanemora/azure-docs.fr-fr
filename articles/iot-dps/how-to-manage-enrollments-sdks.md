@@ -6,13 +6,14 @@ ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975072"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520654"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
@@ -39,7 +40,7 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
     Vous pouvez créer un groupe d’inscriptions avec les SDK en suivant ce flux de travail :
 
     1. Pour le groupe d’inscriptions, le mécanisme d’attestation utilise le certificat racine X.509.  Appelez l’API de SDK de service ```X509Attestation.createFromRootCertificate``` avec un certificat racine afin de créer l’attestation pour l’inscription.  Le certificat racine X.509 est fourni dans un fichier PEM ou sous forme de chaîne.
-    1. Créez une variable ```EnrollmentGroup``` à l’aide de l’```attestation``` créée et d’un ```enrollmentGroupId``` unique.  Si vous le souhaitez, vous pouvez définir des paramètres tels que ```Device ID```, ```IoTHubHostName```et ```ProvisioningStatus```.
+    1. Créez une variable ```EnrollmentGroup``` à l’aide de l’```attestation``` créée et d’un ```enrollmentGroupId``` unique.  Si vous le souhaitez, vous pouvez définir des paramètres tels que ```IoTHubHostName``` et ```ProvisioningStatus```.
     2. Appelez l’API de SDK de service ```createOrUpdateEnrollmentGroup``` dans votre application backend avec ```EnrollmentGroup``` pour créer un groupe d’inscriptions.
 
 * L’**inscription individuelle** est une entrée permettant d’enregistrer un seul appareil. Les inscriptions individuelles peuvent utiliser des certificats X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée réel ou virtuel) comme mécanismes d’attestation. Nous vous recommandons d’utiliser des inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique ou pour les appareils qui peuvent uniquement utiliser des jetons SAP par le biais du module TPM ou du module TPM virtuel comme mécanisme d’attestation. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.

@@ -1,34 +1,44 @@
 ---
-title: Activer l’arrêt des machines virtuelles lors de la déconnexion d'Azure Lab Services | Microsoft Docs
+title: Configurer l’arrêt automatique des machines virtuelles pour un labo dans Azure Lab Services
 description: Découvrez comment activer ou désactiver l’arrêt automatique des machines virtuelles lorsqu'une connexion Bureau à distance est déconnectée.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 0c5c22d5e4a9d66413e37cce095f5497915bd122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445710"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604877"
 ---
-# <a name="enable-automatic-shutdown-of-vms-on-disconnect"></a>Activer l’arrêt automatique des machines virtuelles lors de la déconnexion
-Cet article vous explique comment activer ou désactiver l’arrêt automatique des machines virtuelles Lab **Windows 10** (modèle ou étudiant) après la déconnexion d’une connexion Bureau à distance. Vous pouvez également spécifier la durée pendant laquelle les machines virtuelles doivent attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurer l’arrêt automatique des machines virtuelles pour un labo
 
-Un administrateur de compte lab peut configurer ce paramètre pour le compte lab dans lequel vous créez des labs. Pour plus d’informations, consultez [Configurer l’arrêt automatique des machines virtuelles lors de la déconnexion d’un compte lab](how-to-configure-lab-accounts.md). En tant que propriétaire de lab, vous pouvez remplacer le paramètre lors de la création d’un lab ou après la création de celui-ci. 
+Cet article explique comment configurer l’arrêt automatique des machines virtuelles pour un labo.
 
-## <a name="configure-when-creating-a-lab"></a>Effectuer la configuration lors de la création d'un lab
-Sur la page de l'étape 3 de l’Assistant Création de lab, vous pouvez activer ou désactiver cette fonctionnalité et spécifier la durée pendant laquelle la machine virtuelle doit attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement. 
+Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrêt automatique afin d’éviter de manière proactive les coûts supplémentaires lorsque les machines virtuelles ne sont pas utilisées activement. La combinaison des trois fonctionnalités suivantes d’arrêt et de déconnexion automatiques permet d’intercepter la plupart des cas où les utilisateurs laissent accidentellement leurs machines virtuelles en marche :
+ 
+* Déconnecter automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives (Windows uniquement).
+* Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent (Windows et Linux).
+* Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
 
-![Effectuer la configuration au moment de la création du lab](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings).
 
-## <a name="configure-after-the-lab-is-created"></a>Effectuer la configuration une fois le compte lab créé
-Vous pouvez configurer ce paramètre sur la page **Paramètres**, comme le montre l’image suivante : 
+Un administrateur de compte lab peut configurer ce paramètre pour le compte lab dans lequel vous créez des labs. Pour plus d’informations, consultez [Configurer l’arrêt automatique des machines virtuelles pour un compte lab](how-to-configure-lab-accounts.md). En tant que propriétaire de lab, vous pouvez remplacer le paramètre lors de la création d’un lab ou après la création de celui-ci. 
 
-![Effectuer la configuration une fois le compte lab créé](./media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
+## <a name="configure-for-the-lab-level"></a>Configurer pour le niveau du laboratoire
+
+Vous pouvez configurer le paramètre d’arrêt automatique dans [Azure Lab Services](https://labs.azure.com/).
+
+* lors de la création d’un laboratoire (dans **Stratégies de laboratoire**) ou
+* une fois le laboratoire créé (dans **Paramètres**)
+
+> [!div class="mx-imgBorder"]
+> ![Effectuer la configuration au moment de la création du lab](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
+
+Veillez à consulter les détails de l’arrêt automatique dans la section [Optimiser le contrôle des coûts avec les paramètres d’arrêt automatique](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings).
 
 > [!WARNING]
 > Si vous arrêtez le système d’exploitation Windows d’une machine virtuelle avant de vous déconnecter d’une session RDP sur cette machine virtuelle, la fonctionnalité d’arrêt automatique ne marche pas correctement.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Voir les articles suivants :
 
-- [Tableau de bord pour les labs de classe](use-dashboard.md)
+[Tableau de bord pour les labs de classe](use-dashboard.md)

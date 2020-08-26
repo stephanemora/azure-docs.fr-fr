@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810460"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611532"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -141,7 +141,7 @@ Taille de la machine virtuelle |N’importe quelle taille de machine virtuelle A
 Sauvegarder des machines virtuelles dans des [groupes à haute disponibilité](../virtual-machines/availability.md#availability-sets) | Pris en charge.<br/><br/> Vous ne pouvez pas restaurer une machine virtuelle dans un groupe à haute disponibilité en utilisant l’option de création rapide d’une machine virtuelle. Au lieu de cela, quand vous restaurez la machine virtuelle, restaurez le disque et utilisez-le pour déployer une machine virtuelle, ou bien restaurez un disque et utilisez-le pour remplacer un disque existant.
 Sauvegarder des machines virtuelles déployées avec [Hybrid Use Benefit (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Pris en charge.
 Sauvegarder des machines virtuelles déployées dans un [groupe de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) |Pris en charge. Le [mode d’orchestration](../virtual-machine-scale-sets/orchestration-modes.md) doit être défini sur 2 pour le domaine d'erreur. Le groupe à haute disponibilité n’est pas pris en charge.
-Sauvegarder des machines virtuelles déployées à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publication par Microsoft ou des tiers) |Pris en charge.<br/><br/> La machine virtuelle doit exécuter un système d’exploitation pris en charge.<br/><br/> Lors de la récupération de fichiers sur la machine virtuelle, vous pouvez restaurer seulement sur un système d’exploitation compatible (pas un système d’exploitation antérieur ou ultérieur). Nous ne restaurons pas les machines virtuelles Azure de la Place de marché Azure sauvegardées en tant que machines virtuelles, car pour cela il faut des informations d’achat. Elles sont restaurées uniquement en tant que disques.
+Sauvegarder des machines virtuelles déployées à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publication par Microsoft ou des tiers) |Pris en charge.<br/><br/> La machine virtuelle doit exécuter un système d’exploitation pris en charge.<br/><br/> Lors de la récupération de fichiers sur la machine virtuelle, vous pouvez restaurer seulement sur un système d’exploitation compatible (pas un système d’exploitation antérieur ou ultérieur). Nous ne restaurons pas de machines virtuelles de la Place de marché Azure sauvegardées en tant que machines virtuelles, car celles-ci nécessitent des informations d’achat. Elles sont restaurées uniquement en tant que disques.
 Sauvegarder des machines virtuelles déployées à partir d’une image personnalisée (tiers) |Pris en charge.<br/><br/> La machine virtuelle doit exécuter un système d’exploitation pris en charge.<br/><br/> Lors de la récupération de fichiers sur la machine virtuelle, vous pouvez restaurer seulement sur un système d’exploitation compatible (pas un système d’exploitation antérieur ou ultérieur).
 Sauvegarder des machines virtuelles migrées vers Azure| Pris en charge.<br/><br/> Pour sauvegarder la machine virtuelle, l’agent de machine virtuelle doit être installé sur la machine migrée.
 Cohérence multimachine virtuelle de la sauvegarde | La Sauvegarde Azure ne fournit pas la cohérence des données et des applications sur plusieurs machines virtuelles.
@@ -155,7 +155,7 @@ Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge p
 
 **Composant** | **Support**
 --- | ---
-Disques de données de machine virtuelle Azure | La prise en charge de la sauvegarde des machines virtuelles Azure avec un maximum de 32 disques est actuellement en préversion publique dans toutes les régions, à l’exception des clouds nationaux (Azure Government, Azure China 21Vianet et Azure Allemagne).<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
+Disques de données de machine virtuelle Azure | Prise en charge de la sauvegarde des machines virtuelles Azure avec un maximum de 32 disques en préversion publique dans toutes les régions.<br><br> Prise en charge de la sauvegarde des machines virtuelles Azure avec des disques non managés ou des machines virtuelles classiques avec 16 disques uniquement.
 Taille de disque de données | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.

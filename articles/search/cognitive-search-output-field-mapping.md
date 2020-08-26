@@ -8,23 +8,34 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557271"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214038"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Guide pratique pour mapper des champs enrichis par IA sur un index pouvant faire l’objet d’une recherche
 
-Dans cet article, vous allez apprendre à mapper des champs d’entrée enrichis sur des champs de sortie dans un index pouvant faire l’objet d’une recherche. Une fois que vous avez [défini un ensemble de compétences](cognitive-search-defining-skillset.md), vous devez mapper les champs de sortie de n’importe quelle compétence qui fournit directement des valeurs sur un champ donné dans votre index de recherche. 
+![Étapes de l'indexeur](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "étapes de l'indexeur")
 
-Les mappages de champs de sortie sont nécessaires au déplacement de contenu de documents enrichis vers l’index.  Le document enrichi est en fait une arborescence d’informations, et même si l’index prend en charge les types complexes, vous pouvez parfois souhaiter transformer les informations de l’arborescence enrichie en un type plus simple (par exemple, un tableau de chaînes). Les mappages de champs de sortie vous permettent d’effectuer des transformations de formes de données en aplatissant les informations.
+Dans cet article, vous allez apprendre à mapper des champs d’entrée enrichis sur des champs de sortie dans un index pouvant faire l’objet d’une recherche. Une fois que vous avez [défini un ensemble de compétences](cognitive-search-defining-skillset.md), vous devez mapper les champs de sortie de n’importe quelle compétence qui fournit directement des valeurs sur un champ donné dans votre index de recherche.
+
+Les mappages de champs de sortie sont nécessaires au déplacement de contenu de documents enrichis vers l’index.  Le document enrichi est en fait une arborescence d’informations, et même si l’index prend en charge les types complexes, vous pouvez parfois souhaiter transformer les informations de l’arborescence enrichie en un type plus simple (par exemple, un tableau de chaînes). Les mappages de champs de sortie vous permettent d’effectuer des transformations de formes de données en aplatissant les informations. Les mappages de champs de sortie se produisent toujours après l’exécution d’un ensemble de compétences, même s’il est possible d’exécuter cette étape sans aucun ensemble de compétences défini.
+
+Exemples de mappages de champs de sortie :
+
+* Dans le cadre de votre ensemble de compétences, vous avez extrait les noms des organisations mentionnées dans chacune des pages de votre document. Vous souhaitez maintenant mapper chacun de ces noms d’organisation dans un champ de votre index de type Edm.Collection(Edm.String).
+
+* Dans le cadre de votre ensemble de compétences, vous avez créé un nouveau nœud appelé « document/translated_text ». Vous souhaitez mapper les informations de ce nœud à un champ spécifique dans votre index.
+
+* Vous n’avez pas d’ensemble de compétences, mais vous indexez un type complexe à partir d’une base de données Cosmos DB. Vous aimeriez accéder à un nœud sur ce type complexe et le mapper à un champ de votre index.
 
 > [!NOTE]
 > Nous avons récemment activé la fonctionnalité de mappage des fonctions sur les mappages de champs de sortie. Pour plus d’informations sur les fonctions de mappage, consultez [Fonctions de mappage de champs](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions).
 
 ## <a name="use-outputfieldmappings"></a>Utiliser outputFieldMappings
+
 Pour mapper les champs, ajoutez `outputFieldMappings` à la définition de l’indexeur comme indiqué ci-dessous :
 
 ```http

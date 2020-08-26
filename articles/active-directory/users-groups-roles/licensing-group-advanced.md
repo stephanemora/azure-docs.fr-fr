@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727668"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209465"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -205,7 +205,7 @@ Si vous utilisez la gestion des licences par groupe, il est conseillé de vous f
 
 - Actuellement, la gestion des licences par groupe ne prend pas en charge les groupes contenant d’autres groupes. Si vous appliquez une licence à un groupe imbriqué, les licences ne sont appliquées qu’aux membres utilisateurs de premier niveau immédiat du groupe.
 
-- Cette fonctionnalité peut uniquement être utilisée avec les groupes de sécurité et les groupes Office 365 pour lesquels securityEnabled=TRUE.
+- Cette fonctionnalité peut uniquement être utilisée avec les groupes de sécurité et les groupes Microsoft 365 pour lesquels securityEnabled=TRUE.
 
 - Le [centre d’administration Microsoft 365](https://admin.microsoft.com) ne prend actuellement pas en charge la licence basée sur le groupe. Si un utilisateur hérite d’une licence d’un groupe, cette licence apparaît dans le portail d’administration Office comme une licence utilisateur normale. Si vous tentez de modifier ou de supprimer cette licence, le portail renvoie un message d’erreur. Les licences de groupe héritées ne peuvent pas être modifiées directement sur un utilisateur.
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6d25eb2965e31211c0d30ec8d5e3e376176147c0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135740"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590045"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 
@@ -27,7 +27,8 @@ ms.locfileid: "88135740"
 > * [SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
@@ -196,7 +197,7 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
-| [2.3.2](#2.3.2) |11 août 2020 |--- |
+| [2.3.2](#2.3.2) |11 août 2020 |--- |
 | [2.3.1](#2.3.1) |30 juillet 2020 |--- |
 | [2.3.0](#2.3.0) |2 avril 2020 |--- |
 | [2.2.8](#2.2.8) |28 octobre 2019 |--- |

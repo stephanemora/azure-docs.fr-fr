@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743573"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234769"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 
@@ -102,7 +102,7 @@ Ce symptôme peut avoir plusieurs causes :
          - Par exemple, si le backend accepte uniquement les requêtes HTTP, les configurations suivantes sont valides :
             - Les _Protocoles acceptés_ sont HTTP et HTTPS. Le _Protocole de transfert_ est HTTP. La mise en correspondance de la requête ne fonctionnera pas, car HTTPS est un protocole autorisé et si une requête est arrivée en tant que HTTPS, Front Door tente de la transférer en utilisant HTTPS.
 
-            - Les _Protocoles acceptés_ sont HTTP. La valeur de _Protocole de transfert_ est soit la correspondance de la requête, soit HTTPS.
+            - Les _Protocoles acceptés_ sont HTTP. La valeur de _Protocole de transfert_ est soit la correspondance de la requête, soit HTTP.
 
     - Le champ _Réécriture d’URL_ est désactivé par défaut, et vous devez l’utiliser uniquement si vous souhaitez limiter les ressources hébergées par le backend que vous souhaitez rendre disponibles. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible que ce champ soit mal configuré et que Front Door demande une ressource du backend qui n’est pas disponible, ce qui retourne un code d’état HTTP 404.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036384"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235160"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
@@ -55,13 +55,13 @@ Connectez-vous à la [console série et ouvrez une instance de PowerShell](./ser
 
 #### <a name="step-1-check-the-rdp-port"></a>Étape 1 : Vérifier le port RDP
 
-1. Dans une instance de PowerShell, utilisez [NETSTAT](/windows-server/administration/windows-commands/netstat) pour vérifier si le port 8080 est utilisé par d’autres applications :
+1. Dans une instance de PowerShell, utilisez [NETSTAT](/windows-server/administration/windows-commands/netstat) pour vérifier si le port 3389 est utilisé par d’autres applications :
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. Si Termservice.exe utilise le port 8080, passez à l’étape 2. Si un autre service ou une autre application utilise le port 8080, suivez ces étapes :
+2. Si Termservice.exe utilise le port 3389, passez à l’étape 2. Si un autre service ou une autre application utilise le port 3389, suivez ces étapes :
 
     1. Arrêtez le service de l’application qui utilise le service 3389 :
 

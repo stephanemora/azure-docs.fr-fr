@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168012"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607196"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offres privées dans la Place de marché commerciale de Microsoft
 
@@ -54,7 +54,7 @@ Une fois qu’une offre a été certifiée et publiée, il suffit de quelques mi
 
 ## <a name="deploying-private-offers"></a>Déployer des offres privées
 
-Les offres privées ne sont accessibles que sur le [Portail Azure](https://azure.microsoft.com/features/azure-portal/) et non sur [Microsoft AppSource](https://appsource.microsoft.com/) ou la [Place de marché Azure](https://azuremarketplace.microsoft.com). Pour en savoir plus sur la publication sur les différentes vitrines des marketplaces commerciaux, consultez [Déterminer votre option de publication](./determine-your-listing-type.md).
+Les offres privées ne sont accessibles que sur le [Portail Azure](https://azure.microsoft.com/features/azure-portal/) et non sur [Microsoft AppSource](https://appsource.microsoft.com/) ou la [Place de marché Azure](https://azuremarketplace.microsoft.com). Pour en savoir plus sur la publication sur les différentes magasins en ligne des places de marché commerciales, consultez [Déterminer votre option de publication](./determine-your-listing-type.md).
 
 Une fois connectés au portail Azure, les clients sélectionnent l’élément de navigation Place de marché pour accéder à leurs offres privées. Les offres privées peuvent être déployées en ligne de commande et avec des modèles Azure Resource Manager, comme toutes les autres offres.
 

@@ -1,6 +1,6 @@
 ---
 title: Résolution des problèmes de compression de fichiers dans Azure CDN | Microsoft Docs
-description: Résolvez les problèmes de compression des fichiers CDN Azure.
+description: Découvrez comment résoudre les problèmes de compression de fichiers dans Azure Content Delivery Network. Cet article aborde plusieurs causes possibles.
 services: cdn
 documentationcenter: ''
 author: sohamnc
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5c56564ee6f07c5d208ea5d3089a2c96fd8bbc33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888697"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192521"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -98,7 +98,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
 
-* Vérifiez l’en-tête de réponse **Server** .  L’en-tête doit être au format **Plateforme (ID serveur/POP)** , comme indiqué dans l’exemple suivant.
+* Vérifiez l’en-tête de réponse **Server** .  L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple suivant.
 * Vérifiez l’en-tête de réponse **X-Cache** .  L’en-tête doit indiquer **HIT**.  
 
 ![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -117,6 +117,6 @@ Afin d’être éligible pour la compression, un fichier doit respecter les exig
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
 L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy.  Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via** .  Pour modifier ce comportement, procédez comme suit :
 
-* **IIS 6** : [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 6**: [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
 * **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](https://www.iis.net/configreference/system.webserver/httpcompression)
 

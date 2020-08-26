@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167864"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207228"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -28,7 +28,18 @@ L’API Vision par ordinateur d’Azure comprend des fonctionnalités de reconna
 
 ![Comment la reconnaissance optique de caractères convertit les images et les documents en une sortie structurée avec du texte extrait](./Images/how-ocr-works.svg)
 
-L’API Lire offre des fonctionnalités OCR par le biais de deux opérations : **Lecture** et **Obtenir les résultats de lecture**.
+## <a name="input-requirements"></a>Critères des entrées
+L’opération de **lecture** de l’API Lire utilise des images et des documents comme entrée. Les conditions requises sont les suivantes :
+
+* Formats de fichiers pris en charge : JPEG, PNG, BMP, PDF et TIFF.
+* PDF et TIFF : jusqu’à 2 000 pages sont traitées. Abonnés du niveau Gratuit : seules les deux premières pages sont traitées.
+* La taille de fichier doit être inférieure à 50 Mo, et les dimensions comprises entre 50 × 50 pixels et 10 000 × 10 000 pixels.
+* Les dimensions des PDF ne doivent pas dépasser 17 × 17 pouces, ce qui correspond aux formats de papier Legal ou A3 (maximum).
+
+> [!NOTE]
+> **Entrée de langue** 
+>
+> L’[opération de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) a un paramètre de requête facultatif pour la langue. Il s’agit du code de langue BCP-47 du texte dans le document. L’opération de lecture prend en charge l’identification automatique des langues et les documents multilingues. Par conséquent, fournissez uniquement un code de langue si vous souhaitez forcer le traitement du document dans la langue en question.
 
 ## <a name="the-read-operation"></a>L’opération de lecture
 
@@ -36,7 +47,7 @@ L’[Opération de lecture](https://westcentralus.dev.cognitive.microsoft.com/do
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-read-results-operation"></a>L’opération Obtenir les résultats de lecture
 
@@ -112,19 +123,6 @@ Voici un exemple de réponse JSON correcte :
 
 Suivez le guide de démarrage rapide [Extraire du texte imprimé et manuscrit](./QuickStarts/CSharp-hand-text.md) pour mettre en œuvre la reconnaissance optique de caractères à l’aide de C# et de l’API REST.
 
-## <a name="input-requirements"></a>Critères des entrées
-
-Les images et les documents d’entrée présentent les exigences suivantes :
-* Formats de fichiers pris en charge : JPEG, PNG, BMP, PDF et TIFF.
-* PDF et TIFF : jusqu’à 2 000 pages sont traitées. Abonnés du niveau Gratuit : seules les deux premières pages sont traitées.
-* La taille de fichier doit être inférieure à 50 Mo, et les dimensions comprises entre 50 × 50 pixels et 10 000 × 10 000 pixels.
-* Les dimensions des PDF ne doivent pas dépasser 17 × 17 pouces, ce qui correspond aux formats de papier Legal ou A3 (maximum).
-
-> [!NOTE]
-> **Entrée de langue** 
->
-> L’[opération de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) a un paramètre de requête facultatif pour la langue. Il s’agit du code de langue BCP-47 du texte dans le document. L’opération de lecture prend en charge l’identification automatique des langues et les documents multilingues. Par conséquent, fournissez uniquement un code de langue si vous souhaitez forcer le traitement du document dans la langue en question.
-
 ## <a name="language-support"></a>Support multilingue
 
 ### <a name="printed-text"></a>Texte imprimé
@@ -184,6 +182,9 @@ L’API Lire prend en charge des images et des documents contenant plusieurs lan
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 
 Comme pour tous les services Cognitive Services, les développeurs qui utilisent les services Lire/OCR doivent connaître les stratégies de Microsoft concernant les données client. Pour plus d’informations, consultez la page Cognitive Services dans le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/trust-center/product-overview).
+
+> [!NOTE]
+> Les opérations RecognizeText de Computer Vison 2.0 seront prochainement remplacées par la nouvelle API Lire abordée dans cet article. Les clients existants devraient [effectuer la transition vers les opérations de lecture](upgrade-api-versions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

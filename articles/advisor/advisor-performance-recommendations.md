@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057571"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257457"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -20,7 +20,7 @@ Vous pouvez utiliser les [paramètres TTL (durée de vie)](../traffic-manager/t
 
 Azure Advisor identifie les profils Traffic Manager dont la TTL configurée est plus longue. Il recommande de la régler à 20 secondes ou 60 secondes selon que le profil est configuré pour [Bascule rapide](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Améliorer les performances de la base de données à l’aide de SQL Database Advisor
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Améliorer les performances de la base de données à l’aide de SQL Database Advisor (temporairement désactivé)
 
 Azure Advisor offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de vos bases de données. SQL Database Advisor évalue les performances de vos bases de données en analysant votre historique d'utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
 
@@ -151,6 +151,22 @@ Advisor identifie les conteneurs Azure Cosmos DB qui utilisent la stratégie d�
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Définir la taille de page de la requête Azure Cosmos DB (MaxItemCount) avec la valeur -1 
 
 Azure Advisor identifie les conteneurs Azure Cosmos DB qui utilisent une taille de page de requête de 100. Il recommande d’utiliser une taille de page de -1 pour des analyses plus rapides. [En savoir plus sur MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Envisagez d’utiliser la fonctionnalité Écritures accélérées dans votre cluster HBase pour améliorer les performances du cluster
+Azure Advisor analyse les journaux système des 7 derniers jours et identifie si votre cluster a rencontré les scénarios suivants :
+1. Latence élevée de la durée de synchronisation du journal WAL 
+2. Nombre élevé de demandes d’écriture (au moins 3 fenêtres d’une heure de plus de 1000 demandes d’écriture moyennes par seconde et par nœud)
+
+Ces conditions sont des indicateurs que votre cluster subit des latences d’écriture élevées. Cela peut être dû à une charge de travail importante effectuée sur votre cluster. Pour améliorer les performances de votre cluster, vous pouvez envisager d’utiliser la fonctionnalité Écritures accélérées fournie par Azure HDInsight HBase. La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker) au lieu d’utiliser le stockage cloud. Ainsi, elle offre une faible latence en écriture et une meilleure résilience pour vos applications. Pour plus d’informations sur cette fonctionnalité, cliquez sur [En savoir plus](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Modifier la période de mise en cache des tables Azure Data Explorer (stratégie) pour de meilleures performances (préversion)
+Cette recommandation expose les tables Azure Data Explorer ayant un grand nombre de requêtes qui dépassent la période de mise en cache configurée (stratégie) (vous verrez les 10 tables qui accèdent le plus aux données hors cache, en pourcentage de requêtes). L’action recommandée pour améliorer les performances du cluster est la suivante : Limitez au maximum les requêtes envoyées à cette table (tout en restant dans l’intervalle de temps défini par la stratégie). Si l’intégralité des données de l’intervalle de temps sont nécessaires, vous pouvez également augmenter la période de mise en cache vers la valeur recommandée.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Améliorer le niveau de performance en optimisant le dimensionnement des tables temporaires MySQL
+L’analyse du conseiller interne indique que votre serveur MySQL peut entraîner une surcharge d’E/S inutile en raison de paramètres insuffisants au niveau des tables temporaires. Cela peut générer des transactions sur disque inutiles et une réduction du niveau de performance. Nous vous recommandons d’augmenter les valeurs des paramètres « tmp_table_size » et « max_heap_table_size » pour réduire le nombre de transactions sur disque. [En savoir plus](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuer des données dans un groupe de serveurs pour répartir la charge de travail entre les nœuds
+Advisor identifie les groupes de serveurs sur lesquels les données n’ont pas été distribuées mais restent sur le coordinateur. Pour bénéficier de tous les avantages offerts par Hyperscale (Citus), Advisor vous recommande de distribuer les données sur les nœuds worker de vos groupes de serveurs. Cela améliorera les performances des requêtes en utilisant la ressource de chaque nœud dans le groupe de serveurs. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans Advisor
 

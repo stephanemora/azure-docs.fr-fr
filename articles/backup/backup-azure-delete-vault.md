@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055205"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257953"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -43,8 +43,9 @@ Pour supprimer correctement un coffre, vous devez suivre les étapes ci-après d
 - **Étape 3** : Vous devez vérifier s’il existe des éléments protégés aux trois emplacements ci-dessous :
 
   - **Éléments protégés dans le cloud** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Éléments de sauvegarde**. Tous les éléments listés à cet endroit doivent être supprimés avec **Arrêter la sauvegarde** ou **Supprimer les données de sauvegarde** ainsi que leurs données de sauvegarde.  [Suivez ces étapes](#delete-protected-items-in-the-cloud) pour supprimer ces éléments.
+  - **Instance SQL Server** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Serveurs protégés**. Dans Serveurs protégés, sélectionnez le serveur dont vous souhaitez annuler l'inscription. Si vous souhaitez supprimer le coffre, vous devez annuler l’inscription de tous les serveurs. Cliquez sur le serveur protégé, puis sélectionnez **Désinscrire**.
   - **Serveurs protégés par MARS** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Serveurs protégés**. Si vous avez des serveurs protégés par MARS, tous les éléments listés à cet endroit doivent être supprimés ainsi que leurs données de sauvegarde. [Suivez ces étapes](#delete-protected-items-on-premises) pour supprimer les serveurs protégés par MARS.
-  - **Serveurs d’administration MABS ou DPM** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Serveurs de gestion des sauvegardes**. Si vous avez un serveur DPM ou de sauvegarde Azure (MABS), tous les éléments listés à cet endroit doivent être supprimés ou désinscrits ainsi que leurs données de sauvegarde. [Suivez ces étapes](#delete-protected-items-on-premises) pour supprimer les serveurs d’administration.
+   - **Serveurs d’administration MABS ou DPM** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Serveurs de gestion des sauvegardes**. Si vous avez un serveur DPM ou de sauvegarde Azure (MABS), tous les éléments listés à cet endroit doivent être supprimés ou désinscrits ainsi que leurs données de sauvegarde. [Suivez ces étapes](#delete-protected-items-on-premises) pour supprimer les serveurs d’administration.
 
 - **Étape 4** : Vous devez vous assurer que tous les comptes de stockage inscrits sont supprimés. Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Comptes de stockage**. Si vous disposez de comptes de stockage listés à cet endroit, vous devez annuler leur inscription. Pour savoir comme désinscrire un compte, consultez [Annuler l’inscription d’un compte de stockage](manage-afs-backup.md#unregister-a-storage-account).
 

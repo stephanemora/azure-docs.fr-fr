@@ -1,6 +1,6 @@
 ---
 title: Prise en main du kit de développement logiciel Azure CDN pour Node.js | Microsoft Docs
-description: Apprenez à écrire des applications Node.js pour gérer Azure CDN.
+description: Découvrez comment créer une simple application console Node.js qui montre comment automatiser la création et la gestion de profils et de points de terminaisons Azure CDN.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 96dc7e8d9fb647779fc2188fe36fe9fbced2e53c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: da695975b92ea6f81de103da5edf730811a193f8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387487"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190705"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Prise en main du développement Azure CDN
 > [!div class="op_single_selector"]

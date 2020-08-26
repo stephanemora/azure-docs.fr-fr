@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute : Connecter un réseau virtuel à un circuit : Portail Azure'
-description: Connecter un réseau virtuel à un circuit Azure ExpressRoute. Étapes de la procédure.
+description: Apprenez à créer une connexion pour lier un réseau virtuel à un circuit Azure ExpressRoute à l’aide du portail Azure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737068"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190922"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’a
 5. Dans la page **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis cochez la case **Utiliser l’autorisation**.
 6. Entrez la **clé d’autorisation** et **l’URI du circuit appairé**, puis donnez un nom à la connexion. Cliquez sur **OK**. L'**URI du circuit homologue** est l’ID de ressource du circuit ExpressRoute (que vous pouvez trouver dans le volet des paramètres des propriétés du circuit ExpressRoute).
 
-   ![Page Paramètres](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Page de paramètres](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **OK**.
 
 **Libération d’une autorisation de connexion**

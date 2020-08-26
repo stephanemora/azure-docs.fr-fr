@@ -1,6 +1,6 @@
 ---
 title: Appliquer une stratégie d’attribution de noms de groupe dans Azure Active Directory | Microsoft Docs
-description: Définir une stratégie d’attribution de noms pour les groupes Office 365 dans Azure Active Directory
+description: Comment configurer une stratégie d’attribution de noms pour les groupes Microsoft 365 dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497084"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213742"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms à des groupes Microsoft 365 dans Azure Active Directory
 
-Pour appliquer des conventions de nommage cohérentes pour les groupes Office 365 créés ou modifiés par vos utilisateurs, configurez une stratégie de nommage de groupes pour vos organisations dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
+Pour appliquer des conventions d’affectation de noms cohérentes pour des groupes Microsoft 365 créés ou modifiés par vos utilisateurs, configurez une stratégie d’affectation de noms de groupe pour vos organisations dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
 
 > [!IMPORTANT]
-> Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin de se voir attribuer une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU, mais pas nécessairement de la posséder, pour pouvoir utiliser la stratégie d’attribution de noms de groupes Azure AD pour les groupes Office 365.
+> Pour pouvoir utiliser la stratégie d’attribution de noms Azure AD pour des groupes Microsoft 365, vous devez posséder, mais pas nécessairement attribuer, une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU pour chaque utilisateur membre d’un ou plusieurs groupes Microsoft 365.
 
 La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie d’attribution de noms dans Azure AD et qu’il existe une stratégie d’attribution de noms de groupes Exchange, la stratégie d’attribution de noms Azure AD est appliquée dans votre organisation.
 
-Lorsque la stratégie d’attribution de nom à un groupe est configurée, la stratégie est appliquée aux nouveaux groupes Office 365 créés par les utilisateurs finaux. La stratégie d’attribution de nom ne s’applique pas à certains rôles d’annuaire, tels que l’administrateur général ou l’administrateur d’utilisateurs (voir ci-dessous pour obtenir la liste complète des rôles exemptés de la stratégie d’attribution de nom à un groupe). Pour les groupes Office 365 existants, la stratégie ne s’applique pas immédiatement au moment de la configuration. Une fois que le propriétaire du groupe modifie le nom de ces groupes, la stratégie d’attribution de nom est appliquée.
+Quand une stratégie d’attribution de noms est configurée, elle est appliquée aux nouveaux groupes Microsoft 365 créés par des utilisateurs finaux. La stratégie d’attribution de nom ne s’applique pas à certains rôles d’annuaire, tels que l’administrateur général ou l’administrateur d’utilisateurs (voir ci-dessous pour obtenir la liste complète des rôles exemptés de la stratégie d’attribution de nom à un groupe). Pour les groupes Microsoft 365 existants, la stratégie ne s’applique pas immédiatement au moment de la configuration. Une fois que le propriétaire du groupe modifie le nom de ces groupes, la stratégie d’attribution de nom est appliquée.
 
 ## <a name="naming-policy-features"></a>Caractéristiques de la stratégie de nommage
 
@@ -253,7 +253,7 @@ Outlook Customer Manager (OCM) | Outlook Customer Manager est conforme à la str
 Application Classroom | Les groupes créés dans l’application Classroom sont conformes à la stratégie de nommage, mais celle-ci ne s’applique pas automatiquement et l’aperçu de la stratégie de nommage n’est pas présenté aux utilisateurs quand ils entrent un nom de groupe de classe. Les utilisateurs doivent entrer le nom de groupe de classe appliqué avec les préfixes et les suffixes. Dans le cas contraire, l’opération de création ou de modification du groupe de classe échoue avec des erreurs.
 Power BI | Les espaces de travail Power BI sont conformes à la stratégie de nommage.    
 Yammer | Lorsqu’un utilisateur connecté à Yammer avec son compte Azure Active Directory crée un groupe ou modifie un nom de groupe, le nom de groupe doit respecter la stratégie d’affectation de noms. Cela s’applique à la fois aux groupes connectés à Office 365 et à tous les autres groupes Yammer.<br>Si un groupe connecté à Office 365 a été créé avant que la stratégie d’affectation de noms ne soit en place, le nom de groupe ne suit pas automatiquement les stratégies d’affectation de noms. Lorsqu’un utilisateur modifie le nom de groupe, il est invité à ajouter le préfixe et le suffixe.
-StaffHub  | Les équipes StaffHub ne respectent pas la stratégie de nommage, mais le groupe Office 365 sous-jacent, oui. Le nom de l’équipe StaffHub n’applique pas les préfixes et les suffixes et ne recherche pas les mots bloqués personnalisés. En revanche, StaffHub applique les préfixes et les suffixes et supprime les mots bloqués du groupe Office 365 sous-jacent.
+StaffHub  | Les équipes StaffHub ne respectent pas la stratégie d’affectation de noms, contrairement au groupe Microsoft 365 sous-jacent. Le nom de l’équipe StaffHub n’applique pas les préfixes et les suffixes et ne recherche pas les mots bloqués personnalisés. En revanche, StaffHub applique les préfixes et suffixes, et supprime les mots bloqués du groupe Microsoft 365 sous-jacent.
 Exchange PowerShell | Les applets de commande Exchange PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la stratégie de nommage dans le nom de groupe et l’alias de groupe (mailNickname).
 Applets de commande Azure Active Directory PowerShell | Les applets de commande Azure Active Directory PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans les noms de groupe et les alias de groupe.
 Centre d’administration Exchange | Le centre d’administration Exchange est conforme à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans le noms de groupe et l’alias de groupe.
@@ -264,7 +264,7 @@ Centre d’administration Microsoft 365 | Le centre d’administration Microsoft
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
 - [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Stratégie d’expiration pour les groupes Office 365](groups-lifecycle.md)
+- [Stratégie d’expiration pour les groupes Microsoft 365](groups-lifecycle.md)
 - [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gérer les membres d’un groupe](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)

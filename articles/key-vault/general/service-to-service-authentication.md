@@ -6,20 +6,20 @@ author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
 ms.date: 08/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: af7cb87f8caf0176505c8af864ae8d3cb0c312a0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034785"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585693"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
 > [!NOTE]
-> L’utilisation de **Microsoft.Azure.Services.AppAuthentication** n’est plus recommandée avec le nouveau Kit de développement logiciel (SDK) Key Vault. Elle est remplacée par une nouvelle bibliothèque d’identité Azure **DefaultAzureCredentials** disponible pour .NET, Java, TypeScript et Python, et doit être utilisée pour tout nouveau développement. Des informations supplémentaires sont disponibles ici : [Authentification et kit de développement logiciel (SDK) Azure](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> L’utilisation de **Microsoft.Azure.Services.AppAuthentication** n’est plus recommandée avec le nouveau Kit de développement logiciel (SDK) Key Vault. Elle est remplacée par une nouvelle bibliothèque d’identité Azure, **DefaultAzureCredentials**, disponible pour .NET, Java, TypeScript et Python, qui doit être utilisée pour tout nouveau développement. Des informations supplémentaires sont disponibles ici : [Authentification et kit de développement logiciel (SDK) Azure](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 Pour vous authentifier auprès d’Azure Key Vault, vous avez besoin d’informations d’identification Azure Active Directory (Azure AD), soit un secret partagé ou certificat.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203586"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521210"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -57,6 +57,7 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | IssuerUri | Non | Nom de l’émetteur qui apparaît dans la réponse SAML. La valeur doit être identique au nom configuré dans l’application par partie de confiance. |
+| XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer l’assertion SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. Pour configurer la réponse SAML, consultez les [métadonnées SAML de la partie de confiance](relyingparty.md#metadata)|
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
@@ -76,15 +77,4 @@ Pour configurer les sessions SAML Azure AD B2C entre une application par partie 
 Consultez les articles suivants pour obtenir des exemples d’utilisation d’un profil technique d’émetteur SAML :
 
 - [Inscrire une application SAML dans Azure AD B2C](connect-with-saml-service-providers.md)
-
-
-
-
-
-
-
-
-
-
-
 

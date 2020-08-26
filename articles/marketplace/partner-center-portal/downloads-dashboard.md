@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317567"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245670"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale
 
@@ -25,9 +25,7 @@ Pour accéder au tableau de bord Téléchargements, ouvrez le tableau de bord **
 
 ## <a name="downloads-dashboard"></a>Tableau de bord Téléchargements
 
-Le tableau de bord **Téléchargements** du menu **Analyser** affiche les requêtes de téléchargements contenant plus de 1 000 lignes de données relatives aux clients ou commandes.
-
-Vous recevez une notification contextuelle et un e-mail contenant un lien vers le tableau de bord **Téléchargements** chaque fois que vous demandez un téléchargement de plus de 1 000 lignes de données. Ces téléchargements de données sont disponibles pendant 30 jours, puis supprimés.
+Le tableau de bord **Téléchargements** du menu **Analyser** affiche les requêtes de téléchargements contenant plus de 1 000 lignes de données relatives aux clients ou commandes. Ces téléchargements de données sont disponibles pendant 30 jours, puis supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

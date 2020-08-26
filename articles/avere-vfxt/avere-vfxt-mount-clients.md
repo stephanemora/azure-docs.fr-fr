@@ -1,17 +1,17 @@
 ---
 title: Monter le cluster Avere vFXT - Azure
-description: Guide pratique pour monter des clients avec Avere vFXT pour Azure
+description: Découvrez comment connecter des clients à votre cluster vFXT dans Average vFXT pour Azure et comment équilibrer la charge du trafic client entre les nœuds de votre cluster.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229565"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272569"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Monter le cluster Avere vFXT
 

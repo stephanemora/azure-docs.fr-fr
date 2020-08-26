@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810001"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236095"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -259,7 +259,7 @@ Exemple de configuration de groupe de sécurité réseau pour un accès d’adre
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Quels sont les certificats pris en charge par Application Gateway ?
 
-Application Gateway prend en charge les certificats auto-signés, les certificats d’autorité de certification (CA), les certificats de validation étendue (EV) et les certificats génériques.
+Application Gateway prend en charge les certificats auto-signés, les certificats d’autorité de certification (CA), les certificats de validation étendue (EV), les certificats à plusieurs domaines (SAN) et les certificats génériques.
 
 ### <a name="what-cipher-suites-does-application-gateway-support"></a>Quelles sont les suites de chiffrement prises en charge par Application Gateway ?
 

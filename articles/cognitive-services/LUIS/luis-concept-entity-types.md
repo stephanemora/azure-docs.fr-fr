@@ -2,13 +2,13 @@
 title: Types d’entités - LUIS
 description: Une entité extrait des données d’un énoncé de l’utilisateur au moment de l’exécution de la prédiction. Un objectif secondaire _facultatif_ est d’améliorer la prédiction de l’intention ou d’autres entités à l’aide de l’entité en tant que caractéristique.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337617"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207756"
 ---
 # <a name="extract-data-with-entities"></a>Extraire des données avec des entités
 
@@ -140,9 +140,16 @@ Une entité Pattern.any est uniquement disponible dans un [modèle](luis-concept
 
 Si vous devez dépasser la [limite](luis-limits.md#model-limits), contactez le support. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>État de prédiction d’entité
+## <a name="entity-prediction-status-and-errors"></a>État de prédiction d’entité et erreurs
 
-Le portail LUIS indique quand l’entité a une prédiction d’entité différente de celle de l’entité que vous avez sélectionnée dans un exemple d’énoncé. Ce score différent est basé sur le modèle entraîné actuel. Utilisez ces informations pour résoudre les erreurs d’apprentissage à l’aide d’un ou plusieurs des éléments suivants :
+Le portail LUIS indique quand l’entité a une prédiction d’entité différente de celle de l’entité que vous avez sélectionnée dans un exemple d’énoncé. Ce score différent est basé sur le modèle entraîné actuel. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="Le portail LUIS indique quand l’entité a une prédiction d’entité différente de celle de l’entité que vous avez sélectionnée dans un exemple d’énoncé.":::
+
+Le texte d’erreur est mis en surbrillance dans l’exemple d’énoncé, et l’exemple de ligne d’énoncé comporte un indicateur d’erreur à droite, sous la forme d’un triangle rouge. 
+
+Utilisez ces informations pour résoudre les erreurs d’entité à l’aide d’un ou plusieurs des éléments suivants :
+* Le texte mis en surbrillance est mal étiqueté. Pour corriger, examiner, corriger et reformer. 
 * Créez une [fonctionnalité](luis-concept-feature.md) pour l’entité afin d’identifier le concept de l’entité.
 * Ajoutez des [exemples d’énoncés](luis-concept-utterance.md) et étiquetez-les avec l’entité.
 * [Passez en revue les suggestions d’apprentissage actif](luis-concept-review-endpoint-utterances.md) pour les énoncés reçus au point de terminaison de prédiction qui peuvent aider à identifier le concept de l’entité.

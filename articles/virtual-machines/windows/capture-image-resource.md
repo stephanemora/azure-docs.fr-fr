@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284640"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236605"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -39,13 +39,15 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 1. Connectez-vous à votre machine virtuelle Windows.
    
-2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur. Remplacez le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
+2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur. 
+
+3. Supprimez le répertoire Panther (C:\Windows\Panther). Remplacez ensuite le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
    
-3. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** , puis activez la case à cocher **Généraliser**.
+4. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** , puis activez la case à cocher **Généraliser**.
    
-4. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
+5. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
    
-5. Sélectionnez **OK**.
+6. Sélectionnez **OK**.
    
     ![Démarrer Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

@@ -3,16 +3,20 @@ title: Sauvegarde et restauration sélectives de disques pour les machines virtu
 description: Dans cet article, découvrez la sauvegarde et la restauration sélectives de disques à travers la solution de sauvegarde de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: e61014a4fde7bfce316671ff0b081ff7bc2205a5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: references_regions
+ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535220"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566231"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
 Sauvegarde Azure prend en charge la sauvegarde de tous les disques (système d’exploitation et données) d’une machine virtuelle à travers la solution de sauvegarde de machine virtuelle. Désormais, en utilisant la fonctionnalité de sauvegarde et restauration sélectives de disques, vous pouvez sauvegarder un sous-ensemble de disques de données d’une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient uniquement les disques inclus dans l’opération de sauvegarde. Cela vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné pendant l’opération de restauration. Cela vaut pour les restaurations effectuées à partir de captures instantanées et du coffre.
+
+>[!NOTE]
+>La sauvegarde et la restauration sur disque sélectives pour les machines virtuelles Azure sont en préversion publique dans toutes les régions.
 
 ## <a name="scenarios"></a>Scénarios
 

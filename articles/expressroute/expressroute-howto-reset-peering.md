@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute : Réinitialiser le peering d’un circuit'
-description: Comment désactiver et activer les peerings d’un circuit ExpressRoute.
+description: Apprenez à désactiver et activer des peerings d’un circuit Azure ExpressRoute à l’aide d’Azure PowerShell. Lorsque vous configurez des peerings, ces derniers sont activés par défaut.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: cc4266a92d510ac84118922f7db09c99234045b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e576fe2f08d54d2642603e3b7974e00feec8ce93
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735249"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192180"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Réinitialiser les peerings d’un circuit ExpressRoute
 

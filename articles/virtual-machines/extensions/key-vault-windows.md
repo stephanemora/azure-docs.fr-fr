@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d66ef8f142a72bfdea2dcf3eeb996b18173de04d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 18ca9244f818fa745725f13d79a23c1a232e01ed
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502960"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545384"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -73,9 +73,9 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 > 
 > Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> La propriété « authenticationSettings »est facultative dans le cas où plusieurs identités sont affectées à la machine virtuelle.
-> Elle permet de spécifier l'identité à utiliser pour l'authentification auprès de Key Vault.
+> [!IMPORTANT]
+> La propriété 'authenticationSettings' est **requise** uniquement pour les machines virtuelles avec des **identités affectées par l’utilisateur**.
+> Elle spécifie l'identité à utiliser pour l'authentification auprès de Key Vault.
 
 
 ### <a name="property-values"></a>Valeurs de propriétés

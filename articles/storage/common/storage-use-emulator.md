@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447146"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588192"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -245,11 +245,11 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-56"></a>Version 5.6
 
-* L’émulateur de stockage prend maintenant en charge la version 2018-03-28 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2018-03-28 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-55"></a>Version 5.5
 
-* L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 * La prise en charge a été ajoutée pour la propriété **Créé** de l’objet blob, qui retourne l’heure de création de l’objet blob.
 
 ### <a name="version-54"></a>Version 5.4
@@ -258,7 +258,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-53"></a>Version 5.3
 
-* L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-52"></a>Version 5.2
 
@@ -289,18 +289,18 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-44"></a>Version 4.4
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-12-11 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2015-12-11 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 * Le garbage collection par l’émulateur de stockage des données blob est désormais plus efficace quand le nombre d’objets blob est élevé.
 * Correction d’un bogue qui provoquait la validation du XML ACL de conteneur légèrement différemment de la façon dont procède le service de stockage.
 * Correction d’un bogue qui entraînait parfois le signalement des valeurs de date/heure max et min dans le fuseau horaire incorrect.
 
 ### <a name="version-43"></a>Version 4.3
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-07-08 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2015-07-08 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-42"></a>Version 4.2
 
-* L’émulateur de stockage prend maintenant en charge la version 2015-04-05 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2015-04-05 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
 ### <a name="version-41"></a>Version 4.1
 
@@ -314,7 +314,7 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ### <a name="version-32"></a>Version 3.2
 
-* L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table. Les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
+* L’émulateur de stockage prend maintenant en charge la version 2014-02-14 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table. Les points de terminaison du service de fichiers ne sont pas pris en charge dans l’émulateur de stockage pour le moment. Pour plus d’informations sur la version 2014-02-14, consultez la page [Contrôle de version pour les services Azure Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
 
 ### <a name="version-31"></a>Version 3.1
 

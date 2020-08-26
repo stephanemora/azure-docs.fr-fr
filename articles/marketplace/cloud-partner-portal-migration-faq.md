@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056548"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607496"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -20,17 +20,17 @@ Le portail Cloud Partner a fait l’objet d’une transition vers l’Espace par
 
 ## <a name="what-does-the-transition-to-partner-center-mean-for-me"></a>Que signifie pour moi la transition vers l’Espace partenaires ?
 
-Vous pouvez continuer à travailler comme d’habitude dans l’Espace partenaires :
+Vous pouvez continuer à travailler dans l’Espace partenaires :
 
 | Domaine<img src="" width=200px> | Modifications |
 | --- | --- |
 | Compte | Vous n’avez pas besoin de créer un nouveau compte Espace partenaires ; vous pouvez utiliser vos informations d’identification existantes du portail Cloud Partner pour vous connecter à l’Espace partenaires, où vous allez maintenant gérer votre compte, les utilisateurs, les autorisations et la facturation. Le contrat d’éditeur et les informations sur le profil de l’entreprise sont migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil de paiement, les comptes d’utilisateur et les autorisations, ainsi que les offres actives. En savoir plus dans [Gérer votre compte Place de marché commerciale dans l’Espace partenaires](partner-center-portal/manage-account.md). |
 | Expérience de publication d’offre et de gestion des offres | Nous avons déplacé vos données d’offre du portail Cloud Partner vers l’Espace partenaires. Maintenant, vous accédez à vos offres dans l’Espace partenaires, qui offre une expérience utilisateur améliorée et une interface intuitive. Découvrez comment [Mettre à jour une offre existante dans la place de marché commerciale](partner-center-portal/update-existing-offer.md). |
-| Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la Place de marché commerciale, elle continuera à être active. |
+| Disponibilité de vos offres sur la Place de marché commerciale | Aucun changement. Si votre offre est active dans la place de marché commerciale, elle restera active. |
 | Nouveaux achats et déploiements | Aucun changement. Vos clients peuvent continuer à acheter et à déployer vos offres sans interruption. |
 | Paiements | Les achats et les déploiements continuent à vous être payés normalement. En savoir plus sur [Recevoir un paiement dans la Place de marché commerciale](partner-center-portal/get-paid.md). |
 | Intégrations d’API avec des [API du portail Cloud Partner existantes](cloud-partner-portal-api-overview.md) | Les API du portail Cloud Partner existantes sont toujours prises en charge et vos intégrations existantes fonctionnent toujours. En savoir plus dans [Les API REST du portail Cloud Partner seront-elles prises en charge ?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que dans Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
+| Analytics | Vous pouvez continuer à surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché commerciale en affichant l’analytique dans l’Espace partenaires. Il existe des différences entre l’affichage des rapports analytiques dans CPP et Espace partenaires. Par exemple, la fonctionnalité **Insights Vendeurs** dans CPP a un onglet **Commandes et utilisation** qui affiche les données pour les offres basées sur l’utilisation et celles non basées sur l’utilisation, tandis que, dans l’Espace partenaires, la page **Commandes** a un onglet distinct pour les offres SaaS. En savoir plus dans [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Dois-je créer un nouveau compte pour gérer mes offres dans l’Espace partenaires ?

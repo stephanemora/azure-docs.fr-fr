@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026710"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547718"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -25,9 +25,8 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 > [!IMPORTANT]
 > Les stratégies personnalisées avec Guest Configuration sont une fonctionnalité en préversion.
 >
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure.
-> Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez les définitions de stratégie suivantes :
->   - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez les définitions de stratégie suivantes :
+> - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
@@ -51,11 +50,14 @@ Systèmes d’exploitation sur lesquels le module peut être installé :
 - macOS
 - Windows
 
+> [!NOTE]
+> La cmdlet « test-GuestConfigurationPackage » requiert OpenSSL version 1,0, en raison d’une dépendance d’OMI. Cela provoque une erreur sur tout environnement avec OpenSSL 1.1 ou version ultérieure.
+
 Le module de ressource Guest Configuration nécessite les logiciels suivants :
 
 - PowerShell 6.2 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
-  - Seuls les modules AZ (Az.Accounts et Az.Resources) sont requis.
+  - Seuls les modules Az « Az.Accounts » et « Az.Resources » sont requis.
 
 ### <a name="install-the-module"></a>Installer le module
 
@@ -77,7 +79,8 @@ Pour installer le module **GuestConfiguration** dans PowerShell :
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Artefacts Guest Configuration et stratégie pour Linux
 
-Même dans les environnements Linux, Guest Configuration utilise Desired State Configuration en tant qu’abstraction de langage. L’implémentation est basée sur le code natif (C++) de sorte qu’elle ne nécessite pas le chargement de PowerShell. Toutefois, elle nécessite une configuration MOF décrivant les détails de l’environnement. DSC agit comme un wrapper pour InSpec afin de normaliser son exécution, ainsi que les modalités de fourniture des paramètres et de renvoi des résultats au service. Une connaissance de base de DSC est suffisante l’utilisation de contenu InSpec personnalisé.
+Même dans les environnements Linux, Guest Configuration utilise Desired State Configuration en tant qu’abstraction de langage. L’implémentation est basée sur le code natif (C++) de sorte qu’elle ne nécessite pas le chargement de PowerShell. Toutefois, elle nécessite une configuration MOF décrivant les détails de l’environnement.
+DSC agit comme un wrapper pour InSpec afin de normaliser son exécution, ainsi que les modalités de fourniture des paramètres et de renvoi des résultats au service. Une connaissance de base de DSC est suffisante l’utilisation de contenu InSpec personnalisé.
 
 #### <a name="configuration-requirements"></a>Exigences de configuration
 
@@ -137,8 +140,6 @@ AuditFilePathExists -out ./Config
 Enregistrez ce fichier sous le nom `config.ps1` dans le dossier du projet. Exécutez-le dans PowerShell en exécutant `./config.ps1` dans le terminal. Un fichier mof est créé.
 
 La commande `Node AuditFilePathExists` n’est pas techniquement obligatoire, mais elle produit un fichier `AuditFilePathExists.mof` plutôt que `localhost.mof`par défaut. Le fait d’avoir le nom de fichier. mof à la suite de la configuration permet d’organiser facilement de nombreux fichiers à grande échelle.
-
-
 
 Vous devez maintenant avoir une structure de projet comme indiqué ci-dessous :
 
@@ -260,6 +261,8 @@ Paramètres de la cmdlet `New-GuestConfigurationPolicy` :
 - **Version** : Version de stratégie.
 - **Chemin d’accès** : Chemin de destination où les définitions de stratégie sont créées.
 - **Plateforme** : Plateforme cible (Windows/Linux) pour la stratégie et le package de contenu Guest Configuration.
+- **Tag** ajoute un ou plusieurs filtres de balise à la définition de stratégie
+- **Category** définit le champ de métadonnées catégorie dans la définition de stratégie
 
 L’exemple suivant crée les définitions de stratégie dans le chemin d’accès spécifié à partir d’un package de stratégie personnalisé :
 
@@ -282,16 +285,7 @@ Les fichiers suivants sont créés par `New-GuestConfigurationPolicy` :
 
 La sortie de la cmdlet retourne un objet contenant le nom complet de l’initiative et le chemin d’accès aux fichiers de stratégie.
 
-> [!Note]
-> Le dernier module Guest Configuration comprend de nouveaux paramètres :
-> - **Tag** ajoute un ou plusieurs filtres de balise à la définition de stratégie
->   - Consultez la section [Filtrage des stratégies Guest Configuration à l’aide de balises](#filtering-guest-configuration-policies-using-tags).
-> - **Category** définit le champ de métadonnées catégorie dans la définition de stratégie
->   - Si le paramètre n’est pas inclus, la catégorie sera définie par défaut par Guest Configuration.
-> Ces fonctionnalités sont actuellement en version préliminaire et nécessitent le module Guest Configuration version 1.20.1, qui peut être installé à l’aide de `Install-Module GuestConfiguration -AllowPrerelease`.
-
-Enfin, publiez les définitions de stratégie à l’aide de la cmdlet `Publish-GuestConfigurationPolicy`.
-La cmdlet ne dispose que du paramètre **Path** qui pointe vers l’emplacement des trois fichiers JSON créés par `New-GuestConfigurationPolicy`.
+Enfin, publiez les définitions de stratégie à l’aide de la cmdlet `Publish-GuestConfigurationPolicy`. La cmdlet ne dispose que du paramètre **Path** qui pointe vers l’emplacement des trois fichiers JSON créés par `New-GuestConfigurationPolicy`.
 
 Pour exécuter la commande Publish, vous devez avoir accès à la création de stratégies dans Azure. Les exigences spécifiques en matière d’autorisations sont documentées dans la page [vue d’ensemble d’Azure Policy](../overview.md). Le meilleur rôle intégré est le rôle **Contributeur de la stratégie de ressource**.
 
@@ -405,9 +399,6 @@ Le moyen le plus simple de publier un package mis à jour consiste à répéter 
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrage des stratégies Guest Configuration à l’aide de balises
 
-> [!Note]
-> Cette fonctionnalité est actuellement en version préliminaire et nécessite le module Guest Configuration version 1.20.1, qui peut être installé à l’aide de `Install-Module GuestConfiguration -AllowPrerelease`.
-
 Les stratégies créées par les cmdlet dans le module Guest Configuration peuvent éventuellement inclure un filtre pour les balises. Le paramètre **-Tag** de `New-GuestConfigurationPolicy` prend en charge un groupe de tables de hachage contenant des balises individuelles. Les balises sont ajoutées à la section `If` de la définition de stratégie et ne peuvent pas être modifiées par une attribution de stratégie.
 
 Vous trouverez ci-dessous un exemple d’extrait de définition de stratégie qui permettra de filtrer les balises.
@@ -464,5 +455,5 @@ Pour plus d’informations sur les applets de commande de cet outil, utilisez la
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur l’audit des machines virtuelles avec [Guest Configuration](../concepts/guest-configuration.md).
-- Découvrez comment [créer des stratégies par programmation](programmatically-create.md).
-- Découvrez comment [obtenir des données de conformité](get-compliance-data.md).
+- Découvrez comment [créer des stratégies par programmation](./programmatically-create.md).
+- Découvrez comment [obtenir des données de conformité](./get-compliance-data.md).

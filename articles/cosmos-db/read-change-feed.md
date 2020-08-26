@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697348"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236792"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
 
-Vous pouvez utiliser le flux de modifications Azure Cosmos DB à l’aide d’un modèle d’envoi (push) ou de tirage (pull). Avec un modèle push, un client demande du travail auprès d’un serveur et dispose d’une logique métier pour traiter une modification. Toutefois, la complexité liée à la vérification des modifications et au stockage de l’état pour les dernières modifications traitées est gérée sur le serveur.
+Vous pouvez utiliser le flux de modifications Azure Cosmos DB à l’aide d’un modèle d’envoi (push) ou de tirage (pull). Avec un modèle d’envoi (push), un serveur (flux de modification) envoie le travail à un client qui dispose d’une logique métier pour traiter ce travail. Toutefois, la complexité liée à la vérification du travail et au stockage de l’état du dernier travail traité est gérée sur le serveur.
 
-Avec un modèle pull, un serveur demande du travail, souvent à partir d’une file d’attente de travail centrale. Dans ce cas, le client dispose d’une logique métier pour non seulement traiter les modifications, mais également stocker l’état de la dernière modification traitée, gérer l’équilibrage de charge entre plusieurs clients traitant des modifications en parallèle et gérer les erreurs.
+Avec un modèle d’extraction (pull), le client doit extraire le travail du serveur. Dans ce cas, le client dispose d’une logique métier pour non seulement traiter le travail, mais également stocker l’état du dernier travail traité, gérer l’équilibrage de charge entre plusieurs clients traitant un travail en parallèle et gérer les erreurs.
 
 Lors de la lecture du flux de modification Azure Cosmos DB, nous vous recommandons généralement d’utiliser un modèle push. De cette façon, vous n’avez pas à vous soucier de ce qui suit :
 

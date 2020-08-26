@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800413"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587631"
 ---
 # <a name="understand-event-data"></a>Comprendre les données d’événements
 
@@ -30,7 +30,7 @@ En général, les notifications sont constituées de deux parties : l’en-têt
 
 Les en-têtes de message de notification sont représentés par des paires clé-valeur. Les en-têtes de message sont sérialisés différemment, selon le protocole utilisé (MQTT, AMQP ou HTTP). Cette section donne des informations générales sur les en-têtes des messages de notification, sans prendre en compte le protocole et la sérialisation choisis.
 
-Certaines notifications sont conformes au standard CloudEvents. La conformité CloudEvents est la suivante.
+Certaines notifications sont conformes à la norme [CloudEvents](https://cloudevents.io/). La conformité CloudEvents est la suivante.
 * Les notifications émises par les appareils continuent de suivre les spécifications existantes concernant les notifications.
 * Les notifications traitées et émises par IoT Hub continuent de suivre les spécifications existantes concernant les notifications, sauf lorsque IoT Hub choisit de prendre en charge CloudEvents, par exemple, via Event Grid.
 * Les notifications émises par des [jumeaux numériques](concepts-twins-graph.md) avec un [modèle](concepts-models.md) se conforment à CloudEvents.
@@ -107,7 +107,7 @@ Voici les champs compris dans le corps d’une notification de cycle de vie.
 | --- | --- |
 | `id` | Identificateur de la notification, tel qu’un UUID ou un compteur géré par le service. `source` + `id` est unique pour chaque événement. |
 | `source` | Nom de l’instance IoT Hub ou Azure Digital Twins, par exemple *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Le message est conforme à cette version de la [spécification CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID du jumeau numérique |
@@ -193,7 +193,7 @@ Voici les champs compris dans le corps d’une notification de modification de p
 | --- | --- |
 | `id` | Identificateur de la notification, tel qu’un UUID ou un compteur géré par le service. `source` + `id` est unique pour chaque événement. |
 | `source` | Nom de l’instance Azure Digital Twins, comme *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Le message est conforme à cette version de la [spécification CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID de la relation, comme `<twinID>/relationships/<relationshipID>` |
@@ -249,7 +249,7 @@ Voici les champs compris dans le corps d’une notification de modification d’
 | --- | --- |
 | `id` | Identificateur de la notification, tel qu’un UUID ou un compteur géré par le service. `source` + `id` est unique pour chaque événement. |
 | `source` | Nom de l’instance IoT Hub ou Azure Digital Twins, par exemple *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Le message est conforme à cette version de la [spécification CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID du jumeau numérique |

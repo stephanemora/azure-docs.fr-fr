@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167723"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506496"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolement réseau pendant l’entraînement et l’inférence avec les réseaux virtuels privés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Un __réseau virtuel__ agit en tant que limite de sécurité, isolant vos ressou
 + Connaissance générale du [service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) et de la [mise en réseau IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Un réseau virtuel et un sous-réseau préexistants à utiliser avec vos ressources de calcul.
+
++ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (RBAC) :
+
+    - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
+    - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
+
+    Pour plus d’informations sur RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
 
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 
@@ -85,7 +92,7 @@ Studio prend en charge la lecture de données à partir des types de magasins de
 
 Ajoutez votre espace de travail et votre compte de stockage au même réseau virtuel pour qu’ils puissent accéder l’un à l’autre.
 
-1. Pour connecter votre espace de travail au réseau virtuel, [activez Azure Private Link](how-to-configure-private-link.md). Cette capacité est actuellement disponible en version préliminaire dans les régions USA Est, USA Ouest 2 et USA Centre Sud.
+1. Pour connecter votre espace de travail au réseau virtuel, [activez Azure Private Link](how-to-configure-private-link.md). Cette capacité est actuellement disponible en préversion dans les régions USA Est et USA Ouest 2.
 
 1. Pour connecter votre compte de stockage au réseau virtuel, [configurez les paramètres de pare-feu et de réseaux virtuels](#use-a-storage-account-for-your-workspace).
 

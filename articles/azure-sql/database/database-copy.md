@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530369"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225731"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -118,7 +118,7 @@ Vous pouvez utiliser les étapes décrites dans la section [Copier SQL Database 
 > Le [Portail Azure](https://portal.azure.com), PowerShell et l’interface de ligne de commande Azure ne prennent pas en charge la copie de la base de données sur un autre abonnement.
 
 > [!TIP]
-> La copie de base de données à l’aide de T-SQL prend en charge la copie d’une base de données d’un abonnement dans un locataire Azure différent.
+> La copie de base de données à l’aide de T-SQL prend en charge la copie d’une base de données d’un abonnement dans un locataire Azure différent. Cette fonctionnalité n’est prise en charge que lors de l’utilisation d’une connexion d’authentification SQL pour se connecter au serveur cible.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 

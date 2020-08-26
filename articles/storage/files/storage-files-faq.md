@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037131"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245432"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -77,13 +77,14 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     > [!NOTE]
     > Vous ne pouvez pas créer de partages de fichiers Azure à partir de comptes de stockage d’objets blob ou de comptes de stockage *Premium* à usage général (GPv1 ou GPv2). Les partages de fichiers Azure standard doivent être créés dans des comptes *standard* à usage général uniquement, et les partages Azure Premium doivent être créés dans des comptes de stockage FileStorage uniquement. Les comptes de stockage *Premium* à usage général (GPv1 et GPv2) sont destinés aux objets blob de pages Premium uniquement. 
 
+* <a id="file-locking"></a>
+  **Azure Files prend-il en charge le verrouillage de fichiers ?**  
+    Oui, Azure Files prend entièrement en charge le verrouillage de fichiers SMB/Windows, [voir les détails](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Je souhaite vraiment qu’une fonctionnalité soit ajoutée à Azure Files. Pouvez vous ajouter ?**  
     L’équipe Azure Files est à l’écoute de tous vos commentaires sur notre service. Veuillez voter pour les demandes de fonctionnalités sur le [forum UserVoice consacré à Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). Nous sommes impatients de mettre à votre disposition de nombreuses nouvelles fonctionnalités.
 
-  **Azure Files prend-il en charge le verrouillage de fichiers ?**  
-    Oui, Azure Files prend entièrement en charge le verrouillage de fichiers SMB/Windows, [voir les détails](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 **Quelles sont les stratégies de conformité des données prises en charge par Azure Files ?**  
 
    Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Comment puis-je auditer la consultation et les modifications de fichiers dans Azure Files ?**
+
+  Deux options fournissent la fonctionnalité d’audit pour Azure Files :
+  - Si les utilisateurs accèdent directement au partage de fichiers Azure, les [journaux de Stockage Azure (préversion)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) permettent de suivre les modifications apportées aux fichiers et les accès utilisateur. Vous pouvez utiliser ces journaux à des fins de dépannage et les demandes sont journalisées de manière optimale.
+  - Si des utilisateurs accèdent au partage de fichiers Azure via un serveur Windows Server sur lequel l’agent Azure File Sync est installé, utilisez une [stratégie d’audit](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) ou un produit tiers pour suivre les modifications de fichiers et les accès utilisateur sur le serveur Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>Authentification AD DS et Azure AD DS
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 **Existe-t-il des API REST pour prendre en charge les ACL Windows de répertoire/fichier Get/Set/Copy ?**
 
     Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou version ultérieure). Nous prenons également en charge les ACL Windows persistantes avec les outils REST : [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Accès local
 

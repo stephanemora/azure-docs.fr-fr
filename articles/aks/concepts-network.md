@@ -4,12 +4,12 @@ description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), 
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387759"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243902"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -72,6 +72,8 @@ Pour plus d’informations, consultez [Configurer une mise en réseau kubenet po
 ### <a name="azure-cni-advanced-networking"></a>Mise en réseau Azure CNI (avancée)
 
 Avec Azure CNI, chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. Sinon, elle peut conduire à l’épuisement des adresses IP ou à la nécessité de régénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
+
+Contrairement à kubenet, le trafic vers les points de terminaison dans le même réseau virtuel ne fait pas l’objet d’une traduction d’adresses réseau (NAT) vers l’adresse IP principale du nœud. L’adresse source pour le trafic à l’intérieur du réseau virtuel est l’adresse IP du pod. Le trafic externe au réseau virtuel continue de faire l’objet d’une traduction d’adresses réseau (NAT) vers l’adresse IP principale du nœud.
 
 Les nœuds utilisent le plug-in Kubernetes [Azure CNI (Container Networking Interface)][cni-networking].
 

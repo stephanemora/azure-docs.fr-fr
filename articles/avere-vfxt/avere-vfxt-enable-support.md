@@ -1,17 +1,17 @@
 ---
 title: Activer le support pour Avere vFXT - Azure
-description: Découvrez comment activer les chargements de données de support à partir d’Avere vFXT pour Azure
+description: Découvrez comment activer le chargement automatique des données de prise en charge concernant votre cluster à partir d’Avere vFXT pour Azure afin d’aider le service clientèle.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fc86cca1b73eb58a038a0a6da109e86b995709c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b99aa624a21d9312297e4279b1dcf053c79ae3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505475"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272726"
 ---
 # <a name="enable-support-uploads"></a>Activer les chargements de données de support
 

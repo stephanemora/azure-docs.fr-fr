@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: a5c0e9bf94a9953e107de148792af2e39f8bac24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3ba9844bf8412e169322fd4953cbc259a94e174
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512293"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525773"
 ---
 # <a name="repairing-an-import-job"></a>Réparation d’un travail d’importation
 Le service Microsoft Azure Import/Export peut ne pas copier certains de vos fichiers ou des parties d’un fichier dans le service BLOB Windows Azure. Voici quelques exemples de raisons de ces échecs :  
@@ -24,7 +24,7 @@ Le service Microsoft Azure Import/Export peut ne pas copier certains de vos fich
   
 -   La clé du compte de stockage a été modifiée pendant le transfert du fichier.  
   
-Vous pouvez exécuter l’outil Microsoft Azure Import/Export avec les fichiers journaux de copie du travail d’importation. L’outil charge alors les fichiers (ou les parties d’un fichier) manquants dans votre compte de stockage Microsoft Azure pour terminer la tâche d’importation.  
+Vous pouvez exécuter l’outil Microsoft Azure Import/Export avec les fichiers journaux de copie du travail d’importation. L’outil charge les fichiers manquants ou des parties d’un fichier dans votre compte de stockage Windows Azure pour terminer le travail d’importation.  
   
 ## <a name="repairimport-parameters"></a>Paramètres de RepairImport
 
@@ -32,18 +32,18 @@ Les paramètres suivants peuvent être spécifiés pour **RepairImport** :
   
 |||  
 |-|-|  
-|**/r:** &lt;RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Quand vous lancez la réparation d’un lecteur donné, transmettez le chemin d’un fichier de réparation, qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au lecteur cible doit toujours être spécifié.|  
+|**/r:** &lt;RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Quand vous lancez la réparation d’un lecteur donné, transmettez le chemin d’un fichier de réparation, qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Spécifiez toujours le fichier de réparation correspondant au lecteur cible.|  
 |**/logdir:** &lt;LogDirectory\>|**Facultatif.** Répertoire du journal. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire actif est utilisé comme répertoire de journaux.|  
 |**/d:** &lt;TargetDirectories\>|**Obligatoire.** Un ou plusieurs répertoires séparés par des points-virgules contenant les fichiers d’origine qui ont été importés. Le disque d’importation peut également être utilisé, mais il n’est pas obligatoire si d’autres emplacements de fichiers d’origine sont disponibles.|  
-|**/bk:** &lt;BitLockerKey\>|**Facultatif.** Vous devez spécifier la clé BitLocker si vous souhaitez que l’outil déverrouille un disque chiffré dans lequel les fichiers d’origine sont disponibles.|  
+|**/bk:** &lt;BitLockerKey\>|**Facultatif.** Spécifiez la clé BitLocker si vous souhaitez que l’outil déverrouille un disque chiffré dans lequel les fichiers d’origine sont disponibles.|  
 |**/sn:** &lt;StorageAccountName\>|**Obligatoire.** Nom du compte de stockage du travail d’importation.|  
 |**/sk:** &lt;StorageAccountKey\>|**Obligatoire** si et seulement si une SAP de conteneur n’est pas spécifiée. Clé du compte de stockage du travail d’importation.|  
-|**/csas:** &lt;ContainerSas\>|**Obligatoire** si et seulement si la clé du compte de stockage n’est pas spécifiée. SAP de conteneur pour accéder aux objets blob associés au travail d’importation.|  
+|**/csas:** &lt;ContainerSas\>|**Required** if and only if the storage account key isn't specified. SAP de conteneur pour accéder aux objets blob associés au travail d’importation.|  
 |**/CopyLogFile:** &lt;DriveCopyLogFile\>|**Obligatoire.** Chemin d’accès au fichier journal de copie du disque (journal détaillé ou d’erreurs). Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob ou les fichiers en échec qui doivent être réparés.|  
-|**/PathMapFile:** &lt;DrivePathMapFile\>|**Facultatif.** Chemin d’accès à un fichier texte qui peut être utilisé pour résoudre les ambiguïtés si vous importez dans le même travail plusieurs fichiers portant le même nom. La première fois que l’outil est exécuté, il peut remplir ce fichier avec tous les noms ambigus. Les exécutions suivantes de l’outil utilisent ce fichier pour résoudre les ambiguïtés.|  
+|**/PathMapFile:** &lt;DrivePathMapFile\>|**Facultatif.** Chemin d’accès à un fichier texte utilisé pour résoudre les ambiguïtés si vous importez dans le même travail plusieurs fichiers portant le même nom. La première fois que l’outil est exécuté, il peut remplir ce fichier avec tous les noms ambigus. Les exécutions suivantes de l’outil utilisent ce fichier pour résoudre les ambiguïtés.|  
   
 ## <a name="using-the-repairimport-command"></a>Utilisation de la commande RepairImport  
-Pour réparer des données d’importation en diffusant en continu les données sur le réseau, vous devez spécifier les répertoires qui contiennent les fichiers d’origine que vous importez à l’aide du paramètre `/d`. Vous devez également spécifier le fichier journal de copie que vous avez téléchargé à partir de votre compte de stockage. Une ligne de commande classique pour réparer un travail d’importation avec des échecs partiels est semblable à :  
+Pour réparer des données d’importation en diffusant en continu les données sur le réseau, vous devez spécifier les répertoires qui contiennent les fichiers d’origine que vous importez à l’aide du paramètre `/d`. Spécifiez également le fichier journal de copie que vous avez téléchargé à partir de votre compte de stockage. Une ligne de commande classique pour réparer un travail d’importation avec des échecs partiels est semblable à :  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
@@ -88,7 +88,7 @@ L’outil écrit ensuite les chemins d’accès de fichier problématique dans `
 \animals\kangaroo.jpg  
 ```
   
- Pour chaque fichier de la liste, vous devez essayer de localiser et d’ouvrir le fichier pour vous assurer qu’il est disponible pour l’outil. Si vous souhaitez indiquer explicitement à l’outil où rechercher un fichier, vous pouvez modifier le fichier de mappage de chemin d’accès et ajouter le chemin d’accès à chaque fichier sur la même ligne, séparé par un caractère de tabulation :  
+ Pour chaque fichier de la liste, vous devez essayer de localiser et d’ouvrir le fichier pour vous assurer qu’il est disponible pour l’outil. Si vous souhaitez indiquer explicitement à l’outil où rechercher un fichier, modifiez le fichier de mappage de chemin d’accès et ajoutez le chemin d’accès à chaque fichier sur la même ligne, séparé par un caractère de tabulation :  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
@@ -102,5 +102,4 @@ Après avoir mis les fichiers nécessaires à disposition de l’outil ou après
 * [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
 * [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Réparation d’un travail d’exportation](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
+* [Réparation d’un travail d’exportation](../storage-import-export-tool-repairing-an-export-job-v1.md)

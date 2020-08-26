@@ -1,19 +1,19 @@
 ---
-title: Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
+title: Intégrer à Azure Maps
 titleSuffix: Azure Digital Twins
-description: Consultez la procédure de création d’une fonction Azure qui peut utiliser le graphique de jumeaux et les notifications Azure Digital Twins pour mettre à jour les informations affichées dans Azure Maps.
+description: Découvrez comment créer une fonction Azure capable d’utiliser le graphique de jumeaux et les notifications Azure Digital Twins pour mettre à jour une carte d’intérieur Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a2dff1ea9c830fa48545dc25654cc3c5318c3415
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131410"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235908"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 

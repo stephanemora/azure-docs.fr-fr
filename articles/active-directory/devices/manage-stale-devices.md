@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025628"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184939"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -162,7 +162,7 @@ Lorsque vous configurez des clés BitLocker pour des appareils Windows 10, elles
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Pourquoi dois-je surveiller de près l’utilisation des appareils Windows AutoPilot ?
 
-Quand un appareil Azure AD est associé à un objet Windows AutoPilot, les trois scénarios suivants peuvent se produire en cas de réaffectation de l’appareil :
+Quand vous supprimez un appareil Azure AD associé à un objet Windows AutoPilot, les trois scénarios suivants peuvent se produire en cas de réaffectation de l’appareil :
 - Dans le cadre d’un déploiement de Windows AutoPilot piloté par l’utilisateur sans service sur mesure, un appareil Azure AD est créé, sans que ce dernier soit identifié par un ZTDID.
 - Dans le cadre d’un déploiement en mode automatique de Windows AutoPilot, la réaffectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé.  Il s’agit d’un mécanisme de sécurité qui permet de se prémunir contre les tentatives d’infiltrations d’appareils « frauduleux » dans Azure AD, sans informations d’identification. L’échec entraîne l’affichage d’un message d’erreur indiquant une incompatibilité ZTDID.
 - Dans le cadre d’un déploiement Windows Autopilot sur mesure, l’affectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé. En arrière-plan, les déploiements sur mesure utilisent le même processus en mode de déploiement automatique, de sorte qu’ils appliquent les mêmes mécanismes de sécurité.

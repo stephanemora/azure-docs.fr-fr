@@ -3,17 +3,17 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830340"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205545"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -435,7 +435,8 @@ Propriétés de personnalisation :
 - **filters** : facultatif, vous permet de spécifier un filtre pour inclure ou exclure des mises à jour.
 - **updateLimit** : facultatif, définit le nombre de mises à jour pouvant être installées, par défaut 1 000.
  
- 
+> [!NOTE]
+> Le personnalisateur de Windows Update peut échouer si des redémarrages de Windows sont en suspens ou si des installations d’applications sont en cours. En général, vous pouvez voir cette erreur dans le fichier customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Nous vous recommandons vivement d’envisager l’ajout au redémarrage de Windows et/ou de laisser aux applications suffisamment de temps pour accomplir leurs installations à l’aide de la commande [sleep] ou de commandes d’attente (https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) ) dans les commandes ou scripts Inline avant d’exécuter Windows Update.
 
 ### <a name="generalize"></a>Généraliser 
 Le générateur d’images Azure exécute également du code de « déprovisionnement » à la fin de chaque phase de personnalisation d’image, pour « généraliser » l’image. La généralisation est un processus dans lequel l’image est configurée pour pouvoir être réutilisée afin de créer plusieurs machines virtuelles. Pour les machines virtuelles Windows, le générateur d’images Azure utilise Sysprep. Pour Linux, le générateur d’images Azure exécute « waagent-deprovision ». 

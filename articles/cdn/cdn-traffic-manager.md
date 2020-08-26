@@ -1,6 +1,6 @@
 ---
 title: Basculer entre plusieurs points de terminaison Azure CDN avec Traffic Manager
-description: Découvrez comment configurer Azure Traffic Manager avec des points de terminaison Azure CDN.
+description: Découvrez comment configurer le basculement entre plusieurs points de terminaison Azure Content Delivery Network à l’aide d’Azure Traffic Manager.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d557637815036fa49e83f1d11a948f264d493321
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888661"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192498"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 

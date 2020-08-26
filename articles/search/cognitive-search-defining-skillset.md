@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557451"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214073"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
-L’enrichissement de l’IA extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans la Recherche cognitive Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de qualifications peut contenir des [qualifications prédéfinies](cognitive-search-predefined-skills.md) ou des qualifications personnalisées (pour plus d’informations, consultez [Exemple : Création d’une compétence personnalisée dans un pipeline d’enrichissement de l’intelligence artificielle](cognitive-search-create-custom-skill-example.md) pour plus d’informations).
+![Étapes de l'indexeur](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "étapes de l'indexeur")
+
+Un ensemble de compétences définit les opérations qui extraient et enrichissent des données afin qu’elles puissent faire l’objet de recherches. Un ensemble de compétences est exécuté une fois que le contenu du texte et de l’image est extrait des documents sources et que les champs du document source sont (éventuellement) mappés aux champs de destination d’un index ou d’une base de connaissances.
+
+Un ensemble de compétences contient une ou plusieurs *compétences cognitives* qui représentent une opération d’enrichissement spécifique, par exemple la traduction d’un texte, l’extraction d’expressions clés ou l’exécution d’une reconnaissance optique de caractères à partir d’un fichier image. Pour créer un ensemble de compétences, vous pouvez utiliser les [compétences intégrées](cognitive-search-predefined-skills.md) de Microsoft ou des compétences personnalisées contenant des modèles ou une logique de traitement que vous fournissez (consultez [Exemple : Création d’une compétence personnalisée dans un pipeline d’enrichissement de l’intelligence artificielle](cognitive-search-create-custom-skill-example.md) pour plus d’informations).
 
 Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un ensemble de compétences est attaché à un [indexeur](search-indexer-overview.md) de Recherche cognitive Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2f464a0b519dd7f378790c135a05d04e02704ac8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027730"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605322"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -79,7 +79,7 @@ La redondance de zone *complète* la fonctionnalité de [réplication dans des �
 
 Lorsque vous configurez des écritures multirégions pour votre compte Azure Cosmos, vous pouvez opter pour la redondance de zone, sans frais supplémentaires. Sinon, consultez la note ci-dessous relative à la tarification de la redondance de zone. Vous pouvez activer la redondance de zone dans une région existante de votre compte Azure Cosmos en supprimant la région, puis en l'ajoutant à nouveau avec la redondance de zone activée.
 
-Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Japon Est, Europe Nord, France Centre*.
+Cette fonctionnalité est disponible dans : les régions *Royaume-Uni Sud, Asie Sud-Est, USA Est, USA Est 2, USA Centre, Europe Ouest, USA Ouest 2, Australie Est, Japon Est, Europe Nord, France Centre*.
 
 > [!NOTE]
 > L’activation des zones de disponibilité pour un compte à Azure Cosmos avec une seule région entraîne des frais équivalents à l’ajout d’une région supplémentaire à votre compte. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) et les articles relatifs au [coût multirégion dans Azure Cosmos DB](optimize-cost-regions.md).

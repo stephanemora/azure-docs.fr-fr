@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166686"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606179"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -103,7 +103,7 @@ Pour en savoir plus sur la publication des conditions requises pour chaque plan 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
 >[!NOTE]
->Une fois l’offre publiée, les modifications que vous y apportez dans l’Espace partenaires n’apparaissent pas dans les vitrines tant que vous ne republiez pas l’offre. Veillez à toujours republier votre offre après y avoir apporté des modifications.
+>Une fois l’offre publiée, les modifications que vous y apportez dans l’Espace partenaires n’apparaissent pas dans les magasins en ligne tant que vous ne republiez pas l’offre. Veillez à toujours republier votre offre après y avoir apporté des modifications.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 

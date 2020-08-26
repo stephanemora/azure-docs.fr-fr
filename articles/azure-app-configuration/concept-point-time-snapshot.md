@@ -1,19 +1,19 @@
 ---
 title: Récupérer des paires clé-valeur à un point dans le temps
 titleSuffix: Azure App Configuration
-description: Récupérer les anciennes paires clé-valeur à l’aide de captures instantanées à un point dans le temps dans Azure App Configuration
+description: Récupérez d’anciennes paires clé-valeur à l’aide de captures instantanées de points dans le temps dans Azure App Configuration, qui gère un enregistrement des modifications apportées aux paires clé-valeur.
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b706b5d5ec68daa10fd6eac237b7b7416764167b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830102"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586560"
 ---
 # <a name="point-in-time-snapshot"></a>Capture instantanée à un point dans le temps
 

@@ -3,7 +3,7 @@ title: Distributions Linux approuvées sur Azure
 description: Découvrez les distributions Linux approuvées sur Azure, notamment des instructions pour Ubuntu, CentOS, Oracle et SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gbowerman
+author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -11,26 +11,26 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: fd21170c4edc1ed0587ea4d4e067e61590530623
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283314"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607008"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distributions Linux approuvées sur Azure
 
-Les partenaires fournissent des images Linux dans la Place de marché Microsoft Azure. Microsoft collabore avec différentes communautés Linux pour étoffer la liste des distributions approuvée. Pour les distributions qui ne sont pas disponibles sur la Place de marché, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies dans [Créer et charger un disque dur virtuel contenant le système d’exploitation Linux](./create-upload-generic.md).
+Les partenaires fournissent des images Linux dans la Place de marché Azure. Microsoft collabore avec différentes communautés Linux pour étoffer la liste des distributions approuvée. Pour les distributions qui ne sont pas disponibles sur la Place de marché, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies dans [Créer et charger un disque dur virtuel contenant le système d’exploitation Linux](./create-upload-generic.md).
 
 ## <a name="supported-distributions-and-versions"></a>Distributions et versions prises en charge
 
-Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Reportez-vous à la section [Prise en charge des images Linux dans Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) pour plus d’informations sur la prise en charge de Linux et de la technologie open source dans Azure.
+Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Pour plus d’informations, consultez [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
-Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des modules noyau que Microsoft distribue directement au noyau Linux en amont. Certains pilotes LIS sont intégrés dans le noyau de la distribution par défaut. D’anciennes distributions basées sur Red Hat Enterprise (RHEL)/CentOS sont disponibles sous la forme de téléchargements séparés à partir de la page [Linux Integration Services Version 4.2 for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106) (Services d’intégration Linux version 4.2 pour Hyper-V et Azure). Pour plus d’informations sur les pilotes LIS, voir [Conditions requises pour le noyau Linux](create-upload-generic.md#linux-kernel-requirements).
+Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des modules noyau que Microsoft distribue directement au noyau Linux en amont. Certains pilotes LIS sont intégrés dans le noyau de la distribution par défaut. D’anciennes distributions basées sur Red Hat Enterprise (RHEL)/CentOS sont disponibles sous la forme de téléchargements séparés à partir de la page [Linux Integration Services Version 4.2 for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106) (Services d’intégration Linux version 4.2 pour Hyper-V et Azure). Pour plus d’informations, consultez [Conditions requises pour le noyau Linux](create-upload-generic.md#linux-kernel-requirements).
 
-L’agent Linux Azure est pré-installé sur les images disponibles sur la Place de marché Microsoft Azure, et est généralement disponible dans le référentiel du package de la distribution. Le code source est disponible sur [GitHub](https://github.com/azure/walinuxagent).
+L’agent Linux Azure est pré-installé sur les images de la Place de marché Azure et est généralement disponible dans le référentiel du package de la distribution. Le code source est disponible sur [GitHub](https://github.com/azure/walinuxagent).
 
 | Distribution | Version | Pilotes | Agent |
 | --- | --- | --- | --- |
@@ -39,20 +39,20 @@ L’agent Linux Azure est pré-installé sur les images disponibles sur la Place
 | Debian par Credativ |8.x, 9.x |Dans le noyau |Package : dans le dépôt sous « waagent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Conteneur flatcar Linux par Kinvolk| Stable, Edge| | |
 | Oracle Linux par Oracle |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux par Red Hat |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux par Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |Dans le noyau |Package : dans le dépôt sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise par SUSE |SLES/SLES pour SAP 11.x, 12.x, 15.x <br/> [Cycle de vie d’une image de cloud public SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Dans le noyau |Package :<p> pour 11 dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>pour 12 inclus dans le module « Cloud public » sous « python-azure-agent »<br/>Code source : [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE par SUSE |openSUSE Leap 15.x |Dans le noyau |Package : dans le dépôt [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sous « python-azure-agent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu par Canonical |Ubuntu Server et Pro. 16.x, 18.x, 20.x<p>Pour plus d’informations sur la prise en charge étendue pour Ubuntu 12.04 et 14.04, consultez : [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |Dans le noyau |Package : dans le dépôt sous « walinuxagent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Cadence de mise à jour d’image
 
-Azure nécessite des éditeurs des distributions Linux approuvées qu’ils mettent régulièrement à jour leurs images dans la Place de marché Azure avec les derniers correctifs et résolution de sécurité, au moins une fois par trimestre. Les images mises à jour dans la Place de marché Azure sont disponibles automatiquement pour les clients en tant que nouvelles versions d’une référence d’image. Plus d’informations sur la recherche d’images Linux : [Rechercher des images de machine virtuelle Linux sur la Place de marché Azure](./cli-ps-findimage.md).
+Azure nécessite des éditeurs des distributions Linux approuvées qu’ils mettent régulièrement à jour leurs images dans la Place de marché Azure avec les derniers correctifs et résolutions de sécurité, au moins une fois par trimestre. Les images mises à jour dans la Place de marché sont disponibles automatiquement pour les clients en tant que nouvelles versions d’une référence (SKU) d’image. Plus d’informations sur la recherche d’images Linux : [Rechercher des images de machine virtuelle Linux sur la Place de marché Azure](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Kernels optimisés pour Azure
 
 Azure travaille en collaboration étroite avec diverses distributions Linux approuvées afin d’optimiser les images qu’elles publient sur la Place de marché Azure. L’un des aspects de cette collaboration se traduit par le développement de kernels Linux « optimisés » pour la plateforme Azure et proposés comme composants entièrement pris en charge de la distribution Linux. Les kernels optimisés pour Azure intègrent de nouvelles améliorations en matière de fonctionnalités et de performances, et de façon plus régulière (une fois par trimestre) comparé à des kernels génériques ou par défaut disponibles.
 
-Dans la plupart des cas, vous trouverez ces kernels préinstallés sur les images par défaut sur la Place de marché Azure, de sorte que les clients profitent immédiatement des avantages qu’ils procurent. Pour en savoir plus sur ces kernels optimisés pour Azure, suivez ces liens :
+Dans la plupart des cas, vous trouverez ces kernels préinstallés sur les images par défaut disponibles sur la Place de marché Azure, de sorte que les clients profitent immédiatement des avantages qu’ils procurent. Pour en savoir plus sur ces kernels optimisés pour Azure, suivez ces liens :
 
 - [Kernel optimisé pour Azure CentOS - Disponible via le SIG de virtualisation CentOS](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Kernel de cloud Debian - Disponible avec les images « backports » Debian 10 et Debian 9 sur Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
@@ -74,6 +74,14 @@ Microsoft a deux (2) canaux de migration pour les utilisateurs CoreOS.
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ est une société de conseil et de services indépendante, spécialisée dans le développement et l’implémentation de solutions professionnelles à l’aide de logiciels libres. En tant de leader spécialiste de l’Open Source, Credativ a acquis une reconnaissance internationale et de nombreux services informatiques font appel à ses services. En collaboration avec Microsoft, Credativ prépare actuellement des images Debian correspondantes pour Debian 8 (Jessie) et Debian avant 7 (Wheezy). Les deux images sont spécialement conçues pour s’exécuter sur Azure et peuvent être facilement gérées via la plateforme. Credativ prendra également en charge la maintenance et la mise à jour sur le long terme des images Debian pour Azure grâce à ses centres de support Open Source.
+
+### <a name="kinvolk"></a>Kinvolk
+[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+
+Kinvolk est la société derrière Flatcar Container Linux, qui poursuit la vision de Coreos d’origine pour une base de mise à jour minimale, immuable et automatique pour des applications en conteneurs. En tant que distribution minimale, Flatcar contient uniquement les packages requis pour le déploiement de conteneurs. Son système de fichiers immuable garantit la cohérence et la sécurité, tandis que ses fonctionnalités de mise à jour automatique vous permettent d’être toujours à jour avec les derniers correctifs de sécurité. 
+
+Flatcar Container Linux bénéficie du soutien de l’équipe internationale Kinvolk de Linux, et d’experts en technologie des conteneurs qui proposent un abonnement de support commercial facultatif qui inclut une réponse 24x7, des alertes techniques et de sécurité, ainsi que des images optimisées Azure exclusives, notamment un canal de support à long terme.
+
 
 ### <a name="oracle"></a>Oracle
 

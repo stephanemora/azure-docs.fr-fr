@@ -1,17 +1,17 @@
 ---
 title: Modifier le chemin d’accès d’objet BLOB par défaut
-description: Découvrez comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob
+description: Apprenez à configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob par défaut, puis déplacer les objets blob vers un autre emplacement.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504829"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183715"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Modifier le chemin d’accès d’objet blob par défaut
 

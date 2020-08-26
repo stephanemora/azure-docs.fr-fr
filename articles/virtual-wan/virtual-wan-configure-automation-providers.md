@@ -1,18 +1,18 @@
 ---
 title: Conseils d’automatisation pour les des partenaires Azure Virtual WAN | Microsoft Docs
-description: Cet article aide les partenaires à configurer l’automatisation d’Azure Virtual WAN.
+description: Configurez un environnement d’automatisation pour la connexion et la configuration d’un réseau privé virtuel (VPN) local ou SD-WAN, ou un appareil de branche, pour Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565957"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208354"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Conseils d’automatisation pour les partenaires Virtual WAN
 

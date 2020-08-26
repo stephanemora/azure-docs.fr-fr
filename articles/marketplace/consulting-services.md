@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797863"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607456"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -22,7 +22,7 @@ Les offres de services de conseil sont des engagements spécifiques pour le clie
 
 ## <a name="compare-consulting-services"></a>Comparer les services de conseil
 
-Les vitrines commerciales, Microsoft AppSource et la Place de marché Azure, sont adaptées aux publics et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux vitrines, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
+Les magasins en ligne de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure, sont adaptées aux publics et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque magasin en ligne propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux magasins en ligne, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
 
 Les offres de services de conseil qui sont basées sur Dynamics 365, Power Apps et Power BI peuvent être listées sur AppSource. Pour plus d’informations, téléchargez le fichier PDF [Instructions de référencement des services de conseil Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
@@ -34,7 +34,7 @@ Les offres de services de conseil et de services gérés basées sur Microsoft A
 > Les services de conseil dans AppSource doivent se concentrer sur les offres destinées aux utilisateurs disposant d’une expertise dans la fourniture de solutions de qualité pour Dynamics 365, Power BI ou Power Apps.
  
 > [!TIP]
-> Pour publier sur la vitrine de la Place de marché Azure, dans la liste déroulante **Produit principal** de l’Espace partenaires, sélectionnez **Azure**.
+> Pour publier sur la Place de marché Azure, dans la liste déroulante **Produit principal** de l’Espace partenaires, sélectionnez **Azure**.
 >
 > Pour publier sur AppSource, dans la liste déroulante **Produit principal** de l’Espace partenaires, sélectionnez **Dynamics 365**, **Power BI** ou **Power Apps**.
 
@@ -86,12 +86,12 @@ Les partenaires intégrateurs de systèmes peuvent envoyer des offres de service
 Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Préparer vos artefacts de publication
-Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible.
+Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible. 
 
 |Configuration pour les nouveaux éditeurs  |
 |---------|
 |ID MPN     |
-|Logos de la société : 48 x 48 pixels (facultatif), 216 x 216 pixels – 350 x 350 pixels (obligatoire)  |
+|Logos de société (48 x 48, 216 x 216 pixels)     |
 |Destination du prospect     |
 ||
 

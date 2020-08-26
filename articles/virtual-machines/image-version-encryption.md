@@ -3,28 +3,35 @@ title: 'Préversion : Créer une version d’image chiffrée avec vos propres c
 description: Créez une version d’image dans une galerie d’images partagées à l’aide de clés de chiffrement gérées par le client.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223582"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245551"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
 Les images de la galerie sont stockées en tant que disques managés, de sorte qu’elles sont automatiquement chiffrées à l’aide du chiffrement côté serveur. Le chiffrement côté serveur utilise le [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des chiffrements par blocs les plus puissants actuellement disponibles, et est conforme à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal)
 
-Vous pouvez vous appuyer sur des clés gérées par la plateforme pour le chiffrement de vos images, ou vous pouvez gérer le chiffrement en utilisant vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une *clé gérée par le client* à utiliser pour chiffrer et déchiffrer tous les disques de vos images. 
+Vous pouvez vous appuyer sur les clés gérées par la plateforme pour le chiffrement de vos images, utiliser vos propres clés, ou utiliser les deux ensemble pour un double chiffrement. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une *clé gérée par le client* à utiliser pour chiffrer et déchiffrer tous les disques de vos images. 
 
 Le chiffrement côté serveur à l’aide de clés gérées par le client utilise Azure Key Vault. Vous pouvez importer [vos clés RSA](../key-vault/keys/hsm-protected-keys.md) vers votre Key Vault ou générer de nouvelles clés RSA dans Azure Key Vault.
 
-Afin d’utiliser des clés gérées par le client pour les images, vous avez d’abord besoin d’un coffre de clé Azure. Vous créez ensuite un jeu de chiffrement de disque. Le jeu de chiffrement de disque est ensuite utilisé lors de la création de vos versions d’image.
+## <a name="prerequisites"></a>Prérequis
 
-Pour plus d’informations sur la création et l’utilisation de jeux de chiffrement de disque, consultez la rubrique [Clés gérées par le client](./windows/disk-encryption.md#customer-managed-keys).
+Cet article nécessite que vous disposiez déjà d’un jeu de chiffrement de disque à utiliser pour votre image.
+
+- Pour utiliser uniquement une clé gérée par le client, consultez **Activer les clés gérées par le client avec un chiffrement côté serveur** à l’aide du [portail Azure](./windows/disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Pour utiliser tant les clés gérées par la plateforme que les clés gérées par le client (à des fins de double chiffrement), consultez **Activer le chiffrement double au repos** à l’aide du [Portail Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) ou de [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > Pour accéder au portail Azure, vous devez utiliser le lien [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates). Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser le lien.
 
 ## <a name="limitations"></a>Limites
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -150,6 +157,7 @@ Si la source du disque du système d’exploitation est un disque managé ou une
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ Dans cet exemple, les sources sont des instantanés de disque. Le numéro d’un
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ Vous pouvez créer une machine virtuelle à partir d’une galerie d’images pa
 
 ## <a name="portal"></a>Portail
 
-Lorsque vous créez votre version d’image dans le portail, vous pouvez utiliser l’onglet **Chiffrement** pour entrer les informations relatives à vos jeux de chiffrement de stockage.
+Lorsque vous créez votre version d’image dans le portail, vous pouvez utiliser l’onglet **Chiffrement** pour entrer les informations relatives à l’application de vos jeux de chiffrement de stockage.
+
+> [!IMPORTANT]
+> Pour utiliser le double chiffrement, vous devez utiliser ce lien [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) pour accéder au portail Azure. Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser le lien.
+
 
 1. Dans la page **Créer une version d’image**, sélectionnez l’onglet **Chiffrement**.
-2. Dans **Type de chiffrement**, sélectionnez **Chiffrement au repos avec une clé gérée par le client**. 
+2. Dans **Type de chiffrement**, sélectionnez **Chiffrement au repos avec une clé gérée par le client** ou **Double chiffrement avec les clés gérées par la plateforme et gérées par le client**. 
 3. Pour chaque disque de l’image, sélectionnez le **jeu de chiffrement de disque** à utiliser dans la liste déroulante. 
 
 ### <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Vous pouvez créer une machine virtuelle à partir d’une galerie d’images partagées et utiliser des clés gérées par le client pour chiffrer les disques. Lorsque vous créez la machine virtuelle dans le portail, sous l’onglet **Disques**, sélectionnez **Chiffrement au repos avec des clés gérées par le client** pour le **type de chiffrement**. Vous pouvez ensuite sélectionner le jeu de chiffrement dans la liste déroulante.
+Vous pouvez créer une machine virtuelle à partir d’une version d’image et utiliser des clés gérées par le client pour chiffrer les disques. Lorsque vous créez la machine virtuelle dans le portail, sous l’onglet **Disques**, sélectionnez **Chiffrement au repos avec des clés gérées par le client** ou sur **Double chiffrement avec les clés gérées par la plateforme et gérées par le client** pour le **Type de chiffrement**. Vous pouvez ensuite sélectionner le jeu de chiffrement dans la liste déroulante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

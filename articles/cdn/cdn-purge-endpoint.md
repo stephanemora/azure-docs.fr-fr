@@ -1,6 +1,6 @@
 ---
 title: Purger un point de terminaison CDN Azure | Microsoft Docs
-description: Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison CDN Azure.
+description: Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison Content Delivery Network (CDN) Azure. Les nœuds de périphérie mettent en cache les ressources jusqu’à expiration de leur durée de vie.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887294"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192539"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -53,7 +53,7 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
    > 
 4. Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre.  Si vous souhaitez effacer tous les éléments multimédias, cochez la case **Vider tout** .  Sinon, tapez le chemin de chaque élément multimédia que vous souhaitez vider dans la zone de texte **Chemin d’accès**. Les formats suivants sont pris en charge dans le chemin d’accès.
     1. **Vidage d’URL unique** : vidage d’un élément multimédia individuel en spécifiant l’URL complète, avec ou sans l’extension de fichier, par exemple,`/pictures/strasbourg.png` ; `/pictures/strasbourg`
-    2. **Vidage de caractères génériques** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers dans un point de terminaison avec `/*` dans le chemin d’accès ou videz tous les sous-dossiers et fichiers dans un dossier spécifique en spécifiant le dossier suivi de `/*`, par exemple,`/pictures/*`.  Notez que le vidage de caractère générique n’est pas compatible avec Azure CDN par Akamai. 
+    2. **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers dans un point de terminaison avec `/*` dans le chemin d’accès ou videz tous les sous-dossiers et fichiers dans un dossier spécifique en spécifiant le dossier suivi de `/*`, par exemple,`/pictures/*`.  Notez que le vidage de caractère générique n’est pas compatible avec Azure CDN par Akamai. 
     3. **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
    
    > [!TIP]

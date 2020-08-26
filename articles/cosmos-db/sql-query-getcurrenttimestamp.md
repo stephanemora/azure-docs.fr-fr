@@ -4,15 +4,15 @@ description: Découvrez la fonction système SQL GetCurrentTimestamp dans Azure 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/19/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9c35f83ce7a9a478f706e9ed560d884d9bf5e508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c1e0a8d69edab0c01005268ee49c23625236f03a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261297"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606925"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
 
@@ -26,13 +26,13 @@ GetCurrentTimestamp ()
   
 ## <a name="return-types"></a>Types de retour
   
-  Retourne une valeur numérique représentant le nombre de millisecondes qui se sont écoulées depuis l’époque Unix, c’est-à-dire, le nombre de millisecondes qui se sont écoulées depuis le jeudi 1er janvier 1970 à 00:00:00.
+Retourne une valeur numérique signée représentant le nombre de millisecondes qui se sont écoulées depuis l’époque Unix, c’est-à-dire, depuis le jeudi 1er janvier 1970 à 00:00:00.
 
 ## <a name="remarks"></a>Notes
 
-  GetCurrentTimestamp() est une fonction non déterministe.
-  
-  Le résultat retourné est au format UTC (temps universel coordonné).
+GetCurrentTimestamp() est une fonction non déterministe. Le résultat retourné est au format UTC (temps universel coordonné).
+
+Cette fonction système n’utilisera pas l’index.
 
 ## <a name="examples"></a>Exemples
   

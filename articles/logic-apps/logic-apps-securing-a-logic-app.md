@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066727"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566078"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -159,7 +159,7 @@ Supposons, par exemple, que votre application logique dispose d’une stratégie
 
 Avant d’activer cette authentification, passez en revue les considérations suivantes :
 
-* Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
+* Un appel entrant à votre application logique ne peut utiliser qu’un seul schéma d’autorisation, Azure AD OAuth ou les [signatures d’accès partagé (SAP)](#sas). L’utilisation d’un schéma ne désactive pas l’autre, mais l’utilisation des deux en même temps provoque une erreur, car le service ne sait lequel choisir. Seuls les schémas d’autorisation [de type porteur](../active-directory/develop/active-directory-v2-protocols.md#tokens) sont pris en charge pour les jetons OAuth, qui ne sont gérés que pour le déclencheur de demande.
 
 * Votre application logique est limitée à un nombre maximal de stratégies d’autorisation. Chaque stratégie d’autorisation a également un nombre maximal de [revendications](../active-directory/develop/developer-glossary.md#claim). Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
@@ -240,7 +240,7 @@ Afin d’activer Azure AD OAuth dans le modèle Resource Manager pour le déploi
 ],
 ```
 
-Pour plus d’informations sur la section `accessControl`, consultez [Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager](#restrict-inbound-ip-template) et [Référence du modèle de workflow Microsoft.Logic](/templates/microsoft.logic/2019-05-01/workflows).
+Pour plus d’informations sur la section `accessControl`, consultez [Restreindre les plages d’adresses IP entrantes dans un modèle Azure Resource Manager](#restrict-inbound-ip-template) et [Référence du modèle de workflow Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="restrict-inbound-ip"></a>
 
@@ -786,8 +786,8 @@ Les points de terminaison HTTP et HTTPS prennent en charge différents types d�
 
 Ce tableau identifie les types d’authentification disponibles sur les déclencheurs et les actions offrant la possibilité de sélectionner un type d’authentification :
 
-| Type d'authentification | Disponibilité |
-|---------------------|--------------|
+| Type d'authentification | Déclencheurs et actions pris en charge |
+|---------------------|--------------------------------|
 | [De base](#basic-authentication) | Gestion des API Azure, Azure App Service, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Certificat client](#client-certificate-authentication) | Gestion des API Azure, Azure App Service, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
@@ -952,7 +952,7 @@ Lorsque vous utilisez des [paramètres sécurisés](#secure-action-parameters) p
 
 ### <a name="managed-identity-authentication"></a>Authentification d’une identité managée
 
-Si l’option [Identité managée](../active-directory/managed-identities-azure-resources/overview.md) est disponible, votre application logique peut utiliser l’identité affectée par le système ou une *seule* identité affectée par l’utilisateur créée manuellement pour authentifier l’accès à d’autres ressources protégées par Azure Active Directory (Azure AD) sans avoir à se connecter. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Si l’option [Identité managée](../active-directory/managed-identities-azure-resources/overview.md) est disponible sur un [déclencheur ou une action spécifiques](#add-authentication-outbound), votre application logique peut utiliser l’identité affectée par le système ou une *seule* identité affectée par l’utilisateur créée manuellement pour authentifier l’accès à d’autres ressources protégées par Azure Active Directory (Azure AD) sans avoir à se connecter. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Pour que votre application logique puisse utiliser une identité managée, suivez les étapes décrites dans [Authentifier l’accès aux ressources Azure à l’aide des identités managées dans Azure Logic Apps](../logic-apps/create-managed-service-identity.md). Ces étapes activent l’identité managée sur votre application logique et configurent l’accès de cette identité à la ressource Azure cible.
 

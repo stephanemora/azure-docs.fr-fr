@@ -1,6 +1,6 @@
 ---
 title: Migration entre les régions Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Découvrez la migration entre les régions pour Azure Data Lake Storage Gen1.
+description: Découvrez les éléments à prendre en compte lors de la planification et de l’exécution d’une migration vers Azure Data Lake Storage Gen1 dès qu’elle est disponible dans les nouvelles régions.
 services: data-lake-store
 documentationcenter: ''
 author: swums
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba28d767c11c15b2dd70eeed2b39e13b084a7500
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60518457"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191353"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrer Azure Data Lake Storage Gen1 entre les régions
 

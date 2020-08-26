@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927417"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508600"
 ---
-# <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Éditions Entreprise et De base d’Azure Machine Learning 
+# <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Éditions Entreprise (préversion) et De base d’Azure Machine Learning 
 
 Azure Machine Learning propose deux éditions adaptées à vos besoins en Machine Learning. Ces éditions déterminent les outils de Machine Learning disponibles pour les développeurs et les scientifiques de données depuis leur espace de travail.
 
@@ -23,7 +23,7 @@ Azure Machine Learning propose deux éditions adaptées à vos besoins en Machin
 
 Vous attribuez l’édition chaque fois que vous créez un espace de travail. Les clients sont responsables des coûts liés au calcul et aux autres ressources Azure pendant cette période. Apprenez comment [gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md).
 
-Découvrez comment [mettre à niveau un espace de travail De base vers l’édition Entreprise](how-to-manage-workspace.md#upgrade). 
+Découvrez comment [mettre à niveau un espace de travail De base vers l’édition Entreprise (préversion)](how-to-manage-workspace.md#upgrade). 
 
 ## <a name="whats-in-each-edition"></a>Que contient chaque édition
 

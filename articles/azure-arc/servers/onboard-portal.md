@@ -1,19 +1,19 @@
 ---
 title: Connecter des machines hybrides à Azure à partir du portail Azure
-description: Dans cet article, vous allez apprendre à installer l’agent et à connecter des machines à Azure à l’aide d’Azure Arc pour serveurs (préversion) à partir du portail Azure.
+description: Cet article explique installer l’agent et connecter des machines à Azure à l’aide des serveurs avec Azure Arc (préversion) du portail Azure.
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120981"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213503"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connecter des machines hybrides à Azure à partir du portail Azure
 
-Vous pouvez activer Azure Arc pour serveurs (préversion) pour une seule machine ou un petit nombre de machines Windows ou Linux dans votre environnement en effectuant un ensemble d’étapes manuellement. Vous pouvez également utiliser une méthode automatisée en exécutant un script de modèle que nous fournissons. Ce script automatise le téléchargement et l’installation des deux agents.
+Vous pouvez activer les serveurs avec Azure Arc (préversion) pour une seule machine ou un petit nombre de machines Windows ou Linux dans votre environnement en effectuant une série d’étapes manuellement. Vous pouvez également utiliser une méthode automatisée en exécutant un script de modèle que nous fournissons. Ce script automatise le téléchargement et l’installation des deux agents.
 
 Cette méthode nécessite que vous disposiez d’autorisations d’administrateur sur la machine pour installer et configurer l’agent. Sur Linux, vous utilisez le compte root et, sur Windows, vous êtes membre du groupe Administrateurs local.
 
@@ -34,7 +34,7 @@ Le script permettant d’automatiser le téléchargement et l’installation, et
 1. Dans la page **Générer un script**, sélectionnez l’abonnement et le groupe de ressources où vous souhaitez que la machine soit gérée dans Azure. Sélectionnez une localisation Azure destinée au stockage des métadonnées de la machine.
 
     >[!NOTE]
-    >Azure Arc pour serveurs (préversion) prend uniquement en charge les régions suivantes :
+    >Les serveurs avec Azure Arc (préversion) prennent uniquement en charge les régions suivantes :
     >- USAEst
     >- WestUS2
     >- WestEurope
@@ -147,7 +147,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Vérifier la connexion avec Azure Arc
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à Azure Arc pour serveurs (préversion), accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à un serveur avec Azure Arc (préversion), accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
