@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566163"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796814"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Démarrage rapide : Déployer l’exemple Unity sur un Bureau
 
@@ -57,7 +57,7 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 1. Modifiez la configuration en la définissant sur **Version** et **x86**.
 1. Basculez le mode du débogueur sur **Ordinateur local**.\
   ![Configuration de la solution](./media/unity-deploy-config-pc.png)
-1. Générez la solution (F7).
+1. Générez la solution.
 
 ## <a name="launch-the-sample-project"></a>Lancer l’exemple de projet
 

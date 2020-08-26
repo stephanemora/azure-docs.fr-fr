@@ -9,12 +9,12 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 9b609d4571d6240f428a0210aa5108ff19dc753b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235177"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661467"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Démarrage rapide : Déploiement automatique d'une machine virtuelle avec App Configuration et un modèle Resource Manager (modèle ARM)
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-templates"></a>Passer les modèles en revue
 
-Les modèles utilisés dans ce guide de démarrage rapide sont extraits de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le [premier modèle](https://azure.microsoft.comresources/templates/101-app-configuration-store/) crée un magasin App Configuration :
+Les modèles utilisés dans ce guide de démarrage rapide sont extraits de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le [premier modèle](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) crée un magasin App Configuration :
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 

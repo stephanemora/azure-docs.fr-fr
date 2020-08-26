@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213795"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797103"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les [attributs d’extension](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », où X a une valeur de 1 à 15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les [attributs d’extension](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », où X a une valeur de 1 à 15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Les [propriétés d’extension personnalisées](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sont synchronisées à partir de Windows Server AD local ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
+Les [propriétés d’extension personnalisées](../hybrid/how-to-connect-sync-feature-directory-extensions.md) sont synchronisées à partir de Windows Server AD local ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
 
 * [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
 * [Attribute] est le nom attribué à la propriété lors de sa création
@@ -393,7 +393,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
-> Quand vous créez des groupes dynamiques pour des appareils, vous devez définir deviceOwnership avec la valeur « Company ». Sur Intune, la propriété de l’appareil est représentée comme Corporate. Pour plus d’informations, consultez [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes). 
+> Quand vous créez des groupes dynamiques pour des appareils, vous devez définir deviceOwnership avec la valeur « Company ». Sur Intune, la propriété de l’appareil est représentée comme Corporate. Pour plus d’informations, consultez [OwnerTypes](/intune/reports-ref-devices#ownertypes). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

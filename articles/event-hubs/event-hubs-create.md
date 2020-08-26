@@ -3,12 +3,12 @@ title: Démarrage rapide Azure - Créer un Event Hub à l'aide du portail Azure
 description: Dans ce démarrage rapide, vous allez apprendre à créer un Event Hub Azure à l’aide du portail Azure et à envoyer et recevoir des événements à l’aide du Kit de développement .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 271d01ef6711c7e57538abae301ae924fb6ff351
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f2012880a7703ba07556d5e18d44d17af73326e9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142551"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794623"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -20,8 +20,6 @@ Dans ce démarrage rapide, vous créez un Event Hub avec le [portail Azure](http
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 - Abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) ou version ultérieure.
-- [Kit SDK .NET Standard](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

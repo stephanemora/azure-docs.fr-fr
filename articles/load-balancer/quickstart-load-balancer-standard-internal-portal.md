@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065231"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654495"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -36,7 +36,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[Option 1 (par défaut) : Créer un équilibreur de charge interne (référence SKU Standard)](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**Référence Standard**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
@@ -280,7 +280,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
     | Groupe de sécurité réseau | Sélectionnez le groupe **myNSG** existant|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[Option n°2 : Créer un équilibreur de charge interne (référence SKU De base)](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**Référence De base**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .

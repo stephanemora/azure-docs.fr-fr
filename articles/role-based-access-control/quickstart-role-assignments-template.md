@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252349"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690440"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle ARM
 
@@ -39,7 +39,7 @@ Pour ajouter des attributions de rôles, vous devez disposer :
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Le modèle a trois paramètres et une section de ressources. Notez que la section de ressources contient les trois éléments d’une attribution de rôle : principal de sécurité, définition de rôle et étendue.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 La ressource définie dans le modèle est :
 

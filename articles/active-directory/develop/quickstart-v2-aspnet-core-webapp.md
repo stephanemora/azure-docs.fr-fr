@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1bc8a9c06b564282af15d6a6aa53b6fc696857b2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: fdc1f0db956d0f64938b6a0433fda21dc4462ced
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165768"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691324"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application web ASP.NET Core peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD). (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
@@ -148,7 +148,7 @@ La ligne contenant `.AddAzureAd` ajoute à votre application l’authentificatio
 > |Where | Description |
 > |---------|---------|
 > | ClientId  | ID d’application (client) de l’application inscrite dans le portail Azure. |
-> | Authority | Point de terminaison STS pour l’utilisateur à authentifier. Généralement, il s’agit de <https://login.microsoftonline.com/{tenant}/v2.0> pour le cloud public, où {tenant} est le nom de votre locataire ou l’ID de votre locataire, ou *common* pour une référence au point de terminaison commun (utilisé pour les applications multilocataires). |
+> | Authority | Point de terminaison STS pour l’utilisateur à authentifier. Généralement, il s’agit de `https://login.microsoftonline.com/{tenant}/v2.0` pour le cloud public, où {tenant} est le nom de votre locataire ou l’ID de votre locataire, ou *common* pour une référence au point de terminaison commun (utilisé pour les applications multilocataires). |
 > | TokenValidationParameters | Liste de paramètres pour la validation du jeton. Dans ce cas, `ValidateIssuer` a la valeur `false` pour indiquer qu’il peut accepter des connexions à partir de n’importe quel compte personnel, professionnel ou scolaire. |
 
 

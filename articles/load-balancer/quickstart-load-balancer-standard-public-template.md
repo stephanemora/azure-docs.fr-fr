@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: ebf2f926f5be86ffee5f3a3e30277962a6060762
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479758"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706045"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 
@@ -42,7 +42,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 Les références SKU d’équilibreur de charge et d’adresse IP publique doivent correspondre. Lorsque vous créez un équilibreur de charge standard, vous devez également créer une adresse IP publique standard configurée en tant que front-end pour cet équilibreur de charge standard. Si vous souhaitez créer un équilibreur de charge de base, utilisez [ce modèle](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommande d’utiliser la référence SKU Standard pour les charges de travail de production.
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="57-122":::
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
 Plusieurs ressources Azure ont été définies dans le modèle :
 

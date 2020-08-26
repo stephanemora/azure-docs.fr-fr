@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605006"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783669"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -81,7 +81,7 @@ Votre répertoire a besoin d’au moins autant de licences Azure AD Premium P2
 
 Les licences Azure AD P2 ne sont **pas** nécessaires pour les utilisateurs disposant des rôles Administrateur général ou Administrateur d’utilisateurs qui configurent des révisions d’accès et des paramètres, ou qui appliquent les décisions prises à partir des révisions.
 
-Pour chaque licence Azure AD Premium P2 que vous attribuez à un utilisateur de votre organisation, vous pouvez utiliser Azure AD B2B pour inviter jusqu’à cinq utilisateurs dans le cadre d’une allocation d’utilisateur externe. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez les conseils sur l’[affectation de licences Azure AD B2B Collaboration](../b2b/licensing-guidance.md).
+Pour chaque licence Azure AD Premium P2 que vous attribuez à un utilisateur de votre organisation, vous pouvez utiliser Azure AD B2B pour inviter jusqu’à cinq utilisateurs dans le cadre d’une allocation d’utilisateur externe. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez les conseils sur l’[affectation de licences Azure AD B2B Collaboration](../external-identities/licensing-guidance.md).
 
 Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
