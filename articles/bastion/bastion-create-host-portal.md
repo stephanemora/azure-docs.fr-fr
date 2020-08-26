@@ -1,18 +1,18 @@
 ---
 title: 'Création d’un hôte Azure Bastion : portail'
-description: Dans cet article, découvrez comment créer un hôte Azure Bastion avec le portail.
+description: Cet article explique comment créer un hôte Azure Bastion qui fournit une connectivité RDP/SSH à toutes les machines virtuelles d’un réseau virtuel.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0bc9a17a12afac6d91867b19aba0f90b7f6edb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744270"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270748"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Création d’un hôte Azure Bastion avec le portail
 

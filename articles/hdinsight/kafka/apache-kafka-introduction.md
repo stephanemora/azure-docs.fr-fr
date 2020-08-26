@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77672172"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651333"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Présentation d’Apache Kafka dans Azure HDInsight
 
@@ -27,7 +27,7 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
 * Il utilise Azure Disques managés comme magasin de stockage pour Kafka. Les disques managés peuvent fournir jusqu’à 16 To de stockage par répartiteur Kafka. Pour plus d’informations sur la configuration des disques managés avec Kafka dans HDInsight, consultez [Augmenter la scalabilité d’Apache Kafka dans HDInsight](apache-kafka-scalability.md).
 
-    Pour plus d’informations sur les disques managés, consultez [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md).
+    Pour plus d’informations sur les disques managés, consultez [Azure Disques managés](../../virtual-machines/managed-disks-overview.md).
 
 * Kafka a été conçu avec une vision unidimensionnelle du rack. Azure sépare chaque rack en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer les partitions et les réplicas Kafka entre les domaines de mise à jour et les domaines d’erreur.
 

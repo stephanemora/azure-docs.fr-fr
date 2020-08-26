@@ -1,6 +1,6 @@
 ---
 title: Didacticiel de sauvegarde de Microsoft Azure StorSimple Virtual Array | Microsoft Azure
-description: Décrit comment sauvegarder des partages et des volumes StorSimple Virtual Array.
+description: Créez des sauvegardes planifiées et manuelles pour Microsoft Azure StorSimple Virtual Array, et effectuez une récupération au niveau de l’élément pour restaurer un fichier supprimé sur votre tableau virtuel.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513670"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183222"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sauvegarde de partages ou de volumes sur votre StorSimple Virtual Array
 

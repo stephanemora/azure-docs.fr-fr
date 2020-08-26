@@ -1,17 +1,17 @@
 ---
 title: Liens vers des informations supplémentaires sur Avere vFXT pour Azure
-description: Liens vers des informations supplémentaires sur Avere vFXT pour Azure
+description: Utilisez ces ressources pour obtenir des informations supplémentaires sur Avere vFXT pour Azure, notamment la documentation sur les clusters Avere et la documentation sur la gestion vFXT.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f9a9f8e6d2a279871ded3dff614be99dd2901df
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153766"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271088"
 ---
 # <a name="additional-documentation"></a>Documentation complémentaire
 

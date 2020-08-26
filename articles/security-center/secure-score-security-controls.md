@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: f80403946b3097e81678383c4829ef6606f26cd6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430357"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272278"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Degré de sécurisation amélioré dans Azure Security Center
 
@@ -140,7 +140,7 @@ Le tableau ci-dessous liste les contrôles de sécurité d’Azure Security Cent
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Gérer l’accès et les autorisations (score maximal de 4)</p></strong>L’un des principaux éléments d’un programme de sécurité est de s’assurer que vos utilisateurs bénéficient de l’accès nécessaire pour effectuer leurs tâches, mais pas plus que ce qui suit : le <a href="https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">modèle d’accès au moindre privilège</a>.<br>Contrôlez l’accès à vos ressources en créant des attributions de rôles avec le <a href="https://docs.microsoft.com/azure/role-based-access-control/overview">contrôle d’accès en fonction du rôle (RBAC)</a>. Une attribution de rôle se compose de trois éléments :<br>- <strong>Principal de sécurité</strong> : l’objet auquel l’utilisateur demande l’accès<br>- <strong>Définition du rôle</strong> : leurs autorisations<br>- <strong>Étendue</strong> : l’ensemble des ressources auxquelles les autorisations s’appliquent</td>
-    <td class="tg-lboi"; width=55%>- Les comptes déconseillés doivent être supprimés de votre abonnement (préversion)<br>- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement (préversion)<br>- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement (préversion)<br>- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement (préversion)<br>- Plusieurs propriétaires doivent être attribués à votre abonnement<br>- Le contrôle d’accès en fonction du rôle (RBAC) doit être utilisé sur les services Kubernetes (préversion)<br>- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification des clients</td>
+    <td class="tg-lboi"; width=55%>- Les comptes déconseillés doivent être supprimés de votre abonnement (préversion)<br>- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement (préversion)<br>- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement (préversion)<br>- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement (préversion)<br>- Plusieurs propriétaires doivent être attribués à votre abonnement<br>- Le contrôle d’accès en fonction du rôle (RBAC) doit être utilisé sur les services Kubernetes (préversion)<br>- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification des clients<br>-Des principaux de service doivent être utilisés pour protéger vos abonnements à la place des certificats de gestion</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Corriger les configurations de sécurité (score maximal de 4)</p></strong>Les ressources informatiques mal configurées présentent un risque plus élevé d’attaque. Les actions de renforcement de base sont souvent oubliées lorsque des ressources sont déployées et que des échéances doivent être respectées. Les erreurs de configuration de la sécurité peuvent être à n’importe quel niveau de l’infrastructure : des systèmes d’exploitation et des appareils réseau aux ressources cloud.<br>Azure Security Center compare continuellement la configuration de vos ressources avec les exigences des normes, réglementations et tests d’évaluation du secteur. Lorsque vous avez configuré les « packages de conformité » appropriés (normes et lignes de base) qui comptent dans le cadre de votre organisation, tous les écarts entraînent des suggestions en matière de sécurité qui incluent le CCEID et une explication de l’impact potentiel sur la sécurité.<br>Les packages les plus fréquemment utilisés sont <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> et <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark version 1.1.0</a></td>
