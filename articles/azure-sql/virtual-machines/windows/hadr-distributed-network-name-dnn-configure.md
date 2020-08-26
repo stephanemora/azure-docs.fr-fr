@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169814"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245534"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurer un nom de réseau distribué (DNN) pour une instance de cluster de basculement 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,6 +156,29 @@ Le **Gestionnaire du cluster de basculement** présente le rôle et ses ressourc
 Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur le même réseau virtuel. Ouvrez **SQL Server Management Studio** et connectez-vous à l’instance FCI SQL Server à l’aide du nom DNS de la ressource DDN.
 
 Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Éviter les conflits d’IP
+
+Il s’agit d’une étape facultative pour empêcher l’attribution de l’adresse IP virtuelle (VIP) utilisée par la ressource FCI à une autre ressource dans Azure en tant que doublon. 
+
+Bien que les clients utilisent désormais le DNN pour se connecter à l’instance de cluster de basculement (FCI) SQL Server, le nom du réseau virtuel (VNN) et l’adresse IP virtuelle ne peuvent pas être supprimés, car ils sont des composants nécessaires de l’infrastructure FCI. Toutefois, étant donné qu’il n’y a plus d’équilibrage de charge qui réserve l’adresse IP virtuelle dans Azure, il existe un risque qu’une autre ressource sur le réseau virtuel reçoive la même adresse IP que l’adresse IP virtuelle utilisée par la FCI. Cela peut entraîner un problème de conflit d’adresse IP en double. 
+
+Configurez une adresse APIPA ou une carte réseau dédiée pour réserver l’adresse IP. 
+
+### <a name="apipa-address"></a>Adresse APIPA
+
+Pour éviter d’utiliser des adresses IP dupliquées, configurez une adresse APIPA (également appelée adresse lien-local). Pour cela, exécutez la commande suivante :
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+Dans cette commande, « virtual IP address » est le nom de la ressource d’adresse VIP en cluster et « 169.254.1.1 » est l’adresse APIPA choisie pour l’adresse IP virtuelle. Choisissez l’adresse qui convient le mieux à votre entreprise. Définissez `OverrideAddressMatch=1` pour permettre à l’adresse IP de se trouver sur n’importe quel réseau, y compris l’espace d’adressage APIPA. 
+
+### <a name="dedicated-network-adapter"></a>Carte réseau dédiée
+
+Vous pouvez également configurer une carte réseau dans Azure pour réserver l’adresse IP utilisée par la ressource d’adresse IP virtuelle. Toutefois, cela consomme l’adresse dans l’espace d’adressage du sous-réseau, et il existe une surcharge supplémentaire pour s’assurer que la carte réseau n’est pas utilisée à d’autres fins.
 
 ## <a name="limitations"></a>Limites
 

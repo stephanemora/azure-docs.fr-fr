@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534479"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272897"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity
 
@@ -182,7 +182,7 @@ IoT Hub peut router les messages vers un compte de stockage détenu par le clien
 
 5. Accédez à la section **Points de terminaison personnalisés** et cliquez sur **Ajouter**. Sélectionnez **Stockage** comme type de point de terminaison.
 
-6. Sur la page qui s'affiche, nommez votre point de terminaison, sélectionnez le conteneur que vous souhaitez utiliser dans votre stockage d’objets blob, indiquez l'encodage et le format du nom de fichier. Sélectionnez **Attribué par le système** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**.
+6. Sur la page qui s'affiche, nommez votre point de terminaison, sélectionnez le conteneur que vous souhaitez utiliser dans votre stockage d’objets blob, indiquez l'encodage et le format du nom de fichier. Sélectionnez **Basée sur l'identité** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**.
 
 Votre point de terminaison de stockage personnalisé est maintenant configuré pour utiliser l'identité attribuée par le système à votre hub, et il est autorisé à accéder à votre ressource de stockage malgré les restrictions de son pare-feu. Vous pouvez maintenant utiliser ce point de terminaison pour définir une règle de routage.
 
@@ -234,7 +234,7 @@ La fonction de chargement de fichiers d’IoT Hub permet aux appareils de charge
 
 4. Sur la page des ressources de votre hub IoT, accédez à l'onglet **Chargement de fichiers**.
 
-5. Sur la page qui s'affiche, sélectionnez le conteneur que vous comptez utiliser dans votre Stockage Blob, puis configurez les options **Paramètres de notification de fichier**, **Durée de vie SAS**, **Durée de vie par défaut** et **Nombre maximal de distributions** comme vous le souhaitez. Sélectionnez **Attribué par le système** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**.
+5. Sur la page qui s'affiche, sélectionnez le conteneur que vous comptez utiliser dans votre Stockage Blob, puis configurez les options **Paramètres de notification de fichier**, **Durée de vie SAS**, **Durée de vie par défaut** et **Nombre maximal de distributions** comme vous le souhaitez. Sélectionnez **Basée sur l'identité** comme **type d'authentification** de votre point de terminaison de stockage. Cliquez sur le bouton **Créer**.
 
 Votre point de terminaison de stockage pour chargement de fichiers est maintenant configuré pour utiliser l'identité attribuée par le système à votre hub, et il est autorisé à accéder à votre ressource de stockage malgré les restrictions de son pare-feu.
 

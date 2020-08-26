@@ -1,22 +1,22 @@
 ---
 title: Détails du paiement par région – Place de marché commerciale Microsoft
-description: Découvrez comment le délai estimé pour transférer les paiements , ainsi que les vitrines Microsoft à partir desquelles vous pouvez recevoir des paiements, varient en fonction de votre pays/région et du type de compte de paiement.
+description: Découvrez comment le délai estimé pour transférer les paiements, ainsi que les magasins en ligne Microsoft à partir desquels vous pouvez recevoir des paiements, varient en fonction de votre pays/région et du type de compte de paiement.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327325"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607278"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Seuils, modes et délais de paiement
 
-Le délai estimé pour transférer les paiements, ainsi que les vitrines à partir desquelles vous pouvez recevoir des paiements, peuvent varier en fonction de votre pays/région et du type de compte de paiement. Cet article décrit les modes de paiement pris en charge dans chaque pays et région.
+Le délai estimé pour transférer les paiements, ainsi que les magasins en ligne à partir desquels vous pouvez recevoir des paiements, peuvent varier en fonction de votre pays/région et du type de compte de paiement. Cet article décrit les modes de paiement pris en charge dans chaque pays et région.
 
 Pour un pays et une région donnés, nous utilisons le virement bancaire ou ACH/SEPA comme mode de paiement. Certains pays et régions prennent aussi en charge PayPal comme mode de paiement.
 

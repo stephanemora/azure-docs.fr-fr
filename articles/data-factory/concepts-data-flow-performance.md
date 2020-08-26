@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/27/2020
-ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/12/2020
+ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475314"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212040"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -273,6 +273,29 @@ Si vos données ne sont pas partitionnées uniformément après une transformati
 
 > [!TIP]
 > Si vous repartitionnez vos données, mais avez des transformations en aval qui remanient vos données, utilisez un partitionnement de hachage sur une colonne utilisée comme clé de jointure.
+
+## <a name="using-data-flows-in-pipelines"></a>Utilisation des flux de données dans des pipelines 
+
+Lors de la création de pipelines complexes avec plusieurs flux de données, votre flux logique peut avoir un impact important sur le temps et le coût. Cette section décrit l’impact de différentes stratégies d’architecture.
+
+### <a name="executing-data-flows-in-parallel"></a>Exécuter des flux de données en parallèle
+
+Si vous exécutez plusieurs flux de données en parallèle, ADF crée des clusters Spark distincts pour chaque activité. Cela permet d’isoler chaque travail et de l’exécuter en parallèle, mais cela entraîne l’exécution simultanée de plusieurs clusters.
+
+Si vos flux de données s’exécutent en parallèle, il est recommandé de ne pas activer la propriété de durée de vie Azure IR, car elle entraînerait l’utilisation de plusieurs pools à chaud inutilisés.
+
+> [!TIP]
+> Au lieu d’exécuter le même flux de données plusieurs fois pour chaque activité, mettez vos données dans un lac de données et utilisez des chemins d’accès génériques pour traiter les données dans un seul et même flux de données.
+
+### <a name="execute-data-flows-sequentially"></a>Exécuter des flux de données séquentiellement
+
+Si vous exécutez vos activités de flux de données dans l’ordre, il est recommandé de définir une durée de vie dans la configuration d’Azure IR. ADF réutilise les ressources de calcul, ce qui accélère le démarrage du cluster. Chaque activité sera toujours isolée pour recevoir un nouveau contexte Spark pour chaque exécution.
+
+L’exécution des travaux dans l’ordre prendra probablement le plus de temps pour s’exécuter de bout en bout, mais elle fournit une séparation propre des opérations logiques.
+
+### <a name="overloading-a-single-data-flow"></a>Surcharge d’un seul flux de données
+
+Si vous placez toute votre logique au sein d’un même flux de données, ADF exécute l’intégralité du travail sur une seule instance Spark. Bien que cela puisse sembler être un moyen de réduire les coûts, cette approche combine des flux logiques différents et peut être difficile à surveiller et à déboguer. En cas de défaillance d’un composant, toutes les autres parties du travail échouent également. L’équipe Azure Data Factory recommande d’organiser les flux de données en flux indépendants de logique métier. Si votre flux de données devient trop volumineux, le fractionnement en composants distincts facilite la surveillance et le débogage. Bien qu’il n’y ait pas de limite inconditionnelle sur le nombre de transformations dans un flux de données, un trop grand nombre de transformations rend le travail complexe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

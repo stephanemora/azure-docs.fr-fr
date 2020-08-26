@@ -3,12 +3,12 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083036"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207764"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
@@ -37,6 +37,8 @@ Imaginez le cas où la quantité de mémoire utilisée par la fonction reste con
 > [!NOTE]
 > Alors que l’utilisation du processeur n’est pas directement prise en compte dans le coût d’exécution, elle peut exercer un impact sur le coût quand elle affecte la durée d’exécution de la fonction.
 
+Pour une fonction déclenchée par HTTP, quand une erreur se produit avant le début de l’exécution du code de votre fonction, vous n’êtes pas facturé pour une exécution. Cela signifie que les réponses 401 de la plateforme en raison de la validation de la clé API ou de la fonctionnalité d’authentification/d’autorisation d’App Service ne sont pas comptabilisées par rapport au coût d’exécution. De même, les réponses de code d’état 5xx ne sont pas comptabilisées lorsqu’elles se produisent dans la plateforme avant une fonction qui traite la requête. Une réponse 5xx générée par la plateforme après le début de l’exécution du code de votre fonction est toujours comptabilisée comme une exécution, même si l’erreur n’est pas déclenchée par le code de votre fonction.
+
 ## <a name="other-related-costs"></a>Autres coûts connexes
 
 Quand vous estimez le coût global de l’exécution de vos fonctions dans un plan, quel qu’il soit, n’oubliez pas que le runtime Functions utilise plusieurs autres services Azure, facturés chacun séparément. Lors du calcul des tarifs des applications de fonction, tous les déclencheurs et toutes les liaisons que vous avez intégrés à d’autres services Azure vous obligent à créer et payer ces services supplémentaires. 
@@ -63,13 +65,13 @@ Les comportements suivants de vos fonctions peuvent exercer un impact sur la dur
 
 Dans [votre facture](../cost-management-billing/understand/download-azure-invoice.md), vous pouvez voir les données relatives aux coûts **Nombre total d’exécutions - Fonctions** et **Durée d’exécution - Fonctions**, ainsi que les coûts réels facturés. En revanche, ces données de facture sont un agrégat mensuel correspondant à une période de facturation passée. 
 
-Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [Azure portal] ou les API REST pour obtenir ces données.
+Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [portail Azure] ou les API REST pour obtenir ces données.
 
 ### <a name="monitor-metrics-explorer"></a>Monitor Metrics Explorer
 
 Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) pour voir dans un format graphique les données relatives aux coûts de vos applications de fonction relevant du plan Consommation. 
 
-1. En haut du [Azure portal], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
+1. En haut du [portail Azure], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
 
 1. Sur la gauche, sélectionnez **Metrics** > **Sélectionner une ressource**, puis utilisez les paramètres situés sous l’image pour choisir votre application de fonction.
 
@@ -196,7 +198,7 @@ Les unités d’exécution de la fonction sont une combinaison de la durée d’
 
 Si vous ne l’avez pas déjà fait, [activez Application Insights dans votre application de fonction](functions-monitoring.md#enable-application-insights-integration). Une fois cette intégration activée, vous pouvez [interroger ces données de télémétrie dans le portail](functions-monitoring.md#query-telemetry-data).  
 
-Sous **Supervision**, sélectionnez **Logs (Analytics)** , puis copiez la requête de télémétrie suivante et collez-la dans la fenêtre de requête, puis sélectionnez **Exécuter**. Cette requête retourne l’utilisation totale de la mémoire pour chaque durée échantillonnée.
+Sous **Supervision**, sélectionnez **Logs (Analytics)**, puis copiez la requête de télémétrie suivante et collez-la dans la fenêtre de requête, puis sélectionnez **Exécuter**. Cette requête retourne l’utilisation totale de la mémoire pour chaque durée échantillonnée.
 
 ```
 performanceCounters

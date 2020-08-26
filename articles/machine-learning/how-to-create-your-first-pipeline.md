@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/05/2019
+ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852937"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244021"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
@@ -24,13 +24,13 @@ ms.locfileid: "87852937"
 
 Dans cet article, vous apprendrez à créer, publier et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) et en effectuer le suivi à l’aide du [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utilisez des **pipeline ML** pour créer un workflow qui combine plusieurs phases ML, puis publiez ce pipeline dans votre espace de travail Azure Machine Learning pour y accéder ultérieurement ou le partager avec d’autres.  Les pipelines ML sont idéaux pour les scénarios de scoring par lots, car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres.
 
-Vous pouvez utiliser un autre type de pipeline appelé [pipeline Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) pour l’automatisation CI/CD des tâches de ML, mais ce type de pipeline n’est jamais stocké dans votre espace de travail. [Comparez ces différents pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Vous pouvez utiliser un autre type de pipeline appelé [pipeline Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) pour l’automatisation CI/CD des tâches de ML, mais ce type de pipeline n’est pas stocké dans votre espace de travail. [Comparez ces différents pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Chaque phase d’un pipeline ML, telle que la préparation des données et l’entraînement du modèle, peut inclure une ou plusieurs étapes.
 
 Les pipelines ML que vous créez sont visibles par les membres de votre [espace de travail](how-to-manage-workspace.md) d’Azure Machine Learning. 
 
-Les pipelines ML utilisent des cibles de calcul à distance pour le calcul et le stockage des données intermédiaires et finales associées à ce pipeline. Ils peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](https://docs.microsoft.com/azure/storage/) pris en charge.
+Les pipelines ML utilisent des cibles de calcul à distance pour le calcul et le stockage des données temporaires associées à ce pipeline. Ils peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](https://docs.microsoft.com/azure/storage/) pris en charge.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -119,7 +119,7 @@ Pour plus d’informations et des exemples de code pour l’utilisation des jeux
 
 ## <a name="set-up-a-compute-target"></a>Configurer une cible de calcul
 
-Dans Azure Machine Learning, le __calcul__ (ou la __cible de calcul__) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning.   Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](how-to-set-up-training-targets.md) pour obtenir la liste complète des cibles de calcul et savoir comment les créer et les joindre à votre espace de travail.  Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
+Dans Azure Machine Learning, le __calcul__ (ou la __cible de calcul__) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning. Consultez [Cibles de calcul pour effectuer l’entraînement des modèles](how-to-set-up-training-targets.md) pour obtenir la liste complète des cibles de calcul et savoir comment les créer et les joindre à votre espace de travail. Le processus de création et/ou d’attachement d’une cible de calcul est le même, qu’il s’agisse d’effectuer l’apprentissage d’un modèle ou d’exécuter une étape de pipeline. Une fois que vous avez créé et joint votre cible de calcul, utilisez l’objet `ComputeTarget` dans votre [étape de pipeline](#steps).
 
 > [!IMPORTANT]
 > L’exécution d’opérations de gestion sur les cibles de calcul n’est pas prise en charge au sein des travaux distants. Les pipelines de Machine Learning étant envoyés sous forme de travail distant, n’effectuez pas d’opérations de gestion sur les cibles de calcul au sein du pipeline.
@@ -269,27 +269,93 @@ Si vous souhaitez obtenir un exemple plus détaillé, veuillez consulter un [exe
 > [!TIP]
 > Les pipelines Azure Machine Learning peuvent uniquement fonctionner avec les données stockées dans le magasin de données par défaut du compte Data Lake Analytics. Si les données dont vous avez besoin se trouvent dans un magasin non défini par défaut, vous pouvez utiliser un [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) pour copier les données avant l’apprentissage.
 
+## <a name="configure-the-training-runs-environment"></a>Configurer l’environnement d’exécution d’apprentissage
+
+L’étape suivante consiste à s’assurer que l’exécution de l’apprentissage à distance englobe toutes les dépendances qu’exigent les étapes d’apprentissage. Les dépendances et le contexte du runtime sont définis en créant et en configurant un objet `RunConfiguration`. 
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
+
+aml_run_config = RunConfiguration()
+# `compute_target` as defined in "Azure Machine Learning compute" section above
+aml_run_config.target = compute_target
+
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
+```
+
+Le code ci-dessus présente deux options pour la gestion des dépendances. Comme présenté, avec `USE_CURATED_ENV = True`, la configuration est basée sur un environnement organisé. Les environnements organisés sont préparés avec des bibliothèques interdépendantes communes, et peuvent être sensiblement plus rapides à mettre en ligne. Les environnements organisés comportent des images Docker prédéfinies dans le [Registre de conteneurs Microsoft](https://hub.docker.com/publishers/microsoftowner). Le chemin emprunté si vous remplacez `USE_CURATED_ENV` par `False` affiche le modèle pour la définition explicite de vos dépendances. Dans ce scénario, une nouvelle image Docker personnalisée sera créée et inscrite dans un Azure Container Registry au sein de votre groupe de ressources (consultez [Présentation des registres de conteneurs Docker privés dans Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). La création et l’inscription de cette image peuvent prendre du temps.
+
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Composer les étapes de votre pipeline
 
-Une fois que vous avez créé et joint une cible de calcul à votre espace de travail, vous êtes prêt à définir une étape de pipeline. De nombreuses étapes intégrées sont disponibles via le SDK Azure Machine Learning. [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) est la plus simple de ces étapes qui exécute un script Python dans une cible de calcul spécifiée :
+Une fois que vous avez créé la ressource et l’environnement de calcul, vous êtes prêt à définir les étapes de votre pipeline. De nombreuses étapes intégrées sont disponibles via le kit de développement logiciel (SDK) Azure Machine Learning, comme vous pouvez le voir dans la [documentation de référence pour le package `azureml.pipeline.steps`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). La classe la plus flexible est [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), qui exécute un script Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
 
+dataprep_source_dir = "./dataprep_src"
+entry_point = "prepare.py"
+
+# `my_dataset` as defined above
 ds_input = my_dataset.as_named_input('input1')
 
-trainStep = PythonScriptStep(
-    script_name="train.py",
+# `output_data1`, `compute_target`, `aml_run_config` as defined above
+data_prep_step = PythonScriptStep(
+    script_name=entry_point,
+    source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
     inputs=[ds_input],
     outputs=[output_data1],
     compute_target=compute_target,
-    source_directory=project_folder,
+    runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-La réutilisation des résultats précédents (`allow_reuse`) est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les réexécutions inutiles et ainsi d’offrir une grande souplesse. La réutilisation est le comportement par défaut quand le nom du script, les entrées et les paramètres d’une étape restent les mêmes. Lorsque la sortie de l’étape est réutilisée, le travail n’est pas envoyé pour le calcul. À la place, les résultats de l’exécution précédente sont immédiatement disponibles pour l’exécution de l’étape suivante. Si `allow_reuse` a la valeur false, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline. 
+Le code ci-dessus illustre une étape initiale de pipeline classique. Votre code de préparation des données se trouve dans un sous-répertoire (dans cet exemple, `"prepare.py"` dans le répertoire `"./dataprep.src"`). Dans le cadre du processus de création du pipeline, ce répertoire est compressé et chargé dans le `compute_target` et l’étape exécute le script spécifié comme valeur pour `script_name`.
+
+Les valeurs `arguments`, `inputs` et `outputs` spécifient les entrées et sorties de l’étape. Dans l’exemple ci-dessus, les données de ligne de base sont le jeu de données `my_dataset`. Les données correspondantes sont téléchargées vers la ressource de calcul, car le code les spécifie comme `as_download()`. Le script `prepare.py` effectue toutes les tâches de transformation de données appropriées pour la tâche en cours et renvoie les données à `output_data1`, de type `PipelineData`. Pour plus d’informations, consultez [Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
+
+L’étape s’exécute sur la machine définie par `compute_target` à l’aide de la configuration `aml_run_config`. 
+
+La réutilisation des résultats précédents (`allow_reuse`) est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les réexécutions inutiles et ainsi d’offrir une grande souplesse. La réutilisation est le comportement par défaut quand le nom du script, les entrées et les paramètres d’une étape restent les mêmes. Lorsque la réutilisation est autorisée, les résultats de l’exécution précédente sont envoyés immédiatement à l’étape suivante. Si `allow_reuse` a la valeur `False`, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline.
+
+Il est possible de créer un pipeline en une seule étape, mais vous choisirez presque toujours de fractionner votre processus global en plusieurs étapes. Par exemple, vous pouvez avoir des étapes pour la préparation des données, la formation, la comparaison des modèles et le déploiement. Par exemple, vous pouvez imaginer qu’après la `data_prep_step` spécifiée ci-dessus, l’étape suivante peut être une formation :
+
+```python
+train_source_dir = "./train_src"
+train_entry_point = "train.py"
+
+training_results = PipelineData(
+    "training_results",
+    datastore=def_blob_store,
+    output_name="training_results")
+
+train_step = PythonScriptStep(
+    script_name=train_entry_point,
+    source_directory=train_source_dir,
+    arguments=["--prepped_data", output_data1, "--training_results", training_results],
+    inputs=[output_data1],
+    outputs=[training_results],
+    compute_target=compute_target,
+    runconfig=aml_run_config,
+    allow_reuse=True
+)
+```
+
+Le code ci-dessus est très similaire à celui de l’étape de préparation des données. Le code de formation se trouve dans un répertoire distinct de celui du code de préparation des données. La sortie `PipelineData` de l’étape de préparation des données, `output_data1`, est utilisée comme _entrée_ à l’étape de formation. Un nouvel objet `PipelineData`, `training_results`, est créé pour contenir les résultats d’une étape de comparaison ou de déploiement ultérieure. 
 
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
@@ -297,13 +363,13 @@ Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout
 > Aucune donnée ni fichier n’est téléchargé sur Azure Machine Learning lorsque vous définissez les étapes ou générez le pipeline.
 
 ```python
-# list of steps to run
-compareModels = [trainStep, extractStep, compareStep]
+# list of steps to run (`compare_step` definition not shown)
+compare_models = [data_prep_step, train_step, compare_step]
 
 from azureml.pipeline.core import Pipeline
 
 # Build the pipeline
-pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
+pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
 L’exemple suivant utilise la cible de calcul Azure Databricks créée plus haut : 

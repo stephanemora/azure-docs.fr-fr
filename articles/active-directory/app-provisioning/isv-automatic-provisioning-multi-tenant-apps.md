@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283093"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235636"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Activer l'approvisionnement automatique d'utilisateurs pour votre application multilocataire
 
@@ -54,7 +54,7 @@ Azure AD propose différents chemins d'intégration afin d'activer l'approvision
 
 * Le [service d'approvisionnement Azure AD](../app-provisioning/user-provisioning.md) gère l'approvisionnement et le déprovisionnement d'utilisateurs d'Azure AD vers votre application (approvisionnement sortant) et de votre application vers Azure AD (approvisionnement entrant). Le service se connecte aux points de terminaison de l'API de gestion des utilisateurs SCIM (System for Inter-Domain Identity Management) fournis par votre application.
 
-* Lorsque vous utilisez [Microsoft Graph](https://docs.microsoft.com/graph/), votre application gère l'approvisionnement entrant et sortant des utilisateurs et des groupes d'Azure AD vers votre application en interrogeant l'API Microsoft Graph.
+* Lorsque vous utilisez [Microsoft Graph](/graph/), votre application gère l'approvisionnement entrant et sortant des utilisateurs et des groupes d'Azure AD vers votre application en interrogeant l'API Microsoft Graph.
 
 * L'approvisionnement d'utilisateurs SAML JIT (Security Assertion Markup Language Just in Time) peut être activé si votre application utilise SAML pour la fédération. Les informations de revendication envoyées dans le jeton SAML sont utilisées pour approvisionner les utilisateurs.
 
@@ -73,7 +73,7 @@ Pour savoir quelle option d'intégration utiliser pour votre application, report
 | Prise en charge des comptes qui n'appartiennent pas à l'entreprise (B2C)| X| √| √ |
 
 <sup>*</sup> - Azure AD Connect doit être installé pour synchroniser les utilisateurs d'AD vers Azure AD.  
-<sup>+</sup > - L'utilisation de SCIM pour l'approvisionnement ne vous empêche pas d'intégrer votre application à MIcrosoft Graph à d'autres fins.
+<sup>+</sup > - L'utilisation de SCIM pour l'approvisionnement ne vous empêche pas d'intégrer votre application à Microsoft Graph à d'autres fins.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Service de provisionnement Azure AD (SCIM)
 
@@ -89,7 +89,7 @@ Pour plus d'informations sur le service d'approvisionnement Azure AD et SCIM, co
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph pour l'approvisionnement
 
-Lorsque vous utilisez Microsoft Graph pour l'approvisionnement, vous avez accès à toutes les données utilisateur enrichies disponibles dans Graph. Outre les détails relatifs aux utilisateurs et aux groupes, vous pouvez également récupérer des informations supplémentaires telles que les rôles des utilisateurs, leurs supérieurs et collaborateurs directs, les appareils possédés et enregistrés, et des centaines d'autres données disponibles dans [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+Lorsque vous utilisez Microsoft Graph pour l'approvisionnement, vous avez accès à toutes les données utilisateur enrichies disponibles dans Graph. Outre les détails relatifs aux utilisateurs et aux groupes, vous pouvez également récupérer des informations supplémentaires telles que les rôles des utilisateurs, leurs supérieurs et collaborateurs directs, les appareils possédés et enregistrés, et des centaines d'autres données disponibles dans [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Plus de 15 millions d'organisations et 90 % des entreprises figurant dans le classement Fortune 500 utilisent Azure AD tout en s'abonnant à des services cloud Microsoft tels qu'Office 365, Microsoft Azure, Enterprise Mobility Suite ou Microsoft 365. Vous pouvez utiliser Microsoft Graph pour intégrer votre application à des flux de travail administratifs, tels que l'intégration (et le licenciement) des employés, la maintenance des profils, etc. 
 
@@ -97,9 +97,9 @@ Apprenez-en plus sur l'utilisation de Microsoft Graph pour l'approvisionnement 
 
 * [Page d'accueil de Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph (Vue d’ensemble de Microsoft Graph)](https://docs.microsoft.com/graph/overview)
+* [Overview of Microsoft Graph (Vue d’ensemble de Microsoft Graph)](/graph/overview)
 
-* [Présentation de l'authentification de Microsoft Graph](https://docs.microsoft.com/graph/auth/)
+* [Présentation de l'authentification de Microsoft Graph](/graph/auth/)
 
 * [Prise en main de Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 

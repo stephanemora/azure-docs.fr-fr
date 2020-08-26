@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119407"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236469"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
 
@@ -95,11 +95,23 @@ En outre, le processeur de flux de modification peut s’ajuster de manière dyn
 
 Vous êtes facturé pour les unités de requête consommées, car des unités de requête sont consommées lorsque vous déplacez des données vers et à partir des conteneurs Cosmos. La facturation tient compte de toutes les unités de requête consommées par le conteneur de baux.
 
+## <a name="where-to-host-the-change-feed-processor"></a>Où héberger le processeur de flux de modification
+
+Le processeur de flux de modification peut être hébergé sur n’importe quelle plateforme prenant en charge des processus ou des tâches de longue durée :
+
+* Un [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/) exécuté en continu.
+* Un processus sur une [machine virtuelle Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
+* Un travail en arrière-plan dans [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Un [service hébergé ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+
+Si le processeur de flux de modification peut s’exécuter dans des environnements à courte durée de vie, étant donné que le conteneur de baux conserve l’état, le cycle de démarrage et d’arrêt de ces environnements ajoutera un délai à la réception des notifications (en raison de la surcharge liée au démarrage du processeur chaque fois que l’environnement est démarré).
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Exemples d’utilisation sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Exemples supplémentaires sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Exemple d’application complet sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Exemples d’utilisation supplémentaires sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Labos Ateliers Cosmos DB pour le processeur de flux de modification](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#consume-cosmos-db-change-feed-via-the-change-feed-processor)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 48b94b8cd047f62ea13bf4e062254088ea11840e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663597"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553162"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée (préversion)
 
 > [!IMPORTANT] 
-> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique contrôlée. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
-> Vous pouvez demander l’accès à la préversion en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
 
 Un [indexeur](search-indexer-overview.md) dans Recherche cognitive Azure est un robot qui permet d’extraire des données de votre source de données vers Recherche cognitive Azure. Un indexeur obtient une connexion à la source de données à partir de l’objet source de données que vous créez. L’objet source de données comprend généralement les informations d’identification de la source de données cible. Par exemple, l’objet source de données peut inclure une clé de compte Stockage Azure si vous souhaitez indexer les données d’un conteneur de stockage blob.
 

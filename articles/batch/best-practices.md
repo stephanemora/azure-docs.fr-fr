@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474901"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191806"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -56,6 +56,10 @@ Les échecs de répartition de pool peuvent se produire à tout moment pendant l
 Il est possible que les pools Batch rencontrent des événements de temps d’arrêt dans Azure. Gardez cela à l’esprit lors de la planification et du développement de votre scénario ou de votre workflow pour Batch.
 
 En cas de défaillance d’un nœud, Batch tente automatiquement de récupérer ces nœuds de calcul en votre nom. Cela peut déclencher la replanification d’une tâche en cours d’exécution sur le nœud qui est récupéré. Consultez [Conception des nouvelles tentatives](#design-for-retries-and-re-execution) pour en savoir plus sur les tâches interrompues.
+
+### <a name="custom-image-pools"></a>Pools d’images personnalisés
+
+Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer le pool en utilisant une image prise en charge de la Place de Marché Azure ou en élaborant une image personnalisée avec une [image Shared Image Gallery](batch-sig-images.md). Bien que vous puissiez également utiliser une [image managée](batch-custom-images.md) pour créer un pool d’images personnalisé, nous vous recommandons de créer des images personnalisées à l’aide de Shared Image Gallery chaque fois que cela est possible. À l’aide de Shared Image Gallery, vous pouvez approvisionner des pools plus rapidement, mettre à l’échelle de grandes quantités de machines virtuelles et améliorer la fiabilité lors de la configuration des machines virtuelles.
 
 ### <a name="third-party-images"></a>Images tierces
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873336"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522604"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnalisation de l’ensemble de normes du tableau de bord de conformité réglementaire
 
@@ -73,6 +73,8 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
     - **Canada PBMM**
     
     ![Ajout de packages réglementaires au tableau de bord de conformité réglementaire d’Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Sélectionnez **Ajouter** et entrez tous les détails nécessaires pour l’initiative spécifique, comme l’étendue, les paramètres et la correction.
 
 1. Dans la barre latérale de Security Center, sélectionnez à nouveau **Conformité réglementaire** pour revenir au tableau de bord de conformité réglementaire.
     * Votre nouvelle norme s’affiche à présent dans la liste des normes réglementaires et des standards du secteur. 

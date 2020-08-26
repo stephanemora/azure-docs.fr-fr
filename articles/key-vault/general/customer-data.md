@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités des données client d’Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Découvrez des informations sur les données client dans Key Vault
+description: Découvrez comment Azure Key Vault reçoit des données client lors de la création ou de la mise à jour des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617898"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189914"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Fonctionnalités des données client d’Azure Key Vault
 

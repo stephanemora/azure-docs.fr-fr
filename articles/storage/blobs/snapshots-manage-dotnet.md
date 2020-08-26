@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463533"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185279"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Créer et gérer un instantané blob dans .NET
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur les instantanés d’objets blob dans le stockage
 
 ## <a name="create-a-snapshot"></a>Créer un instantané
 
-# <a name="net-version-12x"></a>[.NET version 12.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Pour créer un instantané d’un objet blob de blocs à l’aide de la version 12.x de la bibliothèque de client du stockage Azure pour .NET, utilisez l’une des méthodes suivantes :
 
@@ -77,7 +77,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET version 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Pour créer un instantané d’un objet blob de blocs à l’aide de la version 11.x de la bibliothèque de client du stockage Azure pour .NET, utilisez l’une des méthodes suivantes :
 
@@ -126,7 +126,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Pour supprimer un blob, vous devez d’abord supprimer tous les instantanés de ce blob. Vous pouvez supprimer un instantané individuellement, ou spécifier que tous les instantanés doivent être supprimés lors de la suppression de l’objet blob source. Si vous essayez de supprimer un objet blob auquel des instantanés sont encore associés, une erreur se produit.
 
-# <a name="net-version-12x"></a>[.NET version 12.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Pour supprimer un objet blob et ses instantanés à l’aide de la version 12.x de la bibliothèque de client du stockage Azure pour .NET, utilisez l’une des méthodes suivantes et incluez l’énumération [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) :
 
@@ -141,7 +141,7 @@ L’exemple de code suivant montre comment supprimer un objet blob et ses instan
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET version 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Pour supprimer un objet blob et ses instantanés à l’aide de la version 11.x de la bibliothèque de client du stockage Azure pour .NET, utilisez l’une des méthodes de suppression suivantes et incluez l’énumération [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) :
 

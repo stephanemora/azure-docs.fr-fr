@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084073"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553078"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée (préversion)
 
 > [!IMPORTANT] 
-> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique contrôlée. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
-> Vous pouvez demander l’accès à la préversion en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
 
 Cette page explique comment configurer une connexion d’indexeur à un compte Stockage Azure à l’aide d’une identité managée au lieu de fournir des informations d’identification dans la chaîne de connexion de l’objet source de données.
 
@@ -69,6 +68,8 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 ### <a name="3---create-the-data-source"></a>3 – Créer la source de données
 
+L’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’un compte de stockage à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+
 Lors de l’indexation d’un compte de stockage, la source de données doit avoir les propriétés requises suivantes :
 
 * **name** est le nom unique de la source de données au sein de votre service de recherche.
@@ -96,8 +97,6 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
-
-Le portail Azure et le [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) prennent également en charge la chaîne de connexion des identités managées. Le portail Azure nécessite un indicateur de fonctionnalité qui vous sera fourni lors de l’inscription à la préversion à l’aide du lien en haut de cette page. 
 
 ### <a name="4---create-the-index"></a>4 – Créer l’index
 

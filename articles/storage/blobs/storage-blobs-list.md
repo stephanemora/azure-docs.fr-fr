@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b5ce74e680d79cfee006cb8cade6c22bff3c055f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81eab2f3c5748c4edf7e09e5147a178a08bc546b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202961"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185704"
 ---
 # <a name="list-blobs-with-net"></a>Lister les objets blob avec .NET
 
@@ -25,14 +25,14 @@ Cet article explique comment lister les objets blob à l’aide de la [biblioth�
 
 Pour lister les objets blob dans un compte de stockage, appelez l’une des méthodes suivantes :
 
-# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
 - [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
 
-# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -84,11 +84,11 @@ L’exemple suivant liste les objets blob dans le conteneur spécifié à l’ai
 
 Si vous avez activé la fonctionnalité d’espace de noms hiérarchique sur votre compte, les répertoires ne sont pas virtuels. Au lieu de cela, ce sont des objets concrets et indépendants. Par conséquent, les répertoires apparaissent dans la liste sous forme d’objets blob de longueur nulle.
 
-# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -150,7 +150,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 Lorsque vous appelez une opération de création de liste hiérarchique, le stockage Azure retourne les répertoires virtuels et les objets blob figurant au premier niveau de la hiérarchie. La propriété [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de chaque répertoire virtuel est définie pour que vous puissiez passer le préfixe dans un appel récursif afin de récupérer le répertoire suivant.
 
-# <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Pour répertorier les objets blob de façon hiérarchique, appelez la méthode [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet), ou [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet).
 
@@ -158,7 +158,7 @@ L’exemple suivant liste les objets blob dans le conteneur spécifié à l’ai
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
-# <a name="net-v11-sdk"></a>[Kit de développement logiciel (SDK) .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Pour lister les objets blob hiérarchiquement, définissez le paramètre `useFlatBlobListing` de la méthode de création de liste sur **false**.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031079"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271054"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -135,7 +135,7 @@ Utilisez le journal des événements de télémétrie sur le serveur pour survei
 
 Intégrité de la synchronisation
 
-- L’ID d’événement 9102 est enregistré une fois que la session de terminaison se termine. Utilisez cet événement pour déterminer si les sessions de synchronisation aboutissent (**HResult = 0**) et s'il existe des erreurs de synchronisation par élément. Pour plus d'informations, consultez la documentation [Intégrité de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) et [Erreurs par élément](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- L’ID d’événement 9102 est enregistré une fois que la session de terminaison se termine. Utilisez cet événement pour déterminer si les sessions de synchronisation aboutissent (**HResult = 0**) et s'il existe des erreurs de synchronisation par élément (**PerItemErrorCount**). Pour plus d'informations, consultez la documentation [Intégrité de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) et [Erreurs par élément](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
   > [!Note]  
   > Parfois, les sessions de synchronisation échouent totalement ou présentent un champ PerItemErrorCount différent de zéro. Pourtant, elles progressent toujours et la synchronisation de certains fichiers aboutit. Ceci est visible dans les champs de type Applied, comme AppliedFileCount, AppliedDirCount, AppliedTombstoneCount et AppliedSizeBytes. Ces champs indiquent dans quelle mesure la session a abouti. Si vous voyez plusieurs sessions de synchronisation consécutives échouer tout en ayant un nombre Applied croissant, laissez à la synchronisation le temps de réessayer avant d'ouvrir un ticket de support.
@@ -156,12 +156,13 @@ Intégrité de la hiérarchisation cloud
   - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple : le pourcentage d'espace libre, le nombre de fichiers dupliqués au cours de la session et le nombre d'échecs de duplication de fichiers.
   - L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple : le nombre de fichiers tentés au cours de la session, le nombre de fichiers hiérarchisés au cours de la session et le nombre de fichiers déjà hiérarchisés.
   
-- Pour surveiller l'activité de rappel sur un serveur, utilisez les ID d'événement 9005, 9006, 9009 et 9059 dans le journal des événements de télémétrie. Celui-ci se trouve dans l'observateur d'événements, sous *Applications and Services\Microsoft\FileSync\Agent*.
+- Pour surveiller l'activité de rappel sur un serveur, utilisez les ID d'événement 9005, 9006, 9009, 9059 et 9071 dans le journal des événements de télémétrie. Celui-ci se trouve dans l'observateur d'événements, sous *Applications and Services\Microsoft\FileSync\Agent*.
 
   - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple : le nombre de total de fichiers uniques consultés et le nombre total de fichiers uniques dont l'accès a échoué.
   - L’ID d’événement 9006 fournit la distribution des erreurs de rappel pour un point de terminaison de serveur. Par exemple : le nombre total de demandes ayant échoué et le code d'erreur. Un événement est enregistré par code d'erreur.
   - L’ID d’événement 9009 fournit des informations sur les sessions de rappel d’un point de terminaison de serveur. Par exemple : DurationSeconds, CountFilesRecallSucceeded et CountFilesRecallFailed.
   - L’ID d’événement 9059 fournit la distribution des rappels d’application pour un point de terminaison de serveur. Par exemple : ShareId, Application Name et TotalEgressNetworkBytes.
+  - L’ID d’événement 9071 fournit l’efficacité de la hiérarchisation cloud pour un point de terminaison de serveur. Par exemple : TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes et TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Compteurs de performance
 

@@ -1,24 +1,24 @@
 ---
-title: Gestion des extensions de machine virtuelle avec Azure Arc pour serveurs
-description: Azure Arc pour serveurs (préversion) peut gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration de post-déploiement sur des machines virtuelles non Azure.
+title: Gestion des extensions de machine virtuelle avec un serveur avec Azure Arc (préversion)
+description: Un serveur avec Azure Arc (préversion) peut gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration de post-déploiement sur des machines virtuelles non Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121304"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213112"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Gestion des extensions de machine virtuelle avec Azure Arc pour serveurs (préversion)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestion des extensions de machine virtuelle avec un serveur avec Azure Arc (préversion)
 
 Les extensions de machine virtuelle sont de petites applications qui permettent d’effectuer des tâches de configuration et d’automatisation de post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle nécessite l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle.
 
-Azure Arc pour serveurs (préversion) vous permet de déployer des extensions de machine virtuelle Azure sur des machines virtuelles Linux et Windows non Azure, ce qui simplifie la gestion de vos environnements de machines hybrides locaux, périphériques et sur d’autres clouds tout au long de leur cycle de vie.
+Un serveur avec Azure Arc (préversion) vous permet de déployer des extensions de machine virtuelle Azure sur des machines virtuelles Linux et Windows non Azure, ce qui simplifie la gestion de vos environnements de machines hybrides locaux, périphériques et sur d’autres clouds tout au long de leur cycle de vie.
 
 ## <a name="key-benefits"></a>Principaux avantages
 
-La prise en charge des extensions de machine virtuelle Azure Arc pour serveurs (préversion) offre les avantages clés suivants :
+La prise en charge des extensions de machine virtuelle de serveur avec Azure Arc (préversion) offre les avantages clés suivants :
 
 * Utilise [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) pour stocker de manière centralisée les configurations et conserver l’état souhaité des machines connectées hybrides activées via l’extension de machine virtuelle DSC.
 
@@ -98,7 +98,7 @@ Les extensions de machine virtuelle peuvent être appliquées à votre machine m
 
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
-Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Vous pouvez déployer les extensions de machine virtuelle prises en charge par Arc pour serveurs (préversion) sur des machines Linux ou Windows à l’aide d’Azure PowerShell. Chaque exemple ci-dessous comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Vous pouvez déployer les extensions de machine virtuelle prises en charge par les serveurs avec Arc (préversion) sur des machines Linux ou Windows à l’aide d’Azure PowerShell. Chaque exemple ci-dessous comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 >[!NOTE]
 >Même si plusieurs extensions peuvent être regroupées et traitées ensemble, elles sont installées en série. Une fois l’installation de la première extension terminée, l’installation de la suivante est entreprise.
@@ -223,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Pour utiliser l’extension de script personnalisé, l’exemple suivant est fourni pour s’exécuter sur Windows et Linux. Si vous ne connaissez pas bien l’extension de script personnalisé, consultez [Extension de script personnalisé pour Windows](../../virtual-machines/extensions/custom-script-windows.md) ou [Extension de script personnalisé pour Linux](../../virtual-machines/extensions/custom-script-linux.md). Avant d’utiliser cette extension avec des machines hybrides, vous devez comprendre quelques caractéristiques divergentes :
 
-* La liste des systèmes d’exploitation pris en charge avec l’extension de script personnalisé de machine virtuelle Azure ne s’applique pas à Azure Arc pour serveurs. La liste des systèmes d’exploitation pris en charge pour Arc pour serveurs se trouve [ici](agent-overview.md#supported-operating-systems).
+* La liste des systèmes d’exploitation pris en charge avec l’extension de script personnalisé de machine virtuelle Azure ne s’applique pas à un serveur avec Azure Arc. La liste des systèmes d’exploitation pris en charge pour Arc pour serveurs se trouve [ici](agent-overview.md#supported-operating-systems).
 
 * Les détails de configuration concernant Azure Virtual Machine Scale Sets ou les machines virtuelles Classic ne sont pas applicables.
 
@@ -379,7 +379,7 @@ La configuration de l’extension de script personnalisé spécifie des élémen
 
 Pour utiliser l’extension DSC PowerShell, l’exemple suivant est fourni pour s’exécuter sur Windows et Linux. Si vous ne connaissez pas bien l’extension DSC PowerShell, consultez [Vue d’ensemble du gestionnaire d’extensions DSC](../../virtual-machines/extensions/dsc-overview.md). Avant d’utiliser cette extension avec des machines hybrides, vous devez comprendre quelques caractéristiques divergentes :
 
-* La liste des systèmes d’exploitation pris en charge avec l’extension DSC PowerShell de machine virtuelle Azure ne s’applique pas à Azure Arc pour serveurs. La liste des systèmes d’exploitation pris en charge pour Arc pour serveurs se trouve [ici](agent-overview.md#supported-operating-systems).
+* La liste des systèmes d’exploitation pris en charge avec l’extension DSC PowerShell de machine virtuelle Azure ne s’applique pas à un serveur avec Azure Arc. La liste des systèmes d’exploitation pris en charge pour Arc pour serveurs se trouve [ici](agent-overview.md#supported-operating-systems).
 
 * Si vos machines doivent télécharger un script en externe et peuvent communiquer uniquement via un serveur proxy, vous devez [configurer l’agent Connected Machine](manage-agent.md#update-or-remove-proxy-settings) pour définir la variable d’environnement du serveur proxy.
 

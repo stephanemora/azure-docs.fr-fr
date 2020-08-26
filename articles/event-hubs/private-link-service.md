@@ -3,12 +3,12 @@ title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421097"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185466"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -18,21 +18,19 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. 
-
->[!WARNING]
-> L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.
+> Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
 >
-> Les services Microsoft de confiance ne sont pas pris en charge lors de l’utilisation de réseaux virtuels.
+> L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.  Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. 
+> 
+> Voici quelques-uns des services qui ne peuvent pas accéder aux ressources Event Hubs lorsque les points de terminaison privés sont activés. Notez que la liste n’est **PAS** exhaustive.
 >
-> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
 > - Azure Stream Analytics
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (paramètres de diagnostic)
 >
-> Les services Microsoft suivants doivent se trouver sur un réseau virtuel
-> - Azure Web Apps
-> - Azure Functions
+> En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque les points de terminaison privés sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Ajouter un point de terminaison privé avec le portail Azure
 
@@ -105,6 +103,10 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 12. Vérifiez que vous voyez la connexion de point de terminaison privé que vous avez créée dans la liste des points de terminaison. Dans cet exemple, le point de terminaison privé est approuvé automatiquement, car vous êtes connecté à une ressource Azure dans votre répertoire et avez les autorisations nécessaires. 
 
     ![Point de terminaison privé créé](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+Pour autoriser les services approuvés à accéder à votre espace de noms, basculez vers l’onglet **Pare-feu et réseaux virtuels** dans la page **Réseau**, puis sélectionnez **Oui** pour **Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?** . 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Ajouter un point de terminaison privé avec PowerShell
 L’exemple suivant montre comment utiliser Azure PowerShell pour créer une connexion de point de terminaison privé. Il ne crée pas de cluster dédié pour vous. Suivez les étapes décrites dans [cet article](event-hubs-dedicated-cluster-create-portal.md) pour créer un cluster Event Hubs dédié. 

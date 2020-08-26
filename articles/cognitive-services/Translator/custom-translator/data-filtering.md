@@ -6,22 +6,22 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 67807e18559006b7d7eb6089a30370d614aefca3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 1076a4fe3a460fa07e061e9ec0ec41b088ec7eca
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992835"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507261"
 ---
 # <a name="data-filtering"></a>Filtrage de données
 
 Lorsque vous soumettez des documents pour l'apprentissage d'un système personnalisé, différentes étapes de traitement et de filtrage s'appliquent à ceux-ci afin de préparer l'apprentissage. Ces étapes sont décrites ici. La connaissance du filtrage peut vous aider à comprendre le nombre de phrases affichées dans Custom Translator ainsi que les étapes à suivre pour préparer les documents en vue d'un apprentissage avec Custom Translator.
 
 ## <a name="sentence-alignment"></a>Alignement de phrase
-Si votre document n'est pas au format XLIFF, TMX ou ALIGN, Custom Translator aligne les phrases de vos documents source et cible, phrase par phrase. Translator ne procède pas à l'alignement des documents. Il suit les noms que vous avez donnés aux documents afin de trouver le document correspondant dans l'autre langue. Dans le document, Custom Translator essaie de trouver la phrase correspondante dans l'autre langue. Il a recours au balisage des documents (balises HTML incorporées, par exemple) pour faciliter l'alignement.  
+Si votre document n'est pas au format XLIFF, TMX ou ALIGN, Custom Translator aligne les phrases de vos documents source et cible, phrase par phrase. Custom Translator ne procède pas à l'alignement des documents. Il suit les noms que vous avez donnés aux documents afin de trouver le document correspondant dans l'autre langue. Dans le document, Custom Translator essaie de trouver la phrase correspondante dans l'autre langue. Il a recours au balisage des documents (balises HTML incorporées, par exemple) pour faciliter l'alignement.  
 
 Si vous constatez que le nombre de phrases est très différent entre les documents source et cible, cela peut indiquer que votre document n’était pas parallèle dès le début ou que d’autres raisons ont empêché son alignement. Les paires de documents présentant une importante différence de phrases (> 10 %) de chaque côté nécessitent un second examen pour s'assurer qu'elles sont bien parallèles. Custom Translator affiche un avertissement en regard du document en cas de différence suspecte du nombre de phrases.  
 

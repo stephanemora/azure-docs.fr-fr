@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957594"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507227"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Questions fréquentes sur Custom Translator
 
@@ -41,7 +41,7 @@ En général, le déploiement prend moins d’une heure.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Comment accéder à un système déployé ?
 
-Vous pouvez accéder aux systèmes déployés via Translator en spécifiant le CategoryID. Vous trouverez plus d’informations sur Translator dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Les systèmes déployés sont accessibles via l’API de traduction de texte Translator Text V3 de Microsoft en spécifiant le CategoryID. Vous trouverez plus d’informations sur l’API de traduction de texte Translator Text dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Comment ignorer l’alignement et la rupture de phrase si mes données sont déjà alignées par phrase ?
 
@@ -49,6 +49,7 @@ Custom Translator ignore l’alignement de phrase et la rupture de phrase pour l
 
 Si le nombre de phrases extraites ne correspond pas aux deux fichiers portant le même nom de base, Custom Translator exécute quand même l’outil d’alignement de phrase sur les fichiers `.align`.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>J’ai essayé de charger mon TMX, mais je reçois le message « Échec de traitement du document ».
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>J’ai essayé de charger mon TMX, mais je reçois le message « Échec de traitement du document »
+
 
 Vérifiez que le TMX est conforme à la spécification TMX 1.4b sous <https://www.gala-global.org/tmx-14b>.

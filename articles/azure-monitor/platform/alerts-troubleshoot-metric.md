@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114895"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190671"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -130,9 +130,9 @@ Pour éviter que le déploiement échoue quand vous tentez de valider les défin
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exporter le modèle ARM d’une règle d’alerte de métrique via le Portail Azure
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exporter le modèle Azure Resource Manager d’une règle d’alerte de métrique via le Portail Azure
 
-L’exportation du modèle ARM d’une règle d’alerte de métrique vous aide à comprendre sa syntaxe et ses propriétés JSON, et elle peut être utilisée pour automatiser les déploiements futurs.
+L’exportation du modèle Azure Resource Manager d’une règle d’alerte de métrique vous aide à comprendre sa syntaxe et ses propriétés JSON, et elle peut être utilisée pour automatiser les déploiements futurs.
 1. Accédez à la section **Groupes de ressources** dans le portail et sélectionnez le groupe de ressources contenant la règle.
 2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués**.
 3. Dans le filtre **Type**, sélectionnez *microsoft.insights/metricalerts*.
@@ -207,7 +207,7 @@ Veillez à utiliser les commandes CLI appropriées pour les alertes de métrique
 
    - Pour une métrique de plateforme : vérifiez que vous utilisez le nom de la **métrique** mentionnée sur [la page des métriques prises en charge par Azure Monitor](./metrics-supported.md) et non le **nom d’affichage de la métrique**.
 
-   - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore) et que vous fournissez l’espace de noms de la métrique personnalisée (consultez un exemple de modèle ARM [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric)).
+   - Pour une métrique personnalisée : vérifiez que la métrique est déjà émise (vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore) et que vous fournissez l’espace de noms de la métrique personnalisée (consultez un exemple de modèle Azure Resource Manager [ici](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - Si vous créez des [alertes de métrique sur les journaux](./alerts-metric-logs.md), vérifiez que les dépendances appropriées sont incluses. Consultez [Exemple de modèle](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

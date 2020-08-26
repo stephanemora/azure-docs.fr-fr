@@ -1,6 +1,6 @@
 ---
 title: Notes de publication de l’API Key Vault .NET 2.x | Microsoft Docs
-description: Les développeurs .NET utiliseront cette API pour coder pour Azure Key Vault
+description: Découvrez comment mettre à jour des applications écrites pour des versions antérieures de Azure Key Vault pour utiliser la version 2.0 de la bibliothèque Azure Key Vault pour C# et .NET.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81427657"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189840"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Notes de publication et guide de migration
 Les informations suivantes vous permettent d’effectuer la migration vers la version 2.0 de la bibliothèque Azure Key Vault pour C# et .NET.  Les applications écrites pour les versions antérieures doivent être mises à jour pour prendre en charge la version la plus récente.  Ces modifications sont nécessaires pour prendre en charge des fonctionnalités nouvelles et améliorées, telles que les **certificats Key Vault**.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317282"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551320"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -127,17 +127,25 @@ Pour savoir comment modifier le mode de contrôle d’accès dans le portail, av
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite de débit du volume d’ingestion
 
-Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le seuil du débit d’ingestion a la valeur **6 Go/min** par espace de travail. Il s’agit d’une valeur approximative dans la mesure où la taille réelle peut varier d’un type de données à l’autre en fonction de la longueur du journal et de son taux de compression. Cette limite ne s’applique pas aux données envoyées à partir d’agents ou de l’[API de collecteur de données](data-collector-api.md).
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. La limite du débit de volume vise à isoler les clients Azure Monitor des pics d’ingestion soudains dans un environnement multilocataire. Un seuil de débit de volume d’ingestion par défaut de 500 Mo (compressé) est défini dans les espaces de travail, ce qui se traduit par **6 Go/min** non compressé -- la taille réelle peut varier entre les types de données en fonction de la longueur du journal et du taux de compression. La limite du débit de volume s’applique à toutes les données ingérées, qu’elles soient envoyées à partir de ressources Azure en utilisant les [paramètres de diagnostic](diagnostic-settings.md),de l’[API du collecteur de données](data-collector-api.md) ou d’agents.
 
-Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table *Operation* de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en envoyant un e-mail à LAIngestionRate@microsoft.com ou en effectuant une demande de support.
- 
-Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
+Quand vous envoyez des données vers un espace de travail à un débit supérieur à 80 % du seuil configuré dans votre espace de travail, un événement est envoyé au tableau *Opération* de votre espace de travail toutes les 6 heures pendant que le seuil continue d’être dépassé. Quand le débit de volume ingéré est plus élevé que le seuil, des données sont supprimées et un événement est envoyé toutes les 6 heures au tableau *Opération* de votre espace de travail pendant que le seuil continue d’être dépassé. Si votre débit de volume d’ingestion continue de dépasser le seuil ou si vous pensez l’atteindre bientôt, vous pouvez demander de l’augmenter en effectuant une demande de support. 
 
-``` Kusto
+Pour être notifié quand vous approchez ou atteignez la limite du débit de volume d’ingestion dans votre espace de travail, créez une [règle d’alerte de journal](alerts-log.md) à l’aide de la requête suivante avec une logique d’alerte basée sur le nombre de résultats supérieur à zéro, une période d’évaluation de 5 minutes et une fréquence de 5 minutes.
+
+Le débit du volume d’ingestion a atteint 80 % du seuil :
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+Le débit du volume d’ingestion a atteint le seuil :
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>Recommandations

@@ -1,6 +1,6 @@
 ---
 title: Meilleures pratiques pour utiliser Key Vault - Azure Key Vault | Microsoft Docs
-description: Ce document décrit certaines des meilleures pratiques à employer pour utiliser Key Vault.
+description: Découvrez les meilleures pratiques pour Azure Key Vault, notamment le contrôle de l’accès, quand utiliser les différentes options de coffre de clés, de sauvegarde, de journalisation et de récupération.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386229"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189889"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -33,7 +33,7 @@ Voici quelques suggestions concernant le contrôle de l’accès à votre coffre
 
 Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.
 

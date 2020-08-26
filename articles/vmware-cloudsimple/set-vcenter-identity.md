@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507571"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212252"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
@@ -41,6 +41,9 @@ Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter)
 * [Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Configurer un nouveau domaine Active Directory sur un cloud privé](#set-up-new-active-directory-on-a-private-cloud)
 * [Configurer Active Directory sur Azure](#set-up-active-directory-on-azure)
+
+> [!IMPORTANT]
+> **Active Directory (l’authentification intégrée de Windows) n’est pas pris en charge.** Seule l’option Active Directory sur LDAP est prise en charge en tant que source d’identité.
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique
 

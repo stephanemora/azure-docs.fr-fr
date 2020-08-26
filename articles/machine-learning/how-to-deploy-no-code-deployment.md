@@ -9,21 +9,23 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6c70f27eebc9d502ce7275603e99975c2efc267
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544466"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185483"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
 
 Le modèle de déploiement sans code est actuellement en version préliminaire et prend en charge les infrastructures d’apprentissage automatique suivants :
 
-## <a name="tensorflow-savedmodel-format"></a>Format Tensorflow SavedModel
-Les modèles Tensorflow doivent être inscrits au **format SavedModel** pour fonctionner avec un modèle de déploiement sans code.
+## <a name="tensorflow-savedmodel-format"></a>Format TensorFlow SavedModel
+Les modèles TensorFlow doivent être inscrits au **format SavedModel** pour fonctionner avec un modèle de déploiement sans code.
 
 Pour plus d’informations sur la création d’un SavedModel, consultez [ce lien](https://www.tensorflow.org/guide/saved_model).
+
+Nous prenons en charge toute version de TensorFlow qui est indiquée sous « Tags » (balises) sur le [DockerHub TensorFlow](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model

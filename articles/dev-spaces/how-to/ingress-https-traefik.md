@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Découvrez comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS à l’aide de ce contrôleur d’entrée
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e6c50dd8d27af8276ddbf47f7a3719ab59d87a7d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3938209e80eb211afc332997b5b241c12a0f6eb9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421584"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212454"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS
 
@@ -363,10 +363,10 @@ Accédez à l’exemple d’application dans l’espace enfant *dev/azureuser1* 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment Azure Dev Spaces vous aide à développer des applications plus complexes sur plusieurs conteneurs, et comment vous pouvez simplifier le développement collaboratif en utilisant différentes versions ou branches de votre code dans différents espaces.
+Apprenez-en davantage plus sur le fonctionnement d’Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Développement en équipe dans Azure Dev Spaces][team-development-qs]
+> [Fonctionnement d’Azure Dev Spaces](../how-dev-spaces-works.md)
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -375,9 +375,6 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
-[qs-cli]: ../quickstart-cli.md
-[team-development-qs]: ../quickstart-team-development.md
-
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
 [cert-manager]: https://cert-manager.io/

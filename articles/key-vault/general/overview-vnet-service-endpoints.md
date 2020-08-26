@@ -1,6 +1,6 @@
 ---
 title: Points de terminaison de service de réseau virtuel pour Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Vue d’ensemble des points de terminaison de service de réseau virtuel pour Key Vault
+description: Découvrez comment les points de terminaison de service de réseau virtuel pour Azure Key Vault permettent de restreindre l’accès à un réseau virtuel spécifié, avec des scénarios d'usage.
 services: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 891ea69dc6d53370f5f73f8bb3072a9795f07635
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090482"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190579"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 

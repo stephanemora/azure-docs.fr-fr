@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498019"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607377"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -32,7 +32,7 @@ Vous serez contacté par un membre de l’équipe de récompenses lorsque votre 
 
 Pour les partenaires Transact, vous débloquez des avantages supplémentaires par niveau à mesure que vous augmentez vos ventes facturées par le biais de la plateforme du marketplace commercial.
 
-La configuration minimale requise pour publier en vitrine est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
+La configuration minimale requise pour publier en magasin en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
 
 Vous bénéficierez d’une aide pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [consulter vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

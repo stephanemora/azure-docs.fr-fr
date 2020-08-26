@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130832"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257521"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -20,12 +20,6 @@ Cet article vous montre comment activer et gérer le programme de mise à l’é
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.76 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
-
-## <a name="limitations"></a>Limites
-
-Les limitations suivantes s’appliquent lorsque vous créez et gérez des clusters AKS qui utilisent l’autoscaler de cluster :
-
-* Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 
 ## <a name="about-the-cluster-autoscaler"></a>À propos du programme de mise à l’échelle automatique de cluster
 
@@ -44,7 +38,7 @@ Ces deux programmes de mise à l’échelle automatique peuvent également rédu
 
 Pour plus d’informations sur l’incapacité du programme de mise à l’échelle automatique de cluster à réduire le nombre de nœuds, consultez l’article [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (Quels sont les types de pods pouvant empêcher la suppression d’un nœud par le programme de mise à l’échelle automatique de cluster ?)
 
-Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [What are the cluster autoscaler parameters? (Quels sont les paramètres du programme de mise à l’échelle automatique de cluster ?)][autoscaler-parameters]
+Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [Utilisation du profil de mise à l’échelle automatique](#using-the-autoscaler-profile).
 
 Les programmes de mise à l’échelle automatique de cluster et de pods élastique peuvent fonctionner ensemble et sont souvent déployés dans un même cluster. Lorsqu’ils sont combinés, le programme de mise à l’échelle automatique de pods élastique se concentre sur l’exécution du nombre de pods requis pour répondre à la demande applicative. Le programme de mise à l’échelle automatique de cluster est axé sur l’exécution du nombre de nœuds nécessaires pour assurer la prise en charge des pods planifiés.
 

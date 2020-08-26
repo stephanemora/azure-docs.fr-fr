@@ -3,12 +3,12 @@ title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032440"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190835"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Nouveautés du serveur de sauvegarde Microsoft Azure (MABS)
 
@@ -25,7 +25,7 @@ MABS v2 a introduit le [stockage de sauvegarde moderne](backup-mabs-add-storage
 
 Pour atteindre l’échelle et les performances du MBS, nous vous recommandons d’utiliser un petit pourcentage (4 % du stockage global) de l’espace de stockage flash (SSD) avec MABS v3 UR1 comme volume hiérarchisé en association avec le stockage HDD DPM. MABS v3 UR1 avec stockage hiérarchisé offre des sauvegardes 50 à 70 % plus rapides. Découvrez comment configurer un stockage hiérarchisé dans la section [Configurer MBS avec un stockage hiérarchisé](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) de l’article DPM.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Prise en charge des volumes ReFS et des volumes ReFS avec déduplication
+### <a name="support-for-refs-volumes"></a>Prise en charge des volumes ReFS
 
 Avec MABS v3 UR1, vous pouvez sauvegarder les volumes ReFS et les charges de travail déployées sur le volume ReFS. Vous pouvez sauvegarder les charges de travail suivantes déployées sur les volumes ReFS :
 
@@ -36,6 +36,8 @@ Avec MABS v3 UR1, vous pouvez sauvegarder les volumes ReFS et les charges de t
 
 >[!NOTE]
 > Sauvegarde des machines virtuelles Hyper-V stockées sur un volume ReFS prise en charge avec MABS v3
+
+>[IMPORTANT] Nous avons identifié quelques problèmes de sauvegarde avec les volumes ReFS dédupliqués. Nous nous efforçons de résoudre ces problèmes, et mettrons à jour cette section dès qu’un correctif sera disponible. En attendant, nous supprimons la prise en charge de la sauvegarde des volumes ReFS dédupliqués à partir de MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Prise en charge de la protection d’Azure VMware Solution
 

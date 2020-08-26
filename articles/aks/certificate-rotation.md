@@ -4,12 +4,12 @@ description: Découvrez comment assurer la rotation de vos certificats dans un c
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255351"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211038"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Effectuer une rotation des certificats dans Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ AKS génère et utilise les certificats, autorités de certification et comptes 
 > [!NOTE]
 > Les clusters AKS créés avant le mois de mars 2019 possèdent des certificats qui expirent au bout de deux ans. Tout cluster créé après mars 2019, et tout cluster dont la rotation des certificats a été effectuée, dispose de certificats d’autorité de certification de cluster qui expirent au bout de 30 ans. Tous les autres certificats expirent au bout de deux ans. Pour vérifier à quel moment votre cluster a été créé, utilisez `kubectl get nodes` pour afficher l’*âge* de vos pools de nœuds.
 > 
-> En outre, vous pouvez vérifier la date d’expiration du certificat de votre cluster. Par exemple, la commande suivante affiche les détails du certificat pour le cluster *myAKSCluster*.
+> En outre, vous pouvez vérifier la date d’expiration du certificat de votre cluster. Par exemple, la commande Bash suivante affiche les détails du certificat pour le cluster *myAKSCluster*.
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```

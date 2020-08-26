@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985424"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245850"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Solutions sur des machines virtuelles Azure
 
@@ -32,41 +32,18 @@ Commencez le déploiement d’une machine virtuelle de série DCsv2 par le biais
 Pour obtenir une liste de toutes les tailles de machines virtuelles de calcul confidentielles disponibles dans les régions disponibles et les zones de disponibilité, exécutez la commande suivante dans [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) :
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-Depuis le mois de mai 2020, ces références SKU sont disponibles dans les régions et zones de disponibilité suivantes :
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Pour obtenir une vue plus détaillée des tailles ci-dessus, exécutez la commande suivante :
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Configuration requise pour l’hôte dédié
@@ -101,17 +78,17 @@ Lors de l’utilisation de machines virtuelles dans Azure, vous êtes responsabl
 
 À l’heure actuelle, l’informatique confidentielle Azure ne prend pas en charge la redondance de zone par le biais de Zones de disponibilité. Pour bénéficier d’une disponibilité et d’une redondance optimales pour l’informatique confidentielle, utilisez des [groupes à haute disponibilité](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). En raison des restrictions matérielles, les groupes à haute disponibilité pour les instances d’informatique confidentielle ne peuvent avoir qu’un maximum de 10 domaines de mise à jour. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Déploiement par le biais d’un modèle Azure Resource Manager 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Déploiement avec des modèles Azure Resource Manager (ARM)
 
 Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous pouvez utiliser des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
 
-Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Vue d’ensemble du déploiement de modèles](../azure-resource-manager/templates/overview.md).
+Pour en savoir plus sur les modèles ARM, consultez [Vue d’ensemble du déploiement de modèles](../azure-resource-manager/templates/overview.md).
 
-Pour déployer une machine virtuelle de série DCsv2 dans un modèle Azure Resource Manager, vous utiliserez la [ressource Machine virtuelle](../virtual-machines/windows/template-description.md). Veillez à spécifier les propriétés correctes pour **vmSize** et votre **imageReference**.
+Pour déployer une machine virtuelle de série DCsv2 dans un modèle ARM, vous utiliserez la [ressource Machine virtuelle](../virtual-machines/windows/template-description.md). Veillez à spécifier les propriétés correctes pour **vmSize** et votre **imageReference**.
 
 ### <a name="vm-size"></a>Taille de la machine virtuelle
 
-Spécifiez l’une des tailles suivantes dans votre modèle Azure Resource Manager dans la ressource Machine virtuelle. Cette chaîne est spécifiée en tant que **vmSize** dans **properties**.
+Spécifiez l’une des tailles suivantes dans votre modèle ARM dans la ressource Machine virtuelle. Cette chaîne est spécifiée en tant que **vmSize** dans **properties**.
 
 ```json
   [

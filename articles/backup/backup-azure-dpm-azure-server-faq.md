@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173154"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522927"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Serveur de sauvegarde Azure et DPM - Forum aux questions
 
@@ -36,6 +36,10 @@ Oui. Mais vous devez configurer tout d’abord DPM et puis installer l’agent S
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Pourquoi ne puis-je pas ajouter un serveur DPM externe après avoir installé UR7 et le dernier agent Azure Backup ?
 
 Pour les serveurs DPM avec des sources de données protégées dans le cloud (en utilisant un correctif cumulatif antérieur au correctif cumulatif 7), vous devez attendre au moins un jour après l'installation d’UR7 et du dernier agent Azure Backup avant de démarrer**Ajouter un serveur DPM externe**. La période d’une journée est nécessaire pour charger les métadonnées des groupes de protection DPM dans Azure. Les métadonnées du groupe de protection sont chargées la première fois pendant une tâche nocturne.
+
+### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Existe-t-il des recommandations pour la configuration des exclusions pour les logiciels antivirus ?
+
+Oui, il est recommandé de configurer les exclusions pour les antivirus. Pour les exclusions de DPM, voir [Exécution d'un logiciel antivirus sur le serveur DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Pour les exclusions de MABS, consultez [Configurer l’antivirus pour un serveur MABS](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Sauvegarde VMware et Hyper-V
 

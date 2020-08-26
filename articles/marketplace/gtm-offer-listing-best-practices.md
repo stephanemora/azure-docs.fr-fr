@@ -7,31 +7,32 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798118"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607398"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
-Cet article propose des suggestions pour la création et l’engagement d’offres de la Place de marché commerciale. Les tableaux suivants décrivent les meilleures pratiques pour entrer les informations d’offre dans l’Espace partenaires. Pour une analyse des performances de vos offres, accédez au [tableau de bord Marketplace Insights](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) dans l’Espace partenaires. 
+Cet article propose des suggestions pour la création et l’engagement d’offres de la Place de marché commerciale Microsoft. Les tableaux suivants décrivent les meilleures pratiques pour entrer les informations d’offre dans l’Espace partenaires. Pour une analyse des performances de vos offres, accédez au [tableau de bord Marketplace Insights](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) dans l’Espace partenaires. 
 
-## <a name="storefront-offer-details"></a>Détails des offres de la vitrine
+## <a name="online-store-offer-details"></a>Détails de l’offre du magasin en ligne
 
-| Organisation de la vitrine | Bonne pratique |
+| Paramètre | Bonne pratique |
 |:--- |:--- |  
-| Nom de l’offre | Pour les applications, fournissez un titre clair qui comprend des mots clés de recherche pour aider les clients à découvrir votre offre. <br> <br> Pour les services de conseil, suivez ce format : [nom de l’offre : [durée] [type d’offre] (par exemple, Contoso : implémentation de 2 semaines) <br> <br> Respectez les directives des marques : quand vous faites référence aux marques Microsoft ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les [Directives relatives aux marques et aux marques déposées Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) ainsi que d’autres directives pertinentes et propres aux produits. |
+| Nom de l’offre | Pour les applications, fournissez un titre clair qui comprend des mots clés de recherche pour aider les clients à découvrir votre offre. <br> <br> Pour les services de conseil, suivez ce format : [nom de l’offre : [durée] [type d’offre] (par exemple, Contoso : implémentation de 2 semaines) |
 | Description de l’offre | Fournissez une description claire qui décrit la proposition de valeur de votre offre dès les premières phrases.  Gardez à l’esprit que ces phrases peuvent être utilisées dans les résultats du moteur de recherche. Votre proposition de valeur doit comprendre les principaux composants suivants : <ul> <li>Description du produit ou de la solution. </li> <li> Personnage utilisateur qui tire parti du produit ou de la solution. </li> <li> Besoin ou problèmes du client auxquels le produit ou la solution répond. </li> </ul> <br> Dans la mesure du possible, utilisez le vocabulaire standard du secteur ainsi que des termes décrivant les avantages proposés.  Ne comptez pas sur les fonctionnalités de votre produit pour convaincre.  Concentrez-vous plutôt sur ce que votre application peut apporter aux clients. <br> <br> Pour les annonces de service de conseil, indiquez clairement le service professionnel que vous fournissez. |
 
-Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Pour écrire et configurer vos supports marketing, accédez à l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
+> [!IMPORTANT]
+> Vérifiez que votre nom d’offre et votre description d’offre répondent aux **[directives des marques Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les Directives relatives aux marques et aux marques déposées Microsoft ainsi que d’autres directives pertinentes et propres aux produits.
 
-## <a name="storefront-listing-details"></a>Détails de l’annonce en vitrine
+## <a name="online-store-listing-details"></a>Détails du listing du magasin en ligne
 
-Suivant la vitrine, les catégories et les secteurs s’appliquent à différents types d’offres.
+Suivant le magasin en ligne, les catégories et les secteurs s’appliquent à différents types d’offres.
 
-| Vitrine | Catégories <br>par vitrine | Catégories <br>par vitrine | Secteurs d’activité <br> pour AppSource |
+| Magasin en ligne | Catégories <br>par magasin en ligne | Catégories <br>par magasin en ligne | Secteurs d’activité <br> pour AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Type d’offre**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
@@ -47,9 +48,9 @@ Suivant la vitrine, les catégories et les secteurs s’appliquent à différent
 
 ### <a name="categories"></a>Catégories
 
-Microsoft AppSource et la Place de marché Azure sont deux vitrines différentes qui répondent à des besoins uniques des clients. La Place de marché Azure cible les professionnels de l’informatique et les développeurs qui créent des solutions sur Azure.  Microsoft AppSource cible les utilisateurs professionnels à la recherche d’applications SaaS métier et/ou sectorielles, de compléments Dynamics 365, de compléments Microsoft 365 et d’applications Power Platform.
+Microsoft AppSource et la Place de marché Azure sont deux magasins en ligne différents qui répondent à des besoins uniques des clients. La Place de marché Azure cible les professionnels de l’informatique et les développeurs qui créent des solutions sur Azure.  Microsoft AppSource cible les utilisateurs professionnels à la recherche d’applications SaaS métier et/ou sectorielles, de compléments Dynamics 365, de compléments Microsoft 365 et d’applications Power Platform.
 
-Les catégories et sous-catégories sont mappées à chaque vitrine en fonction du public cible. Votre offre sera publiée sur Microsoft AppSource ou la Place de marché Azure en fonction du type d’offre, des possibilités de transaction de l’offre et du choix de catégorie/sous-catégorie. 
+Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du public cible. Votre offre sera publiée sur Microsoft AppSource ou la Place de marché Azure en fonction du type d’offre, des possibilités de transaction de l’offre et du choix de catégorie/sous-catégorie. 
 
 Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre offre et à votre public cible. Vous pouvez sélectionner :
 
@@ -60,9 +61,9 @@ Sélectionnez les catégories et sous-catégories qui correspondent le mieux à 
 
 **IMPORTANT : Offres SaaS et compléments Microsoft 365**
 
-Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez le [guide par type d’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent la vitrine dans laquelle votre offre est publiée :
+Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez le [guide par type d’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée :
 
-| Offre SaaS    | Offre SaaS   | Offre SaaS  | Offre SaaS   | Offre SaaS   | Offre SaaS   | Offre SaaS    | Vitrine applicable | Vitrine applicable |
+| Offre SaaS    | Offre SaaS   | Offre SaaS  | Offre SaaS   | Offre SaaS   | Offre SaaS   | Offre SaaS    | Magasin en ligne applicable| Magasin en ligne applicable |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Facturation à l’usage | Compléments Microsoft 365 | Me contacter | Transaction (au moins 1 plan) | Plan privé uniquement | Plan public uniquement | Plans privés et publics | AppSource | Place de marché Azure |
 |  | X |  |  |  |  |  | X |  |
@@ -116,18 +117,18 @@ Sélectionnez les produits applicables utilisés par votre application pour que 
 
 Les mots clés peuvent aider les clients à trouver votre offre lorsqu’ils effectuent une recherche. Identifiez les principaux mots clés de recherche pour votre offre, intégrez-les dans le résumé et la description de votre offre, ainsi que dans la section mot clé de la section de détails de la liste d’offres.
 
-## <a name="storefront-marketing-details"></a>Détails marketing de la vitrine
-| Organisation de la vitrine | Bonne pratique |
+## <a name="online-store-marketing-details"></a>Détails marketing du magasin en ligne
+| Paramètre | Bonne pratique |
 |:--- |:--- |  
-| Logo de l’offre (format PNG, entre 216 × 216 et 350 x 350 pixels) : page Détails de l’application | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page détaillant les applications de votre offre. L’Espace partenaires le redimensionne sur les tailles de logo requises. |
-| Logo de l’offre (format PNG, 48 x 48 pixels) : page de recherche | L’Espace partenaires génère ce logo à partir du grand logo que vous avez chargé. Vous pouvez éventuellement le remplacer par une autre image. |
-| Documents « Plus d’informations » | Incluez dans la section « Plus d’informations » des ressources de ventes et marketing de support, par exemple :<ul><li>livres blancs</li><li> brochures</li><li>Checklists</li><li> présentations PowerPoint</li></ul><br>Enregistrez tous les fichiers au format PDF. Votre objectif avec ces documents doit être de renseigner les clients, pas de leur faire acheter.<br><br>Ajoutez un lien à votre application vers la page d’accueil avec tous vos documents, et ajoutez des paramètres d’URL pour vous assister dans le suivi des visiteurs et des essais gratuits. |
+| Logo de l’offre (format PNG, 48&nbsp;&times;&nbsp;48) : page de recherche | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page de recherche de l’offre. |
+| Logo de l’offre (format PNG, 216&nbsp;&times;&nbsp;216) : page de détails de l’application | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page détaillant les applications de votre offre. |
+| Documents « Plus d’informations » | Incluez dans la section « Plus d’informations » des ressources de ventes et marketing de support, par exemple : <ul> <li> Livres blancs </li> <li> Brochures </li> <li> Checklists </li> <li> Présentations PowerPoint</li> </ul>Enregistrez tous les fichiers au format PDF. Votre objectif avec ces documents doit être de renseigner les clients, pas de leur faire acheter. <br><br>Ajoutez un lien à votre application vers la page d’accueil avec tous vos documents, et ajoutez des paramètres d’URL pour vous assister dans le suivi des visiteurs et des essais gratuits. |
 | Vidéos : offres AppSource, de services de conseil et SaaS uniquement | Les vidéos les plus percutantes expriment la valeur de votre offre sous forme narrative :<ul> <li> Faites du client le héros de l’histoire, et non votre entreprise. </li> <li> Votre vidéo doit évoquer les principaux défis et objectifs de votre client cible. </li> <li> Durée recommandée : 60 à 90 secondes.</li> <li> Incorporez des mots clés de recherche similaires aux noms des vidéos. </li> <li> Vous pouvez ajouter d’autres vidéos, telles qu’une vidéo explicative, un tutoriel ou des témoignages client. </li> </ul> |
 | Captures d’écran (1280&nbsp;&times;&nbsp;720) | Ajoutez jusqu'à cinq captures d’écran :<br>Incorporez les mots clés de recherche dans le nom des fichiers. |
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Lien vers la page de votre offre à partir de votre site web
 
-Quand vous créez un lien entre le badge AppSource ou Place de marché Azure de votre site et votre annonce sur la place de marché, vous pouvez inclure les paramètres de requête suivants à la fin de l’URL pour prendre en charge de puissantes fonctionnalités d’analyse et de création de rapports :
+Quand vous créez un lien entre le badge AppSource ou Place de marché Azure de votre site et votre annonce sur la place de marché commerciale, vous pouvez inclure les paramètres de requête suivants à la fin de l’URL pour prendre en charge de puissantes fonctionnalités d’analyse et de création de rapports :
 * **src** : ajoute la source à partir de laquelle le trafic est routé jusqu’à AppSource (par exemple, un site web, LinkedIn ou Facebook).
 * **mktcmpid** : votre ID de campagne marketing, qui peut contenir jusqu’à 16 caractères dans n’importe quelle combinaison de lettres, chiffres, tirets bas et traits d’union (par exemple, *blogpost_12*).
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c898eeaf99b8a24b992f1daa82b9149327b7a457
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002987"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245778"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutoriel : Ajouter une instance managée SQL Managed Instance à un groupe de basculement
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 ---
 
 
-## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1 - Créer un groupe de ressources et une instance managée principale
+## <a name="create-a-resource-group-and-primary-managed-instance"></a>Créer un groupe de ressources et une instance managée principale
 
 Au cours de cette étape, vous allez créer le groupe de ressources et l’instance managée principale pour votre groupe de basculement à l’aide du portail Azure ou de PowerShell. 
 
@@ -404,7 +404,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 ---
 
-## <a name="2---create-secondary-virtual-network"></a>2 - Créer le réseau virtuel secondaire
+## <a name="create-secondary-virtual-network"></a>Créer le réseau virtuel secondaire
 
 Si vous utilisez le portail Azure pour créer votre instance managée, vous devez créer le réseau virtuel séparément, car les plages du sous-réseau de l’instance managée principale et secondaire ne doivent pas se chevaucher. Si vous utilisez PowerShell pour configurer votre instance managée, passez directement à l’étape 3. 
 
@@ -444,7 +444,7 @@ Cette étape n’est utile que si vous utilisez le portail Azure pour déployer 
 
 ---
 
-## <a name="3---create-a-secondary-managed-instance"></a>3 - Créer une instance managée secondaire
+## <a name="create-a-secondary-managed-instance"></a>Créer une instance managée secondaire
 Lors de cette étape, vous allez créer une instance gérée secondaire dans le portail Azure, ce qui configurera également la mise en réseau entre les deux instances managées. 
 
 Votre deuxième instance gérée doit :
@@ -734,9 +734,9 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 ---
 
-## <a name="4---create-a-primary-gateway"></a>4 - Créer une passerelle principale 
+## <a name="create-a-primary-gateway"></a>Créer une passerelle principale 
 
-Pour que deux instances gérées participent à un groupe de basculement, il doit y avoir ExpressRoute ou une passerelle configurée entre les réseaux virtuels des deux instances gérées pour permettre la communication réseau. Si vous choisissez de configurer [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) au lieu de connecter deux passerelles VPN, passez directement à l’[étape 7](#7---create-a-failover-group).  
+Pour que deux instances gérées participent à un groupe de basculement, il doit y avoir ExpressRoute ou une passerelle configurée entre les réseaux virtuels des deux instances gérées pour permettre la communication réseau. Si vous choisissez de configurer [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) au lieu de connecter deux passerelles VPN, passez directement à l’[étape 7](#create-a-failover-group).  
 
 Cet article explique comment créer les deux passerelles VPN et les connecter, mais vous pouvez passer directement à la création du groupe de basculement si vous avez configuré ExpressRoute à la place. 
 
@@ -767,7 +767,6 @@ Créez la passerelle pour le réseau virtuel de votre instance managée principa
     | **Type de passerelle** | Sélectionnez **VPN**. |
     | **Type de VPN** | Sélectionnez **Route-based**. |
     | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
-    | **Lieu**| L’emplacement où se trouvent votre instance managée principale et votre réseau virtuel principal.   |
     | **Réseau virtuel**| Sélectionnez le réseau virtuel créé dans la section 2, par exemple `vnet-sql-mi-primary`. |
     | **Adresse IP publique**| Sélectionnez **Créer nouveau**. |
     | **Nom de l’adresse IP publique**| Entrez un nom pour votre adresse IP, par exemple `primary-gateway-IP`. |
@@ -831,7 +830,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 ---
 
 
-## <a name="5---create-secondary-gateway"></a>5 - Créer une passerelle secondaire 
+## <a name="create-secondary-gateway"></a>Créer une passerelle secondaire 
 Dans cette étape, créez la passerelle pour le réseau virtuel de votre instance managée secondaire à l’aide du portail Azure. 
 
 
@@ -849,8 +848,7 @@ Via le portail Azure, répétez les étapes de la section précédente pour cré
    | **Type de passerelle** | Sélectionnez **VPN**. |
    | **Type de VPN** | Sélectionnez **Route-based**. |
    | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
-   | **Lieu**| L’emplacement où se trouvent votre instance managée secondaire et votre réseau virtuel secondaire.   |
-   | **Réseau virtuel**| Sélectionnez le réseau virtuel créé dans la section 2, par exemple `vnet-sql-mi-secondary`. |
+   | **Réseau virtuel**| Sélectionnez le réseau virtuel pour l’instance managée secondaire, par exemple `vnet-sql-mi-secondary`. |
    | **Adresse IP publique**| Sélectionnez **Créer nouveau**. |
    | **Nom de l’adresse IP publique**| Entrez un nom pour votre adresse IP, par exemple `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
@@ -883,7 +881,7 @@ Créez la passerelle pour le réseau virtuel de l’instance managée secondaire
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -911,7 +909,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 ---
 
 
-## <a name="6---connect-the-gateways"></a>6 : Connecter les passerelles
+## <a name="connect-the-gateways"></a>Connecter les passerelles
 Dans cette étape, créez une connexion bidirectionnelle entre les deux passerelles des deux réseaux virtuels. 
 
 
@@ -923,21 +921,24 @@ Connectez les deux passerelles à l’aide du portail Azure.
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
 1. Saisissez `connection` dans la zone de recherche et appuyez sur Entrée pour lancer la recherche. Ceci vous amène à la ressource **Connexion**, publiée par Microsoft.
 1. Sélectionnez **Créer** pour créer votre connexion. 
-1. Sous l’onglet **De base**, sélectionnez les valeurs suivantes, puis sélectionnez **OK**. 
+1. Dans la page **De base**, sélectionnez les valeurs suivantes, puis sélectionnez **OK**. 
     1. Sélectionnez `VNet-to-VNet` pour le **Type de connexion**. 
     1. Sélectionnez votre abonnement dans la liste déroulante. 
     1. Sélectionnez le groupe de ressources de l’instance managée SQL dans le menu déroulant. 
     1. Sélectionnez l’emplacement de votre instance gérée principale dans la liste déroulante. 
-1. Sous l’onglet **Paramètres**, sélectionnez ou saisissez les valeurs suivantes, puis sélectionnez **OK** :
-    1. Choisissez la passerelle de réseau principal de la **Passerelle du premier réseau virtuel**, par exemple `Primary-Gateway`.  
-    1. Choisissez la passerelle de réseau principal de la **Passerelle du deuxième réseau virtuel**, par exemple `Secondary-Gateway`. 
+1. Dans la page **Paramètres**, sélectionnez ou saisissez les valeurs suivantes, puis sélectionnez **OK** :
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du premier réseau virtuel**, par exemple `primaryGateway`.  
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du deuxième réseau virtuel**, par exemple `secondaryGateway`. 
     1. Cochez la case en regard de **Établir une connectivité bidirectionnelle**. 
     1. Laissez le nom de la connexion principale par défaut ou renommez-la en choisissant une valeur de votre choix. 
     1. Fournissez une **Clé partagée (PSK)** à la connexion, par exemple `mi1m2psk`. 
+    1. Sélectionnez **OK** pour enregistrer vos paramètres. 
 
-   ![Créer une connexion de passerelle](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Créer une connexion de passerelle](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. Sous l’onglet **Résumé**, passez en revue les paramètres de votre connexion bidirectionnelle, puis sélectionnez **OK** pour créer votre connexion. 
+    
+
+1. Sous l’onglet **Vérifier + créer**, passez en revue les paramètres de votre connexion bidirectionnelle, puis sélectionnez **OK** pour créer votre connexion. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -970,7 +971,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 ---
 
 
-## <a name="7---create-a-failover-group"></a>7 - Créer un groupe de basculement
+## <a name="create-a-failover-group"></a>Créer un groupe de basculement
 Au cours de cette étape, vous allez créer le groupe de basculement et y ajouter des instances managées. 
 
 
@@ -1013,7 +1014,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 ---
 
 
-## <a name="8---test-failover"></a>8 - Tester le basculement
+## <a name="test-failover"></a>Test de basculement
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
 

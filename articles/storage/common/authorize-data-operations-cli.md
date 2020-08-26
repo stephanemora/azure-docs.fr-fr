@@ -1,24 +1,24 @@
 ---
-title: Autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI
+title: Choisir comment autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI
 titleSuffix: Azure Storage
 description: Spécifiez comment autoriser des opérations de données sur des données d’objet blob ou de file d’attente avec Azure CLI. Vous pouvez autoriser des opérations de données utilisant des informations d’identification Azure AD, avec la clé d’accès au compte ou un jeton de signature d’accès partagé (SAP).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534887"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589060"
 ---
-# <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autoriser l’accès aux données d’objet blob ou de file d’attente avec Azure CLI
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI
 
 Le service Stockage Azure fournit des extensions pour Azure CLI, qui vous permettent de spécifier comment autoriser des opérations sur des données d’objet blob ou de file d’attente. Vous pouvez autoriser des opérations de données des manières suivantes :
 

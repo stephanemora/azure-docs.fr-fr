@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253322"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184344"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -363,22 +363,22 @@ A : Non. Si un administrateur modifie les détails des conditions d’utilisati
 A : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
 
 **Q : Si des liens hypertexte se trouvent dans les conditions d’utilisation d’un document PDF, les utilisateurs finaux peuvent-ils cliquer dessus ?**<br />
-A : Oui, les utilisateurs finaux sont en mesure de sélectionner des liens hypertexte vers des pages supplémentaires, mais les liens vers les sections du document ne sont pas pris en charge.
+A : Oui, les utilisateurs finaux sont en mesure de sélectionner des liens hypertexte vers des pages supplémentaires, mais les liens vers les sections du document ne sont pas pris en charge. En outre, les liens hypertexte dans les PDF de conditions d’utilisation ne fonctionnent pas quand vous y accédez à partir du portail MyAccount/Azure AD MyApps.
 
-**Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**<br />
+**Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**<br />
 A : Oui. Actuellement, un administrateur peut configurer 108 langues différentes pour des conditions d’utilisation. Un administrateur peut charger plusieurs documents PDF et les étiqueter avec une langue correspondante (jusqu’à 108). Quand les utilisateurs finaux se connectent, nous examinons les préférences linguistiques de leur navigateur et affichons le document correspondant. En l’absence de correspondance, nous affichons le document par défaut (c’est-à-dire le premier qui a été chargé).
 
 **Q : À quel moment les conditions d’utilisation sont-elles déclenchées ?**<br />
-A : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
+R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
 
-**Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**<br />
+**Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**<br />
 A : Vous pouvez créer une stratégie d’accès conditionnel pour les applications d’entreprise à l’aide de l’authentification moderne. Pour plus d’informations, consultez [Applications d’entreprise](./../manage-apps/view-applications-portal.md).
 
-**Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou à un utilisateur ?**<br />
+**Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou un utilisateur donné ?**<br />
 A : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il doit les accepter les unes après les autres.
 
 **Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**<br />
-A : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
+R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
 
 **Q : Est-il possible de refuser les conditions d’utilisation après les avoir acceptées ?**<br />
 A : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.

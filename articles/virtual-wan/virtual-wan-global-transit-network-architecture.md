@@ -1,19 +1,19 @@
 ---
 title: 'Architecture : Architecture du réseau de transit global'
 titleSuffix: Azure Virtual WAN
-description: En savoir plus sur l’architecture du réseau de transit global pour Virtual WAN
+description: Découvrez comment Azure Virtual WAN permet une architecture du réseau de transit global en fournissant une connectivité omniprésente, universelle, entre des charges de travail cloud.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056888"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212707"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288555"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191140"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tailles de machine virtuelle Azure sans disque temporaire local 
 Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Azure qui n’ont pas de disque temporaire local. Pour plus d’informations sur ces tailles de machine virtuelle, consultez les [spécifications des séries Dv4 et  Dsv4 (charges de travail universelles)](dv4-dsv4-series.md) ou les [spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Si l’image du système d’exploitation personnalisée pointe vers le disque l
 Remplissez le [formulaire de commentaires]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Ce document vous a fourni les réponses aux questions les plus courantes concernant les machines virtuelles Azure avec disque temporaire local. Pour plus d’informations sur ces tailles de machine virtuelle, consultez les articles suivants :
+Ce document vous a fourni les réponses aux questions les plus courantes concernant les machines virtuelles Azure sans disque temporaire local. Pour plus d’informations sur ces tailles de machine virtuelle, consultez les articles suivants :
 
 - [Spécifications des séries Dv4 et Dsv4 (charges de travail universelles)](dv4-dsv4-series.md)
 - [Spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md)

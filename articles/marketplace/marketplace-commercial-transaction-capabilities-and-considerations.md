@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503563"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607356"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -191,4 +191,4 @@ L’option de publication Transaction est uniquement disponible pour les types d
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
-- Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
+- Passez en revue les modèles de publication par magasin en ligne pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.

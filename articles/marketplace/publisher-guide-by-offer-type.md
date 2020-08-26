@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119716"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607268"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -22,7 +22,7 @@ Avant de pouvoir créer une offre et, une fois que vous avez [choisi une option 
 
 Un type d’offre unique peut être configuré de différentes manières pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre.
 
-Avant de créer votre offre, prenez connaissance des conditions d’éligibilité pour la vitrine et le type d’offre ainsi que les exigences techniques de publication.
+Avant de créer votre offre, prenez connaissance des conditions d’éligibilité pour le magasin en ligne et le type d’offre ainsi que les exigences techniques de publication.
 
 ## <a name="list-of-offer-types"></a>Liste des types d’offre
 
@@ -45,4 +45,4 @@ Consultez les [**exigences Azure AD**](./enable-appsource-marketplace-using-azu
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Passez en revue les conditions d’éligibilité dans l’article correspondant pour votre type d’offre (sections suivantes) afin de finaliser la sélection et la configuration de votre offre.
-- Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
+- Passez en revue les modèles de publication par magasin en ligne pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.

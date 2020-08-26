@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/28/2020
-ms.openlocfilehash: 28fa3fdfdb8915d528d0765bd1fded8128621208
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bdb7ba30d9fa2d0bd1eff9368d6e30e516b53895
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166516"
+ms.locfileid: "88192720"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configuration d’Azure Private Link pour un espace de travail Azure Machine Learning (préversion)
 
@@ -39,7 +39,7 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 > [!IMPORTANT]
 > Actuellement, nous prenons uniquement en charge l’activation d’un point de terminaison privé lors de la création d’un espace de travail Azure Machine Learning.
 
-Vous pouvez utiliser le [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) pour créer un espace de travail avec un point de terminaison privé.
+Vous pouvez utiliser le modèle [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) pour créer un espace de travail avec un point de terminaison privé.
 
 Pour plus d’informations sur l’utilisation de ce modèle, y compris les points de terminaison privés, consultez [Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning](how-to-create-workspace-template.md).
 

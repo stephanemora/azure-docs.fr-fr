@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142432"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189930"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,4 +117,5 @@ Azure SQL Database et Azure SQL Managed Instance disposent d'une solution de hau
 - En savoir plus sur les [Zones de disponibilité Azure](../../availability-zones/az-overview.md)
 - En savoir plus sur [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - En savoir plus sur [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md).
+- Découvrir [Comment lancer un basculement manuel sur SQL Managed Instance](../managed-instance/user-initiated-failover.md)
 - Pour découvrir plus d’options concernant la haute disponibilité et la reprise d’activité après sinistre, consultez [Continuité d’activité](business-continuity-high-availability-disaster-recover-hadr-overview.md).

@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319301"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589382"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -48,9 +48,9 @@ Le chiffrement protège vos données et vous aide à répondre aux engagements d
 
 * Dans Azure, les données en transit entre le stockage Azure et le coffre sont [protégées par HTTPS](backup-support-matrix.md#network-traffic-to-azure). Ces données restent sur le réseau principal Azure.
 
-* Les données de sauvegarde sont automatiquement chiffrées à l’aide de [clés gérées par Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), et vous n’avez pas besoin d’effectuer d’action explicite pour activer le chiffrement. Vous pouvez également chiffrer vos données sauvegardées à l’aide de [clés gérées par le client](encryption-at-rest-with-cmk.md) stockées dans Azure Key Vault. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
+* Les données de sauvegarde sont automatiquement chiffrées à l’aide de [clés gérées par la plateforme](backup-encryption.md), et vous n’avez pas besoin d’effectuer d’action explicite pour activer le chiffrement. Vous pouvez également chiffrer vos données sauvegardées à l’aide de [clés gérées par le client](encryption-at-rest-with-cmk.md) stockées dans Azure Key Vault. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
 
-* Le service Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles Azure dont les disques de système d’exploitation ou de données sont chiffrés avec [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) et des [machines virtuelles avec des disques chiffrés par clé CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Pour plus d’informations, [apprenez-en davantage sur les machines virtuelles Azure chiffrées et le service Sauvegarde Azure](./backup-azure-vms-encryption.md).
+* Le service Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles Azure dont les disques de système d’exploitation ou de données sont chiffrés avec [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) et des [machines virtuelles avec des disques chiffrés par clé CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Pour plus d’informations, [apprenez-en davantage sur les machines virtuelles Azure chiffrées et le service Sauvegarde Azure](./backup-azure-vms-encryption.md).
 
 * Lorsque les données sont sauvegardées à partir de serveurs locaux avec l’agent MARS, les données sont chiffrées à l’aide d’une phrase secrète avant le chargement vers la sauvegarde Azure et déchiffrées uniquement après avoir été téléchargées à partir de la sauvegarde Azure. En savoir plus sur les [fonctionnalités de sécurité pour la protection de sauvegardes hybrides](#security-features-to-help-protect-hybrid-backups).
 

@@ -3,12 +3,12 @@ title: Guide du protocole de connexions hybrides Azure Relay | Microsoft Docs
 description: Cet article décrit les interactions côté client avec le relais Connexions hybrides pour la connexion de clients ayant le rôle d’expéditeur ou d’écouteur.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316659"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272007"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
@@ -468,7 +468,7 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 _namespace-address_ est le nom de domaine complet de l’espace de noms Azure Relay qui héberge la connexion hybride, généralement de la forme `{myname}.servicebus.windows.net`.
 
-La demande peut contenir des en-têtes HTTP arbitraires supplémentaires, notamment ceux définis par l’application. Tous les en-têtes fournis, à l’exception de ceux directement définis dans RFC7230 (voir la section relative au [message de requête](#Request message)) sont transmis à l’écouteur et se trouvent sur l’objet `requestHeader` du message de **requête**.
+La demande peut contenir des en-têtes HTTP arbitraires supplémentaires, notamment ceux définis par l’application. Tous les en-têtes fournis, à l’exception de ceux directement définis dans RFC7230 (voir la section relative au [message de requête](#request-message)) sont transmis à l’écouteur et se trouvent sur l’objet `requestHeader` du message de **requête**.
 
 Voici les options de paramètres des chaînes de requête :
 

@@ -2,25 +2,21 @@
 title: 'Tutoriel : Configurer Zoom pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure AD vers Zoom.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3a2e4bbff1274a2473ac961b8355ca4193dcc69f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924901"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545979"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zoom pour l’approvisionnement automatique d’utilisateurs
 
@@ -50,7 +46,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Zoom pour prendre en charge l’approvisionnement avec Azure AD
 
-1. Connectez-vous à votre [Console d’administration Zoom](https://zoom.us/signin). Accédez à **Avancé > Zoom pour développeurs** dans le volet de navigation gauche.
+1. Connectez-vous à votre [Console d’administration Zoom](https://zoom.us/signin). Accédez à **Avancé > Place de marché d’applications** dans le volet de navigation gauche.
 
     ![Intégrations Zoom](media/zoom-provisioning-tutorial/zoom01.png)
 

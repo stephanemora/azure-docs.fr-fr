@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826532"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245568"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -203,7 +203,7 @@ Pour illustrer la séquence de changement, nous partons du principe que le serve
 1. Effectuez un basculement planifié pour faire du serveur B le serveur principal. Le serveur A devient alors le nouveau serveur secondaire. Le basculement peut occasionner un temps d’arrêt de plusieurs minutes. Sa durée effective dépend de la taille du groupe de basculement.
 2. Sur le serveur C, créez des bases de données secondaires supplémentaires de chaque base de données du serveur B en utilisant la [géoréplication active](active-geo-replication-overview.md). Chaque base de données présente sur le serveur B dispose alors de deux bases de données secondaires, une sur le serveur A et l’autre sur le serveur C. Les bases de données primaires restent ainsi protégées durant la transition.
 3. Supprimez le groupe de basculement. À ce stade, les connexions échouent. La raison en est que les alias SQL des écouteurs du groupe de basculement ont été supprimés et que la passerelle ne reconnaît pas le nom du groupe de basculement.
-4. Recréez le groupe de basculement en utilisant le même nom entre les serveurs A et C. À ce stade, les connexions n’échouent plus.
+4. Recréez le groupe de basculement en utilisant le même nom entre les serveurs B et C. À ce stade, les connexions n’échouent plus.
 5. Ajoutez toutes les bases de données primaires du serveur B au nouveau groupe de basculement.
 6. Procédez à un basculement planifié du groupe de basculement pour interchanger B et C. Le serveur C devient alors le serveur principal et B le serveur secondaire. Toutes les bases de données secondaires du serveur A sont automatiquement liées aux bases de données primaires de C. Comme à l’étape 1, le basculement peut occasionner un temps d’arrêt de plusieurs minutes.
 7. Supprimez le serveur A. Toutes les bases de données de A sont alors supprimées automatiquement.
@@ -231,7 +231,7 @@ Pour garantir une connectivité ininterrompue à l’instance SQL Managed Instan
 > [!IMPORTANT]
 > La première instance gérée créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.
 
-Pour plus d’informations sur la création de l’instance SQL Managed Instance secondaire dans la même zone DNS que l’instance principale, voir [Créer une instance managée secondaire](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Pour plus d’informations sur la création de l’instance SQL Managed Instance secondaire dans la même zone DNS que l’instance principale, voir [Créer une instance managée secondaire](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Activation du trafic de réplication entre deux instances
 

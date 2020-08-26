@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5056f453580ef3e4549a0d8ee5b59e893d8c56bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010799"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522289"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -73,9 +73,9 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 > 
 > Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> La propriété « authenticationSettings », facultative, est prévue pour le cas où plusieurs identités sont affectées à la machine virtuelle.
-> Elle permet de spécifier l’identité à utiliser pour l’authentification auprès de Key Vault.
+> [!IMPORTANT]
+> La propriété 'authenticationSettings' est **requise** uniquement pour les machines virtuelles avec des **identités affectées par l’utilisateur**.
+> Elle spécifie l'identité à utiliser pour l'authentification auprès de Key Vault.
 
 
 ### <a name="property-values"></a>Valeurs de propriétés

@@ -1,18 +1,18 @@
 ---
 title: Importer ou exporter des données avec Azure App Configuration
-description: Découvrir comment exporter ou importer des données vers ou depuis Azure App Configuration
+description: Découvrez comment exporter ou importer des données de configuration vers ou depuis Azure App Configuration. Échangez des données entre votre magasin App Configuration et votre projet de code.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056865"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588073"
 ---
 # <a name="import-or-export-configuration-data"></a>Importer ou exporter des données de configuration
 
@@ -65,4 +65,4 @@ Exportez les données à partir du [portail Azure](https://portal.azure.com) ou 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une application web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Créez une application web ASP.NET Core](./quickstart-aspnet-core-app.md)  

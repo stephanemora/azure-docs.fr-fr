@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475841"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208198"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Résoudre les problèmes de rôles attribués aux groupes cloud
 
@@ -51,7 +51,7 @@ Voici quelques questions courantes et des conseils de résolution des problèmes
 
 **R :** Oui, vous pouvez. L’administrateur général et les administrateurs d’utilisateurs ont la possibilité de placer n’importe quel groupe dans un package d’accès. Rien ne change pour l’administrateur général, mais il y a une légère modification des autorisations du rôle Administrateur d’utilisateurs. Pour placer un groupe assignable à un rôle dans un package d’accès, vous devez être un administrateur d’utilisateurs et également le propriétaire du groupe en question. Voici le tableau complet qui indique qui peut créer un package d’accès dans la gestion des licences Entreprise :
 
-Rôle d’annuaire Azure AD | Rôle de gestion des droits d’utilisation | Peut ajouter un groupe de sécurité\* | Peut ajouter un groupe Office 365\* | Peut ajouter une application | Peut ajouter un site SharePoint Online
+Rôle d’annuaire Azure AD | Rôle de gestion des droits d’utilisation | Peut ajouter un groupe de sécurité\* | Peut ajouter un groupe Microsoft 365\* | Peut ajouter une application | Peut ajouter un site SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Administrateur général | n/a | ✔️ | ✔️ | ✔️  | ✔️
 Administrateur d’utilisateurs  | n/a  | ✔️  | ✔️  | ✔️

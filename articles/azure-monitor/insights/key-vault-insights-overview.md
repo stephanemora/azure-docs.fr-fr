@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498948"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531257"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault (préversion)
 Azure Monitor pour Key Vault (préversion) offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
@@ -45,7 +45,7 @@ Azure Monitor pour Key Vault combine les journaux d’activité et les métrique
 
 À partir d’Azure Monitor, vous pouvez afficher les détails des requêtes, de la latence et des échecs de plusieurs coffres de clés de votre abonnement et identifier les problèmes de performances et les scénarios de limitation.
 
-Pour consulter l’utilisation et les opérations de vos comptes de stockage dans tous vos abonnements, procédez comme suit :
+Pour consulter l’utilisation et les opérations de vos coffres de clés dans tous vos abonnements, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 

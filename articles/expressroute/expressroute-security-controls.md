@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute : Contrôles de sécurité'
-description: Liste de vérification des contrôles de sécurité pour l’évaluation d’Azure ExpressRoute
+description: Découvrez les contrôles de sécurité dans Azure ExpressRoute, qui sont des qualités ou des fonctionnalités qui permettent de prévenir, de détecter et de répondre aux failles de sécurité.
 services: expressroute
 ms.service: expressroute
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a4589d1aa768548f2ae9ffa01f289c823c0b2e5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74079930"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192418"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Contrôles de sécurité pour Azure ExpressRoute
 

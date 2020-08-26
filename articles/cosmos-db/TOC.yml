@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Transactions et contrôle d’accès concurrentiel optimiste
           href: database-transactions-optimistic-concurrency.md
+        - name: Pièces jointes
+          href: attachments.md
     - name: Modifier le flux
       items:
         - name: Vue d’ensemble du flux de modification

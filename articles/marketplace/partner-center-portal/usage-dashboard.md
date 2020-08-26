@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319913"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245330"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Tableau de bord Utilisation de l’analytique de la Place de marché commerciale Microsoft
 
@@ -111,6 +111,8 @@ L’onglet **Utilisation de la facturation mesurée** contient des informations 
 - **Tendance de surutilisation par plan** : représente la tendance de la quantité d’utilisation de la dimension de compteur sélectionnée par plan. Les plans affichés constituent les cinq plans enregistrant la plus grande quantité d’utilisation de l’offre sélectionnée.
 - **Tendance de surutilisation des 50 clients principaux** : les 50 premières offres enregistrant le plus grand nombre d’heures d’utilisation sont affichées sur un ***leaderboard*** et sont classées en fonction de l’utilisation la plus élevée du compteur personnalisé. Sélectionnez un client dans le leaderboard pour voir la tendance d’utilisation d’une dimension de compteur sélectionnée.
 - **Tendance de surutilisation des clients principaux** : présente les centiles des clients principaux qui contribuent au pourcentage de l’utilisation globale. Les centiles des clients principaux sont indiqués le long de l’axe X et dépendent de la quantité d’utilisation par les clients. L’axe Y indique la quantité d’utilisation. Vous pouvez afficher les détails en déplaçant le curseur sur les points le long du graphique en courbes.
+
+Si vous avez plusieurs offres qui utilisent des compteurs personnalisés, le rapport sur l’utilisation facturée affiche les informations d’utilisation de toutes vos offres, en fonction de leurs dimensions de compteur personnalisées.
 
 > [!NOTE]
 > Les détails d’utilisation et tous les graphiques affichés dans cette page s’appliquent à la dimension de compteur sélectionnée pour le filtre de page.
