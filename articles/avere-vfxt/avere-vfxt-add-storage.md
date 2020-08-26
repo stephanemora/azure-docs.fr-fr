@@ -1,17 +1,17 @@
 ---
 title: Configurer le stockage Avere vFXT - Azure
-description: Comment ajouter un système de stockage back-end à votre cluster Avere vFXT pour Azure
+description: Découvrez comment ajouter un système de stockage principal pour un cluster dans Avere vFXT pour Azure. Si vous avez créé un conteneur d’objets blob Azure avec le cluster, il est prêt à l’emploi.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505747"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271139"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 

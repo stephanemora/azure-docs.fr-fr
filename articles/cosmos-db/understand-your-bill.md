@@ -5,29 +5,36 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964581"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606913"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
-Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
+Azure Cosmos DB est un service de base de données natif Cloud entièrement géré qui simplifie la facturation en facturant uniquement vos opérations de base de données et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
-Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit provisionné est facturé sur une base de 100 RU/s par heure. Pour connaître les dernières informations tarifaires, consultez la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/). Le stockage consommé est facturé sur une base de 1 Go par mois. Pour connaître les dernières informations tarifaires, consultez la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- **Opérations de base de données** : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
 
-Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois. Tous les exemples de cet article calculent la facturation en fonction des informations tarifaires indiquées sur la [page Tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/).
+  - **Débit approvisionné** : vous êtes facturé à l’heure pour le débit maximal approvisionné pour une heure donnée, par incréments de 100 RU/s.
+  - **Serverless** : vous êtes facturé à l’heure pour la quantité totale d’unités de requête consommées par vos opérations de base de données.
+
+- **Stockage** : un tarif fixe vous est facturé pour la quantité totale de stockage (exprimée en Go) que vos données et index ont utilisée pendant une heure donnée.
+
+Pour accéder aux informations les plus récentes sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
+
+Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois. Tous les exemples présentés dans cet article calculent la facturation en fonction des informations tarifaires fournies dans la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
 > La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes. Tous les exemples présentés dans ce document se basent sur le prix d’un compte Azure Cosmos déployé dans une région non gouvernementale aux États-Unis. Le tarif et le calcul varient en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="billing-examples"></a>Exemples de facturation
 
-### <a name="billing-example---throughput-on-a-container-full-month"></a>Exemple de facturation - débit sur un conteneur (mois complet)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>Exemple de facturation : débit approvisionné sur un conteneur (mois complet)
 
 * Supposons que vous configuriez un débit de 1 000 RU/seconde sur un conteneur et que ce débit est maintenu pendant 24 heures x 30 jours sur l’ensemble du mois, soit 720 heures au total.  
 
@@ -39,13 +46,21 @@ Cet article s’appuie sur des exemples pour vous aider à comprendre les détai
 
 * La facture totale mensuelle indique 7 200 unités (de 100 RU), qui vous coûteront 57,60 $.
 
-### <a name="billing-example---throughput-on-a-container-partial-month"></a>Exemple de facturation - débit sur un conteneur (mois partiel)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>Exemple de facturation : débit approvisionné sur un conteneur (mois partiel)
 
 * Supposons que vous créez un conteneur avec un débit approvisionné de 2 500 RU/s. Le conteneur est utilisé pendant 24 heures au cours du mois (par exemple, vous le supprimez 24 heures après l’avoir créé).  
 
 * La facture indiquera 600 unités (2 500 RU/s / 100 RU/s/unité x 24 heures). Le coût sera de 4,80 $ (600 unités x 0,008 $/unité).
 
 * La facture totale pour le mois sera de 4,80 $.
+
+### <a name="billing-example---serverless-container"></a>Exemple de facturation : conteneur serverless
+
+* Supposons que nous créons un conteneur serverless. 
+
+* En un mois, nous émettons des demandes de base de données qui consomment un total de 500 000 unités de requête. Le coût sera de 0,125 USD (500 000 * 0,25 USD/million).
+
+* La facture mensuelle totale sera de 0,125 USD.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Taux de facturation en cas de changement de taille de stockage
 
@@ -55,7 +70,7 @@ La capacité de stockage est facturée en unités de la quantité horaire maxima
 
 Vous êtes facturé à un taux fixe pour chaque heure d’existence du conteneur ou de la base de données, indépendamment de l’utilisation, et même si le conteneur ou la base de données sont actifs pendant moins d’une heure. Par exemple, si vous créez un conteneur ou une base de données, puis les supprimez au bout de 5 minutes, vous serez facturé pour 1 heure.
 
-### <a name="billing-rate-when-throughput-on-a-container-or-database-scales-updown"></a>Taux de facturation appliqué en cas d’augmentation ou de diminution du débit sur un conteneur ou une base de données
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>Taux de facturation appliqué en cas d’augmentation ou de diminution du débit approvisionné sur un conteneur ou une base de données
 
 Si vous augmentez le débit provisionné à 9h30 en le faisant passer de 400 unités de requête/seconde à 1 000 unités de requête/seconde, puis que vous réduisez ensuite le débit à 10h45 à 400 unités de requête/seconde, vous payez deux heures de 1 000 unités de requête/seconde. 
 
@@ -75,7 +90,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exemple de facturation d’un débit dédié":::
 
-### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemple de facturation : conteneurs en mode de débit partagé
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>Exemple de facturation : conteneurs en mode de débit (approvisionné) partagé
 
 * Si vous créez un compte Azure Cosmos dans la région USA Est 2 avec deux bases de données Azure Cosmos (comprenant un ensemble de conteneurs qui partage le débit au niveau de la base de données) et un débit approvisionné de 50 000 RU/s et 70 000 RU/s, respectivement, le débit provisionné serait de 120 000 RU/s au total.  
 

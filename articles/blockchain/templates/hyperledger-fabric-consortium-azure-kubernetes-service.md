@@ -1,15 +1,15 @@
 ---
 title: Consortium Hyperledger Fabric sur Azure Kubernetes Service (AKS)
 description: Guide pratique pour déployer un réseau de consortium Hyperledger Fabric sur Azure Kubernetes Service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533425"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184208"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consortium Hyperledger Fabric sur Azure Kubernetes Service (AKS)
 
@@ -350,10 +350,22 @@ Procédez comme suit :
 À partir de l’application cliente homologue, exécutez la commande ci-dessous pour instancier un code chaîné sur le canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Transmettez le nom de la fonction d’instanciation et la liste d’arguments séparés par des espaces dans `<instantiateFunc>` et `<instantiateFuncArgs>` respectivement. Par exemple, dans le code chaîné chaincode_example02.go, pour instancier le code chaîné, définissez `<instantiateFunc>` sur `init` et `<instantiateFuncArgs>` sur « a » « 2000 » « b » « 1000 ».
+
+Vous pouvez également transmettre le fichier JSON de configuration des collections à l’aide de l’indicateur `--collections-config`. Ou encore, définissez les arguments temporaires à l’aide de l’indicateur `-t` lors de l’instanciation d’un code chaîné utilisé pour des transactions privées.
+
+Par exemple :
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+\<collectionConfigJSONFilePath\> est le chemin d’accès au fichier JSON contenant les collections définies pour l’instanciation d’un code chaîné de données privées. Vous trouverez un exemple de fichier JSON de configuration de collections relatif au répertoire azhlfTool dans le chemin d’accès suivant : `./samples/chaincode/src/private_marbles/collections_config.json`.
+Transmettez \<transientArgs\> en tant que JSON valide dans un format de chaîne. Échappez les caractères spéciaux. Par exemple : `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’acteur de la commande, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. Par conséquent, le code chaîné est instancié sur tous les nœuds homologues et sur toutes les organisations homologues dans le canal.  
@@ -377,8 +389,12 @@ Transmettez le nom de la fonction d’appel et la liste d’arguments séparés 
 Exécutez la commande ci-dessous pour interroger un code chaîné :  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Les homologues d’endossement sont des homologues dans lesquels un code chaîné est installé, qui est appelé pour l’exécution de transactions. Vous devez définir \<endorsingPeers\> qui contient des noms de nœuds homologues de l’organisation homologue actuelle. Répertoriez les homologues d’endossement pour une combinaison donnée de code chaîné et de canal séparés par des espaces. Par exemple : `-p "peer1" "peer3"`.
+
+Si vous utilisez azhlfTool pour installer votre code chaîné, transmettez des noms de nœuds homologues en tant que valeur à l’argument d’homologue d’endossement. Le code chaîné est installé sur chaque nœud homologue pour cette organisation. 
+
 Transmettez le nom de la fonction de requête et la liste d’arguments séparés par des espaces dans `<queryFunction>` et `<queryFuncArgs>` respectivement. Là encore, en prenant comme référence le code chaîné chaincode_example02.go, pour interroger la valeur de « a» dans l’ensemble mondial d’états `<queryFunction>` à `query` et `<queryArgs>` à « a ».  
 
 ## <a name="troubleshoot"></a>Dépanner

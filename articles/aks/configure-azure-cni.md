@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0506eb6350358f7256a61c8d6f164b6594d20554
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872427"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566112"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -49,7 +49,7 @@ Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel
 
 | Plage Azure/ressource Azure | Limites et tailles |
 | --------- | ------------- |
-| Réseau virtuel | Le réseau virtuel Azure peut être aussi volumineux que la valeur /8, mais est limité à 65 536 adresses IP configurées. |
+| Réseau virtuel | Le réseau virtuel Azure peut être aussi volumineux que la valeur /8, mais est limité à 65 536 adresses IP configurées. Avant de configurer votre espace d’adressage, prenez en compte tous vos besoins en matière de mise en réseau, dont la communication avec des services dans d’autres réseaux virtuels. Par exemple, si vous configurez un espace d’adressage trop important, vous risquez de rencontrer des problèmes de chevauchement avec d’autres espaces d’adressage au sein de votre réseau.|
 | Subnet | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. La taille du sous-réseau doit également prendre en compte les opérations de mise à niveau ou de futurs besoins de mise à l’échelle.<p />Pour calculer la taille de sous-réseau *minimale*, dont celle d’un nœud supplémentaire pour les opérations de mise à niveau : `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemple pour un cluster à 50 nœuds : `(51) + (51  * 30 (default)) = 1,581` (/21 ou plus)<p/>Exemple pour un cluster de 50 nœuds incluant également un approvisionnement pour porter l’échelle à 10 nœuds supplémentaires : `(61) + (61 * 30 (default)) = 1,891` (/21 ou plus)<p>Si vous ne spécifiez pas de nombre maximal de pods par nœud lorsque vous créez votre cluster, le nombre maximal de pods par nœud est de *30*. Le nombre minimal d’adresses IP requises est basé sur cette valeur. Si vous calculez vos exigences d’adresse IP minimales sur une autre valeur maximale, consultez [comment configurer le nombre maximal de pods par nœud](#configure-maximum---new-clusters) pour définir cette valeur lorsque vous déployez votre cluster. |
 | Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connecté à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. Vous pouvez réutiliser cette plage sur différents clusters AKS. |
 | Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). N’utilisez pas la première adresse IP de votre plage d’adresses (1, par exemple). La première adresse de votre plage de sous-réseaux est utilisée pour l’adresse *kubernetes.default.svc.cluster.local*. |
@@ -152,6 +152,10 @@ La série suivante de questions-réponses s’applique à la configuration de r�
 * *Puis-je déployer des machines virtuelles dans le sous-réseau de mon cluster ?*
 
   Oui.
+
+* *Quelle adresse IP source les systèmes externes voient-ils pour le trafic en provenance d’un pod compatible avec Azure CNI ?*
+
+  Les systèmes dans le même réseau virtuel que le cluster AKS voient l’adresse IP du pod comme l’adresse source pour tout trafic en provenance du pod. Les systèmes situés en dehors du réseau virtuel du cluster AKS voient l’adresse IP du nœud en tant qu’adresse source pour tout le trafic en provenance du pod. 
 
 * *Puis-je configurer des stratégies de réseau spécifiques aux pods ?*
 

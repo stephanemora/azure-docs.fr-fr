@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la stratégie d’indexat
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077592"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607527"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB prend en charge deux modes d’indexation :
 - **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
 
 > [!NOTE]
-> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md) qui ne prend pas en charge l’indexation différée).
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
@@ -260,6 +260,9 @@ Les considérations suivantes sont utilisées lors de la création d’index com
 ## <a name="modifying-the-indexing-policy"></a>Modification de la stratégie d’indexation
 
 La stratégie d’indexation d’un conteneur peut être mise à jour à tout moment [à l’aide du portail Azure ou de l’un des kit de développement logiciel (SDK) pris en charge](how-to-manage-indexing-policy.md). Une mise à jour de la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). L’index de l’ancienne stratégie est transformé efficacement en nouvelle stratégie, sans affecter la disponibilité d’écriture et de lecture ou le débit approvisionné sur le conteneur. La transformation d’index est une opération asynchrone. Le temps nécessaire pour l’effectuer dépend du débit approvisionné, du nombre d’éléments et de leur taille.
+
+> [!IMPORTANT]
+> La transformation d’index est une opération qui consomme des [unités de requête](request-units.md). Les unités de requête consommées par une transformation d’index ne sont pas facturées si vous utilisez des conteneurs [serverless](serverless.md). Ces unités de requête seront facturées quand les conteneurs serverless seront généralement disponibles.
 
 > [!NOTE]
 > Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).

@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020064"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520207"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -414,6 +414,10 @@ Les scénarios de la partie de confiance SAML suivants sont pris en charge via v
 * Plusieurs URL de déconnexion ou une liaison POST pour l’URL de déconnexion dans l’objet principal du service ou de l’application.
 * Spécifiez la clé de signature pour vérifier les demandes de partie de confiance dans l’objet principal du service ou de l’application.
 * Spécifiez la clé de chiffrement de jeton dans l’objet principal du service ou de l’application.
+* Authentification initiée par le fournisseur d’identité, où le fournisseur d’identité est Azure AD B2C.
+
+Les scénarios suivants de partie de confiance SAML ne sont pas pris en charge actuellement :
+* Authentification initiée par le fournisseur d’identité, où le fournisseur d’identité est un fournisseur externe, par exemple ADFS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

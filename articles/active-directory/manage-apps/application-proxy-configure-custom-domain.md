@@ -1,27 +1,22 @@
 ---
-title: Domaines personnalisés dans le proxy d’application Azure AD | Microsoft Docs
+title: Domaines personnalisés dans le proxy d’application Azure AD
 description: Configurer et gérer des domaines personnalisés dans le Proxy d’application Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764908"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587767"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -91,11 +86,11 @@ Pour publier votre application via le Proxy d’application avec un domaine pers
    
    ![Sélectionner un domaine personnalisé](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Si le domaine a déjà un certificat, le champ **Certificat** affiche les informations du certificat. Dans le cas contraire, sélectionnez le champ **Certificat**. 
+6. Si le domaine a déjà un certificat, le champ **Certificat** affiche les informations du certificat. Dans le cas contraire, sélectionnez le champ **Certificat**.
    
    ![Cliquez pour télécharger un certificat.](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Dans la page **Certificat SSL**, recherchez et sélectionnez votre fichier de certificat PFX. Entrez le mot de passe du certificat, puis sélectionnez **Charger le certificat**. Pour plus d’informations sur les certificats, voir la section [Certificats pour les domaines personnalisés](#certificates-for-custom-domains).
+7. Dans la page **Certificat SSL**, recherchez et sélectionnez votre fichier de certificat PFX. Entrez le mot de passe du certificat, puis sélectionnez **Charger le certificat**. Pour plus d’informations sur les certificats, voir la section [Certificats pour les domaines personnalisés](#certificates-for-custom-domains). Si le certificat n’est pas valide ou s’il y a un problème avec le mot de passe, un message d’erreur s’affiche. Le [FAQ sur le proxy d’application](application-proxy-faq.md#application-configuration) contient des étapes de dépannage que vous pouvez essayer.
    
    ![Télécharger le certificat](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -126,7 +121,7 @@ Un certificat crée la connexion TLS sécurisée pour votre domaine personnalis
 
 Vous devez utiliser un certificat PFX pour vous assurer que tous les certificats intermédiaires requis sont inclus. Le certificat doit comporter la clé privée.
 
-Aucune restriction ne s’applique aux méthodes de signature de certificat. Les certificats des type chiffrement à courbe elliptique (ECC) ou autre nom de l’objet (SAN), ainsi que d’autres types de certificat courants sont pris en charge. 
+La plupart des méthodes de signature de certificat courantes sont prises en charge, telles que la méthode Autre nom de l’objet (SAN). 
 
 Vous pouvez utiliser un certificat avec caractères génériques tant que ceux-ci correspondent à l’URL externe. Vous devez utiliser des certificats avec caractères génériques pour des [applications génériques](application-proxy-wildcard.md). Si vous souhaitez utiliser le certificat pour accéder également aux sous-domaines, vous devez ajouter les caractères génériques du sous-domaine en tant qu’autres noms d’objet dans le même certificat. Par exemple, un certificat pour *\*.adventure-works.com* ne peut fonctionner pour *\*.apps.adventure-works.com* que si vous ajoutez *\*.apps.adventure-works.com* en tant qu’autre nom de l’objet. 
 

@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037165"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520519"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -103,7 +104,7 @@ Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-En général, les fonctionnalités d’Azure Files et l’interopérabilité avec d’autres services sont les mêmes entre les partages de fichiers Premium et les partages de fichiers Standard. Il existe, cependant, quelques différences importantes :
+En général, les fonctionnalités d’Azure Files et l’interopérabilité avec d’autres services sont les mêmes entre les partages de fichiers Premium et les partages de fichiers Standard (incluant les partages de fichiers optimisés pour les transactions, chauds et froids). Il existe, cependant, quelques différences importantes :
 - **Modèle de facturation**
     - Les partages de fichiers Premium sont facturés selon un modèle de facturation avec provisionnement, ce qui signifie que vous payez le volume de stockage que vous provisionnez plutôt que la quantité de stockage réellement demandée. 
     - Les partages de fichiers Standard sont facturés selon un modèle de paiement à l’utilisation : il comprend un coût de base du stockage pour la quantité de stockage que vous consommez, et un coût de transaction supplémentaire en fonction de la façon dont vous utilisez le partage. Avec les partages de fichiers Standard, votre facture augmente si vous utilisez davantage (en lecture/écriture/montage) le partage de fichiers Azure.

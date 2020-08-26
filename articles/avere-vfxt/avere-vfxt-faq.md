@@ -1,18 +1,18 @@
 ---
 title: Questions fréquentes (FAQ) - Avere vFXT pour Azure
-description: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
+description: Reportez-vous à ces questions fréquemment posées pour décider si les Avere vFXT pour Azure correspond à vos besoins. Découvrez de quelle manière Avere vFXT pour Azure fonctionne avec d’autres composants Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: 55423119e55401d5176e228eba784f2eb498bfef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196345"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272689"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 
@@ -162,7 +162,7 @@ Le détachement et le rattachement de disques SSD ne sont pas pris en charge. Le
 
 Les données sont réparties entre les disques, mais elles ne sont pas chiffrées. Toutefois, les disques proprement dit peuvent être chiffrés. Pour plus d'informations, consultez [Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
 
-## <a name="technical-networking"></a>Technique : Mise en réseau
+## <a name="technical-networking"></a>Technique : Réseau
 
 ### <a name="what-network-is-recommended"></a>Quel réseau est recommandé ?
 

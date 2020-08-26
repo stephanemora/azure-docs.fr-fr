@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511046"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -26,10 +26,10 @@ Cet article présente Suivi des modifications et inventaire dans Azure Automatio
 > [!NOTE]
 > Pour suivre les modifications de propriétés Azure Resource Manager, consultez l’[historique des modifications](../governance/resource-graph/how-to/get-resource-changes.md) d’Azure Resource Graph.
 
-Suivi des modifications et inventaire obtient ses données à partir d’Azure Monitor. Les machines virtuelles connectées à des espaces de travail Log Analytics utilisent des agents Log Analytics pour collecter des données sur les modifications apportées aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows, ainsi qu’aux démons Linux sur les serveurs analysés. Lorsque des données sont disponibles, les agents les envoient à Azure Monitor pour qu’elles soient traitées. Azure Monitor applique une logique aux données reçues, les enregistre et les rend disponibles. 
+Suivi des modifications et inventaire obtient ses données à partir d’Azure Monitor. Les machines virtuelles connectées à des espaces de travail Log Analytics utilisent l’agent Log Analytics pour collecter des données sur les modifications apportées aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows, ainsi qu’aux démons Linux sur les serveurs analysés. Lorsque des données sont disponibles, l’agent les envoient à Azure Monitor pour traitement. Azure Monitor applique une logique aux données reçues, les enregistre et les rend disponibles.
 
 > [!NOTE]
-> Pour utiliser la fonctionnalité Suivi des modifications et inventaire, vous devez placer toutes vos machines virtuelles dans le même abonnement et la même région du compte Automation.
+> Le suivi des modifications et inventaire vous demande d’établir une liaison entre un espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](./how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région depuis votre compte Automation.
 
 Suivi des modifications et inventaire ne prend actuellement pas en charge les éléments suivants :
 
@@ -53,7 +53,7 @@ Suivi des modifications et inventaire présente actuellement les problèmes suiv
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour les systèmes d’exploitation prenant en charge Log Analytics, consultez [Vue d’ensemble de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+Suivi des modifications et inventaire est pris en charge sur tous les systèmes d’exploitation qui répondent aux exigences de l’agent Log Analytics. Les versions officielles du système d’exploitation sont Windows Server 2008 SP1 ou version ultérieure et Windows 7 SP1 ou version ultérieure. La fonctionnalité est aussi prise en charge sur un certain nombre de systèmes d’exploitation Linux. Pour obtenir la liste des systèmes d’exploitation pris en charge, consultez [Présentation de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Pour comprendre la configuration requise du client pour le protocole TLS 1.2, consultez [Application de TLS 1.2 pour Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

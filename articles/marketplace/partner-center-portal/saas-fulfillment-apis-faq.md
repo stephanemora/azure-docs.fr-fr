@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304409"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606808"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Questions courantes sur les API de traitement SaaS
 
@@ -67,9 +67,9 @@ La séquence ci-dessous montre le flux quand un client Azure change de forfait d
 
 ![Flux de changement du forfait d’un client](media/saas-metering-service-integration-flow-b.png)
 
-La séquence ci-dessous montre le flux lorsqu'un client Azure change de forfait dans la vitrine de Microsoft
+La séquence ci-dessous montre le flux lorsqu’un client Azure change de forfait dans le magasin en ligne de Microsoft :
 
-![Flux de changement du forfait dans la vitrine du client](media/saas-metering-service-integration-flow-c.png)
+![Flux de changement de forfait dans le magasin en ligne client](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>Comment l’utilisateur Azure peut-il se désabonner du forfait associé à un abonnement Azure ?
 
@@ -79,9 +79,9 @@ La séquence ci-dessous montre le flux lorsqu'un client Azure se désabonne de l
 
 ![Le client se désabonne dans l'expérience SaaS](media/saas-metering-service-integration-flow-d.png)
 
-La séquence ci-dessous montre le flux lorsqu'un client Azure se désabonne dans la vitrine Microsoft :
+La séquence ci-dessous est la capture du flux quand un utilisateur Azure se désabonne via le magasin en ligne de Microsoft :
 
-![Le client se désabonne dans la vitrine de Microsoft](media/saas-metering-service-integration-flow-e.png)
+![Un client se désabonne via le magasin en ligne de Microsoft](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

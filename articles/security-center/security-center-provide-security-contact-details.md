@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042273"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516297"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -32,6 +32,9 @@ Pour éviter la fatigue liée aux alertes, Security Center limite le volume des 
 - un maximum de **deux** e-mails par jour pour les alertes de **gravité moyenne**
 - un maximum d’**un** e-mail par jour pour les alertes de **faible gravité**
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuration des détails du contact qui recevra les e-mails sur les alertes de sécurité." :::
+
 ## <a name="availability"></a>Disponibilité
 
 |Aspect|Détails|
@@ -41,8 +44,6 @@ Pour éviter la fatigue liée aux alertes, Security Center limite le volume des 
 |Rôles et autorisations obligatoires :|**Administrateur de la sécurité**<br>**Propriétaire de l’abonnement** |
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov (partiel)<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||
-
-
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurer des notifications par e-mail pour les alertes <a name="email"></a>
@@ -64,3 +65,4 @@ Pour plus d’informations sur les alertes de sécurité, consultez les rubrique
 
 * [Alertes de sécurité – guide de référence](alerts-reference.md) : en savoir plus sur les alertes de sécurité possibles du module de protection contre les menaces d’Azure Security Center
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité
+* [Automatisation du workflow](workflow-automation.md) – Automatiser les réponses aux alertes avec une logique de notification personnalisée

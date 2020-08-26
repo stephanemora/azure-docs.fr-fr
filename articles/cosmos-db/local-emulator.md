@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119519"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607533"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -35,12 +35,13 @@ L’émulateur Azure Cosmos offrant un environnement émulé exécuté sur une s
 
 * À l’heure actuelle, l’Explorateur de données dans l’émulateur prend en charge les clients pour l’API SQL uniquement. La vue de l’Explorateur de données et les opérations pour les API MongoDB, Table, Graph et Cassandra d’Azure Cosmos DB ne sont pas entièrement prises en charge.
 * L’émulateur Azure Cosmos prend uniquement en charge un seul compte fixe et une clé principale connue. La regénération de clé n’est pas possible dans l’émulateur Azure Cosmos, mais la clé par défaut peut être changée à l’aide de l’option de ligne de commande.
+* L’émulateur Azure Cosmos prend en charge un compte Azure Cosmos en mode [débit approvisionné](set-throughput.md). Actuellement, il ne prend pas en charge un compte Azure Cosmos en mode [serverless](serverless.md).
 * L’émulateur Azure Cosmos n’est pas un service de stockage scalable et ne prend pas en charge un grand nombre de conteneurs.
 * L’émulateur Azure Cosmos n’offre pas de [niveaux de cohérence Azure Cosmos DB](consistency-levels.md) différents.
 * L’émulateur Azure Cosmos ne permet pas la [réplication entre plusieurs régions](distribute-data-globally.md).
 * Votre copie de l’émulateur Azure Cosmos n’étant pas obligatoirement à jour par rapport aux dernières modifications apportées au service Azure Cosmos DB, nous vous conseillons de consulter la section [Planificateur de capacité Azure Cosmos DB](https://www.documentdb.com/capacityplanner) pour évaluer avec précision les besoins en débit de production (RU) de votre application.
 * Quand vous utilisez l’émulateur Azure Cosmos, par défaut, vous pouvez créer jusqu’à 25 conteneurs de taille fixe (pris en charge uniquement avec les SDK Azure Cosmos DB), ou cinq conteneurs illimités avec l’émulateur Azure Cosmos. Pour plus d’informations sur la modification de cette valeur, voir la section relative à la [définition de la valeur PartitionCount](#set-partitioncount).
-* L’émulateur prend en charge la taille maximale de la propriété ID qui est de 254 caractères.
+* L’émulateur prend en charge la taille maximale de propriété d’ ID qui est de 254 caractères.
 
 ## <a name="system-requirements"></a>Configuration système requise
 
@@ -114,12 +115,13 @@ Avant d’activer l’accès réseau pour la première fois, l’utilisateur doi
 
 ### <a name="sql-api"></a>API SQL
 
-Une fois que l’émulateur Azure Cosmos est démarré sur votre bureau, vous pouvez utiliser n’importe quel [SDK Azure Cosmos DB](sql-api-sdk-dotnet.md) pris en charge ou l’[API REST Azure Cosmos DB](/rest/api/cosmos-db/) pour interagir avec lui. L’émulateur Azure Cosmos fournit également un Explorateur de données à partir duquel vous pouvez créer des conteneurs pour l’API SQL ou l’API de Cosmos DB pour Mongo DB, ou encore afficher et modifier des éléments sans avoir à écrire de code.
+Une fois que l’émulateur Azure Cosmos est démarré sur votre bureau, vous pouvez utiliser n’importe quel [SDK Azure Cosmos DB](sql-api-sdk-dotnet-standard.md) pris en charge ou l’[API REST Azure Cosmos DB](/rest/api/cosmos-db/) pour interagir avec lui. L’émulateur Azure Cosmos fournit également un Explorateur de données à partir duquel vous pouvez créer des conteneurs pour l’API SQL ou l’API de Cosmos DB pour Mongo DB, ou encore afficher et modifier des éléments sans avoir à écrire de code.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -428,7 +430,7 @@ Si vous avez une application cliente .NET en cours d’exécution sur un contene
 
 ## <a name="running-on-mac-or-linux"></a>Exécution sur Mac ou Linux<a id="mac"></a>
 
-Actuellement, l’émulateur Cosmos peut uniquement être exécuté sur Windows. Les utilisateurs sous Mac ou Linux peuvent exécuter l’émulateur sur une machine virtuelle Windows hébergée sur un hyperviseur comme Parallels ou VirtualBox. Voici les étapes pour activer cela.
+Actuellement, l’émulateur Cosmos peut uniquement être exécuté sur Windows. Les utilisateurs sous Mac ou Linux peuvent exécuter l’émulateur sur une machine virtuelle Windows hébergée dans un hyperviseur tel que Parallels ou VirtualBox. Voici les étapes pour activer cela.
 
 Dans la machine virtuelle Windows, exécutez la commande suivante et notez l’adresse IPv4.
 
@@ -444,7 +446,36 @@ Ensuite, depuis la machine virtuelle Windows, lancez l’émulateur Cosmos à pa
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Enfin, nous devons importer le certificat de l’autorité de certification de l’émulateur dans l’environnement Linux ou Mac.
+Enfin, nous devons résoudre le processus d’approbation de certificat entre l’application en cours d’exécution dans l’environnement Linux ou Mac et l’émulateur. Deux solutions s’offrent à nous :
+
+1. Désactiver la validation SSL dans l’application :
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+   Pour toute application s’exécutant dans une infrastructure compatible avec .NET Standard 2.1 ou une version ultérieure, nous pouvons tirer parti de `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   Pour toute application s’exécutant dans une infrastructure compatible avec .NET Standard 2.0, nous pouvons tirer parti de `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
+
+   Pour les applications Node.js, vous pouvez modifier votre fichier `package.json` pour définir `NODE_TLS_REJECT_UNAUTHORIZED` lors du démarrage de l’application :
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> La désactivation de la validation SSL est uniquement recommandée à des fins de développement et ne doit pas être effectuée lors de l’exécution dans un environnement de production.
+
+2. Importer le certificat de l’autorité de certification de l’émulateur dans l’environnement Linux ou Mac :
 
 ### <a name="linux"></a>Linux
 

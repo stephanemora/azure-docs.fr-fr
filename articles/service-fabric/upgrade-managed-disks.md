@@ -3,12 +3,12 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542849"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192293"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
@@ -23,6 +23,9 @@ La stratégie générale de mise à niveau d’un nœud de cluster Service Fabri
 3. Vérifiez que le cluster et les nouveaux nœuds sont intègres, puis supprimez le groupe identique d’origine et l’état du nœud pour les nœuds supprimés.
 
 Cet article vous guide tout au long des étapes de mise à niveau du type de nœud principal d’un exemple de cluster pour utiliser des disques managés tout en évitant les temps d’arrêt du cluster (voir remarque ci-dessous). L’état initial de l’exemple de cluster de test se compose d’un type de nœud de [durabilité Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), soutenu par un groupe identique à cinq nœuds.
+
+> [!NOTE]
+> Les limitations d’un équilibreur de charge de référence (SKU) De base empêchent l’ajout d’un groupe identique supplémentaire. Nous vous recommandons d’utiliser à la place l’équilibreur de charge de référence (SKU) Standard. Pour plus d’informations, consultez la [comparaison des deux références (SKU)](/azure/load-balancer/skus).
 
 > [!CAUTION]
 > Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.
@@ -165,7 +168,7 @@ Voici les modifications section par section du modèle de déploiement du cluste
 
 #### <a name="parameters"></a>Paramètres
 
-Ajoutez un paramètre pour le nom d’instance du nouveau groupe identique. Notez que `vmNodeType1Name` est propre au nouveau groupe identique, tandis que les valeurs nombre et taille sont identiques à celles du groupe identique d’origine.
+Ajoutez des paramètres pour le nom de l’instance, le nombre et la taille du nouveau groupe identique. Notez que `vmNodeType1Name` est propre au nouveau groupe identique, tandis que les valeurs nombre et taille sont identiques à celles du groupe identique d’origine.
 
 **Fichier de modèle**
 
@@ -174,7 +177,18 @@ Ajoutez un paramètre pour le nom d’instance du nouveau groupe identique. Note
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Fichier de paramètres**
@@ -182,6 +196,12 @@ Ajoutez un paramètre pour le nom d’instance du nouveau groupe identique. Note
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ Dans la section `variables` du modèle de déploiement, ajoutez une entrée pour
 
 Dans la section *Ressources* du modèle de déploiement, ajoutez le nouveau groupe de machines virtuelles identiques en gardant à l’esprit les points suivants :
 
-* Le nouveau groupe identique fait référence au nouveau type de nœud :
+* Le nouveau groupe identique fait référence au même type de nœud que l’original :
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Le nouveau groupe identique fait référence à la même adresse principale et au même sous-réseau de l’équilibreur de charge, mais utilise un pool NAT entrant d’équilibrage de charge différent :
+* Le nouveau groupe identique fait référence à la même adresse principale et au même sous-réseau de l’équilibreur de charge (mais utilise un pool NAT entrant d’équilibrage de charge différent) :
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ Dans la section *Ressources* du modèle de déploiement, ajoutez le nouveau grou
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Ensuite, ajoutez une entrée à la liste `nodeTypes` de la ressource *Microsoft.ServiceFabric/clusters*. Utilisez les mêmes valeurs que l’entrée de type de nœud d’origine, à l’exception de `name`, qui doit référencer le nouveau type de nœud (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Une fois que vous avez implémenté toutes les modifications apportées à vos fichiers de modèle et de paramètres, passez à la section suivante pour obtenir vos références Key Vault et déployer les mises à jour sur votre cluster.
 

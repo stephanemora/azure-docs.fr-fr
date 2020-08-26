@@ -3,14 +3,14 @@ title: Évaluations de machines virtuelles Azure dans Azure Migrate Server Asses
 description: Apprenez-en davantage sur les évaluations dans l'outil Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825988"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261852"
 ---
-# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>À propos des évaluations de machines virtuelles Azure dans Azure Migrate : Server Assessment
+# <a name="server-assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers des machines virtuelles Azure)
 
 Cet article fournit une vue d’ensemble des évaluations dans l’outil [Azure Migrate : Évaluation de serveur](migrate-services-overview.md#azure-migrate-server-assessment-tool). L’outil permet d’évaluer des machines virtuelles VMware et Hyper-V ainsi que des serveurs physiques locaux en vue de leur migration vers Azure.
 
@@ -122,7 +122,7 @@ Le contenu d’une évaluation de machine virtuelle Azure dans Server Assessment
 **Historique des performances** | Utilisé avec le dimensionnement basé sur les performances. L’historique des performances spécifie la durée utilisée lors de l’évaluation des données de performances.
 **Utilisation en centile** | Utilisé avec le dimensionnement basé sur les performances. L’utilisation en centile spécifie la valeur de centile de l’échantillon de performances utilisé pour le dimensionnement adéquat.
 **Séries de machine virtuelle** | Série de machines virtuelles Azure que vous souhaitez prendre en compte pour le dimensionnement adéquat. Par exemple, si vous ne disposez pas d’un environnement de production nécessitant des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste de séries.
-**Facteur de confort** | Mémoire tampon utilisée pendant l’évaluation. Il est appliqué aux données d’utilisation de l’UC, de la RAM, du disque et du réseau pour les machines virtuelles. Il prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à deux cœurs. Avec un facteur de confort de 2, le résultat est une machine virtuelle à quatre cœurs.
+**Facteur de confort** | Mémoire tampon utilisée pendant l’évaluation. Elle est appliquée aux données de l’UC, de la RAM, du disque et du réseau pour les machines virtuelles. Il prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à deux cœurs. Avec un facteur de confort de 2, le résultat est une machine virtuelle à quatre cœurs.
 **Offer** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) dans laquelle vous êtes inscrit. Évaluation de serveur estime le coût de cette offre.
 **Devise** | Devise de facturation de votre compte.
 **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
@@ -151,8 +151,8 @@ Pour une évaluation de machine virtuelle Azure, Server Assessment examine les p
 Propriété | Détails | État de préparation pour Azure
 --- | --- | ---
 **Type de démarrage** | Azure prend en charge les machines virtuelles avec un type de démarrage BIOS, et non UEFI. | Préparé pour Azure sous condition si le type de démarrage est UEFI
-**Cœurs** | Chaque ordinateur ne doit pas comporter plus de 128 cœurs, ce qui correspond au nombre maximal pris en charge par une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si les paramètres de l’évaluation spécifient le facteur de confort, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Préparé pour Azure si le nombre de cœurs est dans la limite
-**RAM** | Chaque ordinateur ne doit pas avoir plus de 3 892 Go de RAM, ce qui correspond à la taille maximale qu’une machine virtuelle Standard_M128m de série M Azure&nbsp;<sup>2</sup> prend en charge. [Plus d’informations](../virtual-machines/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la RAM utilisée pour la comparaison. Si un facteur de confort est spécifié, la RAM utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la RAM allouée est utilisée sans l’application d’un facteur de confort.<br/><br/> | Préparé pour Azure si la quantité de RAM est comprise dans la limite
+**Cœurs** | Chaque ordinateur ne doit pas comporter plus de 128 cœurs, ce qui correspond au nombre maximal pris en charge par une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si les paramètres de l’évaluation spécifient le facteur de confort, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués pour appliquer le facteur de confort. | Préparé pour Azure si le nombre de cœurs est dans la limite
+**RAM** | Chaque ordinateur ne doit pas avoir plus de 3 892 Go de RAM, ce qui correspond à la taille maximale qu’une machine virtuelle Standard_M128m de série M Azure&nbsp;<sup>2</sup> prend en charge. [Plus d’informations](../virtual-machines/sizes.md)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la RAM utilisée pour la comparaison. Si un facteur de confort est spécifié, la RAM utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la RAM allouée est utilisée pour appliquer un facteur de confort.<br/><br/> | Préparé pour Azure si la quantité de RAM est comprise dans la limite
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 32 To. Bien qu’Azure prenne en charge des disques de 64 To avec des disques SSD Ultra Azure, Azure Migrate : Évaluation de serveur vérifie actuellement 32 To comme limite de taille de disque, car il ne prend pas encore en charge les SSD Ultra. <br/><br/> Le nombre de disques attachés à l’ordinateur, y compris le disque du système d’exploitation, doit être inférieur ou égal à 65. | Préparé pour Azure si la taille et le nombre de disques sont dans les limites
 **Mise en réseau** | Une machine ne doit pas avoir plus de 32 interfaces réseau (NIC) associées. | Préparé pour Azure si le nombre d’interfaces réseau est dans la limite
 

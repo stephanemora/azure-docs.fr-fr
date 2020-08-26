@@ -1,32 +1,32 @@
 ---
-title: Tailles de machine virtuelle
-description: Décrit les tailles de machine virtuelle distinctes qui peuvent être allouées.
+title: Tailles des serveurs
+description: Décrit les tailles de serveur distinctes qui peuvent être allouées.
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121610"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511183"
 ---
-# <a name="vm-sizes"></a>Tailles de machine virtuelle
+# <a name="server-sizes"></a>Tailles des serveurs
 
-Le service de rendu peut opérer sur deux différents types de machines dans Azure, appelés `Standard` et `Premium`.
+Le service Azure Remote Rendering est disponible dans deux configurations de serveur : `Standard` et `Premium`.
 
 ## <a name="polygon-limits"></a>Limites de polygones
 
-Il existe une limite inconditionnelle de **20 millions de polygones** pour la taille de machine virtuelle `Standard`. Cette limitation n’existe pas pour la taille `Premium`.
+Le service Remote Rendering avec un serveur de taille `Standard` a une taille de scène maximale de 20 millions de polygones. Le service Remote Rendering de taille `Premium` n’impose pas de maximum inconditionnel, mais les performances peuvent de dégrader si votre contenu dépasse les capacités de rendu du service.
 
-Quand le convertisseur sur une machine virtuelle standard atteint cette limitation, il bascule le rendu sur un damier d’arrière-plan :
+Quand le convertisseur sur un serveur de taille « standard » atteint cette limitation, il bascule le rendu vers un damier d’arrière-plan :
 
 ![Damier](media/checkerboard.png)
 
-## <a name="allocate-the-vm"></a>Allouer la machine virtuelle
+## <a name="specify-the-server-size"></a>Spécifier la taille du serveur
 
-Le type de machine virtuelle souhaité doit être spécifié au moment de l’initialisation de la session de rendu. Il ne peut pas être modifié pendant une session en cours d’exécution. Les exemples de code suivants illustrent l’emplacement où la taille de machine virtuelle doit être spécifiée :
+Le type souhaité de configuration de serveur doit être spécifié au moment de l’initialisation de la session de rendu. Il ne peut pas être modifié pendant une session en cours d’exécution. Les exemples de code suivants illustrent l’emplacement où la taille de serveur doit être spécifiée :
 
 ```cs
 async void CreateRenderingSession(AzureFrontend frontend)
@@ -51,7 +51,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-Pour les [exemples de scripts PowerShell](../samples/powershell-example-scripts.md), la taille de la machine virtuelle doit être spécifiée dans le fichier `arrconfig.json` :
+Pour les [exemples de scripts PowerShell](../samples/powershell-example-scripts.md), la taille de serveur souhaitée doit être spécifiée dans le fichier `arrconfig.json` :
 
 ```json
 {
@@ -74,13 +74,13 @@ Par conséquent, il est possible d’écrire une application qui cible la taille
 
 ### <a name="how-to-determine-the-number-of-polygons"></a>Comment déterminer le nombre de polygones ?
 
-Il existe deux façons de déterminer le nombre de polygones d’un modèle ou d’une scène qui contribuent à la limite budgétaire de la taille de machine virtuelle `standard` :
+Il existe deux façons de déterminer le nombre de polygones d’un modèle ou d’une scène qui contribuent à la limite budgétaire de la taille de serveur `standard` :
 * Du côté conversion du modèle, récupérez le [fichier json de sortie de conversion](../how-tos/conversion/get-information.md) et vérifiez l’entrée `numFaces` dans la [section *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
 * Si votre application traite du contenu dynamique, le nombre de polygones rendus peut être interrogé de manière dynamique pendant l’exécution. Utilisez une [requête d’évaluation des performances](../overview/features/performance-queries.md#performance-assessment-queries) et recherchez le membre `polygonsRendered` dans le struct `FrameStatistics`. Le champ `polygonsRendered` est défini sur `bad` lorsque le convertisseur atteint la limite du polygone. Le damier d’arrière-plan apparaît toujours en fondu avec un certain délai, afin de garantir qu’une action utilisateur puisse être effectuée après cette requête asynchrone. L’action utilisateur peut par exemple masquer ou supprimer des instances de modèle.
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir une description détaillée des tarifs pour chaque type de machine virtuelle, consultez la page [Tarification Remote Rendering](https://azure.microsoft.com/pricing/details/remote-rendering).
+Pour obtenir une description détaillée des tarifs pour chaque type de configuration, consultez la page [Tarification Remote Rendering](https://azure.microsoft.com/pricing/details/remote-rendering).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemples de scripts PowerShell](../samples/powershell-example-scripts.md)

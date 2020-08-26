@@ -1,14 +1,14 @@
 ---
 title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
-ms.date: 07/28/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: ab12238bac7e479766b3e328c02f73521d08ad96
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167215"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589722"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
@@ -22,8 +22,19 @@ Conformément aux [exigences de certification des offres de services managés](/
 
 Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../cost-management-billing/manage/link-partner-id.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
 
-> [!NOTE]
-> Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez [Intégration d’un client à Azure Lighthouse](onboard-customer.md).
+Si vous ne souhaitez pas publier d’offre sur la Place de marché Azure, ou si vous ne répondez pas à toutes les exigences, vous pouvez intégrer des clients manuellement à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez [Intégration d’un client à Azure Lighthouse](onboard-customer.md).
+
+Le tableau suivant peut vous aider à déterminer si des clients doivent être intégrés en publiant une offre de service managé ou en utilisant des modèles Azure Resource Manager.
+
+|**Considération**  |**Offre de service managé**  |**Modèles ARM**  |
+|---------|---------|---------|
+|Nécessite un [compte Espace partenaires](../../marketplace/partner-center-portal/create-account.md)   |Oui         |Non        |
+|Nécessite le [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Oui         |Non         |
+|Disponible pour les nouveaux clients via la Place de marché Azure     |Oui     |Non       |
+|Peut limiter l’offre à des clients spécifiques     |Oui (uniquement avec des offres privées qui ne peuvent pas être utilisées avec des abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP)).         |Oui         |
+|Nécessite l’acceptation du client dans le portail Azure     |Oui     |Non   |
+|Peut utiliser une automatisation pour intégrer plusieurs abonnements, groupes de ressources ou clients |Non     |Oui    |
+|Accès immédiat aux nouveaux rôles intégrés et aux fonctionnalités d’Azure Lighthouse     |Pas toujours (mis à la disposition générale après un certain délai)         |Oui         |
 
 ## <a name="create-your-offer"></a>Créer votre offre
 

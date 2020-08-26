@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067356"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214215"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
@@ -71,7 +71,8 @@ Pour illustrer l’application d’un cluster avec un type de sortie utilisant u
 > [!IMPORTANT]
 > Le type sortant d’UDR requiert une route pour 0.0.0.0/0 et la destination de tronçon suivant de l’appliance virtuelle réseau (NVA) dans la table de routage.
 > La table de route a déjà une valeur par défaut 0.0.0.0/0 vers Internet, sans adresse IP publique vers SNAT. Le simple ajout de cette route ne vous fournira pas de sortie. AKS vérifiera que la route 0.0.0.0/0 que vous créez ne pointe pas vers Internet, mais vers une appliance réseau virtuelle, une passerelle, etc.
-
+> 
+> Quand vous utilisez un type sortant d’UDR, aucune adresse IP publique d’équilibreur de charge n’est créée, sauf si un service de type *LoadBalancer* est configuré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

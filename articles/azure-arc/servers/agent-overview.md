@@ -1,18 +1,18 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
-description: Cet article fournit une présentation détaillée de l’agent Azure Arc pour serveurs (préversion) disponible qui prend en charge la surveillance de machines virtuelles hébergées dans un environnement hybride.
+description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc (préversion) disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121831"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212973"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Présentation de l’agent Azure Arc pour serveurs (préversion)
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Présentation de l’agent des serveurs avec Azure Arc (préversion)
 
-L’agent Connected Machine d’Azure Arc pour serveurs (préversion) vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
+L’agent Connected Machine des serveurs avec Azure Arc (préversion) vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
 ## <a name="agent-component-details"></a>Détails du composant Agent
 
@@ -65,7 +65,7 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
-Avant de configurer vos machines avec Azure Arc pour serveurs (préversion), passez en revue les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) Azure Resource Manager pour planifier le nombre de machines à connecter.
+Avant de configurer vos machines à l’aide de serveurs avec Azure Arc (préversion), examinez les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) d’Azure Resource Manager pour planifier le nombre de machines à connecter.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocole Transport Layer Security 1.2
 
@@ -105,7 +105,7 @@ Les URL indiquées dans le tableau précédent sont nécessaires en plus des inf
 
 ### <a name="register-azure-resource-providers"></a>Inscrire des fournisseurs de ressources Azure
 
-Azure Arc pour serveurs (préversion) dépend des fournisseurs de ressources Azure suivants dans votre abonnement pour pouvoir utiliser ce service :
+Pour utiliser ce service, les serveurs avec Azure Arc (préversion) dépendent des fournisseurs de ressources Azure suivants dans votre abonnement :
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -248,4 +248,4 @@ Une fois l’agent Connected Machine pour Linux installé, les modifications de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer l’évaluation d’Azure Arc pour serveurs (préversion), suivez l’article [Connecter des machines hybrides à Azure à partir du portail Azure](onboard-portal.md).
+Pour commencer l’évaluation des serveurs avec Azure Arc (préversion), suivez les instructions de l’article [Connecter des machines hybrides à Azure à partir du portail Azure](onboard-portal.md).

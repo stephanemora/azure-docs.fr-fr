@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009646"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234985"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -126,6 +126,9 @@ Ensuite, configurez l’inscription d’application que vous avez créée avec l
 Dans la page *Demander des autorisations d’API* qui suit, basculez vers l’onglet *API utilisées par mon organisation* et recherchez *Azure Digital Twins*. Sélectionnez *Azure Digital Twins* dans les résultats de la recherche pour continuer à attribuer des autorisations pour les API Azure Digital Twins.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Vue du résultat de recherche de la page « Demander des autorisations d’API » montrant Azure Digital Twins":::
+
+>[!NOTE]
+> Si vous disposez d’une instance Azure Digital Twins de la préversion publique précédente du service (antérieure au mois de juillet 2020) dans votre abonnement, vous devez rechercher *Azure Smart Spaces Services* à la place. Il s’agit d’un nom plus ancien pour le même ensemble d’API, qui ne modifie en rien votre expérience au-delà de cette étape.
 
 Ensuite, vous allez sélectionner les autorisations à accorder pour ces API. Développez l’autorisation **Lecture (1)** , et activez la case *lecture.Écriture* pour accorder cette inscription d’application et les autorisations de lecture et d’écriture.
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210392"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Stockage Azure a implémenté la même fonctionnalité qui vous permet de limiter la connectivité à votre compte Stockage Azure. Si vous choisissez d’utiliser cette fonctionnalité avec un compte Stockage Azure qui est utilisé par Azure SQL Database, vous risquez de rencontrer des problèmes. Vous trouverez ci-dessous une liste et une présentation des fonctionnalités Azure SQL Database et Azure SQL Data Warehouse qui sont concernées par ce problème.
 
-### <a name="azure-synapse-polybase"></a>Azure Synapse PolyBase
+### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse Analytics et instruction COPY
 
-La technologie PolyBase est couramment utilisée pour charger des données dans Azure Synapse Analytics à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure Synapse Analytics se connecte au stockage Azure sécurisé sur votre réseau virtuel, suivez les étapes indiquées ci-dessous :
+La technologie PolyBase et l’instruction COPY sont couramment utilisées pour charger des données dans Azure Synapse Analytics à partir de comptes Stockage Azure pour l’ingestion des données à haut débit. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel, lors de l’utilisation de la technologie PolyBase et de l’instruction COPY, la connexion au compte de stockage est interrompue. Pour activer les scénarios d’importation et d’exportation à l’aide de l’instruction COPY et de la technologie PolyBase dans lesquels Azure Synapse Analytics se connecte au service Stockage Azure sécurisé sur le réseau virtuel, procédez de la manière décrite ci-dessous :
 
 #### <a name="prerequisites"></a>Prérequis
 
 - Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. L’activation de cette configuration permettra à la technologie Polybase et à l’instruction COPY de se connecter au compte de stockage en utilisant une authentification forte où le trafic réseau reste sur le réseau principal Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).

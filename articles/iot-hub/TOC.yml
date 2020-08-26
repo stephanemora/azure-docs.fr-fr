@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Router automatiquement les messages avec un modèle ARM
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutoriels
   items:
     - name: Routage des messages

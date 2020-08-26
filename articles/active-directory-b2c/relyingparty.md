@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203739"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521261"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -192,7 +192,15 @@ L’élément **Protocol** contient l’attribut suivant :
 | --------- | -------- | ----------- |
 | Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. |
 
-## <a name="outputclaims"></a>OutputClaims
+### <a name="metadata"></a>Métadonnées
+
+Quand le protocole est `SAML`, un élément metadata contient les éléments suivants.
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la réponse SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. Pour configurer l’assertion SAML, consultez les [métadonnées du profil technique de l’émetteur SAML](saml-issuer-technical-profile.md#metadata). |
+
+### <a name="outputclaims"></a>OutputClaims
 
 L’élément **OutputClaims** contient l’élément suivant :
 
@@ -212,13 +220,14 @@ L’élément **OutputClaim** contient les attributs suivants :
 
 Avec l’élément **SubjectNameingInfo**, vous contrôlez la valeur du sujet du jeton :
 - **Jeton JWT** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](session-behavior.md).
-- **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet.
+- **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet. Le format NameId peut être modifié.
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | ClaimType | Oui | Référence au **PartnerClaimType** d’une revendication de sortie. Les revendications de sortie doivent être définies dans la collection **OutputClaims** de la stratégie de partie de confiance. |
+| Format | Non | Utilisé pour les parties de confiance SAML, afin de définir le format **NameId** retourné dans l’assertion SAML. |
 
 L’exemple suivant montre comment définir une partie de confiance OpenID Connect. Les informations de nom de sujet sont configurées en tant qu’`objectId` :
 
@@ -248,4 +257,25 @@ Le jeton JWT inclut la revendication `sub` avec l’objectId d’utilisateur :
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   ...
 }
+```
+
+L’exemple suivant montre comment définir une partie de confiance SAML. Les informations relatives au nom du sujet sont configurées en tant que `objectId`, et le `format` NameId a été fourni :
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"/>
+  </TechnicalProfile>
+</RelyingParty>
 ```

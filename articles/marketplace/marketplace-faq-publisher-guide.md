@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036570"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607326"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -120,11 +120,11 @@ Les éditeurs du marketplace commercial sont responsables de l’assistance rela
 
 Pendant le processus de publication, vous aurez accès à une préversion de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifié sous l’onglet **Préversion**, et l’offre ne peut être consultée par personne d’autre. Vous pouvez acheter une préversion pour tester le processus ; cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
 
-Pour effectuer un achat à un prix très bas, nous vous conseillons de publier un plan privé que vous seul pouvez consulter et dont vous pourrez accepter le prix comme coût du test. Un prix de 0 $ est accepté, mais ne reflètera pas l’expérience complète, comme le ferait un abonnement payant. Nous vous recommandons donc de fixer le prix à 1 $.
+Pour effectuer un achat à moindre coût, nous vous conseillons de publier un plan privé que vous seul pouvez consulter et dont vous pourrez accepter le prix comme coût du test. Un prix de 0 $ est accepté, mais ne reflètera pas l’expérience complète, comme le ferait un abonnement payant. Nous vous recommandons donc de fixer le prix à 1 $.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Quels sont les prospects de la place de marché commerciale et que dois-je faire avec eux ?
 
-À mesure que les clients utilisent vos offres sur les vitrines Microsoft AppSource et Place de marché Azure, les informations sont capturées. Une fois que les clients ont démontré un intérêt suffisant, un prospect est créé et une opportunité est envoyée au système de votre choix. Les éditeurs qui réussissent sur la place de marché commerciale poursuivent souvent des prospects, développent des relations et transforment les intérêts en affaires.
+À mesure que les clients utilisent vos offres sur Microsoft AppSource et les magasins en ligne de la Place de marché Azure, les informations sont capturées. Une fois que les clients ont démontré un intérêt suffisant, un prospect est créé et une opportunité est envoyée au système de votre choix. Les éditeurs qui réussissent sur la place de marché commerciale poursuivent souvent des prospects, développent des relations et transforment les intérêts en affaires.
 
 Pour plus d’informations, consultez [Prospects de votre offre de marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Les offres sont présentées aux clients via des expériences dans le produit, d
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Mon offre peut-elle apparaitre dans Microsoft AppSource et Place de marché Azure ?
 
-Microsoft AppSource est la destination des solutions métier et de l’industrie et Place de marché Azure est conçue pour les solutions informatiques et les développeurs. Les offres sont disponibles dans chacune des vitrines en fonction des catégories et des secteurs que vous avez sélectionnés lors de la création de l’offre. Dans les rares cas où l’offre est pertinente pour les utilisateurs des deux vitrines, elle peut apparaître dans les deux.
+Microsoft AppSource est la destination des solutions métier et de l’industrie et Place de marché Azure est conçue pour les solutions informatiques et les développeurs. Les offres sont disponibles dans chacune des magasins en ligne en fonction des catégories et des secteurs que vous avez sélectionnés lors de la création de l’offre. Dans les rares cas où l’offre est pertinente pour les utilisateurs des deux magasins en ligne, elle peut apparaître dans les deux.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>Qu’est-ce que le programme Fournisseur de solutions cloud ?
 

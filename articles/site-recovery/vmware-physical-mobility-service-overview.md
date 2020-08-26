@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131799"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604724"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -37,6 +37,7 @@ L’installation Push fait partie intégrante du travail exécuté à partir du 
 
 - Vérifiez que tous les [prérequis](vmware-azure-install-mobility-service.md) de l’installation push sont satisfaits.
 - Assurez-vous que toutes les configurations de serveur répondent aux critères de la [matrice de prise en charge de la récupération d'urgence des machines virtuelles VMware et des serveurs physiques sur Azure](vmware-physical-azure-support-matrix.md).
+- À partir de la [version 9.36](https://support.microsoft.com/help/4578241/), pour SUSE Linux Enterprise Server 11 SP4, vérifiez que le programme d’installation le plus récent est [disponible sur le serveur de configuration et le serveur de processus avec montée en puissance parallèle](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
 
 Le workflow de l’installation push est décrit dans les sections suivantes :
 
@@ -204,13 +205,27 @@ Fichier d’installation | Système d’exploitation (64 bits uniquement)
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Inclut SP2 et SP3.
-`Microsoft-ASR_UA_version_SLES11-SP3-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP3
+[À télécharger et à placer manuellement dans ce dossier](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Serveur Ubuntu Linux 16.04 LTS
 `Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+
+### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Télécharger la dernière version du programme d’installation de l’agent de mobilité pour le serveur SUSE 11 SP3
+
+**condition préalable à la mise à jour ou à la protection des ordinateurs SUSE Linux Enterprise Server 11 SP3** à partir de la [version 9.36](https://support.microsoft.com/help/4578241/) :
+
+1. Vérifiez que le dernier programme d’installation de l’agent de mobilité est téléchargé à partir du Centre de téléchargement Microsoft et placé dans le référentiel du programme d’installation push sur le serveur de configuration et tous les serveurs de processus de montée en puissance parallèle
+2. [Téléchargez](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) le programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3.
+3. Accédez au serveur de configuration, copiez le programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3 dans les chemins d’accès suivants :
+    1. INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+    1.  INSTALL_DIR\home\svsystems\admin\web\sw folders
+4. Accédez à présent aux serveurs de traitement de montée en puissance parallèle et copiez le programme d’installation dans les deux chemins d’accès mentionnés dans la troisième étape.
+5. **Par exemple**, si le chemin d’installation est C:\Program Files (x86) \Microsoft Azure Site Recovery, les répertoires mentionnés ci-dessus seront :
+    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\admin\web\sw path
 
 ## <a name="next-steps"></a>Étapes suivantes
 

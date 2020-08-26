@@ -1,0 +1,51 @@
+- name: Documentation des serveurs avec Azure Arc
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: À propos des serveurs avec Azure Arc
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: Activer l’agent des serveurs compatibles avec Arc
+      href: ./learn/quick-enable-hybrid-vm.md
+- name: Tutoriels
+  items:
+    - name: Attribuer une stratégie pour évaluer la conformité
+      href: ./learn/tutorial-assign-policy-portal.md
+    - name: Superviser l’ordinateur
+      href: ./learn/tutorial-enable-vm-insights.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      items:
+        - name: Serveurs avec Arc
+          href: policy-samples.md
+- name: Concepts
+  items:
+    - name: Sécurité
+      items:
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: security-controls-policy.md
+- name: Guides pratiques
+  items:
+    - name: "Se connecter à Azure\_Arc"
+      items:
+        - name: Vue d’ensemble de l’agent Machine connectée
+          href: agent-overview.md
+        - name: Connecter des ordinateurs à Azure Arc depuis le portail Azure
+          href: onboard-portal.md
+        - name: Connecter des ordinateurs à grande échelle avec un principal de service
+          href: onboard-service-principal.md
+        - name: Connecter des ordinateurs à Azure Arc avec PowerShell DSC
+          href: onboard-dsc.md
+    - name: Gérer
+      items:
+        - name: Gérer et utiliser des extensions de machine virtuelle Azure
+          href: manage-vm-extensions.md
+        - name: Gérer les agents
+          href: manage-agent.md
+    - name: Dépannage
+      items:
+        - name: Problèmes de connexion de l’agent
+          href: troubleshoot-agent-onboard.md

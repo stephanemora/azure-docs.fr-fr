@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: Informations de référence YAML sur les pipelines de machine learning
       href: reference-pipeline-yaml.md
+    - name: Parité de clouds souverains
+      href: reference-machine-learning-cloud-parity.md
 - name: Ressources
   items:
     - name: Notes de publication

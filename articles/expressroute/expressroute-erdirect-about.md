@@ -1,18 +1,18 @@
 ---
 title: À propos d’Azure ExpressRoute Direct
-description: Cette page propose une vue d’ensemble d’ExpressRoute Direct.
+description: Découvrez les principales fonctionnalités d’Azure ExpressRoute Direct, ainsi que les informations nécessaires pour l’intégration à ExpressRoute Direct, comme les références (SKU) disponibles et les exigences techniques.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083607"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192351"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 

@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323279"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607139"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Tableau de bord des Insights sur la Place de marché dans l’Espace partenaires
 
-Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé de l’analytique web de la place de marché qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les vitrines des places de marché commerciales : Microsoft AppSource et Place de marché Azure
+Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé de l’analytique web de la place de marché qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les magasins en ligne de la place de marché commerciale : Microsoft AppSource et Place de marché Azure
 
 ## <a name="marketplace-insights-dashboard"></a>Tableau de bord des insights de la Place de marché
 
@@ -42,11 +42,11 @@ La latence maximale entre les utilisateurs visitant des offres sur la Place de m
 
 Affichez les métriques de la place de marché commerciale de plusieurs façons :
 
-- Onglets de la vitrine
+- Onglets de magasin en ligne
 - Filtres de page
 - Filtres de date
 
-**Onglets de la vitrine** : vous pouvez afficher séparément les métriques de vos offres dans les onglets AppSource et Place de marché Azure. Sélectionnez la ou les offres dans la liste déroulante sur la droite pour obtenir une visualisation des métriques correspondantes. Par défaut, toutes les offres sont sélectionnées.
+**Onglets de magasin en ligne** : vous pouvez afficher séparément les métriques de vos offres dans les onglets AppSource et Place de marché Azure. Sélectionnez la ou les offres dans la liste déroulante sur la droite pour obtenir une visualisation des métriques correspondantes. Par défaut, toutes les offres sont sélectionnées.
 
 ![Insights de l’Espace partenaires – Liste déroulante des offres du tableau de bord](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ La carte thermique comporte les fonctionnalités suivantes :
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Comparaison des tendances des visites de pages et des visiteurs uniques
 
-Les colonnes ci-dessous représentent le nombre de visites de pages par mois, indiquées sur l’axe Y (du côté gauche du graphe). La courbe de tendance représente la tendance mensuelle des visiteurs uniques, affichée sur l’axe Y secondaire (du côté droit du graphe), pour les offres publiées sur les vitrines : Azure Marketplace et AppSource.
+Les colonnes ci-dessous représentent le nombre de visites de pages par mois, indiquées sur l’axe Y (du côté gauche du graphe). La courbe de tendance représente la tendance mensuelle des visiteurs uniques, affichée sur l’axe Y secondaire (du côté droit du graphe), pour les offres publiées dans les magasins en ligne : Azure Marketplace et AppSource.
 
 ![Insights de l’Espace partenaires – Comparaison des tendances des visites de pages et des visiteurs uniques](./media/insights-page-vists-unique-visitors.png)
 

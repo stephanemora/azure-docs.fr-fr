@@ -1,20 +1,20 @@
 ---
 title: API, Kit de développement logiciel (SDK) et ressources Python SQL Azure Cosmos DB
 description: Découvrez l’API et le Kit SDK Python SQL, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit SDK Python Azure Cosmos DB.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 44d9521e9d02195cb1d4ff61fd519f31ce9c0018
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876255"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585982"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 
@@ -27,7 +27,8 @@ ms.locfileid: "87876255"
 > * [SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -45,6 +46,20 @@ ms.locfileid: "87876255"
 |**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historique des mises en production
+
+### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+
+- Ajout d’un avertissement de désapprobation pour le mode d’indexation « différé ». Le serveur principal n’autorise plus la création de conteneurs avec ce mode et les définit comme cohérents à la place.
+
+**Nouvelles fonctionnalités**
+- Ajout de la possibilité de définir la durée de vie de stockage analytique lors de la création d’un conteneur.
+
+**Résolution des bogues**
+- Correction de la prise en charge des dictionnaires en tant qu’entrées pour les API get_client.
+- Correction de la compatibilité avec Python 2/3 dans les itérateurs de requête.
+- Correction de l’erreur d’indicateur de type (problème #12570).
+- Correction du bogue qui avait pour effet que les en-têtes d’options n’étaient pas été ajoutés à la fonction upsert_item. Problème #11791 - Merci @aalapatirvbd.
+- Correction de l’erreur qui était déclenchée en cas d’utilisation d’un ID de type autre que chaîne dans un élément. L’erreur TypeError est désormais déclenchée à la place de l’erreur AttributeError (problème #11793).
 
 ### <a name="400"></a>4.0.0
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323262"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607412"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Intégrer votre liste de la Place de marché commerciale avec Azure Active Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323262"
 
 ## <a name="azure-ad-benefits"></a>Avantages d’Azure AD
 
-Les clients de Microsoft AppSource et de la Place de marché Azure utilisent des expériences intégrées dans le produit pour rechercher dans des catalogues de référencement en vitrine. Ces actions nécessitent que les clients se connectent au produit. L’intégration Azure AD offre les avantages suivants :
+Les clients de Microsoft AppSource et de la Place de marché Azure utilisent des expériences intégrées dans le produit pour rechercher dans des catalogues de référencement de boutique en ligne. Ces actions nécessitent que les clients se connectent au produit. L’intégration Azure AD offre les avantages suivants :
 
 - Un engagement plus rapide et une expérience client optimisée
 - Une authentification unique (SSO) pour des millions d’utilisateurs en entreprise
@@ -56,8 +56,8 @@ Pendant l’authentification, Azure AD envoie un jeton à votre application ou o
 
 Quand vous utilisez Azure AD pour activer l’authentification en un clic dans votre application ou liste d’essai, vous :
 
-- Simplifiez l’expérience du client entre la Place de marché et votre liste d’essai.
-- Laissez l’impression d’une utilisation dans le produit, même quand l’utilisateur est redirigé de la Place de marché vers votre domaine ou environnement d’essai.
+- Simplifiez l’expérience du client entre la place de marché commerciale et votre liste d’essai.
+- Laissez l’impression d’une utilisation dans le produit, même quand l’utilisateur est redirigé de la place de marché commerciale vers votre domaine ou environnement d’essai.
 - Réduisez la probabilité d’un abandon quand les utilisateurs sont redirigés du fait de l’absence d’étapes de connexion supplémentaires.
 - Réduisez les obstacles de déploiement pour les nombreux utilisateurs d’Azure AD.
 
@@ -67,12 +67,12 @@ Quand vous utilisez Azure AD pour activer l’authentification en un clic dans v
 
 Utilisez Azure AD pour permettre les actions suivantes :
 
-- Inscrire votre application dans l’une des vitrines de la Place de marché. Pour plus d’informations, consultez [Inscription d’une application](../active-directory/develop/quickstart-register-app.md) ou [Certification AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
+- Inscrivez votre application dans l’un des magasins en ligne de la place de marché commerciale. Pour plus d’informations, consultez [Inscription d’une application](../active-directory/develop/quickstart-register-app.md) ou [Certification AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md).
 - Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
 
 Si vous n’avez jamais utilisé l’authentification unique fédérée Azure AD, effectuez les étapes suivantes :
 
-1. Inscrivez votre application sur la Place de marché.
+1. Inscrivez votre application dans la place de marché commerciale.
 1. Développez l’authentification unique avec Azure AD en utilisant [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) ou [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour fournir une expérience de version d’évaluation en un clic.
 
@@ -89,7 +89,7 @@ Utilisez Azure AD pour permettre l’une des actions suivantes :
 
 Si vous ne l’avez pas déjà fait, 
 
-- [En savoir plus](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
+- [découvrez](https://azuremarketplace.microsoft.com/sell) la place de marché commerciale.
 
 Pour vous inscrire dans l’Espace partenaires, commencez à créer une offre ou à en utiliser une existante :
 

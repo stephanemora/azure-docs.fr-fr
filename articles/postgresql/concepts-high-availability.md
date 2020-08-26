@@ -1,17 +1,17 @@
 ---
 title: Haute disponibilité – Azure Database pour PostgreSQL – Serveur unique
 description: Cet article fournit des informations sur la haute disponibilité dans Azure Database pour PostgreSQL – Serveur unique
-author: sr-pg20
-ms.author: srranga
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 564aa030c442331fbcd965c87da3bfbc03d00d79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105880"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547679"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Haute disponibilité dans Azure Database pour PostgreSQL – Serveur unique
 Le service Azure Database pour PostgreSQL – Serveur unique offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/postgresql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Il offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Le service Azure Database pour PostgreSQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
@@ -31,6 +31,9 @@ Le service Azure Database pour PostgreSQL est architecturé pour offrir une haut
 
 ![vue de la mise à l’échelle élastique dans Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
 
+1. Mettre à l’échelle des serveurs de base de données PostgreSQL en quelques secondes
+2. La passerelle qui agit en tant que proxy pour router le client se connecte au serveur de base de données approprié
+3. La montée en puissance du stockage peut être effectuée sans temps d’arrêt. Le stockage étendu permet d’effectuer rapidement les opérations de détachement/rattachement après le basculement.
 Voici quelques scénarios de maintenance planifiée :
 
 | **Scénario** | **Description**|
@@ -48,12 +51,17 @@ Des temps d’arrêt non planifiés peuvent se produire suite à des défaillanc
 
 ![affichage de la haute disponibilité dans Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
 
+1. Serveurs Azure PostgreSQL avec fonctionnalités de mise à l’échelle rapide.
+2. Passerelle faisant office de proxy pour router les connexions client vers le serveur de base de données approprié.
+3. Stockage Azure avec trois copies pour la fiabilité, la disponibilité et la redondance.
+4. Le stockage étendu permet également d’effectuer rapidement les opérations de détachement/rattachement après le basculement du serveur.
+   
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Temps d’arrêt non planifié : scénarios d’échec et récupération du service
 Voici quelques scénarios d’échec et comment le service Azure Database pour PostgreSQL récupère automatiquement :
 
 | **Scénario** | **Récupération automatique** |
 | ---------- | ---------- |
-| <B>Échec du serveur de base de données | En cas d’arrêt du serveur de base de données en raison d’une erreur matérielle sous-jacente, les connexions actives sont abandonnées et toutes les transactions en cours interrompues. Un nouveau serveur de base de données est déployé automatiquement, et le stockage de données étendu est attaché au nouveau serveur de base de données. Une fois la récupération de la base de données terminée, les clients peuvent se connecter au nouveau serveur de base de données via la passerelle. <br /> <br /> Des applications utilisant les bases de données PostgreSQL doivent être créées de manière à détecter et à retenter les connexions abandonnées et les transactions ayant échoué.  Quand l’application effectue une nouvelle tentative, la passerelle redirige en toute transparence la connexion vers le serveur de base de données nouvellement créé. |
+| <B>Échec du serveur de base de données | En cas d’arrêt du serveur de base de données en raison d’une erreur matérielle sous-jacente, les connexions actives sont abandonnées et toutes les transactions en cours interrompues. Un nouveau serveur de base de données est déployé automatiquement, et le stockage de données étendu est attaché au nouveau serveur de base de données. Une fois la récupération de la base de données terminée, les clients peuvent se connecter au nouveau serveur de base de données via la passerelle. <br /> <br /> Le temps de récupération (RTO) dépend de différents facteurs, dont l’activité au moment de l’erreur, telle qu’une transaction de grande ampleur, et le volume de la récupération à effectuer pendant le processus de démarrage du serveur de base de données. <br /> <br /> Des applications utilisant les bases de données PostgreSQL doivent être créées de manière à détecter et à retenter les connexions abandonnées et les transactions ayant échoué.  Quand l’application effectue une nouvelle tentative, la passerelle redirige en toute transparence la connexion vers le serveur de base de données nouvellement créé. |
 | <B>Échec de stockage | Les applications ne détectent aucun impact des problèmes liés au stockage, tels qu’une défaillance de disque ou une corruption de bloc physique. Les données étant stockées dans 3 copies, la copie des données est servie par le stockage survivant. Les altérations de bloc sont corrigées automatiquement. En cas de perte d’une copie des données, une nouvelle est automatiquement créée. |
 
 Voici quelques scénarios d’échec qui nécessitent une action de l’utilisateur pour la récupération :

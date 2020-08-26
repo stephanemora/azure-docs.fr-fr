@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ef42dbb4cad1d40a35af28845baa402763acfc9b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119621"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612314"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -60,6 +60,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_mode=query
 &scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
 ```
 
 > [!TIP]
@@ -79,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `login_hint`  | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.   |
 | `domain_hint`  | facultatif    | S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur, par exemple, en le dirigeant vers son fournisseur d’identité fédéré. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
 | `code_challenge`  | recommandé/obligatoire | Utilisé pour sécuriser l’octroi du code d’autorisation par PKCE (Proof Key for Code Exchange). Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cette option est désormais recommandée pour tous les types d’applications (natives, monopages et confidentielles clients comme des applications web). |
-| `code_challenge_method` | recommandé/obligatoire | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Il peut s'agir de l'une des valeurs suivantes :<br/><br/>- `plain` <br/>- `S256`<br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cela est obligatoire pour les [applications monopages utilisant le flux de code d’autorisation](reference-third-party-cookies-spas.md).|
+| `code_challenge_method` | recommandé/obligatoire | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Ce *DEVRAIT* être `S256`, mais la spécification autorise l’utilisation de `plain` si, pour une raison quelconque, le client ne peut pas prendre en charge SHA256. <br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cela est obligatoire pour les [applications monopages utilisant le flux de code d’autorisation](reference-third-party-cookies-spas.md).|
 
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison de la plateforme d’identités Microsoft s’assure également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison lui demande de corriger ce manquement. Les détails sur les [autorisations, les consentements et les applications mutualisées sont disponibles ici](v2-permissions-and-consent.md).
@@ -150,6 +152,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
@@ -230,6 +233,7 @@ Les réponses d’erreur se présentent comme suit :
 | `interaction_required` | Non standard, car la spécification OIDC l’appelle uniquement sur le point de terminaison `/authorize`. La requête nécessite une interaction avec l’utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la requête `/authorize` avec les mêmes étendues. |
 | `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête après un petit délai. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 |`consent_required` | La requête nécessite le consentement de l’utilisateur. Cette erreur n’est pas standard, car elle est généralement retournée uniquement sur le point de terminaison `/authorize` conformément aux spécifications OIDC. Retournée lorsqu’un paramètre `scope` a été utilisé sur le flux d’échange de code et que l’application cliente n’a pas l’autorisation d’en faire la demande.  | Le client doit renvoyer l’utilisateur au point de terminaison `/authorize` avec l’étendue correcte afin de déclencher le consentement. |
+|`invalid_scope` | L’étendue demandée par l’application n’est pas valide.  | Mettez à jour la valeur du paramètre d’étendue dans la demande d’authentification en la remplaçant par une valeur valide. |
 
 > [!NOTE]
 > Les applications monopages peuvent recevoir un message d’erreur `invalid_request` indiquant qu’un échange de jetons cross-origin n’est autorisé que pour le type de client « application monopage ».  Cela indique que l’URI de redirection utilisé pour demander le jeton n’a pas été marqué comme URI de redirection de `spa`.  Pour voir comment activer ce flux, examinez les [étapes d’inscription d’application](#redirect-uri-setup-required-for-single-page-apps).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924119"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205477"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -356,7 +356,7 @@ Aucun. L’utilisation des points de terminaison de service de réseau virtuel n
 Oui, vous pouvez. Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. La seule condition est que le réseau virtuel et les ressources de service Azure se trouvent sous le même client Active Directory (AD).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Puis-je activer les points de terminaison de service de réseau virtuel et définir des ACL de réseau virtuel si le réseau virtuel et les ressources de service Azure appartiennent à différents clients AD ?
-Non, les points de terminaison de service de réseau virtuel et les ACL de réseau virtuel ne sont pas pris en charge sur des clients AD distincts.
+Oui, c’est possible si vous utilisez des points de terminaison de service pour le service Stockage Azure et Azure Key Vault. Pour les autres services, les points de terminaison de service de réseau virtuel et les ACL de réseau virtuel ne sont pas pris en charge sur des clients AD distincts.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>L’adresse IP d’un appareil local connecté par le biais de la passerelle ExpressRoute ou de la passerelle Réseau virtuel Azure (VPN) peut-elle accéder au service Azure PaaS via des points de terminaison de service de réseau virtuel ?
 Par défaut, les ressources du service Azure sécurisées pour des réseaux virtuels ne sont pas accessibles à partir des réseaux locaux. Si vous souhaitez autoriser le trafic depuis un réseau local, vous devez également autoriser les adresses IP publiques (généralement NAT) à partir de vos circuits locaux ou ExpressRoute. Ces adresses IP peuvent être ajoutées via la configuration du pare-feu IP des ressources du service Azure.

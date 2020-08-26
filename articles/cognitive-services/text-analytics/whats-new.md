@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121848"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192028"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -34,7 +34,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 Les mises à jour suivantes sont spécifiques à la version du mois d’août de l’Analyse de texte pour le conteneur d’intégrité uniquement.
 
 * Nouvelle version de modèle pour l’Analyse de texte pour l’intégrité : `2020-07-24`
-* Nouvelle URL pour l’envoi de demandes Analyse de texte pour l’intégrité : `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nouvelle URL pour l’envoi d’Analyse de texte pour des demandes de contrôle d’intégrité : `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Veuillez noter qu’un effacement du cache du navigateur sera nécessaire pour pouvoir utiliser l’application web de démonstration incluse dans cette nouvelle image de conteneur)
 
 Les propriétés suivantes de la réponse JSON ont changé :
 

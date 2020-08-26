@@ -1,15 +1,14 @@
 ---
 title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764432"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263399"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -18,7 +17,7 @@ Cet article explique comment restaurer des données depuis un coffre de sauvegar
 * Restaurer des données sur l’ordinateur à partir duquel les sauvegardes ont été effectuées.
 * Restaurez les données sur un autre ordinateur.
 
-Utilisez la fonctionnalité de restauration instantanée afin de monter une capture instantanée de point de récupération inscriptible comme volume de récupération. Vous pouvez ensuite explorer le volume de récupération, copier les fichiers sur un ordinateur local et sélectionner les fichiers à restaurer.
+Utilisez la fonctionnalité de restauration instantanée afin de monter une capture instantanée de point de récupération inscriptible comme volume de récupération. Vous pouvez ensuite explorer le volume de récupération et copier des fichiers sur un ordinateur local afin de les restaurer de manière sélective.
 
 > [!NOTE]
 > La [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) est nécessaire si vous souhaitez utiliser la restauration instantanée pour restaurer des données. De plus, les données de sauvegarde doivent être protégées dans des coffres pour les pays listés dans l’article relatif au support. Consultez la [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) pour obtenir la liste la plus récente des pays qui prennent en charge la restauration instantanée.
@@ -38,15 +37,15 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
 2. Sélectionnez **Récupérer des données** pour lancer l’Assistant.
 
-    ![Capture de Sauvegarde, avec « Récupérer des données » mis en surbrillance](./media/backup-azure-restore-windows-server/recover.png)
+    ![Capture d’écran de Sauvegarde Azure, avec l’option Récupérer des données en surbrillance (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/recover.png)
 
 3. Dans la page **Prise en main**, pour restaurer les données sur le même serveur ou ordinateur, sélectionnez **Ce serveur (`<server name>`)**  > **Suivant**.
 
-    ![Capture d’écran de la page Mise en route de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Capture d’écran de la page Prise en main de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. Dans la page **Sélectionner le mode de récupération**, choisissez **Fichiers et dossiers individuels** > **Suivant**.
 
-    ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l’option **Individual Files and Folders** (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
 
@@ -57,7 +56,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     Dans le calendrier, sélectionnez un point de récupération. Les dates **en gras** indiquent la disponibilité d’au moins un point de récupération. Si plusieurs points de récupération sont disponibles pour une même date, cliquez sur l’un d’entre eux dans le menu déroulant **Temps**.
 
-    ![Capture d’écran de la page Volume et date de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Capture d’écran de la page Volume et date de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. Après avoir choisi le point de récupération à restaurer, sélectionnez **Monter**.
 
@@ -65,15 +64,15 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
 7. Sur la page **Rechercher et récupérer des fichiers**, sélectionnez **Parcourir** pour ouvrir l’Explorateur Windows, puis recherchez les fichiers et dossiers souhaités.
 
-    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 8. Dans l’Explorateur Windows, copiez les fichiers et les dossiers que vous souhaitez restaurer et collez-les à l’emplacement local de votre choix sur l’ordinateur ou le serveur. Vous pouvez ouvrir ou diffuser en continu les fichiers directement à partir du volume de récupération et vérifier que les versions récupérées sont les bonnes.
 
-    ![Capture d’écran de l’Explorateur Windows avec Copier en surbrillance](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Capture d’écran de l’Explorateur Windows avec Copier en surbrillance (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
 9. Lorsque vous avez terminé, dans la page **Rechercher et récupérer des fichiers**, sélectionnez **Démonter**. Puis sélectionnez **Oui** pour confirmer que vous souhaitez démonter le volume.
 
-    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
@@ -100,11 +99,11 @@ Ces étapes incluent la terminologie suivante :
 
 3. Sélectionnez **Récupérer des données** pour ouvrir **l’Assistant Récupération de données**.
 
-    ![Capture de Sauvegarde, avec « Récupérer des données » mis en surbrillance](./media/backup-azure-restore-windows-server/recover.png)
+    ![Capture d’écran de Sauvegarde Azure, avec l’option Récupérer des données en surbrillance (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/recover.png)
 
 4. Dans la page **Prise en main**, sélectionnez **Autre serveur**.
 
-    ![Capture d’écran de la page Mise en route de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Capture d’écran de la page Prise en main de l’Assistant Récupérer des données (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Fournissez le fichier d’informations d’identification correspondant à l’exemple de coffre, puis cliquez sur **Suivant**.
 
@@ -112,31 +111,31 @@ Ces étapes incluent la terminologie suivante :
 
 6. Dans la page **Sélectionner un serveur de sauvegarde**, sélectionnez l’ordinateur source dans la liste des ordinateurs affichés et fournissez la phrase secrète. Sélectionnez ensuite **Suivant**.
 
-    ![Capture d’écran de la page Sélectionner un serveur de sauvegarde de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Capture d’écran de la page Sélectionner le serveur de sauvegarde de l’Assistant Récupérer des données (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. Dans la page **Sélectionnez le mode de récupération**, sélectionnez **Fichiers et dossiers individuels** > **Suivant**.
 
-    ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Capture d’écran de la page Sélectionner le mode de récupération de l’Assistant Récupérer des données (restaurer sur un autre ordinateur)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et dossiers à restaurer.
 
     Dans le calendrier, sélectionnez un point de récupération. Les dates **en gras** indiquent la disponibilité d’au moins un point de récupération. Si plusieurs points de récupération sont disponibles pour une même date, cliquez sur l’un d’entre eux dans le menu déroulant **Temps**.
 
-    ![Capture d’écran de la page Volume et date de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Capture d’écran de la page Volume et date de l’Assistant Récupérer des données (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. Sélectionnez **Monter** pour monter localement le point de récupération comme volume de récupération sur votre ordinateur cible.
 
 10. Sur la page **Rechercher et récupérer des fichiers**, sélectionnez **Parcourir** pour ouvrir l’Explorateur Windows, puis recherchez les fichiers et dossiers souhaités.
 
-    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Capture d’écran de la page Parcourir et récupérer des fichiers de l’Assistant Récupérer des données (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. Dans l’Explorateur Windows, copiez les fichiers et les dossiers du volume de récupération et collez-les à l’emplacement de votre ordinateur cible. Vous pouvez ouvrir ou diffuser en continu les fichiers directement à partir du volume de récupération et vérifier que les versions récupérées sont les bonnes.
 
-    ![Capture d’écran de l’Explorateur Windows avec Copier en surbrillance](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Capture d’écran de l’Explorateur Windows, avec la commande Copier en surbrillance (restaurer sur un autre ordinateur)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
 12. Lorsque vous avez terminé, dans la page **Rechercher et récupérer des fichiers**, sélectionnez **Démonter**. Puis sélectionnez **Oui** pour confirmer que vous souhaitez démonter le volume.
 
-    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Démonter le volume (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.

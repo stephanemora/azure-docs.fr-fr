@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082801"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607478"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
-Cet article explique comment configurer votre offre pour qu’elle soit disponible au sein du programme des fournisseurs de solutions Cloud (CSP). Outre la publication de vos offres via les [vitrines web de la place de la place de marché commerciale](comparing-appsource-azure-marketplace.md), vous pouvez également vendre par le biais du programme CSP pour atteindre les millions de clients Microsoft qualifiés faisant partie du programme.
+Cet article explique comment configurer votre offre pour qu’elle soit disponible au sein du programme des fournisseurs de solutions Cloud (CSP). Outre la publication de vos offres via les [magasins en ligne de la place de la place de marché commerciale](comparing-appsource-azure-marketplace.md), vous pouvez également vendre par le biais du programme CSP pour atteindre les millions de clients Microsoft qualifiés faisant partie du programme.
 
 Vous pouvez configurer des offres nouvelles ou existantes pour les rendre disponibles aux clients donnant leur consentement dans le programme CSP. Cela permet aux partenaires de vendre vos produits et de créer des solutions groupées pour les clients.
 
@@ -166,7 +166,7 @@ Si votre offre est actuellement **Option 3 : Aucun partenaire du programme CSP*
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Partage de la documentation commerciale et de support avec les partenaires du programme CSP
 
-Pour aider les partenaires du programme CSP à identifier votre offre et à collaborer avec votre organisation aussi efficacement que possible, vous devez envoyer des documents de vente et d’accompagnement qui seront mis à la disposition des revendeurs. Ces ressources ne seront pas exposées aux clients dans les vitrines de la place de marché.
+Pour aider les partenaires du programme CSP à identifier votre offre et à collaborer avec votre organisation aussi efficacement que possible, vous devez envoyer des documents de vente et d’accompagnement qui seront mis à la disposition des revendeurs. Ces ressources ne seront pas exposées aux clients dans les magasins en ligne.
 
 ### <a name="partner-center-csp-channel"></a>Canal CSP de l’Espace partenaires
 

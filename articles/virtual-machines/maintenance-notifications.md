@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510036"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182162"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
@@ -107,7 +107,8 @@ Pour plus d’informations sur la haute disponibilité, consultez [Disponibilit�
 **R :** Plusieurs raisons peuvent expliquer pourquoi vous ne voyez aucune information de maintenance sur vos machines virtuelles :
 1.  Vous utilisez un abonnement marqué comme interne à Microsoft.
 2.  Vos machines virtuelles ne sont pas planifiées pour la maintenance. Il est possible que la vague d’opérations de maintenance soit terminée, annulée ou modifiée, de sorte que celle-ci n’impacte plus vos machines virtuelles.
-3.  La colonne **Maintenance** n’a pas été ajoutée à l’affichage de liste de votre machine virtuelle. Alors que nous avons ajouté cette colonne à la vue par défaut, les clients qui ont effectué une configuration pour afficher des colonnes non définies par défaut doivent ajouter manuellement la colonne **Maintenance** à la vue liste de leurs machines virtuelles.
+3. Vous avez désalloué la machine virtuelle, puis vous l’avez démarrée. Cela peut entraîner le déplacement de la machine virtuelle vers un emplacement pour lequel aucune vague de maintenance n’est planifiée. La machine virtuelle n’affichera plus les informations de maintenance. 
+4.  La colonne **Maintenance** n’a pas été ajoutée à l’affichage de liste de votre machine virtuelle. Alors que nous avons ajouté cette colonne à la vue par défaut, les clients qui ont effectué une configuration pour afficher des colonnes non définies par défaut doivent ajouter manuellement la colonne **Maintenance** à la vue liste de leurs machines virtuelles.
 
 **Q : La maintenance de ma machine virtuelle est planifiée pour la deuxième fois. Pourquoi ?**
 

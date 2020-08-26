@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e7ca86d0146f05d5171d5eae18aac81d75122bcc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835984"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258557"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -212,6 +212,9 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 Si vous recevez une erreur semblable à « Taille de ligne trop grande (> 8126) », vous pouvez désactiver le paramètre **innodb_strict_mode**. Le paramètre de serveur **innodb_strict_mode** n’est pas autorisé à être modifié globalement au niveau du serveur, car si la taille des données de ligne est supérieure à 8 ko, les données seront tronquées sans erreur entraînant une perte de données potentielle. Nous vous recommandons de modifier le schéma pour qu’il corresponde à la limite de taille de page. 
 
 Ce paramètre peut être défini au niveau de la session à l’aide de `init_connect`. Pour définir **innodb_strict_mode** au niveau de la session, reportez-vous à [Définition des paramètres non listés](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
+> [!NOTE]
+> Si vous avez un serveur de réplica en lecture, la désactivation de **innodb_strict_mode** au niveau de la session sur un serveur maître interrompt la réplication. Nous vous suggérons de conserver le paramètre activé si vous avez des réplicas en lecture.
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

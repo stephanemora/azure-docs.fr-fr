@@ -2,19 +2,17 @@
 title: Vue d’ensemble des coffres Recovery Services
 description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/10/2018
-ms.openlocfilehash: 0e1d061c6baf31fad2e937a604098f0baff6086d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 08/17/2020
+ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041899"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587750"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
 Cet article décrit les fonctionnalités d’un coffre Recovery Services. Un coffre Recovery Services est une entité de stockage dans Azure qui héberge des données. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des serveurs ou des stations de travail. Vous pouvez utiliser des coffres Recovery Services afin de stocker des données de sauvegarde pour divers services Azure tels que des machines virtuelles IaaS (Windows ou Linux) et des bases de données Azure SQL. Les coffres Recovery Services prennent en charge System Center DPM, Windows Server, le serveur de sauvegarde Azure et bien plus. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion. Les coffres Recovery Services sont basés sur le modèle Resource Manager d’Azure, qui fournit des fonctionnalités telles que :
-
-## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparaison entre les coffres Recovery Services et les coffres de sauvegarde
 
 - **Fonctionnalités enrichies pour sécuriser les données de sauvegarde** : avec les coffres Recovery Services, la sauvegarde Azure offre des fonctionnalités de sécurité pour protéger les sauvegardes cloud. Ces fonctionnalités de sécurité vous garantissent de pouvoir sécuriser vos sauvegardes et récupérer en toute sécurité des données même si des serveurs de production et de sauvegarde sont compromis. [En savoir plus](backup-azure-security-feature.md)
 
@@ -34,10 +32,19 @@ Un coffre Recovery Services est une entité qui stocke les sauvegardes et les po
 
 - Pour en savoir plus sur la redondance du stockage, consultez les articles suivants sur la redondance [géographique](../storage/common/storage-redundancy.md) et la redondance [locale](../storage/common/storage-redundancy.md).
 
-### <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Paramètres de chiffrement dans le coffre Recovery Services
 
-- [Scénarios pris en charge et non pris en charge par le coffre](backup-support-matrix.md#vault-support)
-- [Foire aux questions sur le coffre](backup-azure-backup-faq.md)
+Cette section décrit les options disponibles pour le chiffrement de vos données de sauvegarde stockées dans le coffre Recovery Services.
+
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par la plateforme
+
+Par défaut, toutes vos données sont chiffrées à l’aide de clés gérées par la plateforme. Vous n’avez aucune action explicite à effectuer pour activer ce chiffrement. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
+
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
+
+Vous pouvez chiffrer vos données à l’aide de clés de chiffrement détenues et gérées par vous. Sauvegarde Azure vous permet d’utiliser vos clés RSA stockées dans le coffre Azure Key Vault pour le chiffrement de vos sauvegardes. La clé de chiffrement utilisée pour le chiffrement des sauvegardes peut être différente de celle utilisée pour la source. Les données sont protégées à l’aide d’une clé de chiffrement des données basée sur l’algorithme AES 256, qui est à son tour protégée à l’aide de vos clés. Cela vous donne un contrôle total sur les données et les clés. Pour permettre le chiffrement, le coffre Recovery Services doit être autorisé à accéder à la clé de chiffrement dans Azure Key Vault. Vous pouvez désactiver la clé ou révoquer l’accès à tout moment. Toutefois, vous devez activer le chiffrement à l’aide de vos clés avant d’essayer de protéger les éléments du coffre.
+
+Apprenez-en davantage sur la façon de chiffrer vos données de sauvegarde à l’aide de [clés gérées par le client](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
@@ -47,9 +54,15 @@ Azure Advisor fournit des [recommandations](../advisor/advisor-high-availability
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
+## <a name="additional-resources"></a>Ressources complémentaires
+
+- [Scénarios pris en charge et non pris en charge par le coffre](backup-support-matrix.md#vault-support)
+- [Foire aux questions sur le coffre](backup-azure-backup-faq.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants pour :</br>
-[Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
-[Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Sauvegarder un serveur Windows Server](backup-windows-with-mars-agent.md)
+Consultez les articles suivants pour :
+
+- [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)
+- [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)
+- [Sauvegarder un serveur Windows Server](backup-windows-with-mars-agent.md)

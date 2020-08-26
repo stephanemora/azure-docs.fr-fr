@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495707"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525647"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -229,6 +229,60 @@ Cette commande échoue si le compte de stockage est contenu dans un réseau virt
 
 > [!Note]  
 > Le nom de votre partage de fichiers doit être en minuscules. Pour obtenir des informations détaillées sur le nommage des partages de fichiers et des fichiers, consultez  [Nommage et référencement des partages, des répertoires, des fichiers et des métadonnées](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="create-a-hot-or-cool-file-share"></a>Créer un partage de fichiers chaud ou froid
+Un partage de fichiers dans un **compte de stockage usage général v2 (GPv2)** peut contenir des partages de fichiers optimisés pour les transaction chauds ou froids (ou un mélange des deux). Des partages optimisés pour les transactions sont disponibles dans toutes les régions Azure, mais des partages de fichiers chauds et froids ne sont disponibles que [dans un sous-ensemble de régions](storage-files-planning.md#storage-tiers). Vous pouvez créer un partage de fichiers chaud ou froid à l’aide du module de préversion Azure PowerShell ou d’Azure CLI. 
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+Le portail Azure ne prend pas encore en charge la création de partages de fichiers chauds et froids, ou le déplacement de partages de fichiers optimisés pour les transactions existants vers des partages chauds ou froids. Consultez les instructions de création d’un partage de fichiers avec PowerShell ou Azure CLI.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Les fonctionnalités permettant de créer ou de déplacer un partage de fichiers vers un niveau spécifique sont disponibles dans la dernière mise à jour d’Azure CLI. La mise à jour d’Azure CLI est spécifique du système d’exploitation ou de la distribution Linux que vous utilisez. Pour obtenir des instructions sur la façon de mettre à jour Azure CLI sur votre système, consultez [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Planifier un déploiement d’Azure Files](storage-files-planning.md) ou [Planifier un déploiement d’Azure File Sync](storage-sync-files-planning.md). 

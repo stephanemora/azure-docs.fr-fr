@@ -16,6 +16,8 @@
       href: quickstart-load-balancer-standard-public-template.md
     - name: Créer un équilibreur de charge interne - Portail
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Créer un équilibreur de charge interne - Azure CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Tutoriels
   items:

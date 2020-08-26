@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/29/2020
+ms.date: 08/16/2020
 ms.custom: generated
-ms.openlocfilehash: 753ee8eef1af1dbac9c776ed0410d2143cd71735
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5809a2325b825bde74c7a8859c3a96f94c05b170
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449063"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272041"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
@@ -620,12 +620,21 @@ Service Azure : [Content Delivery Network](../cdn/index.yml)
 > | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | Microsoft.Cdn/ValidateProbe/action |  |
 > | Microsoft.Cdn/CheckResourceUsage/action |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/read |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/write |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/delete |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/read |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/write |  |
+> | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/delete |  |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/edgenodes/write |  |
 > | Microsoft.Cdn/edgenodes/delete |  |
 > | Microsoft.Cdn/operationresults/read |  |
 > | Microsoft.Cdn/operationresults/write |  |
 > | Microsoft.Cdn/operationresults/delete |  |
+> | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/read |  |
+> | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/write |  |
+> | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/delete |  |
 > | Microsoft.Cdn/operationresults/profileresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/delete |  |
@@ -2114,6 +2123,7 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | Microsoft.Web/connectionGateways/Delete | Supprime une passerelle de connexion. |
 > | Microsoft.Web/connectionGateways/Move/Action | Déplace une passerelle de connexion. |
 > | Microsoft.Web/connectionGateways/Join/Action | Joint une passerelle de connexion. |
+> | Microsoft.Web/connectionGateways/Associate/Action | Associe avec une passerelle de connexion. |
 > | Microsoft.Web/connectionGateways/ListStatus/Action | Affiche l’état d’une passerelle de connexion. |
 > | Microsoft.Web/connections/Read | Récupère la liste des connexions. |
 > | Microsoft.Web/connections/Write | Crée ou met à jour une connexion. |
@@ -2249,6 +2259,11 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | microsoft.web/sites/backups/restore/action | Restaure les sauvegardes Web Apps. |
 > | microsoft.web/sites/backups/delete | Supprime les sauvegardes Web Apps. |
 > | Microsoft.Web/sites/Backups/Write | Mettre à jour des sauvegardes d’applications web |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Read | Répertorier les méthodes de publication autorisées pour une application web. |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Read | Déterminer si les informations d’identification de publication FTP sont autorisées pour une application web. |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Write | Mettre à jour si les informations d’identification de publication FTP sont autorisées pour une application web. |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Read | Déterminer si les informations d’identification de publication SCM sont autorisées pour une application web. |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Write | Mettre à jour si les informations d’identification de publication SCM sont autorisées pour une application web. |
 > | Microsoft.Web/sites/config/Read | Récupère les paramètres de configuration des applications web. |
 > | Microsoft.Web/sites/config/list/Action | Répertorie les paramètres sensibles de sécurité d’application web, tels que les informations d’identification de publication, les paramètres d’application et les chaînes de connexion. |
 > | Microsoft.Web/sites/config/Write | Met à jour les paramètres de configuration d’application web. |
@@ -2341,6 +2356,9 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | microsoft.web/sites/metrics/read | Récupère les mesures Web Apps. |
 > | microsoft.web/sites/metricsdefinitions/read | Obtient les définitions de métrique de Web Apps. |
 > | microsoft.web/sites/migratemysql/read | Obtient MySql de migration Web Apps. |
+> | microsoft.web/sites/networkConfig/read | Obtenir la configuration réseau d’App Service. |
+> | microsoft.web/sites/networkConfig/write | Mettre à jour la configuration réseau d’App Service. |
+> | microsoft.web/sites/networkConfig/delete | Supprimer la configuration réseau d’App Service. |
 > | microsoft.web/sites/networktraces/operationresults/read | Obtient les résultats de l’opération Trace réseau de Web Apps. |
 > | microsoft.web/sites/operationresults/read | Récupère les résultats de l’opération Web Apps. |
 > | microsoft.web/sites/operations/read | Obtient les opérations Web Apps. |
@@ -2349,6 +2367,10 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | microsoft.web/sites/premieraddons/read | Récupère les modules complémentaires Premier Web Apps. |
 > | microsoft.web/sites/premieraddons/write | Met à jour les modules complémentaires Premier Web Apps. |
 > | microsoft.web/sites/privateaccess/read | Obtient des données sur l’activation de l’accès privé aux sites et sur les réseaux virtuels autorisés qui peuvent y accéder. |
+> | Microsoft.Web/sites/privateEndpointConnections/Write | Approuver ou rejeter une connexion de point de terminaison privé. |
+> | Microsoft.Web/sites/privateEndpointConnections/Read | Obtenir une connexion de point de terminaison privé ou la liste des connexions de point de terminaison privé. |
+> | Microsoft.Web/sites/privateEndpointConnections/Delete | Supprimer une connexion de point de terminaison privé. |
+> | Microsoft.Web/sites/privateLinkResources/Read | Obtenir des ressources de liaison privée. |
 > | microsoft.web/sites/processes/read | Obtient les processus Web Apps. |
 > | microsoft.web/sites/processes/modules/read | Obtenir les modules des processus d’applications web. |
 > | microsoft.web/sites/processes/threads/read | Obtenir les threads des processus d’applications web. |
@@ -2394,6 +2416,11 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | microsoft.web/sites/slots/backups/list/action | Répertorie les sauvegardes des emplacements Web Apps. |
 > | microsoft.web/sites/slots/backups/restore/action | Restaure les sauvegardes des emplacements Web Apps. |
 > | microsoft.web/sites/slots/backups/delete | Supprime les sauvegardes des emplacements de Web Apps. |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Read | Répertorier les informations d’identification de publication autorisées pour un emplacement d’application web. |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Read | Déterminer si les informations d’identification de publication FTP sont autorisées pour un emplacement d’application web. |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Write | Mettre à jour si les informations d’identification de publication FTP sont autorisées pour un emplacement d’application web. |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Read | Déterminer si les informations d’identification de publication SCM sont autorisées pour un emplacement d’application web. |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Write | Mettre à jour si les informations d’identification de publication SCM sont autorisées pour un emplacement d’application web. |
 > | Microsoft.Web/sites/slots/config/Read | Récupère les paramètres de configuration de l’emplacement d’application web. |
 > | Microsoft.Web/sites/slots/config/list/Action | Répertorie les paramètres sensibles de sécurité de l’emplacement d’application web, tels que les informations d’identification de publication, les paramètres d’application et les chaînes de connexion. |
 > | Microsoft.Web/sites/slots/config/Write | Met à jour les paramètres de configuration de l’emplacement d’application web. |
@@ -2514,6 +2541,7 @@ Service Azure : [App Service](../app-service/index.yml), [Azure Functions](../a
 > | Microsoft.Web/staticSites/Write | Crée ou met à jour un site statique |
 > | Microsoft.Web/staticSites/Delete | Supprime un site statique existant |
 > | Microsoft.Web/staticSites/createinvitation/action | Crée un lien d’invitation pour un utilisateur de site statique pour un ensemble de rôles |
+> | Microsoft.Web/staticSites/listConfiguredRoles/action | Répertorie les rôles configurés pour le site statique. |
 > | Microsoft.Web/staticSites/listfunctionappsettings/Action | Liste les paramètres d’application de fonction pour un site statique |
 > | Microsoft.Web/staticSites/detach/Action | Détache un site statique du référentiel actuellement lié |
 > | Microsoft.Web/staticSites/getuser/Action | Obtient les informations d’un utilisateur pour un site statique |
@@ -3114,6 +3142,7 @@ Service Azure : [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/sandboxpipelineruns/action | Interroge les exécutions du pipeline de débogage. |
 > | Microsoft.DataFactory/factories/querytriggers/action | Interroge les déclencheurs. |
 > | Microsoft.DataFactory/factories/getFeatureValue/action | Obtenir la valeur de la fonctionnalité de contrôle d’exposition pour l’emplacement spécifique. |
+> | Microsoft.DataFactory/factories/queryFeaturesValue/action | Obtenir des valeurs de fonctionnalité de contrôle d’exposition pour une liste de fonctionnalités. |
 > | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Obtient l’accès au service ADF DataPlane. |
 > | Microsoft.DataFactory/factories/getGitHubAccessToken/action | Obtient le jeton d’accès à GitHub. |
 > | Microsoft.DataFactory/factories/querytriggerruns/action | Interroge les exécutions du déclencheur. |
@@ -3133,6 +3162,8 @@ Service Azure : [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/integrationruntimes/delete | Supprime tous les runtimes d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/start/action | Lance tous les runtimes d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/stop/action | Interrompt tous les runtimes d’intégration. |
+> | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/action | Affiche les informations de connexion du runtime d’intégration. |
+> | Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/action | Répertorie les clés d’authentification de tous les runtimes d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/synccredentials/action | Synchronise les informations d’identification pour le runtime d’intégration spécifié. |
 > | Microsoft.DataFactory/factories/integrationruntimes/upgrade/action | Met à niveau le runtime d’intégration spécifié. |
 > | Microsoft.DataFactory/factories/integrationruntimes/createexpressshirinstalllink/action | Créez un lien d’installation rapide pour les Integration Runtime auto-hébergés. |
@@ -3141,9 +3172,7 @@ Service Azure : [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/integrationruntimes/linkedIntegrationRuntime/action | Créer une référence Integration Runtime liée sur le runtime d’intégration partagé spécifié. |
 > | Microsoft.DataFactory/factories/integrationruntimes/getObjectMetadata/action | Obtenir les métadonnées SSIS Integration Runtime pour le runtime d’intégration spécifié. |
 > | Microsoft.DataFactory/factories/integrationruntimes/refreshObjectMetadata/action | Actualiser les métadonnées SSIS Integration Runtime pour le runtime d’intégration spécifié. |
-> | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Affiche les informations de connexion du runtime d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/getstatus/read | Affiche l’état du runtime d’intégration. |
-> | Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/read | Répertorie les clés d’authentification de tous les runtimes d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/monitoringdata/read | Obtient les données de surveillance pour tous les runtimes d’intégration. |
 > | Microsoft.DataFactory/factories/integrationruntimes/nodes/read | Lit le nœud pour le runtime d’intégration spécifié. |
 > | Microsoft.DataFactory/factories/integrationruntimes/nodes/delete | Supprime le nœud pour le runtime d’intégration spécifié. |
@@ -3187,6 +3216,8 @@ Service Azure : [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/triggers/start/action | Lance tous les déclencheurs. |
 > | Microsoft.DataFactory/factories/triggers/stop/action | Interrompt tous les déclencheurs. |
 > | Microsoft.DataFactory/factories/triggers/triggerruns/read | Affiche les exécutions du déclencheur. |
+> | Microsoft.DataFactory/factories/triggers/triggerruns/cancel/action | Annuler l’exécution du déclencheur avec l’ID d’exécution de déclencheur donné. |
+> | Microsoft.DataFactory/factories/triggers/triggerruns/rerun/action | Relancer l’exécution du déclencheur avec l’ID d’exécution de déclencheur donné. |
 > | Microsoft.DataFactory/locations/configureFactoryRepo/action | Configure le dépôt pour la fabrique. |
 > | Microsoft.DataFactory/locations/getFeatureValue/action | Obtenir la valeur de la fonctionnalité de contrôle d’exposition pour l’emplacement spécifique. |
 > | Microsoft.DataFactory/locations/getFeatureValue/read | Lit la valeur de la fonctionnalité de contrôle d’exposition pour l’emplacement spécifique. |
@@ -4881,12 +4912,29 @@ Service Azure : [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Face/snapshot/write | Met à jour les propriétés d'une capture instantanée. |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/read | Répertorie toutes les captures instantanées accessibles à l'utilisateur avec des informations.* |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/train/action | Crée un modèle personnalisé et en effectue l’apprentissage.<br>La demande de formation doit inclure un paramètre source qui est soit un URI de conteneur de blobs Stockage Azure accessible en externe (de préférence un URI de signature d’accès partagé), soit un chemin d’accès valide vers un dossier de données dans un lecteur monté localement.<br>Quand des chemins d’accès locaux sont spécifiés, ils doivent suivre le format de chemin d’accès Linux/Unix et être un chemin d’accès absolu enraciné dans la configuration de montage d’entrée. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/action | Crée un modèle personnalisé et en effectue l’apprentissage.<br>La demande doit inclure un paramètre source qui est soit un URI de conteneur de blobs de stockage Azure accessible en externe (de préférence un URI de signature d’accès partagé), soit un chemin d’accès valide vers un dossier de données dans un lecteur monté localement.<br>Quand un chemin d’accès local est spécifié, il doivent suivre le format de chemin d’accès Linux/Unix et doit être un chemin d’accès absolu enraciné dans la valeur de paramètre de configuration de montage d’entrée. Par exemple, si la valeur du paramètre de configuration '{Mounts:Input}' est '/input', un chemin d’accès source valide est '/Input/contosodataset'.<br>Toutes les données d’apprentissage sont supposées se trouver dans le dossier source ou les sous-dossiers de celui-ci.<br>Les modèles sont formés à l’aide de documents dont le type de contenu est le suivant : « application/pdf », « image/jpeg », « image/png », « image/tiff ».<br>Tout autre type de contenu est ignoré. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/analyze/action | Extrait les paires clé-valeur d’un document donné. Le document d’entrée doit appartenir à l’un des types de contenu pris en charge : « application/pdf », « image/jpeg » ou « image/png ». Une réponse correcte est retournée au format JSON. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/delete | Supprime les artefacts de modèle. |
-> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/read | Obtient des informations sur un modèle. Obtient des informations sur tous les modèles personnalisés formés* |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/read | Obtient des informations sur un modèle. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copyauthorization/action | Générer une charge utile d’autorisation pour copier un modèle à la ressource Form Recognizer cible. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copy/action | Copier un modèle Form Recognizer personnalisé d’un abonnement vers un autre.<br>Démarrez le processus en obtenant un jeton `modelId` à partir du point de terminaison cible en utilisant cette API avec une chaîne de requête `source=false`.<br>Transmettez ensuite la référence `modelId` dans le corps de la demande avec d’autres informations sur la ressource cible. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/analyze/action | Extraire des paires clé-valeur, des tables et des valeurs sémantiques d’un document donné.<br>Le document d’entrée doit être de l’un des types de contenus pris en charge : « application/pdf », « image/jpeg », « image/png » ou « image/tiff ».<br>Vous pouvez également utiliser le type « application/json » pour spécifier l’adresse URL du document à analyser. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copy/action | Copier un modèle Form Recognizer personnalisé vers une ressource Form Recognizer cible. Avant d’appeler cette opération, vous devez obtenir l’autorisation de copier.  |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/delete | Marquer un modèle pour suppression. Les artefacts de modèle seront supprimés définitivement dans les 48 heures. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copyauthorization/action | Générer une charge utile d’autorisation pour une opération de copie de modèle. Cette opération est appelée sur un point de terminaison de ressource Form Recognizer cible.  |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/read | Obtenir des informations détaillées sur un modèle personnalisé. Obtenir des informations sur tous les modèles personnalisés. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/analyzeresults/read | Obtenir l’état actuel et le résultat de l’opération d’analyse de formulaire. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/analyzeresults/read | Obtenir l’état actuel et le résultat de l’opération d’analyse de formulaire. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copyresults/read | Obtenir l’état actuel et le résultat de l’opération de copie de modèle de formulaire personnalisé. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/copyresults/read | Obtenir l’état actuel et le résultat de l’opération de copie de modèle de formulaire personnalisé. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/custom/models/keys/read | Récupère les clés du modèle. |
-> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/receipt/asyncbatchanalyze/action | Extrait le texte de champ et les valeurs sémantiques d’un document de reçu donné. Le document d’image d’entrée doit appartenir à l’un des types de contenu pris en charge (JPEG, PNG, BMP, PDF ou TIFF). Une réponse réussie est un fichier JSON contenant un champ appelé « Operation-Location », qui contient l’URL de l’opération Obtenir le résultat du reçu afin de récupérer les résultats de façon asynchrone. |
-> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/receipt/operations/action | Interroge l’état et récupère le résultat d’une opération Analyser le reçu. L’URL vers cette interface peut être obtenue à partir de l’en-tête « Operation-Location » dans la réponse de Analyser le reçu. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/layout/analyze/action | Extraire des informations de texte et de disposition d’un document donné.<br>Le document d’entrée doit être de l’un des types de contenus pris en charge : « application/pdf », « image/jpeg », « image/png » ou « image/tiff ».<br>Vous pouvez également utiliser le type « application/json » pour spécifier l’adresse URL du document à analyser. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/layout/analyzeresults/read | Suivre la progression et obtenir le résultat de l’opération d’analyse de disposition |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/businesscard/analyze/action | Extraire du texte de champ et des valeurs sémantiques d’un document de carte de visite donné.  |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/businesscard/analyzeresults/read | Interroger l’état et récupérer le résultat d’une opération d’analyse de carte de visite. Vous pouvez obtenir L’URL de cette interface à partir de l’en-tête « Operation-Location » de la réponse d’analyse de carte de visite. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/receipt/asyncbatchanalyze/action | Extrait le texte de champ et les valeurs sémantiques d’un document de reçu donné. Le document d’entrée doit être de l’un des types pris en charge |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/receipt/analyzeresults/read | Interroge l’état et récupère le résultat d’une opération Analyser le reçu. L’URL vers cette interface peut être obtenue à partir de l’en-tête « Operation-Location » dans la réponse de Analyser le reçu. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/prebuilt/receipt/operations/read | Interroge l’état et récupère le résultat d’une opération Analyser le reçu. L’URL vers cette interface peut être obtenue à partir de l’en-tête « Operation-Location » dans la réponse de Analyser le reçu. |
 > | Microsoft.CognitiveServices/accounts/ImageSearch/details/action | Renvoie des informations à propos d’une image, comme les pages web où figure l’image. |
 > | Microsoft.CognitiveServices/accounts/ImageSearch/search/action | Obtient les images pertinentes pour une requête donnée. |
 > | Microsoft.CognitiveServices/accounts/ImageSearch/trending/action | Obtient les images actuellement tendance. |
@@ -5659,6 +5707,7 @@ Service Azure : [Azure Stack Edge](../databox-online/azure-stack-edge-overview.
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Répertorie ou obtient les commandes |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Crée ou met à jour les commandes |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Supprime les commandes |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/listDCAccessCode/action | ArmApiDesc_action_listDCAccessCode_orders |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | Répertorie ou obtient les résultats de l’opération |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Répertorie ou obtient les rôles |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Répertorie ou obtient les rôles |
@@ -5700,7 +5749,6 @@ Service Azure : [Azure Stack Edge](../databox-online/azure-stack-edge-overview.
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | Crée ou met à jour les utilisateurs du partage |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Supprime les utilisateurs du partage |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | Répertorie ou obtient les résultats de l’opération |
-> | Microsoft.DataBoxEdge/operations/read | Répertorier ou obtenir les opérations |
 > | Microsoft.DataBoxEdge/skus/read | Répertorie ou obtient les références SKU |
 
 ### <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -5763,6 +5811,13 @@ Service Azure : [Event Grid](../event-grid/index.yml)
 > | Microsoft.EventGrid/operationResults/read | Lit le résultat d’une opération |
 > | Microsoft.EventGrid/operations/read | Lister les opérations EventGrid. |
 > | Microsoft.EventGrid/operationsStatus/read | Lit l’état d’une opération |
+> | Microsoft.EventGrid/partnerNamespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour des espaces de noms de partenaire. |
+> | Microsoft.EventGrid/partnerNamespaces/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour des espaces de noms de partenaire |
+> | Microsoft.EventGrid/partnerNamespaces/providers/Microsoft.Insights/logDefinitions/read | Autorise l’accès aux journaux de diagnostic |
+> | Microsoft.EventGrid/partnerNamespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour des espaces de noms de partenaire |
+> | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour des rubriques de partenaire. |
+> | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour des rubriques de partenaire |
+> | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/logDefinitions/read | Autorise l’accès aux journaux de diagnostic |
 > | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour les rubriques partenaires |
 > | Microsoft.EventGrid/sku/read | Lit les définitions SKU disponibles pour les ressources Event Grid |
 > | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour des rubriques système |
@@ -6339,6 +6394,10 @@ Service Azure : [Centre de sécurité](../security-center/index.yml)
 > | Microsoft.Security/iotSecuritySolutions/delete | Supprime des solutions de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/read | Obtient des solutions de sécurité IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient un modèle d’analytique de sécurité IoT |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types d’alerte IoT. |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les alertes IoT. |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les types de recommandations. |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Obtient les recommandations IoT. |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/read | Obtient des alertes agrégées IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/dismiss/action | Ignore des alertes agrégées IoT |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedRecommendations/read | Obtient des suggestions agrégées IoT |
@@ -6599,6 +6658,7 @@ Service Azure : [Azure Lab Services](../lab-services/index.yml)
 > | Microsoft.LabServices/labAccounts/labs/AddUsers/action | Ajouter des utilisateurs à un laboratoire |
 > | Microsoft.LabServices/labAccounts/labs/SendEmail/action | Envoyer un e-mail avec un lien d’inscription au labo |
 > | Microsoft.LabServices/labAccounts/labs/GetLabPricingAndAvailability/action | Permet d'obtenir le prix par unité Lab pour ce labo ainsi que la disponibilité, afin de déterminer si ce labo peut monter en puissance. |
+> | Microsoft.LabServices/labAccounts/labs/SyncUserList/action | Synchronise les modifications apportées au groupe AAD avec la liste d'utilisateurs. |
 > | Microsoft.LabServices/labAccounts/labs/environmentSettings/delete | Supprime un paramètre d’environnement. |
 > | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | Lit le paramètre environnement. |
 > | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Ajoute ou modifie un paramètre d’environnement. |
@@ -6668,6 +6728,8 @@ Service Azure : [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/delete | Supprime le projet d’évaluation |
 > | Microsoft.Migrate/assessmentprojects/assessmentOptions/read | Obtient les options d’évaluation qui sont disponibles à l’emplacement donné. |
 > | Microsoft.Migrate/assessmentprojects/assessments/read | Répertorier les évaluations au sein d’un projet |
+> | Microsoft.Migrate/assessmentprojects/assessmentsSummary/read | Obtient le résumé des évaluations disponibles à l’emplacement donné. |
+> | Microsoft.Migrate/assessmentprojects/avsAssessmentOptions/read | Obtient les options d’évaluation AVS disponibles à l’emplacement donné. |
 > | Microsoft.Migrate/assessmentprojects/groups/read | Obtenir les propriétés d’un groupe. |
 > | Microsoft.Migrate/assessmentprojects/groups/write | Crée un groupe ou met à jour un groupe existant. |
 > | Microsoft.Migrate/assessmentprojects/groups/delete | Supprime un groupe. |
@@ -6677,6 +6739,11 @@ Service Azure : [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/delete | Supprime une évaluation. |
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/downloadurl/action | Télécharger l'URL d’un rapport d’évaluation |
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/assessedmachines/read | Obtenir les propriétés d’une machine évaluée. |
+> | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/read | Obtient les propriétés d'une évaluation AVS. |
+> | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/write | Crée ou met à jour une évaluation AVS. |
+> | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/delete | Supprime une évaluation AVS. |
+> | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/downloadurl/action | Télécharge l'URL d’un rapport d’évaluation AVS. |
+> | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/avsassessedmachines/read | Obtenir les propriétés d’une machine ayant fait l’objet d’une évaluation AVS. |
 > | Microsoft.Migrate/assessmentprojects/hypervcollectors/read | Obtient les propriétés du collecteur HyperV |
 > | Microsoft.Migrate/assessmentprojects/hypervcollectors/write | Crée un nouveau collecteur HyperV ou met à jour un collecteur HyperV existant |
 > | Microsoft.Migrate/assessmentprojects/hypervcollectors/delete | Supprime le collecteur HyperV |
@@ -6684,6 +6751,14 @@ Service Azure : [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/importcollectors/write | Crée ou met à jour un collecteur d’importation |
 > | Microsoft.Migrate/assessmentprojects/importcollectors/delete | Supprime le collecteur d’importation |
 > | Microsoft.Migrate/assessmentprojects/machines/read | Obtient les propriétés d’une machine. |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/read | Obtenir un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/validate/action | Valide un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/write | Crée ou met à jour un proxy de connexion de point de terminaison privé. |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/delete | Supprime un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnections/read | Obtient une connexion de point de terminaison privé |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnections/write | Écrire une connexion de point de terminaison privé. |
+> | Microsoft.Migrate/assessmentprojects/privateEndpointConnections/delete | Supprimer une connexion de point de terminaison privé |
+> | Microsoft.Migrate/assessmentprojects/privateLinkResources/read | Obtenir une ressource de liaison privée. |
 > | Microsoft.Migrate/assessmentprojects/servercollectors/read | Obtient les propriétés du collecteur de serveurs |
 > | Microsoft.Migrate/assessmentprojects/servercollectors/write | Crée ou met à jour un collecteur de serveurs |
 > | Microsoft.Migrate/assessmentprojects/vmwarecollectors/read | Obtient les propriétés du collecteur VMware |
@@ -6696,16 +6771,28 @@ Service Azure : [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/migrateprojects/delete | Supprime un projet de migration |
 > | Microsoft.Migrate/migrateprojects/registerTool/action | Inscrit l’outil dans un projet de migration |
 > | Microsoft.Migrate/migrateprojects/RefreshSummary/action | Actualise le résumé du projet de migration |
+> | Microsoft.Migrate/migrateprojects/registrationDetails/action | Fournit les détails de l’inscription de l’outil. |
 > | Microsoft.Migrate/migrateprojects/DatabaseInstances/read | Obtient les propriétés d’une instance de base de données |
 > | Microsoft.Migrate/migrateprojects/Databases/read | Obtient les propriétés d’une base de données |
 > | Microsoft.Migrate/migrateprojects/machines/read | Obtient les propriétés d’une machine. |
 > | Microsoft.Migrate/migrateprojects/MigrateEvents/read | Obtient les propriétés d’un événement de migration. |
 > | Microsoft.Migrate/migrateprojects/MigrateEvents/Delete | Supprime un événement de migration |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnectionProxies/read | Obtenir un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnectionProxies/validate/action | Valide un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnectionProxies/write | Crée ou met à jour un proxy de connexion de point de terminaison privé. |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnectionProxies/delete | Supprime un proxy de connexion de point de terminaison privé |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnections/read | Obtient une connexion de point de terminaison privé |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnections/write | Écrire une connexion de point de terminaison privé. |
+> | Microsoft.Migrate/migrateprojects/privateEndpointConnections/delete | Supprimer une connexion de point de terminaison privé |
+> | Microsoft.Migrate/migrateprojects/privateLinkResources/read | Obtenir une ressource de liaison privée. |
 > | Microsoft.Migrate/migrateprojects/solutions/read | Obtient les propriétés de la solution de projet de migration |
 > | Microsoft.Migrate/migrateprojects/solutions/write | Crée une nouvelle solution de projet de migration ou met à jour une solution de projet de migration existante |
 > | Microsoft.Migrate/migrateprojects/solutions/Delete | Supprime une solution de projet de migration |
 > | Microsoft.Migrate/migrateprojects/solutions/getconfig/action | Obtient la configuration de la solution de projet de migration |
 > | Microsoft.Migrate/migrateprojects/solutions/cleanupData/action | Nettoie les données de solution de projet de migration |
+> | Microsoft.Migrate/migrateprojects/VirtualDesktopUsers/read | Obtient les propriétés d’un utilisateur de machine virtuelle. |
+> | Microsoft.Migrate/migrateprojects/WebServers/read | Obtient les propriétés d’un serveur web. |
+> | Microsoft.Migrate/migrateprojects/WebSites/read | Obtient les propriétés d’un site web. |
 > | Microsoft.Migrate/Operations/read | Répertorie les opérations disponibles sur le fournisseur de ressources Microsoft.Migrate. |
 > | Microsoft.Migrate/projects/read | Obtient les propriétés d’un projet. |
 > | Microsoft.Migrate/projects/write | Crée un projet ou met à jour un projet existant. |
@@ -7432,6 +7519,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AppPlatformLogsforSpring/read | Lit les données de la table AppPlatformLogsforSpring |
 > | Microsoft.OperationalInsights/workspaces/query/AppPlatformSystemLogs/read | Lit les données de la table AppPlatformSystemLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppRequests/read | Lit les données de la table AppRequests |
+> | Microsoft.OperationalInsights/workspaces/query/AppServiceAntivirusScanLogs/read | Lire les données de la table AppServiceAntivirusScanLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceAppLogs/read | Lit les données de la table AppServiceAppLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceAuditLogs/read | Lit les données de la table AppServiceAuditLogs |
 > | Microsoft.OperationalInsights/workspaces/query/AppServiceConsoleLogs/read | Lit les données de la table AppServiceConsoleLogs |
@@ -7512,6 +7600,35 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | Lire les données de la table ExchangeOnlineAssessmentRecommendation |
 > | Microsoft.OperationalInsights/workspaces/query/FailedIngestion/read | Lire les données de la table FailedIngestion |
 > | Microsoft.OperationalInsights/workspaces/query/FunctionAppLogs/read | Lit les données de la table FunctionAppLogs |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariClusterAlerts/read | Lire les données de la table HDInsightAmbariClusterAlerts. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariSystemMetrics/read | Lire les données de la table HDInsightAmbariSystemMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightGatewayAuditLogs/read | Lire les données de la table HDInsightGatewayAuditLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHadoopAndYarnLogs/read | Lire les données de la table HDInsightHadoopAndYarnLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHadoopAndYarnMetrics/read | Lire les données de la table HDInsightHadoopAndYarnMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHBaseLogs/read | Lire les données de la table HDInsightHBaseLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHBaseMetrics/read | Lire les données de la table HDInsightHBaseMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHiveAndLLAPLogs/read | Lire les données de la table HDInsightHiveAndLLAPLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightHiveAndLLAPMetrics/read | Lire les données de la table HDInsightHiveAndLLAPMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightJupyterNotebookEvents/read | Lire les données de la table HDInsightJupyterNotebookEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightKafkaLogs/read | Lire les données de la table HDInsightKafkaLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightKafkaMetrics/read | Lire les données de la table HDInsightKafkaMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightOozieLogs/read | Lire les données de la table HDInsightOozieLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightRangerAuditLogs/read | Lire les données de la table HDInsightRangerAuditLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSecurityLogs/read | Lire les données de la table HDInsightSecurityLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkApplicationEvents/read | Lire les données de la table HDInsightSparkApplicationEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkBlockManagerEvents/read | Lire les données de la table HDInsightSparkBlockManagerEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkEnvironmentEvents/read | Lire les données de la table HDInsightSparkEnvironmentEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkExecutorEvents/read | Lire les données de la table HDInsightSparkExecutorEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkExtraEvents/read | Lire les données de la table HDInsightSparkExtraEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkJobEvents/read | Lire les données de la table HDInsightSparkJobEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkLogs/read | Lire les données de la table HDInsightSparkLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkSQLExecutionEvents/read | Lire les données de la table HDInsightSparkSQLExecutionEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkStageEvents/read | Lire les données de la table HDInsightSparkStageEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkStageTaskAccumulables/read | Lire les données de la table HDInsightSparkStageTaskAccumulables. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightSparkTaskEvents/read | Lire les données de la table HDInsightSparkTaskEvents. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightStormLogs/read | Lire les données de la table HDInsightStormLogs. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightStormMetrics/read | Lire les données de la table HDInsightStormMetrics. |
+> | Microsoft.OperationalInsights/workspaces/query/HDInsightStormTopologyMetrics/read | Lire les données de la table HDInsightStormTopologyMetrics. |
 > | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Lire les données de la table Heartbeat |
 > | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Lit les données de la table HuntingBookmark |
 > | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Lire les données de la table IISAssessmentRecommendation |
@@ -7527,6 +7644,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | Lire les données de la table KubeNodeInventory |
 > | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | Lire les données de la table KubePodInventory |
 > | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | Lit les données de la table KubeServices |
+> | Microsoft.OperationalInsights/workspaces/query/LAQueryLogs/read | Lire les données de la table LAQueryLogs. |
 > | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | Lire les données de la table LinuxAuditLog |
 > | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | Lire les données de la table MAApplication |
 > | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | Lire les données de la table MAApplicationHealth |
@@ -7646,6 +7764,8 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | Lire les données de la table UpdateRunProgress |
 > | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | Lire les données de la table UpdateSummary |
 > | Microsoft.OperationalInsights/workspaces/query/Usage/read | Lire les données de la table Usage |
+> | Microsoft.OperationalInsights/workspaces/query/UserAccessAnalytics/read | Lire les données de la table UserAccessAnalytics. |
+> | Microsoft.OperationalInsights/workspaces/query/UserPeerAnalytics/read | Lire les données de la table UserPeerAnalytics. |
 > | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | Lire les données de la table VMBoundPort |
 > | Microsoft.OperationalInsights/workspaces/query/VMComputer/read | Lit les données de la table VMComputer |
 > | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | Lire les données de la table VMConnection |
@@ -7654,6 +7774,7 @@ Service Azure : [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | Lire les données de la table WaaSDeploymentStatus |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | Lire les données de la table WaaSInsiderStatus |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | Lire les données de la table WaaSUpdateStatus |
+> | Microsoft.OperationalInsights/workspaces/query/Watchlist/read | Lire les données de la table Watchlist. |
 > | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | Lire les données de la table WDAVStatus |
 > | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | Lire les données de la table WDAVThreat |
 > | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | Lire les données de la table WindowsClientAssessmentRecommendation |
@@ -7781,6 +7902,7 @@ Service Azure : [Azure Policy](../governance/policy/overview.md), [Azure RBAC](
 > | Microsoft.Authorization/policyAssignments/read | Obtenez des informations sur une affectation de stratégie. |
 > | Microsoft.Authorization/policyAssignments/write | Créez une affectation de stratégie au niveau de la portée spécifiée. |
 > | Microsoft.Authorization/policyAssignments/delete | Supprimez une affectation de stratégie au niveau de la portée spécifiée. |
+> | Microsoft.Authorization/policyAssignments/exempt/action | Exempter une affectation de stratégie dans la portée spécifiée. |
 > | Microsoft.Authorization/policyAssignments/privateLinkAssociations/read | Obtenir des informations sur l'association de liaison privée |
 > | Microsoft.Authorization/policyAssignments/privateLinkAssociations/write | Créer ou mettre à jour une association de liaison privée |
 > | Microsoft.Authorization/policyAssignments/privateLinkAssociations/delete | Supprimer une association de liaison privée |
@@ -7797,6 +7919,9 @@ Service Azure : [Azure Policy](../governance/policy/overview.md), [Azure RBAC](
 > | Microsoft.Authorization/policyDefinitions/read | Obtenez des informations sur une définition de stratégie. |
 > | Microsoft.Authorization/policyDefinitions/write | Créez une définition de stratégie personnalisée. |
 > | Microsoft.Authorization/policyDefinitions/delete | Supprimez une définition de stratégie. |
+> | Microsoft.Authorization/policyExemptions/read | Obtenir des informations sur une exemption de stratégie. |
+> | Microsoft.Authorization/policyExemptions/write | Créer une exemption de stratégie dans l'étendue spécifiée. |
+> | Microsoft.Authorization/policyExemptions/delete | Supprimer une exemption de stratégie dans l'étendue spécifiée. |
 > | Microsoft.Authorization/policySetDefinitions/read | Obtient des informations sur une définition d’ensemble de stratégies |
 > | Microsoft.Authorization/policySetDefinitions/write | Crée une définition d’ensemble de stratégies personnalisé |
 > | Microsoft.Authorization/policySetDefinitions/delete | Supprime une définition d’ensemble de stratégies |

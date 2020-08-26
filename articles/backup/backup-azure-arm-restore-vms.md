@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006330"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263008"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -53,7 +53,7 @@ Si vous n’avez pas ces autorisations, vous pouvez [restaurer un disque](#resto
 
 1. Dans le coffre associé à la machine virtuelle à restaurer, cliquez sur **Éléments de sauvegarde** > **Machine virtuelle Azure**.
 1. Sélectionnez une machine virtuelle. Par défaut, les points de récupération des 30 derniers jours sont affichés sur le tableau de bord de la machine virtuelle. Vous pouvez afficher les points de récupération de plus de 30 jours ou appliquer un filtre pour rechercher des points de récupération en fonction de dates, plages de dates et différents types de cohérence d’instantané.
-1. Pour restaurer la machine virtuelle, cliquez sur **Restaurer la machine virtuelle**.
+1. Pour restaurer la machine virtuelle, sélectionnez **Restaurer une machine virtuelle**.
 
     ![Point de restauration](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -85,7 +85,7 @@ Cette [option de restauration](#restore-options) vous permet de créer rapidemen
 
 ## <a name="restore-disks"></a>Restaurer des disques
 
-Cette [option de restauration](#restore-options) vous permet de créer un disque à partir d’un point de restauration. Une fois le disque créé, vous pouvez effectuer l’une des opérations suivantes :
+Cette [option de restauration](#restore-options) vous permet de créer un disque à partir d’un point de restauration. Une fois le disque créé, vous pouvez effectuer l’une des actions suivantes :
 
 - Utiliser le modèle généré durant l’opération de restauration pour personnaliser les paramètres et déclencher le déploiement de la machine virtuelle. Vous modifiez les paramètres de modèle par défaut, puis vous envoyez le modèle pour le déploiement de machine virtuelle.
 - [Attacher des disques restaurés](../virtual-machines/windows/attach-managed-disk-portal.md) à une machine virtuelle existante.
@@ -95,7 +95,7 @@ Cette [option de restauration](#restore-options) vous permet de créer un disque
 1. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant pour les disques restaurés ou créez-en un avec un nom global unique.
 1. Dans **Emplacement de mise en lots**, spécifiez le compte dans lequel copier les disques durs virtuels. [Plus d’informations](#storage-accounts)
 
-    ![Configuration de la récupération terminée](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Sélectionner un groupe de ressources et un emplacement intermédiaire](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. Sélectionnez **Restaurer** pour démarrer l’opération de restauration.
 

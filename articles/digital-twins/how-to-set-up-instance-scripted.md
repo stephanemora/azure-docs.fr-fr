@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 82ddba67a6bd9fcc56b74c3f830663228feb945b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009696"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587971"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -110,6 +110,8 @@ Pour vérifier que votre instance a été créée, accédez à la [page Azure Di
 
 > [!NOTE]
 > Rappelez-vous que le script affecte actuellement ce rôle nécessaire au même utilisateur qui exécute le script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire via le portail Azure ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou l’interface CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+>
+> Vous pouvez également utiliser le portail ou l’interface de ligne de commande pour rétablir votre propre attribution de rôle en cas de problèmes d’installation par script.
 
 ### <a name="verify-app-registration"></a>Vérifier l’inscription de l’application
 

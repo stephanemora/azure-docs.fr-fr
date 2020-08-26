@@ -210,14 +210,14 @@
           href: storage-dotnet-how-to-use-queues.md
         - name: Java
           href: storage-java-how-to-use-queue-storage.md
+        - name: Python
+          href: storage-python-how-to-use-queue-storage.md
         - name: Node.js
           href: storage-nodejs-how-to-use-queues.md
         - name: C++
           href: storage-c-plus-plus-how-to-use-queues.md
         - name: PHP
           href: storage-php-how-to-use-queues.md
-        - name: Python
-          href: storage-python-how-to-use-queue-storage.md
         - name: Ruby
           href: storage-ruby-how-to-use-queue-storage.md
     - name: Gérer des files d’attente
@@ -253,12 +253,12 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Accessibilité de l’Explorateur Stockage Azure
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Forum Internet du Stockage Azure
+    - name: Stockage Azure sur Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
     - name: Stockage Azure sur Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Prix du stockage Azure
-      href: 'https://azure.microsoft.com/pricing/details/storage/'
+    - name: Prix du stockage File d’attente
+      href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Calculatrice de prix Azure
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Vidéos
