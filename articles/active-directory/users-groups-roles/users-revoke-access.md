@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475207"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798412"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Les jetons d’accès et les jetons d’actualisation sont fréquemment utilisé
 
 Azure AD réévalue ensuite ses stratégies d’autorisation. Si l’utilisateur est toujours autorisé, Azure AD émet un nouveau jeton d’accès et un nouveau jeton d’actualisation.
 
-Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) aux applications Office 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
+Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) aux applications Office 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
 
 ## <a name="session-tokens-cookies"></a>Jetons de session (cookies)
 
@@ -60,13 +60,13 @@ Dans un environnement hybride où un Active Directory local est synchronisé ave
 
 En tant qu’administrateur dans l’environnement Active Directory, connectez-vous à votre réseau local, ouvrez PowerShell et effectuez les étapes suivantes :
 
-1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > Changer deux fois de suite le mot de passe d’un utilisateur contribue à atténuer le risque d’attaque de type pass-the-hash, surtout quand des délais sont observés durant la réplication du mot de passe local. Si vous avez l’assurance que ce compte n’est pas compromis, vous pouvez vous contenter de réinitialiser le mot de passe une seule fois.
@@ -83,18 +83,18 @@ En tant qu’administrateur dans l’environnement Active Directory, connectez-v
 
 En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exécutez ``Connect-AzureAD`` et effectuez les actions suivantes :
 
-1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -102,9 +102,9 @@ En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exé
 
 ## <a name="optional-steps"></a>Étapes facultatives
 
-- [Effacez les données d’entreprise des applications gérées par Intune](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe).
+- [Effacez les données d’entreprise des applications gérées par Intune](/mem/intune/apps/apps-selective-wipe).
 
-- [Réinitialisez les appareils d’entreprise pour rétablir leurs paramètres d’usine](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe).
+- [Réinitialisez les appareils d’entreprise pour rétablir leurs paramètres d’usine](/mem/intune/remote-actions/devices-wipe).
 
 > [!NOTE]
 > Après une réinitialisation, les données de l’appareil ne peuvent plus être récupérées.

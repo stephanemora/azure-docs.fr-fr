@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729028"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795420"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
@@ -85,7 +85,7 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
    ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
 
-6. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez [réactiver l’abonnement](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) pendant la période de trois jours si vous changez d’avis.
+6. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez [réactiver l’abonnement](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) pendant la période de trois jours si vous changez d’avis.
   
    ![Lisez attentivement les termes et conditions](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,18 +97,18 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>J’ai un abonnement d’évaluation qui bloque la suppression
 
-L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire via Office 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
+L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire via Office 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
 
 Il existe deux types de produits disponibles à l’inscription en libre service, selon la façon dont ils sont attribués : 
 
 * Attribution au niveau de l’organisation : Un administrateur Azure AD attribue le produit à toute l’organisation et un utilisateur peut utiliser le service grâce à cette attribution, même s’il ne possède pas la licence de ce produit.
 * Attribution de niveau de l’utilisateur : Un utilisateur effectue une inscription en libre-service et s’attribue le produit, sans l’assistance d’un administrateur. Quand l’organisation est gérée par un administrateur (voir [Prendre le contrôle d’une organisation non gérée en tant qu’administrateur](domains-admin-takeover.md)), celui-ci peut attribuer directement le produit à des utilisateurs, sans inscription en libre-service.  
 
-Lorsque vous déclenchez la suppression d’un produit attribué à des utilisateurs par une inscription en libre-service, cette action supprime définitivement les données et tous les accès utilisateur du service. Tous les utilisateurs a qui ce produit a été attribué, que ce soit individuellement ou au niveau de l’organisation, ne peuvent plus s’y connecter, ni accéder à leurs données liées à ce produit. Si vous souhaitez éviter toute perte de données liées à un produit attribué par une inscription en libre-service, comme [des tableaux de bord Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) ou [une configuration de stratégie Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), avant de déclencher la suppression, vérifiez que les données sont sauvegardées et enregistrées ailleurs.
+Lorsque vous déclenchez la suppression d’un produit attribué à des utilisateurs par une inscription en libre-service, cette action supprime définitivement les données et tous les accès utilisateur du service. Tous les utilisateurs a qui ce produit a été attribué, que ce soit individuellement ou au niveau de l’organisation, ne peuvent plus s’y connecter, ni accéder à leurs données liées à ce produit. Si vous souhaitez éviter toute perte de données liées à un produit attribué par une inscription en libre-service, comme [des tableaux de bord Microsoft Power BI](/power-bi/service-export-to-pbix) ou [une configuration de stratégie Rights Management Services](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), avant de déclencher la suppression, vérifiez que les données sont sauvegardées et enregistrées ailleurs.
 
-Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Pour plus d’informations sur les services et produits disponibles avec une inscription en libre-service, consultez la page [Programmes libre-service disponibles](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 État du produit | Données | Accès aux données
 ------------- | ---- | --------------
@@ -143,4 +143,4 @@ Vous pouvez définir un produit accessible via une inscription en libre-service,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Documentation Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Documentation Azure Active Directory](../index.yml)

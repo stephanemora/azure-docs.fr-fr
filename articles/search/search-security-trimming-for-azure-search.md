@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496415"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928521"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche cognitive Azure
 
@@ -109,13 +109,13 @@ Si vous avez besoin de mettre à jour un document existant avec la liste des gro
 }
 ```
 
-Pour obtenir des informations détaillées sur l’ajout ou la mise à jour de documents, lisez [Modifier des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Pour obtenir des informations détaillées sur l’ajout ou la mise à jour de documents, lisez [Modifier des documents](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Appliquer le filtre de sécurité
 
 Pour filtrer des documents en fonction de l’accès de `group_ids`, vous devez émettre une requête de recherche avec un filtre `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, où « group_id1, group_id2,... » sont les groupes auxquels l’émetteur de la requête de recherche appartient.
 Ce filtre correspond à tous les documents dont le champ `group_ids` contient l’un des identificateurs donnés.
-Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche cognitive Azure, lisez [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche cognitive Azure, lisez [Recherche de documents](/rest/api/searchservice/search-documents).
 Notez que cet exemple montre comment lancer une recherche dans des documents à l’aide d’une requête POST.
 
 Émettez la requête HTTP POST :

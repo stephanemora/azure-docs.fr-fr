@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562628"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927134"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Effectuer une mise à niveau vers la version la plus récente de l’API REST du service Recherche cognitive Azure
 
-Si vous utilisez une version antérieure de l’[API REST du service Recherche](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aide à mettre à niveau votre application pour utiliser la toute dernière version de l’API en disponibilité générale, 30/06/2020.
+Si vous utilisez une version antérieure de l’[API REST du service Recherche](/rest/api/searchservice/), cet article vous aide à mettre à niveau votre application pour utiliser la toute dernière version de l’API en disponibilité générale, 30/06/2020.
 
 La version 30/06/2020 de l’API REST contient des modifications des versions antérieures. Ces modifications sont, pour la plupart, à compatibilité descendante. La modification de votre code est donc facilitée, selon la version que vous utilisiez précédemment. La section [Procédure de mise à niveau](#UpgradeSteps) décrit les modifications de code nécessaires pour utiliser les nouvelles fonctionnalités.
 
@@ -32,7 +32,7 @@ Lors de la mise à niveau vers une nouvelle version, vous n’aurez probablement
 
 * Lorsque votre code échoue, car des propriétés non reconnues sont renvoyées dans une réponse de l’API. Par défaut, votre application doit ignorer les propriétés qu’elle ne comprend pas.
 
-* Votre code conserve des demandes d’API et tente de les renvoyer à la nouvelle version de l’API. Par exemple, cela peut se produire si votre application conserve les jetons de continuation renvoyés par l’API Recherche (pour plus d’informations, recherchez `@search.nextPageParameters` dans les [références sur l’API Recherche](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Votre code conserve des demandes d’API et tente de les renvoyer à la nouvelle version de l’API. Par exemple, cela peut se produire si votre application conserve les jetons de continuation renvoyés par l’API Recherche (pour plus d’informations, recherchez `@search.nextPageParameters` dans les [références sur l’API Recherche](/rest/api/searchservice/Search-Documents)).
 
 * Votre code fait référence à une version d’API antérieure à la version 2019-05-06 et soumise à un ou plusieurs changements cassants de cette version. La section [Mise à niveau vers la version 2019-05-06](#upgrade-to-2019-05-06) fournit plus de détails. 
 
@@ -146,4 +146,4 @@ Vous pouvez mettre à jour des index « plats » vers le nouveau format en proc�
 Consultez la documentation de référence relative à l’API REST du service Recherche. Si vous rencontrez des problèmes, sollicitez notre aide sur [Stack Overflow](https://stackoverflow.com/) ou [contactez le support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Référence de l’API REST du service Recherche](https://docs.microsoft.com/rest/api/searchservice/)
+> [Référence de l’API REST du service Recherche](/rest/api/searchservice/)
