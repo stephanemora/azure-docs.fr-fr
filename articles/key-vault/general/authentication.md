@@ -7,12 +7,12 @@ ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7645600a476a1c2294ddd4a24fe01e2ffe51d5ac
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589980"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930857"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
@@ -112,14 +112,9 @@ Dans ce tutoriel, vous allez découvrir comment configurer un principal de servi
 1. Créer un certificat
 
     * Option 1 : Créez un certificat en utilisant [OpenSSL](https://www.openssl.org/) (à des fins de test uniquement ; n’utilisez pas de certificats autosignés en production)
-
-    ```console
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-    ```
-
     * Option n°2 : Créez un certificat à l’aide de Key Vault. [Créer un certificat dans Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
-1. Téléchargez le certificat au format PEM.
+1. Télécharger le certificat au format PEM/PFX
 1. Connectez-vous au portail Azure et accédez à Azure Active Directory.
 1. Cliquez sur « Inscriptions des applications ».
 1. Sélectionnez le principal de service que vous avez créé dans la première partie.

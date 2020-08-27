@@ -1,6 +1,6 @@
 ---
-title: Exporter un certificat à partir d’Azure Key Vault
-description: Exporter un certificat à partir d’Azure Key Vault
+title: Exporter des certificats depuis Azure Key Vault
+description: Découvrez comment exporter des certificats depuis Azure Key Vault.
 services: key-vault
 author: sebansal
 tags: azure-key-vault
@@ -10,34 +10,46 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: afab65b22d9487f30da458346bf143a557bec0d8
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 408b507ff23a2a20c5ed6d2fc32fd5dbf5dbab5d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588890"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930891"
 ---
-# <a name="export-certificate-from-azure-key-vault"></a>Exporter un certificat à partir d’Azure Key Vault
+# <a name="export-certificates-from-azure-key-vault"></a>Exporter des certificats depuis Azure Key Vault
 
-Azure Key Vault vous permet de provisionner, gérer et déployer facilement des certificats numériques pour votre réseau et de sécuriser les communications pour les applications. Pour plus d’informations générales sur les certificats, consultez [Certificats Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
+Découvrez comment exporter des certificats depuis Azure Key Vault. Vous pouvez exporter des certificats en utilisant Azure CLI, Azure PowerShell ou le portail Azure. Vous pouvez également utiliser le portail Azure pour exporter des certificats Azure App Service.
 
-## <a name="about-azure-key-vault-certificate"></a>À propos du certificat Azure Key Vault
+## <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
-### <a name="composition-of-certificate"></a>Composition d’un certificat
-Lorsqu’un certificat Key Vault est créé, une clé et un secret adressables sont également créés avec le même nom. La clé Key Vault permet d’exécuter des opérations sur les clés et le secret Key Vault permet de récupérer la valeur du certificat en tant que secret. Un certificat Key Vault contient également des métadonnées de certificat x509 publiques. [En savoir plus](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)
+Azure Key Vault vous permet de provisionner, gérer et déployer facilement des certificats numériques pour votre réseau. Il permet également des communications sécurisées pour les applications. Pour plus d’informations, consultez [Certificats Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
 
-### <a name="exportable-or-non-exportable-keys"></a>Clés exportables ou non exportables
-Lorsqu’un certificat Key Vault est créé, il peut être récupéré dans le secret adressable avec la clé privée au format PFX ou PEM. La stratégie utilisée pour créer le certificat doit indiquer que la clé est exportable. Si la stratégie indique qu’elle n’est pas exportable, la clé privée ne fait pas partie de la valeur quand elle est récupérée en tant que secret.
+### <a name="composition-of-a-certificate"></a>Composition d’un certificat
 
-Deux types de clés sont pris en charge, RSA ou RSA HSM, avec les certificats. Exportable est autorisé avec RSA uniquement, il n’est pas pris en charge par RSA HSM. [En savoir plus](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key)
+Quand un certificat Key Vault est créé, une *clé* et un *secret* adressables sont créés avec le même nom. La clé Key Vault permet les opérations sur les clés. Le secret Key Vault permet de récupérer la valeur du certificat en tant que secret. Un certificat Key Vault contient également des métadonnées de certificat x509 publiques. Pour plus d’informations, consultez [Composition d’un certificat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate).
 
-Dans Azure Key Vault, il est possible d’exporter un certificat stocké à l’aide d’Azure CLI, de PowerShell ou du portail.
+### <a name="exportable-and-non-exportable-keys"></a>Clés exportables et non exportables
+
+Une fois qu’un certificat Key Vault est créé, vous pouvez le récupérer auprès du secret adressable avec la clé privée. Récupérez le certificat au format PFX ou PEM.
+
+- **Exportable** : La stratégie utilisée pour créer le certificat indique que la clé est exportable.
+- **Non exportable** : La stratégie utilisée pour créer le certificat indique que la clé n’est pas exportable. Dans ce cas, la clé privée ne fait pas partie de la valeur quand elle est récupérée en tant que secret.
+
+Types de clés pris en charge : RSA, RSA-HSM, EC, EC-HSM, oct (listés [ici](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) : « Exportable » est autorisé seulement avec RSA et EC. Les clés HSM sont non exportables.
+
+Pour plus d’informations, consultez [À propos des certificats Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key).
+
+## <a name="export-stored-certificates"></a>Exporter des certificats stockés
+
+Vous pouvez exporter des certificats stockés dans Azure Key Vault en utilisant Azure CLI, Azure PowerShell ou le portail Azure.
 
 > [!NOTE]
-> Il est important de noter que vous avez besoin du mot de passe d’un certificat uniquement quand vous l’importez dans le coffre de clés. Key Vault n’enregistre pas le mot de passe associé. Par conséquent, quand vous exportez le certificat, le mot de passe est vide.
+> Exigez un mot de passe de certificat seulement quand vous importez le certificat dans le coffre de clés. Key Vault n’enregistre pas le mot de passe associé. Quand vous exportez le certificat, le mot de passe est vide.
 
-## <a name="exporting-certificate-using-cli"></a>Exportation d’un certificat à l’aide de CLI
-La commande suivante vous permet de télécharger la **partie publique** d’un certificat Key Vault.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Utilisez la commande suivante dans Azure CLI pour télécharger la **partie publique** d’un certificat Key Vault.
 
 ```azurecli
 az keyvault certificate download --file
@@ -48,11 +60,10 @@ az keyvault certificate download --file
                                  [--vault-name]
                                  [--version]
 ```
-Des exemples et des définitions de paramètres sont disponibles [ici](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)
 
+Pour plus d’informations, consultez [Exemples et définitions de paramètres](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download).
 
-
-Si vous voulez télécharger l’intégralité du certificat, c’est-à-dire la **partie publique et la privée de sa composition**, vous pouvez télécharger le certificat en tant que secret.
+Si vous voulez télécharger l’intégralité du certificat (la partie publique et la partie privée de sa composition), téléchargez le certificat en tant que secret.
 
 ```azurecli
 az keyvault secret download –file {nameofcert.pfx}
@@ -63,12 +74,12 @@ az keyvault secret download –file {nameofcert.pfx}
                             [--vault-name]
                             [--version]
 ```
-Des définitions de paramètres sont disponibles [ici](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)
 
+Pour plus d’informations, consultez [Définitions de paramètres](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
-## <a name="exporting-certificate-using-powershell"></a>Exporter un certificat à l’aide de PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cette commande obtient le certificat nommé TestCert01 se trouvant dans le coffre de clés nommé ContosoKV01. Pour télécharger le certificat sous forme de fichier PFX, exécutez la commande suivante. Ces commandes accèdent à l’ID de secret (SecretId), puis enregistrent le contenu sous la forme d’un fichier PFX.
+Utilisez cette commande dans Azure PowerShell pour récupérer le certificat nommé **TestCert01** auprès du coffre de clés nommé **ContosoKV01**. Pour télécharger le certificat sous forme de fichier PFX, exécutez la commande suivante. Ces commandes accèdent à **SecretId**, puis enregistrent le contenu sous la forme d’un fichier PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
@@ -81,26 +92,25 @@ $protectedCertificateBytes = $certCollection.Export([System.Security.Cryptograph
 $pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
 [System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
 ```
-Cette opération exporte la totalité de la chaîne de certificats avec la clé privée et ce certificat sera protégé par mot de passe.
-Pour plus d’informations sur la commande et les paramètres ```Get-AzKeyVaultCertificate```, reportez-vous à l’[exemple 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)
 
-## <a name="exporting-certificate-using-portal"></a>Exportation d’un certificat à l’aide du portail
+Cette commande exporte la chaîne entière de certificats avec la clé privée. Le certificat est protégé par un mot de passe.
+Pour plus d’informations sur la commande et les paramètres de **Get-AzKeyVaultCertificate**, consultez [Get-AzKeyVaultCertificate - Exemple 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
-Sur le portail, quand vous créez/importez un certificat dans le panneau des certificats, vous recevez la notification indiquant que le certificat a été correctement créé. Quand vous sélectionnez le certificat, vous pouvez cliquer sur la version actuelle pour que l’option de téléchargement s’affiche.
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
+Sur le portail Azure, après avoir créé/importé un certificat dans le panneau **Certificat**, vous recevez une notification indiquant que le certificat a été correctement créé. Sélectionnez le certificat et la version actuelle pour voir l’option de téléchargement.
 
-En cliquant sur le bouton « Télécharger au format CER » ou « Télécharger au format PFX/PEM », vous pouvez télécharger le certificat.
-
+Pour télécharger le certificat, sélectionnez **Télécharger au format CER** ou **Télécharger au format PFX/PEM**.
 
 ![Téléchargement du certificat](../media/certificates/quick-create-portal/current-version-shown.png)
 
+**Exporter des certificats Azure App Service**
 
-## <a name="exporting-app-service-certificate-from-key-vault"></a>Exportation d’un certificat App Service se trouvant dans un coffre de clés
+Les certificats Azure App Service sont un moyen pratique d’acheter des certificats SSL. Vous pouvez les affecter à des applications Azure à partir du portail. Vous pouvez également exporter ces certificats à partir du portail en tant que fichiers PFX à utiliser ailleurs. Une fois importés, les certificats App Service se trouvent sous des **secrets**.
 
-Les certificats Azure App Service offrent un moyen pratique d’acheter des certificats SSL et de les attribuer à des applications Azure directement à partir du portail. Ces certificats peuvent également être exportés à partir du portail sous la forme de fichiers PFX à utiliser ailleurs.
-Une fois importés, les certificats App Service peuvent **se trouver sous des secrets**.
+Pour plus d’informations, consultez les étapes pour [exporter des certificats Azure App Service](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
-Des instructions concernant l’exportation de certificats App Service sont disponibles [ici](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx)
+---
 
 ## <a name="read-more"></a>En savoir plus
 * [Différents types et définitions de fichiers de certificats](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
