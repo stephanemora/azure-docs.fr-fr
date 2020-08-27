@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833332"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648987"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Charge de travail SAP sur les machines virtuelles Azure - Scénarios pris en charge
 Concevoir un architecture système SAP NetWeaver, Business One, `Hybris` ou S/4HANA dans Azure ouvre la voie à bien des opportunités en termes d'architectures et d'outils à utiliser afin d'obtenir un déploiement évolutif, efficace et hautement disponible. Bien qu’elles dépendent du système d’exploitation ou du SGBD utilisé, il existe des restrictions. De même, tous les scénarios pris en charge localement ne sont pas pris en charge de la même manière dans Azure. Ce document présente les configurations sans haute disponibilité prises en charge, ainsi que les configurations et architectures haute disponibilité utilisant exclusivement des machines virtuelles Azure. Pour les scénarios pris en charge avec de [grandes instances HANA](./hana-overview-architecture.md), consultez l’article [Scénarios pris en charge pour les grandes instances HANA](./hana-supported-scenario.md). 
@@ -215,7 +215,7 @@ Un cluster multi-SID avec Enqueue Replication Server se présente schématiqueme
 Les scénarios de scale-out SAP HANA sont pris en charge pour un sous-ensemble des machines virtuelles Azure certifiées HANA listées dans le [répertoire matériel SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Toutes les machines virtuelles accompagnées de « oui » dans la colonne « clustering » peuvent être utilisées à des fins de scale-out OLAP ou S/4HANA. Les configurations sans nœud de secours sont prises en charge avec les types de Stockage Azure : 
 
 - Stockage Premium Azure, y compris l’accélérateur d'écriture Azure pour le volume /hana/log
-- [Disque Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Disque Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
 Les configurations scale-out SAP HANA pour OLAP ou S/4HANA sans nœud de secours sont uniquement prises en charge avec partages NFS hébergés sur Azure NetApp Files.

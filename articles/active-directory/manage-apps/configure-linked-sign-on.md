@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459332"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641974"
 ---
 # <a name="configure-linked-sign-on"></a>Configurer l’authentification liée
 
 Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications, vous avez appris à utiliser Azure AD comme fournisseur d’identité (IdP) pour une application. Dans le guide de démarrage rapide, vous configurez l’authentification unique SAML. Une autre option consiste à utiliser **Authentification liée**. Cet article décrit plus en détail l’option d’authentification liée.
 
-L’option **Authentification liée** vous permet de configurer l’emplacement cible lorsqu’un utilisateur sélectionne l’application dans le portail [Mes applications](https://myapplications.microsoft.com/) ou Office 365 de votre organisation.
+L’option **Authentification liée** vous permet de configurer l’emplacement cible lorsqu’un utilisateur sélectionne l’application dans le portail [Mes applications](https://myapps.microsoft.com/) ou Office 365 de votre organisation.
 
 Voici quelques scénarios courants dans lesquels l’option d’authentification liée est utile :
 - Ajouter un lien vers une application web personnalisée qui utilise actuellement la fédération, par exemple les services de fédération Active Directory (AD FS).
@@ -35,7 +35,7 @@ Voici quelques scénarios courants dans lesquels l’option d’authentification
 
 Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Dans le démarrage rapide, où vous configurez l’authentification unique, vous trouverez également l’option **Authentification liée**. 
 
-L’option **Authentification liée** ne fournit pas de fonctionnalité d’authentification via Azure AD. L’option définit simplement l’emplacement auquel les utilisateurs sont envoyés lorsqu’ils sélectionnent l’application sur [Mes applications](https://myapplications.microsoft.com/) ou le lanceur d’applications Microsoft 365.
+L’option **Authentification liée** ne fournit pas de fonctionnalité d’authentification via Azure AD. L’option définit simplement l’emplacement auquel les utilisateurs sont envoyés lorsqu’ils sélectionnent l’application sur [Mes applications](https://myapps.microsoft.com/) ou le lanceur d’applications Microsoft 365.
 
 > [!IMPORTANT] 
 > Dans certains cas, l’option **Authentification unique** n’est pas accessible pour une application sous **Applications d’entreprise**. 
@@ -48,7 +48,7 @@ L’option **Authentification liée** ne fournit pas de fonctionnalité d’auth
 
 Pour définir le lien d’une application, sélectionnez **Authentification liée** sur la page **Authentification unique**. Entrez ensuite le lien et sélectionnez **Enregistrer**. Vous avez besoin d’un rappel pour trouver ces options ? Consultez la [série de démarrages rapides](view-applications-portal.md).
  
-Une fois que vous avez configuré une application, assignez-lui des utilisateurs et des groupes. Lorsque vous affectez des utilisateurs, vous pouvez contrôler le moment où l’application s’affiche dans [Mes applications](https://myapplications.microsoft.com/) ou le lanceur d’applications Microsoft 365.
+Une fois que vous avez configuré une application, assignez-lui des utilisateurs et des groupes. Lorsque vous affectez des utilisateurs, vous pouvez contrôler le moment où l’application s’affiche dans [Mes applications](https://myapps.microsoft.com/) ou le lanceur d’applications Microsoft 365.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

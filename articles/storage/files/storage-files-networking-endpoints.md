@@ -4,18 +4,19 @@ description: Vue d’ensemble des options de réseau pour Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497764"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586679"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuration des points de terminaison réseau Azure Files
+
 Azure Files fournit deux principaux types de points de terminaison pour accéder aux partages de fichiers Azure : 
 - Les points de terminaison publics, qui ont une adresse IP publique et sont accessibles partout dans le monde.
 - Les points de terminaison privés, qui existent au sein d’un réseau virtuel et ont une adresse IP privée comprise dans l’espace d’adressage de ce réseau virtuel.
@@ -27,12 +28,21 @@ Cet article se concentre sur la configuration des points de terminaison d’un c
 Avant de lire le présent guide, nous vous recommandons de lire [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 - Cet article suppose que vous avez déjà créé un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- Cet article suppose que vous avez déjà créé un partage de fichiers Azure dans un compte de stockage auquel vous souhaitez vous connecter à partir d’un emplacement local. Pour savoir comment créer un partage de fichiers Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
+- Cet article part du principe que vous avez déjà créé un partage de fichiers Azure dans un compte de stockage auquel vous souhaitez vous connecter à partir d’un emplacement local. Pour savoir comment créer un partage de fichiers Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
+## <a name="endpoint-configurations"></a>Configurations de point de terminaison
+
+Vous pouvez configurer vos points de terminaison pour limiter l’accès réseau à votre compte de stockage. Il existe deux approches pour limiter l’accès d’un compte de stockage à un réseau virtuel :
+
+- [Créer un ou plusieurs points de terminaison privés pour le compte de stockage](#create-a-private-endpoint) et limiter tous les accès au point de terminaison public. Seul le trafic en provenance des réseaux virtuels souhaités accède alors aux partages de fichiers Azure du compte de stockage.
+- [Limiter le point de terminaison public à un ou plusieurs réseaux virtuels](#restrict-public-endpoint-access). Cette approche s’appuie sur une fonctionnalité du réseau virtuel appelée *points de terminaison de service*. Quand vous limitez le trafic à un compte de stockage via un point de terminaison de service, vous continuez d’accéder au compte de stockage via l’adresse IP publique, mais l’accès n’est possible qu’à partir des emplacements que vous spécifiez dans votre configuration.
+
+### <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
+
 La création d’un point de terminaison privé pour votre compte de stockage entraîne le déploiement des ressources Azure suivantes :
 
 - **Un point de terminaison privé** : ressource Azure représentant le point de terminaison privé du compte de stockage. Vous pouvez le voir comme une ressource qui connecte un compte de stockage à une interface réseau.
@@ -106,7 +116,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Si tout a fonctionné correctement, vous devriez voir la sortie suivante, où `192.168.0.5` correspond à l’adresse IP privée du point de terminaison privé de votre réseau virtuel. Notez que vous devez toujours utiliser storageaccount.file.core.windows.net pour monter votre partage de fichiers au lieu du chemin d’accès `privatelink`.
+Si tout a fonctionné correctement, vous devriez voir la sortie suivante, où `192.168.0.5` correspond à l’adresse IP privée du point de terminaison privé de votre réseau virtuel. Vous devez toujours utiliser storageaccount.file.core.windows.net pour monter votre partage de fichiers au lieu du chemin d’accès `privatelink`.
 
 ```Output
 Server:         127.0.0.53
@@ -120,14 +130,13 @@ Address: 192.168.0.5
 
 ---
 
-## <a name="restrict-access-to-the-public-endpoint"></a>Limiter l’accès au point de terminaison public
-Vous pouvez restreindre l’accès au point de terminaison public à l’aide des paramètres de pare-feu du compte de stockage. En général, la plupart des stratégies de pare-feu d’un compte de stockage limitent l’accès réseau à un ou plusieurs réseaux virtuels. Il existe deux approches pour limiter l’accès d’un compte de stockage à un réseau virtuel :
+### <a name="restrict-public-endpoint-access"></a>Restreindre l’accès au point de terminaison public
 
-- [Créer un ou plusieurs points de terminaison privés pour le compte de stockage](#create-a-private-endpoint) et limiter tous les accès au point de terminaison public. Seul le trafic en provenance des réseaux virtuels souhaités accède alors aux partages de fichiers Azure du compte de stockage.
-- Limiter le point de terminaison public à un ou plusieurs réseaux virtuels. Cette approche s’appuie sur une fonctionnalité du réseau virtuel appelée *points de terminaison de service*. Quand vous limitez le trafic à un compte de stockage via un point de terminaison de service, vous continuez d’accéder au compte de stockage via l’adresse IP publique.
+Pour limiter l’accès au point de terminaison public, vous devez commencer par désactiver l’accès général au point de terminaison public. La désactivation de l’accès au point de terminaison public n’affecte pas les points de terminaison privés. Une fois le point de terminaison public désactivé, vous pouvez sélectionner des réseaux ou adresses IP spécifiques qui peuvent continuer à y accéder. En général, la plupart des stratégies de pare-feu d’un compte de stockage limitent l’accès réseau à un ou plusieurs réseaux virtuels.
 
-### <a name="disable-access-to-the-public-endpoint"></a>Désactiver l’accès au point de terminaison public
-Lorsque l’accès au point de terminaison public est désactivé, le compte de stockage reste accessible via ses points de terminaison privés. Si ce n’est pas le cas, les requêtes valides envoyées au point de terminaison public du compte de stockage seront rejetées. 
+#### <a name="disable-access-to-the-public-endpoint"></a>Désactiver l’accès au point de terminaison public
+
+Lorsque l’accès au point de terminaison public est désactivé, le compte de stockage reste accessible via ses points de terminaison privés. Si ce n’est pas le cas, les requêtes valides envoyées au point de terminaison public du compte de stockage seront rejetées, à moins qu’elles ne proviennent d’une [source spécifiquement autorisée](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]
@@ -140,7 +149,8 @@ Lorsque l’accès au point de terminaison public est désactivé, le compte de 
 
 ---
 
-### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Limiter l’accès au point de terminaison public à certains réseaux virtuels
+#### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Limiter l’accès au point de terminaison public à certains réseaux virtuels
+
 Lorsque vous limitez l’accès au compte de stockage à certains réseaux virtuels, vous autorisez les requêtes à être envoyées au point de terminaison public à partir des réseaux virtuels spécifiés. Cette approche s’appuie sur une fonctionnalité du réseau virtuel appelée *points de terminaison de service*. Cela peut être utilisé avec ou sans points de terminaison privés.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
@@ -155,6 +165,7 @@ Lorsque vous limitez l’accès au compte de stockage à certains réseaux virtu
 ---
 
 ## <a name="see-also"></a>Voir aussi
+
 - [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md)
 - [Configuration du transfert DNS pour Azure Files](storage-files-networking-dns.md)
 - [Configuration de S2S VPN pour Azure Files](storage-files-configure-s2s-vpn.md)

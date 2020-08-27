@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 8feede515cf7ed861f3219fdf5f4642a33c9e83e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448754"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690355"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -79,7 +79,7 @@ Le diagramme suivant illustre une architecture recommandée pour utiliser Oracle
 
 ![Instance d'Oracle Database utilisant des zones de disponibilité avec Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
-Dans le diagramme précédent, le système du client accède à une application personnalisée avec back-end Oracle via le web. Le front-end web est configuré dans un équilibreur de charge. Le front-end web appelle le serveur d'applications approprié pour gérer le travail. Le serveur d'applications interroge la base de données primaire Oracle. La base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/windows/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la haute disponibilité.
+Dans le diagramme précédent, le système du client accède à une application personnalisée avec back-end Oracle via le web. Le front-end web est configuré dans un équilibreur de charge. Le front-end web appelle le serveur d'applications approprié pour gérer le travail. Le serveur d'applications interroge la base de données primaire Oracle. La base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la haute disponibilité.
 
 Les bases de données Oracle sont placées dans différentes zones de disponibilité pour assurer la haute disponibilité. Chaque zone de disponibilité est composée d'un ou de plusieurs centres de données équipés d'une alimentation, d'un système de refroidissement et d'un réseau indépendants. Pour garantir la résilience, au moins trois zones distinctes sont configurées dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d'une région protège les données contre les défaillances du centre de données. En outre, deux observateurs FSFO sont installés dans deux zones de disponibilité afin de lancer la base de données et de la basculer vers l'instance secondaire lorsqu'une panne se produit. 
 
@@ -113,7 +113,7 @@ Le diagramme suivant illustre une architecture qui utilise Oracle Data Guard FSF
 
 GoldenGate permet l'échange et la manipulation de données au niveau des transactions entre différentes plateformes hétérogènes de l'entreprise. Il déplace les transactions validées en garantissant l'intégrité des transactions et en minimisant les frais généraux sur votre infrastructure existante. Son architecture modulaire vous donne la possibilité d'extraire et de répliquer les enregistrements de données sélectionnés, les modifications relatives aux transactions et les modifications apportées au langage de définition de données (DDL) à travers une variété de topologies.
 
-Oracle GoldenGate vous permet de configurer votre base de données pour la haute disponibilité en fournissant une réplication bidirectionnelle. Vous pouvez ainsi mettre en place une **configuration multimaître** ou **active/active**. Le diagramme suivant illustre une architecture recommandée pour une configuration active/active d'Oracle GoldenGate sur Azure. Dans l'architecture suivante, la base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/windows/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la disponibilité.
+Oracle GoldenGate vous permet de configurer votre base de données pour la haute disponibilité en fournissant une réplication bidirectionnelle. Vous pouvez ainsi mettre en place une **configuration multimaître** ou **active/active**. Le diagramme suivant illustre une architecture recommandée pour une configuration active/active d'Oracle GoldenGate sur Azure. Dans l'architecture suivante, la base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la disponibilité.
 
 ![Instance d'Oracle Database utilisant des zones de disponibilité avec Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -215,7 +215,7 @@ Les mises à jour correctives du système d’exploitation de vos machines virtu
 
 ## <a name="architecture-and-design-considerations"></a>Considérations relatives à l'architecture et à la conception
 
-- Pensez à utiliser une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/windows/constrained-vcpu.md) pour la machine virtuelle de votre base de données Oracle afin d'économiser sur les coûts de licence et d'optimiser les performances. Utilisez différents disques Premium ou Ultra (disques managés) pour les performances et la disponibilité.
+- Pensez à utiliser une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour la machine virtuelle de votre base de données Oracle afin d'économiser sur les coûts de licence et d'optimiser les performances. Utilisez différents disques Premium ou Ultra (disques managés) pour les performances et la disponibilité.
 - Lorsque vous utilisez des disques managés, le nom du disque ou de l'appareil peut changer au moment des redémarrages. Nous vous recommandons d'utiliser l'UUID de l'appareil plutôt que son nom pour garantir la persistance des montages entre les redémarrages. Des informations supplémentaires sont disponibles [ici](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
 - Utilisez les zones de disponibilité pour bénéficier d'une haute disponibilité au sein de la région.
 - Pensez à utiliser des disques Ultra (le cas échéant) ou des disques Premium pour votre base de données Oracle.

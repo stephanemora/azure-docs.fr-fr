@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005701"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691392"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion Windows Virtual Desktop (classique) à l’aide d’un modèle Azure Resource Manager
 
@@ -83,7 +83,7 @@ Pour déterminer quel utilisateur vous pouvez utiliser pour vous connecter à l�
 
 Une fois que vous avez décidé quel utilisateur vous allez utiliser pour donner le consentement, suivez ces instructions pour donner ce consentement à l’outil :
 
-1. Accédez à vos ressources Azure, sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Accédez à vos ressources Azure, sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Connectez-vous en utilisant le compte d’utilisateur Azure Active Directory approprié.
 3. Si vous vous êtes authentifié avec un administrateur général, vous pouvez maintenant cochez la case **Consentement pour le compte de votre organisation**. Sélectionnez **Accepter** pour donner votre consentement.
 

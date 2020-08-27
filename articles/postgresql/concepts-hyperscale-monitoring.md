@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb24100eaebc54b98adf2f09fa3e557e4d6fa0be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580657"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690406"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -32,7 +32,7 @@ Ces mesures sont disponibles pour les nœuds Hyperscale (Citus) :
 |---|---|---|---|
 |active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
 |cpu_percent|Pourcentage d’UC|Pourcentage|Pourcentage d’UC en cours d’utilisation.|
-|iops|E/S par seconde|Count|Consultez la [définition iOPS](../virtual-machines/linux/premium-storage-performance.md#iops) et le [débit Hyperscale](concepts-hyperscale-configuration-options.md)|
+|iops|E/S par seconde|Count|Consultez la [définition iOPS](../virtual-machines/premium-storage-performance.md#iops) et le [débit Hyperscale](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Pourcentage de mémoire|Pourcentage|Pourcentage de mémoire en cours d’utilisation.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|

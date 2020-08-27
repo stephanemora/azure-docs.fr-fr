@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080503"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648562"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
 Cet article présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](./overview.md).
@@ -42,7 +42,7 @@ Certaines fonctionnalités sont actuellement disponibles uniquement dans les mac
 ## <a name="storage"></a>Stockage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Groupes identiques avec Azure Disques managés
-Les groupes identiques peuvent être créés avec [Azure Disques managés](../virtual-machines/windows/managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. La fonctionnalité Disques managés permet de bénéficier des avantages suivants :
+Les groupes identiques peuvent être créés avec [Azure Disques managés](../virtual-machines/managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. La fonctionnalité Disques managés permet de bénéficier des avantages suivants :
 - Vous n’êtes pas obligé de créer au préalable un ensemble de comptes de stockage Azure pour les machines virtuelles du groupe identique.
 - Vous pouvez définir des [disques de données associés](virtual-machine-scale-sets-attached-disks.md) pour les machines virtuelles de votre groupe identique.
 - Les groupes identiques peuvent être configurés pour [prendre en charge jusqu’à 1 000 machines virtuelles par groupe](virtual-machine-scale-sets-placement-groups.md). 
