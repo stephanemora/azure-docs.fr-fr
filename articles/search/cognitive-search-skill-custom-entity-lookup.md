@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987472"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936110"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987472"
 
 La compétence **Recherche d'entité personnalisée** recherche du texte dans une liste de mots et d'expressions personnalisée et définie par l'utilisateur. À l'aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes.  
 
-Cette compétence n'est pas liée à une API Cognitive Services et peut être utilisée gratuitement pendant toute la durée de la préversion. Vous devez néanmoins [joindre une ressource Cognitive Services](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services) pour passer outre la limite d'enrichissement quotidienne. La limite quotidienne s'applique à l'accès gratuit à Cognitive Services via Recherche cognitive Azure.
+Cette compétence n'est pas liée à une API Cognitive Services et peut être utilisée gratuitement pendant toute la durée de la préversion. Vous devez néanmoins [joindre une ressource Cognitive Services](./cognitive-search-attach-cognitive-services.md) pour passer outre la limite d'enrichissement quotidienne. La limite quotidienne s'applique à l'accès gratuit à Cognitive Services via Recherche cognitive Azure.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 

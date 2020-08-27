@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027595"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717436"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -47,7 +47,7 @@ La réécriture du mot de passe fournit les fonctionnalités suivantes :
 Pour bien démarrer avec la réécriture SSPR, suivez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](tutorial-enable-writeback.md)
+> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Fonctionnement de la réécriture du mot de passe
 
@@ -140,7 +140,7 @@ Les mots de passe sont réécrits dans les situations suivantes :
    * Tout changement forcé de mot de passe en libre-service de l’administrateur (par exemple, expiration du mot de passe)
    * Toute réinitialisation de mot de passe en libre-service de l’administrateur émanant du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com)
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis le [portail Azure](https://portal.azure.com)
-   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis l’[API Microsoft Graph bêta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis l’[API Microsoft Graph bêta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Opérations de réécriture non prises en charge
 
@@ -149,7 +149,7 @@ Les mots de passe ne sont pas réécrits dans les situations suivantes :
 * **Opérations de l’utilisateur final non prises en charge**
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par ce dernier à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph
 * **Opérations de l’administrateur non prises en charge**
-   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph (l’[API Microsoft Graph bêta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) est prise en charge).
+   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph (l’[API Microsoft Graph bêta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) est prise en charge).
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
    * N’importe quel administrateur ne peut pas utiliser l’outil de réinitialisation de mot de passe en vue de réinitialiser son propre mot de passe pour la réécriture du mot de passe.
 
@@ -161,4 +161,4 @@ Les mots de passe ne sont pas réécrits dans les situations suivantes :
 Pour bien démarrer avec la réécriture SSPR, suivez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](tutorial-enable-writeback.md)
+> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](./tutorial-enable-sspr-writeback.md)

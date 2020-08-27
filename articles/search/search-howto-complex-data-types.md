@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 0fd7ba1723da77313407725ec676e69b0ef3bca1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496670"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917854"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
@@ -62,7 +62,7 @@ Le document JSON suivant est composé de champs simples et de champs complexes. 
 
 ## <a name="creating-complex-fields"></a>Création de champs complexes
 
-Comme avec n’importe quelle définition d’index, vous pouvez utiliser le portail, l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-index), ou le kit de développement logiciel [ (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) pour créer un schéma incluant des types complexes. 
+Comme avec n’importe quelle définition d’index, vous pouvez utiliser le portail, l’[API REST](/rest/api/searchservice/create-index), ou le kit de développement logiciel [ (SDK) .NET](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) pour créer un schéma incluant des types complexes. 
 
 L’exemple suivant montre un schéma d’index JSON avec des champs simples, des collections et des types complexes. Notez qu’au sein d’un type complexe, chaque sous-champ a un type et peut avoir des attributs, comme c’est le cas pour les champs de niveau supérieur. Le schéma correspond à l’exemple de données ci-dessus. `Address` est un champ complexe qui n’est pas une collection (un hôtel a une adresse). `Rooms` est un champ de collection complexe (un hôtel a plusieurs chambres).
 

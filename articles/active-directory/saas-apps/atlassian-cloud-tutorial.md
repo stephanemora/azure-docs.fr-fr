@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517646"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686052"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutoriel : Intégrer Atlassian Cloud à Azure Active Directory
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Atlassian Cloud prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identités**
 * Atlassian Cloud prend en charge le [provisionnement et le déprovisionnement automatiques des utilisateurs](atlassian-cloud-provisioning-tutorial.md)
-* Une fois que vous avez configuré Atlassian Cloud, vous pouvez appliquer le contrôle de session, qui protège l'exfiltration et l'infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Une fois que vous avez configuré Atlassian Cloud, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Ajout d’Atlassian Cloud à partir de la galerie
 
@@ -169,7 +169,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
       ![image](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud s'attend à ce que **nameidentifier** (**Identificateur d'utilisateur unique**) soit mappé avec l'adresse e-mail de l'utilisateur (**user.email**). Modifiez l'**attribut source** et remplacez-le par **user.mail**. Enregistrez les modifications apportées à la revendication.
+      b. Atlassian Cloud s’attend à ce que **nameidentifier** (**Identificateur d’utilisateur unique**) soit mappé avec l’adresse e-mail de l’utilisateur (**user.email**). Modifiez l'**attribut source** et remplacez-le par **user.mail**. Enregistrez les modifications apportées à la revendication.
 
       ![image](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -179,11 +179,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
       
    1. Mappage d'attributs pour un locataire Azure AD sans licence Office 365 
 
-      a. Cliquez sur la revendication **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+      a. Cliquez sur la revendication `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Azure ne renseigne pas l'attribut **user.mail** pour les utilisateurs créés dans des locataires Azure AD sans licences Office 365 et stocke l'e-mail de ces utilisateurs dans l'attribut **userprincipalname**. Atlassian Cloud s'attend à ce que **nameidentifier** (**Identificateur d'utilisateur unique**) soit mappé avec l'adresse e-mail de l'utilisateur (**user.userprincipalname**).  Modifiez l'**attribut source** et remplacez-le par **user.userprincipalname**. Enregistrez les modifications apportées à la revendication.
+      b. Azure ne renseigne pas l'attribut **user.mail** pour les utilisateurs créés dans des locataires Azure AD sans licences Office 365 et stocke l'e-mail de ces utilisateurs dans l'attribut **userprincipalname**. Atlassian Cloud s’attend à ce que **nameidentifier** (**Identificateur d’utilisateur unique**) soit mappé avec l’adresse e-mail de l’utilisateur (**user.userprincipalname**).  Modifiez l'**attribut source** et remplacez-le par **user.userprincipalname**. Enregistrez les modifications apportées à la revendication.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          

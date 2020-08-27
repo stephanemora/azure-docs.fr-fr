@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24b7845ec66a85e6ced4f1df9caec409a94016bf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034097"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782598"
 ---
 # <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Utiliser des rôles personnalisés Azure dans Privileged Identity Management
 
@@ -31,7 +31,7 @@ Suivez les étapes décrites dans la section suivante pour définir les paramèt
 
 ## <a name="create-the-custom-role"></a>Créer le rôle personnalisé
 
-Pour créer un rôle personnalisé pour une ressource, suivez les étapes décrites dans [Rôles personnalisés Azure](../role-based-access-control-custom-roles.md).
+Pour créer un rôle personnalisé pour une ressource, suivez les étapes décrites dans [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
 
 Quand vous créez un rôle personnalisé, indiquez un nom descriptif afin de vous rappeler facilement du rôle intégré que vous souhaitez dupliquer.
 

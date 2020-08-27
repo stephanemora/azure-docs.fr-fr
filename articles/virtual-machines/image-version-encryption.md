@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245551"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816488"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -27,9 +27,9 @@ Le chiffrement côté serveur à l’aide de clés gérées par le client utilis
 
 Cet article nécessite que vous disposiez déjà d’un jeu de chiffrement de disque à utiliser pour votre image.
 
-- Pour utiliser uniquement une clé gérée par le client, consultez **Activer les clés gérées par le client avec un chiffrement côté serveur** à l’aide du [portail Azure](./windows/disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Pour utiliser uniquement une clé gérée par le client, consultez **Activer les clés gérées par le client avec un chiffrement côté serveur** à l’aide du [portail Azure](./disks-enable-customer-managed-keys-portal.md) ou de [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Pour utiliser tant les clés gérées par la plateforme que les clés gérées par le client (à des fins de double chiffrement), consultez **Activer le chiffrement double au repos** à l’aide du [Portail Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) ou de [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Pour utiliser tant les clés gérées par la plateforme que les clés gérées par le client (à des fins de double chiffrement), consultez **Activer le chiffrement double au repos** à l’aide du [Portail Azure](./disks-enable-double-encryption-at-rest-portal.md) ou de [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > Pour accéder au portail Azure, vous devez utiliser le lien [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates). Le double chiffrement au repos n’est actuellement pas visible dans le portail Azure public sans utiliser le lien.
 

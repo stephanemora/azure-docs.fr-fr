@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751044"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918041"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutoriel : Interroger un index Recherche cognitive à partir de Power Apps
 
@@ -261,5 +261,4 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 Power Apps permet de développer rapidement des applications personnalisées. Maintenant que vous savez comment vous connecter à un index de recherche, apprenez-en davantage sur la création d’une expérience de visualisation enrichie dans une application Power Apps personnalisée.
 
 > [!div class="nextstepaction"]
-> [Catalogue de formations Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Catalogue de formations Power Apps](/powerapps/learning-catalog/get-started)

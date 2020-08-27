@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 30b90b89300d6ca63255a000c7a6f7723f648056
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 64b38d0e776a0e3dab155704dcc368cc738c278e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118758"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855420"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Application web qui connecte les utilisateurs : Configuration de code
 
@@ -225,7 +225,7 @@ Pour ajouter l’authentification auprès la plateforme d’identités Microsoft
 
 1. Ajoutez les packages NuGet [Microsoft.Identity.web](https://www.nuget.org/packages/Microsoft.Identity.Web) et [Microsoft.Identity.web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) à votre projet. Supprimez le package Microsoft.AspNetCore.Authentication.AzureAD.UI NuGet, s’il est présent.
 
-2. Mettez à jour le code dans `ConfigureServices` afin qu’il utilise les méthodes `AddMicrosoftWebAppAuthentication` et `AddMicrosoftIdentityUI`.
+2. Mettez à jour le code dans `ConfigureServices` afin qu’il utilise les méthodes `AddMicrosoftIdentityWebAppAuthentication` et `AddMicrosoftIdentityUI`.
 
    ```c#
    public class Startup
@@ -234,7 +234,7 @@ Pour ajouter l’authentification auprès la plateforme d’identités Microsoft
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
+     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -259,16 +259,16 @@ Pour ajouter l’authentification auprès la plateforme d’identités Microsoft
    ```
 
 Dans le code ci-dessus :
-- La méthode d’extension `AddMicrosoftWebAppAuthentication` est définie dans **Microsoft.Identity.web**. Elle effectue les actions suivantes :
+- La méthode d’extension `AddMicrosoftIdentityWebAppAuthentication` est définie dans **Microsoft.Identity.web**. Elle effectue les actions suivantes :
   - Ajoute le service d’authentification.
   - Configure les options pour lire le fichier de configuration (ici à partir de la section « AzureAD »).
   - Configure les options d’OpenID Connect afin que l’autorité soit le point de terminaison de la Plateforme d’identités Microsoft.
   - Valide l’émetteur du jeton.
   - Garantit que les revendications correspondant au nom sont mappées à partir de la revendication `preferred_username` dans le jeton d’ID.
 
-- En plus de l’objet de configuration, vous pouvez spécifier le nom de la section de configuration lors de l’appel de `AddMicrosoftWebAppAuthentication`. Par défaut, il s’agit de `AzureAd`.
+- En plus de l’objet de configuration, vous pouvez spécifier le nom de la section de configuration lors de l’appel de `AddMicrosoftIdentityWebAppAuthentication`. Par défaut, il s’agit de `AzureAd`.
 
-- `AddMicrosoftWebAppAuthentication` a d’autres paramètres pour des scénarios avancés. Par exemple, le suivi des événements de l’intergiciel OpenId Connect peut vous aider à dépanner votre application web si l’authentification ne fonctionne pas. La définition du paramètre facultatif `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` sur `true` vous montrera comment les informations sont traitées par le jeu d’intergiciels d’ASP.NET Core lors de leur progression de la réponse HTTP à l’identité de l’utilisateur dans `HttpContext.User`.
+- `AddMicrosoftIdentityWebAppAuthentication` a d’autres paramètres pour des scénarios avancés. Par exemple, le suivi des événements de l’intergiciel OpenId Connect peut vous aider à dépanner votre application web si l’authentification ne fonctionne pas. La définition du paramètre facultatif `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` sur `true` vous montrera comment les informations sont traitées par le jeu d’intergiciels d’ASP.NET Core lors de leur progression de la réponse HTTP à l’identité de l’utilisateur dans `HttpContext.User`.
 
 - La méthode d’extension `AddMicrosoftIdentityUI` est définie dans **Microsoft.Identity.web.UI**. Il fournit un contrôleur par défaut pour gérer la connexion et la déconnexion.
 

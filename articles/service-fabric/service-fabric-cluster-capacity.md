@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904817"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718099"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -56,7 +56,7 @@ Le nombre de types de nœuds initiaux dépend de l’objectif de votre cluster e
 
     Service Fabric prend en charge les clusters qui s’étendent sur des [Zones de disponibilité](../availability-zones/az-overview.md) en déployant des types de nœuds qui sont épinglés à des zones spécifiques pour assurer une haute disponibilité de vos applications. Les Zones de disponibilité nécessitent une planification supplémentaire du type de nœud et des exigences minimales. Pour plus d’informations, consultez [Topologie recommandée de type de nœud principal de clusters Azure Service Fabric s’étendant sur des zones de disponibilité](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
-Lorsque vous déterminez le nombre et les propriétés des types de nœuds pour la création initiale de votre cluster, gardez à l'esprit que vous pouvez toujours ajouter, modifier ou supprimer des types de nœuds (non principaux) une fois que votre cluster est déployé. [Les types de nœuds principaux peuvent également être modifiés](service-fabric-scale-up-node-type.md) dans les clusters en cours d’exécution (bien que de telles opérations exigent beaucoup de planification et de prudence dans les environnements de production).
+Lorsque vous déterminez le nombre et les propriétés des types de nœuds pour la création initiale de votre cluster, gardez à l'esprit que vous pouvez toujours ajouter, modifier ou supprimer des types de nœuds (non principaux) une fois que votre cluster est déployé. [Les types de nœuds principaux peuvent également être modifiés](service-fabric-scale-up-primary-node-type.md) dans les clusters en cours d’exécution (bien que de telles opérations exigent beaucoup de planification et de prudence dans les environnements de production).
 
 Une autre considération pour les propriétés de votre type de nœud est le niveau de durabilité, qui détermine les privilèges que les VM d'un type de nœud ont au sein de l'infrastructure Azure. Utilisez la taille des VM que vous choisissez pour votre cluster et le nombre d'instances que vous attribuez aux différents types de nœuds pour vous aider à déterminer le niveau de durabilité approprié pour chacun de vos types de nœuds, comme décrit ci-après.
 
@@ -105,7 +105,7 @@ Utilisez les niveaux de durabilité Argent ou Or pour tous les types de nœuds q
 Suivez ces recommandations pour la gestion des types de nœuds avec durabilité Argent ou Or :
 
 * Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun.
-* Adoptez des méthodes plus sûres pour la modification des tailles de machine virtuelle (augmentation ou réduction d’échelle). La modification de la taille de la machine virtuelle sur un groupe complet nécessite une planification minutieuse et de la prudence. Pour plus d’informations, consultez [Effectuer un scale-up d’un type de nœud Service Fabric](service-fabric-scale-up-node-type.md)
+* Adoptez des méthodes plus sûres pour la modification des tailles de machine virtuelle (augmentation ou réduction d’échelle). La modification de la taille de la machine virtuelle sur un groupe complet nécessite une planification minutieuse et de la prudence. Pour plus d’informations, consultez [Effectuer un scale-up d’un type de nœud Service Fabric](service-fabric-scale-up-primary-node-type.md)
 * Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé. Votre cluster entrera en état d'erreur si vous passez en dessous de ce seuil, et vous devrez nettoyer manuellement l'état (`Remove-ServiceFabricNodeState`) des nœuds supprimés.
 * Chaque groupe de machines virtuelles identiques avec le niveau de durabilité Silver ou Gold doit être mappé à son propre type de nœud dans le cluster Service Fabric. Le mappage de plusieurs groupes de machines virtuelles identiques à un type de nœud unique empêche le fonctionnement correct de la coordination entre le cluster Service Fabric et l’infrastructure Azure.
 * Ne supprimez pas d’instances de machine virtuelle aléatoires. Utilisez toujours la fonctionnalité de scale-in du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires risque de créer des déséquilibres au sein de l’instance de machine virtuelle répartie sur les [domaines de mise à niveau](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) et sur les [domaines d’erreur](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Ce déséquilibre peut nuire à la capacité du système à équilibrer correctement la charge entre les instances de service/réplicas de service.

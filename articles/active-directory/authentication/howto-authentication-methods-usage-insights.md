@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680186"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717164"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
@@ -98,6 +98,6 @@ Actuellement , le rapport ne peut pas être filtré de manière à exclure les u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utilisation de l’API de rapport d’utilisation des méthodes d’authentification](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Utilisation de l’API de rapport d’utilisation des méthodes d’authentification](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Choix des méthodes d’authentification pour votre organisation](concept-authentication-methods.md)
 - [Expérience d’inscription combinée](concept-registration-mfa-sspr-combined.md)

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3ea1c42234267bdbc5f8a7d35f0fd73bbb59b33c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553426"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918024"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
 
 Dans la Recherche cognitive Azure, la [syntaxe de requête simple](query-simple-syntax.md) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
 
-Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple, en renseignant le paramètre `search=` d’une opération [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple, en renseignant le paramètre `search=` d’une opération [Rechercher des documents](/rest/api/searchservice/search-documents).
 
 L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](query-lucene-syntax.md), qui prend en charge des structures de requête plus complexes comme la recherche approximative et par caractères génériques, dont le traitement peut être plus long. Pour plus d’informations et pour obtenir des exemples illustrant la syntaxe complète, consultez l’article sur l’[utilisation de la syntaxe Lucene complète](search-query-lucene-examples.md).
 
@@ -103,7 +103,7 @@ Vous avez peut-être remarqué le score de recherche dans la réponse. Des score
 
 ## <a name="example-2-look-up-by-id"></a>Exemple 2 : Recherche par ID
 
-Cet exemple est un peu atypique, mais lors de l’évaluation des comportements de recherche, vous souhaiterez peut-être inspecter l’ensemble du contenu d’un document spécifique afin de comprendre pourquoi il a été inclus dans les résultats ou exclu de ces derniers. Pour obtenir un document unique dans sa totalité, utilisez une [opération de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document) afin de transmettre l’ID du document.
+Cet exemple est un peu atypique, mais lors de l’évaluation des comportements de recherche, vous souhaiterez peut-être inspecter l’ensemble du contenu d’un document spécifique afin de comprendre pourquoi il a été inclus dans les résultats ou exclu de ces derniers. Pour obtenir un document unique dans sa totalité, utilisez une [opération de recherche](/rest/api/searchservice/lookup-document) afin de transmettre l’ID du document.
 
 Tous les documents ont un identificateur unique. Pour tester la syntaxe d’une requête de recherche, retournez tout d’abord une liste d’ID de document afin d’en trouver un à utiliser. Pour NYC Jobs, les identificateurs sont stockés dans le champ `id`.
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exemple 3 : Requêtes de filtre
 
-La [syntaxe de filtre](https://docs.microsoft.com/azure/search/search-query-odata-filter) est une expression OData que vous pouvez utiliser avec une **recherche** ou de façon autonome. Un filtre autonome, dépourvu de paramètre de recherche, est utile quand l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. En l’absence d’une chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni scoring (tous les scores sont égaux à 1), ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
+La [syntaxe de filtre](./search-query-odata-filter.md) est une expression OData que vous pouvez utiliser avec une **recherche** ou de façon autonome. Un filtre autonome, dépourvu de paramètre de recherche, est utile quand l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. En l’absence d’une chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni scoring (tous les scores sont égaux à 1), ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
@@ -147,7 +147,7 @@ Une autre méthode efficace pour combiner un filtre et une recherche consiste à
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Pour plus d’informations sur la fonction, consultez la [description de la fonction search.ismatch dans les exemples de filtre](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+Pour plus d’informations sur la fonction, consultez la [description de la fonction search.ismatch dans les exemples de filtre](./search-query-odata-full-text-search-functions.md#examples).
 
 ## <a name="example-4-range-filters"></a>Exemple 4 : Filtres de plage
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ## <a name="example-5-geo-search"></a>Exemple 5 : Recherche basée sur la localisation
 
-L’exemple d’index inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (4) pour réduire ou étendre la surface de la requête.
+L’exemple d’index inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](./search-query-odata-geo-spatial-functions.md#examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (4) pour réduire ou étendre la surface de la requête.
 
 L’exemple ci-après est fourni au format POST à des fins de lisibilité :
 
@@ -288,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier des requêtes dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST à l’aide de la syntaxe simple par défaut.
 
-* [Interroger un index à l’aide du SDK .NET](search-query-dotnet.md)
-* [Interroger un index à l’aide de l’API REST](search-create-index-rest-api.md)
+* [Interroger un index à l’aide du SDK .NET](./search-get-started-dotnet.md)
+* [Interroger un index à l’aide de l’API REST](./search-get-started-powershell.md)
 
 Vous trouverez des informations de référence supplémentaires sur la syntaxe et sur l’architecture de requête, ainsi que des exemples, en cliquant sur les liens suivants :
 
 + [Exemples de syntaxe de requête Lucene pour créer des requêtes avancées](search-query-lucene-examples.md)
 + [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
-+ [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Syntaxe de filtre (Filter) et de tri (Orderby)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Requête complète Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Syntaxe de filtre (Filter) et de tri (Orderby)](/rest/api/searchservice/odata-expression-syntax-for-azure-search)

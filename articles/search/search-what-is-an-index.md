@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496490"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932880"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Créer un index de recherche de base dans Recherche cognitive Azure
 
@@ -26,10 +26,10 @@ La structure physique d’un index est déterminée par le schéma, les champs m
 Vous pouvez créer un index à l’aide des outils et API suivants :
 
 * Dans le portail Azure, utilisez l’Assistant **Ajouter un index** ou **Importer des données**
-* À l’aide de [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* À l’aide du [SDK .NET](search-create-index-dotnet.md)
+* À l’aide de [Create Index (REST API)](/rest/api/searchservice/create-index)
+* À l’aide du [SDK .NET](./search-get-started-dotnet.md)
 
-Il est plus facile d’apprendre avec un outil du portail. Le portail applique des exigences et des règles de schéma pour des types de données spécifiques, telles que l’interdiction de la recherche en texte intégral sur les champs numériques. Une fois que vous disposez d’un index exploitable, vous pouvez effectuer la transition vers le code en extrayant la définition JSON du service à l’aide de [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) et en l’ajoutant à votre solution.
+Il est plus facile d’apprendre avec un outil du portail. Le portail applique des exigences et des règles de schéma pour des types de données spécifiques, telles que l’interdiction de la recherche en texte intégral sur les champs numériques. Une fois que vous disposez d’un index exploitable, vous pouvez effectuer la transition vers le code en extrayant la définition JSON du service à l’aide de [Get Index (REST API)](/rest/api/searchservice/get-index) et en l’ajoutant à votre solution.
 
 ## <a name="recommended-workflow"></a>Workflow recommandé
 
@@ -59,7 +59,7 @@ L’élaboration d’un index final est un processus itératif. Il est courant d
 
    ![Ajouter une page d’index avec les attributs par type de données](media/search-what-is-an-index//field-definitions.png "Ajouter une page d’index avec les attributs par type de données")
 
-1. Téléchargez le schéma d’index à l’aide de [Get Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-postman.md). Vous disposez maintenant d’une représentation JSON de l’index que vous pouvez adapter pour le code.
+1. Téléchargez le schéma d’index à l’aide de [Get Index (REST API)](/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-postman.md). Vous disposez maintenant d’une représentation JSON de l’index que vous pouvez adapter pour le code.
 
 1. [Chargez votre index avec des données](search-what-is-data-import.md). La Recherche cognitive Azure accepte les documents JSON. Pour charger vos données par programmation, vous pouvez utiliser Postman avec des documents JSON dans la charge utile de demande. S’il n’est pas facilement d’exprimer vos données au format JSON, cette étape sera la plus fastidieuse. 
 
@@ -180,7 +180,7 @@ Les champs ont un nom, un type qui classe les données stockées et des attribut
 | Edm.DateTimeOffset |Valeurs de date et heure représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | Edm.GeographyPoint |Point représentant un emplacement géographique de la planète. |
 
-Pour en savoir plus, consultez les [types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Pour en savoir plus, consultez les [types de données pris en charge](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Les champs de type chaîne sont souvent marqués avec les attributs « Possibil
 |« Possibilité de recherche » |Recherche en texte intégral, avec analyse lexicale (césure de mots) lors de l’indexation. Si vous définissez un champ avec possibilité de recherche sur une valeur comme « journée ensoleillée », cette valeur est fractionnée au niveau interne en jetons individuels « journée » et « ensoleillée ». Pour en savoir plus, consultez la rubrique [Fonctionnement de la recherche en texte intégral](search-lucene-query-architecture.md).|  
 |« Filtrable » |Référencé dans les requêtes $filter. Les champs filtrables de type `Edm.String` ou `Collection(Edm.String)` ne font pas l’objet d’une analyse lexicale, les comparaisons ne concernent donc que les correspondances exactes. Par exemple, si vous définissez un champ avec la valeur « journée ensoleillée », la requête `$filter=f eq 'sunny'` ne renverra aucune correspondance, contrairement à `$filter=f eq 'sunny day'`. |  
 |« Triable » |Le système trie les résultats par score par défaut, mais vous pouvez configurer le tri en fonction des champs des documents. Les champs de type `Collection(Edm.String)` ne sont pas « triables ». |  
-|« À choix multiple » |Généralement utilisé dans une présentation des résultats de recherche qui inclut un nombre de correspondances par catégorie (par exemple, les hôtels dans une ville spécifique). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Les champs de type `Edm.String` qui sont « filtrables », « triables » ou « à choix multiple » ne peuvent pas dépasser 32 Ko de longueur. Pour plus d’informations, consultez l’article [Créer un index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|« À choix multiple » |Généralement utilisé dans une présentation des résultats de recherche qui inclut un nombre de correspondances par catégorie (par exemple, les hôtels dans une ville spécifique). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Les champs de type `Edm.String` qui sont « filtrables », « triables » ou « à choix multiple » ne peuvent pas dépasser 32 Ko de longueur. Pour plus d’informations, consultez l’article [Créer un index (API REST)](/rest/api/searchservice/create-index).|  
 |« Clé » |Identificateur unique des documents dans l’index. Un seul champ doit être choisi comme champ clé et il doit être de type `Edm.String`.|  
 |« Récupérable » |Définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ (comme *profit margin*) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu’il soit visible par l’utilisateur final. Il doit être `true` for `key` .|  
 
 Même si vous pouvez ajouter de nouveaux champs à tout moment, les définitions de champ existantes sont verrouillées pour toute la durée de vie de l’index. C’est pourquoi les développeurs utilisent généralement le portail pour créer des index simples, tester des idées ou rechercher une définition de paramètre. Il est plus efficace d’effectuer des itérations fréquentes sur la conception d’un index si vous suivez une approche basée sur du code pour reconstruire l’index facilement.
 
 > [!NOTE]
-> Les API que vous utilisez pour créer un index ont différents comportements par défaut. Pour les [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la plupart des attributs sont activés par défaut (par exemple, « Possibilité de recherche » et « Récupérable » sont actifs pour les champs de type chaîne) et vous n’avez généralement besoin de les définir que si vous voulez les désactiver. Pour le Kit de développement logiciel (SDK) .NET, l’inverse est vrai. Pour les propriétés que vous ne définissez pas explicitement, l’option par défaut désactive le comportement de recherche correspondante, sauf si vous l’activez de façon spécifique.
+> Les API que vous utilisez pour créer un index ont différents comportements par défaut. Pour les [API REST](/rest/api/searchservice/Create-Index), la plupart des attributs sont activés par défaut (par exemple, « Possibilité de recherche » et « Récupérable » sont actifs pour les champs de type chaîne) et vous n’avez généralement besoin de les définir que si vous voulez les désactiver. Pour le Kit de développement logiciel (SDK) .NET, l’inverse est vrai. Pour les propriétés que vous ne définissez pas explicitement, l’option par défaut désactive le comportement de recherche correspondante, sauf si vous l’activez de façon spécifique.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ L’élément analyseurs définit le nom de l’analyseur linguistique à utilis
 
 ## `suggesters`
 
-Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble de documents ou d’expressions suggérés. 
+Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble de documents ou d’expressions suggérés. 
 
 Les champs ajoutés à un suggesteur sont utilisés pour générer des termes de recherche à saisie semi-automatique (« type-ahead »). Tous les termes de recherche sont créés pendant l’indexation et stockés séparément. Pour plus d’informations sur la création d’une structure de suggesteur, consultez [Ajouter des suggesteurs](index-add-suggesters.md).
 
