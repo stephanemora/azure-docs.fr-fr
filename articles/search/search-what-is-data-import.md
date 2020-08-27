@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202294"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932761"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Vue d’ensemble de l’importation des données - Recherche cognitive Azure
 
@@ -34,12 +34,12 @@ Cette approche est plus flexible que le modèle d’extraction, car vous pouvez 
 
 Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents dans un index :
 
-+ [Ajout, mise à jour ou suppression de documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [classe indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Ajout, mise à jour ou suppression de documents (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche cognitive Azure à l’aide de PowerShell](search-create-index-rest-api.md) ou [Guide de démarrage rapide C# : Créer un index Recherche cognitive Azure à l’aide du Kit de développement logiciel (SDK) .NET](search-get-started-dotnet.md).
+Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche cognitive Azure à l’aide de PowerShell](./search-get-started-powershell.md) ou [Guide de démarrage rapide C# : Créer un index Recherche cognitive Azure à l’aide du Kit de développement logiciel (SDK) .NET](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -61,7 +61,7 @@ Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans 
 
 ### <a name="formulate-your-query"></a>Formuler votre requête
 
-Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
+Deux méthodes permettent d’effectuer une [recherche dans un index à l’aide de l’API REST](/rest/api/searchservice/Search-Documents). L’une consiste à émettre une requête HTTP POST, dans laquelle vos paramètres de requête sont définis dans un objet JSON contenu dans le corps de la requête. L’autre consiste à émettre une requête HTTP GET, dans laquelle vos paramètres de requête seront définis à l’intérieur de l’URL de requête. Notez que les limites en matière de taille des paramètres de requête sont [plus souples](/rest/api/searchservice/Search-Documents) pour la méthode POST que pour la méthode GET. Pour cette raison, nous vous recommandons d’utiliser POST, à moins que la situation justifie l’utilisation de GET.
 
 Pour POST et GET, vous devez fournir votre *nom de service*, *nom d’index*et une *version de l’API* dans l’URL de la demande. 
 

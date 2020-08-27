@@ -3,13 +3,13 @@ title: Charges de travail de conteneur
 description: Découvrez comment exécuter et mettre à l’échelle des applications à partir d’images conteneur sur Azure Batch. Créez un pool de nœuds de calcul prenant en charge l’exécution de tâches de conteneur.
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726721"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933543"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 

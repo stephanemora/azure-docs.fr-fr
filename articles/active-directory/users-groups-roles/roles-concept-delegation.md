@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498223"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798599"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Déléguer l’administration dans Azure Active Directory
 
@@ -60,7 +60,7 @@ Déterminez les tâches Active Directory qui sont exécutées par les administra
 Chaque tâche doit être évaluée du point de vue de la fréquence, de l’importance et de la difficulté. Ces critères sont des aspects vitaux de la définition de tâche, car ils déterminent si une autorisation doit être déléguée :
 
 * Les tâches que vous effectuez de façon routinière, qui présentent un risque limité et qui sont très faciles à effectuer sont d’excellents candidats à la délégation.
-* Les tâches que vous effectuez rarement, mais qui ont un impact important dans l’organisation et qui nécessitent des niveaux élevés de compétences doivent faire l’objet d’une attention particulière en vue de leur délégation. Au lieu de cela, vous pouvez [temporairement élever un compte au rôle requis](../active-directory-privileged-identity-management-configure.md) ou réattribuer la tâche.
+* Les tâches que vous effectuez rarement, mais qui ont un impact important dans l’organisation et qui nécessitent des niveaux élevés de compétences doivent faire l’objet d’une attention particulière en vue de leur délégation. Au lieu de cela, vous pouvez [temporairement élever un compte au rôle requis](../privileged-identity-management/pim-configure.md) ou réattribuer la tâche.
 
 ## <a name="delegate-app-administration"></a>Déléguer l’administration des applications
 
@@ -110,7 +110,7 @@ Les attaquants qui obtiennent le contrôle de comptes privilégiés peuvent caus
 
 ## <a name="elevate-privilege-temporarily"></a>Élever le privilège temporairement
 
-Pour la plupart des activités quotidiennes, tous les utilisateurs ne requièrent pas des droits d’administrateur général, et tous ne doivent pas être définitivement affectés au rôle Administrateur général. Ainsi, quand les utilisateurs ont besoin des autorisations d’un administrateur général, ils doivent activer l’attribution de rôle dans Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) sur leur propre compte ou sur un autre compte d’administration.
+Pour la plupart des activités quotidiennes, tous les utilisateurs ne requièrent pas des droits d’administrateur général, et tous ne doivent pas être définitivement affectés au rôle Administrateur général. Ainsi, quand les utilisateurs ont besoin des autorisations d’un administrateur général, ils doivent activer l’attribution de rôle dans Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) sur leur propre compte ou sur un autre compte d’administration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

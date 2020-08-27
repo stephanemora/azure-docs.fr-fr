@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: a6504f28b891fb16bd588b899b7a0402b65b4e44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318281"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782122"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -64,6 +64,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accès aux journaux d’Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accès aux journaux d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
 | Event Hubs |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schéma non disponible. |
 | Pare-feu Azure | Schéma non disponible. |

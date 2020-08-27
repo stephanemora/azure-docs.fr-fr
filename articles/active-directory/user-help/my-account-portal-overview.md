@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422406"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798157"
 ---
 # <a name="what-is-the-my-account-portal"></a>Qu’est-ce que le portail Mon compte ?
 
@@ -33,11 +33,11 @@ Vous pouvez accéder au portail **Mon compte** (https://myaccount.microsoft.com)
 ![Portail Mon compte, page Vue d’ensemble](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui essaient d’accéder au portail Mon compte pour mettre à jour leurs informations de sécurité, les informations des appareils, le mot de passe, les organisations connectées, les paramètres de langue, la confidentialité ou les informations de connexion précédentes. Si vous êtes administrateur et que vous recherchez des informations sur l’activation de l’authentification et d’autres fonctionnalités d’Azure Active Directory (Azure AD) pour vos employés et d’autres utilisations, consultez la [documentation d’Azure AD pour les administrateurs](https://docs.microsoft.com/azure/active-directory/).
+>Cet article s’adresse aux utilisateurs qui essaient d’accéder au portail Mon compte pour mettre à jour leurs informations de sécurité, les informations des appareils, le mot de passe, les organisations connectées, les paramètres de langue, la confidentialité ou les informations de connexion précédentes. Si vous êtes administrateur et que vous recherchez des informations sur l’activation de l’authentification et d’autres fonctionnalités d’Azure Active Directory (Azure AD) pour vos employés et d’autres utilisations, consultez la [documentation d’Azure AD pour les administrateurs](../index.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Choisir d’afficher ou gérer vos [informations de sécurité](user-help-security-info-overview.md)
+- Choisir d’afficher ou gérer vos [informations de sécurité](./security-info-setup-signin.md)
 
 - Afficher ou gérer vos [appareils](my-account-portal-devices-page.md) connectés
 

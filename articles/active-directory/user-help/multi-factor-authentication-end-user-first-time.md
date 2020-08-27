@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266251"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795981"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Qu’est-ce que la page Vérification supplémentaire ?
 
@@ -33,7 +33,7 @@ La vérification à deux facteurs est plus sécurisée qu’un simple mot de pas
 La vérification à deux facteurs peut aider à empêcher les pirates malveillants de se faire passer pour vous. Même s’ils ont votre mot de passe, il est probable qu’ils n’aient pas votre appareil.
 
 >[!Important]
->Si vous êtes administrateur et que vous recherchez des informations sur l’activation de la vérification à deux facteurs pour vos employés ou d’autres utilisateurs, consultez la [documentation sur l’authentification Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/). Cet article s’adresse aux utilisateurs qui essaient d’utiliser la vérification à deux facteurs avec un compte professionnel ou scolaire (par exemple, alain@contoso.com).
+>Si vous êtes administrateur et que vous recherchez des informations sur l’activation de la vérification à deux facteurs pour vos employés ou d’autres utilisateurs, consultez la [documentation sur l’authentification Azure Active Directory](../authentication/index.yml). Cet article s’adresse aux utilisateurs qui essaient d’utiliser la vérification à deux facteurs avec un compte professionnel ou scolaire (par exemple, alain@contoso.com).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Qui décide si vous utilisez cette fonctionnalité ?
 

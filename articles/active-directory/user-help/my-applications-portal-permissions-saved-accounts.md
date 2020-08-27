@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 4249f753181ea4b54d7e1e1f098717ef669bae4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744025"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798106"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Modifier ou révoquer des autorisations d’application dans le portail Mes applications
 
@@ -26,7 +26,7 @@ Quand vous utilisez des applications de l’organisation dans le portail **Mes a
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](../manage-apps/access-panel-collections.md).
 
 ## <a name="manage-app-permissions"></a>Gérer les autorisations d’une application
 

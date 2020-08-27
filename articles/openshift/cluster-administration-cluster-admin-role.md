@@ -7,15 +7,15 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139094"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815519"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Rôle d'administrateur de client Azure Red Hat OpenShift
-
+ 
 Vous êtes l’administrateur d’un cluster Azure Red Hat OpenShift. Votre compte dispose de plus en plus d’autorisations et d’un accès à tous les projets créés par l’utilisateur.
 
 Quand le rôle d’autorisation customer-admin-cluster est lié à votre compte, celui-ci peut automatiquement gérer un projet.

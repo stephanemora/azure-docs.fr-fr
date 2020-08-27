@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 1574ea1c6f97606198d071d79ea69d58304a6159
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053556"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934121"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>À propos de l’API de flux d’entrée audio du SDK Speech
 
@@ -75,5 +76,5 @@ Les étapes suivantes sont nécessaires à l’utilisation des flux d’entrée 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
+- [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
 - [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

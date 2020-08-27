@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle un cluster Service Fabric
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: eecf398359470f6e5e151c53eb63b3cb56efbe39
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056752"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854620"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en ajoutant un type de nœud
 Cet article explique comment effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en ajoutant un type de nœud supplémentaire au cluster. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée.
@@ -43,7 +43,7 @@ $resourceGroupName = "myResourceGroup"
 $location = "WestUS"
 
 New-AzResourceGroup `
-    -Name $resourceGroupName
+    -Name $resourceGroupName `
     -Location $location
 ```
 3. Renseignez les valeurs des paramètres dans les fichiers de modèle. 
@@ -56,7 +56,7 @@ $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
+    -TemplateParameterFile $parameterFilePath
 ```
 
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Ajouter un type de nœud primaire au cluster

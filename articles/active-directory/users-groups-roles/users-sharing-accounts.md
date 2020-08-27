@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164221"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798395"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -59,7 +59,7 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 * Agent d’authentification unique avec mot de passe
 * [Affectation de groupe](groups-self-service-management.md)
 * Applications de mot de passe personnalisé
-* [Tableau de bord/rapports d’utilisation des applications](../active-directory-passwords-get-insights.md)
+* [Tableau de bord/rapports d’utilisation des applications](../authentication/howto-sspr-reporting.md)
 * Portails d’accès des utilisateurs finaux
 * [Proxy d’application](../manage-apps/application-proxy.md)
 * [Marketplace Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
@@ -72,10 +72,10 @@ Pour utiliser Azure AD pour partager un compte, vous devez effectuer les opérat
 * Configurer l’application pour l’authentification unique avec mot de passe.
 * Utiliser [l’affectation basée sur le groupe](groups-saasapps.md) et sélectionner l’option permettant d’entrer des informations d’identification partagées.
 
-Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authentication (MFA) (en savoir plus sur la [sécurisation des applications avec Azure AD](../authentication/concept-mfa-whichversion.md)) et déléguer la capacité de gérer les utilisateurs ayant accès à l’application à l’aide de la gestion de groupe [Libre-service Azure AD](groups-self-service-management.md).
+Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authentication (MFA) (en savoir plus sur la [sécurisation des applications avec Azure AD](../authentication/concept-mfa-howitworks.md)) et déléguer la capacité de gérer les utilisateurs ayant accès à l’application à l’aide de la gestion de groupe [Libre-service Azure AD](groups-self-service-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Gestion des applications dans Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protection des applications avec un accès conditionnel](../active-directory-conditional-access-azure-portal.md)
+* [Protection des applications avec un accès conditionnel](../conditional-access/overview.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](groups-self-service-management.md)

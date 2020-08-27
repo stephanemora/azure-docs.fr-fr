@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745735"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799483"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -27,9 +27,9 @@ Quand vous joignez votre appareil Windows 10 au réseau de votre organisation, l
 
 - Windows inscrit votre appareil sur le réseau de votre organisation, vous permettant d’accéder à vos ressources à l’aide de votre compte personnel. Une fois votre appareil inscrit, Windows le joint au réseau ; vous pouvez alors utiliser le nom d’utilisateur et le mot de passe de votre organisation pour vous connecter et accéder aux ressources restreintes.
 
-- Selon les choix de votre organisation, vous devrez peut-être configurer une vérification en deux étapes à travers [l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md) ou des [informations de sécurité](user-help-security-info-overview.md).
+- Selon les choix de votre organisation, vous devrez peut-être configurer une vérification en deux étapes à travers [l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md) ou des [informations de sécurité](./security-info-setup-signin.md).
 
-- Selon les choix de votre organisation, vous pouvez être automatiquement inscrit dans une solution de gestion des appareils mobiles, comme Microsoft Intune. Pour plus d’informations sur l’inscription dans Microsoft Intune, consultez [Inscrire votre appareil sur Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Selon les choix de votre organisation, vous pouvez être automatiquement inscrit dans une solution de gestion des appareils mobiles, comme Microsoft Intune. Pour plus d’informations sur l’inscription dans Microsoft Intune, consultez [Inscrire votre appareil sur Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - Vous suivrez le processus de connexion en utilisant l’authentification automatique avec votre compte professionnel.
 
@@ -115,4 +115,4 @@ Après avoir joint votre appareil au réseau de votre organisation, vous devriez
 
 - Si votre organisation vous demande d’inscrire votre appareil personnel, tel que votre téléphone, consultez [Inscrire votre appareil personnel sur le réseau de votre organisation](user-help-register-device-on-network.md).
 
-- Si votre organisation est managée à l’aide de Microsoft Intune et que vous avez des questions sur l’inscription, l'ouverture de session ou tout autre problème lié à Intune, consultez l’[aide utilisateur Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Si votre organisation est managée à l’aide de Microsoft Intune et que vous avez des questions sur l’inscription, l'ouverture de session ou tout autre problème lié à Intune, consultez l’[aide utilisateur Intune](/intune-user-help/use-managed-devices-to-get-work-done).

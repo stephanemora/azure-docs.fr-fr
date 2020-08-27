@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611286"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799551"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -107,7 +107,7 @@ Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre orga
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx).
+> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
 
 Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
 

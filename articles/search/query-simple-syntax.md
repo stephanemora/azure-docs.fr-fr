@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255328"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923379"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
@@ -21,7 +21,7 @@ La recherche cognitive Azure implémente deux langages de requête basés sur Lu
 
 L’analyseur simple est plus flexible, et tente d’interpréter une requête même si elle n’est pas parfaitement composée. Pour cette raison, il s’agit de l’analyseur par défaut pour les requêtes dans Recherche cognitive Azure. 
 
-La syntaxe simple est utilisée pour les expressions de requête passées dans le paramètre `search` d’une [requête de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents), et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre d’[expressions $filter](search-filters.md) de la même API de recherche dans des documents. Les paramètres `search` et `$filter` ont une syntaxe différente, avec leurs propres règles pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
+La syntaxe simple est utilisée pour les expressions de requête passées dans le paramètre `search` d’une [requête de recherche dans des documents](/rest/api/searchservice/search-documents), et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre d’[expressions $filter](search-filters.md) de la même API de recherche dans des documents. Les paramètres `search` et `$filter` ont une syntaxe différente, avec leurs propres règles pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
 
 Bien que l’analyseur simple soit basé sur la classe de l’[analyseur de requêtes simple Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html), l’implémentation dans Recherche cognitive Azure exclut la recherche approximative. Si vous avez besoin de la [recherche approximative](search-query-fuzzy.md) ou d’autres formes de requête avancée, utilisez plutôt la [syntaxe de requête Lucene complète](query-lucene-syntax.md).
 
@@ -66,7 +66,7 @@ Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères 
 
 Dans certains cas, vous rechercherez un caractère spécial, tel que l’émoji « ❤ » ou le signe « € ». Le cas échéant, assurez-vous que l’analyseur que vous utilisez n’ignore pas ces caractères.  L’analyseur standard ignore la plupart des caractères spéciaux de façon à ce qu’ils ne deviennent pas des jetons dans votre index.
 
-La première étape consiste donc à vous assurer que vous utilisez un analyseur qui prendra en compte ces jetons d’éléments. Par exemple, l’analyseur « Whitespace » prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons, donc la chaîne « ❤ » est considérée comme un jeton. En outre, un analyseur comme Microsoft English Analyzer (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
+La première étape consiste donc à vous assurer que vous utilisez un analyseur qui prendra en compte ces jetons d’éléments. Par exemple, l’analyseur « Whitespace » prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons, donc la chaîne « ❤ » est considérée comme un jeton. En outre, un analyseur comme Microsoft English Analyzer (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
 
 Lorsque vous utilisez des caractères Unicode, assurez-vous que les symboles sont correctement placés dans une séquence d’échappement dans l’URL de la requête (par exemple, pour « ❤ » utilisez la séquence d’échappement `%E2%9D%A4+`). Postman effectue cette traduction automatiquement.
 
@@ -119,6 +119,6 @@ Une recherche de termes est une requête portant sur un ou plusieurs termes et d
 + [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [Exemples de requêtes pour une recherche simple](search-query-simple-examples.md)
 + [Exemples de requêtes pour une recherche Lucene complète](search-query-lucene-examples.md)
-+ [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [API REST de recherche de documents](/rest/api/searchservice/Search-Documents)
 + [Syntaxe de requête Lucene](query-lucene-syntax.md)
-+ [Syntaxe d’expression OData](query-odata-filter-orderby-syntax.md) 
++ [Syntaxe d’expression OData](query-odata-filter-orderby-syntax.md)

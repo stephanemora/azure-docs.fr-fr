@@ -3,12 +3,12 @@ title: Équilibrer la charge de partition sur plusieurs instances – Azure Even
 description: Décrit comment équilibrer la charge de partition sur plusieurs instances de votre application à l’aide d’un processeur d’événements et du Kit de développement logiciel (SDK) Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bf3f05b823a784f4f3fc2074719ed346f769f5e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512314"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933791"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Équilibrer la charge de partition sur plusieurs instances de votre application
 Pour mettre à l’échelle votre application de traitement des événements, vous pouvez exécuter plusieurs instances de l’application et faire en sorte que celle-ci équilibre la charge entre elles. Dans les versions plus anciennes, [EventProcessorHost](event-hubs-event-processor-host.md) vous permettait d’équilibrer la charge entre plusieurs instances de votre programme et des événements de point de contrôle lors de la réception. Dans les versions plus récentes (à partir de 5.0), **EventProcessorClient** (.NET et Java) ou **EventHubConsumerClient** (Python et JavaScript) vous permet d’en faire de même. Le modèle de développement est simplifié par l’utilisation d’événements. Vous vous abonnez aux événements qui vous intéressent en inscrivant un gestionnaire d’événements.
@@ -88,7 +88,7 @@ Par défaut, la fonction qui traite les événements est appelée séquentiellem
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les démarrages rapides suivants :
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)

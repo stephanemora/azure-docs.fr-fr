@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6f633a585e4fa6ebd12e8d12408847b5ee758855
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513012"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855916"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
 
@@ -33,7 +33,7 @@ Tout d’abord, il est important de comprendre la différence entre les opérati
 
 Le plan de données est le même entre le modèle de déploiement classique et les piles Resource Manager. La différence tient au fait que durant le processus de migration, Microsoft convertit la représentation des ressources depuis un modèle de déploiement classique vers celui de la pile Resource Manager. Par conséquent, vous devez utiliser de nouveaux outils, API et Kits de développement logiciel (SDK) pour gérer vos ressources dans la pile Resource Manager.
 
-![Diagramme illustrant la différence entre un plan de contrôle/gestion et le plan de données](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagramme illustrant la différence entre un plan de contrôle/gestion et le plan de données](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Avant de commencer la migration :
 
 Le workflow de migration se présente comme suit :
 
-![Diagramme illustrant le workflow de migration](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagramme illustrant le workflow de migration](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > Toutes les opérations décrites dans les sections suivantes sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, ré-exécutez la procédure de préparation, d’abandon ou de validation. Azure tente à nouveau l’action.
@@ -94,17 +94,17 @@ Azure démarre ensuite la migration des métadonnées depuis le modèle de dépl
 Une fois l’opération de préparation terminée, vous avez la possibilité de visualiser les ressources dans le modèle de déploiement classique et dans Resource Manager. Pour chaque service cloud du modèle de déploiement classique, nous créons un nom de groupe de ressources au format `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Il est impossible de sélectionner le nom d’un groupe de ressources créé pour les ressources migrées (autrement dit, à l’état « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement d’Azure Resource Manager pour déplacer des ressources vers le groupe de ressources souhaité. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](~/articles/resource-group-move-resources.md).
+> Il est impossible de sélectionner le nom d’un groupe de ressources créé pour les ressources migrées (autrement dit, à l’état « -Migré »). Toutefois, une fois la migration terminée, vous pouvez utiliser la fonctionnalité de déplacement d’Azure Resource Manager pour déplacer des ressources vers le groupe de ressources souhaité. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Les deux captures d’écran suivantes affichent le résultat après la réussite d’une opération de préparation. La première affiche un groupe de ressources contenant le service cloud d’origine. La deuxième affiche le nouveau groupe de ressources « -Migré » contenant les ressources Azure Resource Manager équivalentes.
 
-![Capture d’écran affichant le service cloud d’origine](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Capture d’écran affichant le service cloud d’origine](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Capture d’écran affichant les ressources Azure Resource Manager lors de l’opération de préparation](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Capture d’écran affichant les ressources Azure Resource Manager lors de l’opération de préparation](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 Voici un aperçu des coulisses de vos ressources à l’issue de la phase de préparation. Notez que la ressource dans le plan de données est la même. Elle est représentée dans le plan de gestion (modèle de déploiement classique) et dans le plan de contrôle (Resource Manager).
 
-![Diagramme de la phase de préparation](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagramme de la phase de préparation](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Les machines virtuelles ne faisant pas partie d’un réseau virtuel dans le modèle de déploiement classique sont arrêtées et désallouées dans cette phase de migration.
@@ -124,7 +124,7 @@ Si vous constatez certains problèmes, vous pouvez toujours abandonner la migrat
 ### <a name="abort"></a>Abandon
 Il s’agit d’une étape facultative si vous souhaitez annuler vos modifications, rétablir le modèle de déploiement classique et arrêter la migration. Cette opération supprime les métadonnées de Resource Manager (créées à l’étape de préparation) pour vos ressources. 
 
-![Diagramme de l’étape d’abandon](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagramme de l’étape d’abandon](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Après avoir terminé la validation, vous pouvez valider la migration. Les resso
 >
 >
 
-![Diagramme de l’étape de validation](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagramme de l’étape de validation](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Organigramme de la migration
 
 Cet organigramme montre comment procéder à la migration :
 
-![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Traduction du modèle de déploiement classique vers les ressources Resource Manager
 Les représentations des ressources du modèle de déploiement classique et de Resource Manager sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.

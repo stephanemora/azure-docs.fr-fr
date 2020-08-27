@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923396"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Vue d’ensemble du langage OData pour `$filter`, `$orderby` et `$select` dans la Recherche cognitive Azure
 
@@ -91,25 +91,25 @@ Dans cet exemple, la variable de portée `room` s’affiche dans le chemin de ch
 
 ### <a name="using-field-paths"></a>Utilisation des chemins de champs
 
-Les chemins de champs sont utilisés dans de nombreux paramètres des [API REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/). Le tableau ci-dessous répertorie tous les emplacements où ils peuvent être utilisés, ainsi que les restrictions qui s'y rapportent :
+Les chemins de champs sont utilisés dans de nombreux paramètres des [API REST de Recherche cognitive Azure](/rest/api/searchservice/). Le tableau ci-dessous répertorie tous les emplacements où ils peuvent être utilisés, ainsi que les restrictions qui s'y rapportent :
 
 | API | Nom du paramètre | Restrictions |
 | --- | --- | --- |
-| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `suggesters/sourceFields` | None |
-| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `scoringProfiles/text/weights` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
-| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `scoringProfiles/functions/fieldName` | Peuvent uniquement faire référence à des champs **filtrables** |
-| [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quand `queryType` est `full` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
-| [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Peut uniquement faire référence à des champs **à choix multiples** |
-| [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
-| [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
-| [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Peuvent uniquement faire référence à des champs appartenant à un [suggesteur](index-add-suggesters.md) |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Peuvent uniquement faire référence à des champs **filtrables** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) et [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Peuvent uniquement faire référence à des champs **triables** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [Lookup](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Peuvent uniquement faire référence à des champs **récupérables** |
+| [Créer](/rest/api/searchservice/create-index) ou [Mettre à jour](/rest/api/searchservice/update-index) l'index | `suggesters/sourceFields` | None |
+| [Créer](/rest/api/searchservice/create-index) ou [Mettre à jour](/rest/api/searchservice/update-index) l'index | `scoringProfiles/text/weights` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
+| [Créer](/rest/api/searchservice/create-index) ou [Mettre à jour](/rest/api/searchservice/update-index) l'index | `scoringProfiles/functions/fieldName` | Peuvent uniquement faire référence à des champs **filtrables** |
+| [action](/rest/api/searchservice/search-documents) | `search` quand `queryType` est `full` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
+| [action](/rest/api/searchservice/search-documents) | `facet` | Peut uniquement faire référence à des champs **à choix multiples** |
+| [action](/rest/api/searchservice/search-documents) | `highlight` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
+| [action](/rest/api/searchservice/search-documents) | `searchFields` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
+| [Suggest](/rest/api/searchservice/suggestions) et [Autocomplete](/rest/api/searchservice/autocomplete) | `searchFields` | Peuvent uniquement faire référence à des champs appartenant à un [suggesteur](index-add-suggesters.md) |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions) et [Autocomplete](/rest/api/searchservice/autocomplete) | `$filter` | Peuvent uniquement faire référence à des champs **filtrables** |
+| [Search](/rest/api/searchservice/search-documents) et [Suggest](/rest/api/searchservice/suggestions) | `$orderby` | Peuvent uniquement faire référence à des champs **triables** |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions) et [Lookup](/rest/api/searchservice/lookup-document) | `$select` | Peuvent uniquement faire référence à des champs **récupérables** |
 
 ## <a name="constants"></a>Constantes
 
-Dans OData, les constantes correspondent aux valeurs littérales d'un type [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) donné. Pour obtenir la liste des types pris en charge dans la Recherche cognitive Azure, consultez [Types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Les constantes des types de collection ne sont pas prises en charge.
+Dans OData, les constantes correspondent aux valeurs littérales d'un type [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM) donné. Pour obtenir la liste des types pris en charge dans la Recherche cognitive Azure, consultez [Types de données pris en charge](/rest/api/searchservice/supported-data-types). Les constantes des types de collection ne sont pas prises en charge.
 
 Le tableau suivant présente des exemples de constantes pour chaque type de données pris en charge par la Recherche cognitive Azure :
 
@@ -243,6 +243,6 @@ Les paramètres **$filter**, **$orderby** et **$select** sont abordés plus en d
 
 - [Navigation par facettes dans la Recherche cognitive Azure](search-faceted-navigation.md)
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
-- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)
 - [Syntaxe de requête Lucene](query-lucene-syntax.md)
 - [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)

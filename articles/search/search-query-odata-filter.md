@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201554"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934852"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Syntaxe OData $filter dans Recherche cognitive Azure
 
@@ -178,7 +178,7 @@ Rechercher tous les hôtels dans les 10 kilomètres d’un point de référence 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Rechercher tous les hôtels dans une fenêtre d’affichage décrite sous forme de polygone (où `Location` est un champ de type Edm.GeographyPoint). Le polygone doit être fermé, ce qui signifie que le premier point et le dernier doivent être le même. En outre, [les points doivent être répertoriés dans le sens inverse des aiguilles d’une montre](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Rechercher tous les hôtels dans une fenêtre d’affichage décrite sous forme de polygone (où `Location` est un champ de type Edm.GeographyPoint). Le polygone doit être fermé, ce qui signifie que le premier point et le dernier doivent être le même. En outre, [les points doivent être répertoriés dans le sens inverse des aiguilles d’une montre](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -214,7 +214,7 @@ Recherchez une correspondance entre des expressions tirées d’une collection, 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 ```
 
-Rechercher les documents avec le mot « waterfront ». Cette requête de filtre est identique à une [demande de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents) avec `search=waterfront`.
+Rechercher les documents avec le mot « waterfront ». Cette requête de filtre est identique à une [demande de recherche](/rest/api/searchservice/search-documents) avec `search=waterfront`.
 
 ```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
@@ -249,4 +249,4 @@ Recherchez les hôtels où les termes « hôtel » et « aéroport » sont sépa
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

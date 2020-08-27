@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb64a84388a370e77f39369f78c3086ec1cd00ec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731560"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798344"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Afficher les attributions de rôles personnalisées dans Azure Active Directory
 
@@ -39,7 +39,7 @@ Cette procédure décrit l’affichage des attributions d’un rôle avec une é
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Afficher les attributions de rôles à l’aide d’Azure AD PowerShell
 
-Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation. Cet article utilise le module [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles). Pour afficher les attributions pour une application unique à l’aide de PowerShell, vous pouvez utiliser les applets de commande dans [Attribuer des rôles personnalisés avec PowerShell.](roles-assign-powershell.md)
+Cette section décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation. Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles). Pour afficher les attributions pour une application unique à l’aide de PowerShell, vous pouvez utiliser les applets de commande dans [Attribuer des rôles personnalisés avec PowerShell.](roles-assign-powershell.md)
 
 ### <a name="prepare-powershell"></a>Préparer PowerShell
 

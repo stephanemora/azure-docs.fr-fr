@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146125"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934886"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Recherche approximative pour corriger les fautes d’orthographe et de frappe
 
@@ -136,5 +136,5 @@ L’intérêt de cet exemple développé est d’illustrer la clarté que la mis
 
 + [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure (architecture d’analyse de requête)](search-lucene-query-architecture.md)
 + [Navigateur de recherche](search-explorer.md)
-+ [Guide pratique pour interroger dans .NET](search-query-dotnet.md)
-+ [Guide pratique pour interroger dans REST](search-create-index-rest-api.md)
++ [Guide pratique pour interroger dans .NET](./search-get-started-dotnet.md)
++ [Guide pratique pour interroger dans REST](./search-get-started-powershell.md)

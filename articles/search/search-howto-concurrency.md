@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145277"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935192"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Gestion de l’accès concurrentiel dans la Recherche cognitive Azure
 
@@ -28,8 +28,8 @@ L’accès concurrentiel optimiste est implémenté via des contrôles de condit
 
 Toutes les ressources présentent une [*étiquette d’entité (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) qui fournit des informations sur la version de l’objet. En vérifiant d’abord l’ETag, vous pouvez éviter les mises à jour simultanées dans un flux de travail classique (obtention, modification locale, mise à jour) en vous assurant que l’ETag de la ressource correspond à celui de votre copie locale.
 
-+ L’API REST utilise un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur l’en-tête de demande.
-+ Le Kit de développement logiciel (SDK) .NET spécifie l’ETag via un objet accessCondition en définissant l’en-tête [If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur la ressource. Tout objet héritant de l’interface [IResourceWithETag](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) (Kit de développement logiciel [SDK] .NET) présente un objet accessCondition.
++ L’API REST utilise un [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur l’en-tête de demande.
++ Le Kit de développement logiciel (SDK) .NET spécifie l’ETag via un objet accessCondition en définissant l’en-tête [If-Match | If-Match-None](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) sur la ressource. Tout objet héritant de l’interface [IResourceWithETag](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) (Kit de développement logiciel [SDK] .NET) présente un objet accessCondition.
 
 À chaque fois que vous mettez à jour une ressource, son ETag change automatiquement. Lorsque vous implémentez la gestion de l’accès concurrentiel, vous placez simplement sur la requête de mise à jour une condition préalable qui exige que la ressource distante présente le même ETag que la copie de la ressource que vous avez modifiée sur le client. Si un processus simultané a déjà modifié la ressource distante, l’ETag ne correspondra pas à la condition préalable et la requête échouera avec l’erreur HTTP 412. Si vous utilisez le Kit de développement logiciel (SDK) .NET, cela se manifeste sous la forme d’une exception `CloudException`, où la méthode d’extension `IsAccessConditionFailed()` renvoie la valeur true.
 
@@ -217,6 +217,6 @@ Essayez de modifier l’un des exemples suivants pour inclure des ETags ou des o
 
 ## <a name="see-also"></a>Voir aussi
 
-[En-têtes de demande et de réponse HTTP communément utilisés](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-[Codes d’état HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-[Opérations d’index (API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[En-têtes de demande et de réponse HTTP communément utilisés](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[Codes d’état HTTP](/rest/api/searchservice/http-status-codes)
+[Opérations d’index (API REST)](/rest/api/searchservice/index-operations)

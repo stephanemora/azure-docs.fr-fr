@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422439"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798174"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gérer vos organisations connectées à partir de la page Organisations
 
@@ -30,7 +30,7 @@ La page **Organisations** du portail **Mon compte** vous permet de gérer les or
 - **Autres organisations.** Les autres organisations sont n’importe quel groupe auquel vous vous êtes connecté précédemment à l’aide de votre compte professionnel ou scolaire. Vous pouvez quitter ces organisations à tout moment.
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations d'organisation connectées à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des groupes et utilisateurs pour vos employés et d’autres utilisations, consultez la [documentation Gestion des utilisateurs en entreprise](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations d'organisation connectées à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des groupes et utilisateurs pour vos employés et d’autres utilisations, consultez la [documentation Gestion des utilisateurs en entreprise](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Afficher vos organisations
 
@@ -61,7 +61,7 @@ Vous pouvez quitter toute organisation qui n’est pas votre organisation d’or
 
 Après avoir affiché vos organisations, vous pouvez :
 
-- Afficher ou gérer vos [informations de sécurité](user-help-security-info-overview.md).
+- Afficher ou gérer vos [informations de sécurité](./security-info-setup-signin.md).
 
 - Afficher ou gérer vos [appareils](my-account-portal-devices-page.md) connectés.
 

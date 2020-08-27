@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088731"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816726"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -42,7 +42,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 - [Maintenance lancée par la plateforme](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
 - La machine virtuelle est en cours d’exécution sur le [matériel hôte détérioré](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) dont la défaillance prochaine est prédite
 - L’utilisateur a lancé une maintenance (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle).
-- Évictions d’instances de [machine virtuelle Spot](spot-vms.md) et de [groupe de machines virtuelles identiques Spot](../../virtual-machine-scale-sets/use-spot.md).
+- Évictions d’instances de [machine virtuelle Spot](../spot-vms.md) et de [groupe de machines virtuelles identiques Spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Concepts de base  
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553136"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924127"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
 
@@ -44,7 +44,7 @@ Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a é
 
 Lors de la connexion à la base de données à l’étape suivante, vous devez vous connecter avec un compte Azure Active Directory (Azure AD) disposant d’un accès administrateur à la base de données afin de permettre à votre service de recherche d’y accéder.
 
-Suivez les instructions indiquées [ici](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) pour accorder à votre compte Azure AD un accès administrateur à la base de données.
+Suivez les instructions indiquées [ici](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) pour accorder à votre compte Azure AD un accès administrateur à la base de données.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 – Attribuer des autorisations au service de recherche
 
@@ -97,9 +97,9 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 ### <a name="5---create-the-data-source"></a>5 – Créer la source de données
 
-L’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
-Lors de la création d’une source de données à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), la source de données doit avoir les propriétés requises suivantes :
+Lors de la création d’une source de données à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), la source de données doit avoir les propriétés requises suivantes :
 
 * **name** est le nom unique de la source de données au sein de votre service de recherche.
 * **type** est `azuresql`
@@ -109,7 +109,7 @@ Lors de la création d’une source de données à l’aide de l’[API REST](ht
         * *Initial Catalog|Database=**nom de la base de données**;ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**votre nom de groupe de ressources**/providers/Microsoft.Sql/servers/**votre nom de serveur SQL**/;Connection Timeout=**durée de la connexion**;*
 * **container** spécifie le nom de la table ou de l’affichage que vous souhaitez indexer.
 
-Exemple de création d’un objet de source de données Azure SQL à l’aide de l’[API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) :
+Exemple de création d’un objet de source de données Azure SQL à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) :
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Pour plus d’informations sur la création d’index, consultez [Création d'un index](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7 – Créer l’indexeur
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Cet indexeur s’exécutera toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
 
 Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Si vous recevez une erreur lorsque l’indexeur tente de se connecter à la source de données qui indique que le client n’est pas autorisé à accéder au serveur, consultez les [erreurs courantes de l’indexeur](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+Si vous recevez une erreur lorsque l’indexeur tente de se connecter à la source de données qui indique que le client n’est pas autorisé à accéder au serveur, consultez les [erreurs courantes de l’indexeur](./search-indexer-troubleshooting.md).
 
 ## <a name="see-also"></a>Voir aussi
 
