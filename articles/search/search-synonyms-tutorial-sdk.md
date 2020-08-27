@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27822ee6be26f955e4db52548da7fa2a22236c2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079447"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922750"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche cognitive Azure en C#
 
@@ -22,8 +22,8 @@ Les synonymes développent une requête en faisant correspondre les termes consi
 Dans la Recherche cognitive Azure, les synonymes sont définis dans une *carte de synonymes*, par le biais des *règles de mappage* qui associent des termes équivalents. Cet exemple décrit les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une carte de synonymes en utilisant la classe [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
-> * Définir la propriété [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) sur des champs qui doivent prendre en charge l’extension de requête par le biais de synonymes.
+> * Créer une carte de synonymes en utilisant la classe [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet). 
+> * Définir la propriété [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) sur des champs qui doivent prendre en charge l’extension de requête par le biais de synonymes.
 
 Vous pouvez interroger un champ acceptant les synonymes comme vous le faites habituellement. Aucune syntaxe de requête supplémentaire n’est requise pour accéder aux synonymes.
 
@@ -38,8 +38,8 @@ La configuration requise du didacticiel est la suivante :
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Service Recherche cognitive Azure](search-create-service-portal.md)
-* [Bibliothèque .NET Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/overview/azure/search)
-* [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Bibliothèque .NET Microsoft.Azure.Search](/dotnet/api/overview/azure/search)
+* [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](./search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -77,7 +77,7 @@ Les requêtes avant et après présentent la valeur des synonymes. Dans cet exem
       Console.ReadKey();
   }
 ```
-Les étapes pour créer et remplir l’index des exemples sont expliquées dans le [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Les étapes pour créer et remplir l’index des exemples sont expliquées dans le [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Requêtes « avant »
 
@@ -173,7 +173,7 @@ Le moyen le plus rapide de procéder à un nettoyage après un exemple consiste 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple a présenté la fonctionnalité de synonymes en code C# pour créer et publier des règles de mappage, puis appeler la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Cet exemple a présenté la fonctionnalité de synonymes en code C# pour créer et publier des règles de mappage, puis appeler la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search) et de [l’API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Guide pratique pour utiliser des synonymes dans la Recherche cognitive Azure](search-synonyms.md)

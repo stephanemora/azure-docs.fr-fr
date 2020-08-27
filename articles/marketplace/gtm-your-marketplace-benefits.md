@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607377"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705552"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -26,7 +26,7 @@ Les récompenses de la place de marché sont conçues pour vous aider à votre p
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance sont conçus pour vous aider à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme la place de marché commerciale.
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md#choose-a-call-to-action).
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md#choose-a-listing-option).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité.
 

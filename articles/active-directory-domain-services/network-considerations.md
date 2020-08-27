@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054270"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749608"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ Un domaine managé crée des ressources réseau au cours du déploiement. Ces re
 | Ressource Azure                          | Description |
 |:----------------------------------------|:---|
 | Cartes d'interface réseau                  | Azure AD DS héberge le domaine managé sur deux contrôleurs de domaine (DC) qui s’exécutent sur Windows Server en tant que machines virtuelles Azure. Chaque machine virtuelle dispose d’une interface réseau virtuelle qui se connecte à votre sous-réseau de réseau virtuel. |
-| Adresse IP publique standard dynamique      | Azure AD DS communique avec le service de synchronisation et de gestion à l’aide d’une adresse IP publique de référence SKU standard. Pour plus d’informations sur les adresse IP publique, consultez la page [Types d’adresses IP et méthodes d’allocation dans Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Adresse IP publique standard dynamique      | Azure AD DS communique avec le service de synchronisation et de gestion à l’aide d’une adresse IP publique de référence SKU standard. Pour plus d’informations sur les adresse IP publique, consultez la page [Types d’adresses IP et méthodes d’allocation dans Azure](../virtual-network/public-ip-addresses.md). |
 | Azure Standard Load Balancer            | Azure AD DS utilise un équilibreur de charge SKU standard pour la traduction d’adresses réseau (NAT) et l’équilibrage de charge (en cas d’utilisation avec le protocole LDAP sécurisé). Pour plus d’informations sur les équilibreurs de charge Azure, consultez [Qu’est-ce que Azure Load Balancer ?](../load-balancer/load-balancer-overview.md) |
 | Règles de traduction d’adresses réseau (NAT) | Azure AD DS crée et utilise trois règles NAT sur l’équilibreur de charge : une règle pour le trafic HTTP sécurisé et deux règles pour une communication à distance PowerShell sécurisé. |
 | Règles d'équilibrage de charge                     | Quand un domaine managé est configuré pour le LDAP sécurisé sur le port TCP 636, trois règles sont créées et utilisées sur un équilibreur de charge pour répartir le trafic. |
@@ -104,7 +104,7 @@ Un domaine managé crée des ressources réseau au cours du déploiement. Ces re
 
 ## <a name="network-security-groups-and-required-ports"></a>Groupes de sécurité réseau et ports requis
 
-Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez un domaine managé contenant un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
+Un [groupe de sécurité réseau (NSG)](../virtual-network/security-overview.md) contient la liste des règles qui autorisent ou rejettent le trafic réseau vers le trafic d’un réseau virtuel Azure. Un groupe de sécurité réseau est créé lorsque vous déployez un domaine managé contenant un ensemble de règles permettant au service de fournir des fonctions d’authentification et de gestion. Ce groupe de sécurité réseau par défaut est associé au sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
 
 Les règles de groupe de sécurité réseau suivantes sont requises pour permettre au domaine managé de fournir des services d’authentification et de gestion. Ne modifiez pas et ne supprimez pas ces règles de groupe de sécurité réseau pour le sous-réseau de réseau virtuel dans lequel votre domaine managé est déployé.
 

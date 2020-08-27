@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027647"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716314"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -139,7 +139,7 @@ Les utilisateurs ne peuvent pas inscrire leur application mobile quand ils s’i
 >
 > Durant la configuration de stratégies SSPR qui incluent l’application Authenticator en tant que méthode, au moins une méthode supplémentaire doit être sélectionnée quand une seule méthode est obligatoire, et au moins deux méthodes supplémentaires doivent être sélectionnées quand deux méthodes sont obligatoires.
 >
-> Cette exigence est due au fait que l’expérience d’inscription à SSPR n’inclut pas l’option d’inscription de l’application Authenticator. L’option d’inscription de l’application Authenticator est incluse dans la nouvelle [expérience d’inscription combinée](concept-registration-mfa-sspr-converged.md).
+> Cette exigence est due au fait que l’expérience d’inscription à SSPR n’inclut pas l’option d’inscription de l’application Authenticator. L’option d’inscription de l’application Authenticator est incluse dans la nouvelle [expérience d’inscription combinée](./concept-registration-mfa-sspr-combined.md).
 >
 > L’autorisation de stratégies qui utilisent uniquement l’application Authenticator (quand une seule méthode est obligatoire), ou l’application Authenticator et une seule méthode supplémentaire (quand deux méthodes sont obligatoires), peut empêcher les utilisateurs de s’inscrire à SSPR tant qu’ils ne sont pas configurés pour la nouvelle expérience d’inscription combinée.
 
@@ -191,13 +191,13 @@ Azure AD vérifie votre connectivité hybride actuelle et fournit l’un des me
 * Azure AD Connect est en ligne et connecté à votre client de réécriture local. Cependant, il semble que la version installée d’Azure AD Connect est obsolète. Pensez à [mettre à niveau Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) pour vous assurer que vous disposez des dernières fonctionnalités de connectivité et des correctifs de bogues importants.
 * Malheureusement, nous ne pouvons pas vérifier l’état de votre client de réécriture local, car la version installée d’Azure AD Connect est obsolète. [Mettez à niveau Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) pour être en mesure de vérifier l’état de votre connexion.
 * Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. [Résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
-* Malheureusement, nous ne pouvons pas nous connecter à votre client de réécriture local, car la réécriture du mot de passe n’a pas été configurée correctement. [Configurez la réécriture du mot de passe](howto-sspr-writeback.md) pour restaurer la connexion.
+* Malheureusement, nous ne pouvons pas nous connecter à votre client de réécriture local, car la réécriture du mot de passe n’a pas été configurée correctement. [Configurez la réécriture du mot de passe](./tutorial-enable-sspr-writeback.md) pour restaurer la connexion.
 * Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. Cela peut être dû à des problèmes temporaires de notre côté. Si le problème persiste, [résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
 
 Pour bien démarrer avec la réécriture SSPR, suivez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](tutorial-enable-writeback.md)
+> [Tutoriel : Activer la réécriture SSPR (réinitialisation de mot de passe en libre-service)](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
 
@@ -223,7 +223,7 @@ La réinitialisation et la modification du mot de passe sont totalement prises e
 
 * **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous respectons les stratégies de réinitialisation de mot de passe activées sur ce locataire. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Cela n’entraîne aucuns frais supplémentaires pour les clients Office 365.
 * **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité d’[inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
-* **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../b2b/what-is-b2b.md) peuvent également réinitialiser leur mot de passe à l’aide de l’adresse e-mail indiquée durant l’inscription.
+* **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../external-identities/what-is-b2b.md) peuvent également réinitialiser leur mot de passe à l’aide de l’adresse e-mail indiquée durant l’inscription.
 
 Pour tester ce scénario, accédez à https://passwordreset.microsoftonline.com avec l’un de ces utilisateurs partenaires. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
 

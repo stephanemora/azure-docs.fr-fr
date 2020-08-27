@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051305"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716331"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Foire aux questions concernant la réinitialisation du mot de passe en libre-service
 
 Voici quelques questions fréquemment posées (FAQ) sur tout ce qui concerne la réinitialisation de mot de passe en libre-service.
 
-Si vous avez une question d’ordre général sur Azure Active Directory (Azure AD) et la réinitialisation du mot de passe en libre-service qui ne trouve pas de réponse ici, vous pouvez demander de l’aide à la communauté sur la [Page de questions Microsoft Q&A pour Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
+Si vous avez une question d’ordre général sur Azure Active Directory (Azure AD) et la réinitialisation du mot de passe en libre-service qui ne trouve pas de réponse ici, vous pouvez demander de l’aide à la communauté sur la [Page de questions Microsoft Q&A pour Azure Active Directory](/answers/topics/azure-active-directory.html). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
 
 Ce Forum Aux Questions est organisé de la manière suivante :
 
@@ -197,7 +197,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Mes utilisateurs peuvent-ils être informés de l’expiration de leur mot de passe local dans le portail Office ?**
 
-  > **R :** Oui, c’est possible aujourd’hui si vous utilisez les services de fédération Active Directory (AD FS). Si vous utilisez les services AD FS, suivez les instructions de l’article [Sending password policy claims with AD FS (Envoi de revendications de stratégie de mot de passe avec les services AD FS)](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Si vous utilisez la synchronisation de hachage de mot de passe, ceci n’est pas possible actuellement. Comme nous ne synchronisons pas les stratégies de mot de passe à partir des annuaires locaux, nous pouvons pas publier de notifications d’expiration dans les expériences cloud. Dans les deux cas, il est également possible de [notifier les utilisateurs dont les mots de passe sont sur le point d’expirer par le biais de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R :** Oui, c’est possible aujourd’hui si vous utilisez les services de fédération Active Directory (AD FS). Si vous utilisez les services AD FS, suivez les instructions de l’article [Sending password policy claims with AD FS (Envoi de revendications de stratégie de mot de passe avec les services AD FS)](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Si vous utilisez la synchronisation de hachage de mot de passe, ceci n’est pas possible actuellement. Comme nous ne synchronisons pas les stratégies de mot de passe à partir des annuaires locaux, nous pouvons pas publier de notifications d’expiration dans les expériences cloud. Dans les deux cas, il est également possible de [notifier les utilisateurs dont les mots de passe sont sur le point d’expirer par le biais de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **Q :  Puis-je empêcher des utilisateurs de modifier leur mot de passe ?**
@@ -243,7 +243,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 * **Q :  Comment la réécriture du mot de passe fonctionne-t-elle en arrière-plan ?**
 
-  > **R :** Consultez l’article [Fonctionnement de la réécriture du mot de passe](howto-sspr-writeback.md) pour obtenir une explication de ce qui se passe quand vous activez la réécriture du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
+  > **R :** Consultez l’article [Fonctionnement de la réécriture du mot de passe](./tutorial-enable-sspr-writeback.md) pour obtenir une explication de ce qui se passe quand vous activez la réécriture du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
   >
   >
 * **Q :  Combien de temps faut-il pour que la réécriture du mot de passe fonctionne ? Y a-t-il un délai de synchronisation comme avec la synchronisation du hachage de mot de passe ?**
@@ -273,7 +273,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  La réécriture du mot de passe est-elle sécurisée ?  Comment puis-je être sûr que je ne me ferai pas pirater ?**
 
-  > **R :** Oui, la réécriture du mot de passe est sécurisée. Pour en savoir plus sur les multiples couches de sécurité implémentées par le service de réécriture du mot de passe, consultez la section [Sécurité de réécriture du mot de passe](concept-sspr-writeback.md#password-writeback-security) dans l’article [Vue d’ensemble de la réécriture du mot de passe](howto-sspr-writeback.md).
+  > **R :** Oui, la réécriture du mot de passe est sécurisée. Pour en savoir plus sur les multiples couches de sécurité implémentées par le service de réécriture du mot de passe, consultez la section [Sécurité de réécriture du mot de passe](concept-sspr-writeback.md#password-writeback-security) dans l’article [Vue d’ensemble de la réécriture du mot de passe](./tutorial-enable-sspr-writeback.md).
   >
   >
 
@@ -286,7 +286,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
+* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](./tutorial-enable-sspr-writeback.md)
 * [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)

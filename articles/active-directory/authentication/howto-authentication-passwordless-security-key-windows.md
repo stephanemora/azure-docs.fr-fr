@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550619"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717963"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 à l’aide d’Azure Active Directory (préversion)
 
@@ -37,7 +37,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 | Les [appareils de jointure Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md) nécessitent Windows 10 version 2004 ou ultérieure |   | X |
 | Contrôleurs de domaine Windows Server 2016/2019 entièrement corrigés |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 ou ultérieure |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (facultatif) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (facultatif) | X | X |
 | Package d’approvisionnement (facultatif) | X | X |
 | Stratégie de groupe (facultatif) |   | X |
 
@@ -100,7 +100,7 @@ Pour cibler des groupes d’appareils spécifiques pour activer le fournisseur d
       - OMA-URI : ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Type de données : Integer
       - Valeur : 1
-1. Cette stratégie peut être attribuée à des utilisateurs, des appareils ou des groupes spécifiques. Pour plus d’informations, consultez [Attribuer des profils d’utilisateur et d’appareil dans Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Cette stratégie peut être attribuée à des utilisateurs, des appareils ou des groupes spécifiques. Pour plus d’informations, consultez [Attribuer des profils d’utilisateur et d’appareil dans Microsoft Intune](/intune/device-profile-assign).
 
 ![Création de stratégies de configuration d’appareil Intune personnalisées](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ Pour les appareils non gérés par Intune, un package d’approvisionnement peut
 1. Prenez note du chemin d’accès (ou modifiez-le) dans la fenêtre **Générer** sous **Sélectionnez l’emplacement d’enregistrement du package d’approvisionnement**, et sélectionnez **Suivant**.
 1. Sélectionnez **Générer** sur la page **Générer le package d’approvisionnement**.
 1. Enregistrez les deux fichiers créés (*ppkg* et *cat*) dans un emplacement où vous pourrez les appliquer aux machines plus tard.
-1. Pour appliquer le package d’approvisionnement que vous avez créé, consultez [Appliquer un package d’approvisionnement](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. Pour appliquer le package d’approvisionnement que vous avez créé, consultez [Appliquer un package d’approvisionnement](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Les appareils exécutant Windows 10 version 1809 doivent également activer le mode PC partagé (*EnableSharedPCMode*). Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Configurer un PC partagé ou invité avec Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> Les appareils exécutant Windows 10 version 1809 doivent également activer le mode PC partagé (*EnableSharedPCMode*). Pour en savoir plus sur l’activation de cette fonctionnalité, consultez [Configurer un PC partagé ou invité avec Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Activer avec la stratégie de groupe
 

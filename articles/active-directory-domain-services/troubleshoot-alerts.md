@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222970"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722583"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes courantes et résolutions dans Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ Azure AD DS nécessite un abonnement actif et ne peut pas être déplacé vers u
 
 Azure AD DS nécessite un abonnement actif. Si l’abonnement Azure auquel le domaine managé était associé n’est pas actif, vous devez le renouveler pour réactiver l’abonnement.
 
-1. [Renouvelez votre abonnement Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renouvelez votre abonnement Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Une fois l’abonnement renouvelé, une notification Azure AD DS vous permet de réactiver le domaine managé.
 
 Quand le domaine managé est réactivé, l’intégrité du domaine managé se met automatiquement à jour dans les deux heures et l’alerte est supprimée.
@@ -162,7 +162,7 @@ Cette erreur est irrécupérable. Pour résoudre l’alerte, [supprimez votre do
 
 Certains principaux de service générés automatiquement sont utilisés afin de gérer et de créer des ressources pour un domaine managé. Si les autorisations d’accès pour l’un de ces principaux de service sont modifiées, le domaine ne pourra pas gérer correctement les ressources. Les étapes suivantes montrent comment comprendre et accorder des autorisations d’accès à un principal de service :
 
-1. Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle et sur la façon d’accorder un accès aux applications dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle et sur la façon d’accorder un accès aux applications dans le portail Azure](../role-based-access-control/role-assignments-portal.md).
 2. Passez en revue l’accès dont dispose le principal de service avec l’ID *abba844e-bc0e-44b0-947a-dc74e5d09022* et accordez l’accès qui a été refusé précédemment.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112 : Nombre insuffisant d’adresses IP dans le domaine managé
@@ -276,7 +276,7 @@ Voici quelques raisons courantes qui provoquent l’arrêt de la synchronisation
 
 Azure AD DS nécessite un abonnement actif. Si l’abonnement Azure auquel le domaine managé était associé n’est pas actif, vous devez le renouveler pour réactiver l’abonnement.
 
-1. [Renouvelez votre abonnement Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renouvelez votre abonnement Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Une fois l’abonnement renouvelé, une notification Azure AD DS vous permet de réactiver le domaine managé.
 
 Quand le domaine managé est réactivé, l’intégrité du domaine managé se met automatiquement à jour dans les deux heures et l’alerte est supprimée.

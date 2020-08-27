@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser GitOps avec Helm pour une configuration de cluster compatible avec Azure Arc (préversion)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 44803338a27fc492f4dc896a0edb398b2ce486ea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cca48910b679ff8f72ee06f4ed990bd480fb2200
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926125"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723637"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Déployer des charts Helm à l’aide de GitOps sur un cluster Kubernetes compatible avec Azure Arc (préversion)
 
@@ -53,7 +53,7 @@ arc-helm-demo  eastus      k8s-clusters
 
 ```bash
 ├── charts
-│   └── azure-vote
+│   └── azure-arc-sample
 │       ├── Chart.yaml
 │       ├── templates
 │       │   ├── NOTES.txt
@@ -61,25 +61,25 @@ arc-helm-demo  eastus      k8s-clusters
 │       │   └── service.yaml
 │       └── values.yaml
 └── releases
-    └── vote-app.yaml
+    └── app.yaml
 ```
 
-Dans le référentiel Git, nous avons deux répertoires, l’un contenant un chart Helm et l’autre le fichier config des versions. Dans le répertoire `releases`, le `vote-app.yaml` contient le fichier config HelmRelease indiqué ci-dessous :
+Dans le référentiel Git, nous avons deux répertoires, l’un contenant un chart Helm et l’autre le fichier config des versions. Dans le répertoire `releases`, le `app.yaml` contient le fichier config HelmRelease indiqué ci-dessous :
 
-```bash
+```yaml
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: vote-app
+  name: azure-arc-sample
   namespace: arc-k8s-demo
 spec:
   releaseName: arc-k8s-demo
   chart:
     git: https://github.com/Azure/arc-helm-demo
     ref: master
-    path: charts/azure-vote
+    path: charts/azure-arc-sample
   values:
-    frontendServiceName: arc-k8s-demo-vote-front
+    serviceName: arc-k8s-demo
 ```
 
 Le fichier config de la version Helm contient les champs suivants :
@@ -96,10 +96,10 @@ Vous pouvez en savoir plus sur le HelmRelease dans la [documentation officielle 
 
 ## <a name="create-a-configuration"></a>Créer une configuration
 
-À l’aide de l’extension Azure CLI pour `k8sconfiguration`, nous allons lier notre cluster connecté à un exemple de référentiel Git. Nous donnerons à cette configuration le nom `azure-voting-app` et déploierons l’opérateur Flux dans l’espace de noms `arc-k8s-demo`.
+À l’aide de l’extension Azure CLI pour `k8sconfiguration`, nous allons lier notre cluster connecté à un exemple de référentiel Git. Nous donnerons à cette configuration le nom `azure-arc-sample` et déploierons l’opérateur Flux dans l’espace de noms `arc-k8s-demo`.
 
 ```bash
-az k8sconfiguration create --name azure-voting-app \
+az k8sconfiguration create --name azure-arc-sample \
   --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME \
   --operator-instance-name flux --operator-namespace arc-k8s-demo \
   --operator-params='--git-readonly --git-path=releases' \
@@ -118,7 +118,7 @@ Pour personnaliser la création de la configuration, [découvrez les paramètres
 À l’aide d’Azure CLI, validez la création de `sourceControlConfiguration`.
 
 ```console
-az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-voting-app --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
+az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-arc-sample --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
 ```
 
 La ressource `sourceControlConfiguration` est mise à jour avec un état de conformité, des messages et des informations de débogage.
@@ -139,8 +139,8 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
     "chartValues": "--set helm.versions=v3",
     "chartVersion": "0.6.0"
   },
-  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-voting-app",
-  "name": "azure-voting-app",
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-arc-sample",
+  "name": "azure-arc-sample",
   "operatorInstanceName": "flux",
   "operatorNamespace": "arc-k8s-demo",
   "operatorParams": "--git-readonly --git-path=releases",
@@ -156,10 +156,10 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="validate-application"></a>Valider l’application
 
-Exécutez la commande suivante et accédez à `localhost:3000` sur votre navigateur pour vérifier que l’application fonctionne.
+Exécutez la commande suivante et accédez à `localhost:8080` sur votre navigateur pour vérifier que l’application fonctionne.
 
 ```bash
-kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80
+kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

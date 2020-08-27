@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143218"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718949"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -101,7 +101,7 @@ Les conditions suivantes s’appliquent à l’agent DC de protection de mot de 
     * Le domaine ou la forêt Active Directory n’ont pas besoin d’être au niveau fonctionnel du domaine Windows Server 2012 (DFL) ou au niveau fonctionnel de la forêt (FFL). Comme mentionné dans [Principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel de domaine (DFL) ou de forêt (FFL) minimal n’est requis pour le logiciel de l’agent DC ou le logiciel de proxy à exécuter.
 * .NET 4.5 doit être installé sur toutes les machines qui exécutent l’agent DC de protection par mot de passe Azure AD.
 * Les domaines Active Directory qui exécutent le service de l’agent DC de protection par mot de passe Azure AD doivent utiliser la réplication du système de fichiers distribué (DFSR) pour la réplication sysvol.
-   * Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour avant d’installer la protection par mot de passe Azure AD. Pour plus d’informations, voir [Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour avant d’installer la protection par mot de passe Azure AD. Pour plus d’informations, voir [Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS (la technologie qui précède DFSR) pour la réplication sysvol, mais le logiciel ne fonctionne pas correctement dans cet environnement.
@@ -124,14 +124,14 @@ Les conditions suivantes s’appliquent au service proxy de protection par mot d
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe Azure AD doivent être configurées pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Cette capacité est contrôlée par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
 * Toutes les machines hébergeant le service proxy de protection par mot de passe Azure AD doivent être configurées de manière à autoriser le trafic HTTP TLS 1.2 sortant.
 * Un compte d’*administrateur général* pour inscrire la forêt et le service proxy de protection par mot de passe Azure AD auprès d’Azure AD.
-* L’accès réseau doit être activé pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* L’accès réseau doit être activé pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement proxy d’application](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Conditions préalables à l’utilisation du programme de mise à jour de l’agent Microsoft Azure AD Connect
 
 Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect est installé parallèlement au service proxy de protection par mot de passe Azure AD. Une configuration supplémentaire est requise pour que le service du programme de mise à jour de l’agent Microsoft Azure AD Connect puisse fonctionner :
 
-* Si votre environnement utilise un serveur proxy HTTP, suivez les instructions spécifiées dans [Travailler avec des serveurs proxy locaux existants](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect nécessite également les étapes 1.2 spécifiées dans [Exigences relatives à TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Si votre environnement utilise un serveur proxy HTTP, suivez les instructions spécifiées dans [Travailler avec des serveurs proxy locaux existants](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect nécessite également les étapes 1.2 spécifiées dans [Exigences relatives à TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Le proxy de protection par mot de passe et le proxy d’application Azure AD installent différentes versions du service du programme de mise à jour de l’agent Microsoft Azure AD Connect. Cela explique pourquoi les instructions font référence au contenu du proxy d’application. Ces différentes versions sont incompatibles quand elles sont installées côte à côte, car cela empêche le service de mise à jour de l’agent de contacter Azure pour les mises à jour logicielles. Vous ne devez donc jamais installer le proxy de protection par mot de passe Azure AD et le proxy d’application sur le même ordinateur.

@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles Hyper-V à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420955"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641821"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Tableau de prise en charge pour l’évaluation Hyper-V
 
@@ -34,7 +34,7 @@ Pour configurer l’évaluation d’une machine virtuelle Hyper-V, vous créez u
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
-| **Hôte Hyper-V**       | L’hôte Hyper-V peut être autonome ou déployé dans un cluster.<br/><br/> L’hôte Hyper-V peut exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. Les installations minimales de Windows Server 2016 et de Windows Server 2012 R2 sont également prises en charge. <br/>Vous ne pouvez pas évaluer des machines virtuelles situées sur des hôtes Hyper-V exécutant Windows Server 2012.
+| **Hôte Hyper-V**       | L’hôte Hyper-V peut être autonome ou déployé dans un cluster.<br/><br/> L’hôte Hyper-V peut exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. L’installation Server Core de ces systèmes d’exploitation est également prise en charge. <br/>Vous ne pouvez pas évaluer des machines virtuelles situées sur des hôtes Hyper-V exécutant Windows Server 2012.
 | **autorisations**           | Vous avez besoin des privilèges Administrateur sur l’hôte Hyper-V. <br/> Si vous ne souhaitez pas attribuer de privilèges Administrateur, créez un compte d’utilisateur local ou de domaine et ajoutez le compte d’utilisateur à ces groupes : Utilisateurs de gestion à distance, Administrateurs Hyper-V et Utilisateurs de l’Analyseur de performances. |
 | **Communication à distance PowerShell**   | La [communication à distance PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) doit être activée sur chaque hôte Hyper-V. |
 | **Réplica Hyper-V**       | Si vous utilisez un réplica Hyper-V (ou si vous avez plusieurs machines virtuelles avec les mêmes identificateurs de machines virtuelles) et que vous découvrez les machines virtuelles originales et répliquées à l’aide d’Azure Migrate, l’évaluation générée par Azure Migrate pourrait ne pas être exacte. |

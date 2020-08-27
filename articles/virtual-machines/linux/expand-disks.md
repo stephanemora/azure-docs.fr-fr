@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659744"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649843"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
@@ -56,7 +56,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
     ```
 
     > [!NOTE]
-    > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques managés disponibles, consultez [Vue d’ensemble d’Azure Disques managés - Tarification et facturation](../windows/managed-disks-overview.md).
+    > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques managés disponibles, consultez [Vue d’ensemble d’Azure Disques managés - Tarification et facturation](../managed-disks-overview.md).
 
 1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az-vm-start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
