@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566005"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924159"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>guide pratique pour mettre en forme et exporter des enrichissements
 
@@ -206,7 +206,7 @@ La projection dans des tables dans le Stockage Azure est utile pour la création
 Créons un tableau de bord dans lequel il est possible de visualiser les expressions clés extraites de documents en tant que nuage de mots clés. Pour créer la structure de données appropriée, ajoutez une compétence Modélisateur à l’ensemble de compétences en vue de créer une forme personnalisée avec les détails et les expressions clés spécifiques du document. La forme personnalisée est appelée `pbiShape` sur le nœud racine `document`.
 
 > [!NOTE] 
-> Les projections de table sont des tables du Stockage Azure auxquelles s’appliquent les limites de stockage imposées par le Stockage Azure. Pour plus d’informations, consultez les [limites du stockage de table](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Il est utile de savoir que la taille maximale respective d’une entité et d’une propriété est de 1 Mo et 64 Ko. Ces contraintes font des tables une bonne solution pour stocker un grand nombre de petites entités.
+> Les projections de table sont des tables du Stockage Azure auxquelles s’appliquent les limites de stockage imposées par le Stockage Azure. Pour plus d’informations, consultez les [limites du stockage de table](/rest/api/storageservices/understanding-the-table-service-data-model). Il est utile de savoir que la taille maximale respective d’une entité et d’une propriété est de 1 Mo et 64 Ko. Ces contraintes font des tables une bonne solution pour stocker un grand nombre de petites entités.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Utilisation d’une compétence Modélisateur pour créer une forme personnalisée
 
@@ -677,4 +677,3 @@ Pour obtenir une vue d’ensemble des projections, découvrez les fonctionnalit�
 
 > [!div class="nextstepaction"]
 > [Projections dans une base de connaissances](knowledge-store-projection-overview.md)
-

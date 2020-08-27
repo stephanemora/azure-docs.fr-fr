@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983303"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798378"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Modifier la méthode et les paramètres de vérification à deux facteurs
 
@@ -31,10 +31,10 @@ Une fois que vous avez configuré vos méthodes de vérification de sécurité p
 
 ## <a name="using-the-additional-security-verification-page"></a>Utilisation de la page Vérification de sécurité supplémentaire
 
-Si votre organisation vous a fourni des étapes spécifiques expliquant comment activer et gérer la vérification en deux étapes, vous devez d’abord suivre ces instructions. Dans le cas contraire, vous pouvez accéder aux paramètres de méthode de vérification de sécurité à partir de la page [Vérification de sécurité supplémentaire](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time).
+Si votre organisation vous a fourni des étapes spécifiques expliquant comment activer et gérer la vérification en deux étapes, vous devez d’abord suivre ces instructions. Dans le cas contraire, vous pouvez accéder aux paramètres de méthode de vérification de sécurité à partir de la page [Vérification de sécurité supplémentaire](./multi-factor-authentication-end-user-first-time.md).
 
 >[!Note]
->Si ce que vous voyez à l’écran ne correspond pas à ce qui est abordé dans cet article, cela signifie que votre administrateur a activé l’expérience **Informations de sécurité (préversion)** ou que votre organisation dispose d’un portail personnalisé. Pour en savoir plus sur la nouvelle expérience Informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md). Pour plus d’informations sur le portail personnalisé de votre organisation, vous devez contacter le support technique de votre organisation.
+>Si ce que vous voyez à l’écran ne correspond pas à ce qui est abordé dans cet article, cela signifie que votre administrateur a activé l’expérience **Informations de sécurité (préversion)** ou que votre organisation dispose d’un portail personnalisé. Pour en savoir plus sur la nouvelle expérience Informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](./security-info-setup-signin.md). Pour plus d’informations sur le portail personnalisé de votre organisation, vous devez contacter le support technique de votre organisation.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Pour accéder à la page Vérification de sécurité supplémentaire
 

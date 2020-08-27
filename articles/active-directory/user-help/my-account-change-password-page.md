@@ -11,19 +11,19 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422507"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798191"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modifier le mot de passe de votre compte professionnel ou scolaire à partir de la page Modifier le mot de passe
 
 La page **Modifier mot de passe** du portail **Mon compte** vous aide à mettre à jour un mot de passe existant pour votre compte professionnel ou scolaire, sous réserve que vous n'ayez pas oublié le mot de passe et que votre compte ne soit pas verrouillé. Si vous ne vous souvenez pas de votre mot de passe, si votre compte a été verrouillé ou si vous n’avez jamais reçu de mot de passe de votre organisation, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour réinitialiser votre mot de passe.
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui tentent de mettre à jour un mot de passe connu pour un compte professionnel ou scolaire. En tant qu'utilisateur, si vous tentez d'accéder à un compte personnel comme pour Xbox, Hotmail ou Outlook.com, essayez les suggestions fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). En tant qu'administrateur, si vous recherchez plus d'informations sur la façon de tester la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Réinitialisation de mot de passe en libre-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour un mot de passe connu pour un compte professionnel ou scolaire. En tant qu'utilisateur, si vous tentez d'accéder à un compte personnel comme pour Xbox, Hotmail ou Outlook.com, essayez les suggestions fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). En tant qu'administrateur, si vous recherchez plus d'informations sur la façon de tester la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Réinitialisation de mot de passe en libre-service](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Mettre à jour un mot de passe à partir de la page Modifier le mot de passe
 
@@ -45,7 +45,7 @@ La page **Modifier mot de passe** du portail **Mon compte** vous aide à mettre 
 
 Après avoir modifié votre mot de passe, vous pouvez :
 
-- Afficher ou gérer vos [informations de sécurité](user-help-security-info-overview.md).
+- Afficher ou gérer vos [informations de sécurité](./security-info-setup-signin.md).
 
 - Afficher ou gérer vos [appareils](my-account-portal-devices-page.md) connectés.
 

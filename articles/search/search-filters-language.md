@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084192"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923107"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Comment filtrer par langue dans la Recherche cognitive Azure 
 
@@ -37,11 +37,11 @@ L'exemple suivant est extrait de l'[exemple d’immobilier](search-get-started-p
   ![Capture d’écran montrant l’écran Champs de l’exemple immobilier. Un groupe de champs est mis en surbrillance pour indiquer de quelle façon les attributions de l’analyseur de langue correspondent aux langues des champs en surbrillance.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Pour des exemples de code montrant des définitions de champ avec des analyseurs de langue, voir [Définir un index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) et [Définir un index (REST)](search-create-index-rest-api.md).
+> Pour des exemples de code montrant des définitions de champ avec des analyseurs de langue, voir [Définir un index (.NET)](./search-get-started-dotnet.md) et [Définir un index (REST)](./search-get-started-powershell.md).
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
-La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
+La [création et le remplissage de l’index](./search-get-started-dotnet.md) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Limiter la requête et réduire les résultats
 
@@ -63,7 +63,6 @@ parameters =
 ## <a name="see-also"></a>Voir aussi
 
 + [Filtres dans la Recherche cognitive Azure](search-filters.md)
-+ [Analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Analyseurs de langage](/rest/api/searchservice/language-support)
 + [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
-+ [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [API REST de recherche de documents](/rest/api/searchservice/search-documents)

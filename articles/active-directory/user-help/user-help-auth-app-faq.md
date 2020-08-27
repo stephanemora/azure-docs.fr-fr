@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 07/16/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 34720a10796a1a215d541baef9f2c225857d3bc0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423624"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799466"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -64,6 +64,6 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 - Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
 
-- Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md).
+- Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](./security-info-setup-signin.md).
 
 - Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la part de la communauté ou laissez un commentaire sur cette page.

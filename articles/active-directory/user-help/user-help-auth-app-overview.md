@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741189"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799432"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Qu’est-ce que l’application Microsoft Authenticator ?
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
 > [!Important]
 > L’application Microsoft Authenticator fonctionne avec tout compte utilisant une vérification en deux étapes et prenant en charge les mots de passe à usage unique et durée définie (normes TOTP).
 >
->Cet article s’adresse aux utilisateurs qui essaient de télécharger et d’utiliser l’application Microsoft Authenticator comme méthode de vérification de sécurité. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la connexion sans mot de passe à l’aide de l’application Authenticator pour vos employés et d’autres utilisations, consultez [Activer la connexion sans mot de passe avec l’application Microsoft Authenticator (préversion)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Cet article s’adresse aux utilisateurs qui essaient de télécharger et d’utiliser l’application Microsoft Authenticator comme méthode de vérification de sécurité. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la connexion sans mot de passe à l’aide de l’application Authenticator pour vos employés et d’autres utilisations, consultez [Activer la connexion sans mot de passe avec l’application Microsoft Authenticator (préversion)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologie
 

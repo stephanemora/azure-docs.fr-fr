@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421720"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795381"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -44,7 +44,7 @@ Créez plusieurs comptes d’accès d’urgence. Ces comptes doivent être des c
 Lors de la configuration de ces comptes, les conditions suivantes doivent être remplies :
 
 - Les comptes d’accès d’urgence ne doivent être associés à aucun utilisateur au sein de l’organisation. Veillez à ce que vos comptes d’accès d’urgence ne soient pas connectés à un matériel fourni à un employé et voyageant avec celui-ci, tel un téléphone mobile, un module de sécurité matériel, ou d’autres informations d’identification propres à l’employé. Cette précaution de sécurité couvre les cas où un employé n’est pas joignable alors que les informations d’identification doivent être fournies. Il est important de s’assurer que tous les appareils inscrits sont conservés dans un endroit sûr et connu, disposant de plusieurs moyens de communication avec Azure AD.
-- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte via une MFA locale, Azure MFA devrait être un mécanisme différent.  En revanche, si Azure MFA est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, telle que l’utilisation d’un accès conditionnel avec un fournisseur MFA tiers via des [contrôles personnalisés](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte via une MFA locale, Azure MFA devrait être un mécanisme différent.  En revanche, si Azure MFA est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, telle que l’utilisation d’un accès conditionnel avec un fournisseur MFA tiers via des [contrôles personnalisés](../conditional-access/controls.md).
 - L’appareil ou les informations d’identification ne doivent pas expirer ou faire potentiellement l’objet d’un nettoyage automatisé en raison d’une utilisation insuffisante.  
 - Vous devez rendre l’attribution de rôle d’administrateur général permanente pour vos comptes d’accès d’urgence. 
 
@@ -74,7 +74,7 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
 
 ### <a name="prerequisites"></a>Prérequis
 
-1. [Envoyez les journaux de connexion Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) à Azure Monitor.
+1. [Envoyez les journaux de connexion Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) à Azure Monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtenir les ID d’objet des comptes de secours
 
@@ -156,5 +156,5 @@ Ces étapes doivent être effectuées à intervalles réguliers et pour les prin
 - [Ajouter des utilisateurs d’AAD](../fundamentals/add-users-azure-active-directory.md) et [attribuer au nouvel utilisateur le rôle d’administrateur général](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [S’inscrire à Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) si ce n’est déjà fait
 - [Comment exiger la vérification en deux étapes pour un utilisateur](../authentication/howto-mfa-userstates.md)
-- [Configurer des protections supplémentaires pour les administrateurs généraux dans Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts) si vous utilisez Microsoft 365
+- [Configurer des protections supplémentaires pour les administrateurs généraux dans Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts) si vous utilisez Microsoft 365
 - [Commencer une vérification de l’accès des administrateurs généraux](../privileged-identity-management/pim-how-to-start-security-review.md) et [opérer une transition des administrateurs généraux existants vers des rôles d’administrateur plus spécifiques](directory-assign-admin-roles.md)

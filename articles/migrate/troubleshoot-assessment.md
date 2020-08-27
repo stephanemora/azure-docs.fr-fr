@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263025"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685406"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -36,10 +36,10 @@ Nécessite un abonnement Microsoft Visual Studio. | La machine exécute un syst�
 Nous n’avons pas trouvé de machine virtuelle correspondant au niveau de performance de stockage nécessaire | Les performances de stockage (IOPS et débit) nécessaires à la machine dépassent le niveau de prise en charge Azure. Réduisez les besoins de stockage de la machine avant la migration.
 Nous n’avons pas trouvé de machine virtuelle correspondant au niveau de performance réseau nécessaire | Les performances réseau (entrée/sortie) requises pour la machine dépassent la prise en charge des machines virtuelles Azure. Réduisez les exigences de mise en réseau de la machine.
 Nous n’avons pas trouvé de machine virtuelle à l’emplacement spécifié | Utilisez un emplacement cible différent avant la migration.
-Un ou plusieurs disques ne sont pas adaptés | Un ou plusieurs disques attachés à la machine virtuelle ne répondent pas aux exigences Azure.A<br/><br/> Azure Migrate : Server Assessment ne prend pas en charge les disques SSD Ultra et évalue les disques en fonction des limites appliquées aux disques managés Premium (32 To).<br/><br/> Pour chaque disque attaché à la machine virtuelle, assurez-vous que la taille du disque est < 64 To (pris en charge par les disques SSD Ultra).<br/><br/> Si ce n’est pas le cas, réduisez la taille du disque avant d’effectuer la migration vers Azure, ou utilisez plusieurs disques dans Azure et [associez-les](../virtual-machines/windows/premium-storage-performance.md#disk-striping) pour bénéficier de limites de stockage supérieures. Vérifiez que les performances (IOPS et débit) nécessaires à chaque disque sont prises en charge par les [disques de la machine virtuelle managée](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) Azure.
+Un ou plusieurs disques ne sont pas adaptés | Un ou plusieurs disques attachés à la machine virtuelle ne répondent pas aux exigences Azure.A<br/><br/> Azure Migrate : Server Assessment ne prend pas en charge les disques SSD Ultra et évalue les disques en fonction des limites appliquées aux disques managés Premium (32 To).<br/><br/> Pour chaque disque attaché à la machine virtuelle, assurez-vous que la taille du disque est < 64 To (pris en charge par les disques SSD Ultra).<br/><br/> Si ce n’est pas le cas, réduisez la taille du disque avant d’effectuer la migration vers Azure, ou utilisez plusieurs disques dans Azure et [associez-les](../virtual-machines/premium-storage-performance.md#disk-striping) pour bénéficier de limites de stockage supérieures. Vérifiez que les performances (IOPS et débit) nécessaires à chaque disque sont prises en charge par les [disques de la machine virtuelle managée](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits) Azure.
 Un ou plusieurs adaptateurs réseau ne sont pas adaptés | Supprimez les cartes réseau non utilisées de la machine avant la migration.
 Le nombre de disques dépasse la limite autorisée | Supprimez les disques non utilisés de la machine avant la migration.
-La taille du disque dépasse la limite autorisée | Azure Migrate : Server Assessment ne prend pas en charge les disques SSD Ultra, et évalue les disques en fonction des limites appliquées aux disques Premium (32 To).<br/><br/> Toutefois, Azure prend en charge les disques d’une taille maximale de 64 To (prise en charge par les disques SSD Ultra). Réduisez la taille des disques pour passer en dessous des 64 To avant la migration, ou utilisez plusieurs disques Azure et [associez-les](../virtual-machines/windows/premium-storage-performance.md#disk-striping) pour bénéficier de limites de stockage plus élevées.
+La taille du disque dépasse la limite autorisée | Azure Migrate : Server Assessment ne prend pas en charge les disques SSD Ultra, et évalue les disques en fonction des limites appliquées aux disques Premium (32 To).<br/><br/> Toutefois, Azure prend en charge les disques d’une taille maximale de 64 To (prise en charge par les disques SSD Ultra). Réduisez la taille des disques pour passer en dessous des 64 To avant la migration, ou utilisez plusieurs disques Azure et [associez-les](../virtual-machines/premium-storage-performance.md#disk-striping) pour bénéficier de limites de stockage plus élevées.
 Disque indisponible dans l'emplacement spécifié | Assurez-vous que le disque se trouve dans votre emplacement cible avant la migration.
 Disque indisponible pour la redondance spécifiée | Le disque doit utiliser le type de stockage de redondance défini dans les paramètres d'évaluation (LRS par défaut).
 Impossible de déterminer l’adéquation du disque en raison d’une erreur interne | Essayez de créer une nouvelle évaluation pour le groupe.

@@ -4,12 +4,12 @@ description: En savoir plus sur la gestion des certificats dans un cluster Servi
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246705"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653662"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestion des certificats dans des clusters Service Fabric
 
@@ -91,7 +91,7 @@ Ce sujet est traité en détail dans la [documentation sur Key Vault](../key-vau
 Nous avons évoqué un « agent d’approvisionnement », qui est l’entité qui récupère le certificat avec sa clé privée dans le coffre, et l’installe sur chacun des hôtes du cluster (n’oubliez pas que Service Fabric ne fournit pas de certificats). Dans notre contexte, le cluster sera hébergé sur une collection de machines virtuelles Azure ou dans des groupes de machines virtuelles identiques. Dans Azure, l’approvisionnement d’un certificat à partir d’un coffre vers une machine virtuelle ou un groupe de machines virtuelles identiques est possible grâce aux mécanismes ci-dessous, en supposant, comme ci-dessus, que l’agent d’approvisionnement ait préalablement reçu du propriétaire du coffre des autorisations « get » sur le celui-ci : 
   - Mécanisme ad hoc : un opérateur récupère le certificat dans le coffre (comme pfx/PKCS n°12 ou pem), et l’installe sur chaque nœud.
   - En tant que « secret » du groupe de machines virtuelles identiques pendant le déploiement. En utilisant son identité interne pour le compte de l’opérateur, le service de calcul récupère le certificat à partir d’un coffre activé pour le déploiement de modèle, et l’installe sur chaque nœud du groupe de machines virtuelles identiques ([comme décrit ici](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates)). Notez que cela permet l’approvisionnement uniquement de secrets dont les versions sont gérées.
-  - En utilisant l’[extension de machine virtuelle de Key Vault](../virtual-machines/extensions/key-vault-windows.md). Cela permet d’approvisionner les certificats à l’aide de déclarations sans version, avec un rafraîchissement périodique des certificats observés. Dans ce cas, la machine virtuelle ou le groupe de machines virtuelles identiques devraient avoir une [identité managée](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources), c’est-à-dire une identité autorisée à accéder aux coffres contenant les certificats observés.
+  - En utilisant l’[extension de machine virtuelle de Key Vault](../virtual-machines/extensions/key-vault-windows.md). Cela permet d’approvisionner les certificats à l’aide de déclarations sans version, avec un rafraîchissement périodique des certificats observés. Dans ce cas, la machine virtuelle ou le groupe de machines virtuelles identiques devraient avoir une [identité managée](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), c’est-à-dire une identité autorisée à accéder aux coffres contenant les certificats observés.
 
 Le mécanisme ad-hoc n’étant pas recommandé pour plusieurs raisons, allant de la sécurité à la disponibilité, nous n’en dirons pas davantage ici. Pour plus de détails, consultez [Certificats dans des groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82095924"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854114"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -100,7 +100,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP privées par réseau virtuel |4 096 |4 096 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500 000, jusqu’à 1 000 000 pour deux cartes réseau ou plus. |500 000, jusqu’à 1 000 000 pour deux cartes réseau ou plus. |
 | Groupes de sécurité réseau (NSG) |200 |200 |
-| Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |1 000 |
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
 | Tables d’itinéraires définies par l’utilisateur |200 |200 |
 | Itinéraires définis par l’utilisateur par table d’itinéraire |400 |400 |
 | Adresses IP publiques (dynamiques) |500 |500 |

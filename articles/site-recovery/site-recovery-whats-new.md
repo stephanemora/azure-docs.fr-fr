@@ -3,12 +3,12 @@ title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611736"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816947"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -378,7 +378,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Fonctionnalité** | **Détails**
 --- | ---
 **Mappage réseau** | Pour la récupération d’urgence de machines virtuelles Azure, vous pouvez maintenant utiliser n’importe quel réseau cible disponible lorsque vous activez la réplication.
-**SSD Standard** | Vous pouvez désormais configurer la récupération d’urgence pour les machines virtuelles Azure utilisant des [disques SSD standard](../virtual-machines/windows/disks-types.md#standard-ssd).
+**SSD Standard** | Vous pouvez désormais configurer la récupération d’urgence pour les machines virtuelles Azure utilisant des [disques SSD standard](../virtual-machines/disks-types.md#standard-ssd).
 **Espaces de stockage direct** | Vous pouvez configurer la récupération d’urgence pour les applis s’exécutant sur les applications de machine virtuelle Azure à l’aide de [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) pour une haute disponibilité.  L’utilisation de Storage Spaces Direct (S2D) avec Site Recovery offre une protection complète aux charges de travail de machine virtuelle Azure. S2D vous permet d’héberger un cluster invité dans Azure. Cela est particulièrement utile lorsqu’une machine virtuelle héberge une application critique, comme la couche SAP ASCS, SQL Server ou un serveur de fichiers avec montée en puissance parallèle.
 
 
@@ -538,7 +538,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](../virtual-machines/linux/faq-for-disks.md) pour plus d’informations.
+**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](../virtual-machines/faq-for-disks.md) pour plus d’informations.
 **Récupération d’urgence des machines virtuelles après la migration** | Prise en charge de la récupération d’urgence vers une région secondaire pour une machine virtuelle VMware locale migrée vers Azure, sans avoir à désinstaller le service de mobilité sur la machine virtuelle avant d’activer la réplication.
 **Windows Server 2008** | Prise en charge de la migration des machines exécutant Windows Server 2008 R2/2008 64 bits et 32 bits.<br/><br/> Migration uniquement (réplication et basculement). La restauration automatique n’est pas prise en charge.
 

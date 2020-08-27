@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141531"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853363"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -143,7 +143,6 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | onprem_sid |
 | openid2_id |
 | mot de passe |
-| platf |
 | polids |
 | pop_jwk |
 | preferred_username |
@@ -248,11 +247,11 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 
 **Résumé :** Cette propriété détermine si l’ensemble de revendications de base est inclus dans les jetons affectés par cette stratégie.
 
-- Si la valeur est True, toutes les revendications de l’ensemble de revendications de base sont émises dans les jetons affectés par la stratégie. 
+- Si la valeur est True, toutes les revendications de l’ensemble de revendications de base sont émises dans les jetons affectés par la stratégie.
 - Si la valeur est False, les revendications de l’ensemble de revendications de base ne figurent pas dans les jetons, sauf si elles sont ajoutées individuellement à la propriété de schéma de revendications de la même stratégie.
 
-> [!NOTE] 
-> Les revendications de l’ensemble de revendications principal sont présentes dans chaque jeton, indépendamment de la définition de cette propriété. 
+> [!NOTE]
+> Les revendications de l’ensemble de revendications principal sont présentes dans chaque jeton, indépendamment de la définition de cette propriété.
 
 ### <a name="claims-schema"></a>Schéma de revendications
 
@@ -267,14 +266,14 @@ Pour chaque entrée de schéma de revendication définie dans cette propriété,
 
 **Value :** L’élément Value définit une valeur statique en tant que données à émettre dans la revendication.
 
-**Paire Source/ID :** Les éléments Source et ID définissent la provenance des données de la revendication.  
+**Paire Source/ID :** Les éléments Source et ID définissent la provenance des données de la revendication.
 
 **Paire Source/ExtensionID :** Les éléments Source et ExtensionID définissent l’attribut d’extension de schéma de répertoire à partir duquel proviennent les données de la revendication. Pour plus d’informations, consultez [Utiliser des attributs d’extension de schéma de répertoire dans les revendications](active-directory-schema-extensions.md).
 
-Définissez l’élément Source sur l’une des valeurs suivantes : 
+Définissez l’élément Source sur l’une des valeurs suivantes :
 
-- « user » : Les données de la revendication sont une propriété définie sur l’objet User. 
-- « application » : Les données de la revendication sont une propriété définie sur le principal du service de l’application (client). 
+- « user » : Les données de la revendication sont une propriété définie sur l’objet User.
+- « application » : Les données de la revendication sont une propriété définie sur le principal du service de l’application (client).
 - « resource » : Les données de la revendication sont une propriété définie sur le principal du service de la ressource.
 - « audience » : Les données de la revendication sont une propriété définie sur le principal du service qui est l’audience du jeton (principal du service du client ou de la ressource ).
 - « société » : Les données de la revendication sont une propriété définie sur l’objet Company du locataire de la ressource.
@@ -349,7 +348,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 **Chaîne :** ClaimsTransformation
 
-**Type de données :** Blob JSON avec une ou plusieurs entrées de transformation 
+**Type de données :** Blob JSON avec une ou plusieurs entrées de transformation
 
 **Résumé :** Cette propriété permet d’appliquer des transformations communes à des données sources afin de générer les données de sortie pour les revendications spécifiées dans le schéma de revendications.
 
@@ -368,7 +367,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 **InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 
-- L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication d’entrée appropriée. 
+- L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication d’entrée appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à cette entrée. Ce nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
 **InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID**.
@@ -420,7 +419,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser l’applet de commande Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette applet de commande Azure PowerShell, consultez [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous : 
+Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous :
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -464,20 +463,20 @@ Pour commencer, suivez les étapes ci-dessous :
 Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revendications de base des jetons émis pour des principaux du service liés.
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie, liée à des principaux du service spécifiques, supprime l’ensemble de revendications de base des jetons.
-   1. Pour créer la stratégie, exécutez la commande suivante : 
-    
+   1. Pour créer la stratégie, exécutez la commande suivante :
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. Pour voir votre nouvelle stratégie et obtenir son ObjectId, exécutez la commande suivante :
-    
+
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service.
    1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
-   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
-     
+   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -487,21 +486,21 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
 Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCountry à des jetons émis pour des principaux du service liés. EmployeeID est émis en tant que type de revendication de nom dans les jetons SAML et JWT. TenantCountry est émis en tant que type de revendication de pays/région dans les jetons SAML et JWT. Dans cet exemple, nous continuons à inclure les ensembles de revendications de base dans les jetons.
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie liée à des principaux du service spécifiques ajoute les revendications EmployeeID et TenantCountry aux jetons.
-   1. Pour créer la stratégie, exécutez la commande suivante :  
-     
+   1. Pour créer la stratégie, exécutez la commande suivante :
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
+
    2. Pour voir votre nouvelle stratégie et obtenir son ObjectId, exécutez la commande suivante :
-     
-      ``` powershell  
+
+      ``` powershell
       Get-AzureADPolicy
       ```
-1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
+1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service.
    1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
-   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
-     
+   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -512,20 +511,20 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie liée à des principaux du service spécifiques ajoute les revendications EmployeeID et TenantCountry aux jetons.
    1. Pour créer la stratégie, exécutez la commande suivante :
-     
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
-   2. Pour voir votre nouvelle stratégie et obtenir son ObjectId, exécutez la commande suivante : 
-     
+
+   2. Pour voir votre nouvelle stratégie et obtenir son ObjectId, exécutez la commande suivante :
+
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
+1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service.
    1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
-   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante : 
-     
+   2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

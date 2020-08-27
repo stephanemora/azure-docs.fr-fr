@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905588"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824948"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -222,7 +222,6 @@ Voici quelques conseils concernant l’interrogation de données à l’aide d�
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Les noms et les valeurs des propriétés respectent la casse, veillez donc à utiliser les noms exacts qui sont définis dans les modèles. Si les noms des propriétés sont mal orthographiés ou ne respectent pas la casse, le jeu de résultats sera vide et aucune erreur ne sera retournée.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

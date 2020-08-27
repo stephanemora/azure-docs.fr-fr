@@ -8,19 +8,19 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125580"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932795"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurer le pare-feu IP pour Recherche cognitive Azure
 
 Recherche cognitive Azure prend en charge les règles IP pour la prise en charge du pare-feu entrant. Ce modèle fournit une couche supplémentaire de sécurité pour votre service de recherche, similaire aux règles IP que vous trouverez dans un groupe de sécurité de réseau virtuel Azure. Avec ces règles IP, vous pouvez configurer votre service de recherche pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux données stockées dans votre service de recherche à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
 
 > [!Important]
-> Les règles IP sur votre service Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> Les règles IP sur votre service Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/).
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurer un pare-feu IP à l’aide du Portail Azure
 

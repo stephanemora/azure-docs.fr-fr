@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117020"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717844"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
 Cet article décrit l’intégration de votre infrastructure de passerelle des services Bureau à distance avec l’authentification multifacteur (MFA) Azure à l’aide de l’extension de serveur NPS (Network Policy Server) pour Microsoft Azure.
 
-L’extension de serveur NPS (Network Policy Server) pour Azure permet aux clients de protéger le protocole d’authentification client RADIUS (Remote Authentication Dial-In User Service) à l’aide de l’authentification Azure [Multi-Factor Authentication (MFA)](multi-factor-authentication.md) basée sur le cloud. Cette solution fournit une vérification en deux étapes pour ajouter une deuxième couche de sécurité aux connexions et transactions utilisateur.
+L’extension de serveur NPS (Network Policy Server) pour Azure permet aux clients de protéger le protocole d’authentification client RADIUS (Remote Authentication Dial-In User Service) à l’aide de l’authentification Azure [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md) basée sur le cloud. Cette solution fournit une vérification en deux étapes pour ajouter une deuxième couche de sécurité aux connexions et transactions utilisateur.
 
 Cet article fournit des instructions détaillées étape par étape pour l’intégration de l’infrastructure de serveur NPS avec l’authentification multifacteur Azure à l’aide de l’extension de serveur NPS pour Azure. Cela permet une vérification pour les utilisateurs tentant de se connecter à une passerelle des services Bureau à distance.
 
@@ -75,7 +75,7 @@ Cette section détaille les conditions préalables nécessaires avant d’intég
 Vous devez disposer d’une infrastructure de Services Bureau à distance (RDS) de travail en place. Dans le cas contraire, vous pouvez rapidement créer cette infrastructure dans Azure en utilisant le modèle de démarrage rapide suivant : [Créer un déploiement de collections de sessions de Bureau à distance](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Si vous souhaitez créer manuellement et rapidement une infrastructure RDS locale pour des tests, suivez les étapes pour déployer une.
-**En savoir plus** : [Déployer des services RDS avec le démarrage rapide Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) et [Déploiement de l’infrastructure RDS de base](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**En savoir plus** : [Déployer des services RDS avec le démarrage rapide Azure](/windows-server/remote/remote-desktop-services/rds-in-azure) et [Déploiement de l’infrastructure RDS de base](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
 
@@ -89,7 +89,7 @@ L’extension de serveur NPS requiert Windows Server 2008 R2 SP1 ou version ult�
 
 Le service de rôle NPS fournit la fonctionnalité serveur et client RADIUS ainsi que le service de contrôle d’intégrité de la Stratégie d’accès réseau. Ce rôle doit être installé sur au moins deux ordinateurs de votre infrastructure : La passerelle des services Bureau à distance et un autre serveur membre ou contrôleur de domaine. Par défaut, le rôle est déjà présent sur l’ordinateur configuré en tant que passerelle des services Bureau à distance.  Vous devez également installer le rôle NPS sur au moins un autre ordinateur, tel qu’un contrôleur de domaine ou un serveur membre.
 
-Pour plus d’informations sur l’installation du service de rôle de serveur NPS Windows Server 2012 ou versions plus ancienne, consultez [Installer un serveur de stratégie de contrôle d’intégrité NAP](https://technet.microsoft.com/library/dd296890.aspx). Pour obtenir une description des meilleures pratiques pour le serveur NPS, y compris la recommandation pour installer le serveur NPS sur un contrôleur de domaine, consultez [Meilleures pratiques pour le serveur NPS](https://technet.microsoft.com/library/cc771746).
+Pour plus d’informations sur l’installation du service de rôle de serveur NPS Windows Server 2012 ou versions plus ancienne, consultez [Installer un serveur de stratégie de contrôle d’intégrité NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Pour obtenir une description des meilleures pratiques pour le serveur NPS, y compris la recommandation pour installer le serveur NPS sur un contrôleur de domaine, consultez [Meilleures pratiques pour le serveur NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory synchronisé avec Active Directory local
 
@@ -109,7 +109,7 @@ Suivez les étapes dans [Bien démarrer avec l’authentification multifacteur A
 
 Lorsqu’un compte a été activé pour MFA, vous ne pouvez pas vous connecter aux ressources régies par la stratégie MFA tant que vous n’avez pas correctement configuré un appareil approuvé afin qu’il serve pour le second facteur d’authentification, et qu’il soit authentifié à l’aide de la vérification en deux étapes.
 
-Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](../user-help/multi-factor-authentication-end-user.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
+Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](../user-help/multi-factor-authentication-end-user-first-time.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
 
 > [!IMPORTANT]
 > Le comportement de connexion pour Remote Desktop Gateway n’offre pas la possibilité de saisir un code de vérification avec Azure Multi-Factor Authentication. Un compte d’utilisateur doit être configuré pour la vérification par téléphone ou l’application Microsoft Authenticator avec des notifications Push.
@@ -250,7 +250,7 @@ Par défaut, lorsque vous configurez la passerelle des services Bureau à distan
 1. Cliquez sur **Annuler**.
 
 >[!NOTE]
-> Pour plus d’informations sur la création d’une stratégie de demande de connexion, consultez l’article [Configurer des stratégies de demande de connexion](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) dans la documentation. 
+> Pour plus d’informations sur la création d’une stratégie de demande de connexion, consultez l’article [Configurer des stratégies de demande de connexion](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) dans la documentation. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurer le serveur NPS sur le serveur où est installée l’extension NPS
 
@@ -378,13 +378,13 @@ Voici un événement associé aux journaux d’activité AzureMFA :
 
 Pour exécuter des options de résolution des problèmes avancée, consultez les fichiers journaux au format base de données de serveur NPS dans lesquels est installé le service NPS. Ces fichiers journaux sont créés dans le dossier _%SystemRoot%\System32\Logs_ comme fichiers texte délimité par des virgules.
 
-Pour obtenir une description de ces fichiers journaux, consultez [Interpréter des fichiers journaux au format base de données de serveur NPS](https://technet.microsoft.com/library/cc771748.aspx). Les entrées de ces fichiers journaux peuvent être difficiles à interpréter sans les importer dans une feuille de calcul ou une base de données. Vous pouvez rechercher plusieurs analyseurs IAS en ligne pour vous aider à interpréter les fichiers journaux.
+Pour obtenir une description de ces fichiers journaux, consultez [Interpréter des fichiers journaux au format base de données de serveur NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). Les entrées de ces fichiers journaux peuvent être difficiles à interpréter sans les importer dans une feuille de calcul ou une base de données. Vous pouvez rechercher plusieurs analyseurs IAS en ligne pour vous aider à interpréter les fichiers journaux.
 
 L’image ci-dessous montre la sortie d’une de ces [applications de logiciel à contribution volontaire](https://www.deepsoftware.com/iasviewer) téléchargeable.
 
 ![Exemple d’analyseur IAS d’application de logiciel à contribution volontaire](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Enfin, pour obtenir des options de résolution des problèmes supplémentaires, vous pouvez utiliser un analyseur de protocoles, tel que [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
+Enfin, pour obtenir des options de résolution des problèmes supplémentaires, vous pouvez utiliser un analyseur de protocoles, tel que [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 L’image ci-dessous depuis Microsoft Message Analyser indique le trafic réseau filtré sur le protocole RADIUS qui contient le nom d’utilisateur **CONTOSO\AliceC**.
 

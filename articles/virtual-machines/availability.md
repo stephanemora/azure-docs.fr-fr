@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830646"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815604"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 
@@ -47,7 +47,7 @@ Cette approche garantit qu’au moins une instance de votre application reste to
 
 ## <a name="virtual-machines-scale-sets"></a>Groupes de machines virtuelles identiques 
 
-Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée de nombreuses machines virtuelles. Il est recommandé de créer au moins deux machines virtuelles dans un groupe identique, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe identique proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](./windows/disks-types.md#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés. Les machines virtuelles d’un groupe identique peuvent être déployées sur plusieurs domaines de mise à jour et domaines d’erreur pour optimiser la disponibilité et la résilience aux pannes dues à des pannes de centre de données ou à des événements de maintenance planifiés ou non. Les machines virtuelles d’un groupe identique peuvent également être déployées dans une seule zone de disponibilité, ou dans une région. Les options de déploiement de la zone de disponibilité peuvent varier en fonction du mode d’orchestration.
+Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée de nombreuses machines virtuelles. Il est recommandé de créer au moins deux machines virtuelles dans un groupe identique, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe identique proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](./disks-types.md#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés. Les machines virtuelles d’un groupe identique peuvent être déployées sur plusieurs domaines de mise à jour et domaines d’erreur pour optimiser la disponibilité et la résilience aux pannes dues à des pannes de centre de données ou à des événements de maintenance planifiés ou non. Les machines virtuelles d’un groupe identique peuvent également être déployées dans une seule zone de disponibilité, ou dans une région. Les options de déploiement de la zone de disponibilité peuvent varier en fonction du mode d’orchestration.
 
 **Domaines d’erreur et domaines de mise à jour**
 
@@ -55,11 +55,11 @@ Les groupes de machines virtuelles identiques simplifient la conception pour la 
 
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](./windows/disks-types.md#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés.
+Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise des [disques SSD Azure Premium](./disks-types.md#premium-ssd), le contrat SLA Azure s’applique pour les événements de maintenance non planifiés.
 
 Dans un groupe à haute disponibilité, les machines virtuelles sont automatiquement réparties sur ces domaines d’erreur. Cette approche limite l’impact des défaillances du matériel physique, des pannes de réseau ou des coupures de courant susceptibles de survenir.
 
-Les machines virtuelles faisant appel à [Azure Disques managés](./windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques managés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques managés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques managés. 
+Les machines virtuelles faisant appel à [Azure Disques managés](./faq-for-disks.md) sont alignées sur les domaines d’erreur des disques managés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques managés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques managés. 
 
 Seules des machines virtuelles avec des disques managés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 

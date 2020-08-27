@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740997"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799415"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Corrections possibles par rapport au message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 
@@ -68,6 +68,6 @@ Si votre appareil n’est pas joint au réseau de votre organisation, vous pouve
 - **Inscrire votre appareil personnel pour le travail** Inscrivez votre appareil personnel, généralement un téléphone ou une tablette, sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation. Pour obtenir plus d’informations et des instructions pas à pas, reportez-vous à [Inscrire votre appareil personnel au réseau de votre organisation](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Qu’est-ce que le portail MyApps ?](active-directory-saas-access-panel-introduction.md)
+- [Qu’est-ce que le portail MyApps ?](./my-apps-portal-end-user-access.md)
 
 - [Connectez-vous avec votre téléphone, et non votre mot de passe](user-help-auth-app-sign-in.md)

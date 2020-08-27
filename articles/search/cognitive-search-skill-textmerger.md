@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982014"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924637"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Compétence cognitive Fusion de texte
 
@@ -75,7 +75,7 @@ Cet exemple montre la sortie de l’entrée précédente, à supposer que *inser
 
 La fusion de texte permet notamment de fusionner la représentation textuelle d’images (texte issu d’une compétence OCR ou légende d’une image) dans le champ de contenu d’un document. 
 
-L’exemple de compétences suivant utilise la reconnaissance optique des caractères pour extraire du texte à partir d’images incorporées dans le document. Ensuite, il crée un champ *merged_text* qui contiendra le texte avant et après reconnaissance de chaque image. Vous trouverez plus d'informations sur la reconnaissance optique des caractères [ici](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+L’exemple de compétences suivant utilise la reconnaissance optique des caractères pour extraire du texte à partir d’images incorporées dans le document. Ensuite, il crée un champ *merged_text* qui contiendra le texte avant et après reconnaissance de chaque image. Vous trouverez plus d'informations sur la reconnaissance optique des caractères [ici](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -148,4 +148,4 @@ L’exemple ci-dessus suppose l’existence d’un champ normalized-images. Pour
 
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
-+ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer)

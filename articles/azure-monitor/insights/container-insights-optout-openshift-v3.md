@@ -3,16 +3,16 @@ title: Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift
 description: Cet article décrit comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 26c8a574894e117694545508174d0ce7d0f0f5ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091213"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815434"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift v3
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift v3 
 
-Une fois que vous avez activé la surveillance de votre cluster Azure Red Hat OpenShift 3.x, vous pouvez arrêter la surveillance à l’aide d’Azure Monitor pour conteneurs si vous décidez de ne plus le surveiller. Cet article explique comment procéder à cela en utilisant le modèle Azure Resource Manager fourni.  
+Une fois que vous avez activé la surveillance de votre cluster Azure Red Hat OpenShift 3.x, vous pouvez arrêter la surveillance à l’aide d’Azure Monitor pour conteneurs si vous décidez de ne plus le surveiller. Cet article explique comment procéder à cela en utilisant le modèle Azure Resource Manager fourni. 
 
 ## <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 

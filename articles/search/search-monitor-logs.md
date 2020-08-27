@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611609"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935056"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
 Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure et sont utiles pour surveiller les processus de charge de travail et de service. En interne, des informations système existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Toutefois, si vous souhaitez utiliser la direction automatique sur les données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
 
-La journalisation des diagnostics est activée via l’intégration à [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+La journalisation des diagnostics est activée via l’intégration à [Azure Monitor](../azure-monitor/index.yml). 
 
 Quand vous configurez la journalisation des diagnostics, vous êtes invité à spécifier un mécanisme de stockage. Le tableau suivant énumère les options de collecte et de persistance des données.
 
 | Ressource | Utilisé pour |
 |----------|----------|
-| [Envoyer à l’espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Les événements et les mesures sont envoyés à un espace de travail Log Analytics, lequel peut être interrogé dans le portail pour retourner des informations détaillées. Pour une introduction sur le sujet, consultez [Prise en main des journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata). |
-| [Archiver avec le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Les événements et les mesures sont archivés dans un conteneur de blobs et stockés dans des fichiers JSON. Les journaux d’activité peuvent être très granulaires (par heure/minute), ce qui est utile pour la recherche d’un incident spécifique, mais pas pour une investigation ouverte. Utilisez un éditeur JSON pour afficher un fichier journal brut ou Power BI pour agréger et visualiser les données du journal.|
-| [Diffuser vers un Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Les événements et les mesures sont diffusés vers un service Azure Event Hubs. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
+| [Envoyer à l’espace de travail Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Les événements et les mesures sont envoyés à un espace de travail Log Analytics, lequel peut être interrogé dans le portail pour retourner des informations détaillées. Pour une introduction sur le sujet, consultez [Prise en main des journaux d’activité Azure Monitor](../azure-monitor/log-query/get-started-portal.md). |
+| [Archiver avec le stockage Blob](../storage/blobs/storage-blobs-overview.md) | Les événements et les mesures sont archivés dans un conteneur de blobs et stockés dans des fichiers JSON. Les journaux d’activité peuvent être très granulaires (par heure/minute), ce qui est utile pour la recherche d’un incident spécifique, mais pas pour une investigation ouverte. Utilisez un éditeur JSON pour afficher un fichier journal brut ou Power BI pour agréger et visualiser les données du journal.|
+| [Diffuser vers un Event Hub](../event-hubs/index.yml) | Les événements et les mesures sont diffusés vers un service Azure Event Hubs. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ Créez des ressources à l’avance pour pouvoir en sélectionner une ou plusieu
 
 + [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Créez un compte de stockage](../storage/common/storage-quickstart-create-account.md)
++ [Créez un compte de stockage](../storage/common/storage-account-create.md)
 
 + [Créer un hub d’événements](../event-hubs/event-hubs-create.md)
 
@@ -122,9 +122,9 @@ Les événements journalisés capturés par Azure Monitor incluent ceux qui sont
 
 | NomOpération | Description |
 |---------------|-------------|
-| ServiceStats | Cette opération est un appel de routine à l’API [GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), appelée directement ou implicitement pour remplir une page de présentation du portail lors de son chargement ou de son actualisation. |
+| ServiceStats | Cette opération est un appel de routine à l’API [GET Service Statistics](/rest/api/searchservice/get-service-statistics), appelée directement ou implicitement pour remplir une page de présentation du portail lors de son chargement ou de son actualisation. |
 | Query.Search |  Demandes de requêtes par rapport à un index. Consultez [Superviser les requêtes](search-monitor-queries.md) pour plus d’informations sur les requêtes journalisées.|
-| Indexing.Index  | Cette opération est un appel à [Ajout, mise à jour ou suppression de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexing.Index  | Cette opération est un appel à [Ajout, mise à jour ou suppression de documents](/rest/api/searchservice/addupdate-or-delete-documents). |
 | indexes.Prototype | Il s’agit d’un index créé par l’Assistant Importation de données. |
 | Indexers.Create | Créez un indexeur de manière explicite ou implicite à l’aide de l’Assistant Importation de données. |
 | Indexers.Get | Retourne le nom d’un indexeur chaque fois que l’indexeur est exécuté. |

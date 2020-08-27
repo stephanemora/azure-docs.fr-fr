@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034120"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783193"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
 
-Avec Azure Active Directory (Azure AD), vous pouvez facilement mettre en place une collaboration au-delà des limites de l’organisation à l’aide de la [fonctionnalité B2B d’Azure AD](../b2b/what-is-b2b.md). Les utilisateurs invités depuis d’autres locataires peuvent être [invités par les administrateurs](../b2b/add-users-administrator.md) ou par [d’autres utilisateurs](../b2b/what-is-b2b.md). Cela s’applique également aux identités de réseaux sociaux tels que des comptes Microsoft.
+Avec Azure Active Directory (Azure AD), vous pouvez facilement mettre en place une collaboration au-delà des limites de l’organisation à l’aide de la [fonctionnalité B2B d’Azure AD](../external-identities/what-is-b2b.md). Les utilisateurs invités depuis d’autres locataires peuvent être [invités par les administrateurs](../external-identities/add-users-administrator.md) ou par [d’autres utilisateurs](../external-identities/what-is-b2b.md). Cela s’applique également aux identités de réseaux sociaux tels que des comptes Microsoft.
 
 Vous pouvez également facilement vous assurer que les utilisateurs invités disposent de droits d’accès appropriés. Vous pouvez demander directement aux invités ou bien à un décisionnaire de prendre part à une révision d’accès et de renouveler la certification (ou d’effectuer une « attestation ») pour l’accès invité. Les réviseurs peuvent donner leur avis sur les besoins de chaque utilisateur en matière d’accès continu, en fonction des suggestions d’Azure AD. Lorsqu’une révision d’accès est terminée, vous pouvez effectuer des modifications et supprimer l’accès des invités qui n’en ont plus besoin.
 
@@ -120,10 +120,3 @@ Dans certaines organisations, les invités peuvent ne pas être conscients de le
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Créer une révision d’accès de groupes ou d’applications](create-access-review.md)
-
-
-
-
-
-
-

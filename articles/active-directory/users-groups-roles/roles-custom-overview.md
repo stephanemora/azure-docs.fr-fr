@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828657"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795590"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Rôles d’administrateurs personnalisés Azure Active Directory (préversion)
 
@@ -46,7 +46,7 @@ Voici les principales étapes suivies par Azure AD pour déterminer si vous avez
 
 1. Selon les circonstances, Azure AD effectue l’une des actions suivantes :
 
-    - Évalue les appartenances aux rôles de l’utilisateur en fonction de la [revendication wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) dans le jeton d’accès de l’utilisateur.
+    - Évalue les appartenances aux rôles de l’utilisateur en fonction de la [revendication wids](../develop/access-tokens.md) dans le jeton d’accès de l’utilisateur.
     - Récupère toutes les attributions de rôles qui s’appliquent à l’utilisateur, directement ou via l’appartenance à un groupe, à la ressource sur laquelle l’action est effectuée.
 
 1. Azure AD détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.

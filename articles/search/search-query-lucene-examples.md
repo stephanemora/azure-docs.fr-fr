@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561768"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934971"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche cognitive Azure)
 
@@ -147,7 +147,7 @@ Vous pouvez définir une opération de recherche par champ avec la syntaxe **fie
 
 Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux emplacements distincts sont recherchés dans le champ `state`. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
 
-Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST Recherche cognitive Azure)](/rest/api/searchservice/create-index).
 
 > [!NOTE]
 > Dans l’exemple ci-dessus, nous n’avons pas eu besoin d’utiliser le paramètre `searchFields` car chaque partie de la requête comporte un nom de champ explicitement spécifié. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` ne correspondrait à `senior NOT junior` qu'au niveau du champ `business_title`, alors qu'elle correspondrait au champ « externe » avec le champ `posting_type`. Le nom du champ fourni dans **fieldName:searchExpression** a toujours priorité sur le paramètre `searchFields`, c'est pourquoi dans cet exemple, nous n'avons pas besoin d'inclure `business_title` dans le paramètre `searchFields`.
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Requête par expression régulière](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Les requêtes Regex ne sont pas [analysées](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
+> Les requêtes Regex ne sont pas [analysées](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
 >
 
 ## <a name="example-7-wildcard-search"></a>Exemple 7 : Recherche par caractères génériques
@@ -278,18 +278,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Requête par caractère générique](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Les requêtes par caractères génériques ne sont pas [analysées](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
+> Les requêtes par caractères génériques ne sont pas [analysées](./search-lucene-query-architecture.md#stage-2-lexical-analysis). La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST. Ces liens utilisent la syntaxe simple par défaut. Vous devrez donc appliquer ce que vous avez appris dans cet article pour spécifier le **queryType**.
 
-* [Interroger un index à l’aide du SDK .NET](search-query-dotnet.md)
-* [Interroger un index à l’aide de l’API REST](search-create-index-rest-api.md)
+* [Interroger un index à l’aide du SDK .NET](./search-get-started-dotnet.md)
+* [Interroger un index à l’aide de l’API REST](./search-get-started-powershell.md)
 
 Vous trouverez des informations de référence supplémentaires sur la syntaxe et sur l’architecture de requête, ainsi que des exemples, en cliquant sur les liens suivants :
 
 + [Exemples de requête de syntaxe simple](search-query-simple-examples.md)
 + [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
-+ [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Syntaxe de requête complète Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 29a202b3833bbc6ee550df89b240d95ecb38ef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742050"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798055"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Utiliser des collections dans le portail Mes applications
 
@@ -26,7 +26,7 @@ Les collections sont les différentes vues d’application que vous pouvez voir 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs de **Mes applications**. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Ce contenu est destiné aux utilisateurs de **Mes applications**. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](../manage-apps/access-panel-collections.md).
 
 ## <a name="access-apps-using-collections"></a>Accéder aux applications en utilisant des collections
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511140"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651724"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -110,9 +110,9 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
            -  [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il est important de tenir compte du *débit maximum du disque non mis en cache * pour le dimensionnement.
    2. Stockage.
         - Vérifiez le document [Types de stockage Azure pour une charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage).
-        - Utilisez au minimum le [stockage Disque SSD Standard Azure](../../windows/disks-types.md#standard-ssd) pour les machines virtuelles représentant des couches Application SAP et pour un déploiement de SGBD non sensibles aux performances.
-        - En général, nous déconseillons l’utilisation de [disques HDD Standard Azure](../../windows/disks-types.md#standard-hdd).
-        - Utilisez [Stockage Premium Azure](../../windows/disks-types.md#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance.
+        - Utilisez au minimum le [stockage Disque SSD Standard Azure](../../disks-types.md#standard-ssd) pour les machines virtuelles représentant des couches Application SAP et pour un déploiement de SGBD non sensibles aux performances.
+        - En général, nous déconseillons l’utilisation de [disques HDD Standard Azure](../../disks-types.md#standard-hdd).
+        - Utilisez [Stockage Premium Azure](../../disks-types.md#premium-ssd) pour toutes les machines virtuelles SGBD qui sont sensibles aux performances à distance.
         - Utilisez [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/).
         - Utilisez l'Accélérateur d'écriture Azure pour les lecteurs de journaux SGBD avec M-Series. Tenez compte des limites et de l’utilisation de l’Accélérateur d’écriture décrites dans [Accélérateur d’écriture](../../how-to-enable-write-accelerator.md).
         - Pour les différents types de SGBD, consultez la [documentation générique relative au SGBD lié à SAP](./dbms_guide_general.md) et la documentation spécifique au SGBD auxquelles le document générique vous renvoie.

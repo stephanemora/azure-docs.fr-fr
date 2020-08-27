@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145761"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783329"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -45,9 +45,9 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Si des utilisateurs ont déjà été affectés à une ressource que vous souhaitez gérer avec un package d’accès, assurez-vous qu’ils sont affectés au package d’accès avec une stratégie appropriée. Par exemple, vous envisagez d’inclure un groupe dans un package d’accès qui contient déjà des utilisateurs dans le groupe. Si ces utilisateurs dans le groupe nécessitent un accès permanent, ils doivent avoir une stratégie appropriée pour les packages d’accès, afin de ne pas perdre leur accès au groupe. Vous pouvez affecter le package d’accès soit en indiquant aux utilisateurs qu’ils demandent le package d’accès contenant cette ressource, soit en les affectant directement au package d’accès. Pour plus d’informations, consultez [Changer les paramètres de demande et d’approbation pour un package d’accès](entitlement-management-access-package-request-policy.md).
 
-* Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Microsoft 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Microsoft 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](/microsoftteams/office-365-groups#group-membership).
 
-* Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Packages d’accès
 
@@ -69,7 +69,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Lorsqu’un utilisateur qui ne figure pas encore dans votre annuaire se connecte au portail Mon Accès pour demander un package d’accès, assurez-vous qu’il s’authentifie à l’aide de son compte professionnel ou scolaire. Le compte professionnel ou scolaire peut être un compte présent dans l’annuaire de ressources, ou dans un annuaire qui est inclus dans l’une des stratégies du package d’accès. Si le compte de l’utilisateur n’est pas un compte professionnel ou scolaire, ou si l’annuaire auquel il s’authentifie n’est pas inclus dans la stratégie, l’utilisateur ne voit pas le package d’accès. Pour plus d’informations, consultez [Demander l’accès à un package d’accès](entitlement-management-request-access.md).
 
-* Si un utilisateur est empêché de se connecter à l’annuaire de ressources, il est dans l’incapacité de demander l’accès dans le portail Mon accès. Avant que l’utilisateur puisse demander l’accès, vous devez supprimer le bloc de connexion du profil de l’utilisateur. Pour supprimer le bloc de connexion, dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Utilisateurs** ; cliquez ensuite sur l’utilisateur concerné, puis sur **Profil**. Modifiez la section **Paramètres** et remplacez **Bloquer la connexion** par **Non**. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Vous pouvez également vérifier si l’utilisateur a été bloqué à cause d’une [Stratégie dIdentity Protection](../identity-protection/howto-unblock-user.md).
+* Si un utilisateur est empêché de se connecter à l’annuaire de ressources, il est dans l’incapacité de demander l’accès dans le portail Mon accès. Avant que l’utilisateur puisse demander l’accès, vous devez supprimer le bloc de connexion du profil de l’utilisateur. Pour supprimer le bloc de connexion, dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Utilisateurs** ; cliquez ensuite sur l’utilisateur concerné, puis sur **Profil**. Modifiez la section **Paramètres** et remplacez **Bloquer la connexion** par **Non**. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Vous pouvez également vérifier si l’utilisateur a été bloqué à cause d’une [Stratégie dIdentity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * Dans le portail Mon accès, si un utilisateur est en même temps demandeur et approbateur, il ne peut pas voir sa demande pour un package d’accès dans la page **Approbations**. Ce comportement est intentionnel : un utilisateur ne peut pas approuver sa propre demande. Vérifiez que le package d’accès demandé compte des approbateurs supplémentaires configurés sur la stratégie. Pour plus d’informations, consultez [Changer les paramètres de demande et d’approbation pour un package d’accès](entitlement-management-access-package-request-policy.md).
 

@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797681"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell et Graph pour les licences basées sur les groupes dans Azure AD
 
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Suppression des licences directes pour les utilisateurs avec des licences de groupe
 
-L’objectif de ce script consiste à supprimer les licences directes inutiles des utilisateurs qui héritent déjà de la même licence auprès d’un groupe ; par exemple, dans le cadre d’une [transition vers l’affectation de licences basée sur les groupes](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+L’objectif de ce script consiste à supprimer les licences directes inutiles des utilisateurs qui héritent déjà de la même licence auprès d’un groupe ; par exemple, dans le cadre d’une [transition vers l’affectation de licences basée sur les groupes](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > Il est important de commencer par confirmer que les licences directes à supprimer n’activent pas davantage de fonctionnalités de service que les licences héritées. Dans le cas contraire, la suppression de la licence directe peut désactiver l’accès aux services et données pour les utilisateurs. Actuellement, il n’est pas possible de vérifier avec PowerShell les services qui sont activés par licence héritée et ceux qui le sont pas licence directe. Dans le script, nous allons spécifier le niveau minimal de services dont nous savons qu’ils héritent de groupes, puis effectuer une vérification pour avoir la certitude que les utilisateurs ne risquent pas de perdre accidentellement l’accès aux services.
 

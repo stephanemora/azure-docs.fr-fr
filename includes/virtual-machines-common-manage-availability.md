@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545196"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760558"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -34,7 +34,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 * [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]
 * [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configurer chaque couche application dans des groupes à haute disponibilité séparés]
-* [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
+* [Combiner un équilibreur de charge avec des zones de disponibilité ou des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données
@@ -67,7 +67,7 @@ Les domaines d’erreur définissent le groupe de machines virtuelles partageant
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité
 Si vous utilisez actuellement des machines virtuelles avec des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser la fonctionnalité Disques managés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-Les [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) augmentent la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Ceci se fait en plaçant automatiquement les disques dans des domaines d’erreur de stockage différents (clusters de stockage) et en les alignant avec le domaine d’erreur de machine virtuelle. Si un domaine d’erreur de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seule l’instance de machine virtuelle possédant des disques sur le domaine d’erreur de stockage est mise en échec.
+Les [disques managés](../articles/virtual-machines/managed-disks-overview.md) augmentent la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Ceci se fait en plaçant automatiquement les disques dans des domaines d’erreur de stockage différents (clusters de stockage) et en les alignant avec le domaine d’erreur de machine virtuelle. Si un domaine d’erreur de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seule l’instance de machine virtuelle possédant des disques sur le domaine d’erreur de stockage est mise en échec.
 ![Domaines d’erreurs de disques managés](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
@@ -110,7 +110,7 @@ Pour bénéficier d'un didacticiel sur l'équilibrage de charge dans les différ
 
 <!-- Link references -->
 [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Combiner un équilibreur de charge avec des zones de disponibilité ou des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]: #use-managed-disks-for-vms-in-an-availability-set
 [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]: #use-availability-zones-to-protect-from-datacenter-level-failures

@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835950"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935039"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administration des services pour Recherche cognitive Azure sur le portail Azure
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](/rest/api/searchmanagement/)
+> * [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Portail](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ Recherche cognitive Azure est un service de recherche entièrement géré, basé
 * Gérez l’accès à l’aide de la page **Clés** sur la gauche.
 * Ajustez la capacité à l’aide de la page **Mettre à l’échelle** sur la gauche.
 
-Les mêmes tâches effectuées dans le portail peuvent également être gérées par programmation par le biais des [API de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) et du [module AZ. Search PowerShell](search-manage-powershell.md). Les tâches d’administration sont entièrement représentées sur le portail et les interfaces de programmation. Aucune tâche d’administration spécifique n’est disponible que dans une seule modalité.
+Les mêmes tâches effectuées dans le portail peuvent également être gérées par programmation par le biais des [API de gestion](/rest/api/searchmanagement/) et du [module AZ. Search PowerShell](search-manage-powershell.md). Les tâches d’administration sont entièrement représentées sur le portail et les interfaces de programmation. Aucune tâche d’administration spécifique n’est disponible que dans une seule modalité.
 
-Recherche cognitive Azure tire parti d’autres services Azure pour effectuer une surveillance et une gestion plus poussées. Les seules données stockées avec un service de recherche sont le contenu (index, indexeur et définitions de sources de données et autres objets). Les mesures exposées sur les pages du portail sont tirées de journaux internes sur un cycle de 30 jours continu. Pour la rétention des journaux et des événements supplémentaires contrôlés par l’utilisateur, vous devez disposer d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Recherche cognitive Azure tire parti d’autres services Azure pour effectuer une surveillance et une gestion plus poussées. Les seules données stockées avec un service de recherche sont le contenu (index, indexeur et définitions de sources de données et autres objets). Les mesures exposées sur les pages du portail sont tirées de journaux internes sur un cycle de 30 jours continu. Pour la rétention des journaux et des événements supplémentaires contrôlés par l’utilisateur, vous devez disposer d’[Azure Monitor](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Propriétés du service fixe
 
@@ -58,7 +58,7 @@ En ce qui concerne l’accès au point de terminaison, toute personne ayant acc�
 
 Les droits d’accès à l’appareil d’approvisionnement de services sont accordés par le biais d’attributions de rôles. Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. 
 
-Dans le cadre de Recherche cognitive Azure, les [attributions de rôles Azure](search-security-rbac.md) déterminent les personnes qui peut effectuer les tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api) :
+Dans le cadre de Recherche cognitive Azure, les [attributions de rôles Azure](search-security-rbac.md) déterminent les personnes qui peut effectuer les tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](/rest/api/searchmanagement/search-howto-management-rest-api) :
 
 * Créer ou supprimer un service
 * Mettre à l’échelle le service
@@ -73,12 +73,12 @@ Dans le cadre de Recherche cognitive Azure, les [attributions de rôles Azure](s
 
 Au niveau de base et supérieur, Microsoft surveille tous les services Recherche cognitive Azure pour vérifier la disponibilité de 99,9 % par contrat de niveau de service (SLA). Si le service est lent ou si le débit des demandes tombe en dessous des seuils de contrat SLA, les équipes de support passent en revue les fichiers journaux à leur disposition et résolvent le problème.
 
-Recherche cognitive Azure tire parti d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) pour collecter et stocker les activités d’indexation et de requête. Un service de recherche en lui-même stocke uniquement son contenu (index, définitions d’indexeurs, définitions de sources de données, définitions d’ensembles de compétences, cartes de synonymes). Les informations de mise en cache et journalisées sont stockées hors service, souvent dans un compte de stockage Azure. Pour plus d’informations sur la journalisation des charges de travail d’indexation et de requête, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
+Recherche cognitive Azure tire parti d’[Azure Monitor](../azure-monitor/index.yml) pour collecter et stocker les activités d’indexation et de requête. Un service de recherche en lui-même stocke uniquement son contenu (index, définitions d’indexeurs, définitions de sources de données, définitions d’ensembles de compétences, cartes de synonymes). Les informations de mise en cache et journalisées sont stockées hors service, souvent dans un compte de stockage Azure. Pour plus d’informations sur la journalisation des charges de travail d’indexation et de requête, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
 
 En matière d’informations générales sur votre service, en utilisant seulement les fonctionnalités intégrées à Recherche cognitive Azure lui-même, vous permet d’obtenir des informations des manières suivantes :
 
 * À l’aide du service depuis la page **Présentation**, via les notifications, les propriétés et les messages d’état.
-* À l’aide de [PowerShell](search-manage-powershell.md) ou de l’[API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) pour [obtenir les propriétés du service](https://docs.microsoft.com/rest/api/searchmanagement/services). Aucune nouvelle information ou opération n’est fournie au niveau de la couche de programmation. Des interfaces vous permettent d’écrire des scripts.
+* À l’aide de [PowerShell](search-manage-powershell.md) ou de l’[API REST de gestion](/rest/api/searchmanagement/) pour [obtenir les propriétés du service](/rest/api/searchmanagement/services). Aucune nouvelle information ou opération n’est fournie au niveau de la couche de programmation. Des interfaces vous permettent d’écrire des scripts.
 
 ## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
 
@@ -86,8 +86,8 @@ Sur le tableau de bord, l’analyse des ressources se limite aux informations af
 
 L’API REST du service de recherche vous permet d’obtenir le nombre de documents et d’index par programmation : 
 
-* [Obtention de statistiques d’index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Nombre de documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Obtention de statistiques d’index](/rest/api/searchservice/Get-Index-Statistics)
+* [Nombre de documents](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Récupération d’urgence et pannes de service
 
@@ -135,7 +135,7 @@ Contrairement à la suppression de réplicas, qui n'exige aucune opération supp
 
 Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
 
-Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) afin de connaître l'espace réellement utilisé. 
+Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](/rest/api/searchservice/Get-Index-Statistics)) afin de connaître l'espace réellement utilisé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

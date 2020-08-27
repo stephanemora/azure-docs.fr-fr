@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: cdf71f939d6e5e1ada0ba141dce3bcba9d7d9b01
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529792"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917990"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
 
@@ -37,7 +37,7 @@ Nous vous recommandons d’utiliser la même région ou le même emplacement pou
 
 ### <a name="1---prepare-source-data"></a>1 - Préparez les données sources
 
-[Connectez-vous au portail Azure](https://portal.azure.com/) et [créez un de conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour accueillir vos données. Le niveau d’accès public peut être défini sur l’une de ses valeurs valides.
+[Connectez-vous au portail Azure](https://portal.azure.com/) et [créez un de conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md) pour accueillir vos données. Le niveau d’accès public peut être défini sur l’une de ses valeurs valides.
 
 Vous aurez besoin du nom du compte de stockage, du nom du conteneur et d’une clé d’accès pour récupérer vos données dans l’Assistant **Importation de données**.
 
@@ -77,7 +77,7 @@ Dans la page **Index**, vous devez voir une liste de champs avec un type de donn
 
 Vous pouvez sélectionner des attributs en bloc en cliquant sur la case à cocher en haut de la colonne d’attribut. Choisissez **Récupérable** et **Possibilité de recherche** pour chaque champ qui doit être retourné vers une application cliente et soumis à un traitement de recherche de texte intégral. Vous remarquerez que les entiers ne peuvent pas être recherchés en texte intégral ou partiel (les nombres sont évalués textuellement et sont généralement utiles dans les filtres).
 
-Pour plus d’informations, passez en revue la description des [attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) et des [analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support). 
+Pour plus d’informations, passez en revue la description des [attributs d’index](/rest/api/searchservice/create-index#bkmk_indexAttrib) et des [analyseurs de langage](/rest/api/searchservice/language-support). 
 
 Prenez un moment pour passer en revue vos sélections. Une fois que vous exécutez l’Assistant, des structures de données physiques sont créées : vous ne pourrez donc plus modifier ces champs sans supprimer et recréer tous les objets.
 
@@ -110,9 +110,9 @@ Vous pouvez consulter l’[exemple de code REST](#rest-example) à la fin de cet
 
 Pour l’indexation JSON basée sur le code, utilisez [Postman](search-get-started-postman.md) et l’API REST pour créer ces objets :
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [index](/rest/api/searchservice/create-index)
++ [source de données](/rest/api/searchservice/create-data-source)
++ [indexeur](/rest/api/searchservice/create-indexer)
 
 L’ordre des opérations nécessite que vous créiez et appeliez des objets dans cet ordre. Contrairement au flux de travail du portail, une approche de code requiert un index pour accepter les documents JSON envoyés via la requête de **création d’un indexeur**.
 
@@ -120,9 +120,9 @@ Les objets Blob JSON dans Stockage Blob Azure se composent généralement d’un
 
 | Document JSON | parsingMode | Description | Disponibilité |
 |--------------|-------------|--------------|--------------|
-| Un seul par objet blob | `json` | Analyse les objets blob JSON comme un bloc de texte unique. Chaque objet blob JSON devient un document Recherche cognitive Azure unique. | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche cognitive Azure distinct.  | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Plusieurs par objet blob | `jsonLines` | Analyse un objet Blob qui contient plusieurs entités JSON (« tableau ») séparées par un saut de ligne, où chaque entité devient un document Recherche cognitive Azure distinct. | Généralement disponible dans les API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
+| Un seul par objet blob | `json` | Analyse les objets blob JSON comme un bloc de texte unique. Chaque objet blob JSON devient un document Recherche cognitive Azure unique. | Généralement disponible dans les API [REST](/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
+| Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche cognitive Azure distinct.  | Généralement disponible dans les API [REST](/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
+| Plusieurs par objet blob | `jsonLines` | Analyse un objet Blob qui contient plusieurs entités JSON (« tableau ») séparées par un saut de ligne, où chaque entité devient un document Recherche cognitive Azure distinct. | Généralement disponible dans les API [REST](/rest/api/searchservice/indexer-operations) et le Kit de développement logiciel (SDK) [.NET](/dotnet/api/microsoft.azure.search.models.indexer). |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Assembler des entrées pour la requête
 
@@ -168,7 +168,7 @@ Les indexeurs sont couplés à un schéma d’index. Si vous utilisez l’API (�
 
 L’index stocke le contenu avec possibilité de recherche dans Recherche cognitive Azure. Pour créer un index, fournissez un schéma qui spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche. Si vous créez un index qui a les mêmes noms de champs et les mêmes types de données que la source, l’indexeur met en correspondance les champs sources et de destination, ce qui vous évite de devoir mapper explicitement les champs.
 
-L’exemple suivant montre une demande [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index). L’index aura un champ `content` avec possibilité de recherche pour stocker le texte extrait d’objets blob :   
+L’exemple suivant montre une demande [Créer un index](/rest/api/searchservice/create-index). L’index aura un champ `content` avec possibilité de recherche pour stocker le texte extrait d’objets blob :   
 
 ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -280,10 +280,10 @@ La création de l’indexeur sur Recherche cognitive Azure déclenche l’import
 
 Le Kit de développement logiciel (SDK) .NET est totalement identique à l’API REST. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 

@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e99d378b49596ac208f7235a4d1d8b2b1c8c5310
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c85af0f4078010fa5b6a1d116b3bfda942c0490c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498784"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816930"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide de PowerShell
 
@@ -30,8 +30,8 @@ Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Tant que le module PowerShell Az.MySql est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
-> Une fois le module PowerShell Az.MySql généralement disponible, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
+> Tant que le module Az.MySql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Une fois que le module Az.MySql PowerShell est en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
 Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
@@ -49,10 +49,10 @@ Un serveur réplica en lecture peut être créé en utilisant la commande suivan
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-La commande `New-AzMySqlServerReplica` requiert les paramètres suivants :
+La commande `New-AzMySqlReplica` requiert les paramètres suivants :
 
 | Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ Pour créer un réplica en lecture entre régions, utilisez le paramètre **Loca
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMySqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzMySqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md).
