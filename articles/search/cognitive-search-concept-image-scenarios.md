@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f1e19fd41b4d98cb401582cd86232d8ada25733
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76838256"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935515"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
@@ -42,7 +42,7 @@ Définissez le paramètre **parsingMode** avec la valeur `json` (pour indexer ch
 
 La valeur par défaut de 2000 pixels pour la hauteur et la largeur maximales des images normalisées est basée sur les tailles maximales prises en charge par la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) et la [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md). La [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) (OCR) prend en charge une largeur et une hauteur maximales de 4200 pour les langues autres que l'anglais et de 10000 pour l'anglais.  Si vous augmentez les limites maximales, le traitement des images plus volumineuses peut échouer en fonction de la définition de vos compétences et de la langue des documents. 
 
-Vous spécifiez la propriété imageAction dans votre [définition d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) comme suit :
+Vous spécifiez la propriété imageAction dans votre [définition d’indexeur](/rest/api/searchservice/create-indexer) comme suit :
 
 ```json
 {
@@ -214,7 +214,7 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 ```
 
 ## <a name="see-also"></a>Voir aussi
-+ [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer)
 + [Compétence d'analyse d'image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)
 + [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)

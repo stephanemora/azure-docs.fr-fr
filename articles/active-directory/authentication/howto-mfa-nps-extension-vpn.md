@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507176"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717862"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -41,7 +41,7 @@ Les services de stratégie et d’accès réseau donnent aux entreprises les pos
 * Établissez et appliquez les stratégies de contrôle d’intégrité client de Protection d’accès réseau (NAP) qui déterminent si les périphériques sont accordés avec ou sans restrictions d’accès aux ressources réseau.
 
 * Donnez un moyen d’appliquer l’authentification et l’autorisation d’accès aux points d’accès sans fil et commutateurs Ethernet compatibles avec 802.1x.
-  Pour plus d’informations, consultez [Serveur NPS (Network Policy Server)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+  Pour plus d’informations, consultez [Serveur NPS (Network Policy Server)](/windows-server/networking/technologies/nps/nps-top).
 
 Afin d’améliorer la sécurité et de fournir un niveau élevé de conformité, les entreprises peuvent intégrer NPS avec Azure Multi-Factor Authentication et ainsi garantir que les utilisateurs utilisent une vérification en deux étapes pour se connecter au port virtuel sur le serveur VPN. Pour que les utilisateurs puissent obtenir l’accès, ils doivent communiquer leur combinaison de nom d’utilisateur et de mot de passe ainsi que d’autres informations sur lesquelles ils disposent d’un contrôle. Ces informations doivent être approuvées et difficilement dupliquées. Elles peuvent comporter un numéro de téléphone portable, un numéro de téléphone fixe ou être une application sur un appareil mobile.
 
@@ -94,7 +94,7 @@ Si vous ne disposez pas d’une infrastructure VPN opérationnelle en place, vou
 
 Les services de stratégie et d’accès réseau fournissent les fonctionnalités de client et de serveur RADIUS. Cet article suppose que vous avez installé le rôle Services de stratégie et d’accès réseau sur un serveur membre ou un contrôleur de domaine dans votre environnement. Dans ce guide, vous configurez RADIUS pour une configuration de VPN. Installez le rôle Services de stratégie et d’accès réseau sur un serveur *autre que* votre serveur VPN.
 
-Pour plus d’informations sur l’installation du service de rôle Services de stratégie et d’accès réseau dans Windows Server 2012 ou version ultérieure, consultez [Installer un serveur de stratégie de contrôle d’intégrité NAP](https://technet.microsoft.com/library/dd296890.aspx). La protection d’accès réseau (NAP) est dépréciée dans Windows Server 2016. Pour obtenir une description des bonnes pratiques pour NPS, y compris la recommandation d’installation de NPS sur un contrôleur de domaine, consultez [Bonnes pratiques pour NPS](https://technet.microsoft.com/library/cc771746).
+Pour plus d’informations sur l’installation du service de rôle Services de stratégie et d’accès réseau dans Windows Server 2012 ou version ultérieure, consultez [Installer un serveur de stratégie de contrôle d’intégrité NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). La protection d’accès réseau (NAP) est dépréciée dans Windows Server 2016. Pour obtenir une description des bonnes pratiques pour NPS, y compris la recommandation d’installation de NPS sur un contrôleur de domaine, consultez [Bonnes pratiques pour NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
 
@@ -446,13 +446,13 @@ Un événement associé, à partir du journal Azure Multi-Factor Authentication,
 
 ![Journaux d’activité Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Pour résoudre les problèmes de manière plus poussée, consultez les fichiers journaux au format de base de données NPS où est installé le service NPS. Les fichiers journaux sont créés dans le dossier _%SystemRoot%\System32\Logs_ sous forme de fichiers texte délimité par des virgules. Pour obtenir une description des fichiers journaux, consultez [Interpréter des fichiers journaux au format de base de données NPS](https://technet.microsoft.com/library/cc771748.aspx).
+Pour résoudre les problèmes de manière plus poussée, consultez les fichiers journaux au format de base de données NPS où est installé le service NPS. Les fichiers journaux sont créés dans le dossier _%SystemRoot%\System32\Logs_ sous forme de fichiers texte délimité par des virgules. Pour obtenir une description des fichiers journaux, consultez [Interpréter des fichiers journaux au format de base de données NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 Les entrées de ces fichiers journaux sont difficilement interprétables à moins de les exporter dans une feuille de calcul ou une base de données. De nombreux outils d’analyse de Service authentification Internet (IAS) sont à votre disposition en ligne pour vous aider à interpréter les fichiers journaux. Voici illustré le résultat d’une de ces [applications de logiciel à contribution volontaire](https://www.deepsoftware.com/iasviewer) téléchargeable :
 
 ![Exemple d’analyseur IAS d’application de logiciel à contribution volontaire](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Pour résoudre des problèmes supplémentaires, vous pouvez utiliser un analyseur de protocoles, tel que Wireshark ou [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). L’image suivante, à partir de Wireshark, affiche les messages RADIUS entre le serveur VPN et NPS.
+Pour résoudre des problèmes supplémentaires, vous pouvez utiliser un analyseur de protocoles, tel que Wireshark ou [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). L’image suivante, à partir de Wireshark, affiche les messages RADIUS entre le serveur VPN et NPS.
 
 ![Microsoft Message Analyzer affichant le trafic filtré](./media/howto-mfa-nps-extension-vpn/image50.png)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505557"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654580"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505557"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ Les versions SQL Server 2014 et ultérieures permettent de stocker les fichiers 
 * Les considérations relatives à la répartition de disques VHD sur différents comptes de stockage Azure qui ont été abordées précédemment portent également sur cette méthode de déploiement. Cela signifie que les opérations d’E/S sont concernées par les limites du compte Azure Storage.
 * À la place de la prise en compte du quota d’E/S de stockage des machines virtuelles, c’est le trafic sur les objets blob de stockage représentant les fichiers journaux et de données SQL Server, qui est pris en compte dans la bande passante réseau de du type de machine virtuelle spécifique. Pour connaître la bande passante réseau et de stockage d’un type particulier de machine virtuelle, consultez l’article [Tailles des machines virtuelles Windows dans Azure](../../sizes.md).
 * Quand vous poussez des E/S de fichier au-delà du quota de réseau, vous abandonnez la plupart du quota de stockage et, par conséquent, n’utilisez que partiellement la bande passante de la machine virtuelle.
-* Les objectifs de performances de débit d’IOPS et d’E/S du stockage Premium Azure pour les différentes tailles de disques ne s’appliquent plus, même si les objets blob que vous avez créés sont situés dans le stockage Premium Azure. Les objectifs sont documentés dans l’article [Stockage Premium hautes performances et disques managés pour les machines virtuelles](../../windows/disks-types.md#premium-ssd). Conséquence du placement des fichiers journaux et des fichiers de données SQL Server directement dans les objets blob qui sont stockés dans le stockage Premium Azure, les caractéristiques de performances peuvent être différentes par rapport aux disques durs virtuels situés dans le stockage Premium Azure.
+* Les objectifs de performances de débit d’IOPS et d’E/S du stockage Premium Azure pour les différentes tailles de disques ne s’appliquent plus, même si les objets blob que vous avez créés sont situés dans le stockage Premium Azure. Les objectifs sont documentés dans l’article [Stockage Premium hautes performances et disques managés pour les machines virtuelles](../../disks-types.md#premium-ssd). Conséquence du placement des fichiers journaux et des fichiers de données SQL Server directement dans les objets blob qui sont stockés dans le stockage Premium Azure, les caractéristiques de performances peuvent être différentes par rapport aux disques durs virtuels situés dans le stockage Premium Azure.
 * La mise en cache basée sur l’hôte, disponible pour les disques de stockage Premium Azure, n’est pas disponible quand vous placez les fichiers de données SQL Server directement sur des objets blob Azure.
 * Sur des machines virtuelles de la série M, l’Accélérateur des écritures Azure ne peut pas être utilisé pour assurer la prise en charge des écritures en moins d’une milliseconde dans le fichier journal de transactions SQL Server. 
 

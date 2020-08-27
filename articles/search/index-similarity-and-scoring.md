@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 5b3df38e8feef2a7b9bbc090e11a669164010f32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213194"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924484"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similarité et scoring dans Recherche cognitive Azure
 
@@ -21,11 +21,11 @@ Le scoring consiste à calculer un score de recherche pour chaque élément reto
 
 Par défaut, les 50 premiers sont retournés dans la réponse, mais vous pouvez utiliser le paramètre **$top** pour retourner un nombre inférieur ou supérieur d’éléments (jusqu’à 1000 par réponse) et le paramètre **$skip** pour obtenir le jeu de résultats suivant.
 
-Le score de recherche est calculé sur la base de propriétés statistiques des données et de la requête. Recherche cognitive Azure trouve les documents qui contiennent des correspondances de recherche (en totalité ou en partie, selon [searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents#searchmodeany--all-optional)), en favorisant les documents qui contiennent de nombreuses occurrences du terme recherché. Le score de recherche augmente davantage si le terme est rare dans l’index de données, mais courant au sein du document. La base de cette approche de la pertinence du calcul est appelée *TF-IDF* ou Term Frequency-Inverse Document Frequency (fréquence de terme-fréquence inverse de document).
+Le score de recherche est calculé sur la base de propriétés statistiques des données et de la requête. Recherche cognitive Azure trouve les documents qui contiennent des correspondances de recherche (en totalité ou en partie, selon [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), en favorisant les documents qui contiennent de nombreuses occurrences du terme recherché. Le score de recherche augmente davantage si le terme est rare dans l’index de données, mais courant au sein du document. La base de cette approche de la pertinence du calcul est appelée *TF-IDF* ou Term Frequency-Inverse Document Frequency (fréquence de terme-fréquence inverse de document).
 
 Des valeurs de score de recherche peuvent être répétées dans un jeu de résultats. Quand plusieurs correspondances ont le même score de recherche, le classement des éléments ayant le même score n’est ni défini ni stable. Réexécutez la requête, et vous constaterez peut-être que des éléments changent de position, en particulier si vous utilisez le service gratuit ou un service facturable avec plusieurs réplicas. Si deux éléments ont un score identique, il est impossible de prédire celui qui apparaîtra en première position.
 
-Si vous souhaitez départager des scores identiques, vous pouvez ajouter une clause **$orderby** afin de trier d’abord par score, puis par un autre champ pouvant être trié (par exemple `$orderby=search.score() desc,Rating desc`). Pour plus d’informations, consultez [$orderby](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Si vous souhaitez départager des scores identiques, vous pouvez ajouter une clause **$orderby** afin de trier d’abord par score, puis par un autre champ pouvant être trié (par exemple `$orderby=search.score() desc,Rating desc`). Pour plus d’informations, consultez [$orderby](./search-query-odata-orderby.md).
 
 > [!NOTE]
 > Un `@search.score = 1.00` indique un jeu de résultats sans score ou non classé. Le score est uniforme parmi tous les résultats. Des résultats sans score se produisent quand le formulaire de requête est une recherche approximative, des requêtes Regex ou de caractères génériques, ou une expression **$filter**. 
@@ -44,7 +44,7 @@ Un profil de score fait partie de la définition d'index, composée de champs, f
 
 Par défaut, le score d’un document est calculé en fonction de propriétés statistiques des données *au sein d’une partition*. Cette approche n’est généralement pas un problème pour un corpus important de données, et elle offre de meilleures performances que le calcul du score à partir des informations de l’ensemble des partitions. Cela dit, avec cette optimisation des performances, deux documents très similaires (ou même des documents identiques) risquent de se retrouver avec des scores de pertinence différents s’ils figurent dans des partitions différentes.
 
-Si vous préférez calculer le score à partir des propriétés statistiques sur l’ensemble des partitions, vous pouvez le faire en ajoutant *scoringStatistics=global* en tant que [paramètre de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents) (ou en ajoutant *"scoringStatistics": "global"* en tant que paramètre de corps de la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
+Si vous préférez calculer le score à partir des propriétés statistiques sur l’ensemble des partitions, vous pouvez le faire en ajoutant *scoringStatistics=global* en tant que [paramètre de requête](/rest/api/searchservice/search-documents) (ou en ajoutant *"scoringStatistics": "global"* en tant que paramètre de corps de la [demande de requête](/rest/api/searchservice/search-documents)).
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
@@ -77,7 +77,7 @@ Le segment vidéo suivant permet d’accéder rapidement à une explication des 
 
 ## <a name="featuresmode-parameter-preview"></a>Paramètre featuresMode (préversion)
 
-Les requêtes [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) ont un nouveau paramètre [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) qui peut fournir des détails supplémentaires sur la pertinence au niveau du champ. Tandis que `@searchScore` est calculé pour l’ensemble du document (quelle est la pertinence de ce document dans le contexte de cette requête), par le biais de featuresMode, vous pouvez obtenir des informations sur des champs individuels, tels qu’ils sont exprimés dans une structure `@search.features`. La structure contient tous les champs utilisés dans la requête (soit des champs spécifiques par le biais de **searchFields** dans une requête, soit tous les champs attribués comme **interrogeables** dans un index). Pour chaque champ, vous pouvez obtenir les valeurs suivantes :
+Les requêtes [Rechercher des documents](/rest/api/searchservice/preview-api/search-documents) ont un nouveau paramètre [featuresMode](/rest/api/searchservice/preview-api/search-documents#featuresmode) qui peut fournir des détails supplémentaires sur la pertinence au niveau du champ. Tandis que `@searchScore` est calculé pour l’ensemble du document (quelle est la pertinence de ce document dans le contexte de cette requête), par le biais de featuresMode, vous pouvez obtenir des informations sur des champs individuels, tels qu’ils sont exprimés dans une structure `@search.features`. La structure contient tous les champs utilisés dans la requête (soit des champs spécifiques par le biais de **searchFields** dans une requête, soit tous les champs attribués comme **interrogeables** dans un index). Pour chaque champ, vous pouvez obtenir les valeurs suivantes :
 
 + Nombre de jetons uniques trouvés dans le champ
 + Score de similarité, ou mesure de la similitude entre le contenu du champ et le terme recherché
@@ -107,6 +107,6 @@ Vous pouvez utiliser ces points de données dans [des solutions de scoring perso
 
 ## <a name="see-also"></a>Voir aussi
 
- [Profils de scoring](index-add-scoring-profiles.md) [Référence de l’API REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [API de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)   
- [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+ [Profils de scoring](index-add-scoring-profiles.md) [Référence de l’API REST](/rest/api/searchservice/)   
+ [API de recherche dans des documents](/rest/api/searchservice/search-documents)   
+ [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](/dotnet/api/overview/azure/search?view=azure-dotnet)

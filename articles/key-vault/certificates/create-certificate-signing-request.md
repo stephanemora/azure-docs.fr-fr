@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043885"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716110"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Création et fusion d’une demande de signature de certificat dans Key Vault
 
@@ -100,7 +100,9 @@ Exemple
 
 ## <a name="troubleshoot"></a>Dépanner
 
-Si le certificat émis est à l’état « désactivé » dans le portail Azure, examinez le message d’erreur pour ce certificat dans **Opération de certificat**.
+- **Type d’erreur « La clé publique du certificat d’entité finale dans le contenu du certificat X.509 spécifié ne correspond pas à la partie publique de la clé privée spécifiée. Vérifiez que le certificat est valide. »** Cette erreur peut se produire si vous ne fusionnez pas la demande de signature de certificat avec celle qui a été lancée. Chaque fois qu’une demande de signature de certificat est créée, elle crée une clé privée qui doit être mise en correspondance lors de la fusion de la demande signée.
+    
+- Si le certificat émis est à l’état « désactivé » dans le portail Azure, examinez le message d’erreur pour ce certificat dans **Opération de certificat**.
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 

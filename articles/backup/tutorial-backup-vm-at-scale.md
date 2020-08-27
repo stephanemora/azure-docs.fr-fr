@@ -4,12 +4,12 @@ description: Dans ce didacticiel explique comment créer un coffre Recovery Serv
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263416"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757504"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -136,7 +136,7 @@ Pour exécuter un travail de sauvegarde à la demande :
 
 1. Dans le menu contextuel, sélectionnez **Sauvegarder maintenant**.
 
-    ![Menu contextuel](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menu contextuel – Sélectionner Sauvegarder maintenant](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Le menu Sauvegarder maintenant s’ouvre.
 
@@ -166,7 +166,7 @@ Si vous prévoyez de continuer avec les tutoriels suivants, ne nettoyez pas les 
 
 1. Dans le menu **Éléments de sauvegarde**, sélectionnez le bouton de sélection (...) pour ouvrir le menu contextuel.
 
-    ![Menu contextuel](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![Dans le menu Éléments de sauvegarde, ouvrez le menu contextuel.](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. Dans le menu contextuel, sélectionnez **Arrêter la sauvegarde** pour ouvrir le menu Arrêter la sauvegarde.
 

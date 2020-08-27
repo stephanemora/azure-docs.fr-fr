@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806809"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935005"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Superviser les opérations et l’activité de Recherche cognitive Azure
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser les API suivantes pour récupérer les mêmes informations 
 
 ### <a name="activity-logs-and-service-health"></a>Journaux d’activité et intégrité du service
 
-La page [**Journal d’activité**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) du portail collecte des informations auprès d’Azure Resource Manager et signale les changements de l’intégrité du service. Vous pouvez superviser les conditions critiques, d’erreur et d’avertissement relatives à l’intégrité du service dans le journal d’activité.
+La page [**Journal d’activité**](../azure-monitor/platform/activity-log.md#view-the-activity-log) du portail collecte des informations auprès d’Azure Resource Manager et signale les changements de l’intégrité du service. Vous pouvez superviser les conditions critiques, d’erreur et d’avertissement relatives à l’intégrité du service dans le journal d’activité.
 
 Parmi les entrées courantes figurent les références à des clés API, à savoir des notifications d’information génériques comme *Obtenir une clé d’administration* et *Obtenir des clés de requête*. Ces activités indiquent les demandes effectuées à l’aide de la clé d’administration (créer ou supprimer des objets) ou d’une clé de requête, mais n’affichent pas la demande proprement dite. Pour plus d’informations de ce fragment, vous devez configurer la journalisation des diagnostics.
 
@@ -75,13 +75,13 @@ L’illustration suivante concerne le service gratuit, qui est limité à 3 obj
  "État d’utilisation par rapport aux limites du niveau")
 
 > [!NOTE]
-> Les alertes liées au stockage ne sont pas disponibles pour l’instant ; la consommation de stockage n’est pas agrégée ni consignée dans la table **AzureMetrics** dans Azure Monitor. Pour obtenir des alertes de stockage, vous devez [créer une solution personnalisée](../azure-monitor/insights/solutions-creating.md) qui émet des notifications liées aux ressources et dont le code contrôle la taille de stockage et gère la réponse.
+> Les alertes liées au stockage ne sont pas disponibles pour l’instant ; la consommation de stockage n’est pas agrégée ni consignée dans la table **AzureMetrics** dans Azure Monitor. Pour obtenir des alertes de stockage, vous devez [créer une solution personnalisée](../azure-monitor/insights/solutions.md) qui émet des notifications liées aux ressources et dont le code contrôle la taille de stockage et gère la réponse.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Module complémentaire de surveillance avec Azure Monitor
 
-De nombreux services, notamment la Recherche cognitive Azure, proposent une intégration avec [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) pour offrir des alertes et des métriques supplémentaires, et permettre la journalisation des données de diagnostic. 
+De nombreux services, notamment la Recherche cognitive Azure, proposent une intégration avec [Azure Monitor](../azure-monitor/index.yml) pour offrir des alertes et des métriques supplémentaires, et permettre la journalisation des données de diagnostic. 
 
 [Activez la journalisation des diagnostics](search-monitor-logs.md) pour un service de recherche si vous souhaitez contrôler la collecte et le stockage des données. Les événements journalisés capturés par Azure Monitor sont stockés dans la table **AzureDiagnostics** et se composent de données opérationnelles liées aux requêtes et à l’indexation.
 
@@ -107,4 +107,4 @@ Il n’existe aucun moyen de consigner ces informations séparément de la chaî
 Une bonne maîtrise d’Azure Monitor est essentielle pour la surveillance de tout service Azure, dont des ressources comme Recherche cognitive Azure. Si vous n’êtes pas familiarisé avec Azure Monitor, prenez le temps de consulter les articles relatifs aux ressources. En plus des tutoriels, l’article suivant est un bon point de départ.
 
 > [!div class="nextstepaction"]
-> [Supervision de ressources Azure avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Supervision de ressources Azure avec Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)

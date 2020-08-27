@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146190"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934920"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
 Cet article explique comment obtenir une réponse à une requête qui renvoie le nombre total de documents correspondants, les résultats paginés, les résultats triés et les termes mis en surbrillance.
 
-La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) dans l’API REST, ou [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) dans le Kit de développement logiciel (SDK) .NET.
+La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](/rest/api/searchservice/Search-Documents) dans l’API REST, ou [DocumentSearchResult Class](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) dans le Kit de développement logiciel (SDK) .NET.
 
 ## <a name="result-composition"></a>Composition des résultats
 
@@ -98,7 +98,7 @@ Une autre option consiste à utiliser un [profil de scoring personnalisé](index
 
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 
-La mise en surbrillance des correspondances fait référence à la mise en forme de texte (par exemple, caractères gras ou surlignage jaune) appliquée au terme correspondant dans un résultat, ce qui facilite le repérage de l’occurrence. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+La mise en surbrillance des correspondances fait référence à la mise en forme de texte (par exemple, caractères gras ou surlignage jaune) appliquée au terme correspondant dans un résultat, ce qui facilite le repérage de l’occurrence. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](/rest/api/searchservice/search-documents). 
 
 Pour activer la mise en surbrillance des correspondances, ajoutez `highlight=[comma-delimited list of string fields]` pour spécifier les champs qui utiliseront la mise en surbrillance. La mise en surbrillance est utile pour des champs de contenu longs, tels qu’un champ de description, où la correspondance n’est pas immédiatement évidente. Seules les définitions de champs attribuées comme **pouvant faire l’objet d’une recherche** sont éligibles pour la mise en surbrillance des correspondances.
 

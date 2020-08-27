@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056820"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934580"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -302,6 +303,6 @@ Réponse classique pour la reconnaissance avec évaluation de la prononciation 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
+- [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510866"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935464"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
@@ -54,7 +54,7 @@ Dans ce cas, il se peut que vous vouliez demander à l’indexeur d’ignorer ce
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Conseil 4 : Utiliser des sessions de débogage pour identifier et résoudre les problèmes liés à vos compétences 
 
-Les sessions de débogage consistent en un éditeur visuel qui fonctionne avec un ensemble de compétences existant dans le portail Azure. Au sein d’une session de débogage, vous pouvez identifier et résoudre les erreurs, valider les modifications et les transférer vers un ensemble de compétences de production dans le pipeline d’enrichissement par IA. Il s’agit d’une fonctionnalité d’évaluation [lire la documentation](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Pour plus d’informations sur les concepts et la mise en route, consultez [Sessions de débogage](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Les sessions de débogage consistent en un éditeur visuel qui fonctionne avec un ensemble de compétences existant dans le portail Azure. Au sein d’une session de débogage, vous pouvez identifier et résoudre les erreurs, valider les modifications et les transférer vers un ensemble de compétences de production dans le pipeline d’enrichissement par IA. Il s’agit d’une fonctionnalité d’évaluation [lire la documentation](./cognitive-search-debug-session.md). Pour plus d’informations sur les concepts et la mise en route, consultez [Sessions de débogage](./cognitive-search-tutorial-debug-sessions.md).
 
 Les sessions de débogage qui fonctionnent sur un seul document sont un excellent moyen de créer de manière itérative des pipelines d’enrichissement plus complexes.
 

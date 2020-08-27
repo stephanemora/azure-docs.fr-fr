@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035229"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717350"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Activer la réinitialisation de mot de passe en libre-service Azure Active Directory depuis l’écran de connexion Windows
 
@@ -35,7 +35,7 @@ Les limitations suivantes s’appliquent à l’utilisation de SSPR depuis l’�
 
 - La réinitialisation de mot de passe n’est pas prise en charge à partir d’une session Bureau à distance ou des sessions améliorées Hyper-V.
 - Certains fournisseurs tiers d’informations d’identification sont connus pour poser des problèmes avec cette fonctionnalité.
-- La désactivation du Contrôle de compte d’utilisateur via la modification de la [clé de Registre EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) est connue pour provoquer des problèmes.
+- La désactivation du Contrôle de compte d’utilisateur via la modification de la [clé de Registre EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) est connue pour provoquer des problèmes.
 - Cette fonctionnalité est inopérante pour les réseaux où l’authentification réseau 802.1x est déployée et où l’option « Immédiatement avant l’ouverture de session de l’utilisateur » est activée. Pour les réseaux où l’authentification réseau 802.1x est déployée, il est recommandé d’utiliser l’authentification de la machine afin d’activer cette fonctionnalité.
 - Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache. Cela signifie que les appareils doivent se trouver sur le réseau interne de l’organisation ou sur un VPN disposant d’un accès réseau à un contrôleur de domaine local.
 - Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations au sujet de cette étape dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).

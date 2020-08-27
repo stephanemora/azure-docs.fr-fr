@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b610748e425b9497e12c389cca4d797d6da54087
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261407"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718999"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrer de la bibliothèque du processeur de flux de modification vers le kit de développement logiciel (SDK) Azure Cosmos DB .NET V3
 
@@ -46,10 +46,6 @@ Et le délégué peut correspondre à une méthode statique :
 Le processeur de flux de modification du kit de développement logiciel (SDK) V3 détecte tout état de bibliothèque antérieur et le migre automatiquement vers le nouveau schéma lors de la première exécution du code de l’application migrée. 
 
 Vous pouvez arrêter en toute sécurité l’application à l’aide de l’ancien code, migrer le code vers la nouvelle version, démarrer l’application migrée, après quoi toutes les modifications apportées pendant l’arrêt de l’application sont récupérées et traitées par la nouvelle version.
-
-> [!NOTE]
-> Les migrations issues des applications utilisant la bibliothèque vers le kit de développement logiciel (SDK) .NET V3 sont unidirectionnelles, car l’état (baux) est migré vers le nouveau schéma. La migration n’est pas rétrocompatible.
-
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

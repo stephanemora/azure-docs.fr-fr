@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053197"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654359"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services v3
 
@@ -99,7 +99,6 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Charger des fichiers dans un compte Media Services - REST](upload-files-rest-how-to.md)
 - [Créer des filtres avec Media Services - REST](filters-dynamic-manifest-rest-howto.md)
 - [API Azure Resource Manager basé sur l’API REST](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 

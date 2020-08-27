@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038029"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719068"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutoriel : Surveiller et gérer une application d’analytique vidéo pour la détection d’objet et de mouvement
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Accédez au tableau de bord **Moniteur** dans votre application. Cliquez ensuite sur l’un des liens hypertexte de détection d’objet capturés dans la vignette **Vidéo d’événement d’inférence**. La vidéo apparaît sur une page affichée dans le lecteur vidéo local :
+Accédez à l’appareil **caméra-003** et sélectionnez l’onglet **Tableau de bord**. Cliquez ensuite sur l’un des liens hypertexte de détection d’objet capturés dans la vignette **Vidéo d’événement d’inférence**. La vidéo apparaît sur une page affichée dans le lecteur vidéo local :
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Extrait vidéo":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Modifier les appareils simulés dans le Tableau de bord de l’application
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Changer les appareils simulés dans les tableaux de bord d’application
 
 Les tableaux de bord d’application affichent initialement la télémétrie et les propriétés générées à partir d’appareils IoT Central simulés. Pour configurer les vignettes pour la télémétrie de caméras réelles ou du simulateur Live555, procédez comme suit :
 
-1. Accédez au tableau de bord **Moniteur de caméra réelle**.
+1. Accédez au tableau de bord d’application **(exemple) Moniteur de caméra réelle**.
 1. Sélectionnez **Modifier**.
+1. Sélectionnez la vignette **Note** et supprimez-la.
+1. Modifiez le titre du tableau de bord en spécifiant *Moniteur de caméra réelle*.
 1. Dans la vignette **Nombre d’inférences**, sélectionnez l’icône Configurer.
 1. Dans la section **Configurer un graphique**, dans le groupe d’appareils **LVA Edge Object Detector** (détecteur d’objet périphérique d’analytique vidéo en direct) sélectionnez une ou plusieurs caméras réelles.
 1. Sélectionnez le champ de télémétrie `AI Inference Interface/Inference Count`.
 1. Sélectionnez **Update**.
-
-   
 
 1. Répétez les étapes pour les vignettes suivantes :
     1. Le graphique à secteurs **Détection** utilise le type de données de télémétrie `AI Inference Interface/Inference/entity/tag/value`.

@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80236017"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660245"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutoriel : Entraîner et déployer un modèle Azure Machine Learning
 
@@ -37,7 +37,7 @@ Nous utilisons Azure Notebooks pour héberger les deux Notebooks Jupyter et les 
 * **Démarrage rapide :** [Créer et partager un notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutoriel :** [Créer et exécuter un notebook Jupyter avec Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-L’utilisation d’Azure Notebooks garantit un environnement cohérent pour l’exercice.
+L’utilisation d’Azure Notebooks garantit un environnement cohérent pour cet exercice.
 
 > [!NOTE]
 > Une fois installé, le service Azure Notebooks est accessible depuis n’importe quelle machine. Pendant la configuration, vous devez utiliser la machine virtuelle de développement, qui contient tous les fichiers dont vous aurez besoin.
@@ -80,7 +80,7 @@ Nous allons charger des exemples de fichiers notebooks dans un nouveau projet Az
 
 1. Sélectionnez **Charger** pour commencer le téléchargement, puis sélectionnez **Terminé** une fois le processus terminé.
 
-### <a name="azure-notebook-files"></a>Fichiers de notebooks Azure
+### <a name="azure-notebook-files"></a>Fichiers Azure Notebooks
 
 Passons en revue les fichiers que vous avez chargés dans votre projet Azure Notebooks. Les activités de cette partie du tutoriel sont réparties entre deux fichiers de notebooks, qui utilisent quelques fichiers de prise en charge.
 

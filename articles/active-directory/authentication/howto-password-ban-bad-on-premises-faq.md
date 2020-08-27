@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283076"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717776"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la protection par mot de passe Azure AD en local
 
@@ -46,7 +46,7 @@ Une modification de mot de passe survient lorsqu’un utilisateur choisit un nou
 
 Une définition de mot de passe (parfois appelée une réinitialisation de mot de passe) survient lorsqu’un administrateur remplace le mot de passe d’un compte par un nouveau mot de passe, par exemple à l’aide de l’outil de gestion Utilisateurs et ordinateurs Active Directory. Cette opération requiert un niveau élevé de privilèges (généralement, administrateur de domaine), et la personne qui effectue l’opération n’a généralement pas connaissance de l’ancien mot de passe. Les scénarios de support technique opèrent souvent des définitions de mot de passe, par exemple, pour aider un utilisateur qui a oublié son mot de passe. Vous rencontrez également des situations de définition de mot de passe lorsqu’un compte d’utilisateur est créé pour la première fois avec un mot de passe.
 
-Le comportement de la stratégie de validation de mot de passe est toujours identique, qu’il s’agisse d’une modification de mot de passe ou d’une définition de mot de passe. Le service d’agent du contrôleur de domaine pour la protection par mot de passe Azure AD consigne différents événements afin de vous informer en cas de modification ou de définition de mot de passe.  Voir [Supervision et journalisation dans la protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Le comportement de la stratégie de validation de mot de passe est toujours identique, qu’il s’agisse d’une modification de mot de passe ou d’une définition de mot de passe. Le service d’agent du contrôleur de domaine pour la protection par mot de passe Azure AD consigne différents événements afin de vous informer en cas de modification ou de définition de mot de passe.  Voir [Supervision et journalisation dans la protection par mot de passe Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
 **Q : Pourquoi des événements de mot de passe rejetés sont-ils consignés en double lorsque je tente de définir un mot de passe faible à l’aide du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory ?**
 
@@ -54,7 +54,7 @@ Le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory es
 
 **Q : Pourquoi les événements de validation de mot de passe Protection par mot de passe Azure AD sont-ils journalisés avec un nom d’utilisateur vide ?**
 
-Active Directory prend en charge la possibilité de tester un mot de passe pour voir s’il satisfait aux exigences actuelles du domaine en matière de complexité des mots de passe, par exemple à l’aide de l’API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Lorsqu’un mot de passe est validé de cette manière, les tests comprennent également une validation par des produits basés sur des DLL de filtre de mots de passe, tels que la Protection par mot de passe Azure AD, mais les noms d’utilisateur passés à une DLL de filtre de mot de passe donnée seront vides. Dans ce scénario, la Protection par mot de passe Azure AD validera toujours le mot de passe à l’aide de la stratégie de mot de passe actuellement appliquée et émettra un message de journal des événements pour capturer le résultat, mais le message du journal des événements contiendra des champs de nom d’utilisateur vides.
+Active Directory prend en charge la possibilité de tester un mot de passe pour voir s’il satisfait aux exigences actuelles du domaine en matière de complexité des mots de passe, par exemple à l’aide de l’API [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Lorsqu’un mot de passe est validé de cette manière, les tests comprennent également une validation par des produits basés sur des DLL de filtre de mots de passe, tels que la Protection par mot de passe Azure AD, mais les noms d’utilisateur passés à une DLL de filtre de mot de passe donnée seront vides. Dans ce scénario, la Protection par mot de passe Azure AD validera toujours le mot de passe à l’aide de la stratégie de mot de passe actuellement appliquée et émettra un message de journal des événements pour capturer le résultat, mais le message du journal des événements contiendra des champs de nom d’utilisateur vides.
 
 **Q : L’installation de la protection par mot de passe Azure AD simultanément avec d’autres produits basés sur le filtrage par mot de passe est-elle prise en charge ?**
 
@@ -74,13 +74,13 @@ La technologie FRS (prédécesseur de la technologie DFSR) présente de nombreux
 
 Pour plus d’informations, consultez les articles suivants :
 
-[Argumentaire en faveur de la migration de la réplication sysvol vers DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[Argumentaire en faveur de la migration de la réplication sysvol vers DFSR](/archive/blogs/askds/the-case-for-migrating-sysvol-to-dfsr)
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 Si votre domaine n’utilise pas encore DFSR, vous DEVEZ le faire migrer pour l’utiliser avant d’installer la protection par mot de passe Azure Active Directory. Pour plus d’informations, consultez le lien suivant :
 
-[Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS pour la réplication sysvol, mais ce logiciel ne fonctionne pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez faire migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
@@ -101,7 +101,7 @@ Non. Le serveur proxy étant sans état, n’importe quel serveur proxy en parti
 
 Oui. Azure AD Connect et le service proxy de la protection par mot de passe Azure AD n’entrent jamais en conflit directement.
 
-Malheureusement, une incompatibilité a été détectée entre la version du service du programme de mise à jour de l’agent Microsoft Azure AD Connect installée par le logiciel Azure AD Password Protection Proxy et la version du service installée par le logiciel [Proxy d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy). Cette incompatibilité peut empêcher le service de mise à jour de l’agent de contacter Azure pour effectuer les mises à jour logicielles. Il est déconseillé d’installer d’installer Azure AD Password Protection Proxy et Proxy d'application Azure Active Directory sur le même ordinateur.
+Malheureusement, une incompatibilité a été détectée entre la version du service du programme de mise à jour de l’agent Microsoft Azure AD Connect installée par le logiciel Azure AD Password Protection Proxy et la version du service installée par le logiciel [Proxy d’application Azure Active Directory](../manage-apps/application-proxy.md). Cette incompatibilité peut empêcher le service de mise à jour de l’agent de contacter Azure pour effectuer les mises à jour logicielles. Il est déconseillé d’installer d’installer Azure AD Password Protection Proxy et Proxy d'application Azure Active Directory sur le même ordinateur.
 
 **Q : Dans quel ordre faut-il installer et inscrire les agents de contrôleur de domaine et les proxys ?**
 

@@ -8,20 +8,20 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b35af58141dc46e0cc36efe009023c1bf52850e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080061"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924692"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
 
-La compétence **Traduction de texte** évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée. Cette compétence utilise l’[API de traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponible dans Cognitive Services.
+La compétence **Traduction de texte** évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée. Cette compétence utilise l’[API de traduction de texte Translator Text v3.0](../cognitive-services/translator/reference/v3-0-translate.md) disponible dans Cognitive Services.
 
 Cette fonctionnalité est utile si vous vous attendez à ce que vos documents ne soient pas tous dans la même langue, auquel cas vous pouvez normaliser le texte dans une seule langue avant l’indexation de la recherche en le traduisant.  Elle est également utile dans les cas d’usage de localisation, où vous pouvez avoir besoin de copies du même texte dans plusieurs langues.
 
-L’[API Traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) est un service cognitif non régional, ce qui signifie que vos données ne sont pas conservées dans la même région que votre ressource Recherche cognitive Azure ou Cognitive Services associée.
+L’[API Traduction de texte Translator Text v3.0](../cognitive-services/translator/reference/v3-0-reference.md) est un service cognitif non régional, ce qui signifie que vos données ne sont pas conservées dans la même région que votre ressource Recherche cognitive Azure ou Cognitive Services associée.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -32,7 +32,7 @@ L’[API Traduction de texte Translator Text v3.0](https://docs.microsoft.com/a
 Microsoft.Skills.Text.TranslationSkill
 
 ## <a name="data-limits"></a>Limites de données
-La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à la compétence de traduction de texte, utilisez la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
+La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à la compétence de traduction de texte, utilisez la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -40,17 +40,17 @@ Les paramètres respectent la casse.
 
 | Entrées                | Description |
 |---------------------|-------------|
-| defaultToLanguageCode | (Obligatoire) Code de la langue dans laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue cible. <br/> Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| defaultFromLanguageCode | (Facultatif) Code de la langue à partir de laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue source.  Si defaultFromLanguageCode n’est pas spécifié, la détection automatique de la langue fournie par l’API de traduction de texte Translator Text est utilisée pour déterminer la langue source. <br/> Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| suggestedFrom | (Facultatif) Code de la langue à partir de laquelle traduire les documents quand ni l’entrée fromLanguageCode ni le paramètre defaultFromLanguageCode ne sont fournis, et que la détection automatique de la langue échoue.  Si la langue suggestedFrom n’est pas spécifiée, l’anglais (en) est utilisé comme langue suggestedFrom. <br/> Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| defaultToLanguageCode | (Obligatoire) Code de la langue dans laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue cible. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md). |
+| defaultFromLanguageCode | (Facultatif) Code de la langue à partir de laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue source.  Si defaultFromLanguageCode n’est pas spécifié, la détection automatique de la langue fournie par l’API de traduction de texte Translator Text est utilisée pour déterminer la langue source. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md). |
+| suggestedFrom | (Facultatif) Code de la langue à partir de laquelle traduire les documents quand ni l’entrée fromLanguageCode ni le paramètre defaultFromLanguageCode ne sont fournis, et que la détection automatique de la langue échoue.  Si la langue suggestedFrom n’est pas spécifiée, l’anglais (en) est utilisé comme langue suggestedFrom. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md). |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
 | Nom d’entrée     | Description |
 |--------------------|-------------|
 | text | Texte à traduire.|
-| toLanguageCode    | Chaîne indiquant la langue dans laquelle le texte doit être traduit. Si cette entrée n’est pas spécifiée, defaultToLanguageCode est utilisé pour traduire le texte. <br/>Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).|
-| fromLanguageCode  | Chaîne indiquant la langue actuelle du texte. Si ce paramètre n’est pas spécifié, defaultFromLanguageCode (ou la détection automatique de la langue si defaultFromLanguageCode n’est pas fourni) est utilisé pour traduire le texte. <br/>Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).|
+| toLanguageCode    | Chaîne indiquant la langue dans laquelle le texte doit être traduit. Si cette entrée n’est pas spécifiée, defaultToLanguageCode est utilisé pour traduire le texte. <br/>Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md).|
+| fromLanguageCode  | Chaîne indiquant la langue actuelle du texte. Si ce paramètre n’est pas spécifié, defaultFromLanguageCode (ou la détection automatique de la langue si defaultFromLanguageCode n’est pas fourni) est utilisé pour traduire le texte. <br/>Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md).|
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 

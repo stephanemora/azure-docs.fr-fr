@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73044642"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutoriel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
@@ -95,7 +95,7 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
 
 Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
-1. Ouvrez **l’interface utilisateur de l’administrateur Ranger**. Cliquez sur **\<NomCluster>_hbase** sous **HBase**.
+1. Ouvrez **l’interface utilisateur de l’administrateur Ranger**. Cliquez sur **\<ClusterName>_hbase** sous **HBase**.
 
    ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 

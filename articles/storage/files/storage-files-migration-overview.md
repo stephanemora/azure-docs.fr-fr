@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827858"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654257"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrer vers des partages de fichiers Azure
 
@@ -26,7 +26,7 @@ Azure dispose de plusieurs types de stockage cloud disponibles. Un aspect fondam
 
 Les [partages de fichiers Azure](storage-files-introduction.md) sont bien adaptés aux données de fichiers à usage général. Ces données incluent tout ce que vous utilisez avec un partage SMB ou NFS local. Avec [Azure File Sync](storage-sync-files-planning.md), vous pouvez mettre en cache le contenu de plusieurs partages de fichiers Azure sur des serveurs exécutant Windows en local.
 
-Pour une application qui s’exécute actuellement sur un serveur local, le stockage de fichiers dans un partage de fichiers Azure peut être un bon choix. Vous pouvez déplacer l’application vers Azure et utiliser des partages de fichiers Azure comme stockage partagé. Vous pouvez également envisager d’utiliser des [disques Azure](../../virtual-machines/windows/managed-disks-overview.md) dans ce scénario.
+Pour une application qui s’exécute actuellement sur un serveur local, le stockage de fichiers dans un partage de fichiers Azure peut être un bon choix. Vous pouvez déplacer l’application vers Azure et utiliser des partages de fichiers Azure comme stockage partagé. Vous pouvez également envisager d’utiliser des [disques Azure](../../virtual-machines/managed-disks-overview.md) dans ce scénario.
 
 Certaines applications cloud ne dépendent pas de SMB, de l’accès local aux données de l’ordinateur ou de l’accès partagé. Pour ces applications, le stockage d’objets tels que les [objets blob Azure](../blobs/storage-blobs-overview.md) est souvent le meilleur choix.
 

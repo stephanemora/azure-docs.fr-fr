@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875300"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651792"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -118,5 +118,4 @@ Pour en savoir plus sur la détection et l’alerte en cas de dérive de donnée
 ## <a name="next-steps"></a>Étapes suivantes 
 
 + Créez un jeu de données dans Azure Machine Learning Studio ou avec le SDK Python [en suivant ces étapes](how-to-create-register-datasets.md).
-+ Essayez des exemples d’entraînement de jeux de données avec nos [exemples de notebooks](https://aka.ms/dataset-tutorial).
-+ Pour obtenir des exemples de dérive de données, consultez ce [tutoriel sur la dérive de données](https://aka.ms/datadrift-notebook).
++ Essayez des exemples d’entraînement de jeux de données avec nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

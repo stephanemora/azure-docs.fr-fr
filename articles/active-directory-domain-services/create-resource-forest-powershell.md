@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506326"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723161"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Créer une forêt de ressources Azure Active Directory Domain Services et une approbation de forêt sortante vers un domaine local à l’aide d’Azure PowerShell
 
@@ -148,15 +148,15 @@ Avant de commencer, assurez-vous de comprendre les [considérations et recommand
 
 1. Créez la connectivité hybride de votre réseau local à Azure à l’aide d’une connexion VPN Azure ou Azure ExpressRoute. La configuration du réseau hybride n’entre pas dans le cadre de cette documentation et elle existe peut-être déjà dans votre environnement. Pour plus de détails sur des scénarios spécifiques, consultez les articles suivants :
 
-    * [VPN de site à site Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Vue d’ensemble d’Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [VPN de site à site Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Vue d’ensemble d’Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Si vous créez une connexion directement vers votre réseau virtuel de domaine managé, utilisez un sous-réseau de passerelle distinct. Ne créez pas la passerelle dans le sous-réseau du domaine managé.
 
 1. Pour administrer un domaine managé, vous devez créer une machine virtuelle de gestion, la joindre au domaine managé, puis installer les outils de gestion AD DS requis.
 
-    Lors du déploiement de la forêt de ressources de domaine managé, [créez une machine virtuelle Windows Server](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm), puis [installez les outils de gestion AD DS de base](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) pour installer les outils de gestion nécessaires. Attendez une des prochaines étapes après la réussite du déploiement du domaine pour joindre la machine virtuelle de gestion au domaine managé.
+    Lors du déploiement de la forêt de ressources de domaine managé, [créez une machine virtuelle Windows Server](./join-windows-vm.md), puis [installez les outils de gestion AD DS de base](./tutorial-create-management-vm.md) pour installer les outils de gestion nécessaires. Attendez une des prochaines étapes après la réussite du déploiement du domaine pour joindre la machine virtuelle de gestion au domaine managé.
 
 1. Validez la connectivité réseau entre votre réseau local et le réseau virtuel Azure.
 
@@ -260,7 +260,7 @@ Vous devez avoir une machine virtuelle Windows Server jointe à la forêt de res
 1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources du domaine managé à l’aide du bureau à distance et de vos informations d’identification administrateur de domaine managé. Si une erreur d'authentification au niveau du réseau s'affiche, vérifiez que le compte d’utilisateur que vous avez utilisé ne correspond pas un compte d’utilisateur de domaine.
 
     > [!TIP]
-    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) dans les régions Azure prises en charge.
+    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](../bastion/bastion-overview.md) dans les régions Azure prises en charge.
 
 1. Ouvrez une invite de commandes et utilisez la commande `whoami` pour afficher le nom unique de l’utilisateur actuellement authentifié :
 
@@ -286,7 +286,7 @@ Vous devez avoir une machine virtuelle Windows Server jointe à la forêt de res
 1. Connectez-vous à la machine virtuelle Windows Server jointe à la forêt de ressources du domaine managé à l’aide du bureau à distance et de vos informations d’identification administrateur de domaine managé. Si une erreur d'authentification au niveau du réseau s'affiche, vérifiez que le compte d’utilisateur que vous avez utilisé ne correspond pas un compte d’utilisateur de domaine.
 
     > [!TIP]
-    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) dans les régions Azure prises en charge.
+    > Pour vous connecter en toute sécurité à vos machines virtuelles jointes à Azure AD Domain Services, vous pouvez utiliser le [service hôte Azure Bastion](../bastion/bastion-overview.md) dans les régions Azure prises en charge.
 
 1. Ouvrez **Paramètres Windows**, puis recherchez et sélectionnez **Centre Réseau et partage**.
 1. Sélectionnez l’option permettant de **modifier les paramètres de partage avancés**.

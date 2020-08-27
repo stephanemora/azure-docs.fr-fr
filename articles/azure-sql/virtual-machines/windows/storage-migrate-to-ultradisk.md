@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5a2205ec835fb630933dd85b4b0e5846ae864cb
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235696"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653243"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrer le disque du journal vers le disque Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Effectuez une [sauvegarde complète](backup-restore.md) de votre base de donnée
 
 Attachez le disque SSD Ultra à votre machine virtuelle une fois que vous avez activé la compatibilité avec les disques Ultra sur la machine virtuelle. 
 
-Le disque Ultra est pris en charge sur un sous-ensemble de tailles et de régions de machine virtuelle. Avant de continuer, vérifiez que votre machine virtuelle se présente dans une région, une zone et une taille qui prennent en charge le disque Ultra. Vous pouvez [déterminer et valider la taille et la région de machine virtuelle](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) avec Azure CLI ou PowerShell. 
+Le disque Ultra est pris en charge sur un sous-ensemble de tailles et de régions de machine virtuelle. Avant de continuer, vérifiez que votre machine virtuelle se présente dans une région, une zone et une taille qui prennent en charge le disque Ultra. Vous pouvez [déterminer et valider la taille et la région de machine virtuelle](../../../virtual-machines/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) avec Azure CLI ou PowerShell. 
 
 ### <a name="enable-compatibility"></a>Activer la compatibilité
 
@@ -50,7 +50,7 @@ Pour activer la compatibilité, procédez comme suit :
 
 1. Sélectionnez **Oui** pour **Activer la compatibilité avec les disques Ultra**. 
 
-   :::image type="content" source="../../../../includes/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Sélectionner des paramètres supplémentaires pour les disques sous Paramètres dans le portail Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Sélectionner des paramètres supplémentaires pour les disques sous Paramètres dans le portail Azure":::
 
 1. Sélectionnez **Enregistrer**. 
 
@@ -58,7 +58,7 @@ Pour activer la compatibilité, procédez comme suit :
 
 ### <a name="attach-disk"></a>Attacher un disque
 
-Utilisez le portail Azure pour attacher un disque Ultra à votre machine virtuelle. Pour plus d’informations, consultez [Attacher un disque Ultra](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Utilisez le portail Azure pour attacher un disque Ultra à votre machine virtuelle. Pour plus d’informations, consultez [Attacher un disque Ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
 
 Une fois le disque attaché, redémarrez votre machine virtuelle à l’aide du portail Azure. 
 

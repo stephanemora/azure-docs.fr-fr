@@ -1,16 +1,16 @@
 ---
-title: 'Tutoriel : Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution (AVS)'
-description: Dans ce tutoriel Azure VMware Solution (AVS), vous allez créer une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé AVS.
+title: 'Tutoriel : Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution'
+description: Dans ce tutoriel Azure VMware Solution, vous allez créer une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612790"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750558"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutoriel : Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution (AVS)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tutoriel : Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 
 Une bibliothèque de contenu stocke et gère du contenu sous la forme d’éléments de bibliothèque. Un élément de bibliothèque unique se compose d’un ou de plusieurs fichiers que vous utilisez pour déployer des machines virtuelles. 
  
@@ -22,7 +22,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus de détails, consultez [Comment gérer le protocole DHCP dans une solution Azure VMware (AVS) en préversion](manage-dhcp.md).
+Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service DHCP managé.  Pour plus de détails, consultez [Comment gérer le protocole DHCP dans Azure VMWare Solution en préversion](manage-dhcp.md).
 
 ## <a name="create-a-content-library"></a>Créer une bibliothèque de contenu
 

@@ -3,16 +3,16 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192293"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717521"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
-Les [disques managés Azure](../virtual-machines/windows/managed-disks-overview.md) sont les offres de stockage sur disque recommandées à utiliser avec les machines virtuelles Azure pour le stockage persistant de données. Vous pouvez améliorer la résilience de vos charges de travail Service Fabric en mettant à niveau les groupes de machines virtuelles identiques qui sous-tendent vos types de nœuds pour utiliser des disques managés. Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
+Les [disques managés Azure](../virtual-machines/managed-disks-overview.md) sont les offres de stockage sur disque recommandées à utiliser avec les machines virtuelles Azure pour le stockage persistant de données. Vous pouvez améliorer la résilience de vos charges de travail Service Fabric en mettant à niveau les groupes de machines virtuelles identiques qui sous-tendent vos types de nœuds pour utiliser des disques managés. Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 
 La stratégie générale de mise à niveau d’un nœud de cluster Service Fabric pour utiliser des disques managés consiste à :
 
@@ -365,7 +365,7 @@ Dans cette procédure pas à pas, vous avez appris à mettre à niveau les group
 
 Découvrez comment :
 
-* [Monter en puissance un type de nœud principal de cluster Service Fabric](service-fabric-scale-up-node-type.md)
+* [Monter en puissance un type de nœud principal de cluster Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Convertir un modèle de groupe identique pour utiliser des disques managés](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

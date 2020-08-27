@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428019"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717045"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -62,7 +62,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 1. Dans **Microsoft Authenticator**, choisissez **Activer l’authentification** par téléphone dans le menu déroulant Compte.
 1. Suivez les instructions de l’application pour terminer de vous inscrire à l’authentification sans mot de passe. 
 
-Les organisations peuvent diriger leurs utilisateurs l'article [Se connecter à l'aide de votre téléphone et non de votre mot de passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) pour obtenir une assistance supplémentaire lors de la configuration dans l'application Microsoft Authenticator et de l'activation de l’authentification par téléphone. Pour appliquer ces paramètres, vous devrez peut-être vous déconnecter du locataire et vous y reconnecter. 
+Les organisations peuvent diriger leurs utilisateurs l'article [Se connecter à l'aide de votre téléphone et non de votre mot de passe](../user-help/user-help-auth-app-sign-in.md) pour obtenir une assistance supplémentaire lors de la configuration dans l'application Microsoft Authenticator et de l'activation de l’authentification par téléphone. Pour appliquer ces paramètres, vous devrez peut-être vous déconnecter du locataire et vous y reconnecter. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Se connecter avec les informations d’identification sans mot de passe
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260982"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935770"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (caractère générique, expression régulière, modèles)
 
@@ -51,7 +51,7 @@ Quand vous devez effectuer une recherche sur des fragments, modèles ou caractè
 + Générer et tester l’index
 
 > [!TIP]
-> L’évaluation des analyseurs est un processus itératif qui nécessite de fréquentes regénérations de l’index. Vous pouvez faciliter cette étape en utilisant Postman, les API REST pour [créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index), [supprimer un index](https://docs.microsoft.com/rest/api/searchservice/delete-index), [charger des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) et [rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). Pour charger des documents, le corps de la requête doit contenir un petit jeu de données représentatif que vous souhaitez tester (par exemple, un champ avec des numéros de téléphone ou des codes de produit). Ces API étant dans la même collection Postman, vous pouvez effectuer rapidement ces étapes.
+> L’évaluation des analyseurs est un processus itératif qui nécessite de fréquentes regénérations de l’index. Vous pouvez faciliter cette étape en utilisant Postman, les API REST pour [créer un index](/rest/api/searchservice/create-index), [supprimer un index](/rest/api/searchservice/delete-index), [charger des documents](/rest/api/searchservice/addupdate-or-delete-documents) et [rechercher des documents](/rest/api/searchservice/search-documents). Pour charger des documents, le corps de la requête doit contenir un petit jeu de données représentatif que vous souhaitez tester (par exemple, un champ avec des numéros de téléphone ou des codes de produit). Ces API étant dans la même collection Postman, vous pouvez effectuer rapidement ces étapes.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Dupliquer des champs pour différents scénarios
 
@@ -85,7 +85,7 @@ Lors du choix d’un analyseur qui produit des jetons à terme entier, les analy
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Sépare sur les espaces blancs seulement. Les termes qui incluent des tirets ou d’autres caractères sont traités comme un jeton unique. |
 | [analyseur personnalisé](index-add-custom-analyzers.md) | (recommandé) La création d’un analyseur personnalisé vous permet de spécifier à la fois le générateur de jetons et le filtre de jeton. Les analyseurs précédents doivent être utilisés tels quels. Un analyseur personnalisé vous permet de choisir les générateurs et les filtres de jetons à utiliser. <br><br>Une combinaison recommandée est le [générateur de jetons keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) avec un [filtre de jeton lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). En soi, l’[analyseur keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) prédéfini ne met pas en minuscules les caractères majuscules, ce qui peut entraîner l’échec des requêtes. Un analyseur personnalisé vous donne un mécanisme pour ajouter le filtre de jeton lowercase. |
 
-Si vous utilisez un outil de test de l’API Web tel que Postman, vous pouvez ajouter l’[appel REST de l’analyseur de test](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour inspecter la sortie segmentée en jetons.
+Si vous utilisez un outil de test de l’API Web tel que Postman, vous pouvez ajouter l’[appel REST de l’analyseur de test](/rest/api/searchservice/test-analyzer) pour inspecter la sortie segmentée en jetons.
 
 Vous devez avoir un index rempli avec lequel travailler. À partir d’un index existant et d’un champ contenant des tirets ou des termes partiels, vous pouvez essayer différents analyseurs sur des termes spécifiques pour voir quels jetons sont émis.  
 
@@ -160,7 +160,7 @@ Que vous évaluiez des analyseurs ou que vous avanciez avec une configuration sp
 
 Les analyseurs intégrés ou prédéfinis peuvent être spécifiés par leur nom dans la propriété `analyzer` d’une définition de champ, sans qu’une configuration supplémentaire ne soit requise dans l’index. L’exemple suivant montre comment définir l’analyseur `whitespace` sur un champ. 
 
-Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Liste des analyseurs prédéfinis](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Liste des analyseurs prédéfinis](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -222,15 +222,15 @@ Une fois que vous avez défini un index avec des analyseurs et des définitions 
 
 Les sections précédentes ont expliqué la logique. Cette section parcourt chaque API que vous devez appeler lors du test de votre solution. Comme indiqué précédemment, si vous utilisez un outil de test web interactif comme Postman, vous pouvez parcourir ces tâches rapidement.
 
-+ [Supprimer l’index](https://docs.microsoft.com/rest/api/searchservice/delete-index) supprime un index existant du même nom afin que vous puissiez le recréer.
++ [Supprimer l’index](/rest/api/searchservice/delete-index) supprime un index existant du même nom afin que vous puissiez le recréer.
 
-+ [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index) crée la structure d’index sur votre service de recherche, notamment des définitions et des champs d’analyseur avec la spécification d’un analyseur.
++ [Créer un index](/rest/api/searchservice/create-index) crée la structure d’index sur votre service de recherche, notamment des définitions et des champs d’analyseur avec la spécification d’un analyseur.
 
-+ [Charger des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importe des documents ayant la même structure que votre index, ainsi que du contenu pouvant faire l’objet d’une recherche. Après cette étape, votre index est prêt à être interrogé ou testé.
++ [Charger des documents](/rest/api/searchservice/addupdate-or-delete-documents) importe des documents ayant la même structure que votre index, ainsi que du contenu pouvant faire l’objet d’une recherche. Après cette étape, votre index est prêt à être interrogé ou testé.
 
-+ L’option [Tester l’analyseur](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) a été introduite dans [Choisir un analyseur](#choose-an-analyzer). Testez certaines chaînes de votre index à l’aide de divers analyseurs pour comprendre comment les termes sont tokenisés.
++ L’option [Tester l’analyseur](/rest/api/searchservice/test-analyzer) a été introduite dans [Choisir un analyseur](#choose-an-analyzer). Testez certaines chaînes de votre index à l’aide de divers analyseurs pour comprendre comment les termes sont tokenisés.
 
-+ [Rechercher dans les documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) explique comment construire une demande de requête, en utilisant une [syntaxe simple](query-simple-syntax.md) ou la [syntaxe Lucene complète](query-lucene-syntax.md) pour les expressions génériques et les expressions régulières.
++ [Rechercher dans les documents](/rest/api/searchservice/search-documents) explique comment construire une demande de requête, en utilisant une [syntaxe simple](query-simple-syntax.md) ou la [syntaxe Lucene complète](query-lucene-syntax.md) pour les expressions génériques et les expressions régulières.
 
   Pour les requêtes de termes partiels, telles que l’interrogation « 3-6214 » pour trouver une correspondance sur « + 1 (425) 703-6214 », vous pouvez utiliser la syntaxe simple : `search=3-6214&queryType=simple`.
 
@@ -287,5 +287,5 @@ Cet article explique comment les analyseurs contribuent aux problèmes de requê
 
 + [Analyseurs de langage](search-language-support.md)
 + [Analyseurs pour le traitement de texte dans Recherche cognitive Azure](search-analyzers.md)
-+ [API (REST) Analyze Text](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [API (REST) Analyze Text](/rest/api/searchservice/test-analyzer)
 + [Fonctionnement de la recherche en texte intégral (architecture de requête)](search-lucene-query-architecture.md)

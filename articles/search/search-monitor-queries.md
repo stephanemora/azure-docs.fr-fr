@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552516"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935073"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Surveiller les demandes de requête dans Recherche cognitive Azure
 
@@ -100,7 +100,7 @@ Dans la capture d'écran suivante, la première valeur correspond au nombre de m
 
 Pour un aperçu rapide des valeurs actuelles, l'onglet **Surveillance** de la page de présentation du service affiche trois mesures (**Latence de recherche**, **Requêtes de recherche par seconde (par unité de recherche)** , **Pourcentage de requêtes de recherche limitées**) sur des intervalles fixes mesurés en heures, jours et semaines, avec la possibilité de modifier le type d'agrégation.
 
-Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu **Surveillance**. Vous pourrez ainsi ajouter des données, effectuer un zoom sur celles-ci et les visualiser afin d'explorer les tendances ou les anomalies. Pour en savoir plus sur Metrics Explorer, suivez ce [tutoriel consacré à la création d'un graphique de métriques](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu **Surveillance**. Vous pourrez ainsi ajouter des données, effectuer un zoom sur celles-ci et les visualiser afin d'explorer les tendances ou les anomalies. Pour en savoir plus sur Metrics Explorer, suivez ce [tutoriel consacré à la création d'un graphique de métriques](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. Dans la section Surveillance, sélectionnez **Métriques** pour ouvrir Metrics Explorer en veillant à ce que l'étendue soit définie en fonction de votre service de recherche.
 

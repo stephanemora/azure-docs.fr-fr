@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: cec7ff020ce7e5894d4909263b5ab1aa2275caac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260626"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705127"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle ARM
 
@@ -43,7 +43,7 @@ Ce modèle crée un pare-feu Azure avec Zones de disponibilité ainsi que les re
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
+:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 

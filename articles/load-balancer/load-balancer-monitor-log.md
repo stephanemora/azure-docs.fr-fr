@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448853"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935600"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 * **Journaux d’activité de sonde d’intégrité** : Vous pouvez utiliser ces journaux pour connaître les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances du pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
 > [!IMPORTANT]
-> **Les journaux d’événements de sonde d’intégrité ne sont pas actuellement fonctionnels et sont listés parmi les [problèmes connus avec Azure Load Balancer](whats-new.md#known-issues).** Les journaux Azure Monitor peuvent uniquement être utilisés pour les instances publiques de Basic Load Balancer. Les journaux d’activité ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/management/deployment-models.md).
+> **Les journaux d’événements de sonde d’intégrité ne sont pas actuellement fonctionnels et sont listés parmi les [problèmes connus avec Azure Load Balancer](whats-new.md#known-issues).** Les journaux d’activité ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 

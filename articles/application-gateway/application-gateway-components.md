@@ -2,17 +2,17 @@
 title: Composants de passerelle d’application
 description: Cet article fournit des informations sur les différents composants d’une passerelle d’application.
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.author: absha
-ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.author: surmb
+ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088085"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723314"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 

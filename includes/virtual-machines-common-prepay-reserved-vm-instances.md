@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 07/15/2020
-ms.openlocfilehash: 2fda9c41efd4c6765681d98011d8fb890b09d19f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fb3282666362e3ef592f253405cff01a52941203
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502047"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655037"
 ---
 Vous pouvez faire des économies en optant pour une instance de machine virtuelle réservée Azure. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
@@ -53,7 +53,7 @@ Lorsque le paramètre est activé, les remises de réservation s’appliquent au
 
 Vérifiez la valeur *ConsumedService* dans vos données d’utilisation pour déterminer si l’utilisation est éligible pour les remises de réservation.
 
-Pour plus d’informations à propos de la flexibilité de la taille d’instance, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Pour plus d’informations à propos de la flexibilité de la taille d’instance, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../articles/virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-your-usage-information"></a>Analyser vos informations d’utilisation
 
@@ -100,7 +100,7 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 |Étendue       |L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>|
 |Région    |Région Azure couverte par la réservation.|    
 |Taille de la machine virtuelle     |Taille des instances de machines virtuelles.|
-|Optimiser pour     |La flexibilité de la taille d’instance de machine virtuelle est sélectionnée par défaut. Cliquez sur **Paramètres avancés** pour modifier la valeur de la flexibilité de taille d’instance afin d’appliquer la remise de réservation à d’autres machines virtuelles dans le même [Groupe de taille de machine virtuelle](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cela offre une assurance supplémentaire dans votre capacité à lancer les instances de machines virtuelles quand vous en avez besoin. La priorité de capacité est uniquement disponible si l’étendue de réservation comprend un seul abonnement. |
+|Optimiser pour     |La flexibilité de la taille d’instance de machine virtuelle est sélectionnée par défaut. Cliquez sur **Paramètres avancés** pour modifier la valeur de la flexibilité de taille d’instance afin d’appliquer la remise de réservation à d’autres machines virtuelles dans le même [Groupe de taille de machine virtuelle](../articles/virtual-machines/reserved-vm-instance-size-flexibility.md). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cela offre une assurance supplémentaire dans votre capacité à lancer les instances de machines virtuelles quand vous en avez besoin. La priorité de capacité est uniquement disponible si l’étendue de réservation comprend un seul abonnement. |
 |Terme        |Une année ou trois ans. Une durée de 5 ans est également disponible uniquement pour les machines virtuelles HBv2 VMs.|
 |Quantité    |Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances de machines virtuelles en cours d’exécution pouvant bénéficier de la remise de facturation. Par exemple, si vous exécutez 10 machines virtuelles Standard_D2 dans la région USA Est, vous devez spécifier 10 comme quantité pour optimiser l’avantage pour toutes les machines virtuelles en cours d’exécution. |
 

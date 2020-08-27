@@ -7,15 +7,15 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: d529e4e4b79f0c34eb8f95b028cca730b316d5f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060309"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935107"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualiser les journaux et les métriques Recherche cognitive Azure avec Power BI
-[Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-what-is-azure-search) vous permet de stocker les journaux des opérations et les métriques de service relatifs à votre service de recherche dans un compte de stockage Azure. Cette page fournit des instructions sur la façon dont vous pouvez visualiser ces informations par le biais d’une application modèle Power BI. L’application fournit des informations détaillées sur votre service de recherche, notamment des informations sur les métriques Recherche, Indexation, Opérations et Service.
+[Recherche cognitive Azure](./search-what-is-azure-search.md) vous permet de stocker les journaux des opérations et les métriques de service relatifs à votre service de recherche dans un compte de stockage Azure. Cette page fournit des instructions sur la façon dont vous pouvez visualiser ces informations par le biais d’une application modèle Power BI. L’application fournit des informations détaillées sur votre service de recherche, notamment des informations sur les métriques Recherche, Indexation, Opérations et Service.
 
 L’application modèle Power BI **Recherche cognitive Azure : Analyser les journaux et les métriques** est accessible dans le [marketplace d’applications Power BI](https://appsource.microsoft.com/marketplace/apps).
 
@@ -23,7 +23,7 @@ L’application modèle Power BI **Recherche cognitive Azure : Analyser les jou
 
 1. Activez la journalisation des métriques et des ressources pour votre service de recherche :
 
-    1. Créez ou identifiez un [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existant dans lequel vous pouvez archiver les journaux.
+    1. Créez ou identifiez un [compte Stockage Azure](../storage/common/storage-account-create.md) existant dans lequel vous pouvez archiver les journaux.
     1. Accédez à votre service Recherche cognitive Azure dans le Portail Azure.
     1. Dans la section Supervision de la colonne gauche, sélectionnez **Paramètres de diagnostic**.
 
@@ -98,8 +98,8 @@ Si vous constatez que vous ne pouvez pas voir vos données, suivez ces étapes d
 1. Vérifiez si le jeu de données est toujours en cours d’actualisation. L’indicateur d’état d’actualisation est indiqué à l’étape 8 ci-dessus. S’il est toujours en cours d’actualisation, patientez jusqu’à la fin de l’actualisation pour ouvrir et actualiser le rapport.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur Recherche cognitive Azure](https://docs.microsoft.com/azure/search/)
+[En savoir plus sur Recherche cognitive Azure](./index.yml)
 
-[Qu’est-ce que Power BI ?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[Qu’est-ce que Power BI ?](/power-bi/fundamentals/power-bi-overview)
 
-[Concepts de base pour les concepteurs du service Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Concepts de base pour les concepteurs du service Power BI](/power-bi/service-basic-concepts)

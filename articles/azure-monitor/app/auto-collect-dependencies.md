@@ -2,15 +2,16 @@
 title: Azure Application Insights - Collecte automatique de dépendance | Microsoft Docs
 description: Application Insights collecte et visualise automatiquement les dépendances
 ms.topic: reference
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324180"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936433"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 

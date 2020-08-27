@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667367"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653339"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Pour utiliser les paramètres de configuration automatisée du stockage, votre m
 
 * Configurée avec une [image de galerie SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo);
 * Utilise le [modèle de déploiement Resource Manager](../../../azure-resource-manager/management/deployment-models.md);
-* Utilise des [SSD premium](../../../virtual-machines/windows/disks-types.md).
+* Utilise des [SSD premium](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Nouvelles machines virtuelles
 
@@ -115,7 +115,7 @@ Vous pouvez modifier les paramètres de disque des lecteurs configurés lors du 
 Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL Server dans le portail Azure.
 
 * Azure configure un pool de stockage à partir du stockage sélectionné à partir de votre machine virtuelle. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
-* La configuration automatique du stockage utilise toujours des [disques de données P30 premium](../../../virtual-machines/windows/disks-types.md). Par conséquent, il existe un mappage 1:1 entre le nombre de téraoctets sélectionné et le nombre de disques de données attachés à votre machine virtuelle.
+* La configuration automatique du stockage utilise toujours des [disques de données P30 premium](../../../virtual-machines/disks-types.md). Par conséquent, il existe un mappage 1:1 entre le nombre de téraoctets sélectionné et le nombre de disques de données attachés à votre machine virtuelle.
 
 Pour plus d’informations sur les tarifs, consultez la page [Tarifs de Storage](https://azure.microsoft.com/pricing/details/storage) dans l’onglet **Stockage sur disque** .
 

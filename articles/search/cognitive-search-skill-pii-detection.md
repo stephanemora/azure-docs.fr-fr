@@ -8,19 +8,19 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e35ba083e376f519ccbc32c71c1ac9b1e03a41
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080746"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935294"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Compétence cognitive Détection PII
 
 > [!IMPORTANT] 
 > Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
-La compétence **Détection PII** extrait les informations d’identification personnelle d’un texte d’entrée et vous donne la possibilité de les y masquer de différentes façons. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) dans Cognitive Services.
+La compétence **Détection PII** extrait les informations d’identification personnelle d’un texte d’entrée et vous donne la possibilité de les y masquer de différentes façons. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -32,7 +32,7 @@ La compétence **Détection PII** extrait les informations d’identification pe
 Microsoft.Skills.Text.PIIDetectionSkill
 
 ## <a name="data-limits"></a>Limites de données
-La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à la compétence, utilisez la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
+La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à la compétence, utilisez la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -57,7 +57,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 
 | Nom de sortie      | Description                   |
 |---------------|-------------------------------|
-| `piiEntities` | Tableau de types complexes contenant les champs suivants : <ul><li>text (informations d’identification personnelle réelles telles qu’elles ont été extraites)</li> <li>type</li><li>subtype</li><li>score (une valeur plus élevée signifie qu’il s’agit probablement d’une entité réelle)</li><li>offset (décalage dans le texte d’entrée)</li><li>length</li></ul> </br> [Vous trouverez des types et sous-types possibles ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `piiEntities` | Tableau de types complexes contenant les champs suivants : <ul><li>text (informations d’identification personnelle réelles telles qu’elles ont été extraites)</li> <li>type</li><li>subtype</li><li>score (une valeur plus élevée signifie qu’il s’agit probablement d’une entité réelle)</li><li>offset (décalage dans le texte d’entrée)</li><li>length</li></ul> </br> [Vous trouverez des types et sous-types possibles ici.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | Si `maskingMode` est défini sur une valeur autre que `none`, cette sortie correspond à la chaîne résultante du masquage effectué sur le texte d’entrée tel que décrit par le `maskingMode` sélectionné.  Si `maskingMode` est défini sur `none`, cette sortie n’est pas présente. |
 
 ##    <a name="sample-definition"></a>Exemple de définition
@@ -127,7 +127,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 }
 ```
 
-Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d'extraire le bon contenu.  [Pour plus d’informations, cliquez ici.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](../cognitive-services/text-analytics/overview.md), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d'extraire le bon contenu.  [Pour plus d’informations, cliquez ici.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-and-warning-cases"></a>Cas d’erreurs et d’avertissements
 Si le code de langue du document n’est pas pris en charge, un avertissement est retourné et aucune entité n’est extraite.

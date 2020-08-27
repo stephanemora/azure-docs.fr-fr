@@ -1,18 +1,18 @@
 ---
 title: Appairer des environnements locaux avec un cloud privé
-description: Dans le cadre de ce tutoriel AVS (Azure VMware Solution), vous allez créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution AVS.
+description: Dans le cadre de ce tutoriel Azure VMware Solution, vous allez créer un peering ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: a9a002eab3219a0db74062570d31595bfcc0d6a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db3f5988cb8c07d9b6e80f500ac6aff8f96dfded
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093597"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750453"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
-ExpressRoute Global Reach connecte votre environnement local à vos clouds privés. La connexion Global Reach ExpressRoute est établie entre un circuit ExpressRoute de cloud privé et une connexion ExpressRoute existante à vos environnements locaux.  Des instructions sur la configuration d’ExpressRoute Global Reach avec Azure CLI et PowerShell sont disponibles. Par ailleurs, nous avons ajouté à l’[article relatif aux commandes CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) des informations et exemples spécifiques pour vous aider à configurer l’appairage ExpressRoute Global Reach entre des environnements locaux et un cloud privé AVS (Azure VMware Solution).   
+ExpressRoute Global Reach connecte votre environnement local à vos clouds privés. La connexion Global Reach ExpressRoute est établie entre un circuit ExpressRoute de cloud privé et une connexion ExpressRoute existante à vos environnements locaux.  Des instructions sur la configuration d’ExpressRoute Global Reach avec Azure CLI et PowerShell sont disponibles. Par ailleurs, nous avons ajouté à l’[article relatif aux commandes CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) des informations et exemples spécifiques pour vous aider à configurer le peering ExpressRoute Global Reach entre des environnements locaux et un cloud privé Azure VMware Solution.   
 
 Avant d’activer la connectivité entre deux circuits ExpressRoute à l’aide d’ExpressRoute Global Reach, consultez l’article expliquant comment [activer la connectivité dans des abonnements Azure différents](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  Le circuit ExpressRoute que vous utilisez quand vous [configurez un réseau Azure-à-cloud privé](tutorial-configure-networking.md) implique la création et l’utilisation de clés d’autorisation pour l’appairage avec des passerelles ExpressRoute ou d’autres circuits ExpressRoute à l’aide de Global Reach. Vous aurez déjà utilisé une clé d’autorisation avec le circuit ExpressRoute et vous en créerez une seconde pour l’appairage avec votre circuit ExpressRoute local.
 
@@ -33,7 +33,7 @@ Les prérequis pour ce tutoriel sont les suivants :
 - Un circuit ExpressRoute fonctionnel distinct utilisé pour connecter des environnements locaux à Azure, c’est-à-dire le _circuit 1_ dans le contexte des procédures d’appairage
 - Un [bloc d’adresses réseau](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sans chevauchement pour l’appairage ExpressRoute Global Reach
 
-## <a name="create-an-expressroute-authorization-key-in-the-avs-private-cloud"></a>Créer une clé d’autorisation ExpressRoute dans le cloud privé AVS
+## <a name="create-an-expressroute-authorization-key-in-the-azure-vmware-solution-private-cloud"></a>Créer une clé d’autorisation ExpressRoute dans le cloud privé Azure VMware Solution
 
 1. Dans la page **Vue d’ensemble** du cloud privé, sous Gérer, sélectionnez **Connectivité > ExpressRoute > Demander une clé d’autorisation**.
 
