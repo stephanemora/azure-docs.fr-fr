@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848669"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716722"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | Code d'erreur | Message d’erreur | Étapes de dépannage |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erreur : échec de la recherche userObjectSid | Vérifiez que l’utilisateur existe dans votre instance Active Directory locale. Si vous utilisez des approbations inter-forêts, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Erreur : Échec de la recherche d’un ID de connexion de substitution | Vérifiez que LDAP_ALTERNATE_LOGINID_ATTRIBUTE est défini sur un [attribut Active Directory valide](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG est défini sur True, ou si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que vous avez configuré un catalogue global et que l’attribut AlternateLoginId y est ajouté. <br><br> Si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que la valeur est correcte. S’il existe plusieurs noms de forêt, ces noms doivent être séparés par des points-virgules, et non des espaces. <br><br> Si ces étapes ne résolvent pas le problème, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Erreur : Échec de la recherche d’un ID de connexion de substitution | Vérifiez que LDAP_ALTERNATE_LOGINID_ATTRIBUTE est défini sur un [attribut Active Directory valide](/windows/win32/adschema/attributes-all). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG est défini sur True, ou si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que vous avez configuré un catalogue global et que l’attribut AlternateLoginId y est ajouté. <br><br> Si LDAP_LOOKUP_FORESTS est configuré avec une valeur non vide, vérifiez que la valeur est correcte. S’il existe plusieurs noms de forêt, ces noms doivent être séparés par des points-virgules, et non des espaces. <br><br> Si ces étapes ne résolvent pas le problème, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erreur : La valeur relative à l’ID de connexion de substitution est vide | Vérifiez que l’attribut AlternateLoginId est configuré pour l’utilisateur. |
 
 ## <a name="errors-your-users-may-encounter"></a>Erreurs que vos utilisateurs pourraient rencontrer
@@ -99,7 +99,7 @@ Si vos utilisateurs ont [des difficultés avec la vérification en deux étapes]
 
 ### <a name="health-check-script"></a>Script de vérification d’intégrité
 
-Le [script de contrôle de l’intégrité de l’extension Azure MFA NPS](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) effectue une vérification d’intégrité de base lors de la résolution des problèmes liés à l’extension NPS. Exécutez le script et choisissez l’option 3.
+Le [script de contrôle de l’intégrité de l’extension Azure MFA NPS](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) effectue une vérification d’intégrité de base lors de la résolution des problèmes liés à l’extension NPS. Exécutez le script et choisissez l’option 3.
 
 ### <a name="contact-microsoft-support"></a>Contact Microsoft support
 

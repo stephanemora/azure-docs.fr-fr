@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339580"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783533"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD
 
@@ -53,7 +53,7 @@ Un catalogue est un conteneur de ressources et de packages d’accès. Vous cré
 
 ### <a name="creating-a-catalog-programmatically"></a>Créer un catalogue par programmation
 
-Vous pouvez également créer un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [créer un catalogue accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+Vous pouvez également créer un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [créer un catalogue accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Ajouter des ressources à un catalogue
 
@@ -83,7 +83,7 @@ Pour inclure des ressources dans un package d’accès, les ressources doivent e
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Ajouter une ressource à un catalogue par programmation
 
-Vous pouvez également ajouter une ressource à un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié, ou un propriétaire de catalogue et de ressource, avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [créer une demande accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+Vous pouvez également ajouter une ressource à un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié, ou un propriétaire de catalogue et de ressource, avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [créer une demande accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Supprimer des ressources d’un catalogue
 
@@ -155,7 +155,7 @@ Vous pouvez supprimer un catalogue, mais seulement s’il ne contient pas de pac
 
 ### <a name="deleting-a-catalog-programmatically"></a>Supprimer un catalogue par programmation
 
-Vous pouvez également supprimer un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [supprimer un catalogue accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+Vous pouvez également supprimer un catalogue à l'aide de Microsoft Graph.  Un utilisateur doté d'un rôle approprié avec une application disposant de l'autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l'API pour [supprimer un catalogue accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

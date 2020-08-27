@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533816"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653271"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 
 ### <a name="azure-shared-disks"></a>Disques partagés Azure
 
-[Les disques partagés Azure](../../../virtual-machines/windows/disks-shared.md) sont une fonctionnalité des [disques managés Azure](../../../virtual-machines/windows/managed-disks-overview.md). Le clustering de basculement Windows Server prend en charge l’utilisation de disques partagés Azure avec une instance de cluster de basculement. 
+[Les disques partagés Azure](../../../virtual-machines/windows/disks-shared.md) sont une fonctionnalité des [disques managés Azure](../../../virtual-machines/managed-disks-overview.md). Le clustering de basculement Windows Server prend en charge l’utilisation de disques partagés Azure avec une instance de cluster de basculement. 
 
 **Systèmes d’exploitation pris en charge** : Tous   
 **Version de SQL pris en charge** : Tous     

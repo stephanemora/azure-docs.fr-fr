@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284725"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650551"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Régions pour les machines virtuelles dans Azure
 
@@ -79,7 +79,7 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 | Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
 
-Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](./windows/managed-disks-overview.md).
+Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](./managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Coûts de stockage
 Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez.

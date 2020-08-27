@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4d1e5e48e70cee1cf75b1d6605837695d26dcbf0
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608640"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719289"
 ---
 # <a name="create-an-asset"></a>Créer une ressource
 
@@ -36,10 +36,6 @@ Suivez les étapes décrites dans [Créer un compte Media Services](./create-acc
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
-## <a name="cli-shell"></a>[Interpréteur de commandes CLI](#tab/clishell/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 ## <a name="example-script"></a>Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
@@ -53,6 +49,10 @@ Suivez les étapes décrites dans [Créer un compte Media Services](./create-acc
 ### <a name="using-curl"></a>Utilisation de cURL
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+
+## <a name="using-postman"></a>Utilisation de Postman
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
 
 ## <a name="net"></a>[.NET](#tab/net/)
 

@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424373"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685712"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codes d’erreur d’API REST Azure Key Vault
  
@@ -89,7 +89,7 @@ Les jetons sont encodés en base64 et les valeurs peuvent être décodées sur d
 
 Nous pouvons voir de nombreuses parties importantes dans ce jeton :
 
-- aud (public) : Ressource du jeton. Notez qu’il s’agit de <https://vault.azure.net>. Ce jeton ne fonctionnera PAS pour les ressources qui ne correspondent pas explicitement à cette valeur, un graphique par exemple.
+- aud (public) : Ressource du jeton. Notez qu’il s’agit de `https://vault.azure.net`. Ce jeton ne fonctionnera PAS pour les ressources qui ne correspondent pas explicitement à cette valeur, un graphique par exemple.
 - iat (émis à) : Nombre de cycles depuis le début de la période où le jeton a été émis.
 - nbf (pas avant) : Nombre de cycles depuis le début de la période où ce jeton devient valide.
 - exp (expiration) : Nombre de cycles depuis le début de la période où ce jeton arrive à expiration.

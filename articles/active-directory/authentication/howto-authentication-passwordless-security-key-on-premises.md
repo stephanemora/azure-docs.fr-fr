@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550635"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716994"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory (préversion)
 
@@ -48,7 +48,7 @@ Les organisations doivent également présenter la configuration logicielle suiv
 
 - Les appareils doivent exécuter Windows 10 Insider Build 18945 ou une version ultérieure.
 - Vous devez disposer de la version 1.4.32.0 ou ultérieure d’[Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - Pour plus d’informations sur les options d’authentification hybride Azure AD disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../../security/fundamentals/choose-ad-authn.md) et [Sélectionner le type d’installation à utiliser pour Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
+  - Pour plus d’informations sur les options d’authentification hybride Azure AD disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../hybrid/choose-ad-authn.md) et [Sélectionner le type d’installation à utiliser pour Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Les correctifs logiciels suivants doivent être installés sur vos contrôleurs de domaine Windows Server :
     - Pour Windows Server 2016 : https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - Pour Windows Server 2019 : https://support.microsoft.com/help/4534321/windows-10-update-kb4534321

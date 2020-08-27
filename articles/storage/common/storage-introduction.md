@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133794"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653798"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Présentation des principaux services de stockage Azure
 
@@ -33,7 +33,7 @@ La plateforme Stockage Azure comprend les services de données suivants :
 - [Azure Files](../files/storage-files-introduction.md) : partages de fichiers gérés pour les déploiements sur le cloud ou locaux.
 - [Files d’attente Azure](../queues/storage-queues-introduction.md) : magasin de messagerie pour une messagerie fiable entre les composants d’application.
 - [Tables Azure](../tables/table-storage-overview.md) : magasin NoSQL pour le stockage sans schéma de données structurées.
-- [Disques Azure](../../virtual-machines/windows/managed-disks-overview.md) : Volumes de stockage de niveau bloc pour les machines virtuelles Azure.
+- [Disques Azure](../../virtual-machines/managed-disks-overview.md) : Volumes de stockage de niveau bloc pour les machines virtuelles Azure.
 
 Chaque service est accessible via un compte de stockage. Pour commencer, consultez [Créer un compte de stockage](storage-account-create.md).
 
@@ -101,7 +101,7 @@ Pour plus d’informations sur le stockage de table, consultez [Overview of Azur
 
 Un disque managé Azure est un disque dur virtuel (VHD). Vous pouvez le voir comme un disque physique sur un serveur local mais virtualisé. Les disques managés Azure sont stockés en tant qu’objets blob de page, qui sont un objet de stockage d’E/S aléatoire dans Azure. Nous appelons un disque managé « managé » car il s’agit d’une abstraction sur les objets blob de pages, les conteneurs d’objets de couleur et les comptes de stockage Azure. Avec les disques managés, il vous suffit d’approvisionner le disque et Azure s’occupe du reste.
 
-Pour plus d’informations sur les disques managés, voir [Présentation des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Pour plus d’informations sur les disques managés, voir [Présentation des disques managés Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage
 

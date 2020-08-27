@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086589"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827220"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -125,7 +125,7 @@ Les métriques suivantes sont disponibles pour le pare-feu Azure :
 
     Unité : pourcentage
 
-   Lorsque vous ajoutez d’autres adresses IP publiques à votre pare-feu, davantage de ports SNAT sont disponibles, ce qui réduit l’utilisation des ports SNAT. De plus, lorsque le pare-feu est mis à l’échelle pour différentes raisons (par exemple, UC ou débit), des ports SNAT supplémentaires sont également rendus disponibles. De fait, un pourcentage donné de l’utilisation des ports SNAT peut baisser sans que vous ajoutiez d’adresses IP publiques, juste parce que le service est mis à l’échelle. Vous pouvez contrôler directement le nombre d’adresses IP publiques disponibles pour augmenter les ports disponibles sur votre pare-feu. Toutefois, vous ne pouvez pas contrôler directement la mise à l’échelle du pare-feu. Actuellement, les ports SNAT sont ajoutés uniquement pour les cinq premières adresses IP publiques.   
+   Lorsque vous ajoutez d’autres adresses IP publiques à votre pare-feu, davantage de ports SNAT sont disponibles, ce qui réduit l’utilisation des ports SNAT. De plus, lorsque le pare-feu est mis à l’échelle pour différentes raisons (par exemple, UC ou débit), des ports SNAT supplémentaires sont également rendus disponibles. De fait, un pourcentage donné de l’utilisation des ports SNAT peut baisser sans que vous ajoutiez d’adresses IP publiques, juste parce que le service est mis à l’échelle. Vous pouvez contrôler directement le nombre d’adresses IP publiques disponibles pour augmenter les ports disponibles sur votre pare-feu. Toutefois, vous ne pouvez pas contrôler directement la mise à l’échelle du pare-feu.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

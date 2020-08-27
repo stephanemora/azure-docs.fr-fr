@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042601"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652846"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
 
@@ -45,7 +45,7 @@ Les options [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) d’Azure
 
 Microsoft offre l’équivalent de plusieurs pétaoctets de stockage aux applications hébergées dans Azure, et vous disposez de plusieurs options de stockage. Celles-ci vont du stockage SSD pour de hautes performances au stockage Blob à faible coût pour le stockage de masse et les archives. En outre, Azure fournit une option de redondance des données pour le stockage. Une option qui requiert davantage d’efforts de configuration dans un environnement mainframe.
 
-Le Stockage Azure est disponible en tant que [Disques Azure](../../../windows/managed-disks-overview.md), [Fichiers Azure](../../../../storage/files/storage-files-introduction.md) et [Objets Blob Azure](../../../../storage/blobs/storage-blobs-overview.md) comme le résume le tableau suivant. Découvrez [quand utiliser chaque option](../../../../storage/common/storage-introduction.md).
+Le Stockage Azure est disponible en tant que [Disques Azure](../../../managed-disks-overview.md), [Fichiers Azure](../../../../storage/files/storage-files-introduction.md) et [Objets Blob Azure](../../../../storage/blobs/storage-blobs-overview.md) comme le résume le tableau suivant. Découvrez [quand utiliser chaque option](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -108,7 +108,7 @@ Le stockage Blob fournit le plus grand volume de stockage sur Azure. En plus de 
 - [Réhébergement du mainframe sur des machines virtuelles Azure](../overview.md)
 - [Déplacer le calcul mainframe vers Azure](mainframe-compute-Azure.md)
 - [Choisir quand utiliser Objets Blob Azure, Fichiers Azure ou Disques Azure](../../../../storage/common/storage-introduction.md)
-- [Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure](../../../windows/disks-types.md#standard-ssd)
+- [Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Ressources IBM
 

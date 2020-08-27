@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565914"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917956"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Recherche en texte intégral dans Recherche cognitive Azure
 
@@ -49,7 +49,7 @@ Le diagramme ci-dessous illustre les composants utilisés pour traiter une deman
 
 Une requête de recherche est une spécification complète de ce qui doit être renvoyé dans un jeu de résultats. Dans sa forme la plus simple, il s’agit d’une requête vide sans aucun critère. Un exemple plus réaliste inclut des paramètres, plusieurs termes de requête, peut-être limités à certains champs, avec éventuellement une expression de filtre et des règles de classement.  
 
-L’exemple suivant est une requête de recherche que vous pourriez envoyer à la Recherche cognitive Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+L’exemple suivant est une requête de recherche que vous pourriez envoyer à la Recherche cognitive Azure à l’aide de [l’API REST](/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2020-06-30
@@ -69,7 +69,7 @@ Pour cette requête, le moteur de recherche effectue les opérations suivantes 
 2. Exécute la requête. Dans cet exemple, la requête de recherche se compose d’expressions et de termes : `"Spacious, air-condition* +\"Ocean view\""` (en général, les utilisateurs n’entrent pas de ponctuation, mais l’inclure dans l’exemple nous permet d’expliquer la manière dont les analyseurs la traite). Pour cette requête, le moteur de recherche analyse les champs Description et Titre spécifiés dans `searchFields` pour les documents qui contiennent « Vue mer », mais également le terme « spacieux », ou pour les termes qui commencent par le préfixe « air condition ». Le paramètre `searchMode` est utilisé pour mettre en correspondance n’importe quel terme (valeur par défaut) ou la totalité d’entre eux, pour les cas où un terme n’est pas explicitement requis (`+`).
 3. Trie l’ensemble d’hôtels résultant en fonction de leur proximité par rapport à un emplacement géographique donné, puis les renvoie à l’application appelante. 
 
-La majeure partie de cet article porte sur le traitement de la *requête de recherche* : `"Spacious, air-condition* +\"Ocean view\""`. Le filtrage et le tri ne sont pas abordés. Pour plus d’informations, voir [Documentation de référence sur l’API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+La majeure partie de cet article porte sur le traitement de la *requête de recherche* : `"Spacious, air-condition* +\"Ocean view\""`. Le filtrage et le tri ne sont pas abordés. Pour plus d’informations, voir [Documentation de référence sur l’API de recherche](/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Étape 1 : Analyse des requêtes 
@@ -86,7 +86,7 @@ L’analyseur de requêtes distingue les opérateurs (tels que `*` et `+` dans l
 + *requête d’expression* pour les termes entre guillemets (comme vue mer)
 + *requête de préfixe* pour les termes suivis d’un opérateur de préfixe `*` (comme air condition)
 
-Pour obtenir la liste complète des types de requêtes pris en charge, consultez [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Pour obtenir la liste complète des types de requêtes pris en charge, consultez [Syntaxe de requête Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 Les opérateurs associés à une sous-requête déterminent si la requête « doit être » ou « peut être » satisfaite pour qu’un document soit considéré comme correspondant. Par exemple, `+"Ocean view"` indique que la requête « doit être » satisfaite en raison de l’opérateur `+`. 
 
@@ -96,7 +96,7 @@ L’analyseur de requêtes restructure les sous-requêtes en une *arborescence d
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : Lucene simple et complet 
 
- La Recherche cognitive Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
+ La Recherche cognitive Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impact du mode de recherche sur l’Analyseur 
 
@@ -123,7 +123,7 @@ Une arborescence de requête modifiée pour cette requête se présente comme su
  ![Mode de recherche de requête booléenne : tout][3]
 
 > [!Note] 
-> Choisir `searchMode=any` plutôt que `searchMode=all` est le meilleur moyen d’exécuter des requêtes représentatives. Les utilisateurs susceptibles d’inclure des opérateurs (fréquent lors de la recherche de magasins de documents) peuvent obtenir des résultats plus intuitifs si `searchMode=all` informe les constructions de requête booléenne. Pour plus d’informations sur l’interaction entre `searchMode` et les opérateurs, voir [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Choisir `searchMode=any` plutôt que `searchMode=all` est le meilleur moyen d’exécuter des requêtes représentatives. Les utilisateurs susceptibles d’inclure des opérateurs (fréquent lors de la recherche de magasins de documents) peuvent obtenir des résultats plus intuitifs si `searchMode=all` informe les constructions de requête booléenne. Pour plus d’informations sur l’interaction entre `searchMode` et les opérateurs, voir [Syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Étape 2 : Analyse lexicale 
@@ -137,10 +137,10 @@ La forme la plus courante d’analyse lexicale est *l’analyse linguistique* qu
 * Diviser un mot composite en composants 
 * Convertir en minuscules un mot en majuscules 
 
-Toutes ces opérations ont tendance à gommer les différences entre l’entrée de texte fournie par l’utilisateur et les termes stockés dans l’index. Ces opérations vont au-delà du traitement de texte et nécessitent une connaissance approfondie du langage lui-même. Pour ajouter cette couche de sensibilisation linguistique, la Recherche cognitive Azure prend en charge une longue liste [d’analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support) Lucene et Microsoft.
+Toutes ces opérations ont tendance à gommer les différences entre l’entrée de texte fournie par l’utilisateur et les termes stockés dans l’index. Ces opérations vont au-delà du traitement de texte et nécessitent une connaissance approfondie du langage lui-même. Pour ajouter cette couche de sensibilisation linguistique, la Recherche cognitive Azure prend en charge une longue liste [d’analyseurs de langage](/rest/api/searchservice/language-support) Lucene et Microsoft.
 
 > [!Note]
-> Les exigences d’analyse peuvent être minimales ou élaborées, selon votre scénario. Vous pouvez contrôler la complexité de l’analyse lexicale en sélectionnant l’un des analyseurs prédéfinis ou en créant votre propre [analyseur personnalisé](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Les analyseurs sont limités aux champs pouvant faire l’objet d’une recherche et sont spécifiés dans le cadre d’une définition de champ. Cela vous permet de faire varier l’analyse lexicale en fonction du champ. L’analyseur Lucene *standard* est utilisé si aucun autre analyseur n’est spécifié.
+> Les exigences d’analyse peuvent être minimales ou élaborées, selon votre scénario. Vous pouvez contrôler la complexité de l’analyse lexicale en sélectionnant l’un des analyseurs prédéfinis ou en créant votre propre [analyseur personnalisé](/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Les analyseurs sont limités aux champs pouvant faire l’objet d’une recherche et sont spécifiés dans le cadre d’une définition de champ. Cela vous permet de faire varier l’analyse lexicale en fonction du champ. L’analyseur Lucene *standard* est utilisé si aucun autre analyseur n’est spécifié.
 
 Dans notre exemple, avant l’analyse, l’arborescence de requête initiale contient le terme « Spacieux, », avec un « S » majuscule et une virgule que l’analyseur de requêtes interprète comme faisant partie du terme de requête (une virgule n’est pas considérée comme un opérateur de langage de requête).  
 
@@ -150,7 +150,7 @@ Lorsque l’analyseur par défaut traite le terme, « vue mer » et « spacie
 
 ### <a name="testing-analyzer-behaviors"></a>Test des comportements de l’analyseur 
 
-Le comportement d’un analyseur peut être testé à l’aide de [l’API Analyser](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Saisissez le texte que vous souhaitez analyser pour voir les termes qu’un analyseur donné génère. Par exemple, pour voir comment l’analyseur standard traite le texte « air condition », vous pouvez émettre la requête suivante :
+Le comportement d’un analyseur peut être testé à l’aide de [l’API Analyser](/rest/api/searchservice/test-analyzer). Saisissez le texte que vous souhaitez analyser pour voir les termes qu’un analyseur donné génère. Par exemple, pour voir comment l’analyseur standard traite le texte « air condition », vous pouvez émettre la requête suivante :
 
 ~~~~
 {
@@ -359,8 +359,8 @@ L’exemple suivant illustre l’importance de ce facteur. Les recherches avec c
 
 Il existe deux façons de régler les scores de pertinence dans la Recherche cognitive Azure :
 
-1. Les **profils de score** promeuvent les documents dans la liste ordonnée des résultats en fonction d’un ensemble de règles. Dans notre exemple, nous pourrions considérer que les documents correspondant au champ Titre sont plus pertinents que les documents correspondant au champ Description. En outre, si notre index comporte un champ Prix pour chaque hôtel, nous aurions pu promouvoir les documents avec un prix inférieur. Pour plus d’informations, voir [Ajouter des profils de notation à un index de recherche.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. La **promotion de termes** (disponible uniquement dans la syntaxe de requête complète Lucene) fournit un opérateur de promotion `^` qui peut être appliqué à d’autres parties de l’arborescence de requête. Dans notre exemple, au lieu de rechercher le préfixe *air condition*\*, on peut rechercher le terme exact *air condition* ou le préfixe, mais les documents qui correspondent au terme exact sont mieux classés lorsqu’on applique la promotion à la requête de terme : *air condition^2||air condition*\*. En savoir plus sur la [promotion de termes](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. Les **profils de score** promeuvent les documents dans la liste ordonnée des résultats en fonction d’un ensemble de règles. Dans notre exemple, nous pourrions considérer que les documents correspondant au champ Titre sont plus pertinents que les documents correspondant au champ Description. En outre, si notre index comporte un champ Prix pour chaque hôtel, nous aurions pu promouvoir les documents avec un prix inférieur. Pour plus d’informations, voir [Ajouter des profils de notation à un index de recherche.](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+2. La **promotion de termes** (disponible uniquement dans la syntaxe de requête complète Lucene) fournit un opérateur de promotion `^` qui peut être appliqué à d’autres parties de l’arborescence de requête. Dans notre exemple, au lieu de rechercher le préfixe *air condition*\*, on peut rechercher le terme exact *air condition* ou le préfixe, mais les documents qui correspondent au terme exact sont mieux classés lorsqu’on applique la promotion à la requête de terme : *air condition^2||air condition*\*. En savoir plus sur la [promotion de termes](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Notation dans un index distribué
@@ -383,23 +383,23 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 
 + Créez l’index des exemples, essayez différentes requêtes et passez en revue les résultats. Pour obtenir des instructions, consultez la page [Générer et interroger un index dans le portail](search-get-started-portal.md#query-index).
 
-+ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) dans l’Explorateur de recherche du portail.
++ Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) dans l’Explorateur de recherche du portail.
 
-+ Passez en revue les [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) si vous souhaitez paramétrer le classement dans votre application de recherche.
++ Passez en revue les [profils de score](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) si vous souhaitez paramétrer le classement dans votre application de recherche.
 
-+ Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Découvrez comment appliquer des [analyseurs lexicaux propres au langage](/rest/api/searchservice/language-support).
 
-+ [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
++ [Configurez des analyseurs personnalisés](/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
 
 ## <a name="see-also"></a>Voir aussi
 
-[API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[API REST de recherche de documents](/rest/api/searchservice/search-documents) 
 
-[Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+[Syntaxe de requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Syntaxe de requête complète Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
-[Traiter les résultats de recherche](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+[Traiter les résultats de recherche](./search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

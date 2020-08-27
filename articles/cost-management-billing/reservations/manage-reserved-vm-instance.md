@@ -2,17 +2,18 @@
 title: Gérer les réservations Azure
 description: Découvrez comment gérer les réservations Azure. Consultez les étapes de modification de l’étendue de réservation, de division d’une réservation et d’optimisation de l’utilisation de la réservation.
 ms.service: cost-management-billing
+ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f3e4a772382606178d6cd5b0dcb92b0d1bc28695
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461814"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684777"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 

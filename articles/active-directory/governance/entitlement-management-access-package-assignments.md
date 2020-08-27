@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78bed4f5c600bfa0218f924dc4444119e9729e28
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798747"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783550"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -58,7 +58,7 @@ Pour utiliser la gestion des droits d’utilisation Azure AD et affecter des ut
 
 ### <a name="viewing-assignments-programmatically"></a>Affichage d’affectations par programmation
 
-Vous pouvez également récupérer des affectations dans un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [répertorier les affectations accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
+Vous pouvez également récupérer des affectations dans un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [répertorier les affectations accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Affecter directement un utilisateur
 
@@ -90,7 +90,7 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
 ### <a name="directly-assigning-users-programmatically"></a>Affectation d’utilisateurs directement par programmation
 
-Vous pouvez également affecter directement un utilisateur à un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [créer une demande accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
+Vous pouvez également affecter directement un utilisateur à un package d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour [créer une demande accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Supprimer une affectation
 

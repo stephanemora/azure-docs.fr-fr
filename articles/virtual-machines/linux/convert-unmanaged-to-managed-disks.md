@@ -7,21 +7,21 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89035d26e05ca4b93dc271f02fef1afea24b0f20
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659802"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815332"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 
-Si vos machines virtuelles Linux existantes utilisent des disques non managés, vous pouvez les convertir pour qu’elles utilisent [Azure Disques managés](../linux/managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
+Si vos machines virtuelles Linux existantes utilisent des disques non managés, vous pouvez les convertir pour qu’elles utilisent [Azure Disques managés](../managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
 Cet article explique comment convertir des machines virtuelles avec Azure CLI. Si vous devez installer ou mettre à niveau l’interface, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
-* Consultez les [questions fréquentes (FAQ) sur la migration vers la fonctionnalité Disques managés](faq-for-disks.md#migrate-to-managed-disks).
+* Consultez les [questions fréquentes (FAQ) sur la migration vers la fonctionnalité Disques managés](../faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -104,4 +104,4 @@ Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis red
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).
+Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Disques managés](../managed-disks-overview.md).

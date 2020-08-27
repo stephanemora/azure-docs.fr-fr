@@ -5,12 +5,12 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959991"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816692"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -23,7 +23,7 @@ La contrepartie à l’utilisation de machines virtuelles de faible priorité es
 Les machines virtuelles de faible priorité sont proposées à un prix considérablement inférieur à celui des machines virtuelles dédiées. Pour plus d’informations sur la tarification, consultez [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> Les [machines virtuelles Spot](https://azure.microsoft.com/pricing/spot/) sont désormais disponibles pour les [machines virtuelles mono-instance](../virtual-machines/linux/spot-vms.md) et les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/use-spot.md). Les machines virtuelles Spot sont une évolution des machines virtuelles de faible priorité, mais diffèrent par leurs tarifs variables et la possibilité de définir un prix maximal lors de leur allocation.
+> Les [machines virtuelles Spot](https://azure.microsoft.com/pricing/spot/) sont désormais disponibles pour les [machines virtuelles mono-instance](../virtual-machines/spot-vms.md) et les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/use-spot.md). Les machines virtuelles Spot sont une évolution des machines virtuelles de faible priorité, mais diffèrent par leurs tarifs variables et la possibilité de définir un prix maximal lors de leur allocation.
 >
 > Les pools Azure Batch commenceront à prendre en charge les machines virtuelles Spot dans les mois qui suivront leur mise à disposition générale, avec de nouvelles versions des [API et outils Batch](./batch-apis-tools.md). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot. 
 >

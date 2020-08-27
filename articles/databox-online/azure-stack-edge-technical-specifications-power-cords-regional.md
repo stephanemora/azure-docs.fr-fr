@@ -2,18 +2,18 @@
 title: Spécifications techniques du cordon d’alimentation Microsoft Azure Stack Edge basées sur l’emplacement | Microsoft Docs
 description: En savoir plus sur les spécifications techniques de vos cordons d’alimentation Azure Stack Edge.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: v-grpr
-ms.openlocfilehash: 2fb28bcb1edb9a18b4d1628e211f87f2c772ef80
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.author: twooley
+ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663247"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783975"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Spécifications du cordon d’alimentation Azure Stack Edge
 

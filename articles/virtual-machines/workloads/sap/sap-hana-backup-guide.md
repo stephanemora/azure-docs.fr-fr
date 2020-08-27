@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507826"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652183"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure
 
@@ -45,7 +45,7 @@ Le premier scénario présenté est un scénario dans lequel soit le service Sau
 
 Sauvegarde Azure intègre la solution de sauvegarde pour SAP HANA à l’aide de l’interface SAP HANA propriétaire appelée [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) et est certifié comme tel. Pour plus d’informations sur la solution, ses capacités et les régions Azure où elle est disponible, consultez l’article [Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Pour plus d’informations et pour connaître les principes relatifs au service Sauvegarde Azure pour HANA, consultez l’article [À propos de la sauvegarde de base de données SAP HANA dans les machines virtuelles Azure](../../../backup/sap-hana-db-about.md). 
 
-La seconde possibilité de tirer parti du service Sauvegarde Azure consiste à créer une sauvegarde cohérente par rapport aux applications à l’aide de captures instantanées de disque de Stockage Premium Azure. D’autres stockages Azure certifiés HANA, comme le [disque Ultra Azure](../../linux/disks-enable-ultra-ssd.md) et [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), ne prennent pas en charge ce type de capture instantanée par le biais du service Sauvegarde Azure. En lisant les articles suivants :
+La seconde possibilité de tirer parti du service Sauvegarde Azure consiste à créer une sauvegarde cohérente par rapport aux applications à l’aide de captures instantanées de disque de Stockage Premium Azure. D’autres stockages Azure certifiés HANA, comme le [disque Ultra Azure](../../disks-enable-ultra-ssd.md) et [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), ne prennent pas en charge ce type de capture instantanée par le biais du service Sauvegarde Azure. En lisant les articles suivants :
 
 - [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Sauvegarde cohérente des applications des machines virtuelles Linux Azure](../../../backup/backup-azure-linux-app-consistent.md) 

@@ -2,17 +2,17 @@
 title: Analyser et valider les modèles
 titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser la bibliothèque de l’analyseur pour analyser des modèles DTDL.
-author: cschormann
-ms.author: cschorm
+author: baanders
+ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e63acd0277e100ee34bdfc59d33dd9d4db2b7934
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 69b52be3a3eca2ab48ed09f6401780ea033f223c
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987521"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723977"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analyser et valider des modèles avec la bibliothèque de l’analyseur DTDL
 
