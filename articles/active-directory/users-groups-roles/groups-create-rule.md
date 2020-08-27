@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213859"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797171"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
@@ -80,7 +80,7 @@ Si la règle que vous avez entrée n’est pas valide, une explication de la rai
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
-Lorsqu’un groupe Microsoft 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Lorsqu’un groupe Microsoft 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Vérifier l’état de traitement d’une règle
 

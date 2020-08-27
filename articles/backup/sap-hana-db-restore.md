@@ -3,12 +3,12 @@ title: Restaurer les bases de données SAP HANA sur des machines virtuelles Azur
 description: Dans cet article, découvrez comment restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503589"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763284"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 

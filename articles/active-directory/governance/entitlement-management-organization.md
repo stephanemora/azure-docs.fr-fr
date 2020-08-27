@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586569"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783941"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -43,8 +43,8 @@ Dans ce cas, vous pouvez configurer deux organisations connectées. Vous devez c
 La manière dont les utilisateurs de l’annuaire ou du domaine Azure AD s’authentifient dépend du type d’authentification. Les types d’authentification pour les organisations connectées sont :
 
 - Azure AD
-- [Fédération directe](../b2b/direct-federation.md)
-- [Code secret à usage unique](../b2b/one-time-passcode.md) (domaine)
+- [Fédération directe](../external-identities/direct-federation.md)
+- [Code secret à usage unique](../external-identities/one-time-passcode.md) (domaine)
 
 Pour une démonstration de l’ajout d’une organisation connectée, regardez la vidéo suivante :
 
@@ -79,7 +79,7 @@ Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisati
 1. Sélectionnez **Ajouter** pour ajouter l’annuaire ou le domaine Azure AD. Vous ne pouvez ajouter qu’un seul annuaire ou domaine Azure AD par organisation connectée.
 
     > [!NOTE]
-    > Tous les utilisateurs de l’annuaire ou du domaine Azure AD seront en mesure de demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’annuaire, à moins que ces domaines ne soient bloqués par la liste d’autorisation ou de refus d’Azure AD B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../b2b/allow-deny-list.md).
+    > Tous les utilisateurs de l’annuaire ou du domaine Azure AD seront en mesure de demander ce package d’accès. Cela comprend les utilisateurs Azure AD de tous les sous-domaines associés à l’annuaire, à moins que ces domaines ne soient bloqués par la liste d’autorisation ou de refus d’Azure AD B2B. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](../external-identities/allow-deny-list.md).
 
 1. Une fois que vous avez ajouté l’annuaire ou le domaine Azure AD, sélectionnez **Sélectionner**.
 
@@ -89,7 +89,7 @@ Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisati
 
 1. Sélectionnez l’onglet **Commanditaires**, puis ajoutez des commanditaires facultatifs pour cette organisation connectée.
 
-    Les commanditaires sont des utilisateurs internes ou externes qui se trouvent déjà dans votre annuaire et qui constituent le point de contact pour la relation avec cette organisation connectée. Les commanditaires internes sont des utilisateurs membres de votre annuaire. Les commanditaires externes sont des utilisateurs invités de l’organisation connectée qui ont été invités précédemment et qui se trouvent déjà dans votre annuaire. Les commanditaires peuvent être utilisés en tant qu’approbateurs lorsque des utilisateurs de cette organisation connectée demandent l’accès à ce package d’accès. Pour plus d’informations sur l’invitation d’un utilisateur invité à votre annuaire, consultez [Ajout d'utilisateurs de collaboration Azure Active Directory B2B dans le portail Azure](../b2b/add-users-administrator.md).
+    Les commanditaires sont des utilisateurs internes ou externes qui se trouvent déjà dans votre annuaire et qui constituent le point de contact pour la relation avec cette organisation connectée. Les commanditaires internes sont des utilisateurs membres de votre annuaire. Les commanditaires externes sont des utilisateurs invités de l’organisation connectée qui ont été invités précédemment et qui se trouvent déjà dans votre annuaire. Les commanditaires peuvent être utilisés en tant qu’approbateurs lorsque des utilisateurs de cette organisation connectée demandent l’accès à ce package d’accès. Pour plus d’informations sur l’invitation d’un utilisateur invité à votre annuaire, consultez [Ajout d'utilisateurs de collaboration Azure Active Directory B2B dans le portail Azure](../external-identities/add-users-administrator.md).
 
     Lorsque vous sélectionnez **Ajouter/Supprimer**, un volet s’ouvre dans lequel vous pouvez choisir des commanditaires internes ou externes. Le volet affiche une liste non filtrée d’utilisateurs et de groupes dans votre annuaire.
 
@@ -134,9 +134,9 @@ Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD extern
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Gestion d’une organisation connectée par programmation
 
-Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) et définir des commanditaires pour eux.
+Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) et définir des commanditaires pour eux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Régir l’accès des utilisateurs externes](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Régir l’accès des utilisateurs externes](./entitlement-management-external-users.md)
 - [Régir l’accès des utilisateurs qui ne font pas partie de votre annuaire](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
