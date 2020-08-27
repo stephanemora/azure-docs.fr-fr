@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dce3c484a16918931df80d5201fad090b2c0cb2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529556"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922631"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymes dans Recherche cognitive Azure
 
@@ -23,7 +23,7 @@ Dans Recherche cognitive Azure, l’expansion des synonymes est effectuée au mo
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
-Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-get-started-postman.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer par [Ajouter des synonymes dans Recherche cognitive Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
+Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-get-started-postman.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer par [Ajouter des synonymes dans Recherche cognitive Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
 
 En outre, si vous utilisez des [clés gérée par le client](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service, vous pouvez appliquer cette protection au contenu de votre carte de synonymes.
 
@@ -173,4 +173,4 @@ Si vous avez un index existant dans un environnement de déploiement (non produc
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer une carte de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Créer une carte de synonymes](/rest/api/searchservice/create-synonym-map)

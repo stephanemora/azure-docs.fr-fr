@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225272"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928766"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
@@ -94,7 +94,7 @@ Pour contrôler davantage l’accès à votre service de recherche, vous pouvez 
 
 Vous pouvez utiliser le portail pour [configurer l’accès du trafic entrant](service-configure-firewall.md).
 
-Vous pouvez aussi utiliser les API REST de gestion. L’API version 13-03-2020 avec le paramètre [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) vous permet de restreindre l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, autorisées à accéder à votre service de recherche.
+Vous pouvez aussi utiliser les API REST de gestion. L’API version 13-03-2020 avec le paramètre [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) vous permet de restreindre l’accès à votre service en identifiant les adresses IP, individuellement ou dans une plage, autorisées à accéder à votre service de recherche.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Point de terminaison privé (pas de trafic Internet)
 
@@ -127,7 +127,7 @@ Si vous avez besoin d’un contrôle précis par utilisateur sur les résultats 
 
 ## <a name="administrative-rights"></a>Droits d’administration
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour l’approvisionnement de ressources Azure. Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou supprimer le service, gérer les clés API et mettre à l’échelle le service. Ainsi, les attributions de rôles Azure déterminent qui peut effectuer ces tâches, qu’elles utilisent le [portail](search-manage.md), [PowerShell](search-manage-powershell.md) ou les [API REST de gestion](/rest/api/searchmanagement/search-howto-management-rest-api).
 
 En revanche, les droits d’administrateur sur le contenu hébergé sur le service, comme la possibilité de créer ou de supprimer un index, sont conférés via des clés API, comme décrit dans la [section précédente](#index-access).
 

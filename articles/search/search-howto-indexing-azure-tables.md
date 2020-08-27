@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519777"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929565"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Comment indexer des tables à partir du stockage de tables Azure avec la Recherche cognitive Azure
 
@@ -25,8 +25,8 @@ Cet article montre comment utiliser la Recherche cognitive Azure pour indexer le
 Vous pouvez configurer un indexeur de stockage de tables Azure à l’aide des ressources suivantes :
 
 * [Azure portal](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
-* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) de Recherche cognitive Azure
+* [API REST](/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/search) de Recherche cognitive Azure
 
 Ici, nous vous présentons le flux à l’aide de l’API REST. 
 
@@ -62,7 +62,7 @@ Pour créer une source de données :
     }   
 ```
 
-Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Manières de spécifier des informations d’identification ####
@@ -73,7 +73,7 @@ Vous pouvez fournir les informations d’identification de la table de l’une d
 - **Chaîne de connexion de la signature d’accès partagé (SAP) au compte de stockage** : `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs (des tables en l’occurrence) et les objets (des lignes de table).
 -  **Signature d’accès partagé à une table** : `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` La signature d’accès partagé doit disposer d’autorisations de requête (lecture) sur la table.
 
-Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une signature d’accès partagé, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification d’une signature d’accès partagé expirent, l’indexeur échoue avec un message d’erreur tel que « Les informations d’identification fournies dans la chaîne de connexion sont invalides ou ont expiré. »  
@@ -97,7 +97,7 @@ Pour créer un index :
     }
 ```
 
-Pour plus d’informations sur la création d’index, consultez [Création d’un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Pour plus d’informations sur la création d’index, consultez [Création d’un index](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
@@ -119,7 +119,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
 
 Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
 
 Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
 
 - Si vos données sont partitionnées par date (par exemple, si vous créez une nouvelle partition chaque jour ou chaque semaine), envisagez l’approche suivante : 
     - Utilisez une requête sous la forme : `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Surveillez la progression de l’indexeur avec [l’API Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) et mettez régulièrement à jour la condition `<TimeStamp>` de la requête sur la base de la dernière valeur de limite supérieure réussie. 
+    - Surveillez la progression de l’indexeur avec [l’API Get Indexer Status](/rest/api/searchservice/get-indexer-status) et mettez régulièrement à jour la condition `<TimeStamp>` de la requête sur la base de la dernière valeur de limite supérieure réussie. 
     - Avec cette approche, si vous avez besoin de déclencher une réindexation complète, vous devez réinitialiser la requête de source de données en plus de la réinitialisation de l’indexeur. 
 
 

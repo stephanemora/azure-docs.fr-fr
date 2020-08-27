@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77915035"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649837"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -21,7 +21,7 @@ Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous
 
 Cet article aborde uniquement les erreurs des ressources de stockage classique. Si un utilisateur supprime une machine virtuelle classique à l’aide du portail Azure, de PowerShell ou de l’interface CLI, les disques ne sont pas automatiquement supprimés. L’utilisateur a la possibilité de supprimer la ressource « Disque ». Si l’option n’est pas sélectionnée, la ressource « Disque » empêche la suppression du compte de stockage, du conteneur et du fichier *.vhd réel d’objet blob de pages.
 
-Vous trouverez plus d’informations sur les disques Azure [ici](../../virtual-machines/windows/managed-disks-overview.md). Azure empêche la suppression d’un disque qui est joint à une machine virtuelle pour éviter une altération des données. Il empêche également la suppression des conteneurs et des comptes de stockage qui ont un objet blob de pages joint à une machine virtuelle. 
+Vous trouverez plus d’informations sur les disques Azure [ici](../../virtual-machines/managed-disks-overview.md). Azure empêche la suppression d’un disque qui est joint à une machine virtuelle pour éviter une altération des données. Il empêche également la suppression des conteneurs et des comptes de stockage qui ont un objet blob de pages joint à une machine virtuelle. 
 
 ## <a name="what-is-a-disk"></a>Qu’est-ce qu’un « Disque » ?
 Une ressource « Disque » est utilisée pour monter un fichier *.vhd d’objet blob de pages sur une machine virtuelle, comme un disque de système d’exploitation ou un disque de données. Une ressource de disque de système d’exploitation ou de disque de données, tant qu’elle n’est pas supprimée, conserve un bail sur le fichier *.vhd. Aucune ressource de stockage dans le chemin indiqué dans l’image ci-dessous ne peut être supprimée si une ressource « Disque » pointe vers elle.

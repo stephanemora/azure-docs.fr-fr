@@ -3,12 +3,12 @@ title: Configurer des journaux de diagnostic - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment configurer les journaux d’activité et de diagnostic pour Event Hubs dans Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521936"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927729"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -61,18 +61,18 @@ Les chaînes JSON du journal d’archivage incluent les éléments listés dans 
 
 Nom | Description
 ------- | -------
-TaskName | Description de la tâche ayant échoué
-ActivityId | ID interne, utilisé à des fins de suivi
-trackingId | ID interne, utilisé à des fins de suivi
-resourceId | ID de ressource Azure Resource Manager
-eventHub | Nom complet de l’Event Hub (nom d’espace de noms inclus)
-partitionId | Partition Event Hub sur laquelle s’effectue l’opération en écriture
-archiveStep | Valeurs possibles : ArchiveFlushWriter, DestinationInit
-startTime | Heure de début de la défaillance
-failures | Nombre d’occurrences de l’échec
-durationInSeconds | Durée de la défaillance
-message | Message d’erreur
-catégorie | ArchiveLogs
+`TaskName` | Description de la tâche ayant échoué
+`ActivityId` | ID interne, utilisé à des fins de suivi
+`trackingId` | ID interne, utilisé à des fins de suivi
+`resourceId` | ID de ressource Azure Resource Manager
+`eventHub` | Nom complet de l’Event Hub (nom d’espace de noms inclus)
+`partitionId` | Partition Event Hub sur laquelle s’effectue l’opération en écriture
+`archiveStep` | Valeurs possibles : ArchiveFlushWriter, DestinationInit
+`startTime` | Heure de début de la défaillance
+`failures` | Nombre d’occurrences de l’échec
+`durationInSeconds` | Durée de la défaillance
+`message` | Message d’erreur
+`category` | ArchiveLogs
 
 Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 
@@ -99,15 +99,15 @@ Les chaînes JSON du journal des opérations incluent les éléments répertori�
 
 Nom | Description
 ------- | -------
-ActivityId | ID interne, utilisé à des fins de suivi |
-EventName | Nom d’opération |
-resourceId | ID de ressource Azure Resource Manager |
-SubscriptionId | Identifiant d’abonnement |
-EventTimeString | Durée de l’opération |
-EventProperties | Propriétés de l’opération |
-Statut | État de l’opération |
-Appelant | Appelant de l’opération (portail Azure ou client de gestion) |
-Category | OperationalLogs |
+`ActivityId` | ID interne, utilisé à des fins de suivi |
+`EventName` | Nom de l’opération |
+`resourceId` | ID de ressource Azure Resource Manager |
+`SubscriptionId` | Identifiant d’abonnement |
+`EventTimeString` | Durée de l’opération |
+`EventProperties` | Propriétés de l’opération |
+`Status` | État de l’opération |
+`Caller` | Appelant de l’opération (portail Azure ou client de gestion) |
+`Category` | OperationalLogs |
 
 Le code suivant est un exemple de chaîne JSON de journal des opérations :
 
@@ -131,9 +131,9 @@ Le code JSON des journaux de mise à l’échelle automatique inclut les éléme
 
 | Nom | Description |
 | ---- | ----------- | 
-| TrackingId | ID interne, utilisé à des fins de suivi |
-| ResourceId | ID de ressource Azure Resource Manager. |
-| Message | Message d’information, qui fournit des détails sur l’action d’augmentation automatique. Le message contient les valeurs précédente et actuelle de l’unité de débit pour un espace de noms donné et indique ce qui a déclenché l’augmentation de l’unité de débit. |
+| `TrackingId` | ID interne, utilisé à des fins de suivi |
+| `ResourceId` | ID de ressource Azure Resource Manager. |
+| `Message` | Message d’information, qui fournit des détails sur l’action d’augmentation automatique. Le message contient les valeurs précédente et actuelle de l’unité de débit pour un espace de noms donné et indique ce qui a déclenché l’augmentation de l’unité de débit. |
 
 Voici un exemple d’événement de mise à l’échelle automatique : 
 
@@ -150,13 +150,13 @@ Le code JSON des journaux du coordinateur Kafka inclut les éléments listés da
 
 | Nom | Description |
 | ---- | ----------- | 
-| RequestId | ID de la demande, utilisé à des fins de suivi |
-| ResourceId | ID de ressource Azure Resource Manager |
-| Opération | Nom de l’opération effectuée au cours de la coordination du groupe |
-| ClientId | ID client |
-| NamespaceName | Nom de l’espace de noms | 
-| SubscriptionId | ID d’abonnement Azure |
-| Message | Message d’information ou d’avertissement, qui fournit des détails sur les actions effectuées pendant la coordination du groupe |
+| `RequestId` | ID de la demande, utilisé à des fins de suivi |
+| `ResourceId` | ID de ressource Azure Resource Manager |
+| `Operation` | Nom de l’opération effectuée au cours de la coordination du groupe |
+| `ClientId` | ID client |
+| `NamespaceName` | Nom de l’espace de noms | 
+| `SubscriptionId` | ID d’abonnement Azure |
+| `Message` | Message d’information ou d’avertissement, qui fournit des détails sur les actions effectuées pendant la coordination du groupe |
 
 ### <a name="example"></a>Exemple
 
@@ -178,14 +178,14 @@ Le code JSON des journaux des erreurs d’utilisateur Kafka inclut les élément
 
 | Nom | Description |
 | ---- | ----------- |
-| TrackingId | ID de suivi, utilisé à des fins de suivi |
-| NamespaceName | Nom de l’espace de noms |
-| Event Hubs | Nom du hub d’événements |
-| PartitionId | ID de partition (Partition ID) |
-| GroupId | ID de groupe |
-| ClientId | ID client |
-| ResourceId | ID de ressource Azure Resource Manager. |
-| Message | Message d’information, qui fournit des détails sur une erreur |
+| `TrackingId` | ID de suivi, utilisé à des fins de suivi |
+| `NamespaceName` | Nom de l’espace de noms |
+| `Eventhub` | Nom du hub d’événements |
+| `PartitionId` | ID de partition (Partition ID) |
+| `GroupId` | ID de groupe |
+| `ClientId` | ID client |
+| `ResourceId` | ID de ressource Azure Resource Manager. |
+| `Message` | Message d’information, qui fournit des détails sur une erreur |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schéma de l’événement de connexion de réseau virtuel Event Hubs
 
@@ -193,13 +193,13 @@ Le code JSON de l’événement de connexion de réseau virtuel Event Hubs compr
 
 | Nom | Description |
 | ---  | ----------- | 
-| SubscriptionId | ID d’abonnement Azure |
-| NamespaceName | Nom de l’espace de noms |
-| IPAddress | Adresse IP d’un client se connectant au service Event Hubs |
-| Action | Action effectuée par le service Event Hubs lors de l’évaluation des demandes de connexion. Les actions prises en charge sont **Accepter la connexion** et **Refuser la connexion**. |
-| Motif | Fournit une raison pour laquelle l’action a été effectuée |
-| Count | Nombre d’occurrences de l’action donnée |
-| ResourceId | ID de ressource Azure Resource Manager. |
+| `SubscriptionId` | ID d’abonnement Azure |
+| `NamespaceName` | Nom de l’espace de noms |
+| `IPAddress` | Adresse IP d’un client se connectant au service Event Hubs |
+| `Action` | Action effectuée par le service Event Hubs lors de l’évaluation des demandes de connexion. Les actions prises en charge sont **Accepter la connexion** et **Refuser la connexion**. |
+| `Reason` | Fournit une raison pour laquelle l’action a été effectuée |
+| `Count` | Nombre d’occurrences de l’action donnée |
+| `ResourceId` | ID de ressource Azure Resource Manager. |
 
 ### <a name="example"></a>Exemple
 
@@ -221,14 +221,14 @@ Le code JSON des journaux utilisateur des clés gérées par le client inclut le
 
 | Nom | Description |
 | ---- | ----------- | 
-| Category | Type de catégorie d’un message. Il correspond à l’une des valeurs suivantes : **error** et **info** |
-| ResourceId | ID de ressource interne, qui contient l’ID d’abonnement Azure et le nom de l’espace de noms |
-| KeyVault | Nom de la ressource Key Vault |
-| Clé | Nom de la clé Key Vault. |
-| Version | Version de la clé Key Vault |
-| Opération | Nom d’une opération effectuée pour traiter les demandes |
-| Code | Code d’état |
-| Message | Message qui fournit des détails sur une erreur ou des informations |
+| `Category` | Type de catégorie d’un message. Il correspond à l’une des valeurs suivantes : **error** et **info** |
+| `ResourceId` | ID de ressource interne, qui contient l’ID d’abonnement Azure et le nom de l’espace de noms |
+| `KeyVault` | Nom de la ressource Key Vault |
+| `Key` | Nom de la clé Key Vault. |
+| `Version` | Version de la clé Key Vault |
+| `Operation` | Nom d’une opération effectuée pour traiter les demandes |
+| `Code` | Code d'état |
+| `Message` | Message qui fournit des détails sur une erreur ou des informations |
 
 
 
@@ -236,7 +236,7 @@ Le code JSON des journaux utilisateur des clés gérées par le client inclut le
 - [Présentation d’Event Hubs](./event-hubs-about.md)
 - [Exemples de hubs d’événements](sdks.md)
 - Prise en main des hubs d’événements
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

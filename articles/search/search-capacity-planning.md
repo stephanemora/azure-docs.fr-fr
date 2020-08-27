@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546262"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927202"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuster la capacité dans la Recherche cognitive Azure
 
@@ -21,7 +21,7 @@ Avant de [provisionner un service de recherche](search-create-service-portal.md)
 
 La capacité est une fonction du [niveau que vous choisissez](search-sku-tier.md) (les niveaux déterminent les caractéristiques matérielles), et de la combinaison de réplicas et de partitions nécessaires pour les charges de travail projetées. Selon le niveau et la taille de l’ajustement, le processus d’ajout ou de réduction de capacité peut prendre de 15 minutes à plusieurs heures. 
 
-Si vous modifiez l’allocation des réplicas et des partitions, nous vous recommandons d’utiliser le portail Azure. Le portail applique des limites aux combinaisons autorisées inférieures aux limites maximales d’un niveau. Toutefois, si vous souhaitez suivre une approche de provisionnement basée sur un script ou du code, [Azure PowerShell](search-manage-powershell.md) et l’[API REST Gestion](https://docs.microsoft.com/rest/api/searchmanagement/services) constituent des solutions alternatives.
+Si vous modifiez l’allocation des réplicas et des partitions, nous vous recommandons d’utiliser le portail Azure. Le portail applique des limites aux combinaisons autorisées inférieures aux limites maximales d’un niveau. Toutefois, si vous souhaitez suivre une approche de provisionnement basée sur un script ou du code, [Azure PowerShell](search-manage-powershell.md) et l’[API REST Gestion](/rest/api/searchmanagement/services) constituent des solutions alternatives.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologie : réplicas et partitions
 
