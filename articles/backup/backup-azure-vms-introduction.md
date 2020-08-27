@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091043"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587495"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -51,8 +51,8 @@ Quand vous sauvegardez des machines virtuelles Azure avec Sauvegarde Azure, ces 
 
 **Chiffrement** | **Détails** | **Support**
 --- | --- | ---
+**SSE** | Avec SSE, Stockage Azure chiffre automatiquement les données au repos avant de les stocker. Stockage Azure déchiffre aussi les données avant de les récupérer. Sauvegarde Azure prend en charge les sauvegardes de machines virtuelles avec deux types de Storage Service Encryption :<li> **SSE avec clés gérées par la plateforme** : ce chiffrement est utilisé par défaut pour tous les disques de vos machines virtuelles. [En savoir plus](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE avec clés gérées par le client** : utiliser des CMK signifie que vous gérez les clés utilisées pour chiffrer les disques. [En savoir plus](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Sauvegarde Azure utilise SSE pour chiffrer au repos les machines virtuelles Azure.
 **Azure Disk Encryption** | Azure Disk Encryption chiffre les disques du système d’exploitation et de données pour les machines virtuelles Azure.<br/><br/> Azure Disk Encryption s’intègre avec les clés de chiffrement de lecteur BitLocker qui sont sauvegardées dans un coffre de clés en tant que secrets. Azure Disk Encryption s’intègre également avec les clés de chiffrement Azure Key Vault. | Sauvegarde Azure prend en charge la sauvegarde des machines virtuelles Azure managées et non managées, chiffrées uniquement avec des clés de chiffrement de lecteur BitLocker, ou avec des clés de chiffrement de lecteur BitLocker et des clés de chiffrement Azure Key Vault.<br/><br/> Les clés des deux types sont sauvegardées et chiffrées.<br/><br/> Ces clés étant sauvegardées, les utilisateurs disposant des autorisations nécessaires peuvent restaurer les clés et secrets dans le coffre de clés si nécessaire. Ces utilisateurs peuvent également récupérer la machine virtuelle chiffrée.<br/><br/> Ni Azure ni des utilisateurs non autorisés ne peuvent lire les clés et secrets chiffrés.
-**SSE** | Avec SSE, Stockage Azure chiffre automatiquement les données au repos avant de les stocker. Stockage Azure déchiffre aussi les données avant de les récupérer. | Sauvegarde Azure utilise SSE pour chiffrer au repos les machines virtuelles Azure.
 
 Pour les machines virtuelles Azure managées et non managées, le service Sauvegarde prend en charge les machines virtuelles chiffrées uniquement avec des clés de chiffrement de lecteur BitLocker, ou avec des clés de chiffrement de lecteur BitLocker et des clés de chiffrement Azure Key Vault.
 
@@ -140,4 +140,4 @@ La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent, [préparez la sauvegarde de machine virtuelle Azure](backup-azure-arm-vms-prepare.md).
+- [Préparer une sauvegarde de machine virtuelle Azure](backup-azure-arm-vms-prepare.md).

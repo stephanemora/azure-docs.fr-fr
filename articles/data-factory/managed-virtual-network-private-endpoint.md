@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135961"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225680"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -82,15 +82,11 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Synapse Analytics (anciennement Azure SQL Data Warehouse)
 - SQL Azure Cosmos DB
 - Azure Key Vault
-- Azure Private Link
+- Service Azure Private Link
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Communications sortantes via un point de terminaison public à partir du réseau virtuel managé ADF
 - Seul le port 443 est ouvert pour les communications sortantes.
 - Le Stockage Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour une connexion via un point de terminaison public à partir du réseau virtuel managé ADF.
-
-### <a name="other-known-issues"></a>Autres problèmes connus
-L’exécution du débogage pour la connectivité Cosmos DB ne fonctionne pas, notamment le débogage de dataflow et le débogage du pipeline.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

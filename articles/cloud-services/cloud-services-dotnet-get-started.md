@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac843ec2084cd019ec9d3bc90f6c8bbcb5c34279
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255226"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590351"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -37,7 +37,7 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 * configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
 * créer un service de projet cloud Visual Studio avec un rôle web et un rôle de travail ASP.NET MVC ;
-* tester localement le projet de service cloud en utilisant l'émulateur de stockage Azure ;
+* tester localement le projet de service cloud en utilisant l’émulateur de Stockage Azure ;
 * publier le projet cloud dans un service cloud Azure et le tester avec un compte de stockage Azure ;
 * télécharger des fichiers et les stocker dans le service Blob Azure ;
 * utiliser le service de File d'attente Azure pour la communication entre tiers.

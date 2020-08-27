@@ -3,31 +3,16 @@ title: Améliorer la fiabilité d’une application avec Advisor
 description: Utilisez Azure Advisor pour garantir et améliorer la fiabilité de vos déploiements Azure vitaux pour l’entreprise.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057679"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258491"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Améliorer la fiabilité d’une application à l’aide d’Azure Advisor
 
 Azure Advisor vous aide à garantir et à améliorer la continuité de vos applications stratégiques. Vous pouvez recevoir des recommandations en matière de fiabilité de la part d’Advisor dans l’onglet **Fiabilité** du tableau de bord Advisor.
-
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Assurer la tolérance de panne des machines virtuelles
-
-Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les machines virtuelles qui ne font pas partie d’un groupe à haute disponibilité et recommande de les y déplacer. Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure. Vous pouvez choisir de créer un groupe à haute disponibilité pour la machine virtuelle ou d’ajouter la machine virtuelle à un groupe à haute disponibilité existant.
-
-> [!NOTE]
-> Si vous choisissez de créer un groupe à haute disponibilité, vous devez y ajouter au moins une machine virtuelle supplémentaire. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité pour garantir qu’au moins une d’elles reste disponible en cas de panne.
-
-## <a name="ensure-availability-set-fault-tolerance"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité
-
-Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
-
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Utiliser des disques managés pour améliorer la fiabilité des données
-
-Les machines virtuelles situées dans un groupe à haute disponibilité avec des disques partageant des comptes de stockage ou des unités d’échelle de stockage ne sont pas résilientes face aux échecs des unités d’échelle de stockage en cas de pannes. Advisor identifie ces groupes à haute disponibilité et conseille leur migration vers des disques managés Azure. Cette migration permet de s’assurer que les disques des machines virtuelles du groupe à haute disponibilité sont suffisamment isolés pour éviter un point de défaillance unique. 
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Vérifier la version de l’image d’appliance virtuelle réseau Check Point
 
@@ -73,6 +58,21 @@ Azure Advisor recherche les passerelles VPN qui utilisent une référence SKU de
 - Des options de configuration active/active. 
 - Une stratégie IPsec/IKE personnalisée. 
 - Une stabilité et disponibilité accrues.
+
+## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Assurer la tolérance de panne des machines virtuelles (temporairement désactivée)
+
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les machines virtuelles qui ne font pas partie d’un groupe à haute disponibilité et recommande de les y déplacer. Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure. Vous pouvez choisir de créer un groupe à haute disponibilité pour la machine virtuelle ou d’ajouter la machine virtuelle à un groupe à haute disponibilité existant.
+
+> [!NOTE]
+> Si vous choisissez de créer un groupe à haute disponibilité, vous devez y ajouter au moins une machine virtuelle supplémentaire. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité pour garantir qu’au moins une d’elles reste disponible en cas de panne.
+
+## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité (temporairement désactivée)
+
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
+
+## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Utiliser des disques managés pour améliorer la fiabilité des données (temporairement désactivé)
+
+Les machines virtuelles situées dans un groupe à haute disponibilité avec des disques partageant des comptes de stockage ou des unités d’échelle de stockage ne sont pas résilientes face aux échecs des unités d’échelle de stockage en cas de pannes. Advisor identifie ces groupes à haute disponibilité et conseille leur migration vers des disques managés Azure. Cette migration permet de s’assurer que les disques des machines virtuelles du groupe à haute disponibilité sont suffisamment isolés pour éviter un point de défaillance unique. 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
 

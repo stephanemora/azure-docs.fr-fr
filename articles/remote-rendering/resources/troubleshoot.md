@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563268"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509278"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -105,7 +105,7 @@ Si ces deux étapes n’ont pas permis de résoudre le problème, il est nécess
 
 **Le modèle dépasse les limites de la machine virtuelle sélectionnée, notamment le nombre maximal de polygones :**
 
-Consultez les [limites de taille de machine virtuelle](../reference/limits.md#overall-number-of-polygons) spécifiques.
+Consultez les [limites de taille de serveur](../reference/limits.md#overall-number-of-polygons) spécifiques.
 
 **Le modèle ne se trouve pas dans le frustum de l’appareil photo :**
 
@@ -148,7 +148,7 @@ Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la co
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Le modèle de damier est rendu après le chargement du modèle
 
-Si l’image rendue se présente comme suit : ![Damier](../reference/media/checkerboard.png) alors le convertisseur atteint les [limites de polygone pour la taille de machine virtuelle standard](../reference/vm-sizes.md). Pour atténuer ce problème, basculez vers une taille de **machine virtuelle Premium** ou réduisez le nombre de polygones visibles.
+Si l’image rendue se présente comme suit : ![Checkerboard](../reference/media/checkerboard.png), alors le renderer atteint les [limites de polygones pour la taille de configuration standard](../reference/vm-sizes.md). Pour atténuer ce problème, basculez vers une taille de configuration **Premium** ou réduisez le nombre de polygones visibles.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>L’image rendue dans Unity est à l’envers
 

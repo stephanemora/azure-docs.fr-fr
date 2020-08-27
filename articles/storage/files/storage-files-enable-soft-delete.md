@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528381"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590113"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
 
@@ -22,6 +22,8 @@ Le Stockage Azure offre une fonctionnalité de suppression réversible pour les 
 Les sections suivantes montrent comment activer et utiliser la suppression réversible pour les partages de fichiers Azure sur un compte de stockage existant :
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
+
+## <a name="getting-started"></a>Prise en main
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Accédez à votre compte de stockage et sélectionnez **Suppression réversible** sous **Service de fichiers**.
@@ -33,7 +35,13 @@ Les sections suivantes montrent comment activer et utiliser la suppression réve
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Les cmdlets de suppression réversible sont disponibles dans la version 2.1.1-preview du module Az.Storage. Pour activer la suppression réversible, vous devez mettre à jour les propriétés du service du client d’un fichier. L’exemple suivant active la suppression réversible pour tous les partages de fichiers dans un compte de stockage :
+## <a name="prerequisite"></a>Prérequis
+
+Les cmdlets de suppression réversible sont actuellement disponibles uniquement dans les versions [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) et [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) du module Az.Storage. 
+
+## <a name="getting-started"></a>Prise en main
+
+Pour activer la suppression réversible, vous devez mettre à jour les propriétés du service du client d’un fichier. L’exemple suivant active la suppression réversible pour tous les partages de fichiers dans un compte de stockage :
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"

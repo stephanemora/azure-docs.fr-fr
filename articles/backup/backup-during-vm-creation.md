@@ -3,12 +3,12 @@ title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032848"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586696"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -28,7 +28,7 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource**.
 
-2. Dans la Place de marché Azure, cliquez sur **Calcul**, puis sélectionnez une image de machine virtuelle.
+2. Dans Place de marché Azure, cliquez sur **Calcul**, puis sélectionnez une image de machine virtuelle.
 
 3. Configurez la machine virtuelle conformément aux instructions [Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux](../virtual-machines/linux/quick-create-portal.md).
 
@@ -47,6 +47,9 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
     - [Découvrez-en plus](backup-instant-restore-capability.md) sur la fonctionnalité de restauration instantanée.
 
       ![Stratégie de sauvegarde par défaut](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE et PMK sont les méthodes de chiffrement par défaut](backup-encryption.md) pour les machines virtuelles Azure. Sauvegarde Azure prend en charge la sauvegarde et la restauration de ces machines virtuelles Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Groupe de ressources Sauvegarde Azure pour les machines virtuelles
 

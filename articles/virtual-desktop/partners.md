@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5431a0844a418ddcdbd595546253c1d03fda35c0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006568"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612365"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -36,7 +36,7 @@ VMware Horizon Cloud sur Microsoft Azure est un service cloud natif qui permet a
 VMware est un fournisseur Windows Virtual Desktop approuvé qui peut aider les clients qui souhaitent utiliser Windows Virtual Desktop tout en profitant des fonctionnalités supplémentaires fournies avec VMware Horizon, comme la gestion de l’alimentation intégrée et facile à utiliser, la supervision basée sur le cloud et le protocole Blast Extreme. Ces fonctionnalités s’adaptent instantanément aux conditions de réseau changeantes pour offrir une expérience utilisateur cohérente. VMware Horizon Cloud est également fourni avec VMware App Volumes et Dynamic Environment Manager. Ces outils ajoutent des fonctionnalités avancées de gestion de l’environnement des utilisateurs et des applications qui fonctionnent avec l’attachement d’application MSIX et FSLogix.
 
 - [Visitez le site web du partenaire](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
-- [Lisez la documentation technique de VMWare Horizon Cloud](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
+- [Lisez la documentation technique de VMware Horizon Cloud](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 

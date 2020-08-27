@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489790"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224915"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Activer et utiliser Azure Multi-Factor Authentication avec des applications héritées à l’aide de mots de passe d’application
 
@@ -41,6 +41,8 @@ Lorsque vous utilisez des mots de passe d’application, tenez compte des consid
 * Les applications qui mettent en cache les mots de passe et les utilisent dans les scénarios locaux peuvent se bloquer, car le mot de passe d’application n’est pas connu à l’extérieur du compte professionnel ou scolaire. Par exemple, les courriers électroniques Exchange sont, par exemple, stockés localement, mais la messagerie archivée se trouve dans le cloud. Ainsi, le même mot de passe ne peut pas fonctionner.
 * Dès qu’Azure MFA est activé sur le compte d’un utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur comme Outlook et Microsoft Skype Entreprise. Cependant, les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application, dans des applications sans navigateur comme Windows PowerShell. Les actions sont impossibles, même quand l’utilisateur a un compte d’administrateur.
     * Pour exécuter des scripts PowerShell, créez un compte de service avec un mot de passe fort et n’activez pas la vérification en deux étapes sur ce compte.
+* Si vous soupçonnez qu’un compte d’utilisateur est compromis et que vous révoquez/réinitialisez le mot de passe du compte, les mots de passe d’application doivent également être mis à jour. Les mots de passe d’application ne sont pas révoqués automatiquement lorsqu’un mot de passe de compte d’utilisateur est révoqué/réinitialisé. L’utilisateur doit supprimer les mots de passe d’application existants et en créer de nouveaux.
+   * Pour plus d’informations, consultez [Créer et supprimer des mots de passe d’application à partir de la page Vérification de sécurité supplémentaire](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique cloud. Les mots de passe de domaine sont requis pour l’authentification locale. Les mots de passe d’application sont requis pour s’authentifier auprès du cloud.

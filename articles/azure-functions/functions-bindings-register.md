@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031118"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224779"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -53,7 +53,7 @@ Pour utiliser des offres groupées d’extension, mettez à jour le fichier *hos
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>Packages NuGet
 
-Pour un projet de fonctions basées sur une bibliothèque de classes C#, vous devez installer les extensions directement. Les offres groupées d’extension sont conçues spécifiquement pour les projets qui ne sont pas basés sur une bibliothèque de classes .NET. 
+Pour un projet de fonctions basé sur une bibliothèque de classe C#, vous devez installer les extensions directement. Les offres groupées d’extension sont conçues spécifiquement pour les projets qui ne sont pas basés sur une bibliothèque de classes C#.
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760292"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565925"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -28,12 +28,12 @@ Cet article montre comment configurer les deux genres d’identité managée pou
 
 * [Déclencheurs et actions qui prennent en charge les identités managées](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Types d’authentification pris en charge sur des appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-* [Limites d’identité managée pour les applications logiques](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
+* [Limites sur les identités managées pour les applications logiques](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Services Azure qui prennent en charge l’authentification Azure AD avec des identités managées](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). L’identité managée et la ressource Azure cible à laquelle vous souhaitez accéder doivent utiliser le même abonnement Azure.
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). L’identité managée et la ressource Azure cible à laquelle vous souhaitez accéder doivent utiliser le même abonnement Azure.
 
 * Pour accorder à une identité managée l’accès à une ressource Azure, vous devez ajouter un rôle à la ressource cible pour cette identité. Pour ajouter des rôles, vous devez disposer d’[autorisations d’administrateur Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) qui permettent d’attribuer des rôles à des identités dans le locataire Azure AD correspondant.
 

@@ -9,18 +9,65 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d93e01cdec79f739367dc219d81028c1abc2d66e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553441"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508207"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) d’Azure Machine Learning.
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2020-08-17"></a>17/08/2020
+
+### <a name="azure-machine-learning-sdk-for-python-v1120"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.12.0
+
++ **Résolutions de bogue et améliorations**
+  + **azure-cli-ml**
+    + Ajout des paramètres image_name et image_label à Model.package() pour permettre le changement de nom de l’image de package générée.
+  + **azureml-automl-core**
+    + AutoML génère un nouveau code d’erreur à partir de dataprep lorsque le contenu est modifié lors de la lecture.
+  + **azureml-automl-runtime**
+    + Ajout d’alertes pour l’utilisateur lorsque les données contiennent des valeurs manquantes, mais que l’ingénierie de caractéristiques est désactivée.
+    + Correction des échecs d’exécution enfant lorsque les données contiennent nan et que l’ingénierie de caractéristiques est désactivée.
+    + AutoML génère un nouveau code d’erreur à partir de dataprep lorsque le contenu est modifié lors de la lecture.
+    + Mise à jour de la normalisation pour les métriques de prévision qui se produisent par grain.
+    + Amélioration du calcul des quantiles de prévision lorsque les fonctionnalités de recherche en arrière sont désactivées.
+    + Correction de la gestion des matrices éparses booléennes lors du calcul des explications après AutoML.
+  + **azureml-core**
+    + La nouvelle méthode `run.get_detailed_status()` affiche à présent l’explication détaillée de l’état actuel de l’exécution. Elle n’indique actuellement qu’une explication de l’état `Queued`.
+    + Ajout des paramètres image_name et image_label à Model.package() pour permettre le changement de nom de l’image de package générée.
+    + Nouvelle méthode `set_pip_requirements()` permettant de définir toute la section PIP dans [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) en une seule fois.
+    + Activation de l’inscription du magasin de données ADLS Gen2 sans informations d’identification.
+    + Amélioration du message d’erreur lors de la tentative de téléchargement ou de montage d’un type incorrect de jeu de données.
+    + Mise à jour de l’exemple de notebook de filtrage des jeux de données de série chronologique avec d’autres exemples de partition_timestamp qui fournit l’optimisation de filtre.
+    + Modification du Kit de développement logiciel (SDK) et de l’interface CLI pour accepter subscriptionId, resourceGroup, workspaceName, peConnectionName comme paramètres au lieu d’ArmResourceId lors de la suppression de la connexion au point de terminaison privé.
+    + L’élément décoratif expérimental affiche le nom de la classe pour faciliter l’identification.
+    + Les descriptions des ressources à l’intérieur des modèles ne sont plus générées automatiquement en fonction d’une exécution.
+  + **azureml-datadrift**
+    + L’API create_from_model dans DataDriftDetector est marquée comme étant bientôt déconseillée.
+  + **azureml-dataprep**
+    + Amélioration du message d’erreur lors de la tentative de téléchargement ou de montage d’un type incorrect de jeu de données.
+  + **azureml-pipeline-core**
+    + Correction d’un bogue lors de la désérialisation du graphique de pipeline qui contient des jeux de données inscrits.
+  + **azureml-pipeline-steps**
+    + RScriptStep prend en charge RSection à partir d’azureml.core.environment.
+    + Suppression du paramètre passthru_automl_config de l’API publique `AutoMLStep` et conversion en paramètre interne uniquement.
+  + **azureml-train-automl-client**
+    + Suppression des exécutions de l’environnement managé asynchrone local d’AutoML. Toutes les exécutions locales sont exécutées dans l’environnement dans lequel l’exécution a été lancé.
+    + Correction des problèmes d’instantané lors de l’envoi d’exécutions AutoML sans scripts fournis par l’utilisateur.
+    + Correction des échecs d’exécution enfant lorsque les données contiennent nan et que l’ingénierie de caractéristiques est désactivée.
+  + **azureml-train-automl-runtime**
+    + AutoML génère un nouveau code d’erreur à partir de dataprep lorsque le contenu est modifié lors de la lecture.
+    + Correction des problèmes d’instantané lors de l’envoi d’exécutions AutoML sans scripts fournis par l’utilisateur.
+    + Correction des échecs d’exécution enfant lorsque les données contiennent nan et que l’ingénierie de caractéristiques est désactivée.
+  + **azureml-train-core**
+    + Ajout de la prise en charge de la spécification des options PIP (par exemple, --extra-index-url) dans le fichier d’exigences PIP transmis à un [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) par le biais du paramètre `pip_requirements_file`.
+
 
 ## <a name="2020-08-03"></a>03-08-2020
 

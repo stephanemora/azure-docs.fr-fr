@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502169"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509856"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -29,7 +29,7 @@ Le service Stockage Azure prend en charge trois types de signatures d’accès p
 
     Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **SAP de service.** Une SAP de service est sécurisée à l’aide de la clé de compte de stockage. Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage Azure : Stockage Blob, Stockage File d'attente, Stockage Table ou Azure Files. 
+- **SAP de service.** Une SAP de service est sécurisée à l’aide de la clé de compte de stockage. Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage Azure : Stockage Blob, Stockage File d'attente, Stockage Table ou Azure Files.
 
     Pour plus d’informations sur la SAP de service, consultez [Créer une SAP de service (API REST)](/rest/api/storageservices/create-service-sas).
 
@@ -38,7 +38,7 @@ Le service Stockage Azure prend en charge trois types de signatures d’accès p
     Pour plus d’informations sur la SAP de compte, [Créez une SAP de compte (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Comme meilleure pratique de sécurité, Microsoft vous recommande d’utiliser si possible les informations d’identification Azure AD plutôt que d’utiliser la clé de compte qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, une SAP de délégation d’utilisateur pour profiter d’une sécurité supérieure.
+> Comme meilleure pratique de sécurité, Microsoft vous recommande d’utiliser si possible les informations d’identification Azure AD plutôt que d’utiliser la clé de compte qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, une SAP de délégation d’utilisateur pour profiter d’une sécurité supérieure. Pour plus d’informations, consultez [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](storage-auth-aad.md).
 
 Une signature d’accès partagé peut prendre deux formes :
 
@@ -52,15 +52,27 @@ Une signature d’accès partagé peut prendre deux formes :
 
 Une signature d’accès partagé est un URI signé qui désigne une ou plusieurs ressources de stockage et inclut un jeton qui contient un ensemble spécial de paramètres de requête. Le jeton indique comment le client peut accéder aux ressources. L’un des paramètres de requête, la signature, est construit à partir des paramètres de signature d’accès partagé et signé avec la clé utilisée pour créer la SAP. Cette signature est utilisée par le stockage Azure pour autoriser l’accès à la ressource de stockage.
 
-### <a name="sas-signature"></a>SAP
+### <a name="sas-signature-and-authorization"></a>Signature SAP et autorisation
 
-Vous pouvez signer une SAP grâce à l’une des deux méthodes suivantes :
+Vous pouvez signer un jeton SAP de l’une des deux méthodes suivantes :
 
 - Avec une *clé de délégation d’utilisateur* créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP de délégation d’utilisateur est signée avec la clé de délégation d’utilisateur.
 
     Pour obtenir la clé de délégation d’utilisateur et créer la SAS, un principal de sécurité doit se voir attribuer un rôle Azure incluant l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey**. Pour plus d’informations sur les rôles Azure disposant des autorisations nécessaires pour obtenir la clé de délégation d’utilisateur, consultez [Créer une SAS délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- Avec la clé du compte de stockage. Une SAP de service et une SAP de compte sont signées avec la clé du compte de stockage. Pour créer une SAP signée avec la clé de compte, une application doit avoir accès à la clé de compte.
+- Avec la clé de compte de stockage (clé partagée). Une SAP de service et une SAP de compte sont signées avec la clé du compte de stockage. Pour créer une SAP signée avec la clé de compte, une application doit avoir accès à la clé de compte.
+
+Lorsqu’une requête comprend un jeton SAP, cette requête est autorisée en fonction de la façon dont le jeton SAP est signé. La clé d’accès ou les informations d’identification que vous utilisez pour créer un jeton SAP sont également utilisées par Stockage Azure pour accorder l’accès à un client qui possède la signature d’accès partagé.
+
+Le tableau suivant résume la façon dont chaque type de jeton SAP est autorisé lorsqu’il est inclus dans une requête adressée à Stockage Azure :
+
+| Type de SAP | Type d’autorisation |
+|-|-|
+| SAP de délégation d’utilisateur (Stockage Blob uniquement) | Azure AD |
+| SAP de service | Clé partagée |
+| SAP de compte | Clé partagée |
+
+Microsoft recommande d’utiliser une SAP de délégation d’utilisateur dans la mesure du possible pour une plus grande sécurité.
 
 ### <a name="sas-token"></a>Jeton SAS
 

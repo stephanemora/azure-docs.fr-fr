@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 29c04fc8f6af016200e06ad239095a3665de5869
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086430"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612705"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
@@ -133,7 +133,7 @@ Pour plus d’informations sur la création de clusters HDInsight à l’aide du
 
 #### <a name="load-based-autoscaling"></a>Mise à l’échelle automatique basée sur la charge
 
-Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la charge d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode` avec les propriétés `minInstanceCount` et `maxInstanceCount`, comme indiqué dans l’extrait de code json indiqué ci-dessous.
+Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la charge d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode` avec les propriétés `minInstanceCount` et `maxInstanceCount`, comme indiqué dans l’extrait de code json indiqué ci-dessous. Pour obtenir un modèle Resource Manager complet, consultez [Modèle de démarrage rapide : Déployer un cluster Spark avec mise à l’échelle automatique basée sur la charge](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +161,7 @@ Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur 
 
 #### <a name="schedule-based-autoscaling"></a>Mise à l’échelle automatique basée sur la planification
 
-Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la planification d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode`. Le nœud `autoscale` contient un élément `recurrence` qui a un élément `timezone` et un élément `schedule`. Ils vous permettent d’indiquer quand la modification doit avoir lieu.
+Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur la planification d’un modèle Azure Resource Manager en ajoutant un nœud `autoscale` à la section `computeProfile` > `workernode`. Le nœud `autoscale` contient un élément `recurrence` qui a un élément `timezone` et un élément `schedule`. Ils vous permettent d’indiquer quand la modification doit avoir lieu. Pour obtenir un modèle Resource Manager complet, consultez [Déployer un cluster Spark avec mise à l’échelle automatique basée sur la planification](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -258,6 +258,26 @@ Les travaux en cours d’exécution se poursuivront. Les travaux en attente atte
 ### <a name="minimum-cluster-size"></a>Taille minimale du cluster
 
 Ne mettez pas à l’échelle votre cluster à moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante.  Pour plus d’informations, consultez [Blocage en mode sans échec](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="llap-daemons-count"></a>Nombre de démons LLAP
+
+En cas de clusters LLAP avec mise à l’échelle automatique, l’événement de scale-up/scale-down automatique augmente ou diminue également le nombre de démons LLAP sur le nombre de nœuds Worker actifs. Toutefois, cette modification du nombre de démons n’est pas conservée dans la configuration de **num_llap_nodes** dans Ambari. Si les services Hive sont redémarrés manuellement, le nombre de démons LLAP sera réinitialisé conformément à la configuration dans Ambari.
+
+Prenons le scénario ci-dessous :
+1. Un cluster LLAP avec mise à l’échelle automatique est créé avec 3 nœuds Worker, et la mise à l’échelle automatique basée sur la charge est activée avec un minimum de 3 nœuds Worker et un maximum de 10 nœuds Worker.
+2. La configuration du nombre de démons LLAP en fonction de la configuration de LLAP et d’Ambari est de 3, étant donné que le cluster a été créé avec 3 nœuds Worker.
+3. Un scale-up automatique est ensuite déclenché en raison d’un chargement sur le cluster : le cluster est maintenant mis à l’échelle à 10 nœuds.
+4. La vérification de la mise à l’échelle automatique exécutée à intervalles réguliers indique que le nombre de démons LLAP est de 3, mais que le nombre de nœuds Worker actifs est de 10. Le processus de mise à l’échelle automatique va maintenant augmenter le nombre de démons LLAP à 10, mais ce changement n’est pas conservé dans la configuration de num_llap_nodes d’Ambari.
+5. La mise à l’échelle automatique est désormais désactivée.
+6. Le cluster possède désormais 10 nœuds Worker et 10 démons LLAP.
+7. Le service LLAP est redémarré manuellement.
+8. Lors du redémarrage, il vérifie la configuration de num_llap_nodes dans la configuration LLAP et remarque que la valeur est 3. Par conséquent, il fait tourner 3 instances de démons, mais il y a 10 nœuds Worker. Il y a maintenant un décalage entre les deux.
+
+Lorsque cela se produit, nous devons modifier manuellement la **configuration de num_llap_node (Nombre de nœuds pour l’exécution du démon Hive LLAP) sous Advanced hive-interactive-env** pour qu’il corresponde au nombre actuel de nœuds Worker actifs.
+
+**Remarque**
+
+Les événements de mise à l’échelle automatique ne modifient pas la configuration Hive **Nombre total maximum de requêtes simultanées** dans Ambari. Cela signifie que le service interactif Hive Server 2 **ne peut traiter qu’un nombre donné de requêtes simultanées à tout moment, même si le nombre de démons LLAP est augmenté et réduit en fonction de la charge/planification**. La recommandation générale consiste à définir cette configuration pour le scénario d’utilisation maximale afin d’éviter toute intervention manuelle. Toutefois, il faut savoir que la **définition d’une valeur élevée pour la configuration du nombre total maximum de requêtes simultanées peut faire échouer le redémarrage du service interactif Hive Server 2 si le nombre minimum de nœuds Worker ne peut pas prendre en charge le nombre donné de Tez Ams (égal à la configuration du nombre total maximum de requêtes simultanées)** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

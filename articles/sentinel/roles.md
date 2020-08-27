@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836766"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565840"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -59,6 +59,10 @@ Il peut être nécessaire d’affecter des rôles supplémentaires ou des autori
 - Connexion de sources de données à Azure Sentinel
 
     Pour qu’un utilisateur ajoute des **connecteurs de données**, vous devez attribuer les autorisations d’accès en écriture à l’utilisateur sur l’espace de travail Azure Sentinel. Notez également les autorisations supplémentaires nécessaires pour chaque connecteur, comme indiqué dans la page du connecteur approprié.
+
+- Utilisateurs invités attribuant des incidents
+
+    Si un utilisateur invité doit être en mesure d’attribuer des incidents, il doit se voir attribuer le rôle [Lecteur de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) en plus du rôle Répondeur Azure Sentinel. Notez que ce rôle *n’est pas* un rôle RBAC Azure, mais un rôle **Azure Active Directory**, et que ce rôle est attribué par défaut aux utilisateurs ordinaires (non invités). 
 
 Pour une comparaison côte à côte, consultez le [tableau ci-dessous](#roles-and-allowed-actions).
 

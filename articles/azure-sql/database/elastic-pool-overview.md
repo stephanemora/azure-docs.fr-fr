@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419714"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225918"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,11 +113,11 @@ Les étapes suivantes peuvent vous aider à estimer si un pool est plus économi
 
 Modèle d’achat DTU :
 
-MAX(<*nombre total de bases de données* X *utilisation DTU moyenne par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation DTU maximale par base de données*)
+MAX(<*Nombre total de bases de données* X *Utilisation moyenne de DTU par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale de DTU par base de données*>)
 
 Pour le modèle d’achat vCore :
 
-MAX(<*nombre total de bases de données* X *utilisation des vCore moyenne par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation des vCore maximale par base de données*)
+MAX(<*Nombre total de bases de données* X *Utilisation moyenne des vCores par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale des vCores par base de données*>)
 
 2. Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage.
 3. Pour le modèle d’achat DTU, prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2. Pour le modèle d’achat vCore, prenez l’estimation vCore de l’étape 1.

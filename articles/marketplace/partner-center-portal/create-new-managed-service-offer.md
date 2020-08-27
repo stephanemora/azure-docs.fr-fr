@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166601"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606058"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
@@ -29,7 +29,7 @@ Vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou 
     ![Illustre le menu de navigation de gauche.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
+>Après la publication d’une offre, les modifications qui lui ont été apportées dans Espace partenaires apparaissent uniquement dans les magasins en ligne après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 ## <a name="new-offer"></a>Nouvelle offre
 

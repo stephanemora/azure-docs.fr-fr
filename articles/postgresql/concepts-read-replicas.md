@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276649"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611124"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -163,16 +163,19 @@ Un réplica en lecture est créé en tant que serveur Azure Database pour Postgr
 ### <a name="replica-configuration"></a>Configuration du réplica
 Le réplica doit être créé en utilisant les mêmes paramètres de calcul et de stockage que le serveur maître. Après la création d’un réplica, plusieurs paramètres sont modifiables, y compris la période de rétention du stockage et de la sauvegarde.
 
-Les vCore et le niveau tarifaire peuvent également être modifiés sur le réplica dans les conditions suivantes :
-* Avec PostgreSQL, la valeur du paramètre `max_connections` sur le réplica en lecture doit être supérieure ou égale à la valeur du serveur maître. Sinon, le réplica ne démarre pas. Dans Azure Database pour PostgreSQL, la valeur du paramètre `max_connections` dépend de la référence SKU (vCore et niveau tarifaire). Pour plus d’informations, consultez [Limites d’Azure Database pour PostgreSQL](concepts-limits.md). 
-* La mise à l’échelle vers le niveau tarifaire De base (ou à partir de celui-ci) n’est pas prise en charge.
-
-> [!IMPORTANT]
-> Avant de modifier un paramètre du serveur maître, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale à celle du serveur maître. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
-
-Si vous tentez de mettre à jour les valeurs du serveur décrites ci-dessus sans respecter les limites, vous recevez un message d’erreur.
-
 Les règles de pare-feu, les règles de réseau virtuel et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé ou après sa création.
+
+### <a name="scaling"></a>Mise à l'échelle
+Mise à l’échelle de vCores ou entre Usage général et À mémoire optimisée :
+* PostgreSQL exige que le paramètre `max_connections` sur un serveur secondaire soit [supérieur ou égal au paramètre sur le serveur principal](https://www.postgresql.org/docs/current/hot-standby.html). Sinon, le serveur secondaire ne démarrera pas.
+* Dans Azure Database pour PostgreSQL, le nombre maximal de connexions autorisées pour chaque serveur est fixé à la référence SKU de calcul, car les connexions occupent de la mémoire. Vous pouvez en savoir plus sur le [mappage entre max_connections et les références SKU de calcul](concepts-limits.md).
+* **Scale-up** : Effectuez tout d’abord un scale-up du calcul d’un réplica, puis du serveur principal. Cet ordre empêchera des erreurs de violer la spécification de `max_connections`.
+* **Scale-down** : Effectuez tout d’abord un scale-down du calcul du serveur principal, puis du réplica. Si vous essayez de mettre le réplica à une échelle inférieure à celle du serveur principal, une erreur se produira, car cela ne respecte pas la spécification de `max_connections`.
+
+Mise à l’échelle du stockage :
+* La croissance automatique du stockage est activée pour tous les réplicas afin d’éviter les problèmes de réplication dus à un réplica plein. Ce paramètre ne peut pas être désactivé.
+* Vous pouvez également mettre à l’échelle manuellement le stockage, comme vous le feriez sur n’importe quel autre serveur.
+
 
 ### <a name="basic-tier"></a>Niveau de base
 Les serveurs du niveau De base prennent uniquement en charge la réplication dans la même région.

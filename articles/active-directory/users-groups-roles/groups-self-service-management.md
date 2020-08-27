@@ -1,6 +1,6 @@
 ---
 title: Configurer la gestion de groupes en libre-service - Azure Active Directory | Microsoft Docs
-description: Créer et gérer des groupes de sécurité ou Office 365 dans Azure Active Directory et demander des appartenances aux groupes de sécurité ou Office 365
+description: Créer et gérer des groupes de sécurité ou Microsoft 365 dans Azure Active Directory et demander des appartenances aux groupes de sécurité ou Microsoft 365
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce5d96d3ca65efb69bf322cf4a5f5563b83d8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727872"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213627"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurer la gestion de groupes en libre-service dans Azure Active Directory 
 
-Vous pouvez autoriser les utilisateurs à créer et gérer leurs propres groupes de sécurité ou Office 365 dans Azure Active Directory (Azure AD). Le propriétaire du groupe peut approuver ou refuser des demandes d’appartenance et peut déléguer le contrôle de l’appartenance au groupe. Les fonctionnalités de gestion de groupes en libre-service ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
+Vous pouvez autoriser les utilisateurs à créer et gérer leurs propres groupes de sécurité ou Microsoft 365 dans Azure Active Directory (Azure AD). Le propriétaire du groupe peut approuver ou refuser des demandes d’appartenance et peut déléguer le contrôle de l’appartenance au groupe. Les fonctionnalités de gestion de groupes en libre-service ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
 
 ## <a name="self-service-group-membership-defaults"></a>Valeurs par défaut de l’appartenance de groupes en libre-service
 
-Lorsque des groupes de sécurité sont créés dans le Portail Azure ou en utilisant Azure AD PowerShell, seuls les propriétaires du groupe peuvent mettre à jour leur appartenance. Les groupes de sécurité créés en libre-service dans le [panneau Accès](https://account.activedirectory.windowsazure.com/r#/joinGroups) et tous les groupes Office 365 sont disponibles pour tous les utilisateurs, qu’ils soient approuvés par le propriétaire ou approuvés automatiquement. Dans le volet Accès, vous pouvez modifier les options d’appartenance lorsque vous créez le groupe.
+Lorsque des groupes de sécurité sont créés dans le Portail Azure ou en utilisant Azure AD PowerShell, seuls les propriétaires du groupe peuvent mettre à jour leur appartenance. Les groupes de sécurité créés en libre-service dans le [volet Accès](https://account.activedirectory.windowsazure.com/r#/joinGroups) et tous les groupes Microsoft 365 sont disponibles pour tous les utilisateurs, qu’ils soient approuvés par le propriétaire ou approuvés automatiquement. Dans le volet Accès, vous pouvez modifier les options d’appartenance lorsque vous créez le groupe.
 
-Groupes créés dans | Comportement par défaut des groupes de sécurité | Comportement par défaut des groupes Office 365
+Groupes créés dans | Comportement par défaut des groupes de sécurité | Comportement par défaut des groupes Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Seuls les propriétaires peuvent ajouter des membres<br>Visible mais non disponible pour se joindre au panneau Accès | Ouvert pour tous les utilisateurs
 [Azure portal](https://portal.azure.com) | Seuls les propriétaires peuvent ajouter des membres<br>Visible mais non disponible pour se joindre au panneau Accès<br>Propriétaire n’est pas affecté automatiquement lors de la création de groupe | Ouvert pour tous les utilisateurs
@@ -47,7 +47,7 @@ Groupes créés dans | Comportement par défaut des groupes de sécurité | Comp
 1. Sélectionnez **Groupes**, puis les paramètres **Généraux**.
 1. Définissez **Les propriétaires peuvent gérer les demandes d'appartenance au groupe dans le panneau d'accès** sur **Oui**.
 1. Définissez **Restreindre l'accès aux groupes dans le panneau d'accès** sur **Non**.
-1. Si vous définissez **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure** ou **Les utilisateurs peuvent créer des groupes Office 365 dans les portails Azure** sur
+1. Si vous définissez **Les utilisateurs peuvent créer des groupes de sécurité dans les portails Azure** ou **Les utilisateurs peuvent créer des groupes Microsoft 365 dans les portails Azure** sur
 
     - **Oui** : Tous les utilisateurs de votre organisation Azure AD sont autorisés à créer des groupes de sécurité et à ajouter des membres à ces groupes. Ces nouveaux groupes apparaissent également dans le volet d’accès de tous les autres utilisateurs. Si le paramètre de stratégie du groupe l’autorise, d’autres utilisateurs peuvent créer des demandes d’adhésion à ces groupes
     - **Non** : Les utilisateurs ne peuvent pas créer de groupes, ni modifier les groupes existants dont ils sont propriétaires. Cependant, ils peuvent toujours gérer les appartenances de ces groupes et approuver les demandes d’adhésion d’autres utilisateurs à leurs groupes.
@@ -57,7 +57,7 @@ Vous pouvez également utiliser **Propriétaires qui peuvent attribuer des membr
 Lorsque tous les utilisateurs peuvent créer des groupes, tous les utilisateurs de votre organisation sont autorisés à créer des groupes, puis à ajouter, comme le propriétaire par défaut, des membres à ces groupes. Vous ne pouvez pas spécifier les personnes qui peuvent créer leurs propres groupes. Vous ne pouvez spécifier une personne du groupe que si vous la promouvez propriétaire celui-ci.
 
 > [!NOTE]
-> Une licence Azure Active Directory Premium (P1 ou P2) est requise pour que les utilisateurs puissent demander à rejoindre un groupe de sécurité ou un groupe Office 365 et pour permettre aux propriétaires d’approuver ou de refuser les demandes d’adhésion. Sans licence Azure Active Directory Premium, les utilisateurs peuvent toujours gérer leurs groupes dans le volet d’accès, mais ils ne peuvent pas créer de groupe qui nécessite l’approbation du propriétaire dans le volet d’accès ni demander à rejoindre un groupe. 
+> Une licence Azure Active Directory Premium (P1 ou P2) est requise pour que les utilisateurs puissent demander à rejoindre un groupe de sécurité ou un groupe Microsoft 365 et pour permettre aux propriétaires d’approuver ou de refuser les demandes d’adhésion. Sans licence Azure Active Directory Premium, les utilisateurs peuvent toujours gérer leurs groupes dans le volet d’accès, mais ils ne peuvent pas créer de groupe qui nécessite l’approbation du propriétaire dans le volet d’accès ni demander à rejoindre un groupe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

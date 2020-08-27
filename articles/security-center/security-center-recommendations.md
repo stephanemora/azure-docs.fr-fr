@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791382"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263210"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
@@ -31,14 +31,13 @@ Cette rubrique explique comment visualiser et comprendre les recommandations d�
 
 Les recommandations sont des actions à effectuer pour sécuriser vos ressources.
 
-Security Center analyse périodiquement l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités de sécurité potentielles. Il fournit ensuite des recommandations sur la façon de les supprimer.
+Security Center analyse périodiquement l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités de sécurité potentielles. Il fournit ensuite des recommandations sur la façon de corriger ces vulnérabilités.
 
 Chaque recommandation vous fournit les informations suivantes :
 
-- Brève description de ce qui est recommandé.
-- Étapes de correction à effectuer pour implémenter la recommandations. <!-- In some cases, Quick Fix remediation is available. -->
-- Ressources nécessitant une action recommandée de votre part.
-- L’**impact du niveau de sécurité**, à savoir la proportion selon laquelle l’implémentation de cette recommandation va augmenter votre niveau de sécurité.
+- Courte description du problème.
+- Étapes de correction à effectuer pour implémenter la recommandations.
+- Ressources concernées.
 
 ## <a name="monitor-recommendations"></a>Surveiller les recommandations <a name="monitor-recommendations"></a>
 
@@ -48,26 +47,28 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
 
 1. Sélectionnez la **vignette Recommandations** sous **Vue d’ensemble**. La liste **Recommandations** s’ouvre.
 
-      ![Afficher les recommandations](./media/security-center-recommendations/view-recommendations.png)
+1. Les recommandations sont regroupées en contrôles de sécurité.
 
-    Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, sélectionnez **Filtrer** sur le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
+      ![Recommandations regroupées par contrôle de sécurité](./media/security-center-recommendations/view-recommendations.png)
 
-   * **RECOMMANDATIONS** : La recommandation.
-   * **IMPACT DU DEGRÉ DE SÉCURISATION** : Score généré par Security Center en utilisant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation. Pour plus d’informations, consultez [Calcul du niveau de sécurité](secure-score-security-controls.md#how-your-secure-score-is-calculated).
-   * **RESSOURCE** : Ressources auxquelles s’appliquent les recommandations.
-   * **BARRES D’ÉTAT** :  Donne le niveau de gravité de chaque recommandation :
-       * **Élevé (rouge)**  : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-       * **Moyen (Orange)**  : Il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-       * **Faible (bleu)**  : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître. 
-       * **Sain (vert)**  :
-       * **Non disponible (gris)**  :
+1. Développez un contrôle et sélectionnez une recommandation spécifique pour afficher la page de recommandation.
 
-1. Pour voir les détails de chaque recommandation, cliquez sur la recommandation.
+    :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Page Détails de la recommandation." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
-    ![Détails de la recommandation](./media/security-center-recommendations/recommendation-details.png)
+    La page comprend les éléments suivants :
 
->[!NOTE] 
-> Consultez [Modèles de déploiement classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
+    - **Indicateur de gravité**
+    - **Intervalle d’actualisation** (le cas échéant) 
+    - **Description** : courte description du problème.
+    - **Étapes de correction** : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec un « correctif rapide », vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources. 
+    - **Ressources concernées** : vos ressources sont regroupées dans des onglets :
+        - **Ressources saines** : ressources pertinentes qui ne sont pas touchées ou sur lesquelles vous avez déjà corrigé le problème.
+        - **Ressources non saines** : ressources qui sont encore concernées par le problème identifié.
+        - **Ressources non applicables** : ressources pour lesquelles la recommandation ne peut pas donner de réponse définitive. L’onglet Non applicables comprend également les raisons pour chaque ressource. 
+
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Ressources non applicables avec leurs raisons.":::
+
+
  
 ## <a name="next-steps"></a>Étapes suivantes
 

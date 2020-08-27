@@ -3,12 +3,12 @@ title: 'Guide pratique pour concevoir votre déploiement Application Insights :
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420564"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258717"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Combien de ressources Application Insights déployer
 
@@ -41,7 +41,7 @@ Chaque ressource Application Insights est accompagnée de métriques prêtes à 
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Clé d'instrumentation dynamique
 
-Pour faciliter la modification de l’ikey à mesure que le code se déplace entre les phases de production, définissez-la dans le code plutôt que dans le fichier de configuration.
+Pour faciliter la modification de l’ikey à mesure que le code se déplace entre les phases de production, référencez la clé dynamiquement dans le code au lieu d’utiliser une valeur codée en dur/statique.
 
 Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.cs dans un service ASP.NET :
 

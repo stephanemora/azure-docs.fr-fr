@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032950"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586186"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -25,10 +25,10 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
 >- Si vous n’avez pas encore configuré la sauvegarde, [procédez comme suit](#set-storage-redundancy) pour vérifier et modifier les paramètres.
 >- Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à LRS, [consultez ces solutions de contournement](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre. Dans la section **Paramètres**, cliquez sur **Propriétés**.
-1. Dans **Propriétés**, sous **Configuration de la sauvegarde**, cliquez sur **Mise à jour**.
+1. Dans le volet **Coffres Recovery Services**, sélectionnez le nouveau coffre. Dans la section **Paramètres**, sélectionnez **Propriétés**.
+1. Dans **Propriétés**, sous **Configuration de la sauvegarde**, sélectionnez **Mettre à jour**.
 
-1. Sélectionnez le type de réplication de stockage, puis cliquez sur **Enregistrer**.
+1. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
 
      ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -46,7 +46,7 @@ Parmi les options de restauration, la fonction de restauration interrégion (CRR
 - effectuer des recherches dans le cadre d’un audit ou d’une condition de conformité
 - restaurer la machine virtuelle ou son disque en cas de sinistre dans la région primaire.
 
-Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration interrégion** dans le panneau **Configuration de la sauvegarde**.
+Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration interrégion** dans le volet **Configuration de la sauvegarde**.
 
 Dans le cadre de ce processus, les implications tarifaires sont liées au niveau de stockage.
 
@@ -62,22 +62,40 @@ Dans le cadre de ce processus, les implications tarifaires sont liées au niveau
 
 ### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
 
-Un coffre créé avec la redondance GRS comprend l’option permettant de configurer la fonctionnalité de restauration interrégion. Chaque coffre GRS aura une bannière, laquelle fera le lien avec la documentation. Pour configurer la CRR pour le coffre, accédez au panneau Configuration de la sauvegarde, qui contient l’option permettant d’activer cette fonctionnalité.
+Un coffre créé avec la redondance GRS comprend l’option permettant de configurer la fonctionnalité de restauration interrégion. Chaque coffre GRS aura une bannière, laquelle fera le lien avec la documentation. Pour configurer la CRR pour le coffre, accédez au volet Configuration de la sauvegarde, qui contient l’option permettant d’activer cette fonctionnalité.
 
  ![Bannière Configuration de la sauvegarde](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. À partir du portail, accédez à Coffre Recovery Services > Paramètres > Propriétés.
-2. Cliquez sur **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
+2. Sélectionnez **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
 
-   ![Avant de cliquer sur Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Avant de sélectionner Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Après avoir cliqué sur Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Après avoir sélectionner Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Découvrez comment [afficher les éléments de sauvegarde dans la région secondaire](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
 Découvrez comment [restaurer dans la région secondaire](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
 Découvrez comment [surveiller les travaux de restauration de la région secondaire](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
+## <a name="set-encryption-settings"></a>Définir les paramètres de chiffrement
+
+Par défaut, les données du coffre Recovery Services sont chiffrées à l’aide de clés gérées par la plateforme. Aucune action explicite n’est requise pour activer ce chiffrement, et celui-ci s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.  Vous pouvez choisir d’apporter votre propre clé pour chiffrer les données de sauvegarde dans ce coffre. On parle alors de clés gérées par le client. Si vous souhaitez chiffrer les données de sauvegarde en utilisant votre propre clé, la clé de chiffrement doit être spécifiée avant qu’un élément soit protégé dans ce coffre. Une fois que vous activez le chiffrement avec votre clé, le processus ne peut pas être inversé.
+
+### <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configuration d’un coffre à chiffrer à l’aide de clés gérées par le client
+
+Pour configurer votre coffre de manière à ce que les données soient chiffrées avec des clés gérées par le client, procédez comme suit et dans l’ordre indiqué :
+
+1. Activer une identité managée pour votre coffre Recovery Services
+
+1. Attribuer des autorisations au coffre pour lui permettre d’accéder à la clé de chiffrement dans le coffre de clés Azure
+
+1. Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
+
+1. Affecter la clé de chiffrement au coffre Recovery Services
+
+Vous trouverez des instructions pour chacune de ces étapes [dans cet article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## <a name="modifying-default-settings"></a>Modification des paramètres par défaut
 
@@ -132,7 +150,6 @@ Si vous devez conserver les données protégées actuelles dans le coffre GRS e
   - Vous devrez payer pour conserver ces points de récupération dans le coffre GRS (voir [Tarification de Sauvegarde Azure](azure-backup-pricing.md) pour en savoir plus).
   - Vous serez en mesure de restaurer la machine virtuelle si nécessaire, à partir du coffre GRS.
   - La première sauvegarde dans le coffre LRS de la machine virtuelle placée dans la nouvelle ressource sera un réplica initial.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

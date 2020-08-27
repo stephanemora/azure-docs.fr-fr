@@ -3,12 +3,12 @@ title: Réduire les coûts de service grâce à Azure Advisor
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284368"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258531"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Réduire les coûts de service à l’aide d’Azure Advisor
 
@@ -96,6 +96,8 @@ Le [disque de système d’exploitation éphémère](../virtual-machines/ephemer
 
 Il est préférable d’utiliser le disque de système d’exploitation éphémère pour les machines virtuelles IaaS à courte durée de vie ou les machines virtuelles supportant des charges de travail sans état. Advisor fournit des recommandations pour les ressources qui peuvent tirer parti du disque de système d’exploitation éphémère.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>Réduire la période de mise en cache (stratégie) des tables Azure Data Explorer pour l’optimisation du coût des clusters (préversion)
+Advisor identifie les ressources pour lesquelles la réduction de la période de mise en cache des tables permet de libérer les nœuds de cluster Azure Data Explorer qui utilisent peu le processeur et qui disposent de peu de mémoire, mais dont la taille de cache est élevée.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Accès aux recommandations de coût dans le conseiller Azure
 

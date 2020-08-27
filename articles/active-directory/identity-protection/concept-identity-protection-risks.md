@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555260"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507431"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -65,6 +65,12 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 | Risque supplémentaire détecté | Temps réel ou hors connexion | Cette détection indique que l’une des détections Premium ci-dessus a eu lieu. Étant donné que les détections Premium ne sont visibles que pour les clients Azure AD Premium P2, on les appelle « Risque supplémentaire détecté » pour les clients dépourvus de licences Azure AD Premium P2. |
 
 ## <a name="common-questions"></a>Questions courantes
+
+### <a name="risk-levels"></a>Niveaux de risque
+
+Identity Protection catégorise les risques en trois niveaux : faible, moyen et sévère. 
+
+Bien que Microsoft ne communique pas en détail sur la manière dont le risque est calculé, nous pouvons affirmer que chaque niveau souligne avec un peu plus de certitude que l’utilisateur ou la connexion est compromis(e). Par exemple, une instance de propriétés de connexion inconnues pour un utilisateur pourrait être moins dangereuse que la divulgation d’informations d’identification pour un autre utilisateur.
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319896"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225368"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Certification des machines virtuelles : problèmes et solutions 
 
@@ -314,6 +314,57 @@ Pour remédier aux erreurs liées au disque de données, utilisez le tableau sui
 Si l'option RDP (Remote Desktop Protocol) n'est pas activée pour l'image Windows, vous recevrez cette erreur. 
 
 Activez l'accès RDP pour les images Windows avant de les envoyer.
+
+## <a name="bash-history-failed"></a>Échec de l’historique Bash
+
+Une erreur s’affiche si la taille de l’historique Bash de l’image que vous avez envoyée est supérieure à 1 kilooctet (ko). La taille est limitée à 1 Ko pour garantir qu’aucune information potentiellement sensible n’est capturée dans votre fichier d’historique Bash.
+
+Vous trouverez ci-dessous les étapes permettant de supprimer l’historique Bash.
+
+Étape 1. Déployez la machine virtuelle et cliquez sur l’option « Run Command » sur Portail Azure.
+![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
+
+Étape 2. Sélectionnez la première option « RunShellScript » et exécutez la commande ci-dessous.
+
+Commande : « cat /dev/null > ~/.bash_history && history -c » ![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
+
+Étape 3. Une fois l’exécution de la commande terminée, redémarrez la machine virtuelle.
+
+Étape 4. Généralisez la machine virtuelle, prenez le disque dur virtuel de l’image et arrêtez la machine virtuelle.
+
+Étape 5.     Soumettez à nouveau l’image généralisée.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Demande d’exceptions (modèles personnalisés) sur les images de machine virtuelle pour des tests sélectifs
+
+Les éditeurs peuvent demander des exceptions pour quelques tests effectués pendant la certification de la machine virtuelle. Des exceptions sont prévues dans des cas extrêmement rares où l’éditeur fournit des preuves à l’appui de la demande.
+L’équipe de certification se réserve le droit de refuser ou d’approuver des exceptions à tout moment.
+
+Dans les sections ci-dessous, nous parlerons des principaux scénarios dans lesquels des exceptions sont demandées et de la manière de demander une exception.
+
+Scénarios pour une exception
+
+Il existe trois scénarios/cas où les éditeurs demandent généralement ces exceptions. 
+
+* **Exception pour un ou plusieurs cas de test :** les éditeurs peuvent s’adresser au [Support aux éditeurs de Place de marché](https://aka.ms/marketplacepublishersupport) pour demander des exceptions pour les cas tests. 
+
+* **Machines virtuelles verrouillées/aucun accès racine :** peu d’éditeurs ont des scénarios dans lesquels les machines virtuelles doivent être verrouillées, car des logiciels tels que des pare-feu sont installés sur la machine virtuelle. 
+       Dans ce cas, les éditeurs peuvent télécharger l’[outil de test certifié](https://aka.ms/AzureCertificationTestTool) ici et fournir le rapport au [Support aux éditeurs de Place de marché](https://aka.ms/marketplacepublishersupport).
+
+
+* **Modèles personnalisés :** certains éditeurs publient des images de machine virtuelle qui nécessitent un modèle Resource Manager personnalisé pour déployer les machines virtuelles. Dans ce cas, les éditeurs sont invités à fournir les modèles personnalisés au [Support aux éditeurs de Place de marché](https://aka.ms/marketplacepublishersupport) afin que l’équipe de certification puisse les utiliser pour la validation. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Informations à fournir pour les scénarios d’exception
+
+Les éditeurs doivent s’adresser au [Support aux éditeurs de Place de marché](https://aka.ms/marketplacepublishersupport) pour demander des exceptions pour le scénario ci-dessus en fournissant les informations supplémentaires suivantes :
+
+   1.   ID de l’éditeur : ID de l’éditeur sur le portail Espace partenaires
+   2.   ID/nom de l’offre : ID/nom de l’offre pour laquelle l’exception est demandée 
+   3.   Réf. SKU/ID de plan : ID de plan/référence SKU de l’offre de machine virtuelle pour laquelle l’exception est demandée
+   4.    Version : version de l’offre de machine virtuelle pour laquelle l’exception est demandée
+   5.   Type d’exception : tests, machine virtuelle verrouillée, modèles personnalisés
+   6.   Raison de la demande : raison de cette exception et informations sur les tests à exempter 
+   7.   Pièce jointe : joindre tout document de preuve d’importance. Pour les machines virtuelles verrouillées, joignez le rapport de test et, pour les modèles personnalisés, fournissez le modèle Resource Manager personnalisé en pièce jointe. Ne pas joindre les documents requis entraîne un refus de demande.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

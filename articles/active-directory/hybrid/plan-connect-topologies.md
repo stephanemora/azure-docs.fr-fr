@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698765"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509079"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -191,6 +191,11 @@ Les locataires Azure AD sont isolés de par leur conception. Les tâches suivant
 ![GALSync dans une topologie pour plusieurs forêts et plusieurs annuaires](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 Vous pouvez utiliser FIM 2010 ou MIM 2016 local pour synchroniser les utilisateurs (via GALSync) entre deux organisations Exchange. Les utilisateurs d’une organisation apparaissent alors comme des utilisateurs/contacts externes dans l’autre organisation. Ces différentes instances Active Directory locales peuvent ensuite être synchronisées vers leurs propres locataires Azure AD.
+
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>Utilisation de clients non autorisés pour accéder au serveur principal d’Azure AD Connect
+![Utilisation de clients non autorisés pour accéder au serveur principal d’Azure AD Connect](./media/plan-connect-topologies/other-client-unsupported.png)
+
+Le serveur Azure Active Directory Connect communique avec Azure Active Directory via le serveur principal d’Azure Active Directory Connect. Azure Active Directory Connect est le seul logiciel qui peut être utilisé pour communiquer avec ce serveur principal. Il n’est pas possible de communiquer avec le serveur principal d’Azure Active Directory Connect en utilisant un autre logiciel ou une autre méthode. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md).

@@ -1,14 +1,14 @@
 ---
 title: Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs | Microsoft Docs
-description: Découvrez comment créer vos propres artefacts pour les utiliser avec Azure DevTest Labs.
+description: Découvrez comment créer des artefacts à utiliser avec Azure DevTest Labs pour déployer et configurer des applications après avoir approvisionner une machine virtuelle.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857024"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270680"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 

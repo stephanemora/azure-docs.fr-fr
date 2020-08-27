@@ -1,14 +1,14 @@
 ---
 title: Sauvegarde en mode hors connexion pour Data Protection Manager (DPM) et le serveur de sauvegarde Microsoft Azure (MABS) – versions précédentes
-description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
+description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour les versions précédentes de DPM et du serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186943"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261920"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Workflow de sauvegarde en mode hors connexion pour DPM et le serveur de sauvegarde Azure (versions précédentes)
 
@@ -61,7 +61,7 @@ Assurez-vous que les prérequis suivants sont remplis avant de démarrer le work
     | États-Unis | [Lien](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Chine | [Lien](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Un compte de stockage Azure avec un modèle de déploiement Resource Manager a été créé dans l’abonnement à partir duquel vous avez téléchargé le fichier des paramètres de publication. Dans le compte de stockage, créez un conteneur d’objets blob qui servira de destination.
+* Un compte de stockage Azure avec un modèle de déploiement Resource Manager a été créé dans l’abonnement à partir duquel vous avez téléchargé le fichier des paramètres de publication. Dans le compte de stockage, créez un conteneur de blobs qui servira de destination.
 
   ![Créer un compte de stockage avec développement Resource Manager](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 

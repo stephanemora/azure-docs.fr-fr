@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043867"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566265"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Advanced Data Security pour les machines SQL (préversion)
 
@@ -72,7 +72,7 @@ Ces deux étapes sont décrites ci-dessous.
 
     [![Page de tarification Security Center avec des bundles facultatifs](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    La fonctionnalité Advanced Data Security pour les serveurs SQL sur des machines sera activée sur tous les serveurs SQL connectés à l’espace de travail sélectionné. La protection sera complètement active après le premier redémarrage du serveur SQL Server. 
+    La fonctionnalité Advanced Data Security pour les serveurs SQL sur des machines sera activée sur tous les serveurs SQL connectés à l’espace de travail sélectionné. La protection sera complètement active après le premier redémarrage de l’instance SQL Server.
 
     >[!TIP] 
     > Pour créer un espace de travail, suivez les instructions fournies dans [Créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).

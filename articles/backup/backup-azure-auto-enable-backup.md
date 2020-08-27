@@ -3,12 +3,12 @@ title: Activer automatiquement la sauvegarde lors de la création de machines vi
 description: Article décrivant comment utiliser Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles créées dans une étendue donnée
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514218"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612671"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
 
@@ -33,18 +33,18 @@ Aujourd’hui, Sauvegarde Azure fournit une stratégie intégrée (à l’aide d
 Pour attribuer la stratégie à l’étendue requise, suivez les étapes ci-dessous :
 
 1. Connectez-vous au Portail Azure et accédez au tableau de bord **Stratégie**.
-2. Sélectionnez **Définitions** dans le menu de gauche pour obtenir la liste de toutes les stratégies intégrées dans les ressources Azure.
-3. Filtrez la liste sur **Catégorie=Sauvegarde**. La liste est filtrée jusqu’à l’obtention d’une stratégie unique nommée « Configurer la sauvegarde sur les machines virtuelles d’un emplacement vers un coffre central existant dans le même emplacement ».
+1. Sélectionnez **Définitions** dans le menu de gauche pour obtenir la liste de toutes les stratégies intégrées dans les ressources Azure.
+1. Filtrez la liste sur **Catégorie=Sauvegarde**. La liste est filtrée jusqu’à l’obtention d’une stratégie unique nommée « Configurer la sauvegarde sur les machines virtuelles d’un emplacement vers un coffre central existant dans le même emplacement ».
 ![Tableau de bord Stratégie](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. Cliquez sur le nom de la stratégie. Vous serez redirigé vers sa définition détaillée.
-![Panneau Définition de stratégie](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Cliquez sur le bouton **Attribuer** en haut du panneau. Cela vous redirige vers le panneau **Attribuer une stratégie**.
-6. Sous **Fonctions de base**, cliquez sur les trois points à côté du champ **Étendue**. Cela ouvre un panneau contextuel à droite dans lequel vous pouvez sélectionner l’abonnement pour la stratégie à appliquer. Si vous le souhaitez, vous pouvez également sélectionner un groupe de ressources, de façon à ce que la stratégie soit appliquée uniquement pour les machines virtuelles d’un groupe de ressources particulier.
+1. Sélectionnez le nom de la stratégie. Vous serez redirigé vers sa définition détaillée.
+![Policy Definition pane](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. Sélectionnez le bouton **Attribuer** en haut du volet. Cela vous redirige vers le volet **Attribuer une stratégie**.
+1. Sous **Fonctions de base**, sélectionnez le bouton de sélection à côté du champ **Étendue**. Cela ouvre un volet contextuel à droite dans lequel vous pouvez sélectionner l’abonnement de la stratégie à appliquer. Si vous le souhaitez, vous pouvez également sélectionner un groupe de ressources, de façon à ce que la stratégie soit appliquée uniquement pour les machines virtuelles d’un groupe de ressources particulier.
 ![Concepts de base de l’attribution d’une stratégie](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. Dans l’onglet **Paramètres**, choisissez un emplacement dans la liste déroulante, puis sélectionnez le coffre et la stratégie de sauvegarde auxquels les machines virtuelles de l’étendue doivent être associées.
+1. Dans l’onglet **Paramètres**, choisissez un emplacement dans la liste déroulante, puis sélectionnez le coffre et la stratégie de sauvegarde auxquels les machines virtuelles de l’étendue doivent être associées.
 ![Paramètres d’attribution de stratégie](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Assurez-vous que la valeur **Effet** est configurée sur deployIfNotExists.
-9. Accédez à **Vérifier+créer**, puis cliquez sur **Créer**.
+1. Assurez-vous que la valeur **Effet** est configurée sur deployIfNotExists.
+1. Accédez à **Vérifier+créer**, puis sélectionnez **Créer**.
 
 > [!NOTE]
 >

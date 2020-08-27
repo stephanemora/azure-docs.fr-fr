@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a97c37accd1275fa99437862a8d939df31360e87
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4ed4452cf8f1f44e90cfc991c2b1d13d30dddcd2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810426"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612773"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -94,7 +94,7 @@ Vous pouvez déployer MABS sur une machine virtuelle Azure Stack pour gérer la 
 
 **Composant** | **Détails**
 --- | ---
-**MABS sur une machine virtuelle Azure Stack** | Au moins la taille A2. Nous vous recommandons de commencer avec une image Windows Server 2012 R2 ou Windows Server 2016 de la Place de marché Azure.<br/><br/> N'installez rien d'autre sur la machine virtuelle MABS.
+**MABS sur une machine virtuelle Azure Stack** | Au moins la taille A2. Nous vous recommandons de commencer avec une image Windows Server 2012 R2 ou Windows Server 2016 de Place de marché Azure.<br/><br/> N'installez rien d'autre sur la machine virtuelle MABS.
 **Stockage MABS** | Utilisez un compte de stockage distinct pour la machine virtuelle MABS. L'agent MARS exécuté sur MABS a besoin d'un stockage temporaire comme emplacement de cache et comme destination de la restauration des données du cloud.
 **Pool de stockage MABS** | La taille du pool de stockage MABS est déterminée par le nombre et la taille des disques joints à la machine virtuelle MABS. Chaque taille de machine virtuelle Azure Stack correspond à un nombre maximal de disques. Par exemple, la taille A2 correspond à quatre disques.
 **Conservation MABS** | Ne conservez pas les données sauvegardées sur des disques MABS locaux plus de cinq jours.

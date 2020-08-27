@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166720"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604742"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la Place de marché commerciale
 
@@ -30,7 +30,7 @@ Pour commencer à créer des offres SaaS (Software as a service) dans la place d
    ![Illustre le menu de navigation de gauche.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
+> Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires n’apparaissent dans les magasins en ligne qu’après republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 ## <a name="new-offer"></a>Nouvelle offre
 
@@ -185,7 +185,7 @@ Votre offre sera publiée sur AppSource ou Place de marché Azure en fonction de
 - Au moins une et jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
 - Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est applicable à votre offre, sélectionnez **Non applicable**.
 
-Consultez la liste complète des catégories et sous-catégories applicables à chaque vitrine dans [Meilleures pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md).
+Consultez la liste complète des catégories et sous-catégories applicables à chaque magasin en ligne dans [Meilleures pratiques pour le référencement des offres](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Secteurs d’activité
 
@@ -289,7 +289,7 @@ Ce champ est obligatoire.
   - **Grande** (216 x 216 pixels, requise)
   - **Immense** (255 x 115 pixels) (facultative)
 
-   Ces trois tailles de logo sont utilisées dans des vitrines différentes :
+   Ces trois tailles de logo sont utilisées à différents emplacements dans les magasins en ligne :
 
    -   Le petit logo (48 x 48 pixels) s’affiche dans les résultats de recherche de la place de marché Azure et dans la page principale de Microsoft AppSource et les pages de résultats de recherche. 
    -   Le logo moyen (90 x 90 pixels) s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.

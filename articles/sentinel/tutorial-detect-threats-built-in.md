@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560030"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605441"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutoriel : Détection des menaces prête à l’emploi
 
@@ -29,40 +29,50 @@ ms.locfileid: "85560030"
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas d’activité suspecte. Pour vous permettre de l’être, Azure Sentinel vous fournit des modèles intégrés prêts à l’emploi. Ces modèles ont été conçus par l’équipe d’analystes et d’experts en sécurité de Microsoft en fonction de menaces connues, de vecteurs d’attaque courants et de chaînes d’escalade d’activités suspectes. Une fois ces modèles activés, ils recherchent automatiquement toute activité qui semble suspecte dans votre environnement. La plupart des modèles peuvent être personnalisés pour rechercher des activités ou les filtrer, en fonction de vos besoins. Les alertes générées par ces modèles vont créer des incidents que vous pouvez affecter et examiner dans votre environnement.
+Une fois que vous avez [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous souhaiterez être averti en cas d’activité suspecte. C’est pourquoi Azure Sentinel fournit des modèles intégrés et prêts à l’emploi pour vous aider à créer des règles de détection des menaces. Ces modèles ont été conçus par l’équipe d’analystes et d’experts en sécurité de Microsoft en fonction de menaces connues, de vecteurs d’attaque courants et de chaînes d’escalade d’activités suspectes. Les règles créées à partir de ces modèles rechercheront automatiquement toute activité qui semble suspecte dans votre environnement. La plupart des modèles peuvent être personnalisés pour rechercher des activités ou les filtrer, en fonction de vos besoins. Les alertes générées par ces règles vont créer des incidents que vous pouvez attribuer et examiner dans votre environnement.
 
 Ce tutoriel vous aide à détecter les menaces avec Azure Sentinel :
 
 > [!div class="checklist"]
-> * Utiliser des détections prêtes à l’emploi
+> * Utiliser des détections de menaces prêtes à l’emploi
 > * Automatiser les réponses aux menaces
 
 ## <a name="about-out-of-the-box-detections"></a>À propos des détections prêtes à l’emploi
 
 Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique**, puis à **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
 
-   ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel":::
 
 Les types de modèles suivants sont disponibles :
 
-- **Sécurité Microsoft** : les modèles de sécurité Microsoft créent automatiquement des incidents Azure Sentinel à partir des alertes générées dans d’autres solutions de sécurité Microsoft, en temps réel. Vous pouvez utiliser des règles de sécurité Microsoft comme modèle pour créer des règles ayant une logique similaire. Pour plus d’informations sur les règles de sécurité, consultez [Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft](create-incidents-from-alerts.md).
-- **Fusion** : basée sur la technologie Fusion, la détection avancée des attaques en plusieurs étapes dans Azure Sentinel utilise des algorithmes de Machine Learning évolutifs qui peuvent mettre en corrélation un grand nombre d’alertes et d’événements basse fidélité sur plusieurs produits dans des incidents haute fidélité et exploitables. La fusion est activée par défaut. Étant donné que la logique est masquée, vous ne pouvez pas l’utiliser comme modèle pour créer plusieurs règles.
-- **Analytique comportementale du Machine Learning** : ces modèles sont basés sur des algorithmes Microsoft Machine Learning propriétaires. Vous ne pouvez donc pas voir la logique interne de leur fonctionnement et du moment de leur exécution. Étant donné que la logique est masquée, vous ne pouvez pas l’utiliser comme modèle pour créer plusieurs règles.
--   **Planifié** : les règles d’analytique planifiées sont des requêtes planifiées écrites par des experts en sécurité de Microsoft. Vous pouvez voir la logique de la requête et y apporter des changements. Vous pouvez utiliser des règles planifiées comme modèle pour créer des règles ayant une logique similaire.
+- **Sécurité Microsoft**
+   
+   Les modèles de sécurité Microsoft créent automatiquement des incidents Azure Sentinel à partir des alertes générées dans d’autres solutions de sécurité Microsoft, en temps réel. Vous pouvez utiliser des règles de sécurité Microsoft comme modèle pour créer des règles ayant une logique similaire. Pour plus d’informations sur les règles de sécurité, consultez [Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft](create-incidents-from-alerts.md).
+
+- **Fusion** 
+
+    Basée sur la technologie Fusion, la détection avancée des attaques en plusieurs étapes dans Azure Sentinel utilise des algorithmes de Machine Learning évolutifs qui peuvent mettre en corrélation un grand nombre d’alertes et d’événements basse fidélité sur plusieurs produits dans des incidents haute fidélité et exploitables. La fusion est activée par défaut. Comme la logique est cachée et donc non personnalisable, vous ne pouvez créer qu’une seule règle avec ce modèle.
+
+- **Analytique comportementale du Machine Learning**
+
+    Ces modèles sont basés sur des algorithmes de Machine Learning appartenant à Microsoft. Vous ne pouvez donc pas voir la logique interne de leur fonctionnement et du moment de leur exécution. Comme la logique est cachée et donc non personnalisable, vous ne pouvez créer qu’une seule règle avec chaque modèle de ce type.
+
+- **Planifié**
+
+    Les règles d’analytique planifiées sont basées sur des requêtes intégrées écrites par des experts en sécurité de Microsoft. Vous pouvez voir la logique de la requête et y apporter des changements. Vous pouvez utiliser le modèle de règles planifiées et personnaliser la logique des requêtes et les paramètres de planification pour créer de nouvelles règles.
 
 ## <a name="use-out-of-the-box-detections"></a>Utiliser des détections prêtes à l’emploi
 
-1. Pour utiliser un modèle intégré, cliquez sur **Créer une règle** pour créer une règle active basée sur ce modèle. Chaque entrée comprend une liste de sources de données nécessaires qui sont automatiquement vérifiées, ce qui peut entraîner la désactivation de **Créer une règle**.
+1. Pour utiliser un modèle intégré, cliquez sur le nom du modèle, puis cliquez sur le bouton **Créer une règle** dans le volet d’informations pour créer une nouvelle règle active basée sur ce modèle. Chaque modèle possède une liste de sources de données requises. Lorsque vous ouvrez le modèle, la disponibilité des sources de données est automatiquement vérifiée. En cas de problème de disponibilité, le bouton **Créer une règle** peut être désactivé ou un avertissement à cet effet peut s’afficher.
   
-   ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/use-built-in-template.png)
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panneau d’aperçu de la règle de détection":::
  
-1. Cette opération ouvre l’Assistant Création de règles, en fonction du modèle sélectionné. Tous les détails sont remplis automatiquement. Pour **Règles planifiées** ou **Règles de sécurité Microsoft**, vous pouvez personnaliser la logique afin de l’adapter au mieux à votre organisation, ou créer des règles supplémentaires basées sur le modèle intégré. Une fois les étapes de l’Assistant Création de règles effectuées et la création d’une règle basée sur le modèle terminé, la nouvelle règle s’affiche sous l’onglet **Règles actives**.
+1. Cliquer sur le bouton **Créer une règle** ouvre l’Assistant Création de règles en fonction du modèle sélectionné. Tous les détails sont remplis automatiquement et, grâce aux modèles **Planifié** ou **Sécurité Microsoft**, vous pouvez personnaliser la logique et les autres paramètres de règle pour mieux répondre à vos besoins spécifiques. Vous pouvez répéter ce processus pour créer des règles supplémentaires basées sur le modèle intégré. Après avoir suivi jusqu’au bout les étapes de l’Assistant Création de règles, vous aurez terminé la création d’une règle basée sur le modèle. Les nouvelles règles s’affichent dans l’onglet **Règles actives**.
 
-Pour plus d’informations sur les champs de l’Assistant, consultez [Tutoriel : Créer des règles d’analytique personnalisées pour détecter les menaces suspectes](tutorial-detect-threats-custom.md).
-
-
+    Pour plus d’informations sur la personnalisation de vos règles dans l’Assistant Création de règles, consultez [Didacticiel : Créer des règles d’analytique personnalisées pour détecter des menaces](tutorial-detect-threats-custom.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez appris à prendre en main la détection des menaces en utilisant Azure Sentinel. 
 
 Pour découvrir comment automatiser vos réponses aux menaces, consultez [Configurer des réponses automatisées aux menaces dans Azure Sentinel](tutorial-respond-threats-playbook.md).

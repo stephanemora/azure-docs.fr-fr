@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 32809c33e1c365d8d333bb89a5c2f773b311c2ff
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438910"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511080"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -38,11 +38,13 @@ Une passerelle d’application est un déploiement dédié dans votre réseau vi
 
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une adresse IP front-end privée est configurée.
 
-Azure réserve également cinq adresses IP dans chaque sous-réseau pour un usage interne : les quatre premières et la dernière. Prenons l’exemple de 15 instances de passerelle d’application sans aucune adresse IP front-end privée. Vous avez besoin d’au moins 20 adresses IP pour ce sous-réseau : cinq pour une utilisation interne et 15 pour les instances de passerelle d’application. Donc, vous avez besoin d’une taille de sous-réseau /27 ou plus.
+Azure réserve également cinq adresses IP dans chaque sous-réseau pour un usage interne : les quatre premières et la dernière. Prenons l’exemple de 15 instances de passerelle d’application sans aucune adresse IP front-end privée. Vous avez besoin d’au moins 20 adresses IP pour ce sous-réseau : cinq pour une utilisation interne et 15 pour les instances de passerelle d’application.
 
-Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle d’application et d’une adresse front-end IP privée. Dans ce cas, vous avez besoin de 33 adresses IP : 27 pour les instances de passerelle d’application, une pour l’adresse front-end privée et cinq pour un usage interne. Donc, vous avez besoin d’une taille de sous-réseau /26 ou plus.
+Prenons l’exemple d’un sous-réseau disposant de 27 instances de passerelle d’application et d’une adresse front-end IP privée. Dans ce cas, vous avez besoin de 33 adresses IP : 27 pour les instances de passerelle d’application, une pour l’adresse front-end privée et cinq pour un usage interne.
 
-Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28. Cette taille vous donne 11 adresses IP utilisables. Si la charge de votre application nécessite plus de 10 instances d’Application Gateway, envisagez une taille de sous-réseau de /27 ou /26.
+Application Gateway (référence SKU Standard ou WAF) peut prendre en charge jusqu’à 32 instances (32 adresses IP d’instance + 1 IP frontale privée + 5 réservées pour Azure). Par conséquent, une taille de sous-réseau minimale de /26 est recommandée.
+
+Application Gateway (référence SKU Standard_v2 ou WAF_v2) peut prendre en charge jusqu’à 125 instances (125 adresses IP d’instance + 1 IP frontale privée + 5 réservées pour Azure). Par conséquent, une taille de sous-réseau minimale de /24 est recommandée.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Groupes de sécurité réseau sur le sous-réseau Application Gateway
 

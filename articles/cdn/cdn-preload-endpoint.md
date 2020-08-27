@@ -1,6 +1,6 @@
 ---
 title: Préchargement d’éléments multimédias sur un point de terminaison CDN Azure | Microsoft Docs
-description: Découvrez comment précharger du contenu mis en cache sur un point de terminaison CDN Azure.
+description: Découvrez comment précharger du contenu mis en cache sur un point de terminaison Azure Content Delivery Network. Cette fonctionnalité est disponible sur certaines versions du produit.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887569"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192570"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]

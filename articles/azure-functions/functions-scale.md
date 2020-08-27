@@ -3,14 +3,14 @@ title: Échelle et hébergement dans Azure Functions
 description: Découvrez comment choisir entre le plan Consommation et le plan Premium d’Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025826"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587223"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -144,11 +144,19 @@ Une fois que votre application de fonction a été inactive pendant quelques min
 
 La mise à l’échelle peut varier en fonction de certains facteurs et selon le déclencheur et le langage sélectionnés. Il est nécessaire de connaître certaines subtilités relatives aux comportements de mise à l’échelle :
 
-* Une application de fonction peut faire l’objet d’un scale-out jusqu’à 200 instances au maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
+* Une application de fonction peut faire l’objet d’un scale-out jusqu’à 200 instances au maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.  Vous pouvez [spécifier une valeur maximale inférieure](#limit-scale-out) pour limiter l’échelle en fonction des besoins.
 * Pour les déclencheurs HTTP, de nouvelles instances sont allouées, au plus, une fois par seconde.
 * Pour les déclencheurs non HTTP, de nouvelles instances sont allouées, au plus, une fois toutes les 30 secondes. La mise à l’échelle est plus rapide lors de l’exécution dans [plan Premium](#premium-plan).
 * Pour les déclencheurs Service Bus, utilisez des _Droits de gestion_ sur les ressources pour une mise à l’échelle d’une efficacité optimale. Avec des _Droits d’écoute_, la mise à l’échelle n’est pas aussi précise parce que la longueur de la file d’attente ne peut pas être utilisée pour informer des décisions de mise à l’échelle. Pour en savoir plus sur la définition de droits dans les stratégies d’accès Service Bus, consultez [Stratégie d’autorisation d’accès partagé](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * Pour les déclencheurs Event Hub, consultez les [conseils de mise à l’échelle](functions-bindings-event-hubs-trigger.md#scaling) dans l’article de référence. 
+
+### <a name="limit-scale-out"></a>Limiter le scale-out
+
+Vous souhaiterez peut-être limiter le nombre d’instances jusqu’auquel une application effectue un scale-out.  C’est le cas le plus fréquent lorsqu’un composant en aval comme une base de données a un débit limité.  Par défaut, les fonctions du plan de consommation effectuent un scale-out jusqu’à 200 instances, et les fonctions du plan Premium jusqu’à 100 instances.  Vous pouvez spécifier une valeur maximale inférieure pour une application spécifique en modifiant la valeur `functionAppScaleLimit`.  Le `functionAppScaleLimit` peut être défini sur 0 ou sur Null pour une utilisation sans restriction, ou sur une valeur valide comprise entre 1 et le maximum de l’application.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 

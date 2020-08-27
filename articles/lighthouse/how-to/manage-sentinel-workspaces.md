@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163235"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511250"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -69,9 +69,9 @@ Vous pouvez déployer des classeurs dans votre client gérant et créer des tabl
 
 Vous pouvez également déployer des classeurs directement dans un locataire individuel que vous gérez pour des scénarios qui lui sont spécifiques.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Exécuter des requêtes dans des espaces de travail Azure Sentinel
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Exécuter des requêtes d’analytique des journaux d’activité et de chasse dans des espaces de travail Azure Sentinel
 
-Vous pouvez créer et enregistrer des requêtes d’analytique des journaux d’activité pour la détection des menaces de manière centralisée dans le locataire gérant. Ces requêtes peuvent ensuite être exécutées sur l’ensemble des espaces de travail Azure Sentinel de vos clients à l’aide de l’opérateur Union et de l’expression de langage d’espace de travail (). Pour plus d’informations, consultez l’article [Interroger plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Vous pouvez créer et enregistrer des requêtes d’analytique des journaux d’activité pour la détection des menaces de manière centralisée dans le locataire gérant, y compris des [requêtes de chasse](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Ces requêtes peuvent ensuite être exécutées sur l’ensemble des espaces de travail Azure Sentinel de vos clients à l’aide de l’opérateur Union et de l’expression de langage d’espace de travail (). Pour plus d’informations, consultez l’article [Interroger plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Utiliser l’automatisation pour la gestion inter-espaces de travail
 

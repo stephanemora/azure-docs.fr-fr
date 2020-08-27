@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996735"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510342"
 ---
 # <a name="search-edit-and-delete-projects"></a>Rechercher, modifier et supprimer des projets
 
@@ -24,36 +24,35 @@ Custom Translator offre de nombreux moyens pour gérer vos projets efficacement.
 
 L’outil de filtrage vous permet de rechercher des projets selon différentes conditions de filtrage. Il filtre le nom du projet, l’état, la langue source et la langue cible, ainsi que la catégorie du projet.
 
-1.  Cliquez sur le bouton de filtre.
+1. Cliquez sur le bouton de filtre.
 
     ![Rechercher dans le projet](media/how-to/how-to-search-project.png)
 
-1.  Vous pouvez filtrer par l’un (ou l’ensemble) des champs suivants : nom du projet, état, langue source, langue cible et catégorie.
+2. Vous pouvez filtrer par l’un (ou l’ensemble) des champs suivants : nom du projet, langue source, langue cible, catégorie et disponibilité du projet.
 
-2.  Cliquez sur Appliquer.
+3. Cliquez sur Appliquer.
 
     ![Rechercher dans les options de filtre de projet](media/how-to/how-to-search-project-filters.png)
 
-3.  Appuyez sur « Effacer » pour effacer le filtre et voir tous vos projets.
-
+4. Appuyez sur « Effacer » afin d’effacer le filtre et d’afficher tous vos projets.
 
 ## <a name="edit-a-project"></a>Modifier un projet
 
 Custom Translator vous permet de modifier le nom et la description d’un projet. Les autres métadonnées du projet comme la catégorie, la langue source et la langue cible ne peuvent pas être modifiées. Les étapes ci-dessous expliquent comment modifier un projet.
 
-1.  Cliquez sur l’icône crayon qui apparaît lors du survol d’un projet.
+1. Cliquez sur l’icône crayon qui apparaît lors du survol d’un projet.
 
     ![Modifier le projet](media/how-to/how-to-edit-project.png)
 
-2.  Dans la boîte de dialogue, vous pouvez modifier le nom ou la description du projet, mais vous ne pouvez pas modifier son étiquette, la catégorie à laquelle il apparaît ou sa paire de langues.
+2. Dans la boîte de dialogue, vous pouvez modifier le nom ou la description du projet, la description de la catégorie et l’étiquette du projet si aucun modèle n’est déployé. Vous ne pouvez pas modifier la catégorie ni la paire de langues une fois que le projet est créé.
 
     ![Boîte de dialogue Modifier le projet](media/how-to/how-to-edit-project-dialog.png)
 
-3.  Cliquez sur le bouton de filtre.
+3. Cliquez sur le bouton « Enregistrer ».
 
 ## <a name="delete-a-project"></a>Supprimer un projet
 
-Vous pouvez supprimer un projet lorsque vous n’en avez plus besoin. Les étapes suivantes décrivent le processus de suppression d’un projet.
+Vous pouvez supprimer un projet lorsque vous n’en avez plus besoin. Faites en sorte que le projet ne comporte aucun modèle actif, par exemple à l’état Déployé, Formation soumise, Traitement des données, Déploiement, etc., sinon, l’opération de suppression échoue. Les étapes suivantes décrivent le processus de suppression d’un projet.
 
 1. Placez le pointeur sur n’importe quel enregistrement du projet, puis cliquez sur l’icône Corbeille.
 

@@ -1,15 +1,15 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327138"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258428"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -138,9 +138,12 @@ Cette fonctionnalité est actuellement prise en charge pour les métriques de pl
 | Service | Cloud public Azure | Gouvernement américain | Chine |
 |:--------|:--------|:--------|:--------|
 | Machines virtuelles  | **Oui** | Non | Non |
-| Bases de données SQL Server | **Oui** | **Oui** | Non |
-| Pools élastiques SQL Server | **Oui** | **Oui** | Non |
-| Appareils Data Box Edge | **Oui** | **Oui** | Non |
+| Bases de données SQL Server | **Oui** | **Oui** | **Oui** |
+| Pools élastiques SQL Server | **Oui** | **Oui** | **Oui** |
+| Pools de capacité NetApp Files | **Oui** | **Oui** | **Oui** |
+| Volumes NetApp Files | **Oui** | **Oui** | **Oui** |
+| Coffres de clés | **Oui** | **Oui** | **Oui** |
+| Appareils Data Box Edge | **Oui** | **Oui** | **Oui** |
 
 Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une règle d’alerte de métrique unique. Par exemple, avec des machines virtuelles, vous pouvez spécifier l’étendue comme suit :  
 

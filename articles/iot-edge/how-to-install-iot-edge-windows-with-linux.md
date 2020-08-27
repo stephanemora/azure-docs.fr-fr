@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a23e0c2546da55f977d589eb38607994d3902b
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133158"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611787"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Utiliser IoT Edge sur Windows pour exécuter des conteneurs Linux
 
@@ -34,7 +34,7 @@ Cette section a pour but de vous aider à déterminer si votre appareil Windows 
 
 Azure IOT Edge avec des conteneurs Linux peut s’exécuter sur n’importe quelle version de Windows qui correspond à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Si vous souhaitez installer IoT Edge sur une machine virtuelle, activez la virtualisation imbriquée et allouez au moins 2 Go de mémoire. La manière dont vous activez la virtualisation imbriquée dépend de l’hyperviseur que vous utilisez. Pour Hyper-V, la virtualisation imbriquée est activée par défaut sur les machines virtuelles de deuxième génération. Pour VMWare, un bouton bascule permet d'activer cette fonctionnalité sur votre machine virtuelle.
+Si vous souhaitez installer IoT Edge sur une machine virtuelle, activez la virtualisation imbriquée et allouez au moins 2 Go de mémoire. La manière dont vous activez la virtualisation imbriquée dépend de l’hyperviseur que vous utilisez. Pour Hyper-V, la virtualisation imbriquée est activée par défaut sur les machines virtuelles de deuxième génération. Pour VMware, un bouton bascule permet d’activer cette fonctionnalité sur votre machine virtuelle.
 
 ### <a name="prepare-the-container-engine"></a>Préparer le moteur de conteneur
 

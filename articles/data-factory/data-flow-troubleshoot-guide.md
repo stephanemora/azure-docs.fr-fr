@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2020
-ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 08/16/2020
+ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829118"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263467"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Résoudre les problèmes de flux de données dans Azure Data Factory
 
@@ -70,6 +70,13 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Causes** : Il s’agit d’une erreur de service principal. Vous pouvez retenter l’opération et redémarrer votre session de débogage.
 - **Recommandation** : Si la nouvelle tentative et le redémarrage ne permettent pas de résoudre le problème, contactez le support technique.
 
+### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Code d’erreur : Déboguer l’aperçu des données Aucune donnée de sortie lors de la jointure
+
+- **Message** : Il existe un nombre élevé de valeurs Null ou manquantes qui peuvent être dues à l’échantillonnage d’un trop petit nombre de lignes. Essayez de mettre à jour la limite de lignes de débogage et d’actualiser les données.
+- **Causes** : La condition de jointure ne correspond à aucune ligne ou a généré un nombre élevé de valeurs NULL lors de l’aperçu des données.
+- **Recommandation** : Accédez aux paramètres de débogage et augmentez le nombre de lignes dans la limite de lignes sources. Assurez-vous d’avoir sélectionné Azure IR avec un cluster de flux de données suffisamment important pour traiter plus de données.
+
+
 ## <a name="general-troubleshooting-guidance"></a>Instructions générales pour la résolution des problèmes
 
 1. Vérifiez l’état de vos connexions de jeu de données. Dans chaque transformation de source et récepteur, visitez le service lié pour chaque jeu de données que vous utilisez et testez les connexions.
@@ -79,9 +86,9 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivantes :
-*  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Demandes de fonctionnalités Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vidéos Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)

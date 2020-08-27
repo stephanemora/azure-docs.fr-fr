@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322837"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566146"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Collecter des données de sources Linux à l’aide de Syslog
 
@@ -86,6 +86,8 @@ Pour en savoir plus, voir [Sources de données Syslog dans Azure Monitor](../azu
 1. Vous pouvez utiliser les paramètres de requête décrits dans [Utilisation de fonctions dans les requêtes de journal Azure Monitor](../azure-monitor/log-query/functions.md) pour analyser vos messages Syslog. Vous pouvez ensuite enregistrer la requête sous la forme d’une nouvelle fonction de Log Analytics et l’utiliser comme nouveau type de données.
 
 > [!NOTE]
+> **Utilisation du même ordinateur pour transférer à la fois des messages Syslog *et* des messages CEF**
+>
 >
 > Vous pouvez utiliser votre [machine de transfert de journaux CEF](connect-cef-agent.md) existant pour collecter et transférer des journaux à partir de sources Syslog ordinaires également. Toutefois, vous devez effectuer les étapes suivantes pour éviter d’envoyer des événements dans les deux formats à Azure Sentinel, car cela entraînera une duplication des événements.
 >

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 87b999069ef9088a731a4e972c5d548cac0b917c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994240"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509560"
 ---
 # <a name="view-document-details"></a>Afficher les détails du document
 
@@ -22,7 +22,7 @@ La page de liste des documents affiche les 10 premiers documents dans votre esp
 
 Cliquez sur un document pour afficher la page d’informations détaillées à son sujet. La page d’informations détaillées d’un document contient une liste des phrases extraites de ce document.
 
-- La langue « source » est sélectionnée par défaut dans le champ de liste déroulante, mais vous pouvez choisir de voir les phrases dans la langue cible.
+- Par défaut, l’affichage « côte à côte » et les langues source et cible sont sélectionnés dans le champ de liste déroulante, mais vous pouvez choisir de voir les phrases dans la langue source ou la langue cible.
 - Par défaut, chaque page affiche 20 phrases. Vous pouvez utiliser le contrôle de pagination pour naviguer entre les pages.
 
 ![Informations détaillées sur le document](media/how-to/how-to-view-document-details.png)
@@ -32,11 +32,11 @@ Cliquez sur un document pour afficher la page d’informations détaillées à s
 Pour pouvoir supprimer un document, l’utilisateur doit être propriétaire de l’espace de travail dans lequel il se trouve. De plus, si un document est utilisé par un modèle dans n’importe quelle partie du processus de formation ou de déploiement, le document ne peut pas être supprimé.
 
 1. Accédez à page du document.
-2.  Placez le pointeur sur n’importe quel enregistrement de document, puis cliquez sur l’icône Corbeille.
+2. Placez le pointeur sur n’importe quel enregistrement de document, puis cliquez sur l’icône Corbeille.
 
     ![Supprimer un document](media/how-to/how-to-delete-document-1.png)
 
-3.  Confirmez la suppression.
+3. Confirmez la suppression.
 
     ![Confirmer la suppression](media/how-to/how-to-delete-document-confirm.png)
 

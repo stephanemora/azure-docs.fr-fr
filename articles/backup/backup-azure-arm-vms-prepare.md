@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533595"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261937"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -140,7 +140,7 @@ La phase de capture instantanée garantit la disponibilité d’un point de réc
 
 Il existe deux **sous-tâches** en cours d’exécution sur le back-end, dont une pour le travail de sauvegarde front-end que vous pouvez consulter à partir du volet de résultats du **travail de sauvegarde**, comme indiqué ci-dessous :
 
-  ![État du travail de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Sous-tâches de l’état du travail de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 La phase **Transférer les données vers le coffre** peut prendre plusieurs jours selon la taille des disques, l’activité par disque et plusieurs autres facteurs.
 

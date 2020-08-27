@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167927"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611855"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -31,7 +31,7 @@ Les échecs de sauvegarde les plus courants peuvent se résoudre de manière aut
 - **Assurez-vous que le service de l’agent invité de la machine virtuelle Azure est démarré et à jour** :
   - Sur une machine virtuelle Windows :
     - Accédez à **services.msc** et vérifiez que le **service de l’agent invité de la machine virtuelle Windows Azure** est opérationnel. Assurez-vous également que la [version la plus récente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) est installée. Pour plus d’informations, consultez [Problèmes relatifs à l’agent invité de la machine virtuelle Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - L’agent de machine virtuelle Azure est installé par défaut sur toutes les machines virtuelles Windows déployées à partir de l’image Place de marché Azure à partir du portail, de PowerShell, de l’interface de ligne de commande ou d’un modèle Resource Manager. Une [installation manuelle de l’agent](../virtual-machines/extensions/agent-windows.md#manual-installation) peut s’avérer nécessaire lorsque vous créez une image de machine virtuelle personnalisée qui est déployée sur Azure.
+    - L’agent de machine virtuelle Azure est installé par défaut sur toutes les machines virtuelles Windows déployées à partir d’une image Place de marché Azure à partir du portail, de PowerShell, de l’interface de ligne de commande ou d’un modèle Resource Manager. Une [installation manuelle de l’agent](../virtual-machines/extensions/agent-windows.md#manual-installation) peut s’avérer nécessaire lorsque vous créez une image de machine virtuelle personnalisée qui est déployée sur Azure.
     - Passez en revue la matrice de prise en charge pour vérifier si la machine virtuelle s’exécute sur le [système d’exploitation Windows pris en charge](backup-support-matrix-iaas.md#operating-system-support-windows).
   - Sur une machine virtuelle Linux :
     - Assurez-vous que le service de l’agent invité de machine virtuelle Azure fonctionne en exécutant la commande `ps-e`. Assurez-vous également que la [version la plus récente](../virtual-machines/extensions/update-linux-agent.md) est installée. Pour plus d’informations, consultez [Problèmes relatifs à l’agent invité de la machine virtuelle Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
@@ -65,7 +65,7 @@ Sauvegarde Azure se sert de l’extension de capture instantanée de machine vir
 
 - **Assurez-vous que le service d’enregistreur VSS est opérationnel** : Suivez ces étapes pour [résoudre les problèmes liés à l’enregistreur VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Suivez les recommandations en matière de meilleures pratiques de sauvegarde** : Passez en revue les [meilleures pratiques pour permettre la sauvegarde de machines virtuelles Azure](backup-azure-vms-introduction.md#best-practices).
-- **Passez en revue les instructions pour les disques chiffrés** : Si vous activez la sauvegarde pour les machines virtuelles avec disque chiffré, assurez-vous d’avoir fourni toutes les autorisations requises. Pour en savoir plus, consultez [Sauvegarder et restaurer une machine virtuelle Azure chiffrée](backup-azure-vms-encryption.md#encryption-support).
+- **Passez en revue les instructions pour les disques chiffrés** : Si vous activez la sauvegarde pour les machines virtuelles avec disque chiffré, assurez-vous d’avoir fourni toutes les autorisations requises. Pour en savoir plus, consultez [Sauvegarder et restaurer une machine virtuelle Azure chiffrée](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable : L’agent de machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure
 
@@ -175,13 +175,13 @@ Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machi
 
 L’un de vos derniers travaux de sauvegarde a échoué, car il y a déjà un travail de sauvegarde en cours. Vous ne pouvez pas en lancer de nouvelle tant que la tâche en cours n’est pas terminée. Vérifiez que l’opération de sauvegarde en cours est terminée avant d’en déclencher ou d’en programmer d’autres. Pour vérifier l’état des travaux de sauvegarde, procédez comme suit :
 
-1. Connectez-vous au portail Azure et cliquez sur **Tous les services**. Tapez Recovery Services, puis cliquez sur **Coffres Recovery Services**. La liste des coffres Recovery Services s’affiche.
+1. Connectez-vous au portail Azure, puis sélectionnez **Tous les services**. Saisissez Recovery Services, puis sélectionnez **Coffres Recovery Services**. La liste des coffres Recovery Services s’affiche.
 2. Dans la liste des coffres Recovery Services, sélectionnez un coffre dont la sauvegarde est configurée.
-3. Dans le menu du tableau de bord du coffre, cliquez sur **Tâches de sauvegarde** pour afficher toutes les tâches de sauvegarde.
+3. Dans le menu du tableau de bord du coffre, sélectionnez **Travaux de sauvegarde** pour afficher tous les travaux de sauvegarde.
    - Si une tâche de sauvegarde est en cours, attendez qu’elle se termine ou annulez-la.
-     - Pour annuler la tâche de sauvegarde, cliquez dessus avec le bouton droit, puis cliquez sur **Annuler** ou utilisez [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - Pour annuler le travail de sauvegarde, cliquez dessus avec le bouton droit, puis sélectionnez **Annuler** ou utilisez [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Si vous avez reconfiguré la sauvegarde dans un autre coffre, vérifiez qu’aucun travail de sauvegarde n’est en cours d’exécution dans l’ancien coffre. S’il y en a une, annulez-la.
-     - Pour annuler le travail de sauvegarde, cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Annuler** ou utilisez [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
+     - Pour annuler le travail de sauvegarde, cliquez dessus avec le bouton droit, puis sélectionnez **Annuler** ou utilisez [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
 4. Réessayez l’opération de sauvegarde.
 
 Si l’opération de sauvegarde planifiée empiète sur la configuration de la sauvegarde suivante, consultez [Bonnes pratiques](backup-azure-vms-introduction.md#best-practices), [Performances de sauvegarde](backup-azure-vms-introduction.md#backup-performance) et [Considérations sur la restauration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -191,20 +191,20 @@ Si l’opération de sauvegarde planifiée empiète sur la configuration de la s
 **Code d’erreur** : UserErrorCrpReportedUserError <br>
 **Message d’erreur** : Échec de la sauvegarde en raison d’une erreur. Pour plus d’informations, consultez les détails du message d’erreur.
 
-Cette erreur est signalée par la machine virtuelle IaaS. Pour identifier la cause racine du problème, accédez aux paramètres du coffre Recovery Services. Dans la section **Analyse**, sélectionnez **Travaux de sauvegarde** pour filtrer et afficher l’état. Cliquez sur **Échecs** pour consulter les détails du message d’erreur sous-jacent. Effectuez d’autres actions conformément aux recommandations figurant sur la page des détails de l’erreur.
+Cette erreur est signalée par la machine virtuelle IaaS. Pour identifier la cause racine du problème, accédez aux paramètres du coffre Recovery Services. Dans la section **Analyse**, sélectionnez **Travaux de sauvegarde** pour filtrer et afficher l’état. Sélectionnez **Échecs** pour consulter les détails du message d’erreur sous-jacent. Effectuez d’autres actions conformément aux recommandations figurant sur la page des détails de l’erreur.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Échec de la sauvegarde : cette machine virtuelle n'est pas (activement) protégée par Sauvegarde Azure
 
 **Code d’erreur** : UserErrorBcmDatasourceNotPresent <br>
 **Message d’erreur** : Échec de la sauvegarde : cette machine virtuelle n'est pas (activement) protégée par Sauvegarde Azure.
 
-Vérifiez si la machine virtuelle est activement protégée par Sauvegarde Azure (autrement dit, qu'elle n'est pas en pause). Pour résoudre ce problème, assurez-vous que la machine virtuelle est active, puis retentez l'opération.
+Vérifiez si la machine virtuelle est activement protégée par Sauvegarde Azure (autrement dit, qu’elle n’est pas en pause). Pour résoudre ce problème, assurez-vous que la machine virtuelle est active, puis retentez l'opération.
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)
 
-#### <a name="solution"></a>Solution
+#### <a name="solution-for-this-error"></a>Solution pour cette erreur
 
 Il se peut que l’agent de machine virtuelle soit endommagé ou que le service ait été arrêté. Réinstallez l’agent de machine virtuelle pour obtenir la dernière version. Cela permet également de redémarrer la communication avec le service.
 
@@ -258,7 +258,7 @@ Pour obtenir la liste complète des options du fichier config de l’agent de ma
 
 Si vous exécutez [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou une autre solution de contrôle d’application) et que les règles sont basées sur un serveur de publication ou sur un chemin d’accès, elles peuvent bloquer l’exécution de l’exécutable **IaaSBcdrExtension.exe**.
 
-#### <a name="solution"></a>Solution
+#### <a name="solution-to-this-issue"></a>Solution à ce problème
 
 Excluez le chemin d’accès `/var/lib` ou l’exécutable **IaaSBcdrExtension.exe** d’AppLocker (ou d’un autre logiciel de contrôle d’application).
 
@@ -266,7 +266,7 @@ Excluez le chemin d’accès `/var/lib` ou l’exécutable **IaaSBcdrExtension.e
 
 La sauvegarde de machine virtuelle émet une commande de capture instantanée à destination du stockage sous-jacent. Elle peut échouer pour deux raisons : soit elle n’a pas accès au compte de stockage, soit l’exécution de la tâche de capture instantanée est différée.
 
-#### <a name="solution"></a>Solution
+#### <a name="solution-for-this-issue"></a>Solution à ce problème
 
 Voici les causes possibles de l’échec de la tâche de capture instantanée :
 
@@ -280,7 +280,7 @@ Voici les causes possibles de l’échec de la tâche de capture instantanée :
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez l’option **Toutes les ressources**, puis le groupe de ressources de la collection de points de restauration au format suivant : AzureBackupRG_`<Geo>`_`<number>`.
 3. Dans la section **Paramètres**, sélectionnez **Verrous** pour afficher les verrous.
-4. Pour supprimer le verrou, sélectionnez les points de suspension, puis cliquez sur **Supprimer**.
+4. Pour supprimer le verrou, cliquez sur le bouton de sélection, puis sélectionnez **Supprimer**.
 
     ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
@@ -307,16 +307,16 @@ Après avoir supprimé le verrou, déclenchez une sauvegarde sur demande. Cette 
 Pour effacer manuellement la collection des points de restauration, qui n’est pas effacée en raison du verrou du groupe de ressources, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu **Hub**, cliquez sur **Toutes les ressources**, sélectionnez le groupe de ressources au format suivant AzureBackupRG_`<Geo>`_`<number>` où se trouve votre machine virtuelle.
+2. Dans le menu **Hub**, sélectionnez **Toutes les ressources**, puis le groupe de ressources au format AzureBackupRG_`<Geo>`_`<number>` dans lequel se trouve votre machine virtuelle.
 
-    ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Sélectionner le groupe de ressources](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Cliquez sur le groupe de ressources ; le volet **Vue d’ensemble** s’affiche.
+3. Sélectionnez le groupe de ressources ; le volet **Vue d’ensemble** s’affiche.
 4. Sélectionnez l’option **Afficher les types masqués** pour afficher toutes les ressources masquées. Sélectionnez les collections de points de restauration au format suivant : AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Sélectionner la collection de points de restauration](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Cliquez sur **Supprimer** pour nettoyer la collection des points de restauration.
+5. Sélectionnez **Supprimer** pour nettoyer la collection de points de restauration.
 6. Renouvelez l’opération de sauvegarde.
 
 > [!NOTE]

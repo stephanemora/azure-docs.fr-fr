@@ -3,15 +3,15 @@ title: Vue d’ensemble – Automatiser le déploiement pour le service Azure Lo
 description: Apprenez-en davantage sur l’utilisation de modèles Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
-ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520967"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565551"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
@@ -264,6 +264,22 @@ Votre modèle inclut un objet `resources` qui est un tableau contenant des défi
 
 > [!NOTE]
 > Des modèles pouvant inclure des définitions de ressources pour plusieurs applications logiques, assurez-vous que toutes vos ressources d’application logique spécifient le même groupe de ressources Azure. Lorsque vous déployez le modèle sur un groupe de ressources Azure à l’aide de Visual Studio, vous êtes invité à indiquer l’application logique que vous voulez ouvrir. Par ailleurs, votre projet de groupe de ressources Azure pouvant contenir plusieurs modèles, veillez à sélectionner le fichier de paramètres approprié lorsque vous y êtes invité.
+
+<a name="view-resource-definitions"></a>
+
+### <a name="view-resource-definitions"></a>Afficher les définitions de ressources
+
+Pour passer en revue les définitions de toutes les ressources d’un groupe de ressources Azure, [téléchargez votre application logique dans Visual Studio à partir d’Azure](../logic-apps/manage-logic-apps-with-visual-studio.md), qui est le moyen le plus simple de créer un modèle d’application logique paramétré valide et dans l’ensemble prêt à être déployé, ou procédez comme suit dans le portail Azure :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
+
+1. Recherchez le groupe de ressources Azure qui contient votre application logique, les connexions et d’autres ressources.
+
+1. Dans la barre d’outils du groupe de ressources, sélectionnez **Vue d’ensemble**, puis sélectionnez toutes les ressources dans le groupe de ressources.
+
+1. Dans la barre d’outils du groupe de ressources, sous **Paramètres**, sélectionnez **Exporter le modèle**.
+
+   Le portail affiche les définitions des ressources que vous avez sélectionnées. Pour plus d’informations, consultez [Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure](../azure-resource-manager/templates/export-template-portal.md).
 
 Pour des informations générales sur les ressources de modèle et leurs attributs, voir les rubriques suivantes :
 
@@ -1013,7 +1029,7 @@ Pour plus d’informations sur l’utilisation des principaux de service, voir l
 
 ## <a name="references-to-parameters"></a>Références aux paramètres
 
-Pour référencer des paramètres de modèle, vous pouvez utiliser des expressions de modèle avec des [fonctions de modèle](../azure-resource-manager/templates/template-functions.md) qui sont évaluées lors du déploiement. Les expressions de modèle utilisent des crochets ( **[]** ) :
+Pour référencer des paramètres de modèle, vous pouvez utiliser des expressions de modèle avec des [fonctions de modèle](../azure-resource-manager/templates/template-functions.md) qui sont évaluées lors du déploiement. Les expressions de modèle utilisent des crochets (**[]**) :
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

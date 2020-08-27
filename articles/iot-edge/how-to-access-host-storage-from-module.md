@@ -4,16 +4,16 @@ description: Utilisez des variables d’environnement et créez des options pour
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75434519"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257473"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fournir à des modules l’accès au stockage local d’un appareil
 
@@ -82,6 +82,12 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 Vous trouverez plus de détails sur les options de création dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="encrypted-data-in-module-storage"></a>Données chiffrées dans le stockage de module
+
+Lorsque les modules appellent l’API de charge de travail du démon IoT Edge pour chiffrer les données, la clé de chiffrement est obtenue en utilisant l’ID du module et l’ID de génération du module. Un ID de génération est utilisé pour protéger les secrets si un module est supprimé du déploiement et qu’un autre module avec le même ID de module est ensuite déployé sur le même appareil. Vous pouvez afficher l’ID de génération d’un module à l’aide de la commande Azure CLI [az iot hub module-identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+Si vous souhaitez partager des fichiers entre des modules d’une génération à l’autre, ces fichiers ne doivent pas contenir de secrets, sinon ces derniers ne pourront pas être déchiffrés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

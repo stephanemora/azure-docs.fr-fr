@@ -10,46 +10,99 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142347"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510162"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## <a name="july-2020-guest-os"></a>Système d’exploitation invité, juillet 2020
+## <a name="august-2020-guest-os"></a>Système d’exploitation invité, août 2020
 >[!NOTE]
->Le système d’exploitation invité de juillet est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de juillet. Cette liste est susceptible d’être modifiée.
+>Le système d’exploitation invité d’août est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’août. Cette liste est susceptible d’être modifiée.
 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | 14 juillet 2020 |
-|  Version 20-07 |  [4565511]  |  Dernière mise à jour cumulative (LCU) | 5.45 | 14 juillet 2020 |
-|  Version 20-07 |  [4558998]  |  Dernière mise à jour cumulative (LCU) | 6.21 | 14 juillet 2020 |
-|  Version 20-07 |  [4565524]  |  Correctif cumulatif mensuel | 2.100 | 14 juillet 2020 |
-|  Version 20-07 |  [4565616]  |  Correctif cumulatif mensuel | 2.100 | 16 juillet 2020 |
-|  Version 20-07 |  [4565354]  |  Mise à jour de la pile de maintenance | 2.100 | 14 juillet 2020 |
-|  Version 20-07 |  [4565612]  |  Correctif cumulatif mensuel | 2.100 | 14 juillet 2020 |
-|  Version 20-07 |  [4565615]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
-|  Version 20-07 |  [4566426]  |  Mise à jour de la pile de maintenance | 3.87 | 14 juillet 2020 |
-|  Version 20-07 |  [4565537]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
-|  Version 20-07 |  [4565610]  |  Correctif cumulatif mensuel | 3.87 | 14 juillet 2020 |
-|  Version 20-07 |  [4565541]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
-|  Version 20-07 |  [4566425]  |  Mise à jour de la pile de maintenance | 4,80 | 14 juillet 2020 |
-|  Version 20-07 |  [4565614]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
-|  Version 20-07 |  [4565613]  |  Correctif cumulatif mensuel | 4,80 | 14 juillet 2020 |
-|  Version 20-07 |  [4565912]  |  Mise à jour de la pile de maintenance | 5.45 | 14 juillet 2020 |
-|  Version 20-07 |  [4565628]  |  Correctif cumulatif mensuel | 5.45 | 14 juillet 2020 |
-|  Version 20-07 |  [4494175]  |  Microcode | 5.45 | 25 février 2020 |
-|  Version 20-07 |  [4565632]  |  Correctif cumulatif mensuel | 6.21 | 14 juillet 2020 |
-|  Version 20-07 |  [4558997]  |  Mise à jour de la pile de maintenance | 6.21 | 14 juillet 2020 |
-|  Version 20-07 |  [4494174]  |  Microcode | 6.21 | 25 février 2020 |
+|  Version 20-08 |  [4571687]  |  Mise à jour cumulative d’IE | 2.101, 3.88, 4.81 | 11 août 2020 |
+|  Version 20-08 |  [4561600]  |  Mise à jour de Flash | 3.88, 4.81, 5.46, 6.22 | 9 juin 2020 |
+|  Version 20-08 |  [4571694]  |  Dernière mise à jour cumulative | 6.22 | 11 août 2020 |
+|  Version 20-08 |  [4565349]  |  Dernière mise à jour cumulative | 5.46 | 11 août 2020 |
+|  Version 20-08 |  [4570673]  |  Mise à jour de la pile de maintenance | 2.101 | 11 août 2020 |
+|  Version 20-08 |  [4571729]  |  Correctif cumulatif mensuel | 2.101 | 11 août 2020 |
+|  Version 20-08 |  [4569767]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5.1 | 2.101 | 11 août 2020 |
+|  Version 20-08 |  [4569780]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.101 | 11 août 2020 |
+|  Version 20-08 |  [4569765]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 3,88 | 11 août 2020 |
+|  Version 20-08 |  [4569779]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 3,88 | 11 août 2020 |
+|  Version 20-08 |  [4566426]  |  Mise à jour de la pile de maintenance | 3,88 | 14 juillet 2020 |
+|  Version 20-08 |  [4571736]  |  Correctif cumulatif mensuel | 3,88 | 11 août 2020 |
+|  Version 20-08 |  [4566425]  |  Mise à jour de la pile de maintenance | 4.81 | 14 juillet 2020 |
+|  Version 20-08 |  [4571703]  |  Correctif cumulatif mensuel | 4.81 | 11 août 2020 |
+|  Version 20-08 |  [4569768]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 4.81 | 11 août 2020 |
+|  Version 20-08 |  [4569778]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 4.81 | 11 août 2020 |
+|  Version 20-08 |  [4494175]  |  Microcode | 5.46 | 25 février 2020 |
+|  Version 20-08 |  [4565912]  |  Mise à jour de la pile de maintenance | 5.46 | 14 juillet 2020 |
+|  Version 20-08 |  [4569746]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.8 | 5.46 | 11 août 2020 |
+|  Version 20-08 |  [4569776]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.22 | 11 août 2020 |
+|  Version 20-08 |  [4569750]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.8 | 6.22 | 11 août 2020 |
+|  Version 20-08 |  [4566424]  |  Mise à jour de la pile de maintenance | 6.22 | 11 août 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
+
+## <a name="july-2020-guest-os"></a>Système d’exploitation invité, juillet 2020
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-07 |  [4565479]  |  Internet Explorer | [2.100], [3.87], [4.80] | 14 juillet 2020 |
+|  Version 20-07 |  [4565511]  |  Dernière mise à jour cumulative (LCU) | [5.45] | 14 juillet 2020 |
+|  Version 20-07 |  [4558998]  |  Dernière mise à jour cumulative (LCU) | [6.21] | 14 juillet 2020 |
+|  Version 20-07 |  [4565524]  |  Correctif cumulatif mensuel | [2.100] | 14 juillet 2020 |
+|  Version 20-07 |  [4565616]  |  Correctif cumulatif mensuel | [2.100] | 16 juillet 2020 |
+|  Version 20-07 |  [4565354]  |  Mise à jour de la pile de maintenance | [2.100] | 14 juillet 2020 |
+|  Version 20-07 |  [4565612]  |  Correctif cumulatif mensuel | [2.100] | 14 juillet 2020 |
+|  Version 20-07 |  [4565615]  |  Correctif cumulatif mensuel | [3.87] | 14 juillet 2020 |
+|  Version 20-07 |  [4566426]  |  Mise à jour de la pile de maintenance | [3.87] | 14 juillet 2020 |
+|  Version 20-07 |  [4565537]  |  Correctif cumulatif mensuel | [3.87] | 14 juillet 2020 |
+|  Version 20-07 |  [4565610]  |  Correctif cumulatif mensuel | [3.87] | 14 juillet 2020 |
+|  Version 20-07 |  [4565541]  |  Correctif cumulatif mensuel | [4,80] | 14 juillet 2020 |
+|  Version 20-07 |  [4566425]  |  Mise à jour de la pile de maintenance | [4,80] | 14 juillet 2020 |
+|  Version 20-07 |  [4565614]  |  Correctif cumulatif mensuel | [4,80] | 14 juillet 2020 |
+|  Version 20-07 |  [4565613]  |  Correctif cumulatif mensuel | [4,80] | 14 juillet 2020 |
+|  Version 20-07 |  [4565912]  |  Mise à jour de la pile de maintenance | [5.45] | 14 juillet 2020 |
+|  Version 20-07 |  [4565628]  |  Correctif cumulatif mensuel | [5.45] | 14 juillet 2020 |
+|  Version 20-07 |  [4494175]  |  Microcode | [5.45] | 25 février 2020 |
+|  Version 20-07 |  [4565632]  |  Correctif cumulatif mensuel | [6.21] | 14 juillet 2020 |
+|  Version 20-07 |  [4558997]  |  Mise à jour de la pile de maintenance | [6.21] | 14 juillet 2020 |
+|  Version 20-07 |  [4494174]  |  Microcode | [6.21] | 25 février 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -73,6 +126,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>Système d’exploitation invité, juin 2020

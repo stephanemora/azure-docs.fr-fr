@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007774"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612637"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -51,7 +51,7 @@ Par défaut, le rendu des applications et des bureaux exécutés dans des config
 1. Connectez-vous au bureau de la machine virtuelle à l’aide d’un compte avec des privilèges d’administrateur local.
 2. Ouvrez le menu Démarrer, puis tapez « gpedit.msc » pour ouvrir l’Éditeur de stratégie de groupe.
 3. Naviguez dans l’arborescence vers **Configuration de l’ordinateur** > **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Environnement de session à distance**.
-4. Sélectionnez la stratégie **Utiliser l’adaptateur graphique matériel par défaut pour toutes les sessions Services Bureau à distance** et définissez-la sur **Activé** pour activer le rendu GPU dans la session à distance.
+4. Sélectionnez la stratégie **Utiliser les adaptateurs graphiques matériels pour toutes les sessions Services Bureau à distance** et définissez-la sur **Activé** pour activer le rendu GPU dans la session à distance.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurer le codage d’image avec accélération GPU
 

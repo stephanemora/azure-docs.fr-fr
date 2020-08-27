@@ -1,18 +1,18 @@
 ---
 title: FAQ sur Azure Bastion | Microsoft Docs
-description: Forum Aux Questions pour Azure Bastion
+description: Traite des questions courantes concernant Azure Bastion, telles que la disponibilité, le nombre de sessions simultanées prises en charge, les problèmes de configuration et la tarification.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: charwen
-ms.openlocfilehash: a37ca4b9977a1d2bd51a6153f4da1b65c1c916be
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: e546888689ff290c750d594f1e737857049bf1ff
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276111"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270544"
 ---
 # <a name="azure-bastion-faq"></a>FAQ sur Azure Bastion
 

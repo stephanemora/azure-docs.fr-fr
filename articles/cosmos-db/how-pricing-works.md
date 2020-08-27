@@ -5,39 +5,32 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/19/2020
+ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523534"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605257"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modèle de tarification dans Azure Cosmos DB
 
-Le modèle de tarification d’Azure Cosmos DB simplifie la gestion et la planification des coûts. Avec Azure Cosmos DB, vous payez pour le débit que vous approvisionnez et le stockage que vous utilisez.
+Le modèle de tarification d’Azure Cosmos DB simplifie la gestion et la planification des coûts. Avec Azure Cosmos DB, vous payez pour les opérations que vous effectuez sur la base de données et pour le stockage utilisé par vos données.
 
-* **Débit approvisionné** : le [débit approvisionné](how-to-choose-offer.md) (également appelé débit réservé) garantit des performances élevées quelle que soit l’échelle. Vous spécifiez le débit (RU/s) dont vous avez besoin et Azure Cosmos DB consacre les ressources nécessaires pour garantir le débit configuré. Vous payez à l’heure le débit provisionné maximal pour une heure donnée. Vous pouvez approvisionner le débit manuellement ou utiliser la [mise à l’échelle automatique](provision-throughput-autoscale.md).
+- **Opérations de base de données** : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
+
+  - **Débit approvisionné** : le [débit approvisionné](set-throughput.md) (également appelé débit réservé) garantit des performances élevées quelle que soit l’échelle. Vous spécifiez le débit dont vous avez besoin en [unités de requête](request-units.md) par seconde (RU/s) et Azure Cosmos DB dédie les ressources nécessaires pour garantir le débit configuré. Vous pouvez [approvisionner le débit sur une base de données ou sur un conteneur](set-throughput.md). En fonction des besoins de votre charge de travail, vous pouvez augmenter ou diminuer le débit à tout moment ou utiliser la [mise à l’échelle automatique](provision-throughput-autoscale.md) (bien qu’un débit minimum soit requis sur une base de données ou un conteneur pour garantir les contrats SLA). Vous payez à l’heure le débit provisionné maximal pour une heure donnée.
 
    > [!NOTE]
    > Comme le modèle de débit approvisionné consacre des ressources à votre conteneur ou à votre base de données, le débit approvisionné vous est facturé même si vous n’exécutez aucune charge de travail.
 
-* **Stockage consommé** : un tarif fixe vous est facturé pour la quantité totale de stockage (Go) utilisée pour les données et les index pour une heure donnée.
+  - **Serverless** : en mode [serverless](serverless.md), vous n’avez pas besoin d’approvisionner un débit lors de la création de ressources dans votre compte Azure Cosmos. À la fin de votre période de facturation, vous êtes facturé pour la quantité d’unités de requête consommées par vos opérations de base de données.
 
-Le débit provisionné, facturé par [RU/s](request-units.md) (unités de requête par seconde), vous permet de lire ou d’écrire des données dans des conteneurs. Vous pouvez [approvisionner le débit sur une base de données ou sur un conteneur](set-throughput.md). En fonction des besoins de votre charge de travail, vous pouvez à tout moment réduire ou augmenter le débit. La tarification d’Azure Cosmos DB est flexible et elle est proportionnelle au débit que vous configurez sur une base de données ou un conteneur. Les valeurs minimales de débit et de stockage et les incréments de leur augmentation composent une gamme complète de prix et d’élasticité pour tous les types de clients, à petite ou à grande échelle. Chaque base de données ou conteneur est facturé sur une base horaire pour le débit approvisionné en unités de 100 RU/s, avec un minimum de 400 RU/s et pour le stockage consommé en Go. Contrairement au débit approvisionné, le stockage est facturé à la consommation. Autrement dit, vous n’êtes pas obligé de réserver le stockage à l’avance. Vous ne payez que le stockage que vous consommez.
+- **Stockage** : un tarif fixe vous est facturé pour la quantité totale de stockage (exprimée en Go) que vos données et index ont utilisée pendant une heure donnée. Le stockage est facturé en fonction de la consommation, de sorte que vous n’avez pas à réserver de stockage à l’avance. Vous ne payez que le stockage que vous consommez.
 
-Pour plus d'informations, consultez les pages [Tarification d'Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) et [Comprendre votre facture Azure Cosmos DB](understand-your-bill.md).
+Le modèle de tarification dans Azure Cosmos DB est cohérent sur toutes les API. Pour plus d’informations, consultez la [page de tarification d’Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/), [Comprendre vos factures Azure Cosmos DB](understand-your-bill.md) et [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md).
 
-Le modèle de tarification dans Azure Cosmos DB est cohérent sur toutes les API. Pour plus d'informations, consultez [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md). Un débit minimal est nécessaire pour les bases de données et les conteneurs afin de respecter les contrats SLA ; il est possible d’augmenter ou de diminuer le débit provisionné par tranches de 100 RU/s.
-
-Si vous déployez votre compte Azure Cosmos DB dans une région non gouvernementale aux États-Unis, le prix minimal du débit sur base de données et sur conteneur est d’environ 24 $/mois. Le tarif varie en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Si votre charge de travail utilise plusieurs conteneurs, elle peut être optimisée pour limiter les coûts en appliquant un débit de niveau base de données. En effet, le débit de niveau base de données vous permet d’avoir autant de conteneurs que vous le souhaitez dans une base de données qui partage le débit entre les conteneurs. Le tableau suivant résume le débit approvisionné et les frais pour différentes entités :
-
-|**Entité**  | **Débit minimal** |**Incréments** |**Étendue de l’approvisionnement** |
-|---------|---------|---------|-------|
-|Base de données    | 400 RU/s    | 100 RU/s   |Le débit est réservé pour la base de données et est partagé par les conteneurs au sein de la base de données |
-|Conteneur     | 400 RU/s   | 100 RU/s  |Le débit est réservé pour un conteneur donné |
-
-Comme l’indique le tableau précédent, le débit minimal dans Azure Cosmos DB commence à environ 24 $/mois. Si vous partez du débit minimal et l’augmentez peu à peu de façon à gérer vos charges de travail en production, les coûts augmenteront progressivement, par incréments d’environ 6 $/mois. Le tarif varie en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Le modèle de tarification dans Azure Cosmos DB est flexible et l’augmentation ou la diminution du tarif est lissée lorsque vous augmentez ou que vous réduisez le débit.
+Si vous déployez votre compte Azure Cosmos DB dans une région non gouvernementale aux États-Unis, il y a un prix minimal du débit sur base de données et sur conteneur est mode de débit approvisionné. Il n’existe pas de prix minimal en mode serverless. Le tarif varie en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB
 
@@ -53,7 +46,7 @@ Azure Cosmos DB offre de nombreuses possibilités d’essai gratuit aux dévelo
 
 ## <a name="pricing-with-reserved-capacity"></a>Tarification avec la capacité réservée
 
-La [capacité réservée](cosmos-db-reserved-capacity.md) Azure Cosmos DB vous permet de faire des économies grâce au prépaiement des ressources Azure Cosmos DB sur un an ou trois ans. Vous pouvez considérablement réduire vos coûts avec les engagements à l’avance sur un ou trois ans et économiser entre 20 et 65 % par rapport à la tarification standard. La capacité réservée d’Azure Cosmos DB réservée permet de réduire les coûts en prépayant le débit approvisionné (RU/s) sur une période de un à trois ans, et vous bénéficiez d’une remise sur le débit approvisionné. 
+La [capacité de réserve](cosmos-db-reserved-capacity.md) Azure Cosmos DB vous permet de faire des économies lorsque vous utilisez le mode de débit approvisionné grâce au prépaiement des ressources Azure Cosmos DB sur un an ou trois ans. Vous pouvez considérablement réduire vos coûts avec les engagements à l’avance sur un ou trois ans et économiser entre 20 et 65 % par rapport à la tarification standard. La capacité réservée d’Azure Cosmos DB réservée permet de réduire les coûts en prépayant le débit approvisionné (RU/s) sur une période de un à trois ans, et vous bénéficiez d’une remise sur le débit approvisionné. 
 
 La capacité réservée permet de bénéficier d’une remise, sans affecter l’état d’exécution de vos ressources Azure Cosmos DB. La capacité réservée est disponible pour toutes les API, ce qui comprend MongoDB, Cassandra, SQL, Gremlin et Table Azure, dans toutes les régions du monde. Vous retrouverez plus d’informations sur la capacité réservée dans l’article [Prépayer des ressources Azure Cosmos DB avec une capacité réservée](cosmos-db-reserved-capacity.md) et sur l’achat de capacité réservée dans le [portail Azure](https://portal.azure.com/).
 

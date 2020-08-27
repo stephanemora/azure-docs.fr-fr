@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563923"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587597"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -37,18 +37,22 @@ Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
 
 Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. 
 
-Le modèle et les valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes.
+Le modèle et les valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes. Pour plus d’informations sur la structuration de cet objet, passez à la section suivante.
 
 > [!TIP]
 > Après la création ou la mise à jour d’un jumeau, il peut y avoir une latence allant jusqu’à 10 secondes avant que les modifications soient reflétées dans les [requêtes](how-to-query-graph.md). L’API `GetDigitalTwin` (décrite [plus loin dans cet article](#get-data-for-a-digital-twin)) ne subit pas ce délai. Utilisez l’appel d’API au lieu d’une interrogation pour voir vos nouveaux jumeaux créés si vous avez besoin d’une réponse instantanée. 
 
-### <a name="initialize-properties"></a>Initialiser les propriétés
+### <a name="initialize-model-and-properties"></a>Initialiser le modèle et les propriétés
 
-L’API de création de jumeau accepte un objet qui peut être sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau.
+L’API de création de jumeau accepte un objet qui est sérialisé dans une description JSON valide des propriétés du jumeau. Voir [*Concepts : Jumeaux numériques et graphe des jumeaux*](concepts-twins-graph.md) pour obtenir une description du format JSON pour un jumeau. 
+
+Tout d’abord, vous allez créer un objet de données pour représenter le jumeau et ses données de propriété. Vous pouvez ensuite utiliser `JsonSerializer` pour transmettre une version sérialisée de cet objet dans l’appel d’API du paramètre `initdata`.
 
 Vous pouvez créer un objet de paramètre manuellement ou à l’aide d’une classe d’assistance fournie. Voici un exemple de chaque méthode.
 
 #### <a name="create-twins-using-manually-created-data"></a>Créer des jumeaux à l’aide de données créées manuellement
+
+Sans l’utilisation de classes d’assistance personnalisées, vous pouvez représenter les propriétés d’un jumeau dans un `Dictionary<string, object>`, où `string` est le nom de la propriété et `object` est un objet représentant la propriété et sa valeur.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +72,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### <a name="create-twins-with-the-helper-class"></a>Créer des jumeaux avec la classe d’assistance
 
+La classe d’assistance de `BasicDigitalTwin` vous permet de stocker plus directement les champs de propriété dans un objet « jumeau ». Vous pouvez toujours créer la liste de propriétés à l’aide d’un `Dictionary<string, object>`, qui peut ensuite être ajouté à l’objet jumeau comme `CustomProperties` directement.
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -80,6 +86,13 @@ twin.CustomProperties = props;
 
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
+
+>[!NOTE]
+> Les objets `BasicDigitalTwin` sont fournis avec un champ `Id`. Vous pouvez conserver ce champ vide, mais, si vous ajoutez une valeur d’ID, celle-ci doit correspondre au paramètre d’ID transmis à l’appel de `CreateDigitalTwin`. Dans l’exemple ci-dessus, cela ressemble à ce qui suit :
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
 
 ## <a name="get-data-for-a-digital-twin"></a>Obtenir des données pour un jumeau numérique
 
@@ -181,6 +194,8 @@ Pour mettre à jour les propriétés d’un jumeau numérique, vous écrivez les
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Un appel de correctif peut mettre à jour autant de propriétés que vous le souhaitez (même toutes) sur un seul jumeau. Si vous devez mettre à jour des propriétés sur plusieurs jumeaux, vous aurez besoin d’un appel de mise à jour distinct pour chaque jumeau.
+
 > [!TIP]
 > Après la création ou la mise à jour d’un jumeau, il peut y avoir une latence allant jusqu’à 10 secondes avant que les modifications soient reflétées dans les [requêtes](how-to-query-graph.md). L’API `GetDigitalTwin` (décrite [plus loin dans cet article](#get-data-for-a-digital-twin)) ne subit pas ce délai. Utilisez l’appel d’API au lieu d’une interrogation pour voir vos jumeaux mis à jour si vous avez besoin d’une réponse instantanée. 
 
@@ -204,6 +219,7 @@ Voici un exemple de code de correctif JSON. Ce document remplace les valeurs des
 Vous pouvez créer des correctifs manuellement ou à l’aide d’une classe d’assistance de sérialisation dans le [kit SDK](how-to-use-apis-sdks.md). Voici un exemple de chaque méthode.
 
 #### <a name="create-patches-manually"></a>Créer des correctifs manuellement
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -278,6 +294,19 @@ Le correctif pour cette situation doit mettre à jour le modèle et la propriét
   }
 ]
 ```
+
+### <a name="handle-conflicting-update-calls"></a>Traiter les appels de mise à jour en conflit
+
+Azure Digital Twins garantit que toutes les requêtes entrantes sont traitées l’une après l’autre. Cela signifie que même si plusieurs fonctions essaient de mettre à jour la même propriété sur un jumeau en même temps, il est **inutile** d’écrire un code de verrouillage explicite pour gérer le conflit.
+
+Ce comportement se fait par jumeau. 
+
+Par exemple, imaginez un scénario dans lequel ces trois appels arrivent en même temps : 
+*   Écrire la propriété A sur *Twin1*
+*   Écrire la propriété B sur *Twin1*
+*   Écrire la propriété A sur *Twin2*
+
+Les deux appels qui modifient *Twin1* sont exécutés l’un après l’autre, et les messages de modification sont générés pour chaque modification. L’appel à modifier *Twin2* peut être exécuté simultanément sans conflit, dès qu’il arrive.
 
 ## <a name="delete-a-digital-twin"></a>Supprimer un jumeau numérique
 

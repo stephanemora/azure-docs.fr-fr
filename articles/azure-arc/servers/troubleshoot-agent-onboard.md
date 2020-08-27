@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de connexion liés à l'agent Azure Arc pour serveurs
-description: Cet article explique comment résoudre les problèmes liés à l'agent Connected Machine qui surviennent avec Azure Arc pour serveurs (préversion) lors de la tentative de connexion au service.
+title: Résoudre les problèmes de connexion liés à l’agent Serveurs avec Azure Arc (préversion)
+description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec Serveurs avec Azure Arc (préversion) lors de la tentative de connexion au service.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118006"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213548"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l'agent Connected Machine
 
-Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l'agent Connected Machine d'Azure Arc pour serveurs (préversion) pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d'ordre général, consultez [Présentation d'Arc pour serveurs](./overview.md).
+Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l’agent Connected Machine de Serveurs avec Azure Arc (préversion) pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [Présentation de Serveurs avec Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Journal d'activité détaillé de l'agent
 
@@ -22,13 +22,13 @@ Avant de suivre les étapes de résolution des problèmes décrites plus loin da
 
 L'exemple de commande suivant permet d'activer la journalisation détaillée avec l'agent Connected Machine pour Windows lors d'une installation interactive.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 L'exemple de commande suivant permet d'activer la journalisation détaillée avec l'agent Connected Machine pour Windows lors d'une installation à grande échelle à l'aide d'un principal de service.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ L'exemple de commande suivant permet d'activer la journalisation détaillée ave
 >[!NOTE]
 >Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 L'exemple de commande suivant permet d'activer la journalisation détaillée avec l'agent Connected Machine pour Linux lors d'une installation à grande échelle à l'aide d'un principal de service.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

@@ -2,28 +2,37 @@
 title: Configurer l’arrêt automatique des machines virtuelles dans Azure Lab Services
 description: Cet article explique comment configurer l’arrêt automatique des machines virtuelles dans le compte lab.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 783e3b310b3ad06f637453f0e1b11f6a78beec3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445812"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603873"
 ---
-# <a name="configure-automatic-shutdown-of-vms-on-disconnect-setting-for-a-lab-account"></a>Configurer l’arrêt automatique des machines virtuelles lors de la déconnexion d’un compte lab
-Vous pouvez activer ou désactiver l’arrêt automatique des machines virtuelles Lab Windows (modèle ou étudiant) après la déconnexion d’une connexion Bureau à distance. Vous pouvez également spécifier la durée pendant laquelle le service Azure Lab Services doit attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurer l’arrêt automatique des machines virtuelles pour un compte lab
+
+Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrêt automatique afin d’éviter de manière proactive les coûts supplémentaires lorsque les machines virtuelles ne sont pas utilisées activement. La combinaison des trois fonctionnalités suivantes d’arrêt et de déconnexion automatiques permet d’intercepter la plupart des cas où les utilisateurs laissent accidentellement leurs machines virtuelles en marche :
+ 
+- Déconnecter automatiquement les utilisateurs des machines virtuelles que le système d’exploitation juge inactives (Windows uniquement).
+- Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent (Windows et Linux).
+- Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
+
+Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings).
 
 ## <a name="enable-automatic-shutdown"></a>Activer l’arrêt automatique
 
-1. Dans la page **Compte lab**, sélectionnez **Paramètres lab** dans le menu de gauche.
-2. Sélectionnez l’option **Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent**.
-3. Spécifier la durée pendant laquelle le service Azure Lab Services doit attendre que l’utilisateur se reconnecte avant d’arrêter automatiquement les machines virtuelles.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page **Compte lab**.
+1. Sélectionnez **Paramètres des labs** dans le menu de gauche.
+1. Sélectionnez le ou les paramètres d’arrêt automatique appropriés pour votre scénario.  
 
-    ![Paramètre d’arrêt automatique au niveau du compte Lab](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Paramètre d’arrêt automatique au niveau du compte Lab](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    
+    Ces paramètres s’appliquent à tous les labs créés dans le compte lab. Un créateur de laboratoire (enseignant) peut remplacer ce paramètre au niveau du laboratoire. La modification apportée à ce paramètre au niveau du compte Lab n’affecte que les laboratoires créés après la modification.
 
-    Ce paramètre s’applique à tous les laboratoires créés dans le compte Lab. Un créateur de laboratoire (enseignant) peut remplacer ce paramètre au niveau du laboratoire. La modification apportée à ce paramètre au niveau du compte Lab n’affecte que les laboratoires créés après la modification.
-
-    Pour désactiver ce paramètre, désactivez la case à cocher de l’option **Arrêter automatiquement les machines virtuelles lorsque les utilisateurs se déconnectent** sur cette page. 
+    Pour désactiver les paramètres, décochez-en les cases sur cette page. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la façon dont un propriétaire de laboratoire peut configurer ou remplacer ce paramètre au niveau du laboratoire, consultez [cet article](how-to-enable-shutdown-disconnect.md)
+
+Pour en savoir plus sur la façon dont un propriétaire de lab peut configurer ou remplacer ce paramètre au niveau du lab, consultez [Configurer l’arrêt automatique des machines virtuelles pour un lab](how-to-enable-shutdown-disconnect.md).

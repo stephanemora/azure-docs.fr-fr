@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679215"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509839"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utiliser l’API REST de gestion de session
 
@@ -71,9 +71,9 @@ Cette commande crée une session. Elle retourne l’ID de la nouvelle session. V
 
 **Corps de la demande :**
 
-* maxLeaseTime (timespan) : valeur de délai d’expiration lorsque la machine virtuelle est désactivée automatiquement.
+* maxLeaseTime (timespan) : valeur de délai d’expiration lorsque la session est désactivée automatiquement.
 * models (array) : URL de conteneur de ressources à précharger.
-* size (string) : taille de la machine virtuelle ( **« standard »** ou **« Premium »** ). Consultez les [limitations de taille de machine virtuelle](../reference/limits.md#overall-number-of-polygons) spécifiques.
+* size (string) : taille du serveur à configurer ([ **« Standard »** ](../reference/vm-sizes.md) ou [ **« Premium »** ](../reference/vm-sizes.md)). Voir les [limitations de taille](../reference/limits.md#overall-number-of-polygons) spécifiques.
 
 **Réponses :**
 
@@ -130,7 +130,7 @@ Cette commande met à jour les paramètres d’une session. Actuellement, vous p
 
 **Corps de la demande :**
 
-* maxLeaseTime (timespan) : valeur de délai d’expiration lorsque la machine virtuelle est désactivée automatiquement.
+* maxLeaseTime (timespan) : valeur de délai d’expiration lorsque la session est désactivée automatiquement.
 
 **Réponses :**
 

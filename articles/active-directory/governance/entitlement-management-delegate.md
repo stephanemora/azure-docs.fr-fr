@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a01f945496d2f0bc81a108c5e58c89587c1c4e38
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034381"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505476"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD
 
@@ -116,7 +116,7 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Rôles requis pour ajouter des ressources à un catalogue
 
-Un Administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Office 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer n’importe quel groupe ou application d’un catalogue.
+Un Administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Office 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer tout groupe ou toute application dans un catalogue, à l’exception d’un groupe configuré comme étant assignable à un rôle d’annuaire.
 
 Afin qu’un utilisateur, qui ni administrateur général, ni administrateur d’utilisateurs, puisse ajouter des groupes, des applications ou des sites SharePoint Online à un catalogue, cet utilisateur doit disposer *à la fois* du rôle Azure AD Directory requis et du rôle de gestion des droits d’utilisation de propriétaire de catalogue. Le tableau suivant répertorie les combinaisons de rôles nécessaires pour ajouter des ressources à un catalogue. Pour supprimer les ressources d’un catalogue, vous devez disposer des mêmes rôles.
 
@@ -131,6 +131,9 @@ Afin qu’un utilisateur, qui ni administrateur général, ni administrateur d�
 | [Administrateur d’application](../users-groups-roles/directory-assign-admin-roles.md) | Propriétaire de catalogue |  |  | :heavy_check_mark: |  |
 | [Administrateur d’application cloud](../users-groups-roles/directory-assign-admin-roles.md) | Propriétaire de catalogue |  |  | :heavy_check_mark: |  |
 | Utilisateur | Propriétaire de catalogue | Seulement si propriétaire d’un groupe | Seulement si propriétaire d’un groupe | Seulement si propriétaire d’une application |  |
+
+> [!NOTE]
+> Si un utilisateur ajoute un groupe de sécurité ou un groupe Office 365, le groupe ne peut pas être assignable à un rôle. Si l’utilisateur ajoute un groupe qui est assignable à un rôle lors de la création du package d’accès, il doit également être le propriétaire de ce groupe assignable à un rôle. Pour plus d’informations, consultez [Créer un groupe avec attribution de rôle dans Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
 
 Pour déterminer le rôle le moins privilégié pour une tâche, vous pouvez également référencer les [rôles d’administrateur par tâche administrateur dans Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 

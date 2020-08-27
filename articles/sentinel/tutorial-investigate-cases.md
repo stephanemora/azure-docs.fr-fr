@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565234"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566333"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
@@ -37,10 +37,12 @@ Cet article couvre les points suivants :
 > * Utiliser le graphique d’examen
 > * Répondre aux menaces
 
-Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un incident est créé en fonction des règles analytiques que vous avez créées sur la page **Analytics**. Les propriétés relatives aux alertes, telles que l’état et la gravité sont définies au niveau de l’incident. Après avoir informé Azure Sentinel des types de menaces que vous recherchez et de comment les trouver, vous pouvez surveiller les menaces détectées en étudiant des incidents.
+Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un incident est créé en fonction des règles d’analytique que vous avez créées sur la page **Analytics**. Les propriétés relatives aux alertes, telles que l’état et la gravité, sont définies au niveau de l’incident. Après avoir informé Azure Sentinel des types de menaces que vous recherchez et de comment les trouver, vous pouvez surveiller les menaces détectées en étudiant des incidents.
 
 ## <a name="prerequisites"></a>Prérequis
-Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analyse. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
+- Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analytique. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
+
+- Si vous avez un utilisateur invité qui doit attribuer des incidents, l’utilisateur doit se voir attribuer le rôle [Lecteur de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) dans votre locataire Azure AD. Les utilisateurs ordinaires (non invités) se voient attribuer ce rôle par défaut.
 
 ## <a name="how-to-investigate-incidents"></a>Comment examiner les incidents
 
@@ -81,7 +83,7 @@ Pour utiliser le graphique d’examen :
 1. Sélectionnez un incident, puis **Examiner**. Vous accédez au graphique d’examen. Le graphique fournit une carte illustrant les entités directement connectées à l’alerte et à chaque ressource connectée.
 
    > [!IMPORTANT] 
-   > Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analyse. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
+   > Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analytique. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
 
    ![Afficher la carte](media/tutorial-investigate-cases/map1.png)
 

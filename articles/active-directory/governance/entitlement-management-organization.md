@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170494"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586569"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -103,7 +103,7 @@ Pour ajouter un annuaire ou un domaine Azure AD externe en tant qu’organisati
 
 Si l’organisation connectée change de domaine, si le nom de l’organisation change ou si vous souhaitez modifier les commanditaires, vous pouvez mettre à jour l’organisation connectée en suivant les instructions de cette section.
 
-**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
+**Rôle prérequis** : *Administrateur général* ou *Administrateur d’utilisateurs*
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 
@@ -120,7 +120,7 @@ Si l’organisation connectée change de domaine, si le nom de l’organisation 
 
 Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD externe, vous pouvez supprimer l’organisation connectée.
 
-**Rôle prérequis** : *administrateur général*, *administrateur d’utilisateurs* ou *inviteur d’invités*
+**Rôle prérequis** : *Administrateur général* ou *Administrateur d’utilisateurs*
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
 
@@ -131,6 +131,10 @@ Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD extern
     Vous pouvez supprimer une organisation connectée seulement si aucun utilisateur n’est connecté.
 
     ![Bouton « Supprimer une organisation connectée »](./media/entitlement-management-organization/organization-delete.png)
+
+## <a name="managing-a-connected-organization-programmatically"></a>Gestion d’une organisation connectée par programmation
+
+Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) et définir des commanditaires pour eux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

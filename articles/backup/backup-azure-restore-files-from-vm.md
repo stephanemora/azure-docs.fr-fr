@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533537"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611838"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -32,7 +32,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 3. Dans le menu du tableau de bord Sauvegarde, sélectionnez **Récupération de fichiers**.
 
-    ![Bouton Récupération de fichiers](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Sélectionner la récupération de fichier](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     Le menu **Récupération de fichiers** s’ouvre.
 
@@ -42,7 +42,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 5. Pour télécharger le logiciel utilisé pour copier des fichiers à partir du point de récupération, sélectionnez **Télécharger l’exécutable** (pour les machines virtuelles Windows Azure) ou **Télécharger le script** (pour les machines virtuelles Linux Azure, un script Python est généré).
 
-    ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Télécharger l’exécutable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure télécharge le fichier exécutable ou le script sur l’ordinateur local.
 
@@ -56,7 +56,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 7. Vérifiez que [vous avez la machine appropriée](#selecting-the-right-machine-to-run-the-script) pour exécuter le script. Si la machine appropriée est la même que celle sur laquelle vous avez téléchargé le script, vous pouvez passer à la section de téléchargement. À partir de l’emplacement de téléchargement (généralement le dossier *Téléchargements*), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée**. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
 
-    ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Sortie de l’exécutable](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. Pour les machines Linux, un script Python est généré. Vous devez télécharger le script et le copier sur le serveur Linux approprié/compatible. Il peut être nécessaire de modifier les autorisations pour l’exécuter avec ```chmod +x <python file name>```. Exécutez ensuite le fichier Python avec ```./<python file name>```.
 
@@ -85,6 +85,9 @@ Après avoir identifié les fichiers et les avoir copiés dans un emplacement de
 Une fois les disques démontés, vous recevez un message. L’actualisation de la connexion de sorte que vous pouvez supprimer les disques peut prendre quelques minutes.
 
 Sous Linux, une fois la connexion au point de récupération interrompue, le système d’exploitation ne supprime pas les chemins d’accès de montage correspondants automatiquement. Les chemins d’accès de montage existent en tant que volumes « orphelins » et ils sont visibles, mais génèrent une erreur lorsque vous accédez aux fichiers ou écrivez dessus. Ils peuvent être supprimés manuellement. Le script, lorsqu’il est exécuté, identifie de tels volumes existants à partir des points de récupération précédents et les nettoie après accord.
+
+> [!NOTE]
+> Assurez-vous que la connexion est fermée après la restauration des fichiers requis. Cela est important, en particulier dans le cas où l’ordinateur sur lequel le script est exécuté est également configuré pour la sauvegarde. Si la connexion est toujours ouverte, la sauvegarde suivante risque d’échouer avec l’erreur « UserErrorUnableToOpenMount ». Cela se produit parce que les lecteurs/volumes montés sont supposés être disponibles et lorsqu’on y accède, ils peuvent échouer parce que le stockage sous-jacent, c’est-à-dire le serveur cible iSCSI, peut ne pas être disponible. Le nettoyage de la connexion entraînera la suppression de ces lecteurs/volumes et ils ne seront donc pas disponibles pendant la sauvegarde.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Sélection de la machine appropriée pour exécuter le script
 
@@ -262,7 +265,7 @@ Le tableau suivant indique la compatibilité entre les systèmes d’exploitatio
 |Système d’exploitation serveur | Système d’exploitation client compatible  |
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |

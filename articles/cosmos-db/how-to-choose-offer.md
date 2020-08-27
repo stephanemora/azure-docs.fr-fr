@@ -4,14 +4,14 @@ description: Découvrez comment choisir entre un débit approvisionné standard 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116806"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605213"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Comment choisir entre le débit approvisionné standard (manuel) et le débit approvisionné avec mise à l’échelle automatique 
 
@@ -37,7 +37,10 @@ Le tableau suivant présente une comparaison générale entre l’approvisionnem
 ## <a name="understand-your-traffic-patterns"></a>Comprendre vos modèles de trafic
 
 ### <a name="new-applications"></a>Nouvelles applications ###
-Si vous générez une nouvelle application et que vous ne connaissez pas encore votre modèle de trafic, vous pouvez commencer à partir du point d’entrée RU/s (ou RU/s minimum) pour éviter le surapprovisionnement au début. Autrement, si votre application est petite et n’a pas besoin d’une grande échelle, vous pourrez configurer uniquement le point d’entrée RU/s minimal pour optimiser les coûts. Dans les deux cas, la mise à l’échelle standard (manuelle) ou automatique sont adaptées. Voici ce que vous devez prendre en compte :
+
+Si vous générez une nouvelle application et que vous ne connaissez pas encore votre modèle de trafic, vous pouvez commencer à partir du point d’entrée RU/s (ou RU/s minimum) pour éviter le surapprovisionnement au début. Autrement, si votre application est petite et n’a pas besoin d’une grande échelle, vous pourrez configurer uniquement le point d’entrée RU/s minimal pour optimiser les coûts. Pour les petites applications dont le trafic est faible, vous pouvez également envisager le mode de capacité [serverless](throughput-serverless.md).
+
+Que vous prévoyiez d’utiliser la mise à l’échelle standard (manuelle) ou automatique, voici ce que vous devez prendre en compte :
 
 Si vous configurez les RU/s standard (manuel) au point d’entrée de 400 RU/s, vous ne pourrez pas utiliser plus de 400 RU/s, sauf si vous modifiez le débit manuellement. Vous serez facturé pour 400 RU/s avec le débit approvisionné standard (manuel), à l’heure.
 

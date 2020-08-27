@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514099"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612569"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -57,23 +57,23 @@ Pour déplacer un coffre Recovery Services et ses ressources associées vers un 
 
    ![Ouvrir le coffre Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Si vous ne voyez pas les informations **Essentials** pour votre coffre, cliquez sur l’icône de liste déroulante. Vous devez maintenant voir les informations Essentials pour votre coffre.
+   Si vous ne voyez pas les informations **Essentials** pour votre coffre, sélectionnez l’icône de liste déroulante. Vous devez maintenant voir les informations Essentials pour votre coffre.
 
    ![Onglet Informations Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Dans le menu Vue d’ensemble du coffre, cliquez sur **Modifier** à côté du **Groupe de ressources** pour ouvrir le panneau **Déplacer des ressources**.
+3. Dans le menu Vue d’ensemble du coffre, sélectionnez **Modifier** à côté du **groupe de ressources** pour ouvrir le volet **Déplacer des ressources**.
 
    ![Changer le groupe de ressources](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. Dans le panneau **Déplacer des ressources**, pour le coffre sélectionné, il est recommandé de déplacer les ressources associées facultatives en cochant la case comme illustré dans l’image suivante.
+4. Dans le volet **Déplacer des ressources**, pour le coffre sélectionné, il est recommandé de déplacer les ressources associées facultatives en cochant la case comme illustré dans l’image suivante.
 
    ![Déplacer un abonnement](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou cliquez sur l’option **Créer un groupe**.
+5. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
 
    ![Créer une ressource](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. Après avoir ajouté le groupe de ressources, confirmez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource**, puis cliquez sur **OK** pour effectuer le déplacement du coffre.
+6. Après avoir ajouté le groupe de ressources, confirmez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource**, puis sélectionnez **OK** pour effectuer le déplacement du coffre.
 
    ![Message de confirmation](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,11 +86,11 @@ Vous pouvez déplacer un coffre Recovery Services et ses ressources associées v
 
     ![Ouvrir le coffre Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    Si vous ne voyez pas les informations **Essentials** pour votre coffre, cliquez sur l’icône de liste déroulante. Vous devez maintenant voir les informations Essentials pour votre coffre.
+    Si vous ne voyez pas les informations **Essentials** pour votre coffre, sélectionnez l’icône de liste déroulante. Vous devez maintenant voir les informations Essentials pour votre coffre.
 
     ![Onglet Informations Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Dans le menu Vue d’ensemble du coffre, cliquez sur **Modifier** à côté de **Abonnement**  pour ouvrir le panneau **Déplacer des ressources**.
+3. Dans le menu Vue d’ensemble du coffre, sélectionnez **Modifier** à côté d’**Abonnement**  pour ouvrir le volet **Déplacer des ressources**.
 
    ![Changer l’abonnement](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,11 +99,11 @@ Vous pouvez déplacer un coffre Recovery Services et ses ressources associées v
    ![Déplacer une ressource](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Dans la liste déroulante **Abonnement**, sélectionnez l’abonnement cible où vous voulez déplacer le coffre.
-6. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou cliquez sur l’option **Créer un groupe**.
+6. Pour ajouter le groupe de ressources cible, dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou l’option **Créer un groupe**.
 
    ![Ajouter un abonnement](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Cliquez sur l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource;** , puis cliquez sur **OK**.
+7. Sélectionnez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource;** , puis sélectionnez **OK**.
 
 > [!NOTE]
 > La sauvegarde entre abonnements (le coffre Recovery Services et les machines virtuelles protégées se trouvent dans des abonnements différents) n’est pas un scénario pris en charge. En outre, pendant l’opération de déplacement du coffre, vous ne pouvez pas changer l’option de redondance du stockage de stockage localement redondant (LRS) en stockage globalement redondant (GRS) et inversement.

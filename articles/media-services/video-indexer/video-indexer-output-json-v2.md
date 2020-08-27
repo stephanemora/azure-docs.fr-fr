@@ -8,35 +8,50 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/10/2020
 ms.author: juliako
-ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604780"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
+# <a name="examine-the-video-indexer-output"></a>Examiner la sortie Video Indexer
 
-Si vous appelez l’API **Get Video Index** (Obtenir un index vidéo) et si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse. Le contenu JSON détaille les insights des vidéos spécifiées. Ces insights incluent : des transcriptions, des OCR, des visages, des rubriques, des blocs, etc. Chaque type d’insight comprend des instances d’intervalle de temps qui indiquent quand l’insight apparaît dans la vidéo. 
+Quand une vidéo est indexée, Video Indexer produit le contenu JSON qui contient les détails des insights vidéo spécifiés. Ces insights incluent : des transcriptions, des OCR, des visages, des rubriques, des blocs, etc. Chaque type d’insight comprend des instances d’intervalle de temps qui indiquent quand l’insight apparaît dans la vidéo. 
+
+Vous pouvez examiner visuellement les insights résumés de la vidéo en appuyant sur le bouton **Lire** sur le site web de [Video Indexer](https://www.videoindexer.ai/). 
+
+Vous pouvez également utiliser l’API en appelant l’API **Get Video Index** et, si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse.
+
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+Cet article examine la sortie Video Indexer (contenu JSON). Pour plus d’informations sur les fonctionnalités et les insights à votre disposition, consultez [Insights de Video Indexer](video-indexer-overview.md#video-insights).
+
+> [!NOTE]
+> Tous les jetons d’accès dans Video Indexer arrivent à expiration au bout d’une heure.
+
+## <a name="get-the-insights"></a>Obtenir des insights
+
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>Insights/sortie produits dans le site web ou le portail
+
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
+1. Recherchez une vidéo dont vous souhaitez examiner la sortie.
+1. Appuyez sur **Lecture**.
+1. Sélectionnez l’onglet **Insights** (insights résumés) ou l’onglet **Chronologie** (permet de filtrer les insights pertinents).
+1. Téléchargez les artefacts et ce qu’ils contiennent.
+
+Pour plus d’informations, voir [View and edit video insights](video-indexer-view-edit.md) (Afficher et modifier les insights des vidéos).
+
+## <a name="insightsoutput-produced-by-api"></a>Insights/sortie produits par l’API
 
 1. Pour récupérer le fichier JSON, appelez [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Si vous êtes également intéressé par des artefacts spécifiques, appelez [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
     Dans l’appel d’API, spécifiez le type d’artefact demandé (OCR, Faces, Key frames etc.)
 
-Vous pouvez également examiner visuellement les insights résumés de la vidéo en appuyant sur le bouton **Lire** sur le site web [Video Indexer](https://www.videoindexer.ai/). Pour plus d’informations, voir [View and edit video insights](video-indexer-view-edit.md) (Afficher et modifier les insights des vidéos).
-
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-Cet article examine le contenu JSON retourné par l’API **Get Video Index** (Obtenir un index vidéo). 
-
-> [!NOTE]
-> Tous les jetons d’accès dans Video Indexer arrivent à expiration au bout d’une heure.
-
-
-## <a name="root-elements"></a>Éléments racines
+## <a name="root-elements-of-the-insights"></a>Éléments racines des insights
 
 |Nom|Description|
 |---|---|
@@ -86,7 +101,7 @@ Cette section présente le résumé des insights.
 |duration|Contient la durée d’un insight. La durée est exprimée en secondes.|
 |thumbnailVideoId|ID de la vidéo à partir de laquelle la vidéo miniature a été réalisée.
 |thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) et transmettez-lui les attributs thumbnailVideoId et thumbnailId.|
-|visages|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces](#faces).|
+|faces/animatedCharacters|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces/animatedCharacters](#facesanimatedcharacters).|
 |mots clés|Peut contenir zéro ou plusieurs mots clés. Pour plus d’informations, consultez la section [keywords](#keywords).|
 |sentiments|Peut contenir zéro ou plusieurs sentiments. Pour plus d’informations, consultez la section [sentiments](#sentiments).|
 |audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioeffects).|
@@ -162,7 +177,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |ocr|L’insight [OCR](#ocr).|
 |mots clés|L’insight [mots clés](#keywords).|
 |blocks|Peut contenir un ou plusieurs [blocs](#blocks).|
-|visages|L’insight [visages](#faces).|
+|faces/animatedCharacters|L’insight [faces/animatedCharacters](#facesanimatedcharacters).|
 |étiquettes|L’insight [étiquettes](#labels).|
 |captures|L’insight [captures](#shots).|
 |brands|L’insight [brands](#brands).|
@@ -305,7 +320,11 @@ Exemple :
 }
 ```
 
-#### <a name="faces"></a>visages
+#### <a name="facesanimatedcharacters"></a>faces/animatedCharacters
+
+L’élément `animatedCharacters` remplace `faces` dans le cas où la vidéo a été indexée avec un modèle de personnages animés. Cette opération s’effectue à l’aide d’un modèle personnalisé dans Custom Vision, et Video Indexer l’exécute sur des images clés.
+
+Si des visages (et non des personnages animés) sont présents, Video Indexer utilise l’API Visage sur toutes les images de la vidéo pour détecter les visages et les célébrités.
 
 |Nom|Description|
 |---|---|

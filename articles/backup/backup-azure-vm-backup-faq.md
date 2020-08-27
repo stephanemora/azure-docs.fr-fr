@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533493"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761506"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -101,6 +101,10 @@ Si vous modifiez la casse (en majuscules ou en minuscules) du nom de votre machi
 
 La sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez [Sauvegarde et restauration sélectives sur disque pour les machines virtuelles Azure](selective-disk-backup-restore.md).
 
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Les identités managées sont-elles préservées si une modification de locataire se produit pendant la sauvegarde ?
+
+Si des [modifications du locataire](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) se produisent, vous devez désactiver, puis réactiver les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour que les sauvegardes fonctionnent à nouveau.
+
 ## <a name="restore"></a>Restaurer
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Comment déterminer si je dois restaurer des disques uniquement ou une machine virtuelle complète ?
@@ -188,3 +192,11 @@ Les points de restauration de l’ancienne machine virtuelle seront disponibles 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Existe-t-il un nombre limite de machines virtuelles pouvant être associées à la même stratégie de sauvegarde ?
 
 Oui, il existe une limite de 100 machines virtuelles pouvant être associées à la même stratégie de sauvegarde à partir du portail. Pour plus de 100 machines virtuelles, nous recommandons de créer plusieurs stratégies de sauvegarde avec la même planification ou une planification différente.
+
+### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Comment puis-je consulter les paramètres de rétention de mes sauvegardes ?
+
+Actuellement, vous pouvez consulter les paramètres de rétention au niveau d’un élément de sauvegarde (machine virtuelle) en fonction de la stratégie de sauvegarde qui est attribuée à la machine virtuelle.
+
+Pour voir les paramètres de rétention de vos sauvegardes, vous pouvez accéder au [tableau de bord](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) des éléments de sauvegarde de votre machine virtuelle dans le portail Azure. En cliquant sur le lien vers sa politique de sauvegarde, vous pouvez visualiser la durée de rétention de tous les points de rétention quotidiens, hebdomadaires, mensuels et annuels associés à la machine virtuelle.
+
+Vous pouvez également utiliser [Explorateur de sauvegarde](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) pour afficher les paramètres de rétention de toutes vos machines virtuelles dans un seul volet transparent. Accédez à Explorateur de sauvegarde à partir de n’importe quel coffre Recovery Services, rendez-vous dans l’onglet **Éléments de sauvegarde** et sélectionnez l’affichage avancé pour voir les informations de rétention détaillées de chaque machine virtuelle.

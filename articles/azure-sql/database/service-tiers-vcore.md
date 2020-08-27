@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 07/21/2020
-ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325064"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586799"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Vue d’ensemble du modèle vCore – Azure SQL Database et SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -102,12 +102,12 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 |Génération du matériel  |Calcul  |Mémoire  |
 |:---------|:---------|:---------|
-|Gen4     |- Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
-|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) cadencé à 2.3 GHz et Intel SP-8160 (Skylake)*<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) cadencé à 2.3 GHz et Intel SP-8160 (Skylake)*<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
-|Série Fsv2     |- Processeurs Intel Xeon Platinum 8168 (Skylake)<br>- Fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et fréquence d’horloge turbo monocœur maximale de 3,7 GHz<br>- Provisionnement dans la limite de 72 vCores (1 vCore = 1 hyper-thread)|- 1,9 Go par vCore<br>- Provisionnement dans la limite de 136 Go|
-|Série M     |- Processeurs Intel Xeon E7-8890 v3 2,5 GHz et Intel Xeon Platinum 8280M 2,7 GHz (Cascade Lake)<br>- Provisionnement dans la limite de 128 vCores (1 vCore = 1 hyper-thread)|- 29 Go par vCore<br>- Provisionnement dans la limite de 3,7 To|
+|Gen4     |- Processeurs Intel® E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
+|Gen5     |**Calcul provisionné**<br>- Processeurs Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake)\* et Intel® 8272CL (Cascade Lake) 2,5 GHz\*<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel® E5-2673 v4 (Broadwell) cadencé à 2,3 GHz et Intel® SP-8160 (Skylake)*<br>- Mise à l’échelle automatique dans la limite de 40 vCores (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 120 Go|
+|Série Fsv2     |- Processeurs Intel® 8168 (Skylake)<br>- Fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et fréquence d’horloge turbo monocœur maximale de 3,7 GHz<br>- Provisionnement dans la limite de 72 vCores (1 vCore = 1 hyper-thread)|- 1,9 Go par vCore<br>- Provisionnement dans la limite de 136 Go|
+|Série M     |- Processeurs Intel® E7-8890 v3 2,5 GHz et Intel® 8280M 2,7 GHz (Cascade Lake)<br>- Provisionnement dans la limite de 128 vCores (1 vCore = 1 hyper-thread)|- 29 Go par vCore<br>- Provisionnement dans la limite de 3,7 To|
 
-\* Dans la vue de gestion dynamique [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la génération de matériel pour les bases de données Gen5 utilisant des processeurs Intel SP-8160 (Skylake) apparaît comme Gen6. Les limites de ressources pour toutes les bases de données Gen5 sont identiques, quel que soit le type de processeur (Broadwell ou Skylake).
+\* Dans la vue de gestion dynamique [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la génération de matériel pour les bases de données utilisant des processeurs Intel® SP-8160 (Skylake) apparaît comme Gen6, tandis que la génération de matériel pour les bases de données utilisant des processeurs Intel® 8272CL (Cascade Lake) apparaît comme Gen7. Les limites de ressources pour toutes les bases de données Gen5 sont identiques, quel que soit le type de processeur (Broadwell, Skylake ou Cascade Lake).
 
 Pour plus d’informations sur les limites de ressources, voir [Limites de ressources des bases de données uniques (vCore)](resource-limits-vcore-single-databases.md)ou [Limites de ressources des pools élastiques (vCore)](resource-limits-vcore-elastic-pools.md).
 

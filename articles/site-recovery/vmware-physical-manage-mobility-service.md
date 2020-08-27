@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460097"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604523"
 ---
 # <a name="manage-the-mobility-agent"></a>Gérer l’agent du service Mobilité 
 
@@ -26,8 +26,9 @@ Quand vous utilisez Azure Site Recovery pour la récupération d'urgence de mach
 ## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service de mobilité à partir du portail Azure
 
 1. Avant de commencer, veillez à ce que le serveur de configuration, les serveurs de processus de scale-out et les serveurs cibles maîtres qui font partie de votre déploiement soient mis à jour avant de procéder à la mise à jour du service Mobilité sur les machines protégées.
-2. Sur le portail, ouvrez le coffre > **Éléments répliqués**.
-3. Si le serveur de configuration correspond à la dernière version, une notification doit s’afficher et indiquer « Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer. »
+    1. À partir de la [version 9.36](https://support.microsoft.com/help/4578241/), pour SUSE Linux Enterprise Server 11 SP4, vérifiez que le programme d’installation le plus récent est [disponible sur le serveur de configuration et le serveur de processus Scale-out](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Sur le portail, ouvrez le coffre > **Éléments répliqués**.
+1. Si le serveur de configuration correspond à la dernière version, une notification doit s’afficher et indiquer « Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer. »
 
      ![Fenêtre Éléments répliqués](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Utiliser le Portail Microsoft Azure pour accéder aux données d’objet blob et de file d’attente
+title: Choisir comment autoriser l’accès à des données de blobs ou de files d’attente dans le portail Azure
 titleSuffix: Azure Storage
 description: Lorsque vous accéder aux données d’objet blob et de file d’attente à l’aide du Portail Microsoft Azure, le portail fait des requêtes à Azure Storage en arrière-plan. Ces requêtes au stockage Azure peuvent être authentifiées et autorisées à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fea14c62afb03a6c0d9f1bf6894f02bd3fd06c7f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534173"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586968"
 ---
-# <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le Portail Microsoft Azure pour accéder aux données d’objet blob et de file d’attente
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de blobs ou de files d’attente dans le portail Azure
 
 Lorsque vous accéder aux données d’objet blob et de file d’attente à l’aide du [Portail Microsoft Azure](https://portal.azure.com), le portail fait des requêtes à Azure Storage en arrière-plan. Une requête au stockage Azure peut être autorisée à l’aide de votre compte Azure AD ou de la clé d’accès au compte de stockage. Le portail indique quelle méthode vous utilisez et vous permet de basculer entre les deux si vous disposez des autorisations appropriées.  
 

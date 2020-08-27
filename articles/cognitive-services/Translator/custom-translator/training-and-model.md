@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fc81b0c01bf749bf7f643833026e364fa7c8ebd2
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996327"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510825"
 ---
 # <a name="what-are-trainings-and-models"></a>Que sont les entraînements et les modèles ?
 
@@ -27,7 +27,7 @@ Si seules des données d’entraînement sont fournies lors de la mise en file d
 
 Les documents inclus dans le jeu d’entraînement sont utilisés par Custom Translator comme base pour la création de votre modèle. Pendant l’exécution de l’entraînement, les phrases qui sont présentes dans ces documents sont alignées (ou appairées). Vous pouvez prendre la liberté de composer votre jeu de documents d’entraînement. Vous pouvez inclure des documents que vous considérez d’une pertinence indirecte dans un modèle. Là encore, vous devez les exclure d’un autre jeu pour voir l’impact sur le [score BLEU (Bilingual Evaluation Understudy)](what-is-bleu-score.md). Tant que les jeux de paramétrage et de test restent constants, n’hésitez pas à faire des essais avec la composition du jeu d’entraînement. Cette approche est un moyen efficace de modifier la qualité de votre système de traduction.
 
-Vous pouvez exécuter plusieurs entraînements dans un projet et comparer les [scores BLEU](what-is-bleu-score.md) entre toutes les exécutions d’entraînements. Quand vous exécutez plusieurs entraînements pour une comparaison, vérifiez que les mêmes données de paramétrage/test sont spécifiées chaque fois. Veillez également à examiner les résultats manuellement sous l’onglet [« Test »](how-to-view-system-test-results.md).
+Vous pouvez exécuter plusieurs entraînements dans un projet et comparer les [scores BLEU](what-is-bleu-score.md) entre toutes les exécutions d’entraînements. Quand vous exécutez plusieurs entraînements pour une comparaison, vérifiez que les mêmes données de paramétrage/test sont spécifiées chaque fois. Veillez également à examiner les résultats manuellement sous l’onglet [Test](how-to-view-system-test-results.md).
 
 ## <a name="tuning-document-type-for-custom-translator"></a>Type de document d’optimisation pour Custom Translator
 

@@ -1,18 +1,18 @@
 ---
 title: 'Partenaires de mise en réseau : Mise en réseau Azure | Microsoft Docs'
-description: Cet article fournit une liste de partenaires de mise en réseau de fournisseur de services gérés
+description: En savoir plus sur le programme de partenariat des fournisseurs de services managés réseau Azure et obtenir la liste des partenaires qui proposent des services de mise en réseau hybride et cloud.
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 69129ad0ecda6b5893a5f758b8cac9a30dd0b093
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 237ca65d5feadd019b734dd751d943c06c9a2213
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282107"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587002"
 ---
 # <a name="about-azure-networking-msp-partners"></a>À propos des partenaires de mise en réseau de fournisseur de services gérés Azure
 
@@ -55,7 +55,7 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Contrôle d’intégrité Azure : évaluation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute : implémentation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute managé Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN propulsé par Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) ; [Vandis Managed VWAN propulsé par Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Les offres de la Place de marché Azure incluent ExpressRoute managé, les services de sécurité Virtual WAN et les services de zones périphériques privées des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/) ;  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406) ; [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/) ; [InterCloud](https://intercloud.com/partners/microsoft-azure/) ; [KINX](https://www.kinx.net/service/cloud/?lang=en) ; [OmniClouds](https://omniclouds.com/) ; [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms) ;
+Les offres de la Place de marché Azure incluent ExpressRoute managé, les services de sécurité Virtual WAN et les services de zones périphériques privées des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/) ; [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406) ; [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/) ; [InterCloud](https://intercloud.com/partners/microsoft-azure/) ; [KINX](https://www.kinx.net/service/cloud/?lang=en) ; [OmniClouds](https://omniclouds.com/) ; [Orange Business Services](https://www.orange-business.com/en/solutions/cloud-computing) ; [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms) ;
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Partenaires d’ExpressRoute
 

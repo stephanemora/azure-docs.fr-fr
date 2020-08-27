@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499863"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225986"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accéder au tableau de bord web Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opé
 Pour plus d’informations sur le tableau de bord Kubernetes, consultez la section [Tableau de bord de l’interface utilisateur web de Kubernetes][kubernetes-dashboard]. AKS utilise la version 2.0 ou une version ultérieure du tableau de bord open source.
 
 > [!WARNING]
-> **Le module complémentaire du tableau de bord AKS est défini pour la dépréciation.** 
+> **Le module complémentaire du tableau de bord AKS sera bientôt déconseillé. Utilisez plutôt l’[affichage des ressources Kubernetes dans le portail Azure][kubernetes-portal] (préversion).** 
 > * Le tableau de bord Kubernetes est activé par défaut pour les clusters exécutant une version de Kubernetes antérieure à 1.18.
 > * Le module complémentaire du dashboard est désactivé par défaut pour tous les nouveaux clusters créés sur Kubernetes 1.18 ou une version ultérieure. 
  > * À partir de la préversion de Kubernetes 1.19, AKS ne prend plus en charge l’installation du module complémentaire kube-dashboard géré. 
@@ -209,3 +209,4 @@ Pour plus d’informations sur le tableau de bord Kubernetes, consultez le [tabl
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
+[kubernetes-portal]: ./kubernetes-portal.md

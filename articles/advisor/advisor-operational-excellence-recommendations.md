@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057635"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258489"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -53,6 +53,16 @@ Azure Policy est un service Azure que vous pouvez utiliser pour créer, affecter
 **Appliquer *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.**
 
 **Activer *Hériter une étiquette du groupe de ressources*.** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
+
+## <a name="no-validation-environment-enabled"></a>Aucun environnement de validation activé
+Azure Advisor détermine que vous n’avez pas d’environnement de validation activé dans l’abonnement actuel. Lors de la création de vos pools d’hôtes, vous avez sélectionné \"Non\" pour \"Environnement de validation\" sous l’onglet Propriétés. Le fait d’avoir au moins un pool d’hôtes avec un environnement de validation activé garantit la continuité des activités via les déploiements du service Windows Virtual Desktop avec une détection précoce des problèmes potentiels. [En savoir plus](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir un environnement de production (et non de validation) pour bénéficier de fonctionnalités stables
+Azure Advisor détecte que l’environnement de validation est activé pour un trop grand nombre de vos pools d’hôtes. Pour que les environnements de validation remplissent au mieux leur fonction, vous devez avoir au moins un, mais jamais plus de la moitié de vos pools d’hôtes dans l’environnement de validation. En ayant un équilibre parfait entre vos pools d’hôtes avec l’environnement de validation activé et ceux pour lesquels il est désactivé, vous pourrez tirer le meilleur parti des avantages des déploiements en plusieurs phases proposés par Windows Virtual Desktop avec certaines mises à jour. Pour résoudre ce problème, ouvrez les propriétés de votre pool d’hôtes et sélectionnez \"Non\" à côté du paramètre \"Environnement de validation\".
+
+## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Activer Traffic Analytics pour obtenir des insights sur les modèles de trafic des ressources Azure
+Traffic Analytics est une solution cloud qui offre une visibilité sur l’activité des utilisateurs et des applications dans Azure. Traffic Analytics analyse les journaux de flux du groupe de sécurité réseau Network Watcher pour fournir des insights sur le flux de trafic. Avec Traffic Analytics, vous pouvez afficher les éléments du réseau qui utilisent le plus de bande passante lors des déploiements Azure et non Azure, détecter les ports ouverts, les protocoles et les flux malveillants de votre environnement, et optimiser le déploiement de votre réseau pour de meilleures performances. Vous pouvez traiter les journaux de flux toutes les 10 ou 60 minutes, ce qui vous permet d’analyser plus rapidement votre trafic. Il est recommandé d’activer Traffic Analytics pour vos ressources Azure. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

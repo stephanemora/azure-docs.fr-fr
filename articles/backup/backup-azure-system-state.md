@@ -1,14 +1,14 @@
 ---
 title: Sauvegarder l’état du système Windows vers Azure
-description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure.
+description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server vers Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003741"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263042"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Sauvegarder l’état du système Windows vers Azure
 
@@ -24,16 +24,16 @@ Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](http
 
 Lorsque vous créez un coffre Recovery Services, vérifiez que la redondance du stockage est configurée comme vous le souhaitez.
 
-1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre.
+1. Dans le volet **Coffres Recovery Services**, sélectionnez le nouveau coffre.
 
     ![Sélectionnez le nouveau coffre dans la liste des coffres Recovery Services.](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Lorsque vous sélectionnez le coffre, le panneau **Coffre Recovery Services** se réduit et le panneau Paramètres (*qui porte le nom du coffre en haut*) ainsi que le panneau des détails du coffre s’ouvrent.
+    Lorsque vous sélectionnez le coffre, le volet **Coffre Recovery Services** se réduit et le volet Paramètres (*qui porte le nom du coffre en haut*) ainsi que le volet des détails du coffre s’ouvrent.
 
     ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. Dans le panneau Paramètres du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu'à la section Gestion, puis cliquez sur **Infrastructure de sauvegarde**.
-    Le panneau Infrastructure de sauvegarde s’ouvre.
-3. Dans le panneau Infrastructure de sauvegarde, cliquez sur **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**.
+2. Dans le volet Paramètres du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu’à la section Gestion, puis sélectionnez **Infrastructure de sauvegarde**.
+    Le volet Infrastructure de sauvegarde s'ouvre.
+3. Dans le volet Infrastructure de sauvegarde, sélectionnez **Configuration de la sauvegarde** pour ouvrir le volet **Configuration de la sauvegarde**.
 
     ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Choisissez l’option de réplication de stockage à appliquer à votre archivage.
@@ -46,47 +46,47 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
 ## <a name="configure-the-vault"></a>configuration du coffre
 
-1. Dans le panneau du coffre Recovery Services que vous venez de créer, accédez à la section Prise en main, puis cliquez sur **Sauvegarde** ; dans le panneau **Prise en main de la sauvegarde**, sélectionnez **Objectif de la sauvegarde**.
+1. Dans le volet du coffre Recovery Services que vous venez de créer, accédez à la section Prise en main, puis sélectionnez **Sauvegarde** ; dans le volet **Prise en main de la sauvegarde**, sélectionnez **Objectif de la sauvegarde**.
 
-    ![Ouvrir le panneau Objectif de sauvegarde](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+    ![Ouvrir les paramètres de sauvegarde](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    Le panneau **Objectif de la sauvegarde** s’ouvre.
+    Le volet **Objectif de la sauvegarde** s’ouvre.
 
-    ![Ouvrir le panneau Objectif de sauvegarde](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Ouvrir le volet Objectif de la sauvegarde](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. Dans la liste déroulante **Où s’exécute votre charge de travail ?** , sélectionnez **Local**.
 
     En effet, vous devez choisir l’option **Local**, car votre ordinateur Windows Server ou Windows est une machine physique, qui ne se trouve donc pas dans Azure.
 
-3. Dans le menu **Que voulez-vous sauvegarder ?** , sélectionnez **État du système**, puis cliquez sur **OK**.
+3. Dans le menu **Que voulez-vous sauvegarder ?** , sélectionnez **État du système**, puis **OK**.
 
     ![Configuration des fichiers et dossiers](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Lorsque vous cliquez sur OK, une coche apparaît en regard de la zone **Objectif de la sauvegarde** et le volet **Préparer l’infrastructure** s’ouvre.
+    Lorsque vous cliquez sur OK, une coche apparaît à côté de la zone **Objectif de la sauvegarde** et le volet **Préparer l’infrastructure** s’ouvre.
 
     ![Objectif de sauvegarde configuré, début de préparation de l’infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. Dans le panneau **Préparer l’infrastructure**, cliquez sur **Télécharger l’agent pour Windows Server ou pour le client Windows**.
+4. Dans le volet **Préparer l’infrastructure**, sélectionnez **Télécharger l’agent pour Windows Server ou pour le client Windows**.
 
-    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![Préparer l’infrastructure](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
     Si vous utilisez Windows Server Essentials, puis choisissez de télécharger l’agent associé à ce produit, un menu contextuel vous invite à exécuter ou enregistrer le fichier MARSAgentInstaller.exe.
 
     ![Boîte de dialogue MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. Dans le menu contextuel de téléchargement, cliquez sur **Enregistrer**.
+5. Dans le menu contextuel de téléchargement, sélectionnez **Enregistrer**.
 
     Par défaut, le fichier **MARSagentinstaller.exe** est enregistré dans le dossier Téléchargements. Une fois l’exécution du programme d’installation terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez lancer ce programme ou ouvrir le dossier.
 
-    ![Télécharger l’agent pour Windows Server ou Windows Client](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![L’installation de MARS est terminée](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
     Vous n’avez pas besoin d’installer l’agent à cette étape ; Vous pouvez installer l’agent après avoir téléchargé les informations d’identification du coffre.
 
-6. Dans le panneau **Préparer l’infrastructure**, cliquez sur **Télécharger**.
+6. Dans le volet **Préparer l’infrastructure**, sélectionnez **Télécharger**.
 
     ![Télécharger les informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Enregistrer**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.
+    Les informations d’identification du coffre sont téléchargées dans le dossier **Téléchargements**. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Sélectionnez **Enregistrer**. Si vous sélectionnez **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. Vous ne pouvez pas ouvrir les informations d’identification du coffre. Passez à l’étape suivante. Les informations d’identification du coffre se trouvent dans le dossier **Téléchargements**.
 
     ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -142,39 +142,39 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
     ![Lancer l’agent Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. Dans l’agent Recovery Services, cliquez sur **Planifier la sauvegarde**.
+2. Dans l’agent Recovery Services, sélectionnez **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. Sur la page Mise en route de l’Assistant Planifier la sauvegarde, cliquez sur **Suivant**.
+3. Sur la page **Mise en route** de l’Assistant Planifier la sauvegarde, sélectionnez **Suivant**.
 
-4. Sur la page Sélectionner les éléments à sauvegarder, cliquez sur **Ajouter des éléments**.
+4. Sur la page **Sélectionner les éléments à sauvegarder**, sélectionnez **Ajouter des éléments**.
 
-5. Sélectionnez **État du système**, puis cliquez sur **OK**.
+5. Sélectionnez **État du système**, puis **OK**.
 
-6. Cliquez sur **Suivant**.
+6. Sélectionnez **Suivant**.
 
 7. Sélectionnez la fréquence de sauvegarde requise et la stratégie de rétention pour les sauvegardes de l’état du système dans les pages suivantes.
 
-8. Sur la page Confirmation, passez en revue les informations, puis cliquez sur **Terminer**.
+8. Dans la page Confirmation, passez en revue les informations, puis sélectionnez **Terminer**.
 
-9. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
+9. Une fois que l’Assistant a créé la planification de sauvegarde, sélectionnez **Fermer**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Pour sauvegarder l’état du système Windows Server pour la première fois
 
 1. Vérifiez qu’aucune mise à jour de Windows Server nécessitant un redémarrage n’est en attente.
 
-2. Dans l’agent Recovery Services, cliquez sur **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
+2. Dans l’agent Recovery Services, sélectionnez **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
 
     ![Option Sauvegarder maintenant de Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Sélectionnez **État du système** dans l’écran **Sélectionner l’élément de sauvegarde** qui s’affiche, puis cliquez sur **Suivant**.
+3. Sélectionnez **État du système** dans l’écran **Sélectionner l’élément de sauvegarde** qui s’affiche, puis sélectionnez **Suivant**.
 
-4. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
+4. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, Sélectionnez ensuite **Sauvegarder**.
 
-5. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
+5. Sélectionnez **Fermer** pour fermer l’Assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
     > [!NOTE]
-    > L’Agent MARS déclenche la commande SFC /verifyonly dans le cadre des vérifications préalables à chaque sauvegarde de l’état du système. Cela permet de garantir que les fichiers sauvegardés dans le cadre de l’état du système disposent des versions appropriées correspondant à la version de Windows. Découvrez-en plus sur le vérificateur des fichiers système (SFC, System File Checker), consultez [cet article](/windows-server/administration/windows-commands/sfc).
+    > L’agent MARS déclenche `SFC /verifyonly` dans le cadre des vérifications préalables à chaque sauvegarde de l’état du système. Cela permet de garantir que les fichiers sauvegardés dans le cadre de l’état du système disposent des versions appropriées correspondant à la version de Windows. Découvrez-en plus sur le vérificateur des fichiers système (SFC, System File Checker), consultez [cet article](/windows-server/administration/windows-commands/sfc).
     >
 
 Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
@@ -183,7 +183,7 @@ Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** appara
 
 ## <a name="questions"></a>Des questions ?
 
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://feedback.azure.com/forums/258995-azure-backup).
+Si vous avez des questions, [envoyez-nous des commentaires](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

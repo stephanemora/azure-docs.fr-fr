@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
-ms.openlocfilehash: bfe609dc480dcdb71f162ca1bfd383a27257fedc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321698"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516620"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Principal de service Azure Active Directory avec Azure SQL
 
@@ -80,6 +80,8 @@ Pour permettre la création d’un objet Azure AD dans SQL Database et Azure Sy
 
 > [!IMPORTANT]
 > Les étapes 1 et 2 doivent être exécutées dans l’ordre indiqué ci-dessus. Tout d’abord, créez ou attribuez l’identité du serveur, puis accordez-lui ’autorisation [**Lecteurs de répertoire**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Si vous omettez l’une de ces étapes, ou les deux, une erreur d’exécution se produira lors de la création d’un objet Azure AD dans Azure SQL pour le compte d’une application Azure AD. Pour obtenir des instructions pas à pas permettant de créer un utilisateur Azure AD pour le compte d’une application Azure AD, consultez [Didacticiel : Créer des utilisateurs Azure AD avec des applications Azure AD](authentication-aad-service-principal-tutorial.md).
+>
+> Dans la **préversion publique**, vous pouvez affecter le rôle **Lecteurs de répertoire** à un groupe dans Azure AD. Les propriétaires du groupe peuvent ensuite ajouter l’identité managée en tant que membre de ce groupe, évitant ainsi qu’un **Administrateur général** ou **Administrateur de rôles privilégiés** accorde le rôle **Lecteurs de répertoire**. Pour plus d’informations sur cette fonctionnalité, consultez [Rôle Lecteurs d’annuaires dans Azure Active Directory pour Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Résolution des problèmes et limitations de la préversion publique
 

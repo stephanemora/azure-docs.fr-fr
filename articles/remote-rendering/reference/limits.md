@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808542"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566044"
 ---
 # <a name="limitations"></a>Limites
 
@@ -35,18 +35,17 @@ Un certain nombre de fonctionnalités ont une taille, un nombre ou d’autres li
 
 Le nombre autorisé de polygones pour tous les modèles chargés dépend de la taille de la machine virtuelle transmise à l’[API REST de gestion des sessions](../how-tos/session-rest-api.md#create-a-session) :
 
-| Taille de la machine virtuelle | Nombre maximal de polygones |
+| Taille du serveur | Nombre maximal de polygones |
 |:--------|:------------------|
 |standard| 20 millions |
 |Premium| aucune limite |
 
-Pour plus d’informations sur cette limitation, consultez le chapitre sur la [taille de machine virtuelle](../reference/vm-sizes.md).
+Pour plus d’informations sur cette limitation, consultez le chapitre sur la [taille de serveur](../reference/vm-sizes.md).
 
 ## <a name="platform-limitations"></a>Limitations de plateforme
 
 **Bureau Windows 10**
 
-* UWP/x86 est la seule plateforme UWP prise en charge. UWP/x64 n’est pas pris en charge.
 * Win32/x64 est la seule plateforme Win32 prise en charge. Win32/x86 n’est pas pris en charge.
 
 **HoloLens 2**

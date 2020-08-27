@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 57e13f3ed619fa88f29397fe44b783bd3650f636
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759164"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590232"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -60,7 +60,7 @@ L’activation de MFA nécessite des [autorisations de locataire Azure Active Di
 
 - Si vous disposez d’une édition Premium d’AD, activez MFA à l’aide de l’[accès conditionnel](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
-- Les utilisateurs de l’édition gratuite d’AD peuvent activer les **paramètres par défaut de sécurité** dans Azure Active Directory comme décrit dans la [documentation AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), mais la recommandation de Security Center d’activer MFA s’affiche toujours.
+- Si vous utilisez l’édition gratuite d’AD, activez les **paramètres de sécurité par défaut** dans Azure Active Directory, comme décrit dans la [documentation AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

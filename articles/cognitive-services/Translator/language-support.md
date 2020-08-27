@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888301"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510791"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
-Utilisez Translator pour traduire vers et à partir de l’une des 60 langues de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
+Utilisez Translator pour traduire vers et depuis plus de 70 langues de traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
 
 Vous pouvez aussi utiliser Translator en association avec Custom Translator pour créer des systèmes de traduction neuronaux qui comprennent la terminologie utilisée dans votre entreprise et votre secteur d’activité, et en association avec le service Microsoft Speech pour ajouter la traduction vocale à votre application.
 
@@ -47,6 +47,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Chinois traditionnel|   `zh-Hant`       |
 |Croate|  `hr`    |
 |Tchèque| `cs`    |
+|Dari|  `prs`   |
 |Danois|    `da`        |
 |Néerlandais| `nl`|
 |Anglais|   `en`    |
@@ -83,6 +84,8 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Maori| `mi`  |
 |Marathi| `mr`  |
 |Norvégien| `nb`    |
+|Odia|  `or`    |
+|Pachto|    `ps`    |
 |Persan|   `fa`    |
 |Polonais|    `pl`    |
 |Portugais (Brésil)|   `pt-br` |

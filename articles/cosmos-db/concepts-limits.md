@@ -5,37 +5,40 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391840"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605760"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
 Cet article fournit une vue d’ensemble des quotas par défaut appliqués à différentes ressources dans Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>Stockage et débit
+## <a name="storage-and-database-operations"></a>Opérations de stockage et de base de données
 
-Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous pouvez y gérer des données en [créant des bases de données, des conteneurs et des éléments](databases-containers-items.md). Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de données en termes d’[unités de requête (RU/s)](request-units.md). Le tableau suivant liste les limites de stockage et de débit par conteneur/base de données.
+Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous pouvez y gérer des données en [créant des bases de données, des conteneurs et des éléments](databases-containers-items.md).
+
+### <a name="provisioned-throughput"></a>Débit approvisionné
+
+Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de données en termes d’[unités de requête (RU/s)](request-units.md). Le tableau suivant liste les limites de stockage et de débit par conteneur/base de données.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
 | Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
-| Nombre maximal d’unités de requête par clé de partition (logique) | 10 000 |
-| Volume de stockage maximal sur tous les éléments par clé de partition (logique)| 20 Go |
+| Nombre maximal d’unités de requête par partition (logique) | 10 000 |
+| Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | Illimité |
 | Volume de stockage maximal par base de données | Illimité |
-| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go |
+| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est déconseillée) | 2 Go |
 | Unités de requête minimales requises par 1 Go | 10 RU/s |
 
 > [!NOTE]
 > Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
->
 
 Un conteneur Cosmos (ou une base de données à débit partagé) doit avoir un débit minimum de 400 RU/s. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
 
@@ -47,7 +50,6 @@ Les débits actuel et minimal d’un conteneur ou d’une base de données peuve
 
 > [!NOTE]
 > Dans certains cas, vous pourrez peut-être réduire le débit à moins de 10 %. Utilisez l’API pour récupérer le nombre minimal d’unités de requête par conteneur.
->
 
 En résumé, voici les limites minimales de RU provisionnées. 
 
@@ -58,6 +60,18 @@ En résumé, voici les limites minimales de RU provisionnées.
 | Nombre minimal d’unités de requête par conteneur au sein d’une base de données de débit partagé | 100 |
 
 Cosmos DB prend en charge la mise à l’échelle élastique du débit (RU) par conteneur ou base de données par le biais des kits SDK ou du portail. Chaque conteneur peut être mis à l’échelle de façon synchrone et immédiate au sein d’une plage d’échelle de facteur 10 à 100 entre les valeurs minimale et maximale. Si la valeur de débit demandée est en dehors de la plage, la mise à l’échelle est exécutée de façon asynchrone. La mise à l’échelle asynchrone peut prendre quelques minutes à quelques heures selon le débit demandé et la taille de stockage de données dans le conteneur.  
+
+### <a name="serverless"></a>Sans serveur
+
+[Serverless](serverless.md) vous permet d’utiliser vos ressources Azure Cosmos DB en fonction de la consommation. Le tableau suivant liste les limites de 95e centile du stockage et du débit par conteneur/base de données.
+
+| Ressource | Limite |
+| --- | --- |
+| Nombre maximal d’unités de requête par conteneur | 5 000 |
+| Nombre maximal d’unités de requête par partition (logique) | 5 000 |
+| Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
+| Nombre maximal de clés de partition (logiques) distinctes | Illimité |
+| Volume de stockage maximal par conteneur | 50 Go |
 
 ## <a name="control-plane-operations"></a>Opérations du plan de contrôle
 
@@ -75,12 +89,22 @@ Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pou
 
 ## <a name="per-account-limits"></a>Limites par compte
 
+### <a name="provisioned-throughput"></a>Débit approvisionné
+
 | Ressource | Limite par défaut |
 | --- | --- |
 | Nombre maximal de bases de données | Illimité |
 | Nombre maximal de conteneurs par base de données avec un débit partagé |25 |
 | Nombre maximal de conteneurs par base de données ou compte avec un débit dédié  |illimitée |
 | Nombre maximal de régions | Aucune limite (toutes les régions Azure) |
+
+### <a name="serverless"></a>Sans serveur
+
+| Ressource | Limite |
+| --- | --- |
+| Nombre maximal de bases de données | Illimité |
+| Nombre maximal de conteneurs par compte  | 100 |
+| Nombre maximal de régions | 1 (n’importe quelle région Azure) |
 
 ## <a name="per-container-limits"></a>Limites par conteneur
 

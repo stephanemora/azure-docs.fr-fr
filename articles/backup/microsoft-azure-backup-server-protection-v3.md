@@ -3,12 +3,12 @@ title: Ce que le serveur de sauvegarde Azure v3 RTM peut sauvegarder
 description: Cet article fournit une matrice de protection répertoriant toutes les charges de travail, tous les types de données et toutes les installations que protège le serveur de sauvegarde Azure v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538564"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611974"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure v3 RTM
 
@@ -76,9 +76,9 @@ La matrice suivante répertorie ce qui peut être protégé à l’aide du serve
 |Hôte Hyper-V : agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2012 - Datacenter et Standard|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|V3, V2|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machine virtuelle ; au niveau élément récupération de fichiers et de dossiers ; volumes ; disques durs virtuels|
 |Hôte Hyper-V : agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008 R2 SP1 - Enterprise et Standard|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|V3, V2|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machine virtuelle ; au niveau élément récupération de fichiers et de dossiers ; volumes ; disques durs virtuels|
 |Hôte Hyper-V : agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008 SP2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|Non pris en charge|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machine virtuelle ; au niveau élément récupération de fichiers et de dossiers ; volumes ; disques durs virtuels|
-|Machines virtuelles VMware|Sous licence VMware vCenter/vSphere ESX/ESXi version 5.5/6.0/6.5 |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|V3, V2|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
-|Machines virtuelles VMware|[Sous licence VMware vSphere version 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|V3|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
-|Linux|Linux s’exécutant en tant qu’invité Hyper-V ou VMware|Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|V3, V2|Hyper-V doit s’exécuter sur Windows Server 2012 R2 ou Windows Server 2016. Protéger : toute la machine virtuelle<br /><br />Récupérer : toute la machine virtuelle <br/><br/> Seuls les instantanés cohérents au niveau des fichiers sont pris en charge. <br/><br/> Pour obtenir la liste complète des versions et distributions Linux prises en charge, consultez l’article [Linux sur les distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Machines virtuelles VMware|Sous licence VMware vCenter/vSphere ESX/ESXi version 5.5/6.0/6.5 |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMware|V3, V2|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
+|Machines virtuelles VMware|[Sous licence VMware vSphere version 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMware|V3|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
+|Linux|Linux s’exécutant en tant qu’invité Hyper-V ou VMware|Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMware|V3, V2|Hyper-V doit s’exécuter sur Windows Server 2012 R2 ou Windows Server 2016. Protéger : toute la machine virtuelle<br /><br />Récupérer : toute la machine virtuelle <br/><br/> Seuls les instantanés cohérents au niveau des fichiers sont pris en charge. <br/><br/> Pour obtenir la liste complète des versions et distributions Linux prises en charge, consultez l’article [Linux sur les distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
