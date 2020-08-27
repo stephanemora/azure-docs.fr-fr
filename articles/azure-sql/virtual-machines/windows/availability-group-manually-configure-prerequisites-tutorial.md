@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284300"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651180"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prérequis de la création de groupes de disponibilité AlwaysOn sur SQL Server sur machines virtuelles Azure
 
@@ -380,7 +380,7 @@ Avant de continuer, envisagez les décisions de conception suivantes.
 
 * **Stockage - Azure Disques managés**
 
-   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/linux/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Réseau - Adresses IP privées en production**
 

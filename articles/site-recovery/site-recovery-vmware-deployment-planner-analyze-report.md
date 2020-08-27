@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699190"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654869"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du planificateur de déploiement pour la récupération d’urgence VMware sur Azure
 
@@ -178,7 +178,7 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 **Nom de la machine virtuelle** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile quand un rapport est généré. Cette colonne répertorie également les disques (VMDK) qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
 
-**Compatibilité de la machine virtuelle** : les valeurs sont **Oui** et **Oui\*** . **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/windows/disks-types.md). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple :
+**Compatibilité de la machine virtuelle** : les valeurs sont **Oui** et **Oui\*** . **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/disks-types.md). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple :
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15
 * 256 Go à 512 Go : disque P20.

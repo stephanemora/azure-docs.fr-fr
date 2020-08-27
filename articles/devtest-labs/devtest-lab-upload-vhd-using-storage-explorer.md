@@ -3,18 +3,18 @@ title: Charger un fichier VHD sur Azure DevTest Labs à l’aide de l’Explorat
 description: Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec l’explorateur de stockage Microsoft Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480760"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654512"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec l’explorateur de stockage Microsoft Azure
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Cet article montre comment utiliser l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger un fichier de disque dur virtuel vers le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/linux/managed-disks-overview.md)
+Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Cet article montre comment utiliser l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger un fichier de disque dur virtuel vers le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instructions pas à pas
 

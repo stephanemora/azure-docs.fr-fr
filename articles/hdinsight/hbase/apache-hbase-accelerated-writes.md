@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: de32f2a3a45a883f9da860b159eaa7f7b9368518
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085427"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654852"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-Cet article fournit des informations sur la fonctionnalité **Écritures accélérées** pour Apache HBase dans Azure HDInsight et explique comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Écritures accélérées** utilise les [disques managés SSD Premium Azure](../../virtual-machines/linux/disks-types.md#premium-ssd) pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour en savoir plus sur Apache HBase, consultez [Nouveautés d’Apache HBase dans Azure HDInsight](apache-hbase-overview.md).
+Cet article fournit des informations sur la fonctionnalité **Écritures accélérées** pour Apache HBase dans Azure HDInsight et explique comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Écritures accélérées** utilise les [disques managés SSD Premium Azure](../../virtual-machines/disks-types.md#premium-ssd) pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour en savoir plus sur Apache HBase, consultez [Nouveautés d’Apache HBase dans Azure HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Vue d’ensemble de l’architecture HBase
 
@@ -32,7 +32,7 @@ Si un **RegionServer** se bloque ou devient indisponible avant que MemStore ne s
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Fonctionnalité Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-La fonctionnalité Écritures accélérées résout le problème des latences en écriture plus élevées en raison de l’utilisation des journaux WAL (write-ahead log) stockés dans le cloud.  La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker). Les journaux WAL (write-ahead log) sont ensuite écrits sur le système de fichiers DFS hadoop montés sur ces disques SSD managés Premium et non pas dans le stockage cloud.  Les disques managés Premium utilisent des disques SSD et offrent d’excellentes performances d’E/S, ainsi qu’une tolérance de panne.  Contrairement aux disques non managés, si une unité de stockage tombe en panne, elle n’affecte pas les autres unités de stockage du même groupe à haute disponibilité.  Par conséquent, les disques managés offrent une faible latence en écriture et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques managés Azure, consultez [Présentation des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
+La fonctionnalité Écritures accélérées résout le problème des latences en écriture plus élevées en raison de l’utilisation des journaux WAL (write-ahead log) stockés dans le cloud.  La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker). Les journaux WAL (write-ahead log) sont ensuite écrits sur le système de fichiers DFS hadoop montés sur ces disques SSD managés Premium et non pas dans le stockage cloud.  Les disques managés Premium utilisent des disques SSD et offrent d’excellentes performances d’E/S, ainsi qu’une tolérance de panne.  Contrairement aux disques non managés, si une unité de stockage tombe en panne, elle n’affecte pas les autres unités de stockage du même groupe à haute disponibilité.  Par conséquent, les disques managés offrent une faible latence en écriture et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques managés Azure, consultez [Présentation des disques managés Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer la fonctionnalité Écritures accélérées pour HBase dans HDInsight
 

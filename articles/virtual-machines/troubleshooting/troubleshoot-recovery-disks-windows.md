@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1c7b6ee73513c7e51e3bb18c3835a1d395a4c516
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63d5e4bcc57a734fc5ea455da7c2db940a4b8ec3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028259"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654682"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure PowerShell
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, vous devrez peut-être appliquer la procédure de résolution de problèmes directement sur le disque. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure PowerShell pour connecter le disque à une autre machine virtuelle Windows et corriger les éventuelles erreurs, puis réparer votre machine virtuelle d’origine. 
 
 > [!Important]
-> Les scripts dans cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Disque managé](../windows/managed-disks-overview.md). 
+> Les scripts dans cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Disque managé](../managed-disks-overview.md). 
 
  
 

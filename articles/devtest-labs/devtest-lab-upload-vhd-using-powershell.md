@@ -3,18 +3,18 @@ title: Télécharger un fichier de disque dur virtuel vers Azure DevTest Labs av
 description: Cet article présente une procédure pas à pas qui vous explique comment charger un fichier VHD sur Azure DevTest Labs avec PowerShell.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ff8ee15f35765027db1407f05c108739bd97433e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b393b886a50f60a918690ee2a5583f9623dbe39
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480777"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650755"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec PowerShell
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Les étapes suivantes vous guident lors de l’utilisation de PowerShell pour charger un fichier de disque dur virtuel sur le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/linux/managed-disks-overview.md)
+Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Les étapes suivantes vous guident lors de l’utilisation de PowerShell pour charger un fichier de disque dur virtuel sur le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instructions pas à pas
 

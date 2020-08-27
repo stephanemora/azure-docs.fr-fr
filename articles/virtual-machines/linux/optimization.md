@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659460"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654189"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Pour bénéficier des plus hauts niveaux d’E/S par seconde sur les disques de 
 * Si vous utilisez **XFS**, désactivez les barrières à l’aide de l’option de montage `nobarrier`. (Pour activer les barrières, utilisez l’option `barrier`.)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considérations relatives aux comptes de stockage non gérés
-L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non managés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non managés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
+L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non managés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non managés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
 
 Si vous créez une machine virtuelle avec des disques non managés, veillez à attacher les disques à partir de comptes de stockage résidant dans la même région que votre machine virtuelle afin d’assurer une proximité étroite et de minimiser la latence du réseau.  Chaque compte de stockage Standard présente une limite de 20 000 E/S par seconde et une taille maximale de 500 To.  Cette limite correspond à environ 40 disques utilisés de manière intensive, incluant le disque de système d’exploitation et tous les disques de données que vous créez. Pour les comptes de stockage Premium, il n’existe aucun nombre maximal d’E/S par seconde, mais une limite de taille de 32 To. 
 

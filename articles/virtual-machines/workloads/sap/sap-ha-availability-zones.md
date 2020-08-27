@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035789"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653594"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](../../../availability-zones/az-overview.md) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -109,7 +109,7 @@ Les considérations suivantes s’appliquent pour cette configuration :
 - Pour les équilibreurs de charge des clusters de basculement de SAP Central Services et la couche SGBD, vous devez utiliser le service [Azure Load Balancer de la référence SKU standard](../../../load-balancer/load-balancer-standard-availability-zones.md). L’équilibreur de charge de base ne fonctionne pas entre des zones.
 - Le réseau virtuel Azure que vous avez déployé pour héberger le système SAP, ainsi que ses sous-réseaux, est réparti sur plusieurs zones. Vous n’avez pas besoin de réseaux virtuels distincts pour chaque zone.
 - Pour toutes les machines virtuelles que vous déployez, vous devez utiliser [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/). Les disques non managés ne sont pas pris en charge pour les déploiements sur des zones.
-- Le stockage Premium Azure et le [stockage SSD Ultra](../../windows/disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
+- Le stockage Premium Azure et le [stockage SSD Ultra](../../disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
 - Il en va de même pour le répertoire partagé sapmnt, qui est un disque partagé (Windows), un partage CIFS (Windows) ou un partage NFS (Linux). Vous devez utiliser une technologie qui réplique ces disques partagés ou ces partages entre les zones. Ces technologies sont prises en charge :
   - Pour Windows, une solution de cluster qui utilise SIOS Datakeeper, comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - Pour SUSE Linux, un partage NFS créé comme décrit dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -137,7 +137,7 @@ Les considérations suivantes s’appliquent pour cette configuration :
 - Pour les équilibreurs de charge des clusters de basculement de SAP Central Services et la couche SGBD, vous devez utiliser le service [Azure Load Balancer de la référence SKU standard](../../../load-balancer/load-balancer-standard-availability-zones.md). L’équilibreur de charge de base ne fonctionne pas entre des zones.
 - Le réseau virtuel Azure que vous avez déployé pour héberger le système SAP, ainsi que ses sous-réseaux, est réparti sur plusieurs zones. Vous n’avez pas besoin de réseaux virtuels distincts pour chaque zone.
 - Pour toutes les machines virtuelles que vous déployez, vous devez utiliser [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/). Les disques non managés ne sont pas pris en charge pour les déploiements sur des zones.
-- Le stockage Premium Azure et le [stockage SSD Ultra](../../windows/disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
+- Le stockage Premium Azure et le [stockage SSD Ultra](../../disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
 - Il en va de même pour le répertoire partagé sapmnt, qui est un disque partagé (Windows), un partage CIFS (Windows) ou un partage NFS (Linux). Vous devez utiliser une technologie qui réplique ces disques partagés ou ces partages entre les zones. Ces technologies sont prises en charge :
     - Pour Windows, une solution de cluster qui utilise SIOS Datakeeper, comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Pour SUSE Linux, un partage NFS créé comme décrit dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -167,7 +167,7 @@ Les considérations suivantes s’appliquent pour cette configuration :
 - Pour les équilibreurs de charge des clusters de basculement de SAP Central Services et la couche SGBD, vous devez utiliser le service [Azure Load Balancer de la référence SKU standard](../../../load-balancer/load-balancer-standard-availability-zones.md). L’équilibreur de charge de base ne fonctionne pas entre des zones.
 - Le réseau virtuel Azure que vous avez déployé pour héberger le système SAP, ainsi que ses sous-réseaux, est réparti sur plusieurs zones. Vous n’avez pas besoin de réseaux virtuels distincts pour chaque zone.
 - Pour toutes les machines virtuelles que vous déployez, vous devez utiliser [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/). Les disques non managés ne sont pas pris en charge pour les déploiements sur des zones.
-- Le stockage Premium Azure et le [stockage SSD Ultra](../../windows/disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
+- Le stockage Premium Azure et le [stockage SSD Ultra](../../disks-types.md#ultra-disk) ne prennent en charge aucun type de réplication de stockage entre des zones. L’application (SGBD ou SAP Central Services) doit répliquer des données importantes.
 - Il en va de même pour le répertoire partagé sapmnt, qui est un disque partagé (Windows), un partage CIFS (Windows) ou un partage NFS (Linux). Vous devez utiliser une technologie qui réplique ces disques partagés ou ces partages entre les zones. Ces technologies sont prises en charge :
     - Pour Windows, une solution de cluster qui utilise SIOS Datakeeper, comme décrit dans [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Pour SUSE Linux, un partage NFS créé comme décrit dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

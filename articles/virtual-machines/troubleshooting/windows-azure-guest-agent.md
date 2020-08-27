@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263807"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659464"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Résolution des problèmes de l’agent invité Windows Azure
 
@@ -102,7 +102,7 @@ L’agent invité Windows Azure intègre une fonctionnalité de mise à jour aut
 
 1. Déplacez tous les dossiers nommés Packages ou GuestAgent dans le dossier OLD.
 
-1. Téléchargez et installez la dernière version du package d’installation de l’agent à partir d’[ici](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
+1. Téléchargez et installez la dernière version du package d’installation de l’agent à partir d’[ici](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
 
 1. Installez l’agent invité à l’aide de la commande suivante :
 

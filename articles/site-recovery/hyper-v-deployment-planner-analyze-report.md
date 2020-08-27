@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710267"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653577"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -179,7 +179,7 @@ Le rapport Excel généré par le Planificateur de déploiement Azure Site Recov
 
 **VM Name** : nom de la machine virtuelle utilisé dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques (VHD) qui sont attachés aux machines virtuelles. Les noms incluent les noms d’hôte Hyper-V sur lesquels les machines virtuelles ont été placées lorsqu’elles ont été découvertes par l’outil pendant le profilage.
 
-**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/windows/disks-types.md). Ici, le disque profilé à forte activité ou à IOPS élevé s’ajuste dans une taille de disque premium supérieure à la taille mappée au disque. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille : 
+**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/disks-types.md). Ici, le disque profilé à forte activité ou à IOPS élevé s’ajuste dans une taille de disque premium supérieure à la taille mappée au disque. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille : 
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15.
 * 256 Go à 512 Go : disque P20.

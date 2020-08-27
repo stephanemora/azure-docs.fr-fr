@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837089"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685287"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Séries Dv2 et Dsv2 à mémoire optimisée
 
@@ -65,7 +65,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64 000/512 (576) | 51 200/768 | 8|12 000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80 000/640 (720) | 64 000/960 | 8|25 000<sup>4</sup> |
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](./windows/premium-storage-performance.md).
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](./premium-storage-performance.md).
 <sup>2</sup> L’instance est isolée sur le matériel Intel Haswell et dédiée à un seul client.  
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.  
 <sup>4</sup> 25 000 MBps avec mise en réseau accélérée.
@@ -83,7 +83,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

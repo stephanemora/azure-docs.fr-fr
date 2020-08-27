@@ -5,12 +5,12 @@ description: Découvrez comment créer un volume persistant dynamiquement avec d
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518009"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683604"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec des disques Azure sur Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Chaque cluster AKS comprend quatre classes de stockage précréées, dont deux 
     
 Si vous utilisez l’une des classes de stockage par défaut, vous ne pouvez pas mettre à jour la taille du volume après avoir créé la classe de stockage. Pour pouvoir faire cette mise à jour après la création d’une classe de stockage, ajoutez la ligne `allowVolumeExpansion: true` à l’une des classes de stockage par défaut, ou créez une classe de stockage personnalisée. Notez qu’il n’est pas possible de réduire la taille d’une PVC (afin d’éviter la perte de données). Vous pouvez modifier une classe de stockage existante à l’aide de la commande `kubectl edit sc`. 
 
-Par exemple, si vous souhaitez utiliser un disque de taille 4 Tio, vous devez créer une classe de stockage qui définit `cachingmode: None`, car [la mise en cache de disque n’est pas prise en charge pour les disques de 4 Tio ou plus](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Par exemple, si vous souhaitez utiliser un disque de taille 4 Tio, vous devez créer une classe de stockage qui définit `cachingmode: None`, car [la mise en cache de disque n’est pas prise en charge pour les disques de 4 Tio ou plus](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 Pour plus d’informations sur les classes de stockage et la création de votre propre classe de stockage, consultez [Options de stockage pour les applications dans AKS][storage-class-concepts].
 
@@ -276,7 +276,7 @@ Découvrez plus en détail les volumes persistants Kubernetes utilisant des disq
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

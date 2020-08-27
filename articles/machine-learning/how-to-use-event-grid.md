@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319488"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650415"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Déclenchement des applications, des processus et des workflows CI/CD en fonction d’événements Azure Machine Learning (préversion)
 
@@ -199,7 +199,7 @@ Cet exemple montre comment utiliser Event Grid avec une application logique Azur
 
 Avant de commencer, effectuez les étapes suivantes :
 
-* Configurer une analyse de jeu de données pour [détecter la dérive de données]( https://aka.ms/datadrift) dans un espace de travail
+* Configurer une analyse de jeu de données pour [détecter la dérive de données](how-to-monitor-datasets.md) dans un espace de travail
 * Créer un [pipeline Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) publié.
 
 Dans cet exemple, un pipeline Data Factory simple est utilisé pour copier des fichiers dans un magasin d’objets blob et exécuter un pipeline Machine Learning publié. Pour plus d’informations sur ce scénario, découvrez comment configurer une [étape de Machine Learning dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

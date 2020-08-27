@@ -3,13 +3,13 @@ title: Questions suggérées pour l’apprentissage actif – QnA Maker
 description: Améliorez la qualité de votre base de connaissances avec l'apprentissage actif. Examinez, acceptez ou refusez, ajoutez sans supprimer ou modifier les questions existantes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc7aebc3df2d14c78230d112e3e807d8d98fb047
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9bed80ac8c80fb4cecf06b979e0403e34645db01
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406977"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919129"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 

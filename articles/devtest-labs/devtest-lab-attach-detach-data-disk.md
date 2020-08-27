@@ -3,15 +3,15 @@ title: Attacher ou détacher un disque de données sur une machine virtuelle dan
 description: Découvrez comment attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287569"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653917"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
-[Azure Disques managés](../virtual-machines/windows/managed-disks-overview.md) gère les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
+[Azure Disques managés](../virtual-machines/managed-disks-overview.md) gère les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
 
 Cette fonctionnalité est pratique pour la gestion de stockage ou de logiciels en dehors de chaque machine virtuelle individuelle. Si les logiciels ou le stockage existent déjà à l’intérieur d’un disque de données, celui-ci peut être facilement attaché, détaché et rattaché à n’importe quelle machine virtuelle appartenant à l’utilisateur qui a ce disque de données.
 

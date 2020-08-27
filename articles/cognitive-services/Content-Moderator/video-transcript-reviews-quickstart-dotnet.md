@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73744378"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919214"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -144,7 +145,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 **CreateVideoReviews** a les paramètres obligatoires suivants :
 1. Une chaîne contenant un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
-1. Un objet **IList\<CreateVideoReviewsBodyItem>** . Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
+1. Un objet **IList\<CreateVideoReviewsBodyItem>**. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
 
 **CreateVideoReviewsBodyItem** a plusieurs propriétés. Vous définissez au moins les propriétés suivantes :
 - **Content**. URL de la vidéo à réviser.
@@ -152,7 +153,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 - **Status**. Définissez la valeur sur « Unpublished ». Si vous ne définissez pas cette propriété, sa valeur par défaut est « Pending », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision par un opérateur humain. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcription ou de résultat de la modération des transcriptions.
 
 > [!NOTE]
-> **CreateVideoReviews** retourne une chaîne IList\<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
+> **CreateVideoReviews** retourne un IList\<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
 
 Ajoutez la définition de méthode suivante à la classe Program de l’espace de noms VideoReviews.
 

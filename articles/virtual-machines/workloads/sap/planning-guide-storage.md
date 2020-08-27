@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510859"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653611"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -36,7 +36,7 @@ Il existe plusieurs autres méthodes de redondance, qui sont toutes décrites da
 
 ### <a name="azure-managed-disks"></a>Disques managés Azure
 
-Les disques managés sont un type de ressources d’Azure Resource Manager. Ils peuvent être utilisés à la place des disques durs virtuels qui sont stockés dans les comptes de stockage Azure. Les disques managés s’alignent automatiquement sur le [groupe à haute disponibilité][disponibilité de gestion des machines virtuelles] de la machine virtuelle à laquelle ils sont attachés. De fait, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci. Pour plus d’informations, consultez [l’article de vue d’ensemble](../../windows/managed-disks-overview.md).
+Les disques managés sont un type de ressources d’Azure Resource Manager. Ils peuvent être utilisés à la place des disques durs virtuels qui sont stockés dans les comptes de stockage Azure. Les disques managés s’alignent automatiquement sur le [groupe à haute disponibilité][disponibilité de gestion des machines virtuelles] de la machine virtuelle à laquelle ils sont attachés. De fait, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci. Pour plus d’informations, consultez [l’article de vue d’ensemble](../../managed-disks-overview.md).
 
 En rapport avec la résilience, cet exemple illustre l’avantage des disques managés :
 
@@ -61,7 +61,7 @@ Le stockage persistant est nécessaire dans la charge de travail SAP dans les di
 - Partages de fichiers ou disques partagés qui contiennent votre répertoire de transport global pour NetWeaver ou S/4HANA. Le contenu de ces partages est consommé par un logiciel s’exécutant sur plusieurs machines virtuelles ou utilisé pour créer des scénarios de cluster de basculement à haute disponibilité.
 - Répertoire /sapmnt ou partages de fichiers communs pour les processus EDI ou similaires. Le contenu de ces partages est consommé par un logiciel s’exécutant sur plusieurs machines virtuelles ou utilisé pour créer des scénarios de cluster de basculement à haute disponibilité.
 
-Dans les sections suivantes, les différents types de stockage Azure et leur utilisabilité pour la charge de travail SAP sont abordés et s’appliquent aux quatre scénarios ci-dessus. L’article [Quels sont les types de disque disponibles dans Azure ?](../../linux/disks-types.md) répertorie les façons dont les différents types de stockage Azure doivent être utilisés. Les recommandations relatives à l’utilisation des différents types de stockage Azure pour la charge de travail SAP ne vont pas être très différentes.
+Dans les sections suivantes, les différents types de stockage Azure et leur utilisabilité pour la charge de travail SAP sont abordés et s’appliquent aux quatre scénarios ci-dessus. L’article [Quels sont les types de disque disponibles dans Azure ?](../../disks-types.md) répertorie les façons dont les différents types de stockage Azure doivent être utilisés. Les recommandations relatives à l’utilisation des différents types de stockage Azure pour la charge de travail SAP ne vont pas être très différentes.
 
 Pour en savoir plus sur les restrictions de support sur les types de stockage Azure pour la couche d’application/SAP NetWeaver de S/4HANA, lisez la [note de support SAP 2015553](https://launchpad.support.sap.com/#/notes/2015553) Pour en savoir plus sur les types de stockage Azure certifiés et pris en charge par SAP HANA, consultez l'article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md).
 
@@ -123,7 +123,7 @@ Le stockage SSD Premium Azure a été introduit dans le but de fournir les avant
 * Contrat de niveau de service pour les IOPS et le débit
 * Moins de variabilité dans la latence des E/S
 
-Ce type de stockage cible les charges de travail SGBD, le trafic de stockage qui nécessite une latence faible à un chiffre, et les contrats SLA sur les IOPS et le coût du débit dans le cas du stockage Premium Azure ne correspondent pas au volume de données réel stocké sur ces disques, mais à la catégorie de taille d’un tel disque, indépendamment de la quantité de données stockées sur le disque. Vous pouvez également créer des disques dans Stockage Premium qui ne sont pas directement mappés aux catégories de taille présentées dans l’article [SSD Premium](../../linux/disks-types.md#premium-ssd). Les conclusions de cet article sont les suivantes :
+Ce type de stockage cible les charges de travail SGBD, le trafic de stockage qui nécessite une latence faible à un chiffre, et les contrats SLA sur les IOPS et le coût du débit dans le cas du stockage Premium Azure ne correspondent pas au volume de données réel stocké sur ces disques, mais à la catégorie de taille d’un tel disque, indépendamment de la quantité de données stockées sur le disque. Vous pouvez également créer des disques dans Stockage Premium qui ne sont pas directement mappés aux catégories de taille présentées dans l’article [SSD Premium](../../disks-types.md#premium-ssd). Les conclusions de cet article sont les suivantes :
 
 - Le stockage est organisé en plages. Par exemple, un disque dans la plage 513 Gio à 1024 Gio partage les mêmes fonctionnalités et les mêmes coûts mensuels.
 - Les IOPS par Gio ne suivent pas de manière linéaire les catégories de taille. Les petits disques de moins de 32 Gio ont des taux d'IOPS par Gio plus élevés. Pour les disques entre 32 Gio et 1024 Gio, le taux d'IOPS par Gio se situe entre 4 et 5 IOPS par Gio. Pour les disques plus volumineux jusqu'à 32 767 Gio, le taux d’IOPS par Gio est inférieur à 1
@@ -184,8 +184,8 @@ Les disques Ultra Azure fournissent un stockage sur disque présentant un débit
 En créant un disque Ultra, vous disposez de trois dimensions que vous pouvez définir :
 
 - Capacité du disque. Les plages sont comprises entre 4 Gio et 65 536 Gio
-- IOPS provisionnées pour le disque. Des valeurs maximales différentes s’appliquent à la capacité du disque. Lire l’article [Disque Ultra](../../linux/disks-types.md#ultra-disk) pour plus de détails
-- Bande passante de stockage approvisionnée. Une bande passante maximale différente s’applique en fonction de la capacité du disque. Lire l’article [Disque Ultra](../../linux/disks-types.md#ultra-disk) pour plus de détails
+- IOPS provisionnées pour le disque. Des valeurs maximales différentes s’appliquent à la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disk) pour plus de détails
+- Bande passante de stockage approvisionnée. Une bande passante maximale différente s’applique en fonction de la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disk) pour plus de détails
 
 Le coût d’un seul disque est déterminé par les trois dimensions que vous pouvez définir pour les disques spécifiques séparément. 
 

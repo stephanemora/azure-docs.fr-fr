@@ -4,23 +4,23 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986829"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650177"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
-Les [disques Ultra Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md) permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour vos applications avec état. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans devoir redémarrer vos nœuds d’agent. Les disques Ultra sont adaptés aux charges de travail à forte intensité de données.
+Les [disques Ultra Azure](../virtual-machines/disks-enable-ultra-ssd.md) permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour vos applications avec état. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans devoir redémarrer vos nœuds d’agent. Les disques Ultra sont adaptés aux charges de travail à forte intensité de données.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Cette fonctionnalité ne peut être définie qu’au moment de la création du cluster ou de la création du pool de nœuds.
 
 > [!IMPORTANT]
-> Les disques Ultra Azure requièrent des pools de nœuds déployés dans des zones de disponibilité et des régions qui prennent en charge ces disques, ainsi que des séries de machines virtuelles spécifiques uniquement. Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Les disques Ultra Azure requièrent des pools de nœuds déployés dans des zones de disponibilité et des régions qui prennent en charge ces disques, ainsi que des séries de machines virtuelles spécifiques uniquement. Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Limites
-- Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - La plage de tailles prise en charge pour les disques Ultra est comprise entre 100 et 1 500
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Créer un cluster qui peut utiliser des disques Ultra
@@ -226,7 +226,7 @@ Events:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les disques Ultra, consultez [Utilisation de disques Ultra Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- Pour plus d’informations sur les disques Ultra, consultez [Utilisation de disques Ultra Azure](../virtual-machines/disks-enable-ultra-ssd.md).
 - Pour plus d’informations sur les meilleures pratiques relatives au stockage, consultez [Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -240,7 +240,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

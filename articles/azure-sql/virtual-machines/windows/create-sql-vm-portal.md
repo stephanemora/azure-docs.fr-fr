@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8b16551abf5b52a9b848988a50fe556d364907b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669288"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652014"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Comment utiliser le portail Azure pour provisionner une machine virtuelle Windows avec SQL Server
 
@@ -104,7 +104,7 @@ Sous l’onglet **Disques**, configurez les options de vos disques.
 * Sous **Avancé**, sélectionnez **Oui** sous **Utiliser des disques managés**.
 
    > [!NOTE]
-   > Microsoft recommande la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../../../virtual-machines/windows/managed-disks-overview.md). Pour plus de détails sur les disques managés dans un groupe à haute disponibilité, consultez l’article [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/windows/manage-availability.md).
+   > Microsoft recommande la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../../../virtual-machines/managed-disks-overview.md). Pour plus de détails sur les disques managés dans un groupe à haute disponibilité, consultez l’article [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/windows/manage-availability.md).
 
 ![Paramètres des disques des machines virtuelles SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   

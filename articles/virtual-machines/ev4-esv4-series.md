@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: aa7e773cb45ea23d0e091ce12cc8488114ddfbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 34c29a6f6cab77eaa69c7f28f57a4b823dd23d08
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837055"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685236"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
@@ -82,7 +82,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 | Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 462000/2904 (1200) | 76 800/1152 | 8|24 000 |
 | Standard_E64s_v4<sup>1</sup> | 64 | 504| Stockage distant uniquement | 32 | 615000/3872 (1600) | 80 000/1 200 | 8|30000 |
 
-<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./windows/constrained-vcpu.md).
+<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -97,7 +97,7 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./linux/disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e1b510ed970b253adedef0fb6efb4abe0c3b65b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506394"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650466"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
 Azure fournit des types de stockage différents, adaptés aux machines virtuelles Azure exécutant SAP HANA. **Types de stockage Azure certifiés SAP HANA** pouvant être pris en compte pour la liste des déploiements SAP HANA, tels que : 
 
 - SSD Azure Premium ou stockage Premium 
-- [Disque Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Disque Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Pour en savoir plus sur ces types de disques, consultez les articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../linux/disks-types.md)
+Pour en savoir plus sur ces types de disques, consultez les articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../disks-types.md)
 
 Azure offre deux méthodes de déploiement avec les disques durs virtuels sur le stockage Azure Standard et Premium. Nous vous recommandons de tirer parti du [disque géré Azure](https://azure.microsoft.com/services/managed-disks/) pour les déploiements de stockage par blocs Azure. 
 
@@ -59,7 +59,7 @@ Localement, vous aviez rarement besoin de vous occuper des sous-systèmes d’E/
 
 Voici une liste de certains principes de directeur quant au choix de la configuration de stockage pour HANA :
 
-- Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../linux/disks-types.md)
+- Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../disks-types.md)
 - Gardez à l’esprit le débit d’E/S global et les limites d’IOPS de la machine virtuelle lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md)
 - Lorsque vous choisissez la configuration du stockage, essayez de rester en dessous du débit global de la machine virtuelle avec votre configuration de volume **/hana/data**. L’écriture de points d’enregistrement, SAP HANA peut générer des opérations d’E/S agressives. Vous pouvez facilement atteindre les limites de débit de votre volume **/hana/data** lors de l’écriture d’un point d’enregistrement. Si votre ou vos disques générant le volume **/hana/data** affichent un débit supérieur à celui autorisé par votre machine virtuelle, vous pouvez rencontrer des situations où le débit utilisé par l’écriture du point d’enregistrement interfère avec les demandes de débit des écritures de journal de rétablissement. Cette situation peut avoir un impact sur le débit de l’application
 - Si vous utilisez le stockage Premium Azure, la configuration la moins coûteuse consiste à utiliser des gestionnaires de volumes logiques pour créer des jeux de bandes afin de générer les volumes **/hana/data** et **/hana/log**
@@ -218,7 +218,7 @@ Pour les autres volumes, y compris **/hana/log** sur disque Ultra, la configurat
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuration du stockage sur disque Ultra Azure pour SAP HANA
-Un autre type de stockage Azure est appelé [Disque Ultra Azure](../../windows/disks-types.md#ultra-disk). La grande différence entre le stockage Azure proposé jusqu’à présent et le disque Ultra est que les capacités du disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour le disque Ultra :
+Un autre type de stockage Azure est appelé [Disque Ultra Azure](../../disks-types.md#ultra-disk). La grande différence entre le stockage Azure proposé jusqu’à présent et le disque Ultra est que les capacités du disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour le disque Ultra :
 
 - Taille d’un disque allant de 4 à 65 536 Gio
 - IOPS allant de 100 à 160K (la valeur maximum dépend également des types de machine virtuelle)

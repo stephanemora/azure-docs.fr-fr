@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058154"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649735"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage
 
@@ -28,7 +28,7 @@ Dans certains scénarios, vous pouvez rencontrer l’une des erreurs suivantes l
 > 
 > **Impossible de supprimer # sur # objets blob :<br>BlobName.vhd : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.**
 
-Les VHD utilisés dans des machines virtuelles Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour plus d'informations sur les disques Azure, consultez [Présentation des disques managés](../linux/managed-disks-overview.md).
+Les VHD utilisés dans des machines virtuelles Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour plus d'informations sur les disques Azure, consultez [Présentation des disques managés](../managed-disks-overview.md).
 
 Azure empêche la suppression d’un disque qui est joint à une machine virtuelle pour éviter une altération des données. Il empêche également la suppression de conteneurs et de comptes de stockage qui ont un objet blob de pages joint à une machine virtuelle. 
 

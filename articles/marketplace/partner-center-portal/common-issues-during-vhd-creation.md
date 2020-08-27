@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4d30cdb931d6523eba3aac003caeee38a8c024d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504311"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653526"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problèmes couramment rencontrés lors de la création d’un disque dur virtuel
 
@@ -20,7 +20,7 @@ Ces questions fréquentes couvrent les problèmes courants que vous pouvez renco
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Comment créer une machine virtuelle à partir du portail Azure à l’aide d’un disque dur virtuel dans le stockage Premium ?
 
-Pour le moment, la Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images situées dans le stockage managé ou à partir du stockage Premium Azure. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Pour le moment, la Place de marché Microsoft Azure ne prend pas en charge la création d’offres de machine virtuelle à partir d’images situées dans le stockage managé ou à partir du stockage Premium Azure. Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Est-ce que je peux utiliser des machines virtuelles de 2e génération pour les offres ?
 

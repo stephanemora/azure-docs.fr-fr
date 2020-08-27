@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e5fb19b0d8d94b5ccc07c465c3e9f3bf0de50ab7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843044"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652591"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -157,30 +157,6 @@ L’API REST attend que le corps de la demande soit un document JSON avec la str
 
 > [!IMPORTANT]
 > La structure des données doit correspondre à ce que le script de scoring et le modèle du service attendent. Le script de scoring peut modifier les données avant de les transmettre au modèle.
-
-Par exemple, le modèle de l’exemple [Effectuer l'apprentissage dans un bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) attend un tableau de 10 chiffres. Le script de scoring pour cet exemple crée un tableau Numpy à partir de la demande et le transmet au modèle. L’exemple suivant montre les données que ce service attend :
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-Le service web peut accepter plusieurs jeux de données dans une même demande. Il retourne un document JSON contenant un tableau de réponses.
 
 ### <a name="binary-data"></a>Données binaires
 
