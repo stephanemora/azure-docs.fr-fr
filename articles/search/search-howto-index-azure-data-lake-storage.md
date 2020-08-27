@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 5862654dac99bea7755eab41cf3c1bd6cdd84526
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: b1a88398d657e6bc242c7db12f3c0ddc1af828ca
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760309"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935855"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexation de documents dans Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ ms.locfileid: "87760309"
 > La prise en charge d’Azure Data Lake Storage Gen2 est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vous pouvez demander l’accès aux préversions en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). Les [versions d’API REST 2020-06-30-preview](search-api-preview.md) et le portail offrent cette fonctionnalité. Le SDK .NET n’est actuellement pas pris en charge.
 
 
-Lorsque vous configurez un compte de stockage Azure, vous avez la possibilité d’activer un [espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Cela permet d’organiser la collection du contenu d’un compte dans une hiérarchie de répertoires et de sous-répertoires imbriqués. En activant l’espace de noms hiérarchique, vous activez [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+Lorsque vous configurez un compte de stockage Azure, vous avez la possibilité d’activer un [espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md). Cela permet d’organiser la collection du contenu d’un compte dans une hiérarchie de répertoires et de sous-répertoires imbriqués. En activant l’espace de noms hiérarchique, vous activez [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 Cet article explique comment prendre en main l’indexation des documents qui se trouvent dans Azure Data Lake Storage Gen2.
 
@@ -44,9 +44,9 @@ L’indexation du contenu dans Data Lake Storage Gen2 est identique à l’index
 
 ## <a name="access-control"></a>Contrôle d’accès
 
-Azure Data Lake Storage Gen2 implémente un [modèle de contrôle d’accès](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) qui prend en charge le contrôle d’accès en fonction du rôle (Azure RBAC) et les listes de contrôle d’accès (ACL) POSIX. Lorsque vous indexez du contenu à partir de Data Lake Storage Gen2, Recherche cognitive Azure n’extraira pas les informations RBAC et ACL du contenu. Par conséquent, ces informations ne seront pas incluses dans votre index Recherche cognitive Azure.
+Azure Data Lake Storage Gen2 implémente un [modèle de contrôle d’accès](../storage/blobs/data-lake-storage-access-control.md) qui prend en charge le contrôle d’accès en fonction du rôle (Azure RBAC) et les listes de contrôle d’accès (ACL) POSIX. Lorsque vous indexez du contenu à partir de Data Lake Storage Gen2, Recherche cognitive Azure n’extraira pas les informations RBAC et ACL du contenu. Par conséquent, ces informations ne seront pas incluses dans votre index Recherche cognitive Azure.
 
-Si la gestion du contrôle d’accès sur chaque document de l’index est importante, le développeur de l’application doit implémenter un [filtrage de sécurité](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+Si la gestion du contrôle d’accès sur chaque document de l’index est importante, le développeur de l’application doit implémenter un [filtrage de sécurité](./search-security-trimming-for-azure-search.md).
 
 ## <a name="change-detection"></a>Détection des changements
 

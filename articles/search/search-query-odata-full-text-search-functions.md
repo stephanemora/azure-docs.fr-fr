@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201388"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935787"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Fonctions de recherche en texte intégral OData dans Recherche cognitive Azure- `search.ismatch` et `search.ismatchscoring`
 
-Recherche cognitive Azure prend en charge la recherche en texte intégral dans le contexte d’[expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `search.ismatch` et `search.ismatchscoring`. Ces fonctions permettent de combiner la recherche en texte intégral avec le filtrage booléen strict qui est impossible avec l’utilisation du paramètre `search` de niveau supérieur de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Recherche cognitive Azure prend en charge la recherche en texte intégral dans le contexte d’[expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `search.ismatch` et `search.ismatchscoring`. Ces fonctions permettent de combiner la recherche en texte intégral avec le filtrage booléen strict qui est impossible avec l’utilisation du paramètre `search` de niveau supérieur de l’[API de recherche](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> Les fonctions `search.ismatch` et `search.ismatchscoring` sont uniquement prises en charge dans les filtres de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents). Elles ne sont pas prises en charge dans les API [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
+> Les fonctions `search.ismatch` et `search.ismatchscoring` sont uniquement prises en charge dans les filtres de l’[API de recherche](/rest/api/searchservice/search-documents). Elles ne sont pas prises en charge dans les API [Suggest](/rest/api/searchservice/suggestions) ou [Autocomplete](/rest/api/searchservice/autocomplete).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -76,7 +76,7 @@ Les paramètres sont définis dans le tableau suivant :
 | `queryType` | `Edm.String` | `'simple'` ou `'full'` ; par défaut `'simple'`. Spécifie le langage de requête utilisé dans le paramètre `search`. |
 | `searchMode` | `Edm.String` | `'any'` ou `'all'` ; par défaut `'any'`. Indique si tout ou partie des termes de recherche du paramètre `search`doit correspondre pour que le document soit considéré comme une correspondance. Lorsque vous utilisez les [opérateurs booléens Lucene](query-lucene-syntax.md#bkmk_boolean) dans le paramètre `search`, ils ont priorité sur ce paramètre. |
 
-Tous les paramètres ci-dessus sont équivalents aux [paramètres de la requête de recherche de l’API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents) correspondante.
+Tous les paramètres ci-dessus sont équivalents aux [paramètres de la requête de recherche de l’API de recherche](/rest/api/searchservice/search-documents) correspondante.
 
 La fonction `search.ismatch` renvoie une valeur de type `Edm.Boolean`, qui vous permet de la composer avec d’autres sous-expressions de filtre à l’aide des [opérateurs logiques](search-query-odata-logical-operators.md) booléens.
 
@@ -96,7 +96,7 @@ Cela signifie que les deux fonctions `search.ismatch` et `search.ismatchscoring`
 
 ## <a name="examples"></a>Exemples
 
-Rechercher les documents avec le mot « waterfront ». Cette requête de filtre est identique à une [demande de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents) avec `search=waterfront`.
+Rechercher les documents avec le mot « waterfront ». Cette requête de filtre est identique à une [demande de recherche](/rest/api/searchservice/search-documents) avec `search=waterfront`.
 
 ```odata-filter-expr
     search.ismatchscoring('waterfront')
@@ -133,4 +133,4 @@ Rechercher les documents où les termes « hotel » et « airport » sont distan
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
 - [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

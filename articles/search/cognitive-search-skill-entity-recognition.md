@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080844"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936076"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
-La compétence **Reconnaissance d’entités** extrait les entités de différents types du texte. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) dans Cognitive Services.
+La compétence **Reconnaissance d’entités** extrait les entités de différents types du texte. Cette compétence utilise les modèles Machine Learning fournis par [Analyse de texte](../cognitive-services/text-analytics/overview.md) dans Cognitive Services.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
@@ -29,7 +29,7 @@ La compétence **Reconnaissance d’entités** extrait les entités de différen
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de données
-La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à l’extracteur de phrases clés, envisagez d’utiliser la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
+La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous devez subdiviser vos données avant de les envoyer à l’extracteur de phrases clés, envisagez d’utiliser la [compétence Fractionnement de texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Paramètres de la compétence
 
@@ -53,7 +53,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
 > [!NOTE]
-> toutes les catégories d’entités ne sont pas prises en charge pour toutes les langues. Les types de catégories d’entités `"Person"`, `"Location"` et `"Organization"` sont pris en charge pour la liste complète des langues ci-dessus. Seules les langues _de_, _en_, _es_, _fr_ et _zh-hans_ prennent en charge l’extraction des types `"Quantity"`, `"Datetime"`, `"URL"` et `"Email"`. Pour plus d’informations, consultez [Langues et régions prises en charge par l’API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> toutes les catégories d’entités ne sont pas prises en charge pour toutes les langues. Les types de catégories d’entités `"Person"`, `"Location"` et `"Organization"` sont pris en charge pour la liste complète des langues ci-dessus. Seules les langues _de_, _en_, _es_, _fr_ et _zh-hans_ prennent en charge l’extraction des types `"Quantity"`, `"Datetime"`, `"URL"` et `"Email"`. Pour plus d’informations, consultez [Langues et régions prises en charge par l’API Analyse de texte](../cognitive-services/text-analytics/language-support.md).  
 
 | Nom de sortie      | Description                   |
 |---------------|-------------------------------|
@@ -187,7 +187,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 }
 ```
 
-Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d'extraire le bon contenu.  [Pour plus d'informations, cliquez ici](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets).
+Notez que les décalages renvoyés pour les entités dans la sortie de cette qualification le sont directement à partir de l'[API Analyse de texte](../cognitive-services/text-analytics/overview.md), ce qui signifie que si vous les utilisez pour indexer dans la chaîne d'origine, vous devez utiliser la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) dans .NET afin d'extraire le bon contenu.  [Pour plus d'informations, cliquez ici](../cognitive-services/text-analytics/concepts/text-offsets.md).
 
 ## <a name="error-cases"></a>Cas d’erreur
 Si le code de langue du document n’est pas pris en charge, une erreur est retournée et aucune entité n’est extraite.

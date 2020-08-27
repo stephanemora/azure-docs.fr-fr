@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221313"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935549"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -21,10 +21,10 @@ Cet article fournit des informations et des solutions pour les erreurs et averti
 
 L’indexation s’arrête quand le nombre d’erreurs dépasse la valeur de ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Si vous souhaitez que les indexeurs ignorent ces erreurs (et sautent les « documents en échec »), envisagez de mettre à jour `maxFailedItems` et `maxFailedItemsPerBatch` comme décrit [ici](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Si vous souhaitez que les indexeurs ignorent ces erreurs (et sautent les « documents en échec »), envisagez de mettre à jour `maxFailedItems` et `maxFailedItemsPerBatch` comme décrit [ici](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Chaque document en échec et la clé de document correspondante (quand elle est disponible) sont présentées comme une erreur dans l’état d’exécution de l’indexeur. Vous pouvez utiliser l’[api index](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour charger manuellement les documents à un moment ultérieur si vous avez défini l’indexeur de façon à tolérer les échecs.
+> Chaque document en échec et la clé de document correspondante (quand elle est disponible) sont présentées comme une erreur dans l’état d’exécution de l’indexeur. Vous pouvez utiliser l’[api index](/rest/api/searchservice/addupdate-or-delete-documents) pour charger manuellement les documents à un moment ultérieur si vous avez défini l’indexeur de façon à tolérer les échecs.
 
 Les informations d’erreur de cet article peuvent vous aider à résoudre les erreurs et à poursuivre l’indexation.
 
@@ -71,7 +71,7 @@ L’indexeur a lu le document à partir de la source de données, mais un probl�
 
 | Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| La clé du document est manquante | La clé du document ne peut pas être manquante ou vide | Vérifiez que tous les documents contiennent des clés de documents valides. La clé de document est déterminée en définissant la propriété « clé » dans le cadre de la [définition d’index](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Les indexeurs émettent cette erreur quand la propriété marquée en tant que « clé » est introuvable dans un document particulier. |
+| La clé du document est manquante | La clé du document ne peut pas être manquante ou vide | Vérifiez que tous les documents contiennent des clés de documents valides. La clé de document est déterminée en définissant la propriété « clé » dans le cadre de la [définition d’index](/rest/api/searchservice/create-index#request-body). Les indexeurs émettent cette erreur quand la propriété marquée en tant que « clé » est introuvable dans un document particulier. |
 | La clé du document n’est pas valide | La clé du document ne peut pas contenir plus de 1024 caractères | Modifiez la clé du document pour répondre aux exigences de validation. |
 | Impossible d'appliquer le mappage de champs à un champ | Impossible d'appliquer la fonction de mappage `'functionName'` au champ `'fieldName'`. Le tableau ne peut pas être null. Nom du paramètre : octets | Vérifiez soigneusement les [mappages de champs](search-indexer-field-mappings.md) définis sur l'indexeur, puis comparez ces valeurs avec les données du champ spécifié du document en échec. Il peut être nécessaire de modifier les mappages de champs ou les données du document. |
 | Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
@@ -155,7 +155,7 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 | Difficultés à se connecter à l’index cible (qui persiste après les nouvelles tentatives), car le service est soumis à une autre charge, par exemple l’interrogation ou l’indexation. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est soumis à une charge importante. | [Effectuer le scale-up de votre service de recherche](search-capacity-planning.md)
 | Un correctif est appliqué au service de recherche en vue de sa mise à jour ou fait l’objet d’une reconfiguration de topologie. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est actuellement inopérant/Le service de recherche est en cours de transition. | Configurer le service avec au moins trois réplicas pour une disponibilité de 99,9 % selon la [documentation SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Échec dans la ressource de calcul/réseau sous-jacente (rare) | Échec de l’établissement d’une connexion pour mettre à jour l’index. Une erreur inconnue s’est produite. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec.
-| Une requête d’indexation envoyée à l’index cible n’a pas reçu d’accusé de réception pendant la période définie en raison de problèmes réseau. | Impossible d’établir la connexion à l’index de recherche en temps opportun. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec. Essayez également de réduire la [taille du lot](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) de l’indexeur si cet état d’erreur persiste.
+| Une requête d’indexation envoyée à l’index cible n’a pas reçu d’accusé de réception pendant la période définie en raison de problèmes réseau. | Impossible d’établir la connexion à l’index de recherche en temps opportun. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec. Essayez également de réduire la [taille du lot](/rest/api/searchservice/create-indexer#parameters) de l’indexeur si cet état d’erreur persiste.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
@@ -171,11 +171,11 @@ L’indexeur a lu et traité le document mais, en raison d’une discordance de 
 | Un type inconnu a été découvert dans le document source. | Le type inconnu « _unknown_ » ne peut pas être indexé |
 | Une notation incompatible pour les points géographiques a été utilisée dans le document source. | Les littéraux de chaîne WKT POINT ne sont pas pris en charge. Utilisez des littéraux de points GeoJson à la place |
 
-Dans tous ces cas, consultez les [types de données pris en charge ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) et le [mappage des types de données pour les indexeurs](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) pour vous assurer de générer le schéma d’index correctement et de définir les [mappages de champs d’indexeur](search-indexer-field-mappings.md) appropriés. Le message d’erreur comprendra des détails qui peuvent aider à identifier la source de l’incompatibilité.
+Dans tous ces cas, consultez les [types de données pris en charge ](/rest/api/searchservice/supported-data-types) et le [mappage des types de données pour les indexeurs](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) pour vous assurer de générer le schéma d’index correctement et de définir les [mappages de champs d’indexeur](search-indexer-field-mappings.md) appropriés. Le message d’erreur comprendra des détails qui peuvent aider à identifier la source de l’incompatibilité.
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erreur : Impossible d’utiliser la stratégie de suivi des modifications intégré car la table contient une clé primaire composite
 
-Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
+Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -255,8 +255,8 @@ Si vous savez que votre jeu de données contient plusieurs langues et que vous a
 ```
 
 Voici quelques références pour les langues actuellement prises en charge pour chacune des compétences qui peuvent générer ce message d'erreur :
-* [Langues prises en charge pour l'analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) et [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Langues prises en charge par le traducteur](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (pour [Text TranslationSkill](cognitive-search-skill-text-translation.md))
+* [Langues prises en charge pour l'analyse de texte](../cognitive-services/text-analytics/language-support.md) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) et [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Langues prises en charge par le traducteur](../cognitive-services/translator/language-support.md) (pour [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) - langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
@@ -304,7 +304,7 @@ Pour plus d’informations, consultez [Progression incrémentielle et requêtes 
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Avertissement : Certaines données ont été perdues pendant la projection. La ligne« X » dans la table « Y » présente la propriété de chaîne « Z » qui était trop longue.
 
-Le [service Stockage Table](https://azure.microsoft.com/services/storage/tables) impose des limites sur la taille des [propriétés d’entité](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types). Les chaînes peuvent comporter 32 000 caractères ou moins. Si une ligne présentant une propriété de chaîne de plus de 32 000 caractères est en cours de projection, seuls les 32 000 premiers caractères sont conservés. Pour contourner ce problème, évitez de projeter des lignes comportant des propriétés de chaîne de plus de 32 000 caractères.
+Le [service Stockage Table](https://azure.microsoft.com/services/storage/tables) impose des limites sur la taille des [propriétés d’entité](/rest/api/storageservices/understanding-the-table-service-data-model#property-types). Les chaînes peuvent comporter 32 000 caractères ou moins. Si une ligne présentant une propriété de chaîne de plus de 32 000 caractères est en cours de projection, seuls les 32 000 premiers caractères sont conservés. Pour contourner ce problème, évitez de projeter des lignes comportant des propriétés de chaîne de plus de 32 000 caractères.
 
 <a name="truncated-extracted-text-to-x-characters"></a>
 
@@ -326,13 +326,13 @@ Les mappages de champs de sortie qui font référence à des données inexistant
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Avertissement : La stratégie de détection des modifications de données est configurée pour utiliser la colonne clé « X ».
-Pour détecter les modifications, les [stratégies de détection des modifications de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) ont des exigences spécifiques pour les colonnes qu’elles utilisent. L’une de ces exigences est que la colonne est mise à jour chaque fois que l’élément source est modifié. Une autre exigence est que la nouvelle valeur de cette colonne est supérieure à la valeur précédente. Les colonnes clés ne respectent pas cette exigence, car elles ne changent pas à chaque mise à jour. Pour contourner ce problème, sélectionnez une autre colonne pour la stratégie de détection des modifications.
+Pour détecter les modifications, les [stratégies de détection des modifications de données](/rest/api/searchservice/create-data-source#data-change-detection-policies) ont des exigences spécifiques pour les colonnes qu’elles utilisent. L’une de ces exigences est que la colonne est mise à jour chaque fois que l’élément source est modifié. Une autre exigence est que la nouvelle valeur de cette colonne est supérieure à la valeur précédente. Les colonnes clés ne respectent pas cette exigence, car elles ne changent pas à chaque mise à jour. Pour contourner ce problème, sélectionnez une autre colonne pour la stratégie de détection des modifications.
 
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Avertissement : Le texte du document semble être encodé en UTF-16, mais il manque une marque d’ordre d’octet
 
-Les [modes d’analyse de l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) doivent connaître la méthode d’encodage du texte avant de pouvoir l’analyser. Les deux méthodes les plus courantes pour encoder du texte sont UTF-16 et UTF-8. UTF-8 est un encodage de longueur variable où chaque caractère est compris entre 1 et 4 octets. UTF-16 est un encodage de longueur fixe où chaque caractère a une longueur de 2 octets. UTF-16 a deux variantes différentes, « avec primauté des octets de poids fort (big-endian) » et « mode Little Endian ». L’encodage de texte est déterminé par une « marque d’ordre d’octet », une série d’octets avant le texte.
+Les [modes d’analyse de l’indexeur](/rest/api/searchservice/create-indexer#blob-configuration-parameters) doivent connaître la méthode d’encodage du texte avant de pouvoir l’analyser. Les deux méthodes les plus courantes pour encoder du texte sont UTF-16 et UTF-8. UTF-8 est un encodage de longueur variable où chaque caractère est compris entre 1 et 4 octets. UTF-16 est un encodage de longueur fixe où chaque caractère a une longueur de 2 octets. UTF-16 a deux variantes différentes, « avec primauté des octets de poids fort (big-endian) » et « mode Little Endian ». L’encodage de texte est déterminé par une « marque d’ordre d’octet », une série d’octets avant le texte.
 
 | Encodage | Marque d’ordre d’octet |
 | --- | --- |
@@ -348,4 +348,4 @@ Pour contourner cet avertissement, déterminez l’encodage de texte pour ce blo
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avertissement : La collection « X » de Cosmos DB a une stratégie d’indexation différée. Certaines données peuvent être perdues.
 
-Les collections dotées de stratégies d’indexation [différée](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.
+Les collections dotées de stratégies d’indexation [différée](/azure/cosmos-db/index-policy#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.

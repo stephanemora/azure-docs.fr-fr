@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986166"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932965"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
@@ -39,13 +39,13 @@ ms.locfileid: "87986166"
 | Italien               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japonais              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Coréen                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norvégien (Bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| Norvégien (Bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polonais                |     `pl`      |     ✓      |            |                            |                    |
 | Portugais (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` également accepté |
 | Russe               |     `ru`      |     ✓      |            |                            |                    |
 | Espagnol               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Suédois               |     `sv`      |     ✓      |            |                            |                    |
-| Turc               |     `tr`      |     ✓      |            |                            |                    |
+| Turc               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Exploration des opinions (v3.1-preview uniquement)
 

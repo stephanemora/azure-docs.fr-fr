@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080497"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928579"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour filtrer les résultats de Recherche cognitive Azure à l’aide d’identités Active Directory
 
@@ -40,7 +40,7 @@ Votre application doit également être inscrite auprès d’AAD, comme décrit 
 
 ### <a name="register-your-application-with-aad"></a>Inscrire votre application auprès d’AAD
 
-Cette étape intègre votre application avec AAD pour pouvoir accepter les connexions des comptes d’utilisateur et de groupe. Si vous n’êtes pas administrateur AAD dans votre organisation, vous devrez peut-être [créer un nouveau locataire](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) pour effectuer les étapes suivantes.
+Cette étape intègre votre application avec AAD pour pouvoir accepter les connexions des comptes d’utilisateur et de groupe. Si vous n’êtes pas administrateur AAD dans votre organisation, vous devrez peut-être [créer un nouveau locataire](../active-directory/develop/quickstart-create-new-tenant.md) pour effectuer les étapes suivantes.
 
 1. Accédez à [**Portail d’inscription des applications**](https://apps.dev.microsoft.com) >  **Application convergée** > **Ajouter une application**.
 2. Entrez un nom pour votre application, puis cliquez sur **Créer**. 
@@ -63,7 +63,7 @@ Toutefois, si vous n’avez pas d’utilisateurs existants, vous pouvez utiliser
 
 La gestion des groupes et des utilisateurs peut s’avérer très fluide, en particulier dans les grandes organisations. Le code qui génère les identités d’utilisateur et de groupe doit s’exécuter assez souvent pour tenir compte des modifications apportées aux groupes de l’organisation. De même, votre index Recherche cognitive Azure requiert une planification de mise à jour similaire pour refléter l’état actuel des utilisateurs et des ressources autorisés.
 
-### <a name="step-1-create-aad-group"></a>Étape 1 : Créer un [groupe AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Étape 1 : Créer un [groupe AAD](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-user"></a>Étape 2 : Créer un [utilisateur AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Étape 2 : Créer un [utilisateur AAD](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -98,9 +98,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
-Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser l'[API de Batch AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) pour envoyer une requête Http unique avec plusieurs utilisateurs et générer le cache.
+Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser l'[API de Batch AAD](/graph/json-batching) pour envoyer une requête Http unique avec plusieurs utilisateurs et générer le cache.
 
-Microsoft Graph est conçu pour gérer un volume élevé de demandes. Si un trop grand nombre de demandes sont émises, Microsoft Graph génère une erreur avec le code d’état HTTP 429. Pour plus d’informations, consultez le document [Limitation dans Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
+Microsoft Graph est conçu pour gérer un volume élevé de demandes. Si un trop grand nombre de demandes sont émises, Microsoft Graph génère une erreur avec le code d’état HTTP 429. Pour plus d’informations, consultez le document [Limitation dans Microsoft Graph](/graph/throttling).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Indexer les documents avec leurs groupes autorisés
 
@@ -138,7 +138,7 @@ Pour filtrer les documents renvoyés dans les résultats de la recherche en fonc
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
 
-Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0).
+Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0).
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

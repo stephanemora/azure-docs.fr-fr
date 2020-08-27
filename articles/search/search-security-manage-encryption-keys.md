@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed5d1f5b35bc9b6dee234678fa82af95e1d53bc7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 2dc7458dd905ff84455927c81b4ea93765d4f5cb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553992"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928817"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
-Par défaut, le service Recherche cognitive Azure chiffre automatiquement le contenu indexé au repos avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Si vous avez besoin de davantage de protection, vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes de configuration du chiffrement à l’aide de clés gérées par le client (CMK).
+Par défaut, le service Recherche cognitive Azure chiffre automatiquement le contenu indexé au repos avec des [clés gérées par le service](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Si vous avez besoin de davantage de protection, vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes de configuration du chiffrement à l’aide de clés gérées par le client (CMK).
 
-Le chiffrement CMK dépend d’[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet également d’auditer l’utilisation des clés si vous [activez la journalisation](../key-vault/general/logging.md).  
+Le chiffrement CMK dépend d’[Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet également d’auditer l’utilisation des clés si vous [activez la journalisation](../key-vault/general/logging.md).  
 
 Le chiffrement avec des clés gérées par le client est appliqué à des index individuels ou à des mappages de synonymes lors de la création de ces objets, et n’est pas spécifié au niveau du service de recherche lui-même. Seuls de nouveaux objets peuvent être chiffrés. Vous ne pouvez pas chiffrer un contenu existant.
 
@@ -44,14 +44,14 @@ Les services suivants sont utilisés dans cet exemple.
 
 + [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou recherchez un coffre existant dans le même abonnement que le service Recherche Cognitive Azure. Cette fonctionnalité a la même exigence en matière d’abonnement.
++ [Créez une ressource Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) ou recherchez un coffre existant dans le même abonnement que le service Recherche Cognitive Azure. Cette fonctionnalité a la même exigence en matière d’abonnement.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
++ [Azure PowerShell](/powershell/azure/) ou [Azure CLI](/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
 
-+ Vous pouvez utiliser [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et la [préversion du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview) pour appeler l’API REST qui crée des index et des mappages de synonymes incluant un paramètre de clé de chiffrement. Il n’existe actuellement pas de prise en charge du portail pour l’ajout de clé aux index ou aux mappages de synonymes.
++ Vous pouvez utiliser [Postman](search-get-started-postman.md), [Azure PowerShell](./search-get-started-powershell.md) et la [préversion du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview) pour appeler l’API REST qui crée des index et des mappages de synonymes incluant un paramètre de clé de chiffrement. Il n’existe actuellement pas de prise en charge du portail pour l’ajout de clé aux index ou aux mappages de synonymes.
 
 >[!Note]
-> En raison de la nature du chiffrement avec des clés gérées par le client, le service Recherche cognitive Azure ne pourra pas récupérer vos données en cas de suppression de votre clé Azure Key Vault. Pour éviter la perte de données résultant de suppressions accidentelles d’Azure Key Vault, vous devez activer la suppression réversible et la protection contre le vidage sur le coffre de clés. La suppression réversible étant activée par défaut, vous ne rencontrerez des problèmes que si vous l’avez désactivée intentionnellement. La par défaut n’est pas activée par défaut, mais elle est requise pour le chiffrement CMK du service Recherche cognitive Azure. Pour plus d’informations, consultez les vues d’ensemble de la [suppression réversible](../key-vault/key-vault-ovw-soft-delete.md) et de la [protection contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection) .
+> En raison de la nature du chiffrement avec des clés gérées par le client, le service Recherche cognitive Azure ne pourra pas récupérer vos données en cas de suppression de votre clé Azure Key Vault. Pour éviter la perte de données résultant de suppressions accidentelles d’Azure Key Vault, vous devez activer la suppression réversible et la protection contre le vidage sur le coffre de clés. La suppression réversible étant activée par défaut, vous ne rencontrerez des problèmes que si vous l’avez désactivée intentionnellement. La par défaut n’est pas activée par défaut, mais elle est requise pour le chiffrement CMK du service Recherche cognitive Azure. Pour plus d’informations, consultez les vues d’ensemble de la [suppression réversible](../key-vault/general/soft-delete-overview.md) et de la [protection contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection) .
 
 ## <a name="1---enable-key-recovery"></a>1 - Activer la récupération de clé
 
@@ -117,7 +117,7 @@ Recherche cognitive Azure prend en charge deux façons d'attribuer une identité
 
 Si possible, utilisez une identité managée. C'est le moyen le plus simple d'attribuer une identité à votre service de recherche et le mieux adapté à la plupart des scénarios. Si vous utilisez plusieurs clés pour des index et des mappages de synonymes, ou si votre solution se trouve dans une architecture distribuée qui exclut l'authentification basée sur l'identité, utilisez l'[approche Azure Active Directory managée en externe](#aad-app) avancée, décrite à la fin de cet article.
 
- En général, une identité managée permet à votre service de recherche de s'authentifier auprès d’Azure Key Vault, sans stocker les informations d'identification dans le code. Le cycle de vie de ce type d'identité managée est lié au cycle de vie de votre service de recherche, qui ne peut avoir qu'une seule identité managée. [En savoir plus sur les identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+ En général, une identité managée permet à votre service de recherche de s'authentifier auprès d’Azure Key Vault, sans stocker les informations d'identification dans le code. Le cycle de vie de ce type d'identité managée est lié au cycle de vie de votre service de recherche, qui ne peut avoir qu'une seule identité managée. [En savoir plus sur les identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com) et ouvrez la page de présentation de votre service de recherche. 
 
@@ -129,7 +129,7 @@ Si possible, utilisez une identité managée. C'est le moyen le plus simple d'at
 
 Pour activer votre service de recherche afin d’utiliser votre clé Key Vault, vous devrez accorder à votre service de recherche certaines autorisations d’accès.
 
-Les autorisations d’accès peuvent être révoquées à tout moment. Une fois révoqué, tout index ou mappage de synonymes d’un service de recherche qui utilise ce coffre de clés sera inutilisable. Une restauration ultérieure des autorisations d’accès au coffre de clés restaurera l’accès à l’index ou au mappage de synonymes. Pour plus d’informations, consultez [Accès sécurisé à un coffre de clés](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Les autorisations d’accès peuvent être révoquées à tout moment. Une fois révoqué, tout index ou mappage de synonymes d’un service de recherche qui utilise ce coffre de clés sera inutilisable. Une restauration ultérieure des autorisations d’accès au coffre de clés restaurera l’accès à l’index ou au mappage de synonymes. Pour plus d’informations, consultez [Accès sécurisé à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com) et ouvrez la page de présentation de votre coffre de clés. 
 
@@ -143,7 +143,7 @@ Les autorisations d’accès peuvent être révoquées à tout moment. Une fois 
 
 1. Cliquez sur **Autorisations de clé**, puis sélectionnez *Obtenir*, *Ne pas inclure la clé* et *Inclure la clé*. Vous pouvez utiliser le modèle *Azure Data Lake Storage ou Azure Storage* pour sélectionner rapidement les autorisations requises.
 
-   Recherche cognitive Azure doit obtenir les [autorisations d’accès](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations) suivantes :
+   Recherche cognitive Azure doit obtenir les [autorisations d’accès](../key-vault/keys/about-keys.md#key-operations) suivantes :
 
    * *Obtenir* : permet à votre service de recherche de récupérer les parties publiques de votre clé dans un coffre de clés
    * *Inclure la clé* : permet à votre service de recherche d’utiliser votre clé pour protéger la clé de chiffrement interne
@@ -162,7 +162,7 @@ Les autorisations d’accès peuvent être révoquées à tout moment. Une fois 
 
 ## <a name="5---encrypt-content"></a>5 - Chiffrer le contenu
 
-Pour ajouter une clé gérée par le client sur un index ou un mappage de synonymes, vous devez utiliser l’[API REST Recherche](https://docs.microsoft.com/rest/api/searchservice/) ou un Kit de développement logiciel (SDK). Le portail n’expose pas les mappages de synonymes ou les propriétés de chiffrement. Lorsque vous utilisez une API valide, les index et les mappages de synonymes prennent en charge une propriété **encryptionKey** de niveau supérieur. 
+Pour ajouter une clé gérée par le client sur un index ou un mappage de synonymes, vous devez utiliser l’[API REST Recherche](/rest/api/searchservice/) ou un Kit de développement logiciel (SDK). Le portail n’expose pas les mappages de synonymes ou les propriétés de chiffrement. Lorsque vous utilisez une API valide, les index et les mappages de synonymes prennent en charge une propriété **encryptionKey** de niveau supérieur. 
 
 En utilisant l’**URI du coffre de clés**, le **nom de la clé** et la **version de la clé** de votre clé de coffre de clés, nous pouvons créer une définition **encryptionKey** comme suit :
 
@@ -194,7 +194,7 @@ Si vous utilisez une application AAD pour l’authentification Key Vault au lieu
 ```
 
 ## <a name="example-index-encryption"></a>Exemple : Chiffrement d’index
-Les détails de la création d'un nouvel index via l'API REST se trouvent dans la section [Créer un index (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition de l'index : 
+Les détails de la création d'un nouvel index via l'API REST se trouvent dans la section [Créer un index (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-index), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition de l'index : 
 
 ```json
 {
@@ -222,7 +222,7 @@ Vous pouvez maintenant envoyer la demande de création d'un index, puis commence
 
 ## <a name="example-synonym-map-encryption"></a>Exemple : Chiffrement de mappage de synonymes
 
-Les détails de la création d'un nouveau mappage de synonymes via l'API REST se trouvent dans la section [Créer un mappage de synonymes (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition du mappage de synonymes : 
+Les détails de la création d'un nouveau mappage de synonymes via l'API REST se trouvent dans la section [Créer un mappage de synonymes (API REST du service Recherche cognitive Azure)](/rest/api/searchservice/create-synonym-map), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition du mappage de synonymes : 
 
 ```json
 {   
@@ -254,9 +254,9 @@ Lorsqu'une identité managée n'est pas possible, vous pouvez créer une applica
 Pour s'adapter à de telles topologies, Recherche cognitive Azure prend en charge la recherche à l'aide d’applications Azure Active Directory (AAD) pour l'authentification entre votre service de recherche et Key Vault.    
 Pour créer une application AAD dans le portail :
 
-1. [Créez une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+1. [Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. [Obtenez l'ID de l'application et la clé d'authentification](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) car ces informations seront nécessaires pour créer un index chiffré. Vous devrez également fournir l’**ID d’application** et la **clé d’authentification**.
+1. [Obtenez l'ID de l'application et la clé d'authentification](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) car ces informations seront nécessaires pour créer un index chiffré. Vous devrez également fournir l’**ID d’application** et la **clé d’authentification**.
 
 >[!Important]
 > Lorsque vous décidez d'utiliser une application AAD d'authentification au lieu d'une identité managée, considérez le fait que Recherche cognitive Azure n'est pas autorisé à gérer votre application AAD en votre nom, et c'est à vous de gérer votre application AAD, par exemple la rotation périodique de la clé d'authentification de l'application.
@@ -271,14 +271,14 @@ Une rotation de clés est supposée se produire au fil du temps. Chaque fois que
 
 1. [Déterminez la clé utilisée par un index ou un mappage de synonyme](search-security-get-encryption-keys.md).
 1. [Créez une clé dans le coffre de clés](../key-vault/keys/quick-create-portal.md), mais gardez la clé d’origine disponible.
-1. [Mettez à jour les propriétés encryptionKey](https://docs.microsoft.com/rest/api/searchservice/update-index) sur un index ou un mappage de synonymes pour utiliser les nouvelles valeurs. Seuls des objets créés à l’origine avec cette propriété peuvent être mis à jour pour utiliser une autre valeur.
+1. [Mettez à jour les propriétés encryptionKey](/rest/api/searchservice/update-index) sur un index ou un mappage de synonymes pour utiliser les nouvelles valeurs. Seuls des objets créés à l’origine avec cette propriété peuvent être mis à jour pour utiliser une autre valeur.
 1. Désactivez ou supprimez la clé précédente dans le coffre de clés. Surveillez l’accès à la clé pour vérifier que la nouvelle clé est utilisée.
 
 Pour des raisons de performances, le service de recherche met en cache la clé pendant plusieurs heures. Si vous désactivez ou supprimez la clé sans en fournir de nouvelle, les requêtes continuent de fonctionner sur une base temporaire jusqu’à ce que le cache expire. Toutefois, une fois que le service de recherche ne peut pas déchiffrer le contenu, vous obtenez le message suivant : « Accès interdit. La clé de requête utilisée a peut-être été révoquée. Réessayez. » 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous n’êtes pas familiarisé avec l’architecture de sécurité Azure, passez en revue la [documentation sur la sécurité Azure](https://docs.microsoft.com/azure/security/), et en particulier cet article :
+Si vous n’êtes pas familiarisé avec l’architecture de sécurité Azure, passez en revue la [documentation sur la sécurité Azure](../security/index.yml), et en particulier cet article :
 
 > [!div class="nextstepaction"]
-> [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+> [Chiffrement des données Azure au repos](../security/fundamentals/encryption-atrest.md)

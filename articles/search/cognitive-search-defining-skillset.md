@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214073"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935447"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
@@ -49,14 +49,14 @@ Le diagramme suivant illustre un pipeline d’enrichissement hypothétique :
 ![Un pipeline d’enrichissement hypothétique](media/cognitive-search-defining-skillset/sample-skillset.png "Un pipeline d’enrichissement hypothétique")
 
 
-Une fois que vous avez une idée assez claire de ce que vous souhaitez inclure dans le pipeline, vous pouvez représenter le jeu de compétences qui correspond à ces étapes. Au niveau fonctionnel, le jeu de compétences est représenté lorsque vous chargez la définition de l’indexeur dans la Recherche cognitive Azure. Pour en savoir plus sur le chargement de l’indexeur, consultez la [documentation relative à l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Une fois que vous avez une idée assez claire de ce que vous souhaitez inclure dans le pipeline, vous pouvez représenter le jeu de compétences qui correspond à ces étapes. Au niveau fonctionnel, le jeu de compétences est représenté lorsque vous chargez la définition de l’indexeur dans la Recherche cognitive Azure. Pour en savoir plus sur le chargement de l’indexeur, consultez la [documentation relative à l’indexeur](/rest/api/searchservice/create-indexer).
 
 
 Dans le diagramme, l’étape de *décodage de document* a lieu automatiquement. La Recherche cognitive Azure sait comment ouvrir des fichiers connus, et crée un champ de *contenu* dont le texte est extrait à partir de chaque document. Les cases blanches sont des enrichisseurs intégrés, et la case « Recherche d’entités Bing » en pointillé représente un enrichisseur personnalisé que vous créez. Comme illustré sur le diagramme, le jeu de compétences contient trois compétences.
 
 ## <a name="skillset-definition-in-rest"></a>Définition du jeu de compétences dans REST
 
-Un jeu de compétences est défini comme un tableau de compétences. Chaque compétence définit la source de ses entrées et le nom des sorties générées. À l’aide de [l’API REST Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset), vous pouvez définir un jeu de compétences qui correspond au diagramme précédent : 
+Un jeu de compétences est défini comme un tableau de compétences. Chaque compétence définit la source de ses entrées et le nom des sorties générées. À l’aide de [l’API REST Create Skillset](/rest/api/searchservice/create-skillset), vous pouvez définir un jeu de compétences qui correspond au diagramme précédent : 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -281,4 +281,4 @@ Vous pouvez choisir d’enregistrer les documents enrichis sous forme de tables 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez le pipeline d’enrichissement et les jeux de compétences, poursuivez avec [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Référencement des annotations dans un jeu de compétences) ou [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Mappage de sorties à des champs dans un index). 
+Maintenant que vous connaissez le pipeline d’enrichissement et les jeux de compétences, poursuivez avec [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Référencement des annotations dans un jeu de compétences) ou [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Mappage de sorties à des champs dans un index).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9f8b02d8821c76b2a7766f35244834934db1d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511396"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935906"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs personnalisés à des champs de chaîne dans l’index de Recherche cognitive Azure
 
@@ -53,7 +53,7 @@ Un *analyseur personnalisé* est un type spécifique d’[analyseur de texte](se
 
  Le `tokenizer_name` est le nom d’un générateur de jetons, `token_filter_name_1` et `token_filter_name_2` sont les noms des filtres de jetons, et `char_filter_name_1` et `char_filter_name_2` sont les noms des filtres de caractères (consultez les tableaux [Générateurs de jetons](#Tokenizers), [Filtres de jetons](#TokenFilters) et Filtres de caractères pour accéder aux valeurs valides).
 
-La définition de l’analyseur est une partie de l’index. Consultez [API de création d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) pour plus d’informations sur le reste de l’index.
+La définition de l’analyseur est une partie de l’index. Consultez [API de création d’index](/rest/api/searchservice/create-index) pour plus d’informations sur le reste de l’index.
 
 ```
 "analyzers":(optional)[
@@ -133,7 +133,7 @@ Les définitions des filtres de caractères, des générateurs de jetons et des 
 
 ## <a name="test-custom-analyzers"></a>Tester des analyseurs personnalisés
 
-Vous pouvez utiliser l’**opération de test d’analyseur** dans l’[API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) pour voir comment un analyseur décompose le texte donné en jetons.
+Vous pouvez utiliser l’**opération de test d’analyseur** dans l’[API REST](/rest/api/searchservice/test-analyzer) pour voir comment un analyseur décompose le texte donné en jetons.
 
 **Requête**
 ```
@@ -372,6 +372,6 @@ Dans le tableau ci-dessous, les filtres de jetons qui sont implémentés avec Ap
 
 
 ## <a name="see-also"></a>Voir aussi  
- [API REST Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/)   
+ [API REST Recherche cognitive Azure](/rest/api/searchservice/)   
  [Analyseurs dans Recherche cognitive Azure > Exemples](search-analyzers.md#examples)    
- [Créer un index &#40;API REST Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Créer un index &#40;API REST Recherche cognitive Azure&#41;](/rest/api/searchservice/create-index)
