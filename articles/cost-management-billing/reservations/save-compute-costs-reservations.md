@@ -4,15 +4,16 @@ description: Découvrez les réservations et tarifs Azure pour économiser sur v
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.subservice: reservations
+ms.topic: overview
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 437344d1a0e3cc1178c21efb4bfa26f192d23e5c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760037"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682584"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -109,7 +110,6 @@ Abonnements logiciels :
 - **Azure Red Hat OpenShift** : une réservation s’applique aux coûts OpenShift, et non aux coûts d’infrastructure Azure.
 
 Pour les machines virtuelles Windows et SQL Database, la remise sur réservation ne s’applique pas aux coûts logiciels. Vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

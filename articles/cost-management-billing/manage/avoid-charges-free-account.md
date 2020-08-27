@@ -4,15 +4,16 @@ description: Découvrez pourquoi des frais sont appliqués à votre compte gratu
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200946"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682924"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Éviter les frais avec votre compte Azure gratuit
 
@@ -23,7 +24,6 @@ Examinons quelques-unes des raisons qui peuvent occasionner des frais sur votre 
 ## <a name="your-credit-runs-out-or-is-expired"></a>Votre crédit est épuisé ou a expiré.
 
 Votre abonnement et les services sont désactivés dès que vous avez épuisé tous vos crédits ou que les crédits arrivent à expiration à la fin des 30 jours. Pour continuer à utiliser les services Azure, vous devez alors mettre à niveau votre compte. Pour plus d’informations, consultez [Mettre à niveau votre compte gratuit Azure](upgrade-azure-subscription.md). Après la mise à niveau, vous conservez l’accès aux services gratuits pendant 12 mois et vous êtes facturé uniquement pour l’utilisation qui ne couvre pas les services et quantités gratuits.
-
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>L’utilisation dépasse les limites des services gratuits.
 

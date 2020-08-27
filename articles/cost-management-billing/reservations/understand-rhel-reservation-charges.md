@@ -3,15 +3,16 @@ title: Remises des plans de réservation Red Hat - Azure
 description: Découvrez comment les remises des plans Red Hat sont appliquées aux logiciels Red Hat sur les machines virtuelles.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 46a1fd9be35abb19d920e2a3bd34f88c557f40b1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735113"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88681598"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre l'application des remises aux plans de réservation de logiciels Red Hat Linux Enterprise pour Azure
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080624"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660594"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus
 Ce didacticiel explique comment écrire un programme Node.js pour envoyer des messages à une rubrique Service Bus et recevoir des messages d’un abonnement Service Bus à l’aide du nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
@@ -86,7 +86,7 @@ Les rubriques Service Bus prennent en charge une taille de message maximale de 2
 L’interaction avec un abonnement Service Bus commence par l’instanciation de la classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) et son utilisation pour instancier la classe [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Une fois que vous avez le client d’abonnement, vous pouvez créer un récepteur et utiliser la méthode [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) ou la méthode [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) pour recevoir des messages.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com/)
-2. Créez un fichier appelé `recieve.js` et collez-y le code ci-dessous. Ce code tentera de recevoir 10 messages de votre abonnement. Le nombre réel de messages que vous recevrez dépend du nombre de messages dans l’abonnement et de la latence du réseau.
+2. Créez un fichier appelé `receive.js` et collez-y le code ci-dessous. Ce code tentera de recevoir 10 messages de votre abonnement. Le nombre réel de messages que vous recevrez dépend du nombre de messages dans l’abonnement et de la latence du réseau.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ L’interaction avec un abonnement Service Bus commence par l’instanciation de
     });
     ```
 3. Entrez la chaîne de connexion et les noms de votre rubrique et de votre abonnement dans le code ci-dessus.
-4. Ensuite, exécutez la commande `node receiveMessages.js` dans une invite de commandes pour exécuter ce fichier.
+4. Ensuite, exécutez la commande `node receive.js` dans une invite de commandes pour exécuter ce fichier.
 
 Félicitations ! Vous venez de recevoir des messages d’un abonnement Service Bus.
 

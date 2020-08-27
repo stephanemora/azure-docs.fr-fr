@@ -4,15 +4,16 @@ description: Découvrez comment réduire les coûts liés aux frais de timbre Az
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c90824ed0119378c2939c4b5edf9dd5b8c31b8c0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287624"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688927"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
 

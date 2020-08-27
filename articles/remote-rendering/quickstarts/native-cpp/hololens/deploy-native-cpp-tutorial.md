@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b3909281cf475a003ffaaef6f6f48441337728e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810223"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892658"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple C++ natif sur HoloLens
 
@@ -62,7 +62,6 @@ Basculez la configuration de build sur *Débogage* (ou *Release*) et *ARM64*. V�
 ![Configuration de Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
 Les informations d’identification du compte étant codées en dur dans le code source du tutoriel, vous devez les remplacer par des informations d’identification valides. Pour ce faire, ouvrez le fichier `HolographicAppMain.cpp` dans Visual Studio et modifiez la partie où le front-end est créé dans le constructeur de la classe `HolographicAppMain` :
-
 
 ```cpp
 // 2. Create front end
