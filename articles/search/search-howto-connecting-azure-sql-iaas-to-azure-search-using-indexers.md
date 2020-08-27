@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: eacfc75b31efaf9a53ed116ed9e75983146d8575
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084124"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922971"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure
 
@@ -53,7 +53,7 @@ Le service Recherche cognitive Azure requiert un canal chiffré pour toutes les 
 Après avoir configuré la connexion chiffrée requise par la Recherche cognitive Azure, vous devez réaliser des étapes de configuration supplémentaires intrinsèques à SQL Server sur les machines virtuelles Azure. Si vous ne l’avez pas déjà fait, l’étape suivante consiste à terminer la configuration en utilisant l’un de ces articles :
 
 * Pour une machine virtuelle **Resource Manager** , consultez l’article [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)(Se connecter à une machine virtuelle SQL Server sur Azure à l’aide de Resource Manager). 
-* Pour une machine virtuelle **classique** , consultez [Connexion à une machine virtuelle sur Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
+* Pour une machine virtuelle **classique** , consultez [Connexion à une machine virtuelle sur Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
 En particulier, examinez la section de chaque article pour la « connexion via internet ».
 
@@ -68,16 +68,16 @@ Les liens ci-dessous fournissent des instructions sur la configuration du groupe
 > 
 
 * Pour une machine virtuelle **Resource Manager** , consultez [How to create NSGs for ARM deployments](../virtual-network/tutorial-filter-network-traffic.md)(Procédure de création des groupes de sécurité réseau pour les déploiements ARM). 
-* Pour une machine virtuelle **classique** , consultez [How to create NSGs for Classic deployments](../virtual-network/virtual-networks-create-nsg-classic-ps.md)(Procédure de création des groupes de sécurité réseau pour les déploiements classiques).
+* Pour une machine virtuelle **classique** , consultez [How to create NSGs for Classic deployments](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps)(Procédure de création des groupes de sécurité réseau pour les déploiements classiques).
 
 L’adressage IP peut poser quelques problèmes qui sont facilement surmontés si vous êtes conscient du problème et des solutions de contournement possibles. Les sections restantes fournissent des recommandations pour la gestion des problèmes liés aux adresses IP dans la liste de contrôle d’accès.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restreindre l’accès à Recherche cognitive Azure
-Nous vous recommandons fortement de restreindre l’accès à l’adresse IP de votre service de recherche et la plage d’adresses IP de l’[étiquette de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` dans la liste de contrôle d’accès au lieu de rendre vos machines virtuelles SQL Azure disponibles pour toutes les demandes de connexion.
+Nous vous recommandons fortement de restreindre l’accès à l’adresse IP de votre service de recherche et la plage d’adresses IP de l’[étiquette de service](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` dans la liste de contrôle d’accès au lieu de rendre vos machines virtuelles SQL Azure disponibles pour toutes les demandes de connexion.
 
 Vous pouvez trouver l’adresse IP en effectuer un test ping sur le nom de domaine complet (par exemple, `<your-search-service-name>.search.windows.net`) de votre service de recherche.
 
-Vous pouvez trouver la plage d’adresses IP de l’[étiquette de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` en utilisant des [fichiers JSON téléchargeables](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou via l’[API de détection d’étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). La plage d’adresses IP est mise à jour chaque semaine.
+Vous pouvez trouver la plage d’adresses IP de l’[étiquette de service](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` en utilisant des [fichiers JSON téléchargeables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou via l’[API de détection d’étiquettes de service](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). La plage d’adresses IP est mise à jour chaque semaine.
 
 #### <a name="managing-ip-address-fluctuations"></a>Gestion des fluctuations d’adresse IP
 Si votre service de recherche n’a qu’une seule unité de recherche (autrement dit, un réplica et une partition), l’adresse IP change lors d’un redémarrage du service de routine, ce qui invalide une liste de contrôle d’accès existante avec votre adresse IP du service de recherche.
@@ -93,4 +93,3 @@ Si vous utilisez le Portail Azure pour créer un indexeur, la logique du portail
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois la configuration résolue, vous pouvez maintenant spécifier un serveur SQL Server sur une machine virtuelle Azure comme source de données pour un indexeur de la Recherche cognitive Azure. Pour plus d’informations, consultez [Connexion d’Azure SQL Database à Recherche cognitive Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
-

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209465"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799058"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -211,7 +211,7 @@ Si vous utilisez la gestion des licences par groupe, il est conseillé de vous f
 
 - Lorsque des licences sont attribuées ou modifiées pour un groupe de grande taille (par exemple, 100 000 utilisateurs), cela peut affecter les performances. Plus précisément, le volume de modifications générées par Azure AD Automation peut affecter les performances de synchronisation de votre annuaire entre Azure AD et les systèmes locaux.
 
-- Si vous utilisez des groupes dynamiques pour gérer l’appartenance de l’utilisateur, vérifiez que l’utilisateur fait partie du groupe, ce qui est nécessaire pour l’assignation de licences. Si ce n’est pas le cas, [vérifiez l’état de traitement pour la règle d’appartenance](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) du groupe dynamique.
+- Si vous utilisez des groupes dynamiques pour gérer l’appartenance de l’utilisateur, vérifiez que l’utilisateur fait partie du groupe, ce qui est nécessaire pour l’assignation de licences. Si ce n’est pas le cas, [vérifiez l’état de traitement pour la règle d’appartenance](./groups-create-rule.md) du groupe dynamique.
 
 - Dans certaines situations à charge élevée, il peut être long de traiter les modifications de licence pour les groupes ou les modifications d’appartenance à des groupes avec des licences existantes. Si vous constatez que vos modifications mettent plus de 24 heures pour traiter un groupe de 60 000 utilisateurs ou moins, [ouvrez un ticket de support](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) pour nous permettre de faire des recherches. 
 

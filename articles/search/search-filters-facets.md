@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084209"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923124"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Comment créer un filtre de facette dans la Recherche cognitive Azure 
 
@@ -38,7 +38,7 @@ Vous pouvez calculer des facettes sur la base de champs à une seule valeur, ou 
 
 La création de facettes est activée champ par champ lorsque vous générez l’index, si vous définissez l’attribut `facetable` sur `true`. Vous devez généralement définir également l’attribut `filterable` sur `true` pour ces champs, afin que votre application de recherche puisse filtrer sur ces champs en fonction des facettes sélectionnées par l’utilisateur final. 
 
-Lors de la création d’un index à l’aide de l’API REST, tout [type de champ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) pouvant éventuellement être utilisé dans la navigation à facettes est marqué comme `facetable` par défaut :
+Lors de la création d’un index à l’aide de l’API REST, tout [type de champ](/rest/api/searchservice/supported-data-types) pouvant éventuellement être utilisé dans la navigation à facettes est marqué comme `facetable` par défaut :
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
@@ -77,11 +77,11 @@ Les attributs d’index qui contrôlent l’utilisation d’un champ sont ajout�
 ```
 
 > [!Note]
-> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche cognitive Azure à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Il est identique, à l’exception de légères différences dans les définitions de champ. Les attributs `filterable` et `facetable` sont ajoutés de manière explicite sur les champs `category`, `tags`, `parkingIncluded`, `smokingAllowed`, et `rating`. Dans la pratique, `filterable` et `facetable` seraient activés par défaut sur ces champs lorsque vous utilisez l’API REST. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, ces attributs doivent être activés explicitement.
+> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche cognitive Azure à l’aide de l’API REST](./search-get-started-powershell.md). Il est identique, à l’exception de légères différences dans les définitions de champ. Les attributs `filterable` et `facetable` sont ajoutés de manière explicite sur les champs `category`, `tags`, `parkingIncluded`, `smokingAllowed`, et `rating`. Dans la pratique, `filterable` et `facetable` seraient activés par défaut sur ces champs lorsque vous utilisez l’API REST. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, ces attributs doivent être activés explicitement.
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
-La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
+La [création et le remplissage de l’index](./search-get-started-dotnet.md#1---create-an-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Ajoutez des filtres de facettes à une requête
 
@@ -124,5 +124,5 @@ Il s’agit d’un cas d’usage courant, mais non fourni de manière prête à 
 ## <a name="see-also"></a>Voir aussi
 
 + [Filtres dans la Recherche cognitive Azure](search-filters.md)
-+ [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Création d’une API REST d’index](/rest/api/searchservice/create-index)
++ [API REST de recherche de documents](/rest/api/searchservice/search-documents)

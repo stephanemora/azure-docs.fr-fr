@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905779"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923226"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Effectuer une mise à niveau vers la version 10 du SDK .NET Recherche cognitive Azure
 
-Si vous utilisez la version 9.0-ou une version antérieure du [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search), cet article vous aidera à mettre à niveau votre application pour utiliser la version 10.
+Si vous utilisez la version 9.0-ou une version antérieure du [SDK .NET](/dotnet/api/overview/azure/search), cet article vous aidera à mettre à niveau votre application pour utiliser la version 10.
 
 La Recherche Azure est renommée Recherche cognitive Azure dans la version 10, mais les espace de noms et les noms de package restent inchangés. Les versions antérieures du SDK (9.0 et précédentes) continuent d’utiliser l’ancien nom. Pour plus d’informations sur l’utilisation du SDK et pour découvrir des exemples, consultez [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](search-howto-dotnet-sdk.md).
 
@@ -35,13 +35,13 @@ La version 10 ajoute plusieurs fonctionnalités et correctifs de bogues, ce qui
 Version 10 du SDK .NET Recherche cognitive Azure cible l’API REST (`2019-05-06`) avec les mises à jour suivantes :
 
 * Présentation de deux nouvelles compétences : [compétence Conditionnelle](cognitive-search-skill-conditional.md) et [compétence Traduction de texte](cognitive-search-skill-text-translation.md).
-* Les entrées de [compétence du modélisateur](cognitive-search-skill-shaper.md) ont été restructurées pour s’adapter à la consolidation des contextes imbriqués. Pour plus d’informations, consultez cet [exemple de définition JSON](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
+* Les entrées de [compétence du modélisateur](cognitive-search-skill-shaper.md) ont été restructurées pour s’adapter à la consolidation des contextes imbriqués. Pour plus d’informations, consultez cet [exemple de définition JSON](./cognitive-search-skill-shaper.md#scenario-3-input-consolidation-from-nested-contexts).
 * Ajout de deux nouvelles [fonctions de mappage de champs](search-indexer-field-mappings.md) :
-    - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
-    - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
-* À certaines occasions, les erreurs et avertissements qui s’affichent dans [l’état d’exécution de l’indexeur](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) peuvent contenir des détails supplémentaires qui facilitent le débogage. `IndexerExecutionResult` a été mis à jour pour refléter ce comportement.
+    - [urlEncode](./search-indexer-field-mappings.md#urlencode-function)
+    - [urlDecode](./search-indexer-field-mappings.md#urldecode-function)
+* À certaines occasions, les erreurs et avertissements qui s’affichent dans [l’état d’exécution de l’indexeur](/rest/api/searchservice/get-indexer-status) peuvent contenir des détails supplémentaires qui facilitent le débogage. `IndexerExecutionResult` a été mis à jour pour refléter ce comportement.
 * Les compétences individuelles définies dans un [ensemble de compétences](cognitive-search-defining-skillset.md) peuvent éventuellement être identifiées en spécifiant une propriété `name`.
-* `ServiceLimits` affiche les limites pour les [types complexes](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) et `IndexerExecutionInfo` affiche les limites/quotas pertinent(e)s de l’indexeur.
+* `ServiceLimits` affiche les limites pour les [types complexes](./search-howto-complex-data-types.md) et `IndexerExecutionInfo` affiche les limites/quotas pertinent(e)s de l’indexeur.
 
 <a name="UpgradeSteps"></a>
 
@@ -159,4 +159,3 @@ Les modèles `ItemError` et `ItemWarning` qui encapsulent les détails des erreu
 - Les modifications apportées à la compétence du modélisateur ont l’impact potentiel le plus important sur le code nouveau ou existant. Pour continuer, veillez à consulter à nouveau cet exemple illustrant la structure d’entrée : [Exemple de définition JSON de compétence du modélisateur](cognitive-search-skill-shaper.md)
 - Consultez la [vue d’ensemble de l’enrichissement par IA](cognitive-search-concept-intro.md).
 - N’hésitez pas à nous faire part de vos commentaires sur le kit de développement logiciel. Si vous rencontrez des problèmes, n’hésitez pas à nous demander de l’aide sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Si vous trouvez un bogue, vous pouvez signaler un problème dans le [Référentiel GitHub du Kit de développement logiciel (SDK) Azure .NET](https://github.com/Azure/azure-sdk-for-net/issues). Veillez à faire précéder le titre de votre problème du préfixe « [Recherche cognitive Azure] ».
-

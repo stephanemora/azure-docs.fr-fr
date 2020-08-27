@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741928"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798021"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Effectuer une révision d’accès à partir du portail Mes applications
 
@@ -28,7 +28,7 @@ Si vous n’avez pas accès au portail **Mes applications**, contactez le suppor
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs de **Mes applications**. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Ce contenu est destiné aux utilisateurs de **Mes applications**. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](../manage-apps/index.yml).
 
 ## <a name="manage-access-reviews"></a>Gérer les révisions d’accès
 
@@ -58,7 +58,7 @@ Si votre administrateur vous a autorisé à effectuer vos propres révisions d�
     ![Page Révision d’accès présentant les détails de la révision](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >Si vous êtes un administrateur autorisé à réviser l’accès de votre organisation à des groupes et applications, vous verrez une page différente. Pour plus d’informations sur la révision de groupes ou d’applications pour votre organisation, voir [Réviser l’accès à des groupes ou applications dans les Révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Si vous êtes un administrateur autorisé à réviser l’accès de votre organisation à des groupes et applications, vous verrez une page différente. Pour plus d’informations sur la révision de groupes ou d’applications pour votre organisation, voir [Réviser l’accès à des groupes ou applications dans les Révisions d’accès Azure AD](../governance/perform-access-review.md).
 
 6. Sélectionnez **Oui** conserver votre accès ou **Non** pour supprimer votre accès.
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036145"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924093"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Comment indexer des documents dans Stockage Blob Azure avec la Recherche cognitive Azure
 
@@ -32,8 +32,8 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivants :
 
 * [Azure portal](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
-* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) de Recherche cognitive Azure
+* [API REST](/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/search) de Recherche cognitive Azure
 
 > [!NOTE]
 > Certaines fonctionnalités (par exemple, les mappages de champs) ne sont pas encore disponibles dans le portail et doivent être utilisées par l’intermédiaire de programmes.
@@ -66,7 +66,7 @@ Pour créer une source de données :
     }   
 ```
 
-Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Pour plus d’informations sur l’API Créer une source de données, consultez [Créer une source de données](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Comment spécifier des informations d’identification ####
@@ -77,7 +77,7 @@ Vous pouvez fournir les informations d’identification du conteneur d’objets 
 - Chaîne de connexion de la **signature d’accès partagé (SAP) au compte de stockage** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs et les objets (blob en l’occurrence).
 -  **Signature d’accès partagé du conteneur** : `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` La SAP doit avoir les autorisations de liste et lecture sur le conteneur.
 
-Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une SAP, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification de la SAP expirent, l’indexeur se bloque et affiche un message d’erreur similaire à `Credentials provided in the connection string are invalid or have expired.`.  
@@ -101,7 +101,7 @@ Voici comment créer un index avec un champ `content` pouvant faire l'objet d'un
     }
 ```
 
-Pour plus d’informations sur la création d’index, consultez [Création d'un index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Pour plus d’informations sur la création d’index, consultez [Création d'un index](/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données.
@@ -123,7 +123,7 @@ Une fois l'index et la source de données créés, vous êtes prêt à créer l�
 
 Cet indexeur s’exécutera toutes les deux heures (intervalle de planification défini sur « PT2H »). Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
-Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](/rest/api/searchservice/create-indexer).
 
 Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
@@ -169,8 +169,8 @@ Dans la Recherche cognitive Azure, la clé de document identifie un document de 
 
 Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur le champ de clé de votre index. Les candidats sont les suivants :
 
-* **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en utilisant la [fonction de mappage de champs](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Dans ce cas, pensez à encoder les clés de documents lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) à cet effet).
-* **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de la [fonction](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
+* **metadata\_storage\_name** : ce champ pourrait se révéler un choix commode, mais notez que (1) les noms ne sont pas forcément uniques, car vous pouvez disposer d’objets blob portant le même nom dans différents dossiers, et (2) le nom peut contenir des caractères qui ne sont pas valides dans les clés de document, comme des tirets. Vous pouvez gérer les caractères non valides en utilisant la [fonction de mappage de champs](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Dans ce cas, pensez à encoder les clés de documents lorsque vous les transmettez dans des appels d’API, comme l’API Lookup. (Par exemple, dans .NET, vous pouvez utiliser la [méthode UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) à cet effet).
+* **metadata\_storage\_path** : l’utilisation du chemin d’accès complet garantit l’unicité, mais le chemin d’accès contient invariablement des caractères `/` qui ne sont [pas valides dans une clé de document](/rest/api/searchservice/naming-rules).  Comme ci-dessus, vous avez la possibilité d’encoder les clés à l’aide de la [fonction](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
 * Si aucune des solutions ci-dessus n’est adaptée à votre cas, vous pouvez ajouter une propriété de métadonnées personnalisée aux objets blob. Toutefois, cette approche contraint votre processus de chargement d’objets blob à ajouter cette propriété de métadonnées à tous les objets blob. Étant donné que la clé est une propriété obligatoire, tous les objets blob dépourvus de cette propriété ne seront pas indexés.
 
 > [!IMPORTANT]
@@ -268,7 +268,7 @@ Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` s
 
 Vous pouvez contrôler les parties des objets blob à indexer à l’aide du paramètre de configuration `dataToExtract`. Il peut avoir les valeurs suivantes :
 
-* `storageMetadata` : spécifie que seuls les propriétés standard [ et les métadonnées ](../storage/blobs/storage-properties-metadata.md) spécifiées par l’utilisateur sont indexés.
+* `storageMetadata` : spécifie que seuls les propriétés standard [ et les métadonnées ](../storage/blobs/storage-blob-container-properties-metadata.md) spécifiées par l’utilisateur sont indexés.
 * `allMetadata` : spécifie que les métadonnées de stockage et les [métadonnées spécifiques du type de contenu](#ContentSpecificMetadata) extraites du contenu des objets blob sont indexés.
 * `contentAndMetadata` : spécifie que toutes les métadonnées et tous les contenus textuels extraits de l’objet blob sont indexés. Il s’agit de la valeur par défaut.
 
@@ -316,7 +316,7 @@ Pour certains objets blob, le service Recherche cognitive Azure ne parvient pas 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-La Recherche cognitive Azure limite la taille des objets blob indexés. Ces limites sont documentées dans [Limites de service de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Par défaut, les objets blob surdimensionnés sont traités comme des erreurs. Toutefois, vous pouvez toujours indexer des métadonnées de stockage d’objets blob surdimensionnés en définissant la valeur du paramètre configuration `indexStorageMetadataOnlyForOversizedDocuments` sur true : 
+La Recherche cognitive Azure limite la taille des objets blob indexés. Ces limites sont documentées dans [Limites de service de Recherche cognitive Azure](./search-limits-quotas-capacity.md). Par défaut, les objets blob surdimensionnés sont traités comme des erreurs. Toutefois, vous pouvez toujours indexer des métadonnées de stockage d’objets blob surdimensionnés en définissant la valeur du paramètre configuration `indexStorageMetadataOnlyForOversizedDocuments` sur true : 
 
 ```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
@@ -345,15 +345,15 @@ Il existe deux façons d’implémenter l’approche de suppression réversible.
 ### <a name="native-blob-soft-delete-preview"></a>Suppression réversible native de blobs (préversion)
 
 > [!IMPORTANT]
-> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](./search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 > [!NOTE]
 > Lors de l’utilisation de la stratégie de suppression réversible native de blobs, les clés de document des documents de votre index doivent être une propriété blob ou des métadonnées blob.
 
-Dans cette méthode, vous allez utiliser la fonctionnalité de [suppression réversible native de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) offerte par le stockage Blob Azure. Si la suppression réversible native de blobs est activée sur votre compte de stockage, votre source de données a un jeu natif de stratégies de suppression réversible, et si l’indexeur trouve un blob qui a été transféré à un état Supprimé de manière réversible, l’indexeur supprime ce document de l’index. La stratégie de suppression réversible native de blobs n’est pas prise en charge lors de l’indexation de blobs à partir d’Azure Data Lake Storage Gen2.
+Dans cette méthode, vous allez utiliser la fonctionnalité de [suppression réversible native de blobs](../storage/blobs/soft-delete-blob-overview.md) offerte par le stockage Blob Azure. Si la suppression réversible native de blobs est activée sur votre compte de stockage, votre source de données a un jeu natif de stratégies de suppression réversible, et si l’indexeur trouve un blob qui a été transféré à un état Supprimé de manière réversible, l’indexeur supprime ce document de l’index. La stratégie de suppression réversible native de blobs n’est pas prise en charge lors de l’indexation de blobs à partir d’Azure Data Lake Storage Gen2.
 
 Utiliser les étapes suivantes :
-1. Activez la [suppression réversible native pour le stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Nous vous recommandons de définir la stratégie de rétention sur une valeur bien supérieure à celle de la planification d’intervalle de votre indexeur. Ainsi, en cas de problème lors de l’exécution de l’indexeur ou si vous avez un grand nombre de documents à indexer, l’indexeur a tout le temps nécessaire pour traiter les blobs supprimés de manière réversible. Les indexeurs Recherche cognitive Azure suppriment un document de l’index uniquement s’ils traitent le blob alors que son état est Supprimé de manière réversible.
+1. Activez la [suppression réversible native pour le stockage Blob Azure](../storage/blobs/soft-delete-blob-overview.md). Nous vous recommandons de définir la stratégie de rétention sur une valeur bien supérieure à celle de la planification d’intervalle de votre indexeur. Ainsi, en cas de problème lors de l’exécution de l’indexeur ou si vous avez un grand nombre de documents à indexer, l’indexeur a tout le temps nécessaire pour traiter les blobs supprimés de manière réversible. Les indexeurs Recherche cognitive Azure suppriment un document de l’index uniquement s’ils traitent le blob alors que son état est Supprimé de manière réversible.
 1. Configurez une stratégie de détection des suppressions réversibles natives de blobs sur la source de données. Voici un exemple. Étant donné qu’il s’agit d’une fonctionnalité d’évaluation, vous devez utiliser l’API REST en préversion.
 1. Exécutez l’indexeur ou configurez l’indexeur pour qu’il s’exécute selon une planification. Lorsque l’indexeur s’exécute et traite le blob, le document est supprimé de l’index.
 
@@ -434,7 +434,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 Vous pourriez souhaiter « rassembler » des documents provenant de plusieurs sources dans votre index. Par exemple, vous pourriez souhaiter fusionner des textes de blobs avec d’autres métadonnées stockées dans la base de données Cosmos. Vous pouvez même utiliser le push de l’indexation des API ainsi que plusieurs indexeurs pour générer des documents de recherche à partir de plusieurs parties. 
 
-Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour plus d’informations sur cette rubrique, consultez [Indexer plusieurs sources de données Azure](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans la Recherche cognitive Azure).
+Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour plus d’informations sur cette rubrique, consultez [Indexer plusieurs sources de données Azure](./tutorial-multiple-data-sources.md). Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans la Recherche cognitive Azure).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexation en texte brut 
