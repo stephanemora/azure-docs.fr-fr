@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562348"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923192"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Effectuer une mise à niveau vers la version 9 du SDK .NET Recherche Azure
 
-Si vous utilisez la version 7.0-preview ou une version antérieure du [SDK .NET Recherche Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search), cet article vous aidera à mettre à niveau votre application pour utiliser la version 9.
+Si vous utilisez la version 7.0-preview ou une version antérieure du [SDK .NET Recherche Azure](/dotnet/api/overview/azure/search), cet article vous aidera à mettre à niveau votre application pour utiliser la version 9.
 
 > [!NOTE]
 > Si vous souhaitez utiliser la version 8.0-preview pour tester les fonctionnalités qui ne sont pas encore à la disposition générale, vous pouvez également suivre les instructions de cet article pour passer à la version 8.0-preview à partir de versions antérieures.

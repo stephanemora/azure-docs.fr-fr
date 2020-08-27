@@ -3,18 +3,18 @@ title: Télécharger un fichier de disque dur virtuel vers Azure DevTest Labs à
 description: Cet article explique pas à pas comment utiliser l’utilitaire de ligne de commande AzCopy pour télécharger un fichier VHD sur le compte de stockage d’un lab dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cbed78af3e74af5cf72fd20866abf1ee79011ef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d8ede0f78726b04ac862a00b559b8d42c3ed1cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483208"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650772"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Les étapes suivantes vous guident lors de l’utilisation de l’utilitaire de ligne de commande AzCopy pour télécharger un fichier de disque dur virtuel pour le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/linux/managed-disks-overview.md)
+Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilisés pour créer des images personnalisées, qui servent à approvisionner des machines virtuelles. Les étapes suivantes vous guident lors de l’utilisation de l’utilitaire de ligne de commande AzCopy pour télécharger un fichier de disque dur virtuel pour le compte de stockage d’un laboratoire. Une fois que vous avez téléchargé votre fichier de disque dur virtuel, consultez la [section Étapes suivantes](#next-steps) qui répertorie quelques articles qui expliquent comment créer une image personnalisée à partir du fichier de disque dur virtuel téléchargé. Pour plus d’informations sur les disques et les disques durs virtuels dans Azure, consultez [Présentation des disques managés](../virtual-machines/managed-disks-overview.md)
 
 > [!NOTE] 
 >  

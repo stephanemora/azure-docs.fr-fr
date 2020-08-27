@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244344"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691460"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recette : Maintenance prédictive avec Cognitive Services pour le Big Data
 
@@ -151,4 +151,4 @@ Si tout se passe bien, votre sortie se présentera ainsi :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment effectuer une maintenance prédictive à grande échelle avec Azure Cognitive Services, Azure Synapse Analytics et Azure CosmosDB. Pour plus d’informations, consultez l’exemple complet sur [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
+Découvrez comment effectuer une maintenance prédictive à grande échelle avec Azure Cognitive Services, Azure Synapse Analytics et Azure CosmosDB. Pour plus d’informations, consultez l’exemple complet sur [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).

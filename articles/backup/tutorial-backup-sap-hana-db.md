@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611821"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757487"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -125,7 +125,7 @@ La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur 
 >[!NOTE]
 > Vérifiez que vous disposez d’un ensemble unique de fichiers SSFS sous `/usr/sap/{SID}/home/.hdb/`. Vous ne devez trouver qu’un seul dossier dans ce chemin d’accès.
 
-## <a name="create-a-recovery-service-vault"></a>Créer un coffre Recovery Services
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 Un coffre Recovery Services est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre Recovery Services contient également les stratégies de sauvegarde associées aux machines virtuelles protégées.
 

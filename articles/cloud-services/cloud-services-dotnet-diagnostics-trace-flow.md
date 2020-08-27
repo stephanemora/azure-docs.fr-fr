@@ -7,15 +7,16 @@ documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
-ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8270766413729454181c461d469d49e418a1aa67
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386508"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932302"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure
 Le suivi est un moyen de surveiller l’exécution de votre application pendant son exécution . Vous pouvez utiliser les classes [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) et [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) pour enregistrer des informations relatives aux erreurs et à l’exécution des applications dans des journaux d’activité, des fichiers texte ou d’autres périphériques pour une analyse ultérieure. Pour plus d’informations sur le suivi, consultez [Applications de suivi et instrumentation](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).

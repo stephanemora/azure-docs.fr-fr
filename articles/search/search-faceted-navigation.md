@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd00c357a422a407a3367e45531e3443577f9bec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171939"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923243"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implémentation de la navigation par facettes dans la Recherche cognitive Azure
 
@@ -63,7 +63,7 @@ Dans le code d’application, le modèle consiste à utiliser les paramètres de
 
 ### <a name="query-basics"></a>Principes de base des requêtes
 
-Dans la Recherche cognitive Azure, une requête est spécifiée par le biais d’un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir une description de chacun d’eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
+Dans la Recherche cognitive Azure, une requête est spécifiée par le biais d’un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](/rest/api/searchservice/Search-Documents) pour obtenir une description de chacun d’eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
 
 La précision, interprétée comme la possibilité de filtrer les résultats non pertinents, s’effectue par le biais d’une ou de ces deux expressions :
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l’utilisation.
+Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API de Recherche cognitive Azure)](/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l’utilisation.
 
 En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?* . Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?* . Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq 'Red'`.
 
@@ -319,7 +319,7 @@ Lorsque vous ajoutez un filtre à une requête à facettes, il se peut que vous 
 
 **Vérifier que les nombres de facettes sont exacts**
 
-Dans certaines circonstances, il est possible que les décomptes de facettes ne correspondent pas aux jeux de résultats (consultez [Navigation par facettes dans la Recherche cognitive Azure (page de questions Microsoft Q&A)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+Dans certaines circonstances, il est possible que les décomptes de facettes ne correspondent pas aux jeux de résultats (consultez [Navigation par facettes dans la Recherche cognitive Azure (page de questions Microsoft Q&A)](/answers/topics/azure-cognitive-search.html)).
 
 Les décomptes de facettes peuvent être erronés en raison de l'architecture de partitionnement. Chaque index de recherche a plusieurs partitions et chacune d’elles indique les N premières facettes par décompte de document, qui est ensuite combiné en un résultat unique. Si certaines partitions ont beaucoup de valeurs correspondantes, tandis que d’autres en ont moins, il est possible que certaines valeurs de facettes soient manquantes ou sous-comptabilisées dans les résultats.
 
@@ -333,7 +333,7 @@ Les étiquettes sont généralement définies dans le code HTML ou le formulaire
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrer sur une plage de valeurs
-L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche en consultant [Rechercher des documents (API de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche en consultant [Rechercher des documents (API de Recherche cognitive Azure)](/rest/api/searchservice/Search-Documents).
 
 La Recherche cognitive Azure simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, la Recherche cognitive Azure crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Recherche Azure crée automatiquement les plages 0-10, 10-20, 20-30. Votre application peut éventuellement supprimer les intervalles vides. 
 
@@ -404,4 +404,3 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 
 * [Modèles de conception : Navigation à facettes](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Problèmes de serveur frontal lors de l’implémentation de la recherche à facettes - Partie 1](https://articles.uie.com/faceted_search2/)
-

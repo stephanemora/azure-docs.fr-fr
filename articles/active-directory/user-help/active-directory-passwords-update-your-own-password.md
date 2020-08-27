@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266115"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799041"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
-Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et [réinitialiser votre propre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
+Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et [réinitialiser votre propre mot de passe](./active-directory-passwords-reset-register.md).
 
-Si vous connaissez votre mot de passe et que vous voulez le changer, consultez les étapes dans [Comment modifier votre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de cet article.
+Si vous connaissez votre mot de passe et que vous voulez le changer, consultez les étapes dans [Comment modifier votre mot de passe](#how-to-change-your-password) de cet article.
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui tentent de réinitialiser un mot de passe inconnu ou oublié d’un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Déployer la réinitialisation de mot de passe en libre-service Azure AD et autres articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Cet article s’adresse aux utilisateurs qui tentent de réinitialiser un mot de passe inconnu ou oublié d’un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Déployer la réinitialisation de mot de passe en libre-service Azure AD et autres articles](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Comment réinitialiser ou déverrouiller le mot de passe d’un compte professionnel ou scolaire
 
@@ -164,6 +164,6 @@ Voici quelques cas d'erreur courants et leurs solutions :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
+- Découvrez les informations de sécurité avec l’article [Security info (preview) overview](./security-info-setup-signin.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
 - Si vous tentez de récupérer un compte personnel comme Xbox, hotmail.com ou outlook.com, essayez les suggestions fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

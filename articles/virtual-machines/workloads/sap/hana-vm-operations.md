@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506428"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649684"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -243,7 +243,7 @@ Conformément au guide des bonnes pratiques pour DT 2.0, le débit d’E/S des d
 
 Il est obligatoire d’attacher plusieurs disques Azure à la machine virtuelle DT 2.0 et de créer un RAID logiciel (agrégation) sur le niveau du système d’exploitation pour atteindre la limite maximale de débit des disques par machine virtuelle. Un seul disque Azure ne peut pas fournir le débit nécessaire pour atteindre la limite maximale de la machine virtuelle à cet égard. Un stockage Premium Azure est obligatoire pour exécuter DT 2.0. 
 
-- Vous pouvez trouver plus d’informations sur les types de disque Azure disponibles [ici](../../windows/disks-types.md)
+- Vous pouvez trouver plus d’informations sur les types de disque Azure disponibles [ici](../../disks-types.md)
 - Vous pouvez trouver des informations sur la création d’un RAID logiciel via mdadm [ici](../../linux/configure-raid.md)
 - Vous pouvez trouver des informations sur la configuration de LVM pour créer un volume agrégé par bandes de façon à obtenir un débit maximal [ici](../../linux/configure-lvm.md)
 

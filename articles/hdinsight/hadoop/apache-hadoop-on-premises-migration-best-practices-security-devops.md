@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: d190d3f133c4b12b58dade878dc66755c25e1ed8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078372"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751283"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
 
@@ -111,8 +111,6 @@ Effectuez régulièrement une mise à niveau vers la dernière version de HDInsi
 Pour plus d’informations, consultez l’article : [Mettre à niveau le cluster HDInsight](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Appliquer un correctif aux systèmes d’exploitation de clusters
-
-En tant que service géré Hadoop, HDInsight assure la mise à jour corrective du système d’exploitation des machines virtuelles utilisées par les clusters HDInsight.
 
 Pour plus d’informations, consultez l’article : [Mise à jour corrective du système d’exploitation pour HDInsight](../hdinsight-os-patching.md).
 

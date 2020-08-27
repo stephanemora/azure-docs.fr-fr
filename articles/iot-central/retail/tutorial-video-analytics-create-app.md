@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037873"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762775"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutoriel : Créer une application d’analytique vidéo pour la détection d’objets et de mouvements dans Azure IoT Central
 
@@ -40,7 +40,7 @@ Pour réaliser cette série de tutoriels, vous avez besoin des éléments suivan
 
 ## <a name="initial-setup"></a>Configuration initiale
 
-Dans ces tutoriels, vous mettez à jour et utilisez plusieurs fichiers de configuration. Les versions initiales de ces fichiers sont disponibles dans le référentiel GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics). Ce référentiel comprend également un fichier texte de bloc-notes que vous pouvez télécharger et utiliser pour enregistrer les valeurs de configuration des services que vous déployez.
+Dans ces tutoriels, vous mettez à jour et utilisez plusieurs fichiers de configuration. Les versions initiales de ces fichiers sont disponibles dans le référentiel GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). Ce référentiel comprend également un fichier texte de bloc-notes que vous pouvez télécharger et utiliser pour enregistrer les valeurs de configuration des services que vous déployez.
 
 Créez un dossier appelé *lva-configuration* sur votre ordinateur local pour enregistrer les copies de ces fichiers. Cliquez ensuite avec le bouton droit sur chacun des liens suivants, puis sélectionnez **Enregistrer sous** pour enregistrer le fichier dans le dossier *lva-configuration* :
 
@@ -98,7 +98,7 @@ Pour créer une nouvelle application Azure IoT Central :
 
 Pour créer une application d’analytique vidéo :
 
-1. Sélectionnez le modèle d’application **Analytique vidéo - Détection d’objets et de mouvements**. Ce modèle comprend des modèles d’appareil pour les appareils utilisés dans le tutoriel. Le modèle fournit également un tableau de bord d’opérateur à des fins de surveillance de la vidéo.
+1. Sélectionnez le modèle d’application **Analytique vidéo - Détection d’objets et de mouvements**. Ce modèle comprend des modèles d’appareil pour les appareils utilisés dans le tutoriel. Ce modèle comprend des exemples de tableaux de bord que les opérateurs peuvent utiliser pour effectuer des tâches telles que la surveillance et la gestion des caméras.
 
 1. Si vous le souhaitez, choisissez un **nom d’application** convivial. Cette application est basée sur un magasin fictif de vente au détail nommé Northwind Traders. Le didacticiel utilise le **nom d’application** *d’analytique vidéo Northwind Traders*.
 

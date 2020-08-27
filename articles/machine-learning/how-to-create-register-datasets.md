@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 51e31977a5f31777252920f9cd18bf069bad6d1e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ae8dcc02618220750e2d15d815da4b36ea64da2d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507193"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782190"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -257,5 +257,5 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrir [comment former un modèle avec des jeux de données](how-to-train-with-datasets.md).
-* Utilisez le Machine Learning automatisé pour [vous entraîner avec les TabularDatasets](https://aka.ms/automl-dataset).
-* Pour obtenir plus d’exemples d’entraînement de jeux de données, consultez les [exemples de notebooks](https://aka.ms/dataset-tutorial).
+* Utilisez le Machine Learning automatisé pour [vous entraîner avec les TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+* Pour obtenir plus d’exemples d’entraînement de jeux de données, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590385"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648664"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.
@@ -40,7 +40,7 @@ Les groupes identiques de machines virtuelles Azure fournissent les fonctionnali
 
 - **Fonctionne à grande échelle**
     - Les groupes identiques peuvent prendre en charge jusqu’à 1 000 instances de machines virtuelles. Si vous créez et chargez vos propres images de machine virtuelle personnalisées, la limite est de 600 instances de machine virtuelle.
-    - Pour des performances optimales avec des charges de travail de production, utilisez [Azure Disques managés](../virtual-machines/windows/managed-disks-overview.md).
+    - Pour des performances optimales avec des charges de travail de production, utilisez [Azure Disques managés](../virtual-machines/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Différences entre les machines virtuelles et les groupes identiques

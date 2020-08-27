@@ -1,18 +1,18 @@
 ---
 title: Script PowerShell - Trouver le coffre d’un compte de stockage
-description: Découvrez comment utiliser un script Azure PowerShell pour trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
+description: Découvrez comment utiliser un script Azure PowerShell pour rechercher le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513249"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757521"
 ---
-# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script PowerShell permettant de trouver le coffre Recovery Services dans lequel un compte de stockage est inscrit
+# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script PowerShell permettant de rechercher le coffre Recovery Services dans lequel un compte de stockage est inscrit
 
-Ce script vous aide à trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
+Ce script vous aide à rechercher le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
 
 ## <a name="sample-script"></a>Exemple de script
 

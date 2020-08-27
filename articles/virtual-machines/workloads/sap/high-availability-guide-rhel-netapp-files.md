@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: a8503f701a36d7197f85f2c86e37272ccf1cab48
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5ba5ebcb68ed206bab038f0a892e24834ddb0f22
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760717"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653424"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP
 
@@ -156,7 +156,7 @@ L’architecture de SAP Netweaver présentée dans cet article utilise un seul p
    6. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>pas)
    7. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
   
-Dans cet exemple, nous avons utilisé Azure NetApp Files pour tous les systèmes de fichiers SAP Netweaver afin d’illustrer comment Azure NetApp Files peut être utilisé. Les systèmes de fichiers SAP qui n’ont pas besoin d’être montés par le biais de NFS peuvent également être déployés en tant que [stockage sur disque Azure](../../windows/disks-types.md#premium-ssd). Dans cet exemple <b>a-e</b> doit se trouver sur Azure NetApp Files et <b>f-g</b> (autrement dit, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) peut être déployé en tant que stockage sur disque Azure. 
+Dans cet exemple, nous avons utilisé Azure NetApp Files pour tous les systèmes de fichiers SAP Netweaver afin d’illustrer comment Azure NetApp Files peut être utilisé. Les systèmes de fichiers SAP qui n’ont pas besoin d’être montés par le biais de NFS peuvent également être déployés en tant que [stockage sur disque Azure](../../disks-types.md#premium-ssd). Dans cet exemple <b>a-e</b> doit se trouver sur Azure NetApp Files et <b>f-g</b> (autrement dit, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) peut être déployé en tant que stockage sur disque Azure. 
 
 ### <a name="important-considerations"></a>Points importants à prendre en compte
 

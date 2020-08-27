@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f31782fb4e91b72f51d6f0550fe9010cba7ca3d6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585455"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688638"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -25,7 +25,7 @@ Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez prob
 Dès que vous entamerez la mise à l'échelle votre service, le nombre de requêtes envoyées à votre coffre de clés augmentera. Cela risque d'augmenter la latence de vos requêtes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous pouvez surveiller les métriques de performances du coffre de clés et recevoir des alertes pour des seuils spécifiques. Pour en savoir plus sur la configuration de la surveillance, consultez ce [guide pas à pas](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Comment faire pour attribuer le contrôle d’accès par objet du coffre de clés ? 
-La disponibilité de la fonctionnalité de contrôle d’accès par secret/clé/certificat sera notifiée ici. [En savoir plus](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control).
+La disponibilité de la fonctionnalité de contrôle d’accès par secret/clé/certificat sera notifiée ici. [En savoir plus](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>Comment faire pour fournir une authentification auprès du coffre de clés à l’aide d’une stratégie de contrôle d’accès ?
 Le moyen le plus simple d’authentifier une application cloud auprès de Key Vault consiste à utiliser une identité managée. Pour plus d’informations, consultez [Utiliser une identité managée App Service pour accéder à Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/managed-identity).

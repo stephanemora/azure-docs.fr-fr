@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130804"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928834"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Types et composition de requête dans Recherche cognitive Azure
 
 Dans Recherche cognitive Azure, une requête est une spécification complète d’une opération d’aller-retour. Dans la requête, il existe des paramètres qui fournissent des instructions d’exécution pour le moteur, ainsi que des paramètres qui forment la réponse en retour. Non spécifiée (`search=*`), sans critères de correspondance et qui utilise des paramètres nuls ou par défaut, une requête s’exécute sur tous les champs recherchables en tant qu’opération de recherche de texte intégral et retourne un jeu de résultats sans score dans un ordre arbitraire.
 
-L’exemple suivant est une requête représentative construite dans l’[API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Cet exemple cible l’[index de démonstration des hôtels](search-get-started-portal.md) et comprend des paramètres communs afin que vous puissiez vous faire une idée de ce à quoi ressemble une requête.
+L’exemple suivant est une requête représentative construite dans l’[API REST](/rest/api/searchservice/search-documents). Cet exemple cible l’[index de démonstration des hôtels](search-get-started-portal.md) et comprend des paramètres communs afin que vous puissiez vous faire une idée de ce à quoi ressemble une requête.
 
 ```
 {
@@ -65,7 +65,7 @@ Les attributs d’index d’un champ définissent les opérations autorisées, p
 
 ![Définition d’index pour l’exemple des hôtels](./media/search-query-overview/hotel-sample-index-definition.png "Définition d’index pour l’exemple Hôtel")
 
-La capture d’écran ci-dessus présente une liste partielle des attributs d’index pour l’exemple des hôtels. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+La capture d’écran ci-dessus présente une liste partielle des attributs d’index pour l’exemple des hôtels. Vous pouvez consulter le schéma d’index complet dans le portail. Pour en savoir plus sur les attributs d’index, consultez [Création d’une API REST d’index](/rest/api/searchservice/create-index).
 
 > [!Note]
 > Certaines fonctionnalités de requête s’appliquent à l’ensemble de l’index plutôt qu’à des champs spécifiques. Ces fonctionnalités incluent : les [cartes de synonymes](search-synonyms.md), les [analyseurs personnalisés](index-add-custom-analyzers.md), les [constructions de générateur de suggestions (pour les requêtes de saisie semi-automatique et de suggestion automatique)](index-add-suggesters.md) et la [logique de notation pour le classement des résultats](index-add-scoring-profiles.md).
@@ -82,7 +82,7 @@ Les éléments obligatoires dans une demande de requête incluent les composants
 + **`queryType`** , simple ou full, qui peut être omis si vous utilisez la syntaxe simple par défaut intégrée.
 + **`search`** ou **`filter`** fournit les critères de recherche, qui peuvent être non spécifiés si vous souhaitez effectuer une recherche vide. Les deux types de requêtes sont décrits dans le cadre d’un analyseur simple, mais même les requêtes avancées requièrent le paramètre de recherche pour prendre en compte les expressions de requêtes complexes.
 
-Tous les autres paramètres de recherche sont facultatifs. Pour obtenir la liste complète des attributs, consultez la section relative à la [création d’index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Pour en savoir plus sur le rôle des paramètres lors du traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure](search-lucene-query-architecture.md).
+Tous les autres paramètres de recherche sont facultatifs. Pour obtenir la liste complète des attributs, consultez la section relative à la [création d’index (REST)](/rest/api/searchservice/create-index). Pour en savoir plus sur le rôle des paramètres lors du traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure](search-lucene-query-architecture.md).
 
 ## <a name="choose-apis-and-tools"></a>Choisir les API et les outils
 
@@ -92,8 +92,8 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. Il est recommandé pour l’exploration, le test et la validation. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
 | [Postman ou autres outils REST](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche cognitive Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche cognitive Azure.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche cognitive Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Choisir un analyseur : simple | full
 
@@ -123,7 +123,7 @@ Recherche cognitive Azure prend en charge un large éventail de types de requêt
 |------------|--------|-------------------------------|
 | Recherche de texte de forme libre | Paramètre de recherche et analyseur au choix| Une recherche en texte intégral recherche un ou plusieurs termes dans tous les champs *pouvant faire l’objet d’une recherche* de votre index, et fonctionne à l’instar des moteurs de recherche Google ou Bing. L’exemple dans l’introduction est une recherche en texte intégral.<br/><br/>La recherche en texte intégral fait l’objet d’une analyse lexicale à l’aide de l’analyseur Lucene standard (par défaut) pour mettre tous les termes en minuscules et supprimer les mots exclus tels que « the » (la, le, les). Vous pouvez remplacer l’analyseur par défaut en choisissant un [analyseur non anglais](index-add-language-analyzers.md#language-analyzer-list) ou un [analyseur spécialisé indépendant des langages](index-add-custom-analyzers.md#AnalyzerTable) qui modifiera les paramètres d’analyse lexicale. Un analyseur [mot clé](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) traite par exemple tout le contenu d’un champ comme un jeton unique. Ceci est utile pour les données comme les codes postaux, les ID et certains noms de produit. | 
 | Recherche filtrée | [Expression de filtre OData](query-odata-filter-orderby-syntax.md) et analyseur au choix | Les requêtes de filtre évaluent une expression booléenne dans tous les champs *filtrables* d’un index. Contrairement à une recherche, une requête de filtre établit une correspondance avec le contenu exact d’un champ, y compris la casse dans les champs de type chaîne. Une autre différence est que les requêtes de filtre sont exprimées dans la syntaxe OData. <br/>[Exemple d’expression de filtre](search-query-simple-examples.md#example-3-filter-queries) |
-| Recherche basée sur la localisation | Champ de [type Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), expression de filtre et analyseur au choix | Les coordonnées stockées dans un champ de type Edm.GeographyPoint sont utilisées pour les recherches de type « rechercher à proximité » ou basées sur une carte. <br/>[Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search)|
+| Recherche basée sur la localisation | Champ de [type Edm.GeographyPoint](/rest/api/searchservice/supported-data-types), expression de filtre et analyseur au choix | Les coordonnées stockées dans un champ de type Edm.GeographyPoint sont utilisées pour les recherches de type « rechercher à proximité » ou basées sur une carte. <br/>[Exemple de recherche sur la localisation](search-query-simple-examples.md#example-5-geo-search)|
 | Recherche de plage | expression de filtre et analyseur simple | Dans Recherche cognitive Azure, les requêtes de plage sont créées à l’aide du paramètre de filtre. <br/>[Exemple de filtre de plage](search-query-simple-examples.md#example-4-range-filters) | 
 | [Recherche par champ](query-lucene-syntax.md#bkmk_fields) | Paramètre de recherche et analyseur complet | Crée une expression de requête composite ciblant un champ unique. <br/>[Exemple de recherche par champ](search-query-lucene-examples.md#example-2-fielded-search) |
 | [recherche approximative](query-lucene-syntax.md#bkmk_fuzzy) | Paramètre de recherche et analyseur complet | Recherche les termes ayant une construction ou une orthographe similaire. <br/>[Exemple de recherche approximative](search-query-lucene-examples.md#example-3-fuzzy-search) |
@@ -169,5 +169,5 @@ Dans Recherche cognitive Azure, vous pouvez mettre facilement en évidence la pa
 
 + [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure (architecture d’analyse de requête)](search-lucene-query-architecture.md)
 + [Navigateur de recherche](search-explorer.md)
-+ [Guide pratique pour interroger dans .NET](search-query-dotnet.md)
-+ [Guide pratique pour interroger dans REST](search-create-index-rest-api.md)
++ [Guide pratique pour interroger dans .NET](./search-get-started-dotnet.md)
++ [Guide pratique pour interroger dans REST](./search-get-started-powershell.md)

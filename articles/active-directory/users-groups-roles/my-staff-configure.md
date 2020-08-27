@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850899"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798956"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestion des utilisateurs avec Mon personnel (préversion)
 
@@ -64,7 +64,7 @@ Une fois que vous avez configuré les unités administratives, vous pouvez appli
 
 Vous pouvez protéger le portail Mon personnel à l’aide d’une stratégie d’accès conditionnel Azure AD. Utilisez celle-ci pour des tâches telles que l’authentification multifacteur avant d’accéder au portail Mon personnel.
 
-Nous vous recommandons vivement de protéger le portail Mon personnel à l’aide de [stratégies d’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Pour appliquer une stratégie d’accès conditionnel au portail Mon personnel, vous devez créer manuellement le principal du service Mon personnel à l’aide de PowerShell.
+Nous vous recommandons vivement de protéger le portail Mon personnel à l’aide de [stratégies d’accès conditionnel Azure AD](../conditional-access/index.yml). Pour appliquer une stratégie d’accès conditionnel au portail Mon personnel, vous devez créer manuellement le principal du service Mon personnel à l’aide de PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Appliquer une stratégie d’accès conditionnel au portail Mon personnel
 

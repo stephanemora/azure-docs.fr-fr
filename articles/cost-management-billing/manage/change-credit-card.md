@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 387e10e1e9e22e425e5849f4341052ab0f8ae1fb
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509822"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684930"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure
 

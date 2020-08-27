@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9f63b4215e9b4a67a439e47501876d237a6d3c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fe7210ad52c756f140144f04e3b747c0bfcd00c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320916"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650313"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Le code ci-dessus expose les nouveaux paramètres suivants au constructeur `Esti
 
 Paramètre | Description | Default
 --|--|--
-`custom_docker_image`| Nom de l’image que vous voulez utiliser. Indiquez uniquement des images disponibles dans les référentiels Docker publics (dans ce cas, Docker Hub). Pour utiliser une image à partir d’un référentiel Docker privé, utilisez le paramètre `environment_definition` du constructeur. [Consultez l’exemple](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nom de l’image que vous voulez utiliser. Indiquez uniquement des images disponibles dans les référentiels Docker publics (dans ce cas, Docker Hub). Pour utiliser une image à partir d’un référentiel Docker privé, utilisez le paramètre `environment_definition` du constructeur.| `None`
 `node_count`| Nombre de nœuds à utiliser pour la tâche d’entraînement. | `1`
 `process_count_per_node`| Nombre de processus (ou « workers ») à exécuter sur chaque nœud. Dans ce cas, utilisez les GPU `2` disponibles sur chaque nœud.| `1`
 `distributed_training`| Objet [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) pour démarrer un entraînement distribué à l’aide du back-end MPI.  | `None`
@@ -140,8 +140,6 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Pour plus d’informations, consultez [Obtenir une intégration pour Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="examples"></a>Exemples
-Pour un notebook qui montre les fonctions de base du modèle d’estimateur, consultez :
-* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 Pour un notebook qui entraîne un modèle scikit-learn à l’aide de l’estimateur, consultez :
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)

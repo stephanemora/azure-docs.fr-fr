@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ab32a2ccb4c7eb79309798c2b53d326723ad6ea
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2a65d31bd7cde0a1f456212a19c06f6b940ce602
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420071"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922733"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
 
 L’analyse du trafic de recherche est un modèle pour la collecte des données de télémétrie concernant les interactions de l’utilisateur avec votre application Recherche cognitive Azure, comme les événements de clic initiés par l’utilisateur et les saisies au clavier. À l’aide de ces informations, vous pouvez déterminer l’efficacité de votre solution de recherche, en vous intéressant notamment aux termes de recherche populaires, aux taux de clics et aux entrées de requête qui ne produisent aucun résultat.
 
-Ce modèle dépend d’[Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (fonctionnalité d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)) pour collecter les données utilisateur. Vous devrez également ajouter l’instrumentation à votre code client, comme le décrit cet article. Enfin, vous aurez besoin d’un mécanisme de création de rapports pour analyser les données. Nous vous recommandons Power BI, mais vous pouvez utiliser le tableau de bord d’application n’importe quel autre outil qui se connecte à Application Insights.
+Ce modèle dépend d’[Application Insights](../azure-monitor/app/app-insights-overview.md) (fonctionnalité d’[Azure Monitor](../azure-monitor/index.yml)) pour collecter les données utilisateur. Vous devrez également ajouter l’instrumentation à votre code client, comme le décrit cet article. Enfin, vous aurez besoin d’un mécanisme de création de rapports pour analyser les données. Nous vous recommandons Power BI, mais vous pouvez utiliser le tableau de bord d’application n’importe quel autre outil qui se connecte à Application Insights.
 
 > [!NOTE]
 > Le modèle décrit dans cet article est destiné aux scénarios avancés et aux données parcours générées par le code que vous ajoutez à votre client. En revanche, les journaux de service sont faciles à configurer, fournissent une variété de métriques et peuvent être gérés dans le portail sans code requis. L’activation de la journalisation est recommandée pour tous les scénarios. Pour plus d’informations, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
@@ -43,9 +43,9 @@ Dans la page du [portail](https://portal.azure.com) de votre service Recherche c
 
 ## <a name="1---set-up-application-insights"></a>1 - Configurer Application Insights
 
-Sélectionnez une ressource Application Insights ou [en créer une](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) si vous n’en n’avez pas. Si vous utilisez la page Analyse du trafic de recherche, vous pouvez copier la clé d’instrumentation dont votre application a besoin pour se connecter à Application Insights.
+Sélectionnez une ressource Application Insights ou [en créer une](../azure-monitor/app/create-new-resource.md) si vous n’en n’avez pas. Si vous utilisez la page Analyse du trafic de recherche, vous pouvez copier la clé d’instrumentation dont votre application a besoin pour se connecter à Application Insights.
 
-Une fois que vous disposez d’une ressource Application Insights, vous pouvez suivre les [instructions relatives aux plateformes et langages pris en charge](https://docs.microsoft.com/azure/azure-monitor/app/platforms) pour inscrire votre application. L’inscription consiste simplement à ajouter la clé d’instrumentation d’Application Insights à votre code, ce qui configure l’association. Vous pouvez trouver la clé dans le portail ou à partir de la page Analyse du trafic de recherche lorsque vous sélectionnez une ressource existante.
+Une fois que vous disposez d’une ressource Application Insights, vous pouvez suivre les [instructions relatives aux plateformes et langages pris en charge](../azure-monitor/app/platforms.md) pour inscrire votre application. L’inscription consiste simplement à ajouter la clé d’instrumentation d’Application Insights à votre code, ce qui configure l’association. Vous pouvez trouver la clé dans le portail ou à partir de la page Analyse du trafic de recherche lorsque vous sélectionnez une ressource existante.
 
 Un raccourci qui fonctionne pour certains types de projets Visual Studio est reflété dans les étapes suivantes. Il crée une ressource et inscrit votre application en quelques clics.
 
@@ -55,7 +55,7 @@ Un raccourci qui fonctionne pour certains types de projets Visual Studio est ref
 
 1. Inscrivez votre application en fournissant un compte Microsoft, un abonnement Azure et une ressource Application Insights (une nouvelle ressource par défaut). Cliquez sur **S'inscrire**.
 
-À ce stade, votre application est configurée pour l’analyse des applications, ce qui signifie que tous les chargements de page sont suivis avec les métriques par défaut. Pour plus d’informations sur les étapes précédentes, consultez [Activer la télémétrie Application Insights côté serveur](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
+À ce stade, votre application est configurée pour l’analyse des applications, ce qui signifie que tous les chargements de page sont suivis avec les métriques par défaut. Pour plus d’informations sur les étapes précédentes, consultez [Activer la télémétrie Application Insights côté serveur](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="2---add-instrumentation"></a>2 - Ajouter la fonctionnalité d’instrumentation
 
@@ -63,11 +63,11 @@ Cette étape consiste à instrumenter votre propre application de recherche, à 
 
 ### <a name="step-1-create-a-telemetry-client"></a>Étape 1 : Créer un client de télémétrie
 
-Créez un objet qui envoie des événements à Application Insights. Vous pouvez ajouter l’instrumentation à votre code d’application côté serveur ou au code côté client s’exécutant dans un navigateur, exprimé ici en variantes C# et JavaScript (pour les autres langages, consultez la liste complète des [plateformes et frameworks pris en charge](https://docs.microsoft.com/azure/application-insights/app-insights-platforms). Choisissez l’approche qui vous donne la profondeur d’informations souhaitée.
+Créez un objet qui envoie des événements à Application Insights. Vous pouvez ajouter l’instrumentation à votre code d’application côté serveur ou au code côté client s’exécutant dans un navigateur, exprimé ici en variantes C# et JavaScript (pour les autres langages, consultez la liste complète des [plateformes et frameworks pris en charge](../azure-monitor/app/platforms.md). Choisissez l’approche qui vous donne la profondeur d’informations souhaitée.
 
 La télémétrie côté serveur capture les métriques au niveau de la couche application, par exemple dans les applications qui s’exécutent en tant que service web dans le cloud, ou en tant qu’application locale sur un réseau d’entreprise. La télémétrie côté serveur capture les événements de recherche et de clic, la position d’un document dans les résultats et les informations sur les requêtes, mais votre collecte de données est limitée aux informations disponibles au niveau de cette couche.
 
-Sur le client, vous pouvez avoir du code supplémentaire qui manipule les entrées de requête, ajoute la navigation ou inclut le contexte (par exemple, les requêtes lancées à partir d’une page d’accueil et celles lancées depuis une page de produit). Si cela décrit votre solution, vous pouvez opter pour l’instrumentation côté client afin que vos données de télémétrie reflètent ces détails supplémentaires. La façon dont ces détails supplémentaires sont collectés dépasse le cadre de ce modèle, mais vous pouvez consulter [Application Insights pour les pages web](https://docs.microsoft.com/azure/azure-monitor/app/javascript#explore-browserclient-side-data) pour plus d’informations. 
+Sur le client, vous pouvez avoir du code supplémentaire qui manipule les entrées de requête, ajoute la navigation ou inclut le contexte (par exemple, les requêtes lancées à partir d’une page d’accueil et celles lancées depuis une page de produit). Si cela décrit votre solution, vous pouvez opter pour l’instrumentation côté client afin que vos données de télémétrie reflètent ces détails supplémentaires. La façon dont ces détails supplémentaires sont collectés dépasse le cadre de ce modèle, mais vous pouvez consulter [Application Insights pour les pages web](../azure-monitor/app/javascript.md#explore-browserclient-side-data) pour plus d’informations. 
 
 **Utiliser C#**
 
@@ -238,6 +238,6 @@ La capture d’écran suivante montre à quoi peut ressembler un rapport intégr
 
 Instrumentez votre application de recherche pour obtenir des données puissantes et détaillées sur votre service de recherche.
 
-Des informations supplémentaires sur [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) sont disponibles. Vous pouvez également visiter la [page des tarifs](https://azure.microsoft.com/pricing/details/application-insights/) pour en savoir plus sur les différents niveaux de service.
+Des informations supplémentaires sur [Application Insights](../azure-monitor/app/app-insights-overview.md) sont disponibles. Vous pouvez également visiter la [page des tarifs](https://azure.microsoft.com/pricing/details/application-insights/) pour en savoir plus sur les différents niveaux de service.
 
-En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Bien démarrer avec Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started).
+En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Bien démarrer avec Power BI Desktop](/power-bi/fundamentals/desktop-getting-started).

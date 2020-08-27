@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Développement d’outils de base
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Créer des fonctions
           items:
             - name: Déclencheur HTTP

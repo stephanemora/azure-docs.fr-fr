@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: bb23a47b702237cad55ded2fa46400eba0997264
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082843"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648630"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle ARM
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json" range="1-330" highlight="176-264":::
+:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json":::
 
 Ces ressources Azure sont définies dans le modèle :
 
@@ -48,7 +48,7 @@ Ces ressources Azure sont définies dans le modèle :
 
 ### <a name="define-a-scale-set"></a>Définir un groupe identique
 
-La partie en surbrillance correspond à la définition des ressources de groupe identique. Pour créer un groupe identique avec un modèle, vous définissez les ressources appropriées. Les parties essentielles du type de ressource de groupe de machines virtuelles identiques sont :
+Pour créer un groupe identique avec un modèle, vous définissez les ressources appropriées. Les parties essentielles du type de ressource de groupe de machines virtuelles identiques sont :
 
 | Propriété                     | Description de la propriété                                  | Exemple de valeur de modèle                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|

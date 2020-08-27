@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f6e1a7b8ac4dce0504fca5f03090588a75ae1ef
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 6198475025ff5222edeeb14cf25634ad2d916a1f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732439"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651435"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
@@ -88,7 +88,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, effectuez les étapes suivant
 
 1. Pour garantir la disponibilité d’Apache Kafka sur HDInsight, le __nombre de nœuds__ de l’entrée **Nœud Worker** doit être supérieur ou égal à 3. La valeur par défaut est 4.
 
-    L’entrée relative aux **disques standards par nœud worker** configure la scalabilité d’Apache Kafka sur HDInsight. Apache Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Apache Kafka utilise [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Apache Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
+    L’entrée relative aux **disques standards par nœud worker** configure la scalabilité d’Apache Kafka sur HDInsight. Apache Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Apache Kafka utilise [Azure Disques managés](../../virtual-machines/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Apache Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
    ![Définir la taille du cluster Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
