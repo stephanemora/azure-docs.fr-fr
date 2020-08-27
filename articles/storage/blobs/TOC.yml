@@ -739,6 +739,8 @@
               href: data-lake-storage-explorer.md
             - name: Interface CLI de système de fichiers Hadoop
               href: data-lake-storage-use-hdfs-data-lake-storage.md
+            - name: Définir des listes de contrôle d’accès de façon récursive
+              href: recursive-access-control-lists.md
         - name: Requête
           items:
             - name: Filtrer les données avec l’accélération des requêtes

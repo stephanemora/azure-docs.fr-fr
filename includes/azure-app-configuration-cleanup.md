@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116986"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88639081"
 ---
 Si vous ne souhaitez plus utiliser les ressources créées dans cet article, supprimez le groupe de ressources que vous avez créé ici afin d’éviter des frais.
 
@@ -22,7 +22,7 @@ Si vous ne souhaitez plus utiliser les ressources créées dans cet article, sup
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 1. Dans la zone **Filtrer par nom**, entrez le nom de votre groupe de ressources. 
-1. Dans la liste des résultats, sélectionnez le groupe de ressources et cliquez avec le bouton droit sur la ligne ou utilisez les **points de suspension** (**... **) pour ouvrir le menu contextuel.
+1. Dans la liste de résultats, sélectionnez le nom du groupe de ressources pour afficher une vue d’ensemble.
 1. Sélectionnez **Supprimer le groupe de ressources**.
 1. Vous êtes invité à confirmer la suppression du groupe de ressources. Entrez le nom de votre groupe de ressources à confirmer, puis sélectionnez **Supprimer**.
 

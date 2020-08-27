@@ -3,15 +3,15 @@ title: Gérer des groupes d’applications Windows Virtual Desktop - Portail Azu
 description: Explique comment gérer des groupes d’applications Windows Virtual Desktop avec le portail Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659481"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutoriel : Gérer des groupes d’applications avec le portail Azure
 
@@ -34,11 +34,15 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
 
 2.  Recherchez et sélectionnez **Windows Virtual Desktop**.
 
-3.  Sélectionnez **Groupes d’applications** dans le menu sur le côté gauche de la page, puis sélectionnez **+ Ajouter**.
+3. Vous pouvez ajouter un groupe d’applications directement ou vous pouvez l’ajouter à partir d’un pool d’hôtes existant. Choisissez l’une des options suivantes :
 
-4. Sous l’onglet **De base**, sélectionnez le groupe d’abonnement et le groupe de ressources pour lesquels vous souhaitez créer le groupe d’applications. Vous pouvez également choisir de créer un nouveau groupe de ressources au lieu de sélectionner un groupe existant.
+    - Sélectionnez **Groupes d’applications** dans le menu situé à gauche dans la page, puis sélectionnez **+ Ajouter**.
 
-5. Sélectionnez le pool d’hôtes qui sera associé au groupe d’applications dans le menu déroulant en regard de **Pool d’hôtes**.
+    - Sélectionnez **Pools d’hôtes** dans le menu situé à gauche sur l’écran et sélectionnez successivement le nom du pool d’hôtes, **Groupes d’applications** dans le menu situé à gauche, puis **+ Ajouter**. Dans ce cas, le pool d’hôtes est déjà sélectionné sous l’onglet De base.
+
+4. Sous l’onglet **De base**, sélectionnez l’**abonnement** et le **groupe de ressources** pour lesquels vous souhaitez créer le groupe d’applications. Vous pouvez également choisir de créer un nouveau groupe de ressources au lieu de sélectionner un groupe existant.
+
+5. Sélectionnez le **pool d’hôtes** qui sera associé au groupe d’applications dans le menu déroulant.
 
     >[!NOTE]
     >Vous devez sélectionner le pool d’hôtes associé au groupe d’applications. Les groupes d’applications ont des applications ou des bureaux qui sont servis par un hôte de session, et les hôtes de session font partie des pools d’hôtes. Le groupe d’applications doit être associé à un pool d’hôtes lors de sa création.
@@ -46,41 +50,27 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de l’onglet De base dans le portail Azure.](media/basics-tab.png)
 
-6. Si vous souhaitez ajouter des groupes d’applications à votre pool d’hôtes, sélectionnez **Pools d’hôtes** dans le menu sur le côté gauche de l’écran.
-
-    Ensuite, sélectionnez le nom du pool d’hôtes auquel vous souhaitez ajouter des groupes d’applications.
-
-    Après cela, sélectionnez **Groupes d’applications** dans le menu sur le côté gauche de l’écran, puis sélectionnez **+ Ajouter**.
-
-    Pour finir, sélectionnez le groupe d’abonnement et le groupe de ressources dans lesquels vous souhaitez créer le groupe d’applications. Vous pouvez sélectionner le nom d’un groupe de ressources existant dans le menu déroulant ou sélectionner **Créer** pour en créer un.
-
-      >[!NOTE]
-      >Quand vous ajoutez des groupes d’applications à votre pool d’hôtes, le pool d’hôtes qui est associé au groupe d’applications est déjà sélectionné, car vous avez navigué à partir de ce pool.
-      >
-      > [!div class="mx-imgBorder"]
-      >![Capture d’écran de l’onglet De base avec le pool d’hôtes présélectionné.](media/host-pool-selected.png)
-
-7. Sélectionnez **RemoteApp** sous Type de groupe d’applications, puis entrez un nom pour votre RemoteApp.
+6. Sélectionnez **RemoteApp** sous **Type de groupe d’applications**, puis entrez un nom pour votre RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![Capture d’écran des champs de type de groupe d’applications. « RemoteApp » est mis en surbrillance.](media/remoteapp-button.png)
 
-8.  Sélectionnez l’onglet **Attributions**.
+7.  Sélectionnez **Suivant : Attributions >** (onglet).
 
-9.  Pour publier des utilisateurs individuels ou des groupes d’utilisateurs dans le groupe d’applications, sélectionnez **+ Ajouter des utilisateurs ou des groupes d’utilisateurs Azure AD**.
+8.  Pour affecter des utilisateurs individuels ou des groupes d’utilisateurs au groupe d’applications, sélectionnez **+ Ajouter des utilisateurs ou des groupes d’utilisateurs Azure AD**.
 
-10.  Sélectionnez le nombre d’utilisateurs auxquels vous souhaitez ajouter les applications. Vous pouvez sélectionner un ou plusieurs utilisateurs et groupes d’utilisateurs.
+9.  Sélectionnez les utilisateurs qui doivent avoir accès aux applications. Vous pouvez sélectionner un ou plusieurs utilisateurs et groupes d’utilisateurs.
 
      > [!div class="mx-imgBorder"]
      > ![Capture d’écran du menu de sélection d’utilisateur.](media/select-users.png)
 
-11.  Sélectionnez **Sélectionner**.
+10.  Sélectionnez **Sélectionner**.
 
-12.  Sélectionnez l’onglet **Applications**, puis **+ Ajouter des applications**.
+11.  Sélectionnez **Suivant : Applications >** , puis sélectionnez **+Ajouter des applications**.
 
-13.  Pour ajouter une application à partir du menu Démarrer :
+12.  Pour ajouter une application à partir du menu Démarrer :
 
-      - Accédez à **Source de l’application** et sélectionnez **Menu Démarrer** dans le menu déroulant. Accédez ensuite à **Application**, puis choisissez l’application dans le menu déroulant.
+      - Sous **Source de l’application**, sélectionnez **Menu Démarrer** dans le menu déroulant. Ensuite, sous **Application**, choisissez l’application dans le menu déroulant.
 
      > [!div class="mx-imgBorder"]
      > ![Capture d’écran de l’écran Ajouter une application avec le menu Démarrer sélectionné.](media/add-app-start.png)
@@ -89,11 +79,11 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
 
       - Laissez les autres options telles quelles et sélectionnez **Enregistrer**.
 
-14. Pour ajouter une application à partir d’un chemin de fichier spécifique :
+13.  Pour ajouter une application à partir d’un chemin de fichier spécifique :
 
-      - Accédez à **Source de l’application** et sélectionnez **Chemin de fichier** dans le menu déroulant.
+      - Sous **Source de l’application**, sélectionnez **Chemin de fichier** dans le menu déroulant.
 
-      - Entrez le chemin de l’application sur l’hôte de session, inscrit auprès du pool d’hôtes associé.
+      - Dans **Chemin de l’application**, entrez le chemin de l’application sur l’hôte de session inscrit auprès du pool d’hôtes associé.
 
       - Entrez les détails de l’application dans les champs **Nom de l’application**, **Nom complet**, **Chemin d’accès à l’icône** et **Index de l’icône**.
 
@@ -102,11 +92,11 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
      > [!div class="mx-imgBorder"]
      > ![Capture d’écran de la page Ajouter une application avec le chemin de fichier sélectionné.](media/add-app-file.png)
 
-     Répétez ce processus pour chaque application que vous souhaitez ajouter au groupe d’applications.
+14.  Répétez ce processus pour chaque application que vous souhaitez ajouter au groupe d’applications.
 
-15.  Ensuite, sélectionnez l’onglet **Espace de travail**.
+15.  Ensuite, sélectionnez **Suivant : Espace de travail >** .
 
-16.  Si vous souhaitez inscrire le groupe d’applications auprès d’un espace de travail, accédez à **Inscrire le groupe d’applications** et sélectionnez **Oui**. Si vous préférez inscrire le groupe d’applications ultérieurement, sélectionnez **Non**.
+16.  Si vous souhaitez inscrire le groupe d’applications auprès d’un espace de travail, sélectionnez **Oui** pour **Inscrire le groupe d’applications**. Si vous préférez inscrire le groupe d’applications ultérieurement, sélectionnez **Non**.
 
 17.  Si vous sélectionnez **Oui**, vous pouvez sélectionner un espace de travail existant auprès duquel inscrire votre groupe d’applications.
 
@@ -116,11 +106,11 @@ Si vous avez déjà créé un pool d’hôtes et des machines virtuelles hôtes 
      > [!div class="mx-imgBorder"]
      > ![Capture d’écran de la page Inscrire le groupe d’applications pour un espace de travail existant. Le pool d’hôtes est présélectionné.](media/register-existing.png)
 
-18. Éventuellement, si vous souhaitez créer des étiquettes pour faciliter l’organisation de votre espace de travail, sélectionnez l’onglet **Étiquettes** et entrez les noms de vos étiquettes.
+18.  Le cas échéant, si vous souhaitez créer des étiquettes pour faciliter l’organisation de votre espace de travail, sélectionnez l’onglet **Suivant : Étiquettes >** et entrez les noms de vos étiquettes.
 
-19. Quand vous avez terminé, sélectionnez l’onglet **Vérifier + créer**.
+19.  Quand vous avez terminé, sélectionnez **Vérifier + créer**.
 
-20. Attendez que le processus de validation soit terminé. Ensuite, sélectionnez **Créer** pour déployer votre groupe d’applications.
+20.  Attendez que le processus de validation soit terminé. Ensuite, sélectionnez **Créer** pour déployer votre groupe d’applications.
 
 Le processus de déploiement effectue les tâches suivantes pour vous :
 

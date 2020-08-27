@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323878"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655267"
 ---
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323878"
 > Les limites par défaut varient selon le type d’abonnement que vous utilisez pour créer un compte Batch. Les quotas de cœurs affichés correspondent aux comptes Batch en mode service Batch. [Affichez les quotas dans votre compte Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> Pour mieux gérer la capacité au cours de la pandémie mondiale, nous avons réduit les quotas de cœurs par défaut des nouveaux comptes Batch par rapport à la plage de valeurs ci-dessus dans certaines régions et pour certains types d’abonnements (quotas réduits à zéro cœur dans certains cas). Quand vous créez un compte Batch, [vérifiez votre quota de cœurs](../articles/batch/batch-quota-limit.md#view-batch-quotas) et [demandez une augmentation du quota de cœurs](../articles/batch/batch-quota-limit.md#increase-a-quota) si nécessaire. 
+> Pour mieux gérer la capacité au cours de la pandémie mondiale, nous avons réduit les quotas de cœurs par défaut des nouveaux comptes Batch par rapport à la plage de valeurs ci-dessus dans certaines régions et pour certains types d’abonnements (quotas réduits à zéro cœur dans certains cas). Quand vous créez un compte Batch, [vérifiez votre quota de cœurs](../articles/batch/batch-quota-limit.md#view-batch-quotas) et [demandez une augmentation du quota de cœurs](../articles/batch/batch-quota-limit.md#increase-a-quota) si nécessaire. Vous pouvez aussi envisager de réutiliser des comptes batch qui disposent déjà d’un quota suffisant. 

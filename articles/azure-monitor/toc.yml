@@ -210,33 +210,13 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Workspaces
-          items:
-            - name: Concevoir un déploiement d’espace de travail
-              href: platform/design-logs-deployment.md
-            - name: Créer un espace de travail
-              items:
-                - name: Utiliser le portail Azure
-                  href: learn/quick-create-workspace.md
-                - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
-                  href: learn/quick-create-workspace-cli.md
-                - name: Utiliser PowerShell
-                  href: platform/powershell-workspace-configuration.md
-                - name: Utilisation d’un modèle Resource Manager
-                  href: platform/template-workspace-configuration.md
-            - name: Supprimer et récupérer un espace de travail
-              href: platform/delete-workspace.md
-            - name: Déplacer un espace de travail
-              href: platform/move-workspace.md
-            - name: Conception pour les fournisseurs de services
-              href: platform/service-providers.md
-            - name: Gérer l’accès
-              href: platform/manage-access.md
         - name: Vue d’ensemble des requêtes de journal
           displayname: 'log query, log queries, query, queries'
           href: log-query/log-query-overview.md
         - name: Expérience simple des journaux
           href: log-query/simple-logs.md
+        - name: Requêtes de journal d’audit
+          href: log-query/query-audit.md
         - name: Tutoriels
           items:
             - name: Tutoriel Log Analytics
@@ -315,6 +295,26 @@
               href: log-query/query-optimization.md
             - name: Analyser les données de texte
               href: log-query/parse-text.md
+        - name: Workspaces
+          items:
+            - name: Concevoir un déploiement d’espace de travail
+              href: platform/design-logs-deployment.md
+            - name: Créer un espace de travail
+              items:
+                - name: Utiliser le portail Azure
+                  href: learn/quick-create-workspace.md
+                - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
+                  href: learn/quick-create-workspace-cli.md
+                - name: Utiliser PowerShell
+                  href: platform/powershell-workspace-configuration.md
+            - name: Supprimer et récupérer un espace de travail
+              href: platform/delete-workspace.md
+            - name: Déplacer un espace de travail
+              href: platform/move-workspace.md
+            - name: Conception pour les fournisseurs de services
+              href: platform/service-providers.md
+            - name: Gérer l’accès
+              href: platform/manage-access.md
     - name: Metrics Explorer
       items:
         - name: Bien démarrer avec Metrics Explorer
@@ -1132,24 +1132,28 @@
           href: platform/workbooks-visualizations.md
         - name: Sources de données
           href: platform/workbooks-data-sources.md
-        - name: Déployer avec Azure Resource Manager
-          href: platform/workbooks-automate.md
+        - name: Paramètres
+          items:
+            - name: Récapitulatif des paramètres
+              href: platform/workbooks-parameters.md
+            - name: Paramètres de liste déroulante
+              href: platform/workbooks-dropdowns.md
+            - name: Paramètres interactifs
+              href: platform/workbooks-interactive.md
+            - name: Paramètres de temps
+              href: platform/workbooks-time.md
+            - name: Paramètres de texte
+              href: platform/workbooks-text.md
         - name: Configuration
           items:
             - name: Contrôle d’accès
               href: platform/workbooks-access-control.md
-            - name: Paramètres
-              items:
-                - name: Récapitulatif des paramètres
-                  href: platform/workbooks-parameters.md
-                - name: Paramètres de liste déroulante
-                  href: platform/workbooks-dropdowns.md
-                - name: Paramètres interactifs
-                  href: platform/workbooks-interactive.md
-                - name: Paramètres de temps
-                  href: platform/workbooks-time.md
-                - name: Paramètres de texte
-                  href: platform/workbooks-text.md
+            - name: Déployer avec Azure Resource Manager
+              href: platform/workbooks-automate.md
+            - name: Déplacer des classeurs vers une autre région
+              href: platform/workbooks-move-region.md
+            - name: Déplacer des modèles de classeur vers une autre région
+              href: platform/workbook-templates-move-region.md
         - name: Convertir des vues en classeurs
           items:
             - name: Vue d’ensemble d’une conversion

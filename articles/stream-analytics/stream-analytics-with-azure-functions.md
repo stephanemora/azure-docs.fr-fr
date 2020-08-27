@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77589451"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutoriel : Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
@@ -52,7 +52,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 
 1. Consultez la section [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentation Functions. Cette section vous explique comment créer une application de fonction et une [fonction déclenchée par HTTP dans Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) en utilisant le langage C#.  
 
-2. Accédez à la fonction **run.csx**. Mettez-la à jour avec le code suivant. Remplacez **«\< your redis cache connection string goes here \>»** par la chaîne de connexion principale de Cache Redis Azure que vous avez récupérée dans la section précédente. 
+2. Accédez à la fonction **run.csx**. Mettez-la à jour avec le code suivant. Remplacez **« \<your Azure Cache for Redis connection string goes here\> »** par la chaîne de connexion principale d’Azure Cache pour Redis que vous avez récupérée dans la section précédente. 
 
     ```csharp
     using System;

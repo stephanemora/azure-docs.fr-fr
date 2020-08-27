@@ -4,8 +4,6 @@
   items:
     - name: À propos des passerelles Application Gateway
       href: overview.md
-    - name: Nouveautés
-      href: whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:

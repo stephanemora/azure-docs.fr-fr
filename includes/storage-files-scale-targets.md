@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: ae431d27af4a1717a32e348ba852f9b2b9fe9331
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451089"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760568"
 ---
 | Ressource | Partages de fichiers Standard | Partages de fichiers Premium |
 |----------|---------------|------------------------------------------|
@@ -17,7 +17,7 @@ ms.locfileid: "87451089"
 | Taille maximale d’un partage de fichiers | 100 Gio*, 5 Tio | 100 Tio |
 | Taille maximale d’un fichier dans un partage de fichiers | 1 Tio | 4 Tio |
 | Nombre maximal de fichiers dans un partage de fichiers | Aucune limite | Aucune limite |
-| Maximum d’E/S par seconde par partage | 10 000 IOPS*, 1000 IOPS | 100 000 E/S par seconde |
+| Maximum d’E/S par seconde par partage | 10 000 IOPS*, 1 000 IOPS ou 100 demandes en 100ms | 100 000 E/S par seconde |
 | Nombre maximal de stratégies d’accès stockées par partage de fichiers | 5 | 5 |
 | Débit cible pour un partage de fichier unique | jusqu’à 300 MiB/s*, jusqu’à 60 MiB/s  | Voir les valeurs d’entrée et de sortie du partage de fichiers Premium|
 | Sortie maximale pour un partage de fichier unique | Voir le débit de cible du partage de fichiers standard | Jusqu’à 6 204 Mio/s |

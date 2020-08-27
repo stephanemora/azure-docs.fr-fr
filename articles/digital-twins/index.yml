@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: e5c05e41ba209607649fbcffb8ee12d0dc66029e
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: eabae1050b4892de8c30f460834d1ae4da934198
+  ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87079125"
+  ms.lasthandoff: 08/26/2020
+  ms.locfileid: "88890934"
 landingContent:
 - title: À propos d’Azure Digital Twins
   linkLists:
@@ -23,7 +23,13 @@ landingContent:
     links:
     - text: Qu’est-ce qu’Azure Digital Twins ?
       url: overview.md
-- title: Bien démarrer avec les tutoriels
+- title: Bien démarrer avec le démarrage rapide
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Explorer un exemple de scénario
+      url: quickstart-adt-explorer.md
+- title: Approfondir avec les tutoriels
   linkLists:
   - linkListType: tutorial
     links:

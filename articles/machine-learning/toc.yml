@@ -436,6 +436,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: "Déplacement de données au sein d’un pipeline\_ML et vers un autre pipeline\_ML (Python)"
           href: how-to-move-data-in-out-of-pipelines.md
+        - name: Déployer des pipelines ML (Python)
+          href: how-to-deploy-pipelines.md
         - name: Planifier un pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Déclencher un pipeline

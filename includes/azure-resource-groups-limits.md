@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424725"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748739"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "84424725"
 | Ressources par groupe de ressources par type de ressource |800 - Certains types de ressources peuvent dépasser la limite de 800. Voir la section relative aux [ressources non limitées à 800 instances par groupe de ressources](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Déploiements par groupe de ressources dans l’historique des déploiements |800<sup>1</sup> |
 | Ressources par déploiement |800 |
-| Verrous de gestion par étendue unique |20 |
+| Verrous de gestion par [étendue](../articles/azure-resource-manager/management/overview.md#understand-scope) unique  |20 |
 | Nombre de balises par ressource ou groupe de ressources |50 |
 | Longueur de clé de la balise |512 |
 | Longueur de valeur de la balise |256 |

@@ -59,6 +59,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Base de référence de sécurité pour Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Base de référence de sécurité pour Azure DNS
+      href: ../../dns/security-baseline.md
     - name: Base de référence de sécurité pour le Pare-feu Azure
       href: ../../firewall/security-baseline.md
     - name: Base de référence de sécurité pour Azure Functions

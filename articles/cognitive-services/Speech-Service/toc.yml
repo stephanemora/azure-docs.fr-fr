@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: Kit de développement logiciel (SDK) de reconnaissance vocale
   items:
-    - name: Vue d’ensemble
-      items:
-        - name: À propos du kit SDK Speech
-          href: speech-sdk.md
-        - name: Disponibilité de scénario
-          href: scenario-availability.md
-    - name: Démarrage rapide
-      items:
-        - name: Configurer le SDK Speech
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Vue d’ensemble du SDK Speech
+      href: speech-sdk.md
+    - name: Configurer le SDK Speech
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Guides pratiques
       items:
         - name: Activation de la journalisation
