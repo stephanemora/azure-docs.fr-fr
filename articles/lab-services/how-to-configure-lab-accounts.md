@@ -3,12 +3,12 @@ title: Configurer l’arrêt automatique des machines virtuelles dans Azure Lab 
 description: Cet article explique comment configurer l’arrêt automatique des machines virtuelles dans le compte lab.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603873"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798446"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurer l’arrêt automatique des machines virtuelles pour un compte lab
 
@@ -18,7 +18,7 @@ Vous pouvez activer plusieurs fonctionnalités de contrôle des coûts d’arrê
 - Arrêter automatiquement les machines virtuelles quand les utilisateurs se déconnectent (Windows et Linux).
 - Arrêter automatiquement les machines virtuelles démarrées, mais auxquelles les utilisateurs ne se connectent pas.
 
-Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings).
+Pour plus d’informations sur les fonctionnalités d’arrêt automatique, consultez la section [Optimiser le contrôle des coûts à l’aide des paramètres d’arrêt automatique](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 ## <a name="enable-automatic-shutdown"></a>Activer l’arrêt automatique
 

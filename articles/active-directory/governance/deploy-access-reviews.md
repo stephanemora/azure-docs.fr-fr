@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603918"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853020"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -180,7 +180,7 @@ Les cibles classiques à réviser sont les suivantes :
 
 * [Applications intégrées à Azure AD pour l’authentification unique](../manage-apps/what-is-application-management.md) (par exemple, application SaaS ou métier).
 
-* [Appartenance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) à un groupe (synchronisée avec Azure AD ou créée dans Azure AD ou Office 365, y compris Microsoft Teams).
+* [Appartenance](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) à un groupe (synchronisée avec Azure AD ou créée dans Azure AD ou Office 365, y compris Microsoft Teams).
 
 * [Package d’accès](/entitlement-management-overview.md) qui regroupe les ressources (groupes, applications et sites) en un seul package pour gérer l’accès.
 
@@ -241,10 +241,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 **Exemple de plan de révision d’accès**
 
-| Composant| Value |
+| Composant| Valeur |
 | - | - |
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
-| **Fréquence de révision**| Chaque mois |
+| **Fréquence de révision**| Mensuelle |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
 | **Notification**| E-mail envoyé 24 heures avant la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |
@@ -283,7 +283,7 @@ Les identités externes peuvent être autorisées à accéder aux ressources de 
 
 * Affectée à un rôle privilégié dans Azure AD ou dans un abonnement Azure
 
-Voir l’[exemple de script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). Le script indique où les identités externes invitées dans le locataire sont utilisées. Vous pouvez voir l’appartenance à un groupe, les attributions de rôles et les attributions d’applications de l’utilisateur externe dans Azure AD. Le script n’affiche aucune attribution en dehors d’Azure AD, par exemple l’attribution directe des droits aux ressources SharePoint, sans l’utilisation de groupes.
+Voir l’[exemple de script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Le script indique où les identités externes invitées dans le locataire sont utilisées. Vous pouvez voir l’appartenance à un groupe, les attributions de rôles et les attributions d’applications de l’utilisateur externe dans Azure AD. Le script n’affiche aucune attribution en dehors d’Azure AD, par exemple l’attribution directe des droits aux ressources SharePoint, sans l’utilisation de groupes.
 
 Lorsque vous créez une révision d’accès pour des groupes ou des applications, vous pouvez choisir de laisser le réviseur se concentrer sur Toute personne ayant un accès, ou sur Utilisateurs invités uniquement. En sélectionnant Utilisateurs invités uniquement, les réviseurs reçoivent une liste ciblée d’identités externes d’Azure AD B2B qui ont accès à la ressource.
 
@@ -389,7 +389,7 @@ Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur le
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planifier la révision des rôles Azure AD et Ressource Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifie la gestion des accès privilégiés aux ressources dans Azure AD. Cela permet de réduire considérablement la liste des rôles privilégiés, aussi bien dans [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) que dans les [ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), et d’accroître la sécurité globale du répertoire.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifie la gestion des accès privilégiés aux ressources dans Azure AD. Cela permet de réduire considérablement la liste des rôles privilégiés, aussi bien dans [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) que dans les [ressources Azure](../../role-based-access-control/built-in-roles.md), et d’accroître la sécurité globale du répertoire.
 
 Les révisions d’accès permettent aux réviseurs d’attester si les utilisateurs doivent toujours appartenir à un rôle. Tout comme les révisions d’accès pour les packages d’accès, les révisions des rôles Azure AD et des ressources Azure sont intégrées dans l’expérience de l’utilisateur administrateur PIM. Nous vous recommandons de réviser régulièrement les attributions de rôle suivantes :
 
@@ -452,9 +452,9 @@ Suivez les instructions des liens ci-dessous :
 
 | Articles sur les procédures | Description |
 | - | - |
- [Créer des révisions d’accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Création de révisions d’accès pour les rôles Azure AD privilégiés dans PIM. |
-| [Réviser soi-même un accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
-| [Effectuer une révision d’accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Affichage d’une révision d’accès et application des résultats. |
+ [Créer des révisions d’accès](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Azure AD privilégiés dans PIM. |
+| [Réviser soi-même un accès](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
+| [Effectuer une révision d’accès](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
 
 
 ### <a name="review-azure-resource-roles"></a>Réviser les rôles Ressource Azure
@@ -467,14 +467,14 @@ Suivez les instructions des liens ci-dessous :
 
 | Articles sur les procédures| Description |
 | - | -|
-| [Créer des révisions d’accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Création de révisions d’accès pour les rôles Ressource Azure privilégiés dans PIM. |
-| [Réviser soi-même un accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
-| [Effectuer une révision d’accès](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Affichage d’une révision d’accès et application des résultats. |
+| [Créer des révisions d’accès](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Création de révisions d’accès pour les rôles Ressource Azure privilégiés dans PIM. |
+| [Réviser soi-même un accès](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Si vous êtes affecté à un rôle d’administrateur, approbation ou refus de l’accès à votre rôle. |
+| [Effectuer une révision d’accès](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Affichage d’une révision d’accès et application des résultats. |
 
 
 ## <a name="use-the-access-reviews-api"></a>Utiliser l’API des révisions d’accès
 
-Consultez les [méthodes de l’API Graph](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) et les [contrôles d’autorisation de rôle et de permission d’application](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) pour interagir avec les ressources révisables et les gérer. Les méthodes de révision d’accès dans l’API Microsoft Graph sont disponibles à la fois pour les applications et les utilisateurs. Lors de l’exécution de scripts dans le contexte de l’application, le compte utilisé pour exécuter l’API (le principal du service) doit obtenir l’autorisation « AccessReview.Read.All » pour interroger les informations de révision d’accès.
+Consultez les [méthodes de l’API Graph](/graph/api/resources/accessreviews-root?view=graph-rest-beta) et les [contrôles d’autorisation de rôle et de permission d’application](/graph/api/resources/accessreviews-root?view=graph-rest-beta) pour interagir avec les ressources révisables et les gérer. Les méthodes de révision d’accès dans l’API Microsoft Graph sont disponibles à la fois pour les applications et les utilisateurs. Lors de l’exécution de scripts dans le contexte de l’application, le compte utilisé pour exécuter l’API (le principal du service) doit obtenir l’autorisation « AccessReview.Read.All » pour interroger les informations de révision d’accès.
 
 Les tâches les plus courantes à automatiser à l’aide de l’API Graph pour les révisions d’accès sont les suivantes :
 
@@ -519,4 +519,3 @@ En savoir plus sur les technologies connexes ci-dessous.
 
 * [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../privileged-identity-management/pim-configure.md)
 
- 
