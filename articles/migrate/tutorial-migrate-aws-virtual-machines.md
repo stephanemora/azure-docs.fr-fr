@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines virtuelles AWS ver
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611430"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762417"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -379,7 +379,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
 **Réponse :** Actuellement, nous ne prenons pas en charge l’importation de l’évaluation pour ce workflow. En guise de solution de contournement, vous pouvez exporter l’évaluation, puis sélectionner manuellement la recommandation pendant l’étape Activer la réplication.
   
 **Question :** J’obtiens l’erreur « Impossible de récupérer le GUID du BIOS » quand j’essaie de découvrir mes machines virtuelles AWS.   
-**Réponse :** Vérifiez quels sont les systèmes d’exploitation pris en charge pour les machines virtuelles AWS.  
+**Réponse :** Utilisez toujours la connexion racine pour l’authentification, et non un pseudo utilisateur. De même, vérifiez quels sont les systèmes d’exploitation pris en charge pour les machines virtuelles AWS.  
 
 **Question :** Mon état de réplication ne progresse pas.    
 **Réponse :** Vérifiez si votre appliance de réplication respecte les exigences. Vérifiez que vous avez activé les ports nécessaires sur votre appliance de réplication : port TCP 9443 et HTTPS 443 pour le transport de données. Vérifiez qu’il n’existe aucune version en double obsolète de l’appliance de réplication connectée au même projet.   

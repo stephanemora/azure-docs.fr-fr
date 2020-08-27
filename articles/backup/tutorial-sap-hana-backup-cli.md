@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bas
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489501"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762400"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -150,7 +150,7 @@ L’applet de commande [az backup job list](/cli/azure/backup/job?view=azure-cli
 
 ## <a name="trigger-an-on-demand-backup"></a>Déclencher une sauvegarde à la demande
 
-La section ci-dessus explique comment configurer une sauvegarde planifiée. Dans celle qui suit, nous allons voir comment déclencher une sauvegarde à la demande. Nous allons utiliser l’applet de commande [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now).
+La section ci-dessus explique comment configurer une sauvegarde planifiée. La présente section porte sur le déclenchement d’une sauvegarde à la demande. Nous allons utiliser l’applet de commande [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now).
 
 >[!NOTE]
 > La stratégie de conservation d’une sauvegarde à la demande est déterminée par la stratégie de conservation sous-jacente de la base de données.

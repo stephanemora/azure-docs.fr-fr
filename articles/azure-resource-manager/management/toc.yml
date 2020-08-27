@@ -139,9 +139,9 @@
     - name: Abonnements EA
       items:
         - name: Créer
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Accorder l’accès à créer
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Fournisseurs et types de ressources
       href: resource-providers-and-types.md
     - name: Supprimer des ressources et des groupes de ressources

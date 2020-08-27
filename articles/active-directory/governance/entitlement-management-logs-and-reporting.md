@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078180"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783816"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiver les journaux et créer des rapports sur la gestion des droits d’utilisation Azure AD dans Azure Monitor
 
@@ -59,7 +59,7 @@ L’archivage des journaux d’audit Azure AD vous demande d’avoir Azure Moni
 
 ## <a name="view-events-for-an-access-package"></a>Visualiser les événements pour un package d’accès  
 
-Pour voir les événements d’un package d’accès, vous devez avoir accès à l’espace de travail Azure Monitor sous-jacent (pour plus d’informations, consultez [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions)) et dans un des rôles suivants : 
+Pour voir les événements d’un package d’accès, vous devez avoir accès à l’espace de travail Azure Monitor sous-jacent (pour plus d’informations, consultez [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions)) et dans un des rôles suivants : 
 
 - Administrateur général  
 - Administrateur de sécurité  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Envoyer la requête à l’espace de travail Log Analytics
 Enfin, une fois que vous disposez d’un espace de travail identifié, vous pouvez utiliser [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) pour envoyer une requête Kusto à cet espace de travail. Ces requêtes sont rédigées dans le [langage de requête Kusto](https://docs.microsoft.com/azure/kusto/query/).
+) pour envoyer une requête Kusto à cet espace de travail. Ces requêtes sont rédigées dans le [langage de requête Kusto](/azure/kusto/query/).
  
 Par exemple, vous pouvez récupérer la plage de dates des enregistrements d’événements d’audit à partir de l’espace de travail Log Analytics, avec les applets de commande PowerShell pour envoyer une requête comme suit :
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes :
-- [Créer des rapports interactifs avec les classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Créer des rapports interactifs avec les classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
