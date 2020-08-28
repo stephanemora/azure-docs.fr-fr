@@ -347,6 +347,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Utiliser l’API REST Stockage Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Empêcher l’autorisation avec une clé partagée
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Déléguer l’accès avec des signatures d’accès partagé (SAP)
               items:
                 - name: Créer une SAP de délégation d’utilisateur

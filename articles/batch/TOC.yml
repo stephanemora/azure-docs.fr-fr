@@ -134,6 +134,8 @@
           href: batch-sig-images.md
         - name: Créer un pool avec une ressource d’image managée
           href: batch-custom-images.md
+        - name: Créer un pool avec le chiffrement de disque activé
+          href: disk-encryption.md
         - name: Créer un pool dans un réseau virtuel
           href: batch-virtual-network.md
         - name: Créer un pool avec des adresses IP publiques

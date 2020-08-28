@@ -1,0 +1,10 @@
+- name: Documentation Azure Arc
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: À propos d’Azure Arc
+      href: arc-overview.md
+- name: Serveurs avec Arc >
+  href: ./servers/overview.md
+- name: Kubernetes avec Arc >
+  href: ./kubernetes/overview.md
