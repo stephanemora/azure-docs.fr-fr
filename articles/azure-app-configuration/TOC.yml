@@ -132,7 +132,7 @@
         - name: Kit SDK Azure pour .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Fournisseur Java Spring
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+          href: 'https://github.com/microsoft/spring-cloud-azure/tree/master/'
         - name: Kit SDK Azure pour Java
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: Kit SDK Azure pour Python

@@ -329,6 +329,28 @@
       items:
         - name: Règles de collecte des données
           href: platform/data-collection-rule-overview.md
+        - name: Sources de données des agents
+          items:
+            - name: Vue d’ensemble
+              href: platform/agent-data-sources.md
+            - name: Événements Windows
+              href: platform/data-sources-windows-events.md
+            - name: Données JSON personnalisées
+              href: platform/data-sources-json.md
+            - name: Données de performances de CollectD
+              href: platform/data-sources-collectd.md
+            - name: syslog
+              href: platform/data-sources-syslog.md
+            - name: Compteurs de performance
+              href: platform/data-sources-performance-counters.md
+            - name: Performances des applications Linux
+              href: platform/data-sources-linux-applications.md
+            - name: Journaux d’activité IIS
+              href: platform/data-sources-iis-logs.md
+            - name: Journaux d’activité personnalisés
+              href: platform/data-sources-custom-logs.md
+            - name: Champs personnalisés
+              href: platform/custom-fields.md
         - name: Mesures personnalisées
           items:
             - name: Mesures personnalisées
@@ -361,6 +383,24 @@
             - name: Collecte des données
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Agent Log Analytics
+          items:
+            - name: Vue d’ensemble
+              href: platform/log-analytics-agent.md
+            - name: Agents Windows
+              href: platform/agent-windows.md
+            - name: Agents Linux
+              href: platform/agent-linux.md
+            - name: Extension de machine virtuelle pour Windows
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Extension de machine virtuelle pour Linux
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Passerelle Log Analytics
+              href: platform/gateway.md
+            - name: Gestion des agents
+              href: platform/agent-manage.md
+            - name: Agent Health
+              href: insights/solution-agenthealth.md
         - name: Extension Diagnostics Azure
           items:
             - name: Vue d’ensemble
@@ -403,46 +443,6 @@
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Collecter des métriques avec Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: Agent Log Analytics
-          items:
-            - name: Vue d’ensemble
-              href: platform/log-analytics-agent.md
-            - name: Agents Windows
-              href: platform/agent-windows.md
-            - name: Agents Linux
-              href: platform/agent-linux.md
-            - name: Extension de machine virtuelle pour Windows
-              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-            - name: Extension de machine virtuelle pour Linux
-              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-            - name: Passerelle Log Analytics
-              href: platform/gateway.md
-            - name: Gestion des agents
-              href: platform/agent-manage.md
-            - name: Agent Health
-              href: insights/solution-agenthealth.md
-            - name: Sources de données
-              items:
-                - name: Vue d’ensemble
-                  href: platform/agent-data-sources.md
-                - name: Événements Windows
-                  href: platform/data-sources-windows-events.md
-                - name: Données JSON personnalisées
-                  href: platform/data-sources-json.md
-                - name: Données de performances de CollectD
-                  href: platform/data-sources-collectd.md
-                - name: syslog
-                  href: platform/data-sources-syslog.md
-                - name: Compteurs de performance
-                  href: platform/data-sources-performance-counters.md
-                - name: Performances des applications Linux
-                  href: platform/data-sources-linux-applications.md
-                - name: Journaux d’activité IIS
-                  href: platform/data-sources-iis-logs.md
-                - name: Journaux d’activité personnalisés
-                  href: platform/data-sources-custom-logs.md
-                - name: Champs personnalisés
-                  href: platform/custom-fields.md
         - name: Dépanner
           items:
             - name: "Extension de machine virtuelle Log\_Analytics"

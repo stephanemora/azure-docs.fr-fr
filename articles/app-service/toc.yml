@@ -310,7 +310,7 @@
     - name: Livres de recettes
       items:
         - name: Architectures de référence
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
+          href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Dépannage

@@ -12,19 +12,19 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 03/05/2020
-  ms.openlocfilehash: 02d90dc6781fe39e92d97d64697cc2ee32b04b31
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e31651c07cc9567af0deac8311b2321ad6dee4ba
+  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78331490"
+  ms.lasthandoff: 08/27/2020
+  ms.locfileid: "89021916"
 landingContent:
 - title: Bien démarrer avec Studio (classique)
   linkLists:
   - linkListType: get-started
     links:
     - text: Qu’est-ce que Studio (classique) ?
-      url: what-is-ml-studio.md
+      url: studio-classic-overview.md
     - text: Créer votre première expérience ML
       url: create-experiment.md
     - text: Créer une solution prédictive
@@ -47,7 +47,7 @@ landingContent:
     links:
     - text: Azure Machine Learning
       url: /azure/machine-learning/
-    - text: Machine virtuelle de science des données
+    - text: Data Science Virtual Machine
       url: /azure/machine-learning/data-science-virtual-machine
     - text: Comparer nos produits ML
       url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
