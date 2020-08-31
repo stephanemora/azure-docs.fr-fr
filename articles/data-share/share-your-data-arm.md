@@ -1,20 +1,20 @@
 ---
-title: 'Démarrage rapide : Partager en dehors de votre organisation - Azure Data Share'
-description: Démarrage rapide - Partager des données avec des clients et des partenaires à l'aide d'Azure Data Share et d'un modèle Resource Manager
+title: Partager des données en dehors de votre organisation (modèle ARM) - Démarrage rapide Azure Data Share
+description: Dans ce guide de démarrage rapide, découvrez comment partager des données avec des clients et des partenaires en utilisant Azure Data Share et un modèle Resource Manager.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575639"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654104"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>Tutoriel : Partager des données à l'aide d'Azure Data Share et de modèles Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Démarrage rapide : Partager des données à l'aide d'Azure Data Share et de modèles Resource Manager
 
 Apprenez à configurer un nouveau partage Azure Data Share à partir d'un compte de stockage Azure à l'aide d'un modèle Azure Resource Manager et commencez à partager vos données avec des clients et des partenaires extérieurs à votre organisation Azure. Pour obtenir la liste des magasins de données pris en charge, consultez [Magasins de données pris en charge dans Azure Data Share](./supported-data-stores.md).
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer un partage Azure Data Share et à inviter des destinataires. Pour en savoir plus sur la façon dont un consommateur de données peut accepter et recevoir un partage de données, suivez le tutoriel [​​Accepter et recevoir des données](subscribe-to-data-share.md).
+Dans ce guide de démarrage rapide, vous avez vu comment créer un partage Azure Data Share et inviter des destinataires. Pour en savoir plus sur la façon dont un consommateur de données peut accepter et recevoir un partage de données, suivez le tutoriel [​​Accepter et recevoir des données](subscribe-to-data-share.md).

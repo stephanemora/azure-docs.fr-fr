@@ -97,7 +97,7 @@
         - name: Kit de développement logiciel Microsoft Azure SDK pour Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
         - name: Kit SDK Azure pour Java
-          href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+          href: /java/api/overview/azure/resourcegraph/management
         - name: Kit SDK Azure pour Java (Maven)
           href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
         - name: Kit SDK Azure pour JavaScript

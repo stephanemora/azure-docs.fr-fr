@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Erreur de consentement de l’utilisateur
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problèmes de connexion à partir du portail personnalisé
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problèmes de connexion à partir du panneau d’accès
+            - name: Problèmes de connexion à partir de Mes applications
               href: application-sign-in-other-problem-access-panel.md
             - name: Erreur sur la page de connexion de l’application
               href: application-sign-in-problem-application-error.md
-            - name: Problème avec le mot de passe de l’authentification unique - applications hors galerie
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problème avec le mot de passe de l’authentification unique - applications de galerie
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problème de connexion à une application Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: Problème avec le mot de passe de l’authentification unique - application hors galerie
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Résoudre les problèmes d’authentification unique
           items:
+            - name: Résoudre les problèmes d’authentification unique par mot de passe
+              href: troubleshoot-password-based-sso.md
             - name: Problèmes courants de configuration d’authentification fédérée - applications de galerie
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Problèmes courants de configuration de l’authentification fédérée - applications hors galerie
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Problèmes courants de configuration du mot de passe - applications de galerie
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Problèmes courants de configuration du mot de passe - applications hors galerie
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Résoudre les problèmes d’affectation et de liste d’applications
           items:
             - name: Gérer la liste des applications pour votre locataire
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Résoudre les problèmes relatifs à Mes applications
           items:
-            - name: Gérer l’extension de navigateur
-              href: manage-access-panel-browser-extension.md
             - name: L’application n’apparaît pas
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Une application inattendue apparaît
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: Connexion impossible
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Erreur lors de l’utilisation de l’accès aux applications en libre-service
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Résoudre les problèmes des applications locales
           items:
             - name: Résolution des problèmes de proxy d’application

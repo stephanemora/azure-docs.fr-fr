@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763633"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642110"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
 
@@ -43,7 +43,7 @@ Plus aucun mot de passe à gérer. Accédez en toute sécurité à toutes les re
 |Fonctionnalité  | Description | Recommandation |
 |---------|---------|---------|
 |SSO|L’authentification unique fédérée basée sur des normes s’appuie des normes industrielles approuvées.|Utilisez toujours [SAML / OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) pour activer l’authentification unique si votre application prend en charge cette norme.|
-|Panneau d’accès|Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs.| Déployez le [panneau d’accès ](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) de votre organisation une fois que vous avez intégré vos applications à Azure AD pour l’authentification unique.|
+|Mes applications|Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs.| Déployez [Mes applications](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) dans votre organisation une fois que vous avez intégré vos applications à Azure AD pour l’authentification unique.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scénario 2 : Approvisionnement et déprovisionnement automatisés 
 

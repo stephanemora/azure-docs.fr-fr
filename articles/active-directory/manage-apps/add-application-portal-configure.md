@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135485"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641855"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -47,7 +47,7 @@ Pour modifier les propriétés de l’application :
 3. Prenez un moment afin de comprendre les options disponibles pour la configuration :
     - **Connexion permise pour les utilisateurs** détermine si les utilisateurs assignés à l’application peuvent se connecter.
     - **Affectation de l’utilisateur requise** détermine si les utilisateurs qui ne sont pas assignés à l’application peuvent se connecter.
-    - **Visible par les utilisateurs** détermine si les utilisateurs assignés à une application peuvent la voir dans le [volet d’accès](https://myapps.microsoft.com) et le lanceur d’applications Office 365. (Voir le menu gaufre en haut à gauche d’un site web Office 365 ou Microsoft 365.)
+    - **Visible par les utilisateurs ?** détermine si les utilisateurs assignés à une application peuvent la voir dans [Mes applications](https://myapps.microsoft.com) et le lanceur d’applications Office 365. (Voir le menu gaufre en haut à gauche d’un site web Office 365 ou Microsoft 365.)
     
     > [!TIP]
     > L’attribution d’utilisateurs intervient dans la section de navigation **Utilisateurs et groupes**.
