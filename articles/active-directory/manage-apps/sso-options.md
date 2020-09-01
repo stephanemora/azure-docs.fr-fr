@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3c3d6529b3513a9f82313675b8240cf41b44f12f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170159"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642093"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Options d’authentification unique dans Azure AD
 
-L’authentification unique offre de nombreux d’avantages par rapport aux méthodes d’authentification traditionnelles.
+L’authentification unique offre de nombreux avantages par rapport aux méthodes d’authentification traditionnelles.
 
-- **Avec l’authentification unique**, les utilisateurs se connectent une seule fois avec un seul compte pour accéder à des appareils joints au domaine, à des ressources d’entreprise, à des applications Saas et à des applications web. Une fois la connexion effectuée, l’utilisateur peut lancer des applications à partir du portail Office 365 ou du panneau d’accès Azure AD MyApps. Les administrateurs peuvent centraliser la gestion des comptes d’utilisateur, et ajouter ou supprimer automatiquement l’accès utilisateur à des applications en fonction de l’appartenance à des groupes.
+- **Avec l’authentification unique**, les utilisateurs se connectent une seule fois avec un seul compte pour accéder à des appareils joints au domaine, à des ressources d’entreprise, à des applications Saas et à des applications web. Une fois la connexion établie, l’utilisateur peut lancer des applications à partir du portail Office 365 ou de Mes applications. Les administrateurs peuvent centraliser la gestion des comptes d’utilisateur, et ajouter ou supprimer automatiquement l’accès utilisateur à des applications en fonction de l’appartenance à des groupes.
 
 - **Sans l’authentification unique**, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Office 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application.
 
@@ -123,7 +123,7 @@ Les mots de passe pour chaque application peuvent être gérés par l’administ
 
 Quand l’administrateur Azure AD gère les informations d’identification :  
 
-- L’utilisateur n’a pas besoin de réinitialiser ou de mémoriser le nom d’utilisateur et le mot de passe. L’utilisateur peut accéder à l’application en cliquant sur celle-ci dans son panneau d’accès ou via un lien fourni.
+- L’utilisateur n’a pas besoin de réinitialiser ou de mémoriser le nom d’utilisateur et le mot de passe. L’utilisateur peut accéder à l’application en cliquant sur celle-ci dans son espace Mes applications ou via un lien fourni.
 - L’administrateur peut effectuer des tâches de gestion sur les informations d’identification. Par exemple, l’administrateur peut mettre à jour les accès aux applications en fonction des appartenances de groupe des utilisateurs et du statut des employés.
 - L’administrateur peut utiliser des informations d’identification d’administration pour fournir l’accès à des applications partagées entre plusieurs utilisateurs. Par exemple, l’administrateur peut autoriser tous les utilisateurs qui peuvent accéder à une application à accéder à un réseau social ou à une application de partage de documents.
 

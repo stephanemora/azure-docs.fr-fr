@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 60e8a0dc93e19dfec0982080d0353466b08373de
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654478"
 ---
 # <a name="azure-load-balancer-skus"></a>Références SKU Azure Load Balancer
 
-Azure Load Balancer a deux saveurs ou références SKU.
+Azure Load Balancer comporte deux références SKU.
 
 ## <a name="sku-comparison"></a><a name="skus"></a> Comparaison des références SKU
 
-L’équilibreur de charge prend en charge les références SKU De base et Standard. Ces références SKU présentent des différences en termes d’échelle de scénario, de fonctionnalités et de tarification. N’importe quel scénario possible avec l’équilibreur de charge De base peut être créé avec l’équilibreur de charge Standard.
+L’équilibreur de charge prend en charge les références SKU Standard et De base. Ces références SKU présentent des différences en termes d’échelle de scénario, de fonctionnalités et de tarification. N’importe quel scénario possible avec l’équilibreur de charge De base peut être créé avec l’équilibreur de charge Standard.
 
 Pour comparer les références SKU et comprendre leurs différences, consultez le tableau ci-dessous. Pour plus d’informations, consultez [Vue d’ensemble du niveau Standard d’Azure Load Balancer](load-balancer-standard-overview.md).
 
@@ -37,11 +37,11 @@ Les machines virtuelles autonomes, les groupes à haute disponibilité et les gr
 | **[Taille du pool de back-ends](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Prend en charge jusqu’à 1 000 instances. | Prend en charge jusqu’à 300 instances. |
 | **Points de terminaison du pool de back-ends** | Toutes les machines virtuelles ou tous les groupes de machines virtuelles identiques d’un seul réseau virtuel. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
 | **[Sondes d’intégrité](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Comportement en cas de panne de sonde d’intégrité](./load-balancer-custom-probe-overview.md#probedown)** | Les connexions TCP restent actives sur une sonde d’instance en panne __et__ sur toutes les sondes en panne. | Les connexions TCP restent actives sur une sonde d’instance en panne. Toutes les connexions TCP s'arrêtent quand toutes les sondes sont en panne. |
+| **[Comportement en cas de panne de sonde d’intégrité](./load-balancer-custom-probe-overview.md#probedown)** | Les connexions TCP restent actives sur une sonde d’instance en panne __et__ sur toutes les sondes en panne. | Les connexions TCP restent actives sur une sonde d’instance en panne. Toutes les connexions TCP se terminent quand toutes les sondes sont arrêtées. |
 | **Zones de disponibilité** | Front-ends redondants interzones et zonaux pour le trafic entrant et sortant. | Non disponible |
 | **Diagnostics** | [Métriques multidimensionnelles Azure Monitor](./load-balancer-standard-diagnostics.md) | [Journaux d’activité Azure Monitor](./load-balancer-monitor-log.md) |
 | **Ports HA** | [Disponibles pour l’équilibreur de charge interne](./load-balancer-ha-ports-overview.md) | Non disponible |
-| **Sécurisé par défaut** | Fermé aux flux entrants, sauf s’ils sont autorisés par un groupe de sécurité réseau. Notez que le trafic interne du réseau virtuel vers l’équilibreur de charge interne est autorisé. | Ouvertes par défaut. Groupe de sécurité réseau facultatif. |
+| **Sécurisé par défaut** | Fermé aux flux entrants, sauf s’ils sont autorisés par un groupe de sécurité réseau. Le trafic interne du réseau virtuel vers l’équilibreur de charge interne est autorisé. | Ouvertes par défaut. Groupe de sécurité réseau facultatif. |
 | **Règles de trafic sortant** | [Configuration NAT déclarative de règles de trafic sortant](./load-balancer-outbound-rules-overview.md) | Non disponible |
 | **Réinitialisation TCP pendant le délai d’inactivité** | [Disponible sur n’importe quelle règle](./load-balancer-tcp-reset.md) | Non disponible |
 | **[Plusieurs front-ends](./load-balancer-multivip-overview.md)** | Entrant et [sortant](./load-balancer-outbound-connections.md) | Entrant uniquement |

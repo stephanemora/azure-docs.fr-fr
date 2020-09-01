@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 82099172a933496f015ae8fc575c1919a879e1f9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167740"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825352"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -24,7 +24,7 @@ Le service Speech réunit la reconnaissance vocale, la synthèse vocale et la t
 > [!IMPORTANT]
 > Le service Speech remplace l’API Reconnaissance vocale Bing et Traduction de conversation Translator Speech. Pour obtenir des instructions de migration, voir _Guides pratiques > Migration_.
 
-Ces fonctionnalités constituent le service Speech. Pour en savoir plus sur les cas d’utilisation courants de chaque fonctionnalité, utilisez les liens figurant dans ce tableau, ou parcourez la référence de l’API.
+Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plus sur les cas d’utilisation courants de chaque fonctionnalité, utilisez les liens figurant dans ce tableau, ou parcourez la référence de l’API.
 
 | Service | Fonctionnalité | Description | Kit SDK | REST |
 |---------|---------|-------------|-----|------|
@@ -42,20 +42,61 @@ Ces fonctionnalités constituent le service Speech. Pour en savoir plus sur les 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="try-the-speech-service"></a>Essayer le service Speech
+## <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement
 
-Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. Ce tableau répertorie les démarrages rapides les plus populaires pour chaque fonctionnalité. Utilisez le volet de navigation de gauche pour explorer les langages et plateformes supplémentaires.
+Pour les étapes suivantes, vous devez disposer d'un compte Microsoft et d’un compte Azure. Si vous n’avez pas de compte Microsoft, vous pouvez vous inscrire gratuitement sur le [portail de compte Microsoft](https://account.microsoft.com/account). Sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer un compte Microsoft**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
 
-| Reconnaissance vocale (SDK) | Synthèse vocale (SDK) | Traduction (SDK) |
-|----------------------|----------------------|-------------------|
-| [Reconnaître la parole à partir d’un fichier audio](quickstarts/speech-to-text-from-file.md) | [Synthétiser la parole vers un fichier audio](quickstarts/text-to-speech-audio-file.md) | [Traduire la reconnaissance vocale](quickstarts/translate-speech-to-text.md) |
-| [Reconnaître la parole avec un micro](quickstarts/speech-to-text-from-microphone.md) | [Synthétiser la parole vers un haut-parleur](quickstarts/text-to-speech.md) | [Traduire la parole en plusieurs langues cibles](quickstarts/translate-speech-to-text-multiple-languages.md) |
-| [Reconnaître la parole stockée dans un stockage de blobs](quickstarts/from-blob.md) | [Asynchroniser la synthèse pour l’audio long ](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Traduire la parole en parole](quickstarts/translate-speech-to-speech.md) |
+Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
 
 > [!NOTE]
-> La reconnaissance vocale et la synthèse vocale ont également des points de terminaison REST et des démarrages rapides associés.
+> Le service Speech propose deux niveaux de service, gratuit et abonnement, chacun présentant des limitations et des avantages différents. Lorsque vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours.
+>
+> Si vous utilisez le niveau de service Speech gratuit à faible volume, vous pouvez conserver cet abonnement gratuit, même après l’expiration de votre évaluation gratuite ou de votre crédit de service.
+>
+> Pour plus d’informations, consultez [Tarifs de Cognitive Services - Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Une fois que vous avez pu utiliser le service Speech, essayez nos tutoriels qui vous font découvrir comment résoudre différents scénarios.
+### <a name="create-the-azure-resource"></a>Créer une ressource Azure
+
+Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre compte Azure
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en utilisant votre compte Microsoft.
+
+1. Sélectionnez **Créer une ressource** en haut à gauche du portail. Si vous ne voyez pas l’option **Créer une ressource**, vous pouvez y accéder en sélectionnant le menu réduit situé en haut à gauche de l’écran :
+
+1. Dans la fenêtre **Nouveau**, saisissez « speech » dans la zone de recherche et appuyez sur ENTRÉE.
+
+1. Dans les résultats de la recherche, sélectionnez **Speech**.
+
+   ![résultats de la recherche speech](media/index/speech-search.png)
+
+1. Sélectionnez **Créer**, puis :
+
+   - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
+   - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
+   - Choisissez la [région](regions.md) où la ressource sera utilisée.
+   - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification**.
+   - Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
+   - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.
+
+> [!NOTE]
+> Vous pouvez créer autant d’abonnements de niveau standard que vous le souhaitez dans une ou plusieurs régions. Toutefois, vous ne pouvez créer qu’un seul abonnement de niveau gratuit. Les modèles de déploiement au niveau gratuit qui restent inutilisés durant sept jours sont supprimés automatiquement.
+
+Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** et, dans le volet de navigation gauche, sélectionnez **Clés** pour afficher vos clés d’abonnement au service Speech. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Pour copier-coller rapidement une clé dans votre éditeur de code ou dans un autre emplacement, cliquez sur le bouton Copier à côté de chaque clé, puis changez de fenêtre pour coller le contenu du Presse-papiers à l’emplacement souhaité.
+
+> [!IMPORTANT]
+> Ces clés d’abonnement sont utilisées pour accéder à votre API Cognitive Service. Ne partagez pas vos clés. Stockez-les en toute sécurité, par exemple, à l’aide d’Azure Key Vault. Nous vous recommandons également de régénérer ces clés régulièrement. Une seule clé est nécessaire pour effectuer un appel d’API. Lors de la régénération de la première clé, vous pouvez utiliser la deuxième clé pour un accès continu au service.
+
+## <a name="complete-a-quickstart"></a>Suivre un guide de démarrage rapide
+
+Nous proposons des guides de démarrage rapide pour la plupart des langages de programmation. Chaque guide est conçu pour vous montrer des modèles de conception de base et vous permettre d’exécuter du code en moins de 10 minutes. Consultez la liste suivante pour connaître le guide de démarrage rapide de chaque fonctionnalité.
+
+* [Guide de démarrage rapide sur la reconnaissance vocale](speech-to-text-basics.md)
+* [Démarrage rapide sur la conversion de texte par synthèse vocale](get-started-text-to-speech.md)
+* [Guide de démarrage rapide sur la traduction vocale](speech-translation-basics.md)
+* [Guide de démarrage rapide sur la reconnaissance de l’intention](quickstarts/intent-recognition.md)
+* [Guide de démarrage rapide sur la reconnaissance de l’orateur](speaker-recognition-basics.md)
+
+Une fois que vous avez suivi le guide de démarrage rapide du service Speech, essayez nos tutoriels qui vous feront découvrir différents scénarios.
 
 - [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutoriel : Activer les fonctions vocales sur votre bot avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,6 +115,8 @@ Un exemple de code est disponible sur GitHub pour le service Speech. Ces exemple
 
 Le service Speech fonctionne bien avec les modèles intégrés. Cependant, vous pouvez personnaliser et optimiser l’expérience pour votre produit ou environnement. Les options de personnalisation vont de l’ajustement du modèle acoustique aux polices de voix uniques pour votre marque.
 
+D’autres produits proposent des modèles vocaux adaptés à des fins spécifiques, telles que la santé ou l’assurance, mais sont disponibles pour tous les publics. Dans Azure Speech, la personnalisation constitue *votre avantage concurrentiel*, qui n’est pas celui des autres utilisateurs ou clients. En d’autres termes, vos modèles sont privés et adaptés à votre cas d’utilisation.
+
 | Speech Service | Plateforme | Description |
 | -------------- | -------- | ----------- |
 | Reconnaissance vocale | [Discours personnalisé](https://aka.ms/customspeech) | Personnalisez les modèles de reconnaissance vocale en fonction de vos besoins et des données disponibles. Éliminez les obstacles à la reconnaissance vocale, tels que le style d’élocution, le bruit de fond et le vocabulaire. |
@@ -90,4 +133,5 @@ Le service Speech fonctionne bien avec les modèles intégrés. Cependant, vous 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Obtenir gratuitement une clé d’abonnement au service Speech](get-started.md)
+> [Bien démarrer avec la reconnaissance vocale](speech-to-text-basics.md)
+> [Bien démarrer avec la synthèse vocale](get-started-text-to-speech.md)

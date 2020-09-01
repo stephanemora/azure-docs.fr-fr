@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355333"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799262"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 
@@ -26,7 +26,7 @@ Cet article fournit une vue d’ensemble du processus TDSP et de ses principaux 
 
 ## <a name="key-components-of-the-tdsp"></a>Composants clés du processus TDSP
 
-Le processus TDSP comporte les composants clés suivants :
+Le processus TDSP a les composants clés suivants :
 
 - une définition du **cycle de vie de la science des données** ;
 - une **structure de projet normalisée** ;

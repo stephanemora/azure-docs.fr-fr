@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032285"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719214"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
@@ -160,20 +160,20 @@ L’application d’analytique vidéo utilise un module d’[analytique vidéo e
 
 Le modèle d’application comprend quatre tableaux de bord d’application :
 
-* Le tableau de bord **Configuration** fournit des informations sur la conception de l’application et vous permet d’ajouter et de supprimer des caméras.
-* Le tableau de bord **Gérer** vous permet de gérer vos caméras. Par exemple, vous pouvez configurer les caméras, afficher leurs informations d’état et les démarrer.
-* Le tableau de bord **Caméras réelles** vous permet d’afficher les informations de vos véritables caméras, telles que des nombres de détections et des événements de caméra.
-* Le tableau de bord **Surveillance** vous permet d’afficher des informations détaillées de toutes vos caméras.
+* **Bien démarrer** fournit des liens vers des ressources pour vous aider à commencer à utiliser le modèle d’application.
+* **Tableau de bord de démonstration** fournit une illustration des types d’informations que vous pouvez afficher à partir de vos caméras connectées.
+* **(Exemple) Gestion de caméras réelles** utilise des caméras simulées pour montrer comment vous pouvez gérer vos caméras à partir de l’application.
+* **(Exemple) Supervision de caméras réelles** utilise des caméras simulées pour montrer comment vous pouvez superviser vos caméras à partir de l’application.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analytique vidéo - Détection d’objets et de mouvements":::
 
 Pour en savoir plus sur l’architecture de la solution, consultez [Architecture de l’application d’analytique vidéo](architecture-video-analytics.md).
 
-Pour savoir comment déployer la solution, consultez le tutoriel [Créer une application d’analytique vidéo dans Azure IoT Central](tutorial-video-analytics-create-app.md).
+Pour savoir comment déployer la solution, consultez le tutoriel [Créer une application d’analytique vidéo dans Azure IoT Central](tutorial-video-analytics-deploy.md).
 
 ### <a name="live-video-analytics"></a>Analytique vidéo en direct
 
-L’analytique vidéo en direct fournit une plateforme pour créer des applications vidéo intelligentes qui s’étendent à la périphérie et au cloud. La plateforme offre la possibilité de capturer, d’enregistrer, d’analyser des vidéos en direct et de publier les résultats, tels qu’une analytique vidéo, dans les services Azure. Les services Azure peuvent s’exécuter dans le cloud ou à la périphérie. La plateforme permet d’améliorer des solutions IoT avec une analytique vidéo.
+L’[analytique vidéo en direct](https://github.com/Azure/live-video-analytics) fournit une plateforme pour créer des applications vidéo intelligentes qui s’étendent à la périphérie et au cloud. La plateforme offre la possibilité de capturer, d’enregistrer, d’analyser des vidéos en direct et de publier les résultats, tels qu’une analytique vidéo, dans les services Azure. Les services Azure peuvent s’exécuter dans le cloud ou à la périphérie. La plateforme permet d’améliorer des solutions IoT avec une analytique vidéo.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -184,4 +184,5 @@ Pour commencer à créer une solution de vente au détail :
 * [Déployer et parcourir un modèle d’application du Centre de distribution numérique](./tutorial-iot-central-digital-distribution-center.md)
 * [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management.md)
 * [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-micro-fulfillment-center.md)
+* [Déployer et découvrir un modèle d’application d’analytique vidéo](./tutorial-video-analytics-deploy.md)
 * Pour plus d’informations sur IoT Central, consultez la [présentation d’IoT Central](../preview/overview-iot-central.md).

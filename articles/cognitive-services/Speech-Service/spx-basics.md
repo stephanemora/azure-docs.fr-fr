@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854900"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
@@ -31,10 +31,18 @@ Cette section présente quelques commandes SPX de base qui sont souvent utiles p
 spx
 ```
 
-Remarque : des rubriques d'aide **Voir aussi** sont répertoriées à droite des paramètres de commande. Vous pouvez également rechercher des rubriques par mot-clé. Par exemple, entrez la commande suivante pour afficher la liste des rubriques d'aide portant sur les exemples d'interface CLI Speech :
+Remarquez les rubriques d’aide **Voir aussi** listées à droite des paramètres de commande. Vous pouvez entrer ces commandes pour obtenir une aide détaillée sur les sous-commandes.
+
+Vous pouvez rechercher des rubriques d’aide par mot clé. Par exemple, entrez la commande suivante pour afficher la liste des exemples d’utilisation de l’interface CLI Speech :
 
 ```shell
 spx help find --topics "examples"
+```
+
+Entrez la commande suivante pour afficher les options de la commande Recognize :
+
+```shell
+spx help recognize
 ```
 
 Utilisez maintenant le service Speech pour effectuer une reconnaissance vocale à l'aide de votre microphone par défaut en exécutant la commande suivante.

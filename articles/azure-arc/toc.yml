@@ -3,7 +3,7 @@
 - name: Vue d’ensemble
   items:
     - name: À propos d’Azure Arc
-      href: arc-overview.md
+      href: overview.md
 - name: Serveurs avec Arc >
   href: ./servers/overview.md
 - name: Kubernetes avec Arc >

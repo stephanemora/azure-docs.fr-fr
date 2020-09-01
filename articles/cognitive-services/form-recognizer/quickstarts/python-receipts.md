@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: a863d8ccc157272ab736201615fb079eaf7f5dbc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a93ec3157900a83e799f845e868546cbf5ef6ca9
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522825"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823861"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire des données de reçu à l’aide de l’API REST Form Recognizer avec Python
 
@@ -27,10 +27,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
-- Une URL pour une image de reçu. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
+- Image d’un ticket de caisse. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
 
 > [!NOTE]
-> Ce guide de démarrage rapide utilise un ticket distant accessible par URL. Pour utiliser des fichiers locaux, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> Ce guide de démarrage rapide utilise un fichier local. Pour utiliser une image de ticket de caisse accessible par URL, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
@@ -41,10 +41,12 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 Pour commencer à analyser un reçu, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant le script Python ci-dessous. Avant d’exécuter le script, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
-1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de reçu.
+1. Remplacez `<path to your receipt>` par le chemin de votre document de formulaire local.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 
-    ```python
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -80,7 +82,54 @@ Pour commencer à analyser un reçu, vous appelez l’API **[Analyze Receipt](ht
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+```
+    
+# <a name="v21-preview1"></a>[v2.1-preview.1](#tab/v2-1)    
+```python
+    ########### Python Form Recognizer Async Receipt #############
+
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
+    source = r"<path to your receipt>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    
+    params = {
+        "includeTextDetails": True
+        "locale": "en-US"
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+```
+
+> [!NOTE]
+> **Entrée de langue** 
+>
+> L’opération Analyze Receipt version 2.1 comporte un paramètre de demande facultatif pour la langue et les paramètres régionaux du ticket de caisse. Les paramètres régionaux pris en charge sont les suivants : en-AU, en-CA, en-GB, en-IN, en-US. 
+
+---
 
 1. Enregistrez le code dans un fichier avec une extension .py. Par exemple, *form-recognizer-receipts.py*.
 1. Ouvrir une fenêtre d’invite de commandes.
@@ -88,9 +137,15 @@ Pour commencer à analyser un reçu, vous appelez l’API **[Analyze Receipt](ht
 
 Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location** que le script affiche sur la console. Cet en-tête contient un ID d’opération que vous pouvez utiliser pour interroger l’état de l’opération asynchrone et obtenir les résultats. Dans l’exemple de valeur suivant, la chaîne après `operations/` est l’ID d’opération.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)    
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
+# <a name="v21-preview1"></a>[v2.1-preview.1](#tab/v2-1)    
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```
+---
 
 ## <a name="get-the-receipt-results"></a>Obtenir les résultats du reçu
 
@@ -128,13 +183,13 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 
-Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’**analyse du reçu**. Ensuite, il imprime les données textuelles extraites au format JSON. Le champ `"recognitionResults"` contient toutes les lignes de texte extraites du reçu, et le champ `"understandingResults"` des informations de clé/valeur pour les parties les plus pertinentes du reçu.
+Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’**analyse du reçu**. Ensuite, il imprime les données textuelles extraites au format JSON. Le champ `"readResults"` contient toutes les lignes de texte extraites du reçu, et le champ `"documentResults"` des informations de clé/valeur pour les parties les plus pertinentes du reçu.
 
 Regardez l’image de reçu suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
 
 ![Reçu d’un magasin Contoso](../media/contoso-allinone.jpg)
 
-Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du reçu découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
+Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"documentResults"` contient les valeurs spécifiques du reçu découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
 
 ```json
 { 

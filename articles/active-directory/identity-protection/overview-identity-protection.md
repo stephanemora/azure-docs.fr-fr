@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509108"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815179"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -49,12 +49,13 @@ Identity Protection identifie les risques selon les classifications suivantes :
 
 | Type de détection des risques | Description |
 | --- | --- |
-| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur |
+| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur. |
 | Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
-| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné |
-| Adresse IP liée à un programme malveillant | Connexion à partir d'une adresse IP liée à un programme malveillant |
-| Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fait l’objet d’une fuite |
-| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu |
+| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné. |
+| Adresse IP liée à un programme malveillant | Connexion à partir d’une adresse IP liée à un programme malveillant. |
+| Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fuité. |
+| Pulvérisation de mots de passe | Indique que plusieurs noms d’utilisateurs font l’objet d’une attaque par force brute unifiée avec des mots de passe communs. |
+| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu. |
 
 Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
 

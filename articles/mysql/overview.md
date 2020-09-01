@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206403"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763658"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Qu’est-ce qu’Azure Database pour MySQL ?
 
@@ -37,6 +37,9 @@ Cet article présente les principaux concepts et fonctionnalités d’Azure Data
 Pour accéder à des exemples Azure CLI, consultez :
 
 - [Exemples de CLI Azure pour Azure Database pour MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Mise à jour corrective automatisée
+Le service effectue une mise à jour corrective automatisée du matériel, du système d’exploitation et du moteur de base de données sous-jacents. La mise à jour corrective inclut des mises à jour logicielles et de sécurité pour le matériel, le système d’exploitation et le moteur de base de données sous-jacents. Pour le moteur MySQL, la mise à niveau des versions mineures est automatique et incluse dans le cadre de la mise à jour corrective. Lorsque la communauté publie une version mineure, elle est automatiquement intégrée dans le cadre du cycle de test du service. Le test de la version mineure est effectué sur certaines charges de travail canoniques pour MySQL. La publication de versions mineures du moteur MySQL fait l’objet d’une évaluation en termes de fiabilité (pas d’incident), de disponibilité, de sécurité et de performances. Toutes les versions mineures ne sont pas mises en production dans le service, mais elles sont évaluées en fonction du caractère critique des correctifs de bogues et de la nouvelle valeur incrémentielle. Cela permet de trouver un juste équilibre entre la nouvelle valeur incrémentielle et la réduction maximale des variables dans le système à des fins de stabilité. Aucune action de l’utilisateur ni aucun paramètre de configuration ne sont requis pour la mise à jour corrective. La fréquence des mises à jour correctives est gérée par le service en fonction du caractère critique de la charge utile. En général, le service suit un calendrier de publication mensuel dans le cadre de l’intégration et de la publication continues. Les utilisateurs peuvent s’abonner à la [notification de maintenance planifiée](concepts-monitoring.md) pour recevoir une notification de la maintenance à venir 72 heures avant l’événement.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
 Le service Azure Database pour MySQL offre plusieurs niveaux de service : De base, Usage général et À mémoire optimisée. Chaque niveau offre différentes performances et fonctionnalités pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous payez uniquement pour les ressources dont vous avez besoin et seulement quand vous en avez besoin. Pour plus d’informations, consultez  [Niveaux tarifaires](concepts-service-tiers.md).

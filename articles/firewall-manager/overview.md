@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590402"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855050"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -86,7 +86,7 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Trafic de branche à branche avec filtrage du trafic privé activé|Le trafic de branche à branche n’est pas pris en charge lorsque le filtrage du trafic privé est activé. |Investigation en cours<br><br>Ne sécurisez pas le trafic privé si la connectivité de branche à branche est critique.|
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
-|Les règles d'application échouent dans un hub sécurisé où un DNS personnalisé (préversion) est configuré.|Le proxy DNS/DNS personnalisé (préversion) ne fonctionne pas dans les scénarios où une carte réseau de gestion de pare-feu est configurée. Cela inclut les déploiements de hubs sécurisés et les cas où le tunneling forcé est activé.|Correctif en cours d'examen.|
+|Les règles d'application échouent dans un hub sécurisé où un DNS personnalisé (préversion) est configuré.|Le DNS personnalisé (préversion) ne fonctionne pas dans les déploiements de hubs sécurisés et les déploiements de réseaux de hubs virtuels où le tunneling forcé est activé.|Correctif en cours d'examen.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

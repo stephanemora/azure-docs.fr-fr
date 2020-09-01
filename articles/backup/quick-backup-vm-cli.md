@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b263d5394d642301c5fc53e169186e4aea56ecab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497458"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826546"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Sauvegarder une machine virtuelle dans Azure avec l’interface de ligne de commande
 
@@ -60,7 +60,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-> Si la machine virtuelle n’est pas dans le même groupe de ressources que celui du coffre, alors myResourceGroup fait référence au groupe de ressources dans lequel le coffre a été créé. Au lieu du nom de la machine virtuelle, indiquez l’ID de la machine virtuelle comme indiqué ci-dessous.
+> Si la machine virtuelle n’est pas dans le même groupe de ressources que celui du coffre, myResourceGroup fait alors référence au groupe de ressources dans lequel le coffre a été créé. Au lieu du nom de la machine virtuelle, indiquez l’ID de la machine virtuelle comme indiqué ci-dessous.
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Si vous utilisez l’interface de ligne de commande pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Actuellement, le client PS ne se bloque pas explicitement s’il y a plus de 100 machines virtuelles, cela sera vérifié à l’avenir.
+> Si vous utilisez l’interface de ligne de commande pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Si, pour l’heure, le client PowerShell ne se bloque pas explicitement dans le cas où plus de 100 machines virtuelles sont présentes, cela sera vérifié à l’avenir.
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 

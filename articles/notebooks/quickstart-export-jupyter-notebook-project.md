@@ -1,22 +1,23 @@
 ---
-title: Exporter un projet de notebook Jupyter à partir d’Azure Notebooks (préversion)
-description: Exportez rapidement un projet de notebook Jupyter.
+title: Exporter un projet Jupyter Notebook à partir de la préversion Azure Notebooks
+description: Exportez rapidement un projet Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832030"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892097"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Démarrage rapide : Exporter un projet de notebook Jupyter dans Azure Notebooks (préversion)
+# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Démarrage rapide : Exporter un projet Jupyter Notebook dans la préversion Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Dans ce guide de démarrage rapide, vous allez télécharger un projet Azure Notebooks en vue de l’utiliser dans d’autres solutions de notebook Jupyter. 
+Dans ce guide de démarrage rapide, vous allez télécharger un projet Azure Notebooks en vue de l’utiliser dans d’autres solutions Jupyter Notebook. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Projet Azure Notebooks existant.
 
 ## <a name="export-an-azure-notebooks-project"></a>Exporter un projet Azure Notebooks

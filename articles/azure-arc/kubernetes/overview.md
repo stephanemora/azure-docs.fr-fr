@@ -6,15 +6,15 @@ ms.date: 05/19/2020
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
-description: Cet article fournit une vue d’ensemble de Kubernetes avec Azure Arc.
+description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 4f07c0e5e01648984514701cd4838f85478d86af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 885c96b83edb83cfb62fc117d9b4406792827056
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050054"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723722"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Qu’est-ce que Kubernetes avec Azure Arc (préversion) ?
 
@@ -27,9 +27,21 @@ Kubernetes avec Azure Arc prend en charge le protocole SSL standard pour sécuri
 > [!NOTE]
 > Kubernetes avec Azure Arc est en préversion. Nous ne la recommandons pas pour les charges de travail de production.
 
+## <a name="supported-kubernetes-distributions"></a>Distributions Kubernetes prises en charge
+
+Kubernetes avec Azure Arc est compatible avec n’importe quel cluster certifié CNCF (Cloud Native Computing Foundation) comme AKS-engine sur Azure, AKS-engine sur Azure Stack Hub, GKE, EKS et le cluster VMware vSphere.
+
+Les fonctionnalités de Kubernetes avec Azure Arc ont été testées par l’équipe Arc sur les distributions suivantes :
+* RedHat OpenShift 4.3
+* Rancher RKE 1.0.8
+* Canonical Charmed Kubernetes 1.18
+* Moteur AKS
+* Moteur AKS sur Azure Stack Hub
+* Cluster API Provider Azure
+
 ## <a name="supported-scenarios"></a>Scénarios pris en charge 
 
-Kubernetes avec Azure Arc prend en charge ces scénarios : 
+Kubernetes avec Azure Arc prend en charge les scénarios suivants : 
 
 * Connecter un cluster Kubernetes s’exécutant en dehors d’Azure pour l’inventaire, le regroupement et l’étiquetage.
 
@@ -44,7 +56,7 @@ Kubernetes avec Azure Arc prend en charge ces scénarios :
 Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions : 
 
 * USA Est 
-* Europe Ouest 
+* Europe Ouest
 
 ## <a name="next-steps"></a>Étapes suivantes
 

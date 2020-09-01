@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505396"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723331"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Form Recognizer
 
@@ -28,7 +28,11 @@ La bibliothèque de client Form Recognizer vous permet de :
 * [Reconnaître les tickets de caisse](#recognize-receipts)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
-* [Gérer vos connecteurs personnalisés](#manage-your-custom-models)
+* [Gérer vos modèles personnalisés](#manage-your-custom-models)
+
+> [!NOTE]
+> Les bibliothèques clientes prennent en charge la dernière version de Form Recognizer en disponibilité générale, v2.0. 
+
 
 ::: zone pivot="programming-language-csharp"
 

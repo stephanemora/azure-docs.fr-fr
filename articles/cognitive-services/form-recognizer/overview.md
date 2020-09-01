@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836902"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723557"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -24,7 +24,7 @@ Azure Form Recognizer est un service cognitif qui utilise la technologie de mach
 
 Form Recognizer est constitué des services suivants :
 * **Modèles personnalisés** : extrayez des paires clé/valeur et des données de tableau à partir de formulaires. Ces modèles étant entraînés avec vos propres données, ils sont adaptés à vos formulaires.
-* **Modèle de reçu prédéfini** : extrayez les données des reçus de ventes aux États-Unis à l’aide d’un modèle prédéfini.
+* **Modèles prédéfinis** : extrayez les données de types de formulaires uniques à l’aide de modèles prédéfinis. Les modèles prédéfinis actuellement disponibles s’appliquent aux tickets de caisse et cartes de visite rédigés en anglais.
 * **API de disposition** : extrayez les structures du texte et des tableaux, ainsi que les coordonnées de leur cadre englobant, à partir de documents.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ Quand vous effectuez l’entraînement avec des données étiquetées, le modèl
 
 Form Recognizer utilise l’[API de disposition](#layout-api) pour connaître les tailles et les positions attendues des éléments de texte imprimés et manuscrits. Ensuite, il utilise des étiquettes spécifiées par l’utilisateur pour connaître les associations clé/valeur dans les documents. Nous vous recommandons d’utiliser cinq formulaires étiquetés manuellement du même type pour démarrer l’entraînement d’un nouveau modèle et d’ajouter des données étiquetées en fonction des besoins afin d’améliorer l’exactitude du modèle.
 
-## <a name="prebuilt-receipt-model"></a>Modèle de reçu préconstruit
+## <a name="prebuilt-models"></a>Modèles prédéfinis
 
-Form Recognizer comprend également un modèle de lecture des reçus de vente en anglais émis aux États-Unis&mdash;le type utilisé par les restaurants, les stations-service, la vente au détail, etc. ([exemple de reçu](./media/contoso-receipt-small.png)). Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du vendeur, le montant des taxes et frais totaux et plus encore. En outre, le modèle de reçu préconstruit est entraîné pour reconnaître et retourner tout le texte d’un reçu.
+Form Recognizer comporte aussi des modèles prédéfinis pour des types de formulaires uniques.
+### <a name="prebuilt-receipt-model"></a>Modèle de ticket de caisse prédéfini
+Le modèle Prebuilt Receipt (Ticket de caisse prédéfini) permet de lire les tickets de caisse en anglais émis en Australie, au Canada, en Grande-Bretagne, en Inde et aux États-Unis&mdash;du type utilisé dans les restaurants, les stations-service, les commerces, etc. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du commerçant, le montant des taxes, les articles, les totaux, etc. En outre, le modèle de reçu préconstruit est entraîné pour reconnaître et retourner tout le texte d’un reçu. 
+
+![exemple de ticket de caisse](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini
+Le modèle Business Cards (Cartes de visite) vous permet d’extraire des informations d’une carte de visite rédigée en anglais telles que le nom, la fonction, l’adresse postale, l’adresse e-mail, la société et les numéros de téléphone de la personne. 
+
+![exemple de carte de visite](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>API de disposition
 
@@ -90,7 +99,7 @@ Explorez la [documentation de référence sur l’API REST](https://westus2.dev.
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Modèle de reçu préconstruit
+### <a name="prebuilt"></a>Prédéfinie
 
 Les exigences d’entrée pour le modèle de reçu sont légèrement différentes.
 

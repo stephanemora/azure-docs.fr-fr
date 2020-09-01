@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033640"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750187"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
@@ -51,7 +51,7 @@ Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (pa
 > Pour que le modèle de relecture fonctionne correctement et de manière fiable, le code de fonction orchestrator doit être *déterministe*. Pour plus d’informations sur les restrictions de code pour les fonctions orchestrator, consultez la rubrique [Contraintes du code des fonctions](durable-functions-code-constraints.md).
 
 > [!NOTE]
-> Si une fonction orchestrator émet des messages de journal, le comportement de relecture peut provoquer l’émission de messages de journal en double. Pour en savoir plus sur la raison pour laquelle ce comportement se produit et sur la façon de contourner ce problème, consultez la rubrique [Journalisation](durable-functions-diagnostics.md#logging).
+> Si une fonction orchestrator émet des messages de journal, le comportement de relecture peut provoquer l’émission de messages de journal en double. Consultez la rubrique [Journalisation](durable-functions-diagnostics.md#app-logging) pour découvrir les causes de ce comportement et le techniques pour le contourner.
 
 ## <a name="orchestration-history"></a>Historique d’orchestration
 

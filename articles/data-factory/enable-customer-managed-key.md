@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 9caa4690fa6b9d6c473bb8863acdcbbe15a37fba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569387"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650573"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Chiffrer Azure Data Factory avec des clés gérées par le client
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory chiffre les données au repos, y compris les définitions d’entités, toutes les données mises en cache pendant l’exécution et les données mises en cache pour l’aperçu des données. Par défaut, les données sont chiffrées à l’aide d’une clé générée de manière aléatoire et gérée par Microsoft, qui est affectée de manière unique à votre fabrique de données. Pour plus de sécurité, vous pouvez maintenant activer la fonctionnalité Bring Your Own Key (BYOK) avec des clés gérées par le client dans Azure Data Factory. Lorsque vous spécifiez une clé gérée par le client, Data Factory utilise __à la fois__ la clé système Data Factory et la clé CMK pour chiffrer les données client. L’absence d’une de ces clés entraîne le refus d’accès aux données et à la fabrique.
+Azure Data Factory chiffre les données au repos, y compris les définitions d’entités et les données mises en cache pendant les exécutions. Par défaut, les données sont chiffrées à l’aide d’une clé générée de manière aléatoire et gérée par Microsoft, qui est affectée de manière unique à votre fabrique de données. Pour plus de sécurité, vous pouvez maintenant activer la fonctionnalité Bring Your Own Key (BYOK) avec des clés gérées par le client dans Azure Data Factory. Lorsque vous spécifiez une clé gérée par le client, Data Factory utilise __à la fois__ la clé système Data Factory et la clé CMK pour chiffrer les données client. L’absence d’une de ces clés entraîne le refus d’accès aux données et à la fabrique.
 
 Azure Key Vault est nécessaire pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Le coffre de clés et Data Factory doivent se trouver dans le même locataire Azure Active Directory (Azure AD) et dans la même région, mais ils peuvent être dans des abonnements différents. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
 
@@ -76,7 +76,7 @@ Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou 
 
     ![Capture d’écran de l’étape permettant d’obtenir l’URI de la clé à partir de Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Lancer le portail Azure Data Factory puis, à l’aide de la barre de navigation sur la gauche, accéder à la page d'accueil Data Factory
+1. Lancez le portail Azure Data Factory, puis, à l’aide de la barre de navigation sur la gauche, accédez au portail de gestion Data Factory.
 
 1. Cliquez sur l’icône __Clé gérée par le client__
 

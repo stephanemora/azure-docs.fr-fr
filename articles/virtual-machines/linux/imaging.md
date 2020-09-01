@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de la création d’images Linux pour Azure
-description: Vue d’ensemble de la façon d’intégrer vos images de machine virtuelle Linux ou de créer des images à utiliser dans Azure.
+description: Comment apporter vos images de machine virtuelle Linux ou créer des images à utiliser dans Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502178"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815298"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Intégration et création d’images Linux dans Azure
 
@@ -25,7 +25,7 @@ Cet article aborde les conditions et les points de décision relatifs aux images
 ## <a name="difference-between-managed-disks-and-images"></a>Différence entre les disques managés et les images
 
 
-Azure vous permet d’intégrer un disque dur virtuel à la plateforme, à utiliser en tant que [disque managé](../windows/faq-for-disks.md#managed-disks) ou source pour une image. 
+Azure vous permet d’intégrer un disque dur virtuel à la plateforme, à utiliser en tant que [disque managé](../faq-for-disks.md#managed-disks) ou source pour une image. 
 
 Les disques managés Azure sont des disques durs virtuels uniques. Vous pouvez soit utiliser un disque dur virtuel existant et créer un disque managé à partir de celui-ci, soit créer un disque managé vide à partir de zéro. Vous pouvez créer des machines virtuelles à partir de disques managés en associant le disque à la machine virtuelle, mais vous pouvez uniquement utiliser un disque dur virtuel avec une seule machine virtuelle. Vous ne pouvez pas modifier les propriétés du système d’exploitation. Azure tente simplement d’activer la machine virtuelle et de démarrer à l’aide de ce disque. 
 

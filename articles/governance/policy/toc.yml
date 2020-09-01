@@ -167,14 +167,18 @@
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Dépanner
-  href: ./troubleshoot/general.md
+  items:
+    - name: Problèmes courants
+      href: ./troubleshoot/general.md
+    - name: Problèmes connus
+      href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Policy
+        - name: Stratégie
           href: /powershell/module/az.resources/#policies
         - name: Policy Insights
           href: /powershell/module/az.policyinsights#policy_insights
@@ -189,9 +193,9 @@
     - name: Kit SDK Azure pour Java
       items:
         - name: Attributions
-          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment
         - name: Définitions de stratégies
-          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
     - name: Kit SDK Azure pour JavaScript
       items:
         - name: Policy
@@ -200,7 +204,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Policy
+        - name: Stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
@@ -234,31 +238,45 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Ressources
   items:
-    - name: Problèmes connus
-      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub - Exemples Azure Policy
       href: 'https://github.com/Azure/azure-policy'
-    - name: GitHub - Dépôt Community Policy
-      href: 'https://github.com/Azure/Community-Policy'
-    - name: Microsoft Q&A pour Azure Policy
-      href: /answers/topics/azure-policy.html
-    - name: Chaîne YouTube Governance
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Vidéos de configuration invité
+    - name: Outils de la communauté
       items:
-        - name: Mise en route
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: Compréhension des initiatives
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: Attribuer la stratégie
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: Tâche de correction
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: "Vidéo - Ignite\_2019"
-      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: GitHub - Dépôt Community Policy
+          href: 'https://github.com/Azure/Community-Policy'
+        - name: Action GitHub pour l’analyse de conformité Azure Policy
+          href: 'https://github.com/marketplace/actions/azure-policy-compliance-scan'
+        - name: Tableau de bord de gouvernance Azure CCO
+          href: 'https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages'
+        - name: AzAdvertizer
+          href: 'https://www.azadvertizer.net/'
+        - name: Visualiseur de gouvernance Azure
+          href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+    - name: Commentaires et support
+      items:
+        - name: Microsoft Q&A pour Azure Policy
+          href: /answers/topics/azure-policy.html
+        - name: Ticket de support Azure
+          href: 'https://azure.microsoft.com/support/create-ticket/'
+        - name: UserVoice
+          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+    - name: Vidéos
+      items:
+        - name: Chaîne YouTube Governance
+          href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+        - name: "Vidéo - Ignite\_2019"
+          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: Vidéos de configuration invité
+          items:
+            - name: Mise en route
+              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+            - name: Compréhension des initiatives
+              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+            - name: Attribuer la stratégie
+              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+            - name: Tâche de correction
+              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

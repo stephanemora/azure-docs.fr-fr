@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192284"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853286"
 ---
 # <a name="azure-signalr-service-faq"></a>FAQ sur Azure SignalR Service
 
@@ -78,8 +78,8 @@ Dans le panneau Vue d’ensemble des ressources d’Azure SignalR Service, nous 
 ## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Que signifie le mode de service `Default`/`Serverless`/`Classic` ? Comment faire mon choix ?
 
 Modes :
-* Le mode `Default` **nécessite** un serveur hub. Si aucune connexion serveur n’est disponible pour le hub, la tentative de connexion du client au hub échoue.
-* Le mode `Serverless` n'autorise **AUCUNE** connexion au serveur, c’est-à-dire qu’il rejette toute connexion au serveur, tous les clients doivent entrer en mode serverless.
+* Le mode `Default` *nécessite* un serveur hub. Dans ce mode, Azure SignalR route le trafic client vers ses connexions de serveur hub connecté. Azure SignalR recherche un serveur hub connecté. S’il ne trouve aucun serveur hub connecté, Azure SignalR rejette les connexions clientes entrantes. Vous pouvez également utiliser l’**API de gestion** dans ce mode pour gérer les clients connectés directement via Azure SignalR.
+* Le mode `Serverless` n’autorise *AUCUNE* connexion serveur. Autrement dit, il les rejette toutes. Tous les clients doivent être en mode serverless. Les clients se connectent à Azure SignalR, et les utilisateurs utilisent généralement des technologies serverless comme **Azure Function** pour gérer la logique des hubs. Consultez un [exemple simple](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) qui utilise le mode serverless d’Azure SignalR.
 * Le mode `Classic` est un état mixte. Lorsqu’un hub dispose d’une connexion au serveur, le nouveau client est dirigé vers le serveur hub, si ce n’est pas le cas, le client entre en mode serverless.
 
   Cela peut entraîner des problèmes, par exemple, la perte de toutes les connexions au serveur pendant un moment, certains clients entreront en mode serverless au lieu d’être dirigés vers le serveur hub.

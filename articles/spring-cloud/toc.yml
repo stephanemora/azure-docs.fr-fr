@@ -5,8 +5,6 @@
   items:
     - name: "Qu’est-ce qu’Azure Spring Cloud\_?"
       href: spring-cloud-overview.md
-    - name: Java et système d’exploitation de base pour les applications de microservices Spring
-      href: spring-cloud-principles-microservice-apps.md
 - name: Démarrages rapides
   expanded: true
   items:

@@ -10,14 +10,14 @@ ms.author: sethm
 ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: b9fe363da0fa5e451aaee83e895d539a0741a174
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830731"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684641"
 ---
-# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Démarrage rapide : Création d’un hub de notification à l’aide d’un modèle Resource Manager
+# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Démarrage rapide : Créer un hub de notification à l’aide d’un modèle ARM
 
 Azure Notification Hubs est un moteur d’envoi (push) simple d’utilisation et à grande échelle qui permet d’envoyer des notifications à n’importe quelle plateforme (iOS, Android, Windows, Kindle, etc.) à partir de n’importe quel back-end (cloud ou local). Pour plus d’informations sur le service, consultez [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
+:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)

@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: session
           href: concept-conditional-access-session.md
-    - name: Insights et rapports
-      href: howto-conditional-access-insights-reporting.md
     - name: Mode Rapport uniquement
       href: concept-conditional-access-report-only.md
     - name: Dépendances de services
@@ -78,6 +76,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
+    - name: Configurer le mode rapport seul
+      href: howto-conditional-access-insights-reporting.md
     - name: Exiger des applications client approuvées
       href: app-based-conditional-access.md
     - name: Exiger une stratégie de protection des applications
@@ -88,12 +88,8 @@
       href: untrusted-networks.md
     - name: Exiger des conditions d’utilisation
       href: terms-of-use.md
-    - name: Configurer le mode Rapport uniquement
-      href: howto-conditional-access-report-only.md
     - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
       href: howto-conditional-access-session-lifetime.md
-    - name: Migrer les stratégies classiques
-      href: policy-migration-mfa.md
     - name: Dépannage
       items:
         - name: Résoudre les problèmes de connexion
@@ -102,6 +98,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Questions fréquentes (FAQ)
           href: faqs.md
+    - name: Migrer les stratégies classiques
+      href: policy-migration-mfa.md
 - name: Informations de référence
   items:
     - name: API Graph Bêta

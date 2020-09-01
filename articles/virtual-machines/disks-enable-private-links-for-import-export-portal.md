@@ -4,18 +4,18 @@ description: Activez des liaisons privées pour vos disques managés avec le por
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135842"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815859"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portail Azure – Restreindre l’accès en importation/exportation pour des disques managés avec des liaisons privées
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Utiliser le portail Azure afin de restreindre l’accès par importation/exportation aux disques managés avec des liaisons privées
 
 La prise en charge des liaisons privées pour des disques managés est actuellement en préversion. Elle vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Vous pouvez générer un URI de signature d’accès partagé (SAS) limité dans le temps pour les instantanés et les disques managés non attachés afin d’exporter les données vers une autre région dans le cadre d’une expansion régionale, d’une reprise d’activité après sinistre ou de la lecture des données à des fins d’analyse forensique. Vous pouvez également utiliser l’URI SAS pour charger directement le disque dur virtuel sur un disque vide à partir de votre site local. Le trafic réseau entre clients sur leurs réseau virtuel et disques managés transite uniquement sur le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public.
 
@@ -100,5 +100,5 @@ Vous venez de terminer la configuration des liaisons privées, que vous pouvez m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Questions fréquentes (FAQ) sur les liaisons privées](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Questions fréquentes (FAQ) sur les liaisons privées](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exporter/copier des instantanés managés en tant que disque dur virtuel vers un compte de stockage dans une région différente avec PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
