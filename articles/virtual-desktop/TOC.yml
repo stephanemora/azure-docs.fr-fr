@@ -94,6 +94,8 @@
       href: configure-automatic-updates.md
     - name: Installer des modules linguistiques
       href: language-packs.md
+    - name: Résoudre les recommandations
+      href: azure-advisor-recommendations.md
 - name: Concepts
   items:
     - name: Authentification

@@ -33,6 +33,8 @@
           href: dns-delegate-domain-azure-dns.md
         - name: Créer des enregistrements DNS personnalisés pour une application web
           href: dns-web-sites-custom-domain.md
+        - name: Création d’une zone DNS enfant
+          href: tutorial-public-dns-zones-child.md
         - name: Enregistrements d’alias pour Traffic Manager
           href: tutorial-alias-tm.md
         - name: Enregistrements d’alias pour les adresses IP publiques
