@@ -216,6 +216,13 @@
         - name: Utilisation d’un modèle Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+    - name: Créer des ressources de calcul
+      items:
+        - name: Utiliser le studio
+          href: how-to-create-attach-compute-studio.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Python
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-create-attach-compute-sdk.md
     - name: Configurer votre environnement
       items:
         - name: Configurer des environnements de développement
@@ -265,7 +272,7 @@
         - name: Accéder aux données
           items:
             - name: Se connecter à Stockage Azure
-              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
             - name: Obtenir des données à partir d’une banque de données
               displayName: 'data, data set, register, access data'
@@ -286,7 +293,7 @@
               href: how-to-differential-privacy.md
     - name: Entraîner des modèles
       items:
-        - name: Configurer des environnements d’entraînement
+        - name: Soumettre une exécution d’entraînement
           displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: Utiliser des estimateurs pour le machine learning

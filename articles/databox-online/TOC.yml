@@ -3,7 +3,7 @@
   expanded: true
 - name: Azure Stack Edge avec GPU (préversion)
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce qu’Azure Stack Edge avec GPU\_?"
           href: azure-stack-edge-gpu-overview.md
@@ -154,7 +154,7 @@
         - name: Dépanner
           items:
             - name: Problèmes d’appareil
-              href: azure-stack-edge-troubleshoot.md
+              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Classement des problèmes
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Contacter le support Microsoft
@@ -173,7 +173,7 @@
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
 - name: Azure Stack Edge avec FPGA
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce qu’Azure Stack Edge avec FPGA\_?"
           href: azure-stack-edge-overview.md

@@ -41,6 +41,8 @@
       href: location-condition.md
     - name: Outil de simulation
       href: what-if-tool.md
+    - name: Évaluation de l’accès continu
+      href: concept-continuous-access-evaluation.md
     - name: Contrôles personnalisés
       href: controls.md
     - name: Migrations de stratégies classiques
