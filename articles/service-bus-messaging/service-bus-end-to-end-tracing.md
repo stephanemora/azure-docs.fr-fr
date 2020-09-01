@@ -3,14 +3,15 @@ title: Diagnostics et traçage de bout en bout d’Azure Service Bus | Microsoft
 description: Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus (client via tous les services impliqués dans le traitement).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340730"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021627"
 ---
-# <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
+# <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Suivi distribué et corrélation via la messagerie Service Bus
 
 L’un des défis que pose couramment le développement de microservices est la capacité à tracer l’opération d’un client à travers tous les services impliqués dans le traitement. Le traçage facilite le débogage, l’analyse des performances, les tests A/B et d’autres diagnostics standard.
 L’un des aspects du problème a trait au suivi d’éléments de travail logiques. Ceux-ci comptent notamment le résultat et la latence du traitement des messages, et les appels de dépendances externes. Un autre aspect du problème est la mise en corrélation de ces événements de diagnostic au-delà des limites de traitement.
