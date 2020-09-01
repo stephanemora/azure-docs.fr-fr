@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076740"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705722"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur HDInsight
 
@@ -213,7 +213,13 @@ L’élément `<hdfsHBaseLocation>` peut être l’un des emplacements de stocka
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-Une fois l’instantané exporté, exécutez SSH dans le nœud principal du cluster de destination, puis restaurez l’instantané à l’aide de la commande restore_snapshot, tel que décrit précédemment.
+Si vous n’avez pas de compte Stockage Azure secondaire attaché à votre cluster source ou si celui-ci est un cluster local (ou un cluster non HDI), il se peut que vous rencontriez des problèmes d’autorisation lorsque vous tentez d’accéder au compte de stockage de votre cluster HDI. Pour les résoudre, spécifiez la clé de votre compte de stockage en tant que paramètre de ligne de commande, comme indiqué dans l’exemple suivant. Vous pouvez récupérer la clé de votre compte de stockage dans le portail Azure.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Une fois l’instantané exporté, exécutez SSH dans le nœud principal du cluster de destination, puis restaurez la capture instantanée à l’aide de la commande `restore_snapshot`, tel que décrit précédemment.
 
 Les instantanés offrent une sauvegarde complète de la table au moment de l’exécution de la commande `snapshot`. Les instantanés ne peuvent aucunement être exécutés de manière incrémentielle par fenêtre temporelle, ni spécifier des sous-ensembles de familles de colonnes à inclure.
 

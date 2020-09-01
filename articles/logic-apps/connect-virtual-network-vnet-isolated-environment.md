@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/25/2020
+ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066484"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816658"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -39,7 +39,7 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
   > [!IMPORTANT]
   > Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
@@ -94,6 +94,8 @@ Pour vous assurer que votre environnement de service d’intégration est access
 
   Quand vous configurez des [règles de sécurité NSG](../virtual-network/security-overview.md#security-rules), vous devez utiliser *simultanément* les protocoles **TCP** et **UDP**, ou vous pouvez sélectionner **Tous** pour ne pas avoir à créer de règles distinctes pour chaque protocole. Les règles de sécurité de groupe de sécurité réseau décrivent les ports que vous devez ouvrir pour les adresses IP qui doivent accéder à ces ports. Assurez-vous que tous les pare-feu, routeurs ou autres éléments existant entre ces points de terminaison gardent également ces ports accessibles à ces adresses IP.
 
+* Si vous configurez le tunneling forcé via votre pare-feu pour rediriger le trafic Internet, passez en revue les [conditions requises pour le tunneling forcé supplémentaires](#forced-tunneling).
+
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>Ports réseau utilisés par votre ISE
@@ -141,6 +143,26 @@ En outre, vous devez ajouter des règles de trafic sortant pour [App Service Env
 
 * Si vous utilisez une appliance de Pare-feu autre que le pare-feu Azure, vous devez configurer votre pare-feu avec *toutes* les règles répertoriées dans les [dépendances d’intégration de pare-feu](../app-service/environment/firewall-integration.md#dependencies) requises pour App Service Environment.
 
+<a name="forced-tunneling"></a>
+
+#### <a name="forced-tunneling-requirements"></a>Conditions requises pour le tunneling forcé
+
+Si vous configurez ou utilisez un [tunneling forcé](../firewall/forced-tunneling.md) via votre pare-feu, vous devez autoriser des dépendances externes supplémentaires pour votre environnement ISE. Un tunneling forcé vous permet de rediriger le trafic Internet vers un tronçon suivant désigné, tel que votre réseau privé virtuel (VPN) ou vers une appliance virtuelle, plutôt que vers Internet afin que vous puissiez inspecter et auditer le trafic réseau sortant.
+
+En règle générale, tout le trafic de dépendance sortant ISE transite par l’adresse IP virtuelle (VIP) approvisionnée avec votre environnement ISE. Toutefois, si vous modifiez le routage du trafic vers ou à partir de votre environnement ISE, vous devez autoriser les dépendances sortantes suivantes sur votre pare-feu en définissant leur tronçon suivant sur `Internet`. Si vous utilisez le Pare-feu Azure, suivez les [instructions pour configurer votre pare-feu avec App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+
+Si vous n’autorisez pas l’accès à ces dépendances, votre déploiement ISE échoue et votre environnement ISE déployé cesse de fonctionner :
+
+* [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)
+
+* [Adresses de gestion des API Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+
+* [Adresses de gestion d’Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+
+* [Adresses entrantes et sortantes Logic Apps pour la région ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+
+* Vous devez activer des points de terminaison de service pour Azure SQL, le Stockage Azure, Service Bus et Event Hub, car vous ne pouvez pas envoyer de trafic via un pare-feu à ces services.
+
 <a name="create-environment"></a>
 
 ## <a name="create-your-ise"></a>Créer votre environnement de service d’intégration
@@ -151,7 +173,7 @@ En outre, vous devez ajouter des règles de trafic sortant pour [App Service Env
 
 1. Dans le volet **Environnements de service d’intégration**, sélectionnez **Ajouter**.
 
-   ![Rechercher et sélectionner « Environnements de service d’intégration »](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
+   ![Sélectionnez « Ajouter » pour créer un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. Spécifiez ces informations pour votre environnement, puis sélectionnez **Vérifier + créer**, par exemple :
 

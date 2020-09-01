@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562563"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639917"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 
@@ -45,7 +45,7 @@ Avec certains types d’applications, vous avez la possibilité de [demander que
 * Les applications de proxy d’application qui utilisent la préauthentification Azure Active Directory
 * Les applications créées sur la plateforme d’application Azure AD, utilisant l’authentification OAuth 2.0 / OpenID Connect après le consentement donné par un utilisateur ou un administrateur à cette application. Certaines applications d’entreprise offre un contrôle supplémentaire sur les personnes qui sont autorisées à se connecter.
 
-Lorsque l’affectation d’utilisateurs n’est *pas obligatoire*, les utilisateurs non attribués ne voient pas l’application dans leur volet d’accès Mes applications, mais ils peuvent toujours se connecter à l’application elle-même (procédure également appelée « authentification initiée par le fournisseur de services »). Ils peuvent aussi utiliser l’**URL d’accès utilisateur** dans la page **Propriétés** de l’application (action également appelée « authentification initiée par IDP »).
+Lorsque l’affectation d’utilisateurs n’est *pas obligatoire*, les utilisateurs non attribués ne voient pas l’application dans Mes applications, mais ils peuvent toujours se connecter à l’application elle-même (procédure également appelée « authentification initiée par le fournisseur de services »). Ils peuvent aussi utiliser l’**URL d’accès utilisateur** dans la page **Propriétés** de l’application (action également appelée « authentification initiée par IDP »).
 
 Pour certaines applications, l’option permettant de demander l’affectation d’utilisateurs n’est pas disponible dans les propriétés de l’application. Dans ce cas, vous pouvez utiliser PowerShell pour définir la propriété appRoleAssignmentRequired sur le principal du service.
 
@@ -53,12 +53,12 @@ Pour certaines applications, l’option permettant de demander l’affectation d
 
 Azure AD offre [plusieurs moyens personnalisables qui permettent de déployer des applications](end-user-experiences.md) pour les utilisateurs finaux de votre organisation :
 
-* Panneau d’accès Mes applications d’Azure AD
+* Mes applications Azure AD
 * Lanceur d’applications Office 365
 * Authentification directe pour les applications fédérées (service-pr)
 * Liens ciblés vers des applications fédérées, avec mot de passe ou des applications existantes
 
-Vous pouvez déterminer si les utilisateurs affectés à une application d’entreprise peuvent la voir dans le panneau d’accès et le lanceur d’applications Office 365.
+Vous pouvez déterminer si les utilisateurs affectés à une application d’entreprise peuvent voir celle-ci dans le lanceur d’applications Office 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exemple : Affectation d’application complexe avec Azure AD
 Considérez une application comme Salesforce. Dans de nombreuses organisations, Salesforce est principalement utilisé par des équipes commerciales et marketing. Souvent, les membres de l’équipe marketing disposent d’un accès hautement privilégié à Salesforce, contrairement aux membres de l’équipe de ventes. Dans de nombreux cas, la majorité des travailleurs de l’information n’a qu’un accès limité à l’application. Les exceptions à ces règles compliquent les choses. C’est souvent la prérogative des équipes de direction marketing ou de ventes d’accorder un accès à un utilisateur ou de modifier son rôle indépendamment de ces règles génériques.
@@ -72,7 +72,7 @@ Avec Azure AD, les applications telles que Salesforce peuvent être préconfigu
 
 * Pour activer le mécanisme d’exception, un groupe libre-service peut être créé pour chaque rôle. Par exemple, le groupe « exception marketing dans Salesforce » peut être créé en tant que groupe libre-service. Le groupe peut être affecté au rôle marketing dans Salesforce, tandis que les membres de l’équipe de direction marketing peuvent être définis en tant que propriétaires. Les membres de l’équipe de direction marketing peuvent ajouter ou supprimer des utilisateurs, définir une stratégie de jonction ou même approuver ou refuser les demandes de jonction formulées par des utilisateurs spécifiques. Ce mécanisme repose sur une expérience de travailleur de l’information appropriée qui ne nécessite pas de formation spécialisée pour les propriétaires ou les membres.
 
-Dans ce cas, tous les utilisateurs affectés sont automatiquement approvisionnés dans Salesforce ; quand ils sont ajoutés aux différents groupes, leur affectation de rôle est actualisée dans Salesforce. Les utilisateurs peuvent découvrir Salesforce et y accéder par le biais du panneau d’accès des applications Microsoft, des clients web Office ou même de la page de connexion à Salesforce propre à leur organisation. Les administrateurs peuvent facilement afficher l’état de l’utilisation et des affectations à l’aide de rapports d’Azure AD.
+Dans ce cas, tous les utilisateurs affectés sont automatiquement approvisionnés dans Salesforce ; quand ils sont ajoutés aux différents groupes, leur affectation de rôle est actualisée dans Salesforce. Les utilisateurs peuvent découvrir Salesforce et y accéder par le biais de Mes applications, de clients web Office, voire de la page de connexion à Salesforce de leur organisation. Les administrateurs peuvent facilement afficher l’état de l’utilisation et des affectations à l’aide de rapports d’Azure AD.
 
 Les administrateurs peuvent utiliser l’ [accès conditionnel Azure AD](../conditional-access/concept-conditional-access-users-groups.md) pour définir des stratégies d’accès pour des rôles spécifiques. Ces stratégies peuvent indiquer si l’accès est autorisé en dehors de l’environnement de l’entreprise, et même inclure des exigences Multi-Factor Authentication ou liées aux appareils déterminant l’octroi de l’accès dans divers cas.
 
@@ -88,7 +88,7 @@ Il existe trois méthodes principales pour se connecter à une application publi
 
 Quelques applications combinent ces méthodes. Par exemple, certaines applications Microsoft font partie d’un abonnement Office 365, mais exigent toujours le consentement.
 
-Les utilisateurs peuvent accéder aux applications Office 365 via leur portail Office 365. Vous pouvez également afficher ou masquer les applications Office 365 dans le panneau d’accès Mes applications en [activant/désactivant la visibilité d’Office 365](hide-application-from-user-portal.md) dans les **Paramètres utilisateur** de votre annuaire. 
+Les utilisateurs peuvent accéder aux applications Office 365 via leur portail Office 365. Vous pouvez également afficher ou masquer des applications Office 365 dans Mes applications en [activant/désactivant la visibilité d’Office 365](hide-application-from-user-portal.md) dans les **Paramètres utilisateur** de votre annuaire. 
 
 Comme avec les applications d’entreprise, vous pouvez [affecter des utilisateurs](assign-user-or-group-access-portal.md) à certaines applications Microsoft via le portail Azure ou, si l’option du portail n’est pas disponible, à l’aide de PowerShell.
 

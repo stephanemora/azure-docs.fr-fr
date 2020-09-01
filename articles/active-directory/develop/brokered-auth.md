@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697895"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853851"
 ---
 # <a name="brokered-authentication-in-android"></a>Authentification répartie dans Android
 
@@ -122,3 +122,12 @@ Si vous recevez une exception `MsalClientException` accompagnée du code d’err
 
 - Demandez à l’utilisateur de désactiver l’optimisation de l’alimentation pour l’application Microsoft Authenticator et le Portail d’entreprise Intune.
 - Demandez à l’utilisateur d’accorder l’autorisation `"READ_CONTACTS"`.
+
+## <a name="verifying-broker-integration"></a>Vérification de l’intégration du répartiteur
+
+Il n’est peut-être pas immédiatement clair que l’intégration du répartiteur fonctionne, mais vous pouvez suivre les étapes ci-dessous pour opérer une vérification :
+
+1. Sur votre appareil Android, remplissez une demande à l’aide du répartiteur.
+1. Dans les paramètres de votre appareil Android, recherchez un compte nouvellement créé correspondant au compte auprès duquel vous vous êtes authentifié. Le compte doit être de type *Compte professionnel*.
+
+Vous pouvez supprimer le compte des paramètres si vous souhaitez répéter le test.

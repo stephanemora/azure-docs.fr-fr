@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185211"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816166"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Résoudre les problèmes d’installation Push du service Mobility
 
@@ -129,6 +129,28 @@ Pour résoudre l’erreur :
 ## <a name="connectivity-failure-errorid-95523"></a>Échec de connectivité (ErrorID : 95523)
 
 Cette erreur se produit lorsque le réseau dans lequel réside la machine source est introuvable, peut avoir été supprimé ou n’est plus disponible. La seule façon de résoudre l’erreur est de s’assurer que le réseau existe.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Vérifiez l’accès aux dossiers partagés du réseau sur la machine source (ErrorID : 95105,95523)
+
+Vérifiez si les dossiers partagés sur la machine source sont accessibles à partir du serveur de processus à distance en utilisant les informations d’identification spécifiées. Pour confirmez l’accès : 
+
+1. Connectez-vous à votre serveur de processus.
+2. Ouvrez l’Explorateur de fichiers. Dans la barre d’adresses, tapez `\\<SOURCE-MACHINE-IP>\C$`, puis cliquez sur Entrée.
+
+    ![Ouvrir un dossier dans le serveur de processus](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. Dans l’Explorateur de fichiers, vous êtes invité à indiquer des informations d’identification. Entrez le nom d’utilisateur et le mot de passe, puis cliquez sur OK. <br><br/>
+
+    ![Fournir des informations d’identification](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Si la machine source est jointe au domaine, indiquez le nom de domaine ainsi que le nom d’utilisateur sous la forme `<domainName>\<username>`. Si la machine source est dans un groupe de travail, fournissez uniquement le nom d’utilisateur.
+
+4. Si la connexion aboutit, les dossiers de machine source sont visibles à distance depuis le serveur de processus.
+
+    ![Dossiers visibles de la machine source](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Si la connexion échoue, vérifiez que tous les prérequis sont bien respectés.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Vérification des services de partage de fichiers et d’imprimantes (ErrorID : 95105 & 95106)
 
@@ -260,7 +282,7 @@ Lorsque l’agent Mobility est copié sur la machine source, au moins 100 Mo d�
 
 ## <a name="low-system-resources"></a>Ressources système faibles
 
-Ce problème se produit lorsque la mémoire système est insuffisante et qu’elle n’est pas en mesure d’allouer de la mémoire pour l’installation du service Mobilité. Veillez à libérer suffisamment de mémoire afin que l’installation s’effectue correctement.
+Les ID d’erreur possibles affichés pour ce problème sont 95572 et 95573. Ce problème se produit lorsque la mémoire système est insuffisante et qu’elle n’est pas en mesure d’allouer de la mémoire pour l’installation du service Mobilité. Veillez à libérer suffisamment de mémoire afin que l’installation s’effectue correctement.
 
 ## <a name="vss-installation-failures"></a>Échecs d’installation VSS
 

@@ -1,31 +1,55 @@
 ---
-title: Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale Microsoft dans l’Espace partenaires
+title: Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale Microsoft dans l’Espace partenaires – Place de marché Azure
 description: Découvrez comment accéder aux demandes de téléchargement de vos offres proposées sur la place de marché.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245670"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750290"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale
 
 Cet article fournit des informations sur le tableau de bord Téléchargements de l’Espace partenaires. Ce tableau de bord liste toutes les demandes de téléchargement que vous avez effectuées durant les 30 derniers jours.
 
-Pour accéder au tableau de bord Téléchargements, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous la Place de marché commerciale.
+Pour accéder au tableau de bord Téléchargements, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dans la Place de marché commerciale.
 
 >[!NOTE]
 > Pour avoir des définitions détaillées des termes d’analytique, consultez [Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale](./faq-terminology.md).
 
 ## <a name="downloads-dashboard"></a>Tableau de bord Téléchargements
 
-Le tableau de bord **Téléchargements** du menu **Analyser** affiche les requêtes de téléchargements contenant plus de 1 000 lignes de données relatives aux clients ou commandes. Ces téléchargements de données sont disponibles pendant 30 jours, puis supprimés.
+Le tableau de bord **Téléchargements** du menu **Analyser** affiche les requêtes de téléchargements contenant plus de 1 000 lignes de données relatives aux clients ou commandes.
+
+Vous recevez une notification contextuelle contenant un lien vers le tableau de bord **Téléchargements** chaque fois que vous demandez un téléchargement de plus de 1000 lignes de données. Ces téléchargements de données sont disponibles pendant 30 jours, puis supprimés.
+
+## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportation de durée de vie des rapports d’analyse de la Place de marché commerciale
+
+Dans la page téléchargements, l’utilisateur final peut effectuer les opérations suivantes :
+
+- Exportation de durée de vie des rapports d’analyse de la Place de marché commerciale aux formats CSV et TSV.
+- Exportation des rapports d’analyse de la Place de marché commerciale pour n’importe quelle plage de dates.
+- Exportation des rapports d’analyse de la Place de marché commerciale pour une durée de 6 ou 12 mois.
+
+Prise en charge de la fonctionnalité d’exportation de durée de vie des rapports d’analyse :
+
+| Rapport | Exportation de durée de vie | Toute durée basée sur une date |
+| - | - | - |
+| Orders (Commandes) | ![Coche verte](media/check-green-yes.png) | ![Coche verte](media/check-green-yes.png) |
+| Clients | ![Coche verte](media/check-green-yes.png) | ![Coche verte](media/check-green-yes.png) |
+| Insights sur la Place de marché | ![Coche verte](media/check-green-yes.png) | ![Coche verte](media/check-green-yes.png) |
+| Usage | ![Croix noire](media/check-black-no.png) | Maximum d’un an |
+|
+
+Un utilisateur peut planifier des téléchargements asynchrones de rapports à partir de la section Téléchargements :
+
+[![planification de téléchargements asynchrones de rapports à partir de la section Téléchargements](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
