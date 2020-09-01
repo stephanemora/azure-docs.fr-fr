@@ -1,6 +1,7 @@
 - name: Documentation Azure Data Share
   href: index.yml
 - name: Vue d’ensemble
+  expanded: true
   items:
     - name: "Qu’est-ce qu’Azure Data Share\_?"
       href: overview.md
@@ -36,6 +37,11 @@
       href: samples-powershell.md
 - name: Guides pratiques
   items:
+    - name: Partager et recevoir des données par source
+      items:
+        - name: Partager depuis Azure Data Explorer
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Superviser
       href: how-to-monitor.md
     - name: Dépanner
@@ -54,9 +60,6 @@
       href: security.md
     - name: Récupération d'urgence
       href: disaster-recovery.md
-    - name: Partager des données Azure Data Explorer
-      href: /azure/data-explorer/data-share
-      maintainContext: true
 - name: Informations de référence
   items:
     - name: .NET
