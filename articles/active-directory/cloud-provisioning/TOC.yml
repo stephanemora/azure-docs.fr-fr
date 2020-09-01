@@ -19,7 +19,7 @@
 - name: Concepts
   items:
     - name: "Qu’est-ce que la synchronisation de hachage de mot de passe\_?"
-      href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Comprendre le schéma, les attributs et les expressions Azure AD'
       href: concept-attributes.md
     - name: Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
@@ -49,20 +49,20 @@
         - name: Transformations
           href: how-to-transformation.md
         - name: API de synchronisation Azure AD
-          href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
+          href: /graph/api/resources/synchronization-overview
     - name: Dépanner
       items:
         - name: Résoudre les problèmes de provisionnement cloud
           href: how-to-troubleshoot.md
         - name: Attributs en double
-          href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
+          href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
 - name: Informations de référence
   items:
     - name: Historique des versions de l’agent de provisionnement cloud Azure AD Connect
-      href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Questions fréquentes (FAQ) sur le provisionnement cloud Azure AD Connect
       href: reference-cloud-provisioning-faq.md
     - name: Attributs qui sont synchronisés
-      href: /azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Environnement Active Directory et Azure AD simple
       href: tutorial-basic-ad-azure.md
