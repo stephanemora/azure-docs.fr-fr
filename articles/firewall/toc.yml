@@ -1,4 +1,4 @@
-- name: Documentation sur le pare-feu Azure
+- name: Documentation du Pare-feu Azure
   href: index.yml
 - name: Vue d’ensemble
   items:
