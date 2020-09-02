@@ -8,12 +8,12 @@ ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520519"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705909"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -37,7 +37,7 @@ Lorsque vous déployez des partages de fichiers Azure dans des comptes de stocka
 
 ## <a name="identity"></a>Identité
 Pour accéder à un partage de fichiers Azure, l’utilisateur du partage de fichiers doit être authentifié et disposer de l’autorisation d’accéder au partage. Cette opération s’effectue en fonction de l’identité de l’utilisateur accédant au partage de fichiers. Azure Files intègre trois fournisseurs d’identité principaux :
-- **Active Directory Domain Services en local (AD DS ou AD DS en local)** (préversion) : Les comptes de stockage Azure peuvent être joints à un domaine sur une instance Active Directory Domain Services appartenant à un client, exactement comme un serveur de fichiers Windows Server ou un appareil NAS. Votre contrôleur de domaine peut être déployé localement, dans une machine virtuelle Azure, ou même en tant que machine virtuelle dans un autre fournisseur de cloud. Azure Files ne dépend pas de l’emplacement où votre contrôleur de domaine est hébergé. Dès lors qu’un compte de stockage est joint à un domaine, l’utilisateur final peut monter un partage de fichiers avec le compte d’utilisateur dont il s’est servi pour se connecter à son PC. L’authentification basée sur Active Directory utilise le protocole d’authentification Kerberos.
+- **Active Directory Domain Services en local (AD DS ou AD DS en local)**  : Les comptes de stockage Azure peuvent être joints à un domaine sur une instance Active Directory Domain Services appartenant à un client, exactement comme un serveur de fichiers Windows Server ou un appareil NAS. Votre contrôleur de domaine peut être déployé localement, dans une machine virtuelle Azure, ou même en tant que machine virtuelle dans un autre fournisseur de cloud. Azure Files ne dépend pas de l’emplacement où votre contrôleur de domaine est hébergé. Dès lors qu’un compte de stockage est joint à un domaine, l’utilisateur final peut monter un partage de fichiers avec le compte d’utilisateur dont il s’est servi pour se connecter à son PC. L’authentification basée sur Active Directory utilise le protocole d’authentification Kerberos.
 - **Azure Active Directory Domain Services (Azure AD DS)** . Azure AD DS fournit un contrôleur de domaine géré par Microsoft et pouvant être utilisé pour les ressources Azure. Joindre le domaine de votre compte de stockage à Azure AD DS offre des avantages similaires à le joindre à une instance Active Directory détenue par le client. Cette option de déploiement est particulièrement utile pour les scénarios lift-and-shift d’application qui nécessitent des autorisations basées sur AD. Étant donné qu’Azure AD DS fournit une authentification basée sur Active Directory, cette option utilise également le protocole d’authentification Kerberos.
 - **Clé du compte de Stockage Azure** : Les partages de fichiers Azure peuvent également être montés à l’aide d’une clé de compte de stockage Azure. Pour monter un partage de fichiers de cette façon, le nom du compte de stockage est utilisé comme nom d’utilisateur, et la clé du compte de stockage comme mot de passe. L’utilisation de la clé de compte de stockage pour monter le partage de fichiers Azure est en fait une opération d’administrateur, car le partage de fichiers monté disposera d’autorisations complètes sur tous les fichiers et dossiers du partage, même s’ils ont des listes de contrôle d’accès. Lors de l’utilisation de la clé de compte de stockage pour le montage sur SMB, le protocole d’authentification NTLMv2 est utilisé.
 

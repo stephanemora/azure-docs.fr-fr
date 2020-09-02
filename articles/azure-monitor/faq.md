@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828504"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782938"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -80,6 +80,10 @@ L’Explorateur de données Azure est un service d’exploration de données rap
 
 ### <a name="how-do-i-retrieve-log-data"></a>Comment récupérer des données de journal ?
 Toutes les données sont récupérées à partir d’un espace de travail Log Analytics à l’aide d’une requête de journal écrite en langage de requête Kusto (KQL). Vous pouvez écrire vos propres requêtes ou utiliser des solutions et insights incluant des requêtes de journal pour une application ou un service spécifique. Consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Puis-je supprimer des données à partir d’un espace de travail Log Analytics ?
+Les données sont supprimées d’un espace de travail en fonction de sa [période de rétention](platform/manage-cost-storage.md#change-the-data-retention-period). Vous pouvez supprimer des données spécifiques pour des raisons de confidentialité ou de conformité. Consultez [Comment exporter et supprimer des données privées](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) pour plus d’informations.
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Qu'est-ce qu'un espace de travail Log Analytics ?
 Toutes les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics. Un espace de travail est essentiellement un conteneur dans lequel les données de journal issues de différentes sources sont collectées. Vous pouvez disposer d'un même espace de travail Log Analytics pour toutes vos données de supervision ou plus, selon vos besoins. Consultez [Conception de votre déploiement de journaux Azure Monitor](platform/design-logs-deployment.md).

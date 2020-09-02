@@ -5,22 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 08/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907218"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705987"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
-Cet article explique comment activer la collaboration B2B externe dans Azure Active Directory (Azure AD) et déterminer qui peut inviter des invités. Par défaut, tous les utilisateurs et invités de votre annuaire peuvent inviter des invités, même s’ils ne sont pas associés à un rôle d’administrateur. Les paramètres de collaboration externe vous permettent d’activer ou de désactiver les invitations d’invités pour différents types d’utilisateurs dans votre organisation. Vous pouvez également déléguer des invitations aux utilisateurs individuels, en leur attribuant des rôles qui leur permettent d’inviter des invités.
+Cet article explique comment activer la collaboration B2B dans Azure Active Directory (Azure AD), désigner qui peut inviter des invités et déterminer les autorisations des utilisateurs invités dans votre Azure AD. 
+
+Par défaut, tous les utilisateurs et invités de votre annuaire peuvent inviter des invités, même s’ils ne sont pas associés à un rôle d’administrateur. Les paramètres de collaboration externe vous permettent d’activer ou de désactiver les invitations d’invités pour différents types d’utilisateurs dans votre organisation. Vous pouvez également déléguer des invitations aux utilisateurs individuels, en leur attribuant des rôles qui leur permettent d’inviter des invités.
+
+Azure AD offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes dans votre annuaire Azure AD. Par défaut, les utilisateurs invités sont définis sur un niveau d’autorisation limité qui les empêche d’énumérer des utilisateurs, des groupes ou d’autres ressources de l’annuaire, mais leur permet de voir l’appartenance à des groupes non masqués. Un nouveau paramètre d’aperçu vous permet de limiter encore davantage l’accès des invités, afin ces derniers puissent uniquement afficher leurs propres informations de profil. 
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurer les paramètres de collaboration B2B externe
 
@@ -38,19 +42,38 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) en tant qu’administrateur de locataires.
 2. Sélectionnez **Azure Active Directory**.
 3. Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
-6. Sur la page **Paramètres de collaboration externe**, choisissez les stratégies que vous souhaitez activer.
 
-   ![Paramètres de collaboration externe](./media/delegate-invitations/control-who-to-invite.png)
+4. Sous **Restrictions d’accès de l’utilisateur invité (préversion)** , choisissez le niveau d’accès que les utilisateurs invités doivent avoir :
 
-  - **Les autorisations de l’utilisateur invité sont limitées** : cette stratégie détermine les autorisations associées aux invités dans votre répertoire. Sélectionnez **Oui** pour empêcher les invités d’effectuer certaines tâches d’annuaire, telles que l’énumération d’utilisateurs, de groupes ou d’autres ressources de répertoire. Sélectionnez **Non** afin d’accorder aux invités le même accès aux données d’annuaire que les utilisateurs standard de votre répertoire.
+   > [!IMPORTANT]
+   > Pendant une brève période, ces nouveaux contrôles du Portail concernant les autorisations des utilisateurs invités ne seront visibles qu’à l’aide de l’URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Pour plus d’informations, consultez [Restriction des autorisations d’accès invité (préversion)](https://aka.ms/exid-users-restrict-guest-permissions).
+
+   - **Les utilisateurs invités ont le même accès que les membres (le plus inclusif)**  : Cette option donne aux invités le même accès aux ressources Azure AD et aux données d’annuaire que les utilisateurs membres.
+
+   - **Les utilisateurs invités ont un accès limité aux propriétés et aux appartenances des objets d’annuaire** : Ce paramètre empêche les invités d’effectuer certaines tâches d’annuaire, telles que l’énumération d’utilisateurs, de groupes ou d’autres ressources de répertoire. Les invités peuvent voir l’appartenance de tous les groupes non masqués.
+
+   - **L’accès utilisateur invité est limité aux propriétés et aux appartenances de ses propres objets d’annuaire (le plus restrictif)**  : Avec ce paramètre, les invités ne peuvent accéder qu’à leurs propres profils. Les invités ne sont pas autorisés à voir les profils, groupes ou appartenances à des groupes d’autres utilisateurs.
+  
+    ![Paramètres de restrictions d’accès des utilisateurs invités](./media/delegate-invitations/guest-user-access.png)
+
+5. Sous **Paramètres d’invitation d’invités**, choisissez les paramètres appropriés :
+
    - **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** : Pour autoriser les administrateurs et utilisateurs ayant le rôle « Inviteur d’invités » à inviter des invités, définissez cette stratégie sur **Oui**.
+
    - **Les membres peuvent inviter** : pour autoriser des membres autres que des administrateurs de votre annuaire à inviter des invités, définissez cette stratégie sur **Oui**.
+
    - **Les invités peuvent inviter** : pour autoriser les invités à en inviter d’autres, définissez cette stratégie sur **Oui**.
-   - **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** : pour en savoir plus sur la fonctionnalité de code secret à usage unique, voir [Authentification par code secret à usage unique d’e-mail (préversion)](one-time-passcode.md).
-   - **Restrictions de collaboration** : pour en savoir plus sur la procédure visant à interdire ou autoriser des invitations à des domaines spécifiques, voir [Autoriser ou bloquer des invitations à des organisations spécifiques](allow-deny-list.md).
-   
+
+   - **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** : Pour en savoir plus sur la fonctionnalité de code secret à usage unique, voir [Authentification par code secret à usage unique d’e-mail (préversion)](one-time-passcode.md).
+
+   - **Activer l'inscription libre-service d'invité via des flux utilisateur (préversion)**  : Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateur d’inscription en libre-service à une application (préversion)](self-service-sign-up-user-flow.md).
+
    > [!NOTE]
    > Si **Les membres peuvent inviter** est défini sur **Non** et **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** est défini sur **Oui**, les utilisateurs du rôle **Inviteur d’invité** pourront toujours inviter des utilisateurs.
+
+    ![Paramètres d’invitation d’invités](./media/delegate-invitations/guest-invite-settings.png)
+
+6. Sous **Restrictions de collaboration**, choisissez d’autoriser ou de refuser des invitations dans les domaines que vous spécifiez. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](allow-deny-list.md).
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Affecter le rôle Inviteur d’invités à un utilisateur
 

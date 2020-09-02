@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508785"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649157"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -87,6 +87,10 @@ Suivez les étapes ci-dessous pour générer les informations ci-dessus :
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. Le nom du point de terminaison de l’API Datahub doit être en minuscules.
+> 2. Si vous copiez l’URL du nom de site web farmbeats pour le point de terminaison d’API DataHub, assurez-vous qu’il n’y a pas de barre oblique finale (/).
 
 9. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 

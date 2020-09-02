@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: f20a40603916e703d6f3cfc13ee2d165675f3ca2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: df2c626de39ff4482a4dc69fa5a514fc92002ccb
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588498"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705858"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
@@ -101,35 +101,22 @@ Pour continuer, [téléchargez .NET 4.7.1](https://www.microsoft.com/download/de
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Enregistrer les paramètres de secret dans un fichier de secret qui se trouve en dehors du dossier de contrôle de code source
 Si vous écrivez un prototype rapide et que vous ne souhaitez pas approvisionner des ressources Azure, accédez à cette option.
 
-1. Installer le package NuGet suivant dans votre projet
-    ```
-    Microsoft.Configuration.ConfigurationBuilders.Base
-    ```
+1. Cliquez avec le bouton droit sur le projet et sélectionnez **Gérer les secrets d’utilisateur**. Cela permet d’installer un package NuGet **Microsoft.Configuration.ConfigurationBuilders.UserSecrets**, de créer un fichier pour enregistrer les paramètres de secret en dehors du fichier web.config et d’ajouter une section **ConfigBuilders** dans le fichier web.config.
 
-2. Créez un fichier similaire au suivant. Enregistrez-le dans un emplacement en dehors de votre dossier de projet.
+2. Placez les paramètres de secret sous l’élément racine. voici un exemple
 
     ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <root>
-        <secrets ver="1.0">
-            <secret name="secret1" value="foo_one" />
-            <secret name="secret2" value="foo_two" />
-        </secrets>
+      <secrets ver="1.0">
+        <secret name="secret" value="foo"/>
+        <secret name="secret1" value="foo_one" />
+        <secret name="secret2" value="foo_two" />
+      </secrets>
     </root>
     ```
 
-3. Définissez le fichier de secret en tant que générateur de configuration dans votre fichier Web.config. Placez cette section avant la section *appSettings*.
-
-    ```xml
-    <configBuilders>
-        <builders>
-            <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
-        </builders>
-    </configBuilders>
-    ```
-
-4. Précisez que la section appSettings utilise le générateur de configuration de secrets. Vérifiez qu’il existe une entrée pour le paramètre de secret avec une valeur factice.
+3. Précisez que la section appSettings utilise le générateur de configuration de secrets. Vérifiez qu’il existe une entrée pour le paramètre de secret avec une valeur factice.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -148,20 +135,18 @@ Suivez les instructions de la section ASP.NET Core pour configurer un Key Vault 
 
 1. Installer le package NuGet suivant dans votre projet
    ```
-   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Définissez le générateur de configuration de Key Vault dans le fichier Web.config. Placez cette section avant la section *appSettings*. Remplacez *vaultName* par le nom de Key Vault si votre Key Vault se trouve dans Azure public, ou par l’URI complet si vous utilisez un cloud Sovereign.
+2. Définissez le générateur de configuration de Key Vault dans le fichier Web.config. Placez cette section avant la section *appSettings*. Remplacez *vaultName* par le nom de Key Vault si votre Key Vault se trouve dans Azure global, ou par l’URI complet si vous utilisez un cloud Sovereign.
 
     ```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-    <configBuilders>
+     <configBuilders>
         <builders>
-            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="Secrets" userSecretsId="695823c3-6921-4458-b60b-2b82bbd39b8d" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="AzureKeyVault" vaultName="[VaultName]" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         </builders>
-    </configBuilders>
+      </configBuilders>
     ```
 3. Précisez que la section appSettings utilise le générateur de configuration de Key Vault. Vérifiez qu’une entrée pour le paramètre de secret avec une valeur factice existe.
 

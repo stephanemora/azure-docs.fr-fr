@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008795"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752105"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -81,7 +81,7 @@ Si vous souhaitez créer des pools de nœuds avec l’image AKS Ubuntu 16.04, 
 
 Un runtime de conteneur est un logiciel qui exécute des conteneurs et gère des images conteneur sur un nœud. Le runtime permet d’abstraire les appels système ou les fonctionnalités spécifiques au système d’exploitation pour exécuter des conteneurs sous Linux ou Windows. Aujourd’hui, AKS utilise [Moby](https://mobyproject.org/) (docker en amont) comme runtime de conteneur. 
     
-![CRI Docker](media/cluster-configuration/docker-cri.png)
+![CRI Docker 1](media/cluster-configuration/docker-cri.png)
 
 [`Containerd`](https://containerd.io/) est un runtime de conteneur principal conforme à la norme [OCI](https://opencontainers.org/) (Open Container Initiative) qui fournit l’ensemble minimal de fonctionnalités requises pour exécuter des conteneurs et gérer des images sur un nœud. Il a été [remis gracieusement](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à la Cloud Native Compute Foundation (CNCF) en mars 2017. La version actuelle de Moby utilisée par AKS s’appuie déjà sur `containerd`, comme indiqué ci-dessus. 
 
@@ -89,7 +89,7 @@ Grâce à un nœud basé sur un conteneur et des pools de nœuds, au lieu de com
 
 En utilisant `containerd` pour les nœuds AKS, la latence au démarrage du pod s’améliore et la consommation des ressources de nœud par le runtime de conteneur diminue. Ces améliorations sont rendues possibles grâce à cette nouvelle architecture dans laquelle le kubelet communique directement avec `containerd` via le plug-in CRI. Dans l’architecture Moby ou Docker, le kubelet communiquerait avec le `dockershim` et le moteur Docker avant d’atteindre `containerd`, ce qui donne lieu à des tronçons additionnels sur le flux.
 
-![CRI Docker](media/cluster-configuration/containerd-cri.png)
+![CRI Docker 2](media/cluster-configuration/containerd-cri.png)
 
 `Containerd` fonctionne sur chaque version GA de Kubernetes dans AKS et dans chaque version de Kubernetes en amont ultérieure à v1.10 et prend en charge toutes les fonctionnalités Kubernetes et AKS.
 
@@ -236,7 +236,7 @@ Si vous souhaitez créer des pools de nœuds Gen1 ordinaires, vous pouvez omettr
 
 ## <a name="ephemeral-os-preview"></a>Système d’exploitation éphémère (préversion)
 
-Par défaut, le disque du système d’exploitation d’une machine virtuelle Azure est automatiquement répliqué sur le stockage Azure pour éviter la perte de données si la machine virtuelle devait être déplacée vers un autre hôte. Toutefois, comme les conteneurs ne sont pas conçus pour conserver l’état local, ce comportement offre une valeur limitée tout en présentant certains inconvénients, notamment un approvisionnement plus lent des nœuds et une latence en lecture/écriture plus faible.
+Par défaut, le disque du système d’exploitation d’une machine virtuelle Azure est automatiquement répliqué sur le stockage Azure pour éviter la perte de données si la machine virtuelle devait être déplacée vers un autre hôte. Toutefois, comme les conteneurs ne sont pas conçus pour conserver l’état local, ce comportement offre une valeur limitée tout en présentant certains inconvénients, notamment un approvisionnement plus lent des nœuds et une latence en lecture/écriture plus élevée.
 
 En revanche, les disques de système d’exploitation éphémères sont stockés uniquement sur l’ordinateur hôte, comme un disque temporaire. Cela permet de réduire la latence en lecture/écriture, tout en accélérant la mise à l’échelle des nœuds et la mise à niveau des clusters.
 

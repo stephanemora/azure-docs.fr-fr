@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607431"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705875"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 
@@ -47,9 +47,9 @@ Le tableau suivant présente les options de publication disponibles pour les typ
 
 &#42;&#42; Les offres Microsoft 365 peuvent être installées gratuitement et monétisées via l’offre SaaS en tant que service de licence. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="choose-a-call-to-action"></a>Choisir un appel à l’action
+## <a name="choose-a-listing-option"></a>Choisir une option de listing
 
-Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Notez les appels à l’action qui correspondent à l’option de publication :
+Les options de listing disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et aux [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Notez les options de listing qui correspondent à l’option de publication :
 
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|

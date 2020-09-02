@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606136"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817049"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -182,16 +182,16 @@ Fournissez au moins un (et au plus trois) documents marketing associés ici, com
 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
-Fournissez des logos et des images pour votre offre. Toutes les images doivent être au format .png. 
+Fournissez un fichier PNG pour le logo de **grande** taille. L’Espace partenaires s’en servira pour créer un logo de **petite taille**. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+- **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
+- **Petite taille** (48 x 48 px, facultatif)
 
-Chargez le logo de votre offre en deux tailles :
-
-* **Petite** (48 x 48 pixels)
-* **Grande** (216 x 216 pixels)
+Ces logos sont utilisés à différents emplacements dans la liste :
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’Espace partenaires.
