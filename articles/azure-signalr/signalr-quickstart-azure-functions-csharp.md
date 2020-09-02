@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 75d9977546c2a085765310a5654897f739a271ae
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "65595399"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050639"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et le service SignalR avec C\#
 
@@ -26,13 +27,21 @@ Vous pouvez également exécuter ce tutoriel sur une ligne de commande (macOS, W
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
+
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compte Azure.
 
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurer et exécuter l’application de fonction Azure
 
@@ -66,14 +75,21 @@ Connectez-vous au portail Azure sur <https://portal.azure.com/> avec votre compt
         ```bash
         func start
         ```
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez généré et exécuté une application serverless en temps réel dans Visual Studio. Découvrez ensuite comment développer et déployer Azure Functions avec Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Développer Azure Functions à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Développer des fonctions Azure à l’aide de Visual Studio](../azure-functions/functions-develop-vs.md)
+
+[Vous rencontrez des problèmes ? Faites-le nous savoir.](https://aka.ms/asrs/qscsharp)

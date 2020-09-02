@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1223a9cd5bd3a092bc35c9ba03f7352c6ac7eed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce7238aaa10b1e73f7fa3c061045f47cbc472e23
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059407"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378693"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Fonctionnalités Transact-SQL prises en charge dans Azure Synapse SQL
 
@@ -54,7 +54,7 @@ Les fonctionnalités prises en charge des langages de requête utilisés dans Sy
 | **Instruction INSERT** | Oui | Non |
 | **Instruction UPDATE** | Oui | Non |
 | **Instruction DELETE** | Oui | Non |
-| **Instruction MERGE** | Oui | Non |
+| **Instruction MERGE** | Non | Non |
 | **[Transactions](develop-transactions.md)** | Oui | Non |
 | **[Étiquettes](develop-label.md)** | Oui | Non |
 | **Chargement des données** | Oui. L’utilitaire recommandé est l’instruction [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Toutefois, le système prend également en charge le chargement en masse (BCP) et [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour le chargement des données. | Non |

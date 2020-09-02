@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836001"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001635"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utiliser la version précédente d’Azure Migrate
 
@@ -238,7 +238,7 @@ Pour installer l’agent sur une machine Windows :
 4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
-Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisant une méthode automatisée comme Configuration Manager. [En savoir plus](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sur l’utilisation de ces méthodes pour installer l’agent MMA.
+Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisant une méthode automatisée comme Configuration Manager. [En savoir plus](../azure-monitor/platform/log-analytics-agent.md#installation-options) sur l’utilisation de ces méthodes pour installer l’agent MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Installer l’agent MMA sur une machine Linux
 
@@ -249,7 +249,7 @@ Pour installer l’agent sur une machine Linux :
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Découvrez plus en détail](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
+[Découvrez plus en détail](../azure-monitor/platform/agents-overview.md#supported-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installer l’agent sur une machine surveillée par Operations Manager
 

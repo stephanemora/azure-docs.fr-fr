@@ -4,15 +4,15 @@ description: Découvrez de quelle manière le pare-feu d’applications web Azur
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816367"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231433"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Pare-feu d’applications web Azure sur Azure Front Door
 

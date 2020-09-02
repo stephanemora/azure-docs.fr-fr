@@ -3,12 +3,13 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 08/17/2020
-ms.openlocfilehash: 758d288480c8d6a7ef5185cff33a857633c5e95b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ba09deda155ac446693a7e1037390a3f1fd2700f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508523"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919373"
 ---
 Cet article fournit des informations et un exemple de code pour vous aider à prendre en main la bibliothèque de client Custom Vision avec C# afin de générer un modèle de classification d'images. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple comme modèle pour générer votre propre application .NET. Si vous souhaitez passer par le processus de génération et d’utilisation d’un modèle de classification _sans_ code, consultez plutôt l’[aide basée sur le navigateur](../../getting-started-build-a-classifier.md).
 

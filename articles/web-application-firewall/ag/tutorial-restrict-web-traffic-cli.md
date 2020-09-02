@@ -4,16 +4,16 @@ description: Découvrez comment limiter le trafic web avec un pare-feu d’appli
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50aaf4f2639f48e5536e6eeaba5edbc246b2bba7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: faa46b3ad96e9555a08a662f205a0a130c28bac2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501063"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225167"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Activer le pare-feu d’applications web à l’aide d’Azure CLI
 
@@ -21,11 +21,10 @@ Vous pouvez limiter le trafic sur une passerelle d’application à l’aide d�
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle d’application avec WAF activé
-> * Créer un groupe de machines virtuelles identiques
-> * Créer un compte de stockage et configurer des diagnostics
+ * Configurer le réseau
+ * Créer une passerelle d’application avec WAF activé
+ * Créer un groupe de machines virtuelles identiques
+ * Créer un compte de stockage et configurer des diagnostics
 
 ![Exemple de pare-feu d’applications web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 

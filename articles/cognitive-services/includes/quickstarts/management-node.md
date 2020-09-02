@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 59063912b2976890976e3c27bc4f2d93b6392e37
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fcfefb2b6cd5c23e9b77d7d27413d1ff6d775bfe
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607620"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321568"
 ---
 [Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -22,15 +22,9 @@ ms.locfileid: "88607620"
 * Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [Node.js](https://nodejs.org/)
 
-## <a name="create-an-azure-service-principal"></a>Créer un principal de service Azure
+[!INCLUDE [Create a service principal](./create-service-principal.md)]
 
-Pour que votre application interagisse avec votre compte Azure, un principal de service Azure doit gérer les autorisations. Suivez les instructions de l'article [Créer un principal de service Azure](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
-
-Lorsque vous créez un principal du service, vous constatez qu'il dispose d'une valeur de secret, d'un ID et d'un ID d'application. Enregistrez l'ID d'application et le secret à un emplacement temporaire. Vous en aurez besoin ultérieurement.
-
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-
-Avant de créer une ressource Cognitive Services, votre compte doit disposer d'un groupe de ressources Azure pour la contenir. Si vous n'avez pas encore de groupe de ressources, créez-en un sur le [portail Azure](https://ms.portal.azure.com/).
+[!INCLUDE [Create a resource group](./create-resource-group.md)]
 
 ## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 
@@ -90,71 +84,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
-Consultez la liste des références SKU et des informations tarifaires ci-dessous. 
-
-#### <a name="multi-service"></a>Multiservice
-
-| Service                    | Type                      |
-|----------------------------|---------------------------|
-| Plusieurs services. Pour plus d’informations, consultez la page des [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/).            | `CognitiveServices`     |
-
-
-#### <a name="vision"></a>Vision
-
-| Service                    | Type                      |
-|----------------------------|---------------------------|
-| Vision par ordinateur            | `ComputerVision`          |
-| Custom Vision - Prédiction | `CustomVision.Prediction` |
-| Custom Vision - Formation   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-#### <a name="search"></a>Recherche
-
-| Service            | Type                  |
-|--------------------|-----------------------|
-| Suggestion automatique Bing   | `Bing.Autosuggest.v7` |
-| Recherche personnalisée Bing | `Bing.CustomSearch`   |
-| Recherche d’entité Bing | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Vérification orthographique Bing   | `Bing.SpellCheck.v7`  |
-
-#### <a name="speech"></a>Speech
-
-| Service            | Type                 |
-|--------------------|----------------------|
-| Services Speech    | `SpeechServices`     |
-| Reconnaissance vocale | `SpeakerRecognition` |
-
-#### <a name="language"></a>Langage
-
-| Service            | Type                |
-|--------------------|---------------------|
-| Compréhension de formulaire | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| Analyse de texte     | `TextAnalytics`     |
-| Traduction de texte   | `TextTranslation`   |
-
-#### <a name="decision"></a>Décision
-
-| Service           | Type               |
-|-------------------|--------------------|
-| Le détecteur d’anomalies  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
-
-
-#### <a name="pricing-tiers-and-billing"></a>Niveaux tarifaires et facturation
-
-Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de transactions que vous envoyez à l’aide de vos informations d’authentification. Chaque niveau tarifaire spécifie :
-* le nombre maximal de transactions par seconde (TPS) autorisées ;
-* les fonctionnalités de service activées dans le niveau tarifaire ;
-* le coût d'un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
-
-> [!NOTE]
-> De nombreuses ressources Cognitive Services disposent d'un niveau gratuit que vous pouvez utiliser pour tester le service. Pour utiliser le niveau gratuit, utilisez `F0` en tant que référence SKU de votre ressource.
+[!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
 ## <a name="create-a-cognitive-services-resource"></a>Créer une ressource Cognitive Services
 

@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420853"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917888"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Node.js à l’aide des API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portail](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -130,7 +130,7 @@ Remplacez la valeur `[SERVICE_NAME]` par le nom de votre service de recherche. R
 
 ## <a name="1---create-index"></a>1 - Créer un index 
 
-Créez un fichier **hotels_quickstart_index.json**.  Ce fichier définit le fonctionnement de la Recherche cognitive Azure avec les documents que vous allez charger à l’étape suivante. Chaque champ est identifié par un `name` et a un `type` spécifié. Chaque champ contient également une série d’attributs d’index qui spécifient si la Recherche cognitive Azure peut effectuer des opérations de recherche, de tri, de filtrage et de définition de facettes sur le champ. La plupart des champs sont des types de données simples, mais certains, comme `AddressType`, sont des types complexes qui vous permettent de créer des structures de données riches dans votre index.  Vous pouvez en savoir plus sur les [types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) et les [attributs d’index](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
+Créez un fichier **hotels_quickstart_index.json**.  Ce fichier définit le fonctionnement de la Recherche cognitive Azure avec les documents que vous allez charger à l’étape suivante. Chaque champ est identifié par un `name` et a un `type` spécifié. Chaque champ contient également une série d’attributs d’index qui spécifient si la Recherche cognitive Azure peut effectuer des opérations de recherche, de tri, de filtrage et de définition de facettes sur le champ. La plupart des champs sont des types de données simples, mais certains, comme `AddressType`, sont des types complexes qui vous permettent de créer des structures de données riches dans votre index.  Vous pouvez en savoir plus sur les [types de données pris en charge](/rest/api/searchservice/supported-data-types) et les [attributs d’index](./search-what-is-an-index.md#index-attributes). 
 
 Ajoutez l’élément suivant à **hotels_quickstart_index.json** ou [téléchargez le fichier](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -610,7 +610,7 @@ Exécutez à nouveau le programme avec `node index.js`. Vous devriez voir un ens
 
 ## <a name="3---search-an-index"></a>3 – Rechercher dans un index
 
-Revenez à l’onglet **Index** dans la **Vue d’ensemble** de votre service de recherche dans le Portail Azure. Votre index contient désormais quatre documents et consomme une certaine quantité de stockage (l’interface utilisateur peut prendre quelques minutes pour refléter correctement l’état sous-jacent de l’index). Cliquez sur le nom de l’index à utiliser dans l’**Explorateur de recherche**. Cette page vous permet d’effectuer des tests avec les requêtes de données. Essayez d’effectuer une recherche sur une chaîne de requête de `*&$count=true`. Vous devriez récupérer tous vos documents et le nombre de résultats. Essayez avec la chaîne de requête `historic&highlight=Description&$filter=Rating gt 4`. Vous devriez récupérer un document unique, avec le mot « historic » encapsulé dans des balises `<em></em>`. En savoir plus sur la [composition d’une requête dans la Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-query-overview). 
+Revenez à l’onglet **Index** dans la **Vue d’ensemble** de votre service de recherche dans le Portail Azure. Votre index contient désormais quatre documents et consomme une certaine quantité de stockage (l’interface utilisateur peut prendre quelques minutes pour refléter correctement l’état sous-jacent de l’index). Cliquez sur le nom de l’index à utiliser dans l’**Explorateur de recherche**. Cette page vous permet d’effectuer des tests avec les requêtes de données. Essayez d’effectuer une recherche sur une chaîne de requête de `*&$count=true`. Vous devriez récupérer tous vos documents et le nombre de résultats. Essayez avec la chaîne de requête `historic&highlight=Description&$filter=Rating gt 4`. Vous devriez récupérer un document unique, avec le mot « historic » encapsulé dans des balises `<em></em>`. En savoir plus sur la [composition d’une requête dans la Recherche cognitive Azure](./search-query-overview.md). 
 
 Reproduisez ces requêtes dans le code en ouvrant le fichier **index.js** et en ajoutant ce code dans la partie supérieure :
 
