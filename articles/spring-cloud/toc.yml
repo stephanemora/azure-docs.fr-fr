@@ -47,11 +47,6 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Déployer Azure Spring Cloud dans un réseau virtuel
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
-- name: Exemples
-  items:
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Comprendre les applications et le déploiement
@@ -126,3 +121,6 @@
       href: spring-cloud-faq.md
     - name: Référence d’API REST
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

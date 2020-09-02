@@ -105,9 +105,6 @@
       href: samples/cli-samples.md
     - name: Azure PowerShell
       href: samples/powershell-samples.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: samples/policy-samples.md
 - name: Concepts
   items:
     - name: "Que pouvez-vous superviser\_?"
@@ -1298,6 +1295,9 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: Journaux Azure Monitor
           href: /azure/templates/microsoft.operationalinsights/allversions
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: samples/policy-reference.md
     - name: Retrait de fonctionnalités et d’API
       items:
         - name: API classique de mise à l’échelle et de métrique

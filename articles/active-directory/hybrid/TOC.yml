@@ -31,7 +31,7 @@
         - name: Présentation d’Azure AD Connect et Connect Health
           href: whatis-azure-ad-connect.md
         - name: Choisir l’authentification appropriée
-          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
+          href: ./choose-ad-authn.md
         - name: Synchronisation des identités et résilience d’attribut en double
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Synchronisation de hachage de mot de passe
@@ -339,7 +339,7 @@
     - name: Historique des versions de l’agent Authentification directe Azure AD
       href: reference-connect-pta-version-history.md
     - name: Historique des versions du connecteur
-      href: reference-connect-sync-connector-version-history.md
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
     - name: Comptes et autorisations
       href: reference-connect-accounts-permissions.md
     - name: "FAQ\_Azure\_AD\_Connect"

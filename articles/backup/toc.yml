@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Gérer les bases de données SAP HANA sauvegardées - CLI
           href: tutorial-sap-hana-manage-cli.md
-- name: Exemples
-  items:
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Matrices de prise en charge
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Conformité

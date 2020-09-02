@@ -74,9 +74,6 @@
       href: sample-scripts-azure-cli.md
     - name: Regroupement de connexions Java
       href: sample-scripts-java-connection-pooling.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Base de données et serveurs
@@ -332,6 +329,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procédures stockées de gestion
       href: reference-stored-procedures.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Modèles de déploiement

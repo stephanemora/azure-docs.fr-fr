@@ -25,9 +25,6 @@
       href: powershell-samples.md
     - name: Solutions d’applications managées
       href: sample-projects.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Afficher un artefact de définition
@@ -157,6 +154,9 @@
               href: microsoft-storage-multistorageaccountcombo.md
             - name: Sélecteur compte de stockage
               href: microsoft-storage-storageaccountselector.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

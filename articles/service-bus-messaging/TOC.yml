@@ -72,9 +72,6 @@
   items:
     - name: Exemples Service Bus
       href: service-bus-samples.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Premium-Messaging
@@ -272,6 +269,9 @@
       href: service-bus-messaging-sql-filter.md
     - name: Syntaxe SQLRuleAction
       href: service-bus-messaging-sql-rule-action.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)

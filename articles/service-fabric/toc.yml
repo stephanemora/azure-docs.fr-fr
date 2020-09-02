@@ -116,9 +116,6 @@
       href: service-fabric-powershell-samples.md
     - name: CLI Service Fabric
       href: samples-cli.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Comprendre les microservices
@@ -895,6 +892,9 @@
           href: service-fabric-service-model-schema-element-groups.md
     - name: Variables d'environnement
       href: service-fabric-environment-variables-reference.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Feuille de route Azure
