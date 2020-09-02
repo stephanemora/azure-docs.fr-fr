@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924028"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826869"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -242,6 +242,8 @@ Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreu
 |LicenseLimitExceeded|L’utilisateur n’a pas pu être créé dans l’application cible, car il n’existe aucune licence disponible pour cet utilisateur. Procurez-vous des licences supplémentaires pour l’application cible, ou passez en revue vos attributions d’utilisateurs et la configuration de mappage des attributs pour vous assurer que les utilisateurs appropriés sont affectés avec les attributs appropriés.|
 |DuplicateTargetEntries  |L’opération n’a pas pu aboutir car plusieurs utilisateurs de l’application cible ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double de l’application cible ou reconfigurez vos mappages d’attributs comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | L’opération n’a pas pu aboutir car plusieurs utilisateurs ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double ou reconfigurez vos mappages d’attributs comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | Lors de l'évaluation de chaque utilisateur, nous essayons d'importer celui-ci à partir du système source. Cette erreur se produit généralement lorsque la propriété correspondante n'a pas été attribuée à l'utilisateur importé dans vos mappages d'attributs. En l'absence de valeur sur l'objet utilisateur pour l'attribut correspondant, nous ne pouvons pas évaluer l'étendue et la correspondance, ni exporter les modifications. Remarque : la présence de cette erreur n'indique pas que l'utilisateur se trouve dans l'étendue car nous n'avons pas encore évalué l'étendue de l'utilisateur.|
+|EntrySynchronizationSkipped | Le service d'approvisionnement a interrogé le système source et identifié l'utilisateur. Aucune autre mesure n'a été prise à l'égard de l'utilisateur et il a été ignoré. L'omission peut être due au fait que l'utilisateur est hors étendue, ou qu'il figure déjà dans le système cible et qu'aucune autre modification n'est nécessaire.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

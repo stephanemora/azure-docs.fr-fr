@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167315"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719051"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -121,7 +121,7 @@ Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manage
 
 |Champ  |Définition  |
 |---------|---------|
-|**mspOfferName**     |Nom décrivant cette définition. Cette valeur est présentée au client comme titre de l’offre.         |
+|**mspOfferName**     |Nom décrivant cette définition. Cette valeur est présentée au client comme titre de l'offre. Il doit s'agir d'une valeur unique.        |
 |**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »).      |
 |**managedByTenantId**     |Votre ID de client.          |
 |**authorizations**     |Valeurs **principalId** pour les utilisateurs/groupes/noms de principal du service de votre locataire, chacune avec un **principalIdDisplayName** pour aider votre client à comprendre l’objectif de l’autorisation, et mappées à une valeur **roleDefinitionId** intégrée pour spécifier le niveau d’accès.      |
@@ -138,7 +138,7 @@ Les modèles que vous choisissez dépendront de votre choix d’intégrer un abo
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Le processus décrit ici nécessite un déploiement au niveau de l’abonnement distinct pour chaque abonnement intégré, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement au niveau de l’abonnement.
+> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement en cours d'intégration, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
 >
 > De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
 
@@ -199,12 +199,22 @@ La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** a
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Déployer les modèles Azure Resource Manager
 
-Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur dans le locataire du client doit déployer le modèle Azure Resource Manager dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer). Le déploiement peut être effectué à l’aide de PowerShell ou d’Azure CLI, comme indiqué ci-dessous.
+Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur du locataire du client doit déployer le modèle Azure Resource Manager au sein de son locataire. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
 
 > [!IMPORTANT]
-> Ce déploiement au niveau de l’abonnement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Ce déploiement doit être effectué par un compte non invité du locataire du client qui dispose du [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l'abonnement en cours d'intégration (ou qui contient les groupes de ressources en cours d'intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Si l’abonnement a été créé par le biais du [programme Fournisseur de solutions Cloud (CSP)](../concepts/cloud-solution-provider.md), tout utilisateur disposant du rôle [Agent d’administration](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) dans le locataire de votre fournisseur de services peut effectuer le déploiement.
+
+Le déploiement peut être effectué sur le portail Azure, à l'aide de PowerShell ou d'Azure CLI, comme indiqué ci-dessous.
+
+### <a name="azure-portal"></a>Portail Azure
+
+1. Dans notre [référentiel GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), sélectionnez le bouton **Déployer sur Azure** disponible en regard du modèle que vous souhaitez utiliser. Le modèle s’ouvre dans le portail Azure.
+1. Entrez vos valeurs dans les champs **Nom de l'offre MSP**, **Description de l'offre MSP**, **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
+1. Sélectionnez **Vérifier et créer**, puis **Créer**.
+
+Au bout de quelques minutes, une notification indique que le déploiement est terminé.
 
 ### <a name="powershell"></a>PowerShell
 

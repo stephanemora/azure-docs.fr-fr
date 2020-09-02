@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1dcc98366e37455f462fe1a0740aa161201912f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505689"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869639"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Attribuer l’éligibilité à l’appartenance ou la propriété d’un groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -33,19 +33,14 @@ Azure AD PIM (Azure Active Directory Privileged Identity Management) vous permet
 
 Effectuez les étapes suivantes pour rendre un utilisateur éligible à l’appartenance ou à la propriété d’un groupe d’accès privilégié.
 
-1. Connectez-vous à [Privileged Identity Management](https://portal.azure.com/) dans le portail Azure avec les autorisations du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. [Connectez-vous à Azure AD](https://aad.portal.azure.com) avec les autorisations d'administrateur général ou de propriétaire de groupe.
+1. Sélectionnez **Groupes**, puis sélectionnez le groupe assignable à un rôle que vous souhaitez gérer. Vous pouvez effectuer une recherche dans la liste et filtrer celle-ci.
 
-    Pour plus d’informations sur la façon d’accorder l’accès à un autre administrateur pour la gestion de Privileged Identity Management, consultez [Accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![Rechercher un groupe assignable à un rôle à gérer dans PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Ouvrez le groupe et sélectionnez **Accès privilégié (préversion)** .
 
-1. Sélectionnez **Accès privilégié (préversion)** .
-
-1. Vous pouvez rechercher un nom de groupe et utiliser le critère **Type de groupe** pour filtrer la liste et sélectionner le groupe que vous souhaitez gérer.
-
-    ![Liste des groupes d’accès privilégié à gérer](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Sous **Gérer**, sélectionnez **Attributions**.
+    ![Ouvrir l’expérience Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Sélectionnez **Ajouter des affectations**.
 
@@ -77,21 +72,20 @@ Effectuez les étapes suivantes pour rendre un utilisateur éligible à l’appa
 
 Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle existante.
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. [Connectez-vous à Azure AD](https://aad.portal.azure.com) avec les autorisations d'administrateur général ou de propriétaire de groupe.
+1. Sélectionnez **Groupes**, puis sélectionnez le groupe assignable à un rôle que vous souhaitez gérer. Vous pouvez effectuer une recherche dans la liste et filtrer celle-ci.
 
-1. Sélectionnez **Accès privilégié (préversion)** .
+    ![Rechercher un groupe assignable à un rôle à gérer dans PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Vous pouvez rechercher un nom de groupe et utiliser le critère **Type de groupe** pour filtrer la liste et sélectionner le groupe que vous souhaitez gérer.
+1. Ouvrez le groupe et sélectionnez **Accès privilégié (préversion)** .
 
-    ![Liste des groupes d’accès privilégié à gérer](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Sous **Gérer**, sélectionnez **Attributions**.
+    ![Ouvrir l’expérience Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Sélectionnez le rôle que vous souhaitez mettre à jour ou supprimer.
 
 1. Recherchez l’attribution de rôle sous les onglets **Rôles éligibles** et **Rôles actifs**.
 
-    ![Mettre à jour ou supprimer une attribution de rôle](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Mettre à jour ou supprimer une attribution de rôle](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Sélectionnez **Mettre à jour** ou **Supprimer** pour mettre à jour ou supprimer l’attribution de rôle.
 

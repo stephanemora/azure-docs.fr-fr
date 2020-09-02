@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082789"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723858"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Règles de collecte de données dans Azure Monitor (version préliminaire)
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
@@ -28,7 +28,7 @@ Une règle de collecte de données inclut les composants suivants.
 
 | Composant | Description |
 |:---|:---|
-| Sources de données | Source unique de données de surveillance avec son propre format et sa propre méthode exposant ses données. Le journal des événements Windows, les compteurs de performances et Syslog sont des exemples d’une source de données. Chaque source de données correspond à un type de source de données particulier, comme décrit ci-dessous. |
+| Sources de données | Source unique de données de surveillance avec son propre format et sa propre méthode d’exposition des données. Le journal des événements Windows, les compteurs de performances et Syslog sont des exemples d’une source de données. Chaque source de données correspond à un type de source de données particulier, comme décrit ci-dessous. |
 | Flux | Descripteur unique qui décrit un ensemble de sources de données qui seront transformées et schématisées en un seul type. Chaque source de données nécessite un ou plusieurs flux, et un flux peut être utilisé par plusieurs sources de données. Toutes les sources de données d’un flux partagent un schéma commun. Utilisez plusieurs flux de données, par exemple, lorsque vous souhaitez envoyer une source de données particulière à plusieurs tables dans le même espace de travail Log Analytics. |
 | Destinations | Ensemble de destinations où les données doivent être envoyées. L’espace de travail Log Analytics, les métriques Azure Monitor et Azure Event Hubs sont des exemples. | 
 | Flux de données | Définition des flux à envoyer à des destinations. | 
@@ -44,7 +44,7 @@ Chaque source de données a un type de source de données. Chaque type définit 
 |:---|:---|
 | extension | Sources de données basée sur une extension de machine virtuelle |
 | performanceCounters | Compteurs de performances pour Windows et Linux |
-| syslog | Événements Syslog sur une machine virtuelle Linux |
+| syslog | Événements Syslog sur Linux |
 | windowsEventLogs | Journaux d'événements Windows |
 
 
@@ -54,11 +54,11 @@ Le tableau suivant répertorie les limites qui s’appliquent actuellement à ch
 | Limite | Valeur |
 |:---|:---|
 | Nombre maximal de sources de données | 10 |
-| Nombre maximal de spécificateurs de compteur dans les performances | 100 |
-| Nombre de caractères maximal des noms des installations dans SysLog | 20 |
-| Nombre maximal de requêtes XPath dans EventLog | 100 |
-| Taille maximale des flux de données | 10 |
-| Taille maximale des streams de données | 10 |
+| Nombre maximal de spécificateurs de compteur du compteur de performances | 100 |
+| Nombre maximal de caractères des noms des installations dans SysLog | 20 |
+| Nombre maximal de requêtes XPath dans le journal des événements | 100 |
+| Nombre maximal de flux de données | 10 |
+| Nombre maximal de flux de données | 10 |
 | Nombre maximal d’extensions | 10 |
 | Taille maximale des paramètres d’extension | 32 Kb |
 | Nombre maximal d’espaces de travail Log Analytics | 10 |
@@ -68,7 +68,7 @@ Le tableau suivant répertorie les limites qui s’appliquent actuellement à ch
 Il existe actuellement deux méthodes pour créer une DCR :
 
 - [Utilisez le Portail Azure](data-collection-rule-azure-monitor-agent.md) pour créer une règle de collecte de données et l’associer à une ou plusieurs machines virtuelles.
-- Modifiez directement la règle de collecte de données au format JSON et envoyez-la à l’aide de l’API REST.
+- Modifiez directement la règle de collecte de données au format JSON et [envoyez-la à l’aide de l’API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Exemple de règle de collecte de données
 L’exemple de règle de collecte de données ci-dessous concerne les machines virtuelles avec l’agent Azure Management et présente les détails suivants :
@@ -83,8 +83,7 @@ L’exemple de règle de collecte de données ci-dessous concerne les machines v
   - Collecte des événements de débogage, critiques et d’urgence de l’installation cron.
   - Collecte des événements d’alerte, critiques et d’urgence de l’installation Syslog.
 - Destinations
-  - Envoie toutes les données à un espace de travail Log Analytics nommé centralTeamWorkspace.
-  - Envoie des données de performances aux Métriques Azure Monitor de l’abonnement actuel.
+  - Envoie toutes les données à un espace de travail Log Analytics nommé centralWorkspace.
 
 ```json
 {
@@ -157,7 +156,7 @@ L’exemple de règle de collecte de données ci-dessous concerne les machines v
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

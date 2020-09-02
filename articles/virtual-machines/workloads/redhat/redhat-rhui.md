@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869216"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -49,7 +49,7 @@ Pour obtenir la liste complète des images, exécutez `az vm image list --publis
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Images connectées à des dépôts non EUS
 
-Si vous provisionnez une machine virtuelle à partir d’une image RHEL qui est connectée à des dépôts non EUS, votre version est mise à niveau vers la dernière version mineure de RHEL quand vous exécutez `sudo yum update`. Par exemple, si vous provisionnez une machine virtuelle à partir d’une image PAYG RHEL 7.4 et que vous exécutez `sudo yum update`, vous obtenez une machine virtuelle RHEL 7.7 (version mineure la plus récente dans la famille RHEL7).
+Si vous provisionnez une machine virtuelle à partir d’une image RHEL qui est connectée à des dépôts non EUS, votre version est mise à niveau vers la dernière version mineure de RHEL quand vous exécutez `sudo yum update`. Par exemple, si vous approvisionnez une machine virtuelle à partir d'une image PAYG RHEL 7.4 et que vous exécutez `sudo yum update`, vous obtenez une machine virtuelle RHEL 7.8 (version mineure la plus récente de la famille RHEL7).
 
 Les images connectées à des dépôts non EUS ne comportent pas de numéro de version mineure dans la référence SKU. La référence SKU est le troisième élément de l’URN (nom complet de l’image). Par exemple, toutes les images suivantes sont fournies en étant déjà connectées à des dépôts non EUS :
 

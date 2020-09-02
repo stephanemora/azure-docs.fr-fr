@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612518"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892182"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -135,8 +135,8 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 
 **Paramètre** | **Limites**
 --- | ---
-**Nombre maximal de points de récupération par instance protégée (machine ou charge de travail)** | 9 999
-**Temps d’expiration maximal pour un point de récupération** | Aucune limite
+**Nombre maximum de points de récupération par instance protégée (machine ou charge de travail)** | 9 999
+**Délai d’expiration maximal pour un point de récupération** | Aucune limite
 **Fréquence de sauvegarde maximale dans DPM/MABS** | Toutes les 15 minutes pour SQL Server<br/><br/> Une fois par heure pour les autres charges de travail
 **Fréquence de sauvegarde maximale dans le coffre** | **Machines Windows locales/machines virtuelles Azure exécutant MARS :** trois fois par jour<br/><br/> **DPM/MABS :** deux fois par jour<br/><br/> **Sauvegarde des machines virtuelles Azure :** une fois par jour
 **Conservation des points de récupération** | Quotidienne, hebdomadaire, mensuelle, annuelle
@@ -145,7 +145,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 
 ## <a name="cross-region-restore"></a>Restauration inter-régions
 
-La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions pour renforcer la disponibilité des données et la capacité de résilience, ce qui donne aux clients le contrôle total pour restaurer des données dans une région secondaire. Pour configurer cette fonctionnalité, consultez l’article [Définir la restauration inter-région](backup-create-rs-vault.md#set-cross-region-restore). Cette fonctionnalité est prise en charge pour les types de gestion suivants :
+Une fonctionnalité de restauration inter-régions a été ajoutée au service Sauvegarde Azure pour renforcer la disponibilité des données et la capacité de résilience, ce qui vous confère un contrôle total pour restaurer des données dans une région secondaire. Pour configurer cette fonctionnalité, consultez l’article [Définir la restauration inter-région](backup-create-rs-vault.md#set-cross-region-restore). Cette fonctionnalité est prise en charge pour les types de gestion suivants :
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

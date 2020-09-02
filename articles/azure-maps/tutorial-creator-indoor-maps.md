@@ -3,17 +3,17 @@ title: Utiliser le Créateur pour créer des cartes d’intérieur
 description: Utiliser le Créateur Azure Maps pour créer des cartes d’intérieur
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075413"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688082"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -109,16 +109,25 @@ L’API de chargement de données est une transaction de longue durée qui impl�
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > Les url d’API dans ce document peuvent devoir être ajustées en fonction de l'emplacement de votre ressource du Créateur. Pour plus d’informations, consultez [l’accès aux services du Créateur](how-to-manage-creator.md#access-to-creator-services).
 
-3. Cliquez sur le bouton **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse, puis recherchez la clé **Emplacement**. Copiez la valeur de la clé **Emplacement** qui est `status URL` pour la demande de conversion.
+3. Cliquez sur le bouton **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse, puis recherchez la clé **Emplacement**. Copiez la valeur de la clé **Emplacement** qui est `status URL` pour la demande de conversion. Vous en aurez besoin lors de l'étape suivante.
 
-4. Démarrez une nouvelle méthode HTTP **GET** sous l’onglet du générateur. Ajoutez votre clé d’abonnement principale Azure Maps à `status URL`. Effectuez une requête **GET** à l’URL `status URL` obtenue à l’étape précédente. Si le processus de conversion n’est pas encore terminé, il se peut que vous voyiez quelque chose ressemblant la réponse JSON suivante :
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copier la valeur de la clé Emplacement":::
+
+4. Démarrez une nouvelle méthode HTTP **GET** sous l’onglet du générateur. Ajoutez votre clé d’abonnement principale Azure Maps à `status URL`. Envoyez une requête **GET** à la `status URL` que vous avez copiée à l'étape 3. La `status URL` est semblable à l'URL suivante :
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Si le processus de conversion n’est pas encore terminé, il se peut que vous voyiez quelque chose ressemblant la réponse JSON suivante :
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ L’exemple de package de dessin doit être converti sans erreur ou avertissemen
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -177,7 +186,7 @@ Le jeu de données est une collection de caractéristiques cartographiques, tell
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -206,7 +215,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513721"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762315"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 
@@ -25,10 +25,6 @@ Pour configurer le routage, consultez le [guide pratique pour configurer le rout
 ## <a name="routing-concepts"></a><a name="concepts"></a>Concepts de routage
 
 Les sections suivantes décrivent les concepts clés du routage de hub virtuel.
-
-> [!NOTE]
-> Certains de ces nouveaux concepts concernant la table de routage, l’association, la propagation et les itinéraires statiques de hub dans une connexion de réseau virtuel sont peut-être encore en cours de déploiement. Celui-ci devrait prendre fin la semaine du 17 août.
->
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Table de routes du hub
 
@@ -77,9 +73,9 @@ Les tables de routage disposent désormais de fonctionnalités d’association e
 
 * **Clients de réseau virtuel Standard avec des routes préexistantes dans le hub virtuel** :
 
-Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
+Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis essayer de créer de nouvelles tables de route (disponible dans la section Tables de route du hub dans le portail Azure).
 
-* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Pour utiliser les nouvelles fonctionnalités de table de routage, attendez jusqu’à la semaine du 17 août que le déploiement dans Azure soit terminé. Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
+* **Clients de réseau virtuel De base avec des routes préexistantes dans le hub virtuel** : Si vous avez des routes préexistantes dans la section Routage du hub dans le portail Azure, vous devez d’abord les supprimer, puis **mettre à niveau** votre réseau étendu virtuel De base vers un réseau étendu virtuel Standard. Consultez [Mettre à niveau un réseau étendu virtuel De base vers le type Standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considérations sur le routage de Virtual WAN
 
@@ -89,6 +85,8 @@ Lors de la configuration du routage de Virtual WAN, tenez compte de ce qui suit�
 * Toutes les connexions de branche doivent propager leurs itinéraires vers le même jeu de tables de routage. Par exemple, si vous décidez que les branches doivent propager vers la table de routage par défaut, cette configuration doit être cohérente dans toutes les branches. Par conséquent, toutes les connexions associées à la table de routage par défaut seront en mesure d’atteindre toutes les branches.
 * La propagation de branche à branche via le Pare-feu Azure n’est actuellement pas pris en charge.
 * Lorsque vous utilisez le Pare-feu Azure dans plusieurs régions, tous les réseaux virtuels en étoile doivent être associés à la même table de routage. Par exemple, il n’est pas possible d’avoir un sous-ensemble de réseaux virtuels transitant par le Pare-feu Azure, tandis que d’autres réseaux virtuels contournent celui-ci dans le même hub virtuel.
+* Vous ne pouvez configurer qu'une seule adresse IP par connexion de réseau virtuel pour le tronçon suivant.
+* Le hub virtuel ne prend pas en charge l'itinéraire statique de 0.0.0.0/0 et la connexion au réseau virtuel du tronçon suivant (ou l'adresse IP d'une appliance dans la connexion de réseau virtuel).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

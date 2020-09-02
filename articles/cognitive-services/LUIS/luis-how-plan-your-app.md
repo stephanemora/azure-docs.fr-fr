@@ -3,12 +3,12 @@ title: Planifier votre application - LUIS
 description: Structurez les entités et les intentions d’applications pertinentes, puis créez vos plans d’applications dans Language Understanding Intelligent Services (LUIS).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892913"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planifier votre schéma d’application LUIS avec le domaine de l’objet et l’extraction de données
 
@@ -64,7 +64,7 @@ Considérez les deux énoncés suivants, qui sont très proches si l’on tient 
 
 Au lieu d’avoir deux intentions distinctes, créez une seule intention avec une entité `FlightAction` Machine Learning. L’entité Machine Learning doit extraire les détails de l’action pour une requête de planification et d’annulation, ainsi qu’un emplacement d’origine ou de destination.
 
-L’entité `FlightAction` est structurée dans le pseudo-schéma suivant de l’entité et des sous-entités Machine Learning :
+L'entité `FlightAction` est structurée dans le pseudo-schéma suivant de l'entité et des sous-entités Machine Learning :
 
 * FlightAction
     * Action

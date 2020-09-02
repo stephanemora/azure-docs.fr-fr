@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034176"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814388"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 
@@ -75,7 +75,7 @@ Si vous avez un compte Azure Cosmos DB distribué globalement, une fois que vous
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Intégration dans Azure Synapse Analytics
 
-Synapse Link vous permet désormais de vous connecter directement à vos conteneurs Azure Cosmos DB à partir d’Azure Synapse Analytics et d’accéder au magasin analytique sans connecteurs distincts. Azure Synapse Analytics prend actuellement en charge Synapse Link avec [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) et [Synapse SQL Serverless](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Synapse Link vous permet désormais de vous connecter directement à vos conteneurs Azure Cosmos DB à partir d’Azure Synapse Analytics et d’accéder au magasin analytique sans connecteurs distincts. Azure Synapse Analytics prend actuellement en charge Synapse Link avec [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) et [Synapse SQL serverless](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Vous pouvez interroger les données à partir du magasin analytique Azure Cosmos DB simultanément en bénéficiant de l’interopérabilité entre les différentes durées d’exécution des traitements analytiques prises en charge par Azure Synapse Analytics. Aucune transformation de données supplémentaire n’est requise pour analyser les données opérationnelles. Vous pouvez interroger et analyser les données du magasin analytique à l’aide des éléments suivants :
 

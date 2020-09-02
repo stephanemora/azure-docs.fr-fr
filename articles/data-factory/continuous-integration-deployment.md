@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336920"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815808"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -113,7 +113,7 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
     h. Sélectionnez **Incrémentiel** comme **Mode de déploiement**.
 
     > [!WARNING]
-    > Si vous sélectionnez **Complet** comme **Mode de déploiement**, les ressources existantes peuvent être supprimées, y compris toutes les ressources du groupe de ressources cible qui ne sont pas définies dans le modèle Resource Manager.
+    > En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md).
 
     ![Déploiement en production de Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 

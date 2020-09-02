@@ -2,14 +2,14 @@
 title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259536"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870763"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
@@ -42,6 +42,8 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * Vous ne pouvez pas activer de [probe liveness](container-instances-liveness-probe.md) ni de [probe readiness](container-instances-readiness-probe.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * En raison des ressources réseau supplémentaires impliquées, les déploiements sur un réseau virtuel sont généralement plus lents que les déploiements d’une instance de conteneur standard.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="where-to-deploy"></a>Où déployer ?
 
@@ -78,6 +80,7 @@ Dans le diagramme suivant, plusieurs groupes de conteneurs ont été déployés 
 * Pour obtenir des exemples de déploiement avec Azure CLI, consultez [Déployer des instance de conteneur dans un réseau virtuel Azure](container-instances-vnet.md).
 * Pour déployer un réseau virtuel, un sous-réseau, un profil réseau et un groupe de conteneurs nouveaux à l’aide d’un modèle Resource Manager, consultez [Créer un groupe de conteneurs Azure avec un réseau virtuel](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ).
+* Lorsque vous utilisez le [portail Azure](container-instances-quickstart-portal.md) pour créer une instance de conteneur, vous pouvez également définir les paramètres d'un réseau virtuel nouveau ou existant dans l'onglet **Mise en réseau**.
 
 
 <!-- IMAGES -->

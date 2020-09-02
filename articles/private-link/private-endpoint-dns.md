@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1896caaa0cba1f62dc1466124b393337fa8c83
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985782"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918126"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuration DNS des points de terminaison privés Azure
 
@@ -27,12 +27,15 @@ Vous pouvez utiliser les options suivantes pour configurer vos paramètres DNS p
 - **Utilisez votre redirecteur DNS (facultatif)** . Vous pouvez utiliser votre redirecteur DNS pour substituer la résolution DNS pour une ressource Private Link donnée. Si votre [serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) est hébergé sur un réseau virtuel, vous pouvez créer une règle de transfert DNS pour utiliser une zone DNS privée afin de simplifier la configuration de toutes les ressources Private Link.
  
 > [!IMPORTANT]
-> Nous ne vous recommandons pas de substituer une zone utilisée activement pour résoudre les points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
+> Il n'est pas recommandé de remplacer une zone utilisée activement pour résoudre des points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
 
 ## <a name="azure-services-dns-zone-configuration"></a>Configuration de la zone DNS des services Azure
 Les services Azure créent un enregistrement DNS de nom canonique (CNAME) sur le service DNS public pour rediriger la résolution vers les noms de domaine privés suggérés. Vous pouvez remplacer la résolution par l’adresse IP privée de vos points de terminaison privés. 
  
 Vos applications n’ont pas besoin de modifier l’URL de connexion. Lors d’une tentative de résolution à l’aide d’un DNS public, le serveur DNS est maintenant résolu sur vos points de terminaison privés. Le processus n’a pas d’impact sur vos applications existantes. 
+
+> [!IMPORTANT]
+> Les réseaux privés utilisant déjà la zone DNS privée pour un type donné ne peuvent se connecter aux ressources publiques que s'ils ne disposent d'aucune connexion à un point de terminaison privé. Sinon, une configuration DNS correspondante est nécessaire sur la zone DNS privée afin de terminer la séquence de résolution DNS. 
 
 Pour les services Azure, utilisez les noms de zone recommandés comme indiqué dans le tableau suivant :
 

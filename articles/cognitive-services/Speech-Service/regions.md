@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782532"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749316"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -24,7 +24,11 @@ Le service Speech permet à votre application de convertir de l’audio en texte
 
 Le portail Speech permettant d’effectuer des configurations personnalisées de votre expérience vocale pour toutes les régions est disponible ici : https://speech.microsoft.com
 
-Assurez-vous que les appels de votre service Speech correspondent à la région de votre abonnement.
+Gardez à l’esprit les points suivants lorsque vous envisagez les régions :
+
+* Si votre application utilise un [SDK Speech](speech-sdk.md), vous fournissez l’identificateur de région, tel que `westus`, quand vous créez une configuration de reconnaissance vocale.
+* Si votre application utilise l’une des [API REST](rest-apis.md) du service Speech, la région fait partie de l’URI de point de terminaison que vous utilisez pour effectuer des requêtes.
+* Les clés créées pour une région sont valides uniquement dans cette région. Si vous essayez de les utiliser avec d’autres régions, des erreurs d’authentification se produisent.
 
 ## <a name="speech-sdk"></a>Kit de développement logiciel (SDK) de reconnaissance vocale
 

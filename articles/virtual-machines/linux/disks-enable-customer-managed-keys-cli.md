@@ -2,19 +2,19 @@
 title: Azure CLI - Activez les clés gérées par le client avec les disques managés - SSE
 description: Activez les clés gérées par le client sur vos disques managés à l’aide d’Azure CLI.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: cd1855a4ce2d394559db28448d9f1c9a01b4bd08
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235662"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814130"
 ---
-# <a name="azure-cli---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure CLI - Activez les clés gérées par le client avec les disques managés - chiffrement côté serveur
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser Azure CLI pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 
 Le stockage sur disque Azure vous permet de gérer vos propres clés lors de l’utilisation du chiffrement côté serveur (SSE) pour les disques managés, si vous le souhaitez. Pour obtenir des informations conceptuelles sur SSE avec des clés gérées par le client, ainsi que d’autres types de chiffrement de disque managés, consultez la section [Customer-managed keys](disk-encryption.md#customer-managed-keys) (Clés gérées par le client) de notre article sur le chiffrement de disque.
 

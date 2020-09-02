@@ -2,13 +2,13 @@
 title: Créer une spec de modèle avec des modèles liés
 description: Découvrez comment créer une spec de modèle avec des modèles liés.
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/26/2020
+ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387861"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936365"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutoriel : Créer une spec de modèle avec des modèles liés (préversion)
 
@@ -164,28 +164,59 @@ La propriété `relativePath` est toujours relative au fichier de modèle dans l
 
 Les specs de modèle sont stockées dans des groupes de ressources.  Créez un groupe de ressources, puis créez une spec de modèle avec le script suivant. Le nom de la spec de modèle est **webSpec**.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
   -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az template-specs create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 Lorsque vous avez terminé, vous pouvez afficher la spec de modèle à partir du portail Azure ou à l’aide de la cmdlet suivante :
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## <a name="deploy-template-spec"></a>Déployer une spec de modèle
 
-Vous pouvez maintenant déployer la spec de modèle. Le déploiement de la spec de modèle est identique à celui du modèle que celle-ci contient, à l’exception du fait que vous transmettez l’ID de ressource de la spec de modèle. Vous utilisez les mêmes commandes de déploiement et, si nécessaire, transmettez des valeurs de paramètres pour la spec de modèle.
+Vous pouvez maintenant déployer la spec de modèle. Le déploiement de la spec de modèle est identique à celui du modèle que celle-ci contient, à l’exception du fait que vous transmettez l’ID de ressource de la spec de modèle. Vous utilisez les mêmes commandes de déploiement et, si nécessaire, transmettez les valeurs de paramètres pour la spec de modèle.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -198,6 +229,25 @@ New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName webRG
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> On sait qu'il est difficile d'obtenir l'ID de la spec de modèle et de l'attribuer à une variable dans Windows PowerShell.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

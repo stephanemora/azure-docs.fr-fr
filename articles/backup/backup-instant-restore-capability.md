@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611803"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892624"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -21,7 +21,7 @@ Le nouveau modèle pour la restauration instantanée fournit les améliorations 
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention des instantanés par défaut peut être définie sur n’importe quelle valeur comprise entre 1 et 5 jours.
-* Prend en charge des disques d’une taille maximale de 32 To. Le redimensionnement des disques n’est pas recommandé par la Sauvegarde Azure.
+* Prend en charge des disques d’une taille maximale de 32 To. Le redimensionnement des disques n'est pas recommandé par le service Sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques HDD Standard et SSD Premium.
 * Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
 * Pour sauvegarder les machines virtuelles utilisant des disques premium non managés dans les comptes de stockage, avec la restauration instantanée, nous vous recommandons d’allouer *50 %* d’espace libre de l’espace de stockage alloué total, qui est nécessaire **uniquement** pour la première sauvegarde. Les 50 % d’espace libre ne sont plus obligatoires pour les sauvegardes une fois la première sauvegarde accomplie.
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-La durée de rétention par défaut des instantanés pour chaque stratégie est définie sur deux jours. Les utilisateurs peuvent modifier cette valeur et définir une durée comprise entre un jour (minimum) et cinq jours (maximum). Pour les stratégies hebdomadaires, la rétention des instantanés est fixée à cinq jours.
+La durée de rétention par défaut des instantanés pour chaque stratégie est définie sur deux jours. Vous pouvez modifier cette valeur et définir une durée comprise entre un jour (minimum) et cinq jours (maximum). Pour les stratégies hebdomadaires, la rétention des instantanés est fixée à cinq jours.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
@@ -115,4 +115,3 @@ Si le point de récupération a une capture instantanée et qu’il s’agit du 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Je n’ai pas besoin de la fonctionnalité de restauration instantanée. Peut-elle être désactivée ?
 
 La fonctionnalité de restauration instantanée est activée pour tout le monde et ne peut pas être désactivée. Vous pouvez réduire la rétention des instantanés à un minimum d’une journée.
-

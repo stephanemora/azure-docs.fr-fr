@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052155"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723414"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure
 
@@ -112,13 +112,13 @@ Ces fonctionnalités sont possibles car Azure NetApp Files est basé sur des sys
 ## <a name="licensing-oracle-database--software-on-azure"></a>Gestion des licences logiciels Oracle Database sur Azure
 
 Microsoft Azure est un environnement cloud agréé pour l’exécution d’Oracle Database. Le tableau Oracle Core Factor ne s’applique pas à la gestion des licences de bases de données Oracle dans le cloud. À la place, lorsque vous utilisez des machines virtuelles avec la technologie Hyper-Threading activée pour les bases de données Édition Entreprise, comptez deux vCPU comme équivalant à une licence Oracle Processor si l’hyperthreading est activé (comme indiqué dans le document de stratégie). Vous trouverez les détails de la stratégie [ici](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Les bases de données Oracle nécessitent généralement davantage de mémoire et d’E/S. C’est pourquoi l’usage de [machines virtuelles à mémoire optimisée](../../sizes-memory.md) est recommandé pour ces charges de travail. Pour optimiser davantage vos charges de travail, il est recommandé d’utiliser des [processeurs virtuels au nombre de cœurs limité](../../linux/constrained-vcpu.md) pour les charges de travail Oracle Database nécessitant des capacités importantes de mémoire, de stockage et de bande passante d’E/S, mais pas un nombre important de cœurs.
+Les bases de données Oracle nécessitent généralement davantage de mémoire et d’E/S. C’est pourquoi l’usage de [machines virtuelles à mémoire optimisée](../../sizes-memory.md) est recommandé pour ces charges de travail. Pour optimiser davantage vos charges de travail, il est recommandé d’utiliser des [processeurs virtuels au nombre de cœurs limité](../../constrained-vcpu.md) pour les charges de travail Oracle Database nécessitant des capacités importantes de mémoire, de stockage et de bande passante d’E/S, mais pas un nombre important de cœurs.
 
 Lors de la migration de logiciels et charges de travail Oracle d’un environnement local vers Microsoft Azure, Oracle offre la mobilité de licence décrite dans le [Forum aux questions concernant Oracle sur Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 
-Oracle RAC (Real Application Cluster) est conçu pour atténuer les conséquences de la défaillance d’un nœud dans une configuration locale de cluster à plusieurs nœuds. Il s’appuie sur deux technologies locales qui ne sont pas natives d’environnements de cloud public hyperscale : réseau multidiffusion et disque partagé. Si votre solution de base de données nécessite Oracle RAC dans Azure, vous avez besoin d’un logiciel tiers pour activer ces technologies. Pour plus d’informations sur Oracle RAC, veuillez consulter la [page FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC (Real Application Cluster) est conçu pour atténuer les conséquences de la défaillance d’un nœud dans une configuration locale de cluster à plusieurs nœuds. Il s’appuie sur deux technologies locales qui ne sont pas natives d’environnements de cloud public hyperscale : réseau multidiffusion et disque partagé. Si votre solution de base de données requiert Oracle RAC dans Azure, vous devez disposer d'un logiciel tiers pour activer ces technologies. Pour plus d’informations sur Oracle RAC, veuillez consulter la [page FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Remarques relatives à la haute disponibilité et à la récupération d’urgence
 

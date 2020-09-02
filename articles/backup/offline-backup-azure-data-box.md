@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091026"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761557"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
@@ -259,13 +259,13 @@ Lorsque vous configurez la sauvegarde hors connexion, vous risquez de rencontrer
 
 Pour voir si votre problème est le même que celui décrit précédemment, effectuez l’une des étapes suivantes.
 
-#### <a name="step-1"></a>Étape 1
+#### <a name="step-1-of-verification"></a>Étape 1 de la vérification
 
 Vérifiez si le message d’erreur suivant s’affiche dans la console MAB lorsque vous avez configuré la sauvegarde hors connexion.
 
 ![Impossible de créer une stratégie de sauvegarde hors connexion pour le compte Azure actuel](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Étape 2
+#### <a name="step-2-of-verification"></a>Étape 2 de la vérification
 
 1. Ouvrez le dossier **Temp** dans le chemin d’installation. Le chemin d’accès au dossier temporaire par défaut est *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Recherchez le fichier *CBUICurr* et ouvrez-le.
 
@@ -275,11 +275,11 @@ Vérifiez si le message d’erreur suivant s’affiche dans la console MAB lorsq
 
 Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de configurer la stratégie.
 
-#### <a name="step-1"></a>Étape 1
+#### <a name="step-1-of-workaround"></a>Étape 1 de la solution de contournement
 
 Connectez-vous à PowerShell qui apparaît dans l’interface utilisateur de Sauvegarde Microsoft Azure avec un autre compte doté d’un accès administrateur à l’abonnement pour lequel le travail d’importation ou d’exportation est créé.
 
-#### <a name="step-2"></a>Étape 2
+#### <a name="step-2-of-workaround"></a>Étape 2 de la solution de contournement
 
 Si aucun autre serveur n’a d’amorçage hors connexion configuré et si aucun autre serveur ne dépend de l’application `AzureOfflineBackup_<Azure User Id>`, supprimez-la. Sélectionnez **Portail Azure** > **Azure Active Directory** > **Inscriptions d’applications**.
 

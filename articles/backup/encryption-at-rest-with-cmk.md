@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589603"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892641"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -39,7 +39,7 @@ Cet article aborde les sujets suivants :
 
 - Pour l’heure, cette fonctionnalité ne peut être configurée qu’à partir du portail Azure.
 
-Si vous n’avez pas créé et configuré votre coffre Recovery Services, vous pouvez [découvrir comment le faire ici](backup-create-rs-vault.md).
+Si vous n'avez pas encore créé et configuré votre coffre Recovery Services, [cliquez ici pour accéder aux instructions correspondantes](backup-create-rs-vault.md).
 
 ## <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configuration d’un coffre à chiffrer à l’aide de clés gérées par le client
 
@@ -60,7 +60,7 @@ Il est nécessaire de suivre toutes ces étapes dans l’ordre indiqué ci-dessu
 Sauvegarde Azure utilise l’identité managée affectée par le système pour authentifier le coffre Recovery Services et lui permettre d’accéder aux clés de chiffrement stockées dans le coffre de clés Azure. Pour activer l’identité managée pour votre coffre Recovery Services, suivez les étapes indiquées ci-dessous.
 
 >[!NOTE]
->Une fois activée, l’identité managée NE DOIT PAS être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
+>Une fois activée, l'identité managée ne doit **pas** être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
 
 1. Accédez à votre coffre Recovery Services -> **Identité**.
 
@@ -138,7 +138,7 @@ Vous pouvez aussi activer la suppression réversible et la protection contre le 
 > - Toutes les étapes mentionnées ci-dessus ont été effectuées avec succès :
 >   - L’identité managée du coffre Recovery Services a été activée et les autorisations nécessaires lui ont été attribuées
 >   - La suppression réversible et la protection contre le vidage ont été activées sur le coffre de clés Azure
-> - Aucun élément protégé ou inscrit ne se trouve dans le coffre Recovery Services pour lequel vous voulez activer le chiffrement CMK
+> - **Aucun** élément protégé ou inscrit ne se trouve dans le coffre Recovery Services pour lequel vous souhaitez activer le chiffrement CMK
 
 Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la clé de chiffrement de votre coffre.
 
@@ -220,7 +220,7 @@ Le jeu de chiffrement de disque est spécifié en dessous de Paramètres de chif
 1. Dans la liste déroulante, sélectionnez le jeu de chiffrement que vous voulez utiliser pour le ou les disques restaurés. **Vérifiez que vous avez accès au jeu de chiffrement de disque.**
 
 >[!NOTE]
->Vous n’avez pas la possibilité de choisir un jeu de chiffrement de disque pendant la restauration si vous restaurez une machine virtuelle qui utilise Azure Disk Encryption.
+>Vous n'avez pas la possibilité de choisir un jeu de chiffrement de disque pendant la restauration si vous restaurez une machine virtuelle qui utilise Azure Disk Encryption.
 
 ![Chiffrer le disque à l’aide de votre clé](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 
@@ -252,7 +252,7 @@ Non, cet article traite du chiffrement de données de sauvegarde uniquement. Pou
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Je n’ai pas suivi l’une des étapes de cet article, mais j’ai pu protéger ma source de données. Puis-je continuer d’utiliser le chiffrement CMK ?
 
-Si vous ne suivez pas les étapes de cet article et que vous continuez à protéger des éléments, le coffre risque de ne pas pouvoir utiliser le chiffrement à l’aide de clés gérées par le client. C’est pourquoi nous vous recommandons de vous référer à [cette liste de vérification](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) avant de procéder à la protection d’éléments.
+Si vous ne suivez pas les étapes de cet article et que vous continuez à protéger des éléments, le coffre risque de ne pas pouvoir utiliser le chiffrement à l'aide de clés gérées par le client. C’est pourquoi nous vous recommandons de vous référer à [cette liste de vérification](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) avant de procéder à la protection d’éléments.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>L’utilisation du chiffrement CMK augmente-elle le coût de mes sauvegardes ?
 

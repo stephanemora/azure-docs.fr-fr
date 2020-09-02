@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Do
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2de83be023c32df067712146937f880092025a44
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172115"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936229"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -37,7 +37,7 @@ Vous pouvez publier un événement avec AMQP 1.0, Kafka 1.0 (ou version ultér
 
 Le choix d'utiliser AMQP ou HTTPS est spécifique au scénario d'utilisation. AMQP requiert l'établissement d'un socket bidirectionnel persistant en plus de la sécurité au niveau du transport (TLS) ou SSL/TLS. Le protocole AMQP présente des coûts de gestion réseau plus élevés lors de l’initialisation de la session, mais le protocole HTTPS nécessite un temps de traitement TLS supplémentaire pour chaque requête. Par ailleurs, AMQP propose des performances plus élevées pour les éditeurs courants.
 
-![Event Hubs](./media/event-hubs-features/partition_keys.png)
+![Clés de partition](./media/event-hubs-features/partition_keys.png)
 
 Azure Event Hubs garantit que tous les événements qui partagent une clé de partition sont fournis dans l’ordre, et à la même partition. Si des clés de partition sont utilisées avec des stratégies d’éditeur, l’identité de l’éditeur et la valeur de la clé de partition doivent correspondre. Sinon, une erreur se produit.
 
@@ -86,13 +86,13 @@ Les exemples suivants montrent la convention URI de groupe consommateurs :
 
 La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
-![Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
+![Architecture Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Décalages du flux
 
 Un *décalage* correspond à la position d’un événement dans une partition. Vous pouvez considérer un décalage comme un curseur côté client. Le décalage est une numérotation en octets de l'événement. Ce décalage permet à un consommateur d’événements (lecteur) de spécifier un point dans le flux d’événements à partir duquel il veut commencer la lecture des événements. Vous pouvez spécifier le décalage comme un horodatage ou une valeur de décalage. Les consommateurs ont la responsabilité de stocker leurs propres valeurs de décalage en dehors du service des hubs d'événements. Dans une partition, chaque événement inclut un décalage.
 
-![Event Hubs](./media/event-hubs-features/partition_offset.png)
+![Décalage de la partition](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Points de contrôle
 
@@ -138,10 +138,10 @@ Il vous incombe de gérer le décalage.
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 
 - Prise en main des hubs d’événements
-    - [.NET](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)

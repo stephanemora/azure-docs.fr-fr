@@ -3,12 +3,12 @@ title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263399"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892505"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -47,10 +47,10 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l’option **Individual Files and Folders** (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
+   > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l'option **Fichiers et dossiers individuels**, vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
 
    > [!TIP]
-   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mbits/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 40 Mbits/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
+   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient à la récupération de fichiers individuels et est recommandée lorsque la taille totale est inférieure à 80 Go. Elle offre des vitesses de transfert ou de copie de 6 Mbits/s maximum lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (40 Mbits/s maximum), et est recommandée pour la récupération de données de grande taille ou de volumes entiers.
 
 5. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et dossiers à restaurer.
 
@@ -72,10 +72,10 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
 9. Lorsque vous avez terminé, dans la page **Rechercher et récupérer des fichiers**, sélectionnez **Démonter**. Puis sélectionnez **Oui** pour confirmer que vous souhaitez démonter le volume.
 
-    ![Capture d’écran de la page Récupérer des fichiers de l’Assistant Récupérer des données (restaurer sur la même machine)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Capture d'écran de la page Récupérer des fichiers de l'Assistant Récupérer des données (restaurer sur la même machine) - Confirmer le démontage du volume de récupération](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
+    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est prolongée de 24 heures maximum lorsqu'une copie de fichiers est en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Utiliser la restauration instantanée pour restaurer des données sur un autre ordinateur
@@ -138,7 +138,7 @@ Ces étapes incluent la terminologie suivante :
     ![Démonter le volume (restaurer sur une autre machine)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
+    > Si vous ne sélectionnez pas **Démonter**, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est prolongée de 24 heures maximum lorsqu'une copie de fichiers est en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,12 +4,12 @@ description: Découvrez comment vous connecter en privé à un compte Azure Batc
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004246"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814108"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utiliser des points de terminaison privés avec des comptes Azure Batch
 
@@ -19,7 +19,8 @@ Par défaut, les [comptes Azure Batch](accounts.md) possèdent un point de termi
 
 Private Link permet aux utilisateurs d’accéder à un compte Azure Batch à partir du réseau virtuel ou de tout réseau virtuel appairé. Les ressources mappées à Private Link sont également accessibles localement via un Peering privé par le biais d’un VPN ou d’[Azure ExpressRoute](../expressroute/expressroute-introduction.md). Vous pouvez vous connecter à un compte Azure Batch configuré avec Private Link en utilisant les [méthodes d’approbation automatique ou manuelle](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-La prise en charge de la connectivité privée dans Azure Batch est actuellement disponible dans les régions Azure suivantes : USA Centre-Ouest, USA Ouest 2, USA Est, USA Centre Sud, US Gov Virginie, US Gov Arizona, Asie Est, France et Royaume-Uni Sud.
+> [!IMPORTANT]
+> La prise en charge de la connectivité privée dans Azure Batch est actuellement disponible dans les régions Azure suivantes : USA Centre, USA Centre Nord, USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, Asie Est, France Centre, Royaume-Uni Sud, Europe Nord, Europe Ouest, Japon Est, Japon Ouest, Australie Est et toutes les régions US Gov et US DoD.
 
 Cet article décrit les étapes permettant de créer un compte Batch privé et d’y accéder à l’aide d’un point de terminaison privé.
 

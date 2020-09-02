@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Connecter un cluster Kubernetes à extension Azure Arc avec Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080488"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723739"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connecter un cluster Kubernetes à extension Azure Arc (préversion)
 
@@ -72,6 +72,7 @@ Les agents Azure Arc requièrent les protocoles/ports/URL sortantes suivants pou
 | `https://github.com`, git://github.com                                                                         | Des exemples de dépôts GitOps sont hébergés sur GitHub. L’agent de configuration requiert une connectivité à un point de terminaison Git que vous spécifiez. |
 | `https://login.microsoftonline.com`                                                                            | Requis pour extraire et mettre à jour des jetons Azure Resource. Manager                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Requis pour extraire des images de conteneur pour les agents Azure Arc.                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Requis pour extraire les certificats d'identité managée attribués par le système                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Inscrire les deux fournisseurs pour Kubernetes à extension Azure Arc :
 
@@ -174,7 +175,7 @@ Vous pouvez également afficher cette ressource dans le [Portail Azure](https://
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Se connecter à l’aide d’un serveur proxy sortant
 
-Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les agents Kubernetes activés pour Arc doivent acheminer leurs demandes via le serveur proxy sortant. La configuration suivante vous permet d’effectuer cette opération :
+Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les agents Kubernetes activés pour Arc doivent acheminer leurs demandes via le serveur proxy sortant. La configuration suivante permet ce qui suit :
 
 1. Vérifiez la version de l’extension `connectedk8s` installée sur votre ordinateur en exécutant la commande suivante :
 
@@ -182,7 +183,7 @@ Si votre cluster se trouve derrière un serveur proxy sortant, Azure CLI et les 
     az -v
     ```
 
-    Vous avez besoin de l’extension `connectedk8s` version > = 0.2.3 pour configurer des agents avec un proxy sortant. Si vous disposez d’une version < 0.2.3 sur votre ordinateur, suivez les [étapes de mise à jour](#before-you-begin) pour obtenir la dernière version de l’extension sur votre ordinateur.
+    Vous devez disposer de l'extension `connectedk8s` version > = 0.2.3 pour configurer des agents avec un proxy sortant. Si vous disposez d’une version < 0.2.3 sur votre ordinateur, suivez les [étapes de mise à jour](#before-you-begin) pour obtenir la dernière version de l’extension sur votre ordinateur.
 
 2. Définissez les variables d’environnement nécessaires pour Azure CLI :
 

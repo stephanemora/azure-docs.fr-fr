@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503597"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749087"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -120,7 +120,7 @@ Pour les sources de données cloud :
 
 ## <a name="oauth-credentials"></a>Informations d’identification OAuth
 
-Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure Synapse (précédemment nommé SQL Data Warehouse), Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
+Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure Synapse (précédemment nommé SQL Data Warehouse), Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d'identification à l'aide de Power Query.
 
 Le mode de requête directe n’est pas compatible avec les informations d’identification OAuth.
 

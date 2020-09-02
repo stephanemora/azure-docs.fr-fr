@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207417"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933497"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -375,23 +375,69 @@ param([string] $myBlob)
 
 PowerShell inclut le concept de profil PowerShell. Si vous ne connaissez pas les profils PowerShell, consultez [À propos des profils](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-Dans Functions PowerShell, le script de profil s’exécute au démarrage de Function App. Les Function Apps démarrent lors du premier déploiement et après avoir été inactives ([démarrage à froid](#cold-start)).
+Dans les fonctions PowerShell, le script de profil est exécuté une fois par instance worker PowerShell dans l’application, lors du premier déploiement et après une inactivité ([démarrage à froid](#cold-start)). Lorsque la concurrence est activée en définissant la valeur [PSWorkerInProcConcurrencyUpperBound](#concurrency), le script de profil est exécuté pour chaque instance d’exécution créée.
 
 Lorsque vous créez une Function App à l’aide d’outils, tels que Visual Studio Code et Azure Functions Core Tools, une valeur `profile.ps1` par défaut est créée pour vous. Le profil par défaut est conservé [dans le référentiel Core Tools GitHub](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) et contient :
 
 * Authentification MSI automatique sur Azure.
 * La possibilité d’activer des alias Azure PowerShell `AzureRM` PowerShell si vous le souhaitez.
 
-## <a name="powershell-version"></a>Version de PowerShell
+## <a name="powershell-versions"></a>Versions de PowerShell
 
-Le tableau suivant montre la version de PowerShell qui est utilisée par chaque version majeure du runtime Functions :
+Le tableau suivant répertorie les versions de PowerShell disponibles pour chaque version majeure du runtime Functions, ainsi que la version .NET requise :
 
-| Version de Functions | Version de PowerShell                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5.1 (verrouillé par le runtime) |
-| 2.x               | PowerShell Core 6                              |
+| Version de Functions | Version de PowerShell                               | Version de .NET  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3.x (version recommandée) | PowerShell 7 (version recommandée)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
+| 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Vous pouvez afficher la version en imprimant `$PSVersionTable` à partir de n’importe quelle fonction.
+
+### <a name="running-local-on-a-specific-version"></a>Exécution locale sur une version spécifique
+
+Lors d’une exécution locale, le runtime Azure Functions utilise par défaut PowerShell Core 6. Pour utiliser PowerShell 7, vous devez ajouter le paramètre `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` au tableau `Values` du fichier local.setting.json, situé à la racine du projet. Lors d’une exécution locale sur PowerShell 7, votre fichier local.settings.json ressemble à l’exemple suivant : 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### <a name="changing-the-powershell-version"></a>Changement de version de PowerShell
+
+Votre application de fonction doit être exécutée sur la version 3.x pour permettre la mise à niveau de PowerShell Core 6 vers PowerShell 7. Pour savoir comment procéder, consultez [Afficher et mettre à jour la version actuelle du runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+Procédez comme suit pour modifier la version de PowerShell utilisée par votre application de fonction. Pour ce faire, vous pouvez utiliser le portail Azure ou PowerShell.
+
+# <a name="portal"></a>[Portail](#tab/portal)
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à une application de fonction.
+
+1. Sous **Paramètres**, sélectionnez **Configuration**. Dans l’onglet **Paramètres généraux**, recherchez la **version de PowerShell**. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Choisir la version de PowerShell utilisée par l’application de fonction"::: 
+
+1. Choisissez la version de **PowerShell Core** souhaitée, puis sélectionnez **Enregistrer**. Lorsque vous êtes averti du redémarrage en attente, sélectionnez **Continuer**. L’application de fonction redémarre sur la version de PowerShell choisie. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Exécutez le script suivant pour modifier la version de PowerShell : 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+Remplacez `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`et `<FUNCTION_APP>` par l’ID de votre abonnement Azure, le nom de votre groupe de ressources et de votre application de fonction, respectivement.  Remplacez également `<VERSION>` par `~6` ou `~7`. Vous pouvez vérifier la valeur mise à jour du paramètre `powerShellVersion` dans `Properties` de la table de hachage retournée. 
+
+---
+
+L’application de fonction redémarre une fois la modification apportée à la configuration.
 
 ## <a name="dependency-management"></a>Gestion des dépendances
 
@@ -417,7 +463,10 @@ Lorsque vous créez un projet PowerShell Functions, la gestion des dépendances 
 Lorsque vous mettez à jour le fichier requirements.psd1, les modules mis à jour sont installés après un redémarrage.
 
 > [!NOTE]
-> Les dépendances managées nécessitent un accès à www.powershellgallery.com pour télécharger les modules. Lors de l’exécution locale, assurez-vous que le runtime peut accéder à cette URL en ajoutant les règles de pare-feu requises. 
+> Les dépendances managées nécessitent un accès à www.powershellgallery.com pour télécharger les modules. Lors de l’exécution locale, assurez-vous que le runtime peut accéder à cette URL en ajoutant les règles de pare-feu requises.
+
+> [!NOTE]
+> Actuellement, les dépendances managées ne prennent pas en charge les modules qui nécessitent l’acceptation d’une licence par l’utilisateur, soit en acceptant la licence de manière interactive, soit en fournissant un `-AcceptLicense` commutateur lors de l’appel de `Install-Module`.
 
 Vous pouvez utiliser les paramètres d’application suivants pour changer la façon de télécharger et d’installer les dépendances managées. La mise à niveau de votre application démarre dans `MDMaxBackgroundUpgradePeriod`, puis le processus de mise à niveau se termine globalement dans `MDNewSnapshotCheckPeriod`.
 
@@ -435,6 +484,7 @@ Dans Functions, `PSModulePath` contient deux chemins d’accès :
 
 * Un dossier `Modules` à la racine de votre application de fonction.
 * Un chemin d’accès à un dossier `Modules` contrôlé par le rôle de travail du langage PowerShell.
+
 
 ### <a name="function-app-level-modules-folder"></a>Dossier `Modules` de niveau Function App
 
@@ -502,17 +552,22 @@ Par défaut, le runtime Functions PowerShell ne peut traiter qu’un appel de fo
 * Lorsque vous essayez de gérer un grand nombre d’appels en même temps.
 * Lorsque vous disposez de fonctions qui appellent d’autres fonctions dans la même Function App.
 
-Vous pouvez modifier ce comportement en définissant la variable d’environnement suivante sur une valeur entière :
+Il existe plusieurs modèles de concurrence que vous pouvez explorer en fonction du type de charge de travail :
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Augmenter ```FUNCTIONS_WORKER_PROCESS_COUNT```. Cela permet de gérer les appels de fonction dans plusieurs processus au sein de la même instance, ce qui entraîne une certaine surcharge du processeur et de la mémoire. En général, les fonctions liées aux E/S ne subissent pas cette surcharge. Pour les fonctions liées à l’UC, l’impact peut être significatif.
 
-Vous définissez cette variable d’environnement dans les [paramètres d’application](functions-app-settings.md) de votre Function App.
+* Augmenter la valeur du paramètre d’application ```PSWorkerInProcConcurrencyUpperBound```. Cela permet de créer plusieurs instances d’exécution dans le même processus, ce qui réduit considérablement la surcharge du processeur et de la mémoire.
+
+Vous définissez ces variables d’environnement dans les [paramètres d’application](functions-app-settings.md) de votre application de fonction.
+
+Selon votre cas d’usage, Durable Functions peut considérablement améliorer la scalabilité. Pour plus d’informations, consultez les [modèles d’application Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> Il est possible que vous receviez des avertissements de type « les requêtes sont mises en file d’attente en l’absence d’instances d’exécution disponibles ». Notez qu’il ne s’agit pas d’une erreur. Ce message vous informe que les requêtes sont en file d’attente et qu’elles seront gérées au terme des requêtes précédentes.
 
 ### <a name="considerations-for-using-concurrency"></a>Considérations relatives à l’utilisation de la concurrence
 
-PowerShell est un langage de scripts _à un thread_ par défaut. Toutefois, la concurrence peut être ajoutée en utilisant plusieurs instances d’exécution de PowerShell dans le même processus. La quantité d’instances d’exécution créée correspond au paramètre d’application PSWorkerInProcConcurrencyUpperBound. Le débit sera affecté par la quantité d’UC et de mémoire disponible dans le plan sélectionné.
+PowerShell est un langage de scripts _à un thread_ par défaut. Toutefois, la concurrence peut être ajoutée en utilisant plusieurs instances d’exécution de PowerShell dans le même processus. La quantité d’instances d’exécution créée correspond au paramètre d’application ```PSWorkerInProcConcurrencyUpperBound```. Le débit sera affecté par la quantité d’UC et de mémoire disponible dans le plan sélectionné.
 
 Azure PowerShell utilise des contextes _au niveau du processus_ et un état pour vous libérer d’une saisie excessive. Toutefois, si vous activez la concurrence dans votre Function App et appelez des actions qui changent l’état, vous pouvez être confronté à des conditions de concurrence. Ces conditions de concurrence sont difficiles à déboguer car un appel s’appuie sur un état donné et que l’autre appel a changé l’état.
 
@@ -608,4 +663,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 
-[Informations de référence sur host.json]: functions-host-json.md
+[référence de host.json]: functions-host-json.md

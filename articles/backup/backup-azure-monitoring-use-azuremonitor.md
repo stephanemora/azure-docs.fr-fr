@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054616"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827152"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -46,7 +46,7 @@ La caractéristique définissant une alerte est sa condition de déclenchement. 
 Si nécessaire, vous pouvez modifier la requête Kusto. Choisissez un seuil, une période et une fréquence. Le seuil détermine à quel moment l’alerte sera déclenchée. La période correspond à la fenêtre de temps pendant laquelle la requête est exécutée. Par exemple, si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, la règle exécute la requête toutes les 5 minutes, en examinant les 5 minutes précédentes. Si le nombre de résultats est supérieur à 0, vous êtes averti via le groupe d’actions sélectionné.
 
 > [!NOTE]
-> Pour exécuter la règle d’alerte une fois par jour, sur tous les événements/journaux qui ont été créés le jour donné, modifiez la valeur de « Période » et « Fréquence » en 1440, soit 24 heures.
+> Pour exécuter la règle d'alerte une fois par jour, sur tous les événements/journaux qui ont été créés le jour donné, remplacez la valeur de « Période » et de « Fréquence » par 1440, soit 24 heures.
 
 #### <a name="alert-action-groups"></a>Groupes d’actions d’alerte
 

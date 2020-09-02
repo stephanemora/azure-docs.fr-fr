@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Dans cet article, découvrez comment utiliser PowerShell pour configurer Sauvegarde Azure sur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564025"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892369"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -42,10 +42,10 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou [Stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option **-BackupStorageRedundancy** pour *testVault* est définie sur **GeoRedundant**.
+4. Spécifiez le type de redondance de stockage à utiliser. Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option **-BackupStorageRedundancy** pour *testVault* est définie sur **GeoRedundant**.
 
    > [!TIP]
-   > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
+   > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Il est donc pratique de stocker l'objet coffre Backup Recovery Services dans une variable.
    >
    >
 
@@ -124,7 +124,7 @@ Les options disponibles incluent :
 | /pu |Nom d’utilisateur de l’hôte proxy |- |
 | /pw |Mot de passe du proxy |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Inscription d’un serveur Windows Server ou d’un ordinateur client Windows auprès d’un coffre Recovery Services
+## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Inscription d'un serveur Windows Server ou d'un ordinateur client Windows auprès d'un coffre Recovery Services
 
 Une fois que vous avez créé un coffre Recovery Services, téléchargez le dernier agent et les informations d’identification de coffre et stockez-les dans un emplacement pratique comme C:\Téléchargements.
 
@@ -177,7 +177,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans l’applet de commande.
+> N'utilisez pas de chemins d'accès relatifs pour spécifier le fichier des informations d'identification du coffre. Vous devez fournir un chemin absolu dans l’applet de commande.
 >
 >
 
@@ -226,7 +226,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pouvez pas restaurer les données à partir d’Azure sans cette phrase secrète.
+> Conservez les informations relatives à la phrase secrète en lieu sûr après les avoir définies. Vous ne pouvez pas restaurer les données à partir d’Azure sans cette phrase secrète.
 >
 >
 

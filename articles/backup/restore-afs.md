@@ -3,12 +3,12 @@ title: Restaurer des partages de fichiers Azure
 description: Découvrez comment utiliser le portail Azure pour restaurer un partage de fichiers entier ou des fichiers spécifiques à partir d’un point de restauration créé par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503640"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762820"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurer des partages de fichiers Azure
 
@@ -59,14 +59,14 @@ Vous pouvez utiliser cette option de restauration pour restaurer l’intégralit
     ![Sélectionner le point de restauration](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Par défaut, le volet **Sélectionner un point de restauration** présente les points de restauration des 30 derniers jours. Si vous souhaitez afficher les points de restauration créés à un moment précis, spécifiez la plage en sélectionnant l’**heure de début** et l’**heure de fin** appropriées, puis cliquez sur le bouton **Actualiser**.
+    >Par défaut, le volet **Sélectionner un point de restauration** présente les points de restauration des 30 derniers jours. Si vous souhaitez afficher les points de restauration créés à un moment précis, spécifiez la plage en sélectionnant l'**heure de début** et l'**heure de fin** appropriées, puis cliquez sur le bouton **Actualiser**.
 
 1. L’étape suivante consiste à choisir l’**emplacement de restauration**. Dans la section **Destination de récupération**, spécifiez où et comment restaurer les données. Sélectionnez l’une des deux options suivantes à l’aide du bouton bascule :
 
     * **Emplacement d’origine** : Restaurez le partage de fichiers complet au même emplacement que la source d’origine.
     * **Autre emplacement** : Restaurez le partage de fichiers complet à un autre emplacement et conservez le partage de fichiers d’origine tel quel.
 
-#### <a name="restore-to-the-original-location"></a>Restaurer à l’emplacement d’origine
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Restaurer à l'emplacement d'origine (récupération de l'intégralité du partage)
 
 1. Sélectionnez **Emplacement d’origine** comme **Destination de récupération** et choisissez d’ignorer ou de remplacer en cas de conflit en sélectionnant l’option appropriée dans la liste déroulante **En cas de conflit**.
 
@@ -74,7 +74,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer l’intégralit
 
     ![Sélectionner Restaurer pour démarrer](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurer à un autre emplacement
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Restaurer à un autre emplacement (récupération de l'intégralité du partage)
 
 1. Sélectionnez **Autre emplacement** comme **Destination de récupération**.
 1. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage de destination dans lequel vous souhaitez restaurer le contenu sauvegardé.
@@ -106,7 +106,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
     * **Emplacement d’origine** : Restaurez les fichiers ou dossiers sélectionnés dans le même partage de fichiers que la source d’origine.
     * **Autre emplacement** : Restaurez les fichiers ou dossiers sélectionnés dans un autre emplacement et conservez le contenu du partage de fichiers d’origine tel quel.
 
-#### <a name="restore-to-the-original-location"></a>Restaurer à l’emplacement d’origine
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Restaurer à l'emplacement d'origine (récupération au niveau de l'élément)
 
 1. Sélectionnez **Emplacement d’origine** comme **Destination de récupération** et choisissez d’ignorer ou de remplacer en cas de conflit en sélectionnant l’option appropriée dans la liste déroulante **En cas de conflit**.
 
@@ -125,7 +125,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
 
     ![Sélectionner Restaurer pour démarrer](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurer à un autre emplacement
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Restaurer à un autre emplacement (récupération au niveau de l'élément)
 
 1. Sélectionnez **Autre emplacement** comme **Destination de récupération**.
 1. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage de destination dans lequel vous souhaitez restaurer le contenu sauvegardé.

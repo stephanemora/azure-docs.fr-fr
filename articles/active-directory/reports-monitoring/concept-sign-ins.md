@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388116"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816080"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -47,11 +47,7 @@ Cet article présente une vue d’ensemble du rapport de connexions.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
 
-- Le rapport d’activité de connexion est disponible avec [toutes les éditions d’Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Si vous souhaitez accéder aux données de connexion à l’aide d’une API, votre locataire doit avoir une licence [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) associée.
-
-
+Le rapport relatif à l'activité de connexion est disponible dans [toutes les éditions d'Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) ; il est également accessible via l'API Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Rapport de connexions
 

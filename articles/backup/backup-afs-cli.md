@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514439"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763234"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
 
@@ -44,7 +44,7 @@ Pour créer un coffre Recovery Services, procédez comme suit :
 
 1. Utilisez la cmdlet [az backup vault create](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
-    L'exemple explique comment créer un coffre Recovery Services nommé *azurefilesvault* dans la région USA Est.
+    L'exemple suivant explique comment créer un coffre Recovery Services nommé *azurefilesvault* dans la région USA Est.
 
     ```azurecli-interactive
     az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table

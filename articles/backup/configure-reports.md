@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612433"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826852"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -89,7 +89,7 @@ cet onglet indique les paramètres clés de facturation des sauvegardes. Les inf
    ![Onglet Utilisation](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Pour les charges de travail DPM, les utilisateurs peuvent voir une légère différence (de l’ordre de 20 Mo par serveur DPM) entre les valeurs d’utilisation présentées dans les rapports par rapport à la valeur d’utilisation de l’agrégat, comme indiqué dans l’onglet de présentation du coffre Recovery Services. Cette différence s’explique par le fait que chaque serveur DPM inscrit pour la sauvegarde a une source de données « métadonnées » associée qui n’est pas exposée en tant qu’artefact pour la création de rapports.
+> Pour les charges de travail DPM, les utilisateurs peuvent constater une légère différence (de l'ordre de 20 Mo par serveur DPM) entre les valeurs d'utilisation présentées dans les rapports et la valeur d'utilisation globale indiquée dans l'onglet **Présentation** du coffre Recovery Services. Cette différence s'explique par le fait que chaque serveur DPM inscrit pour la sauvegarde possède une source de données « métadonnées » associée qui n'est pas présentée comme un artefact pour la création de rapports.
 
 ##### <a name="jobs"></a>travaux
 
@@ -109,7 +109,7 @@ Cet onglet vous permet d’obtenir une visibilité sur les opportunités potenti
 
 ###### <a name="inactive-resources"></a>Ressources inactives
 
-Cette vue, vous permet d’identifier les éléments de sauvegarde qui n’ont pas été sauvegardés correctement depuis un temps non négligeable. Cela peut indiquer que la machine sous-jacente faisant l’objet de la sauvegarde n’existe plus ou qu’elle rencontre un problème qui empêche que les sauvegardes soient considérées comme fiables.
+Cette vue vous permet d'identifier les éléments de sauvegarde qui n'ont pas été correctement sauvegardés pendant une durée significative. Cela peut indiquer que la machine sous-jacente faisant l’objet de la sauvegarde n’existe plus ou qu’elle rencontre un problème qui empêche que les sauvegardes soient considérées comme fiables.
 
 Pour afficher les ressources inactives, accédez à l’onglet **Optimiser**, puis sélectionnez la vignette **Ressources inactives**. Cela a pour effet d’afficher une grille contenant des détails sur toutes les ressources inactives dans l’étendue sélectionnée. Par défaut, la grille affiche les éléments qui n’ont pas de point de récupération remontant à moins de 8 jours. Pour rechercher des ressources inactives dans un autre intervalle de temps, vous pouvez ajuster le filtre **Plage de temps** en haut de l’onglet.
 

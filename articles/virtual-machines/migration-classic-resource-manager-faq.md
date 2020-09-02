@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 3d8c5d408ef2b958ca7d3454f23ce2c52fb1d1be
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513014"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855855"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Questions fréquemment posées sur la migration du modèle classique vers le modèle Azure Resource Manager
 
@@ -26,7 +26,7 @@ Le mot « Classic » dans la machine virtuelle IaaS (Classic) fait référence
 
 ## <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) est le dernier plan de contrôle d’Azure chargé de la création, de la gestion, de la suppression des machines virtuelles et de l’exécution d’autres opérations de plan de contrôle. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) est le plan de contrôle d’Azure le plus récent chargé de la création, de la gestion, de la suppression des machines virtuelles et de l’exécution d’autres opérations de plan de contrôle. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Quel est le temps nécessaire pour une migration ?
 
@@ -70,7 +70,7 @@ Vous ne pouvez pas abandonner la migration si l’opération de validation écho
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Dois-je acheter un autre circuit ExpressRoute si je dois utiliser la ressource IaaS sous Resource Manager ? 
 
-Non. Nous avons récemment activé la [migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](~/articles/expressroute/expressroute-move.md). Vous n’avez pas besoin d’acheter de nouveau circuit ExpressRoute si vous en possédez déjà un.
+Non. Nous avons récemment activé la [migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](../expressroute/expressroute-move.md). Vous n’avez pas besoin d’acheter de nouveau circuit ExpressRoute si vous en possédez déjà un.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>Que se passera-t-il si j’ai configuré des stratégies de contrôle d’accès en fonction du rôle (RBAC) pour mes ressources IaaS Classic ? 
 
@@ -93,7 +93,7 @@ Pour effectuer la migration de la machine virtuelle en mode Resource Manager :
 1. Supprimez l’extension de sauvegarde/capture instantanée de la machine virtuelle.
 2. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que les informations relatives au stockage et au réseau correspondant à la machine virtuelle sont également migrées vers le mode Resource Manager.
 
-En outre, si vous souhaitez sauvegarder la machine virtuelle migrée, accédez au panneau de gestion de la machine virtuelle pour [activer la sauvegarde](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+En outre, si vous souhaitez sauvegarder la machine virtuelle migrée, accédez au panneau de gestion de la machine virtuelle pour [activer la sauvegarde](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une migration ? 
 
@@ -113,7 +113,7 @@ Les noms de toutes les ressources que vous avez explicitement fournis dans le mo
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>Puis-je migrer des circuits ExpressRoute utilisés dans les abonnements avec des liens d’autorisation ? 
 
-Les circuits ExpressRoute utilisant des liens d’autorisation entre abonnements ne peuvent pas être migrés automatiquement sans temps d’arrêt. Il existe des étapes manuelles permettant de migrer ces circuits. Consultez [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](~/articles/expressroute/expressroute-migration-classic-resource-manager.md) pour voir la procédure et obtenir plus d’informations.
+Les circuits ExpressRoute utilisant des liens d’autorisation entre abonnements ne peuvent pas être migrés automatiquement sans temps d’arrêt. Il existe des étapes manuelles permettant de migrer ces circuits. Consultez [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md) pour voir la procédure et obtenir plus d’informations.
 
 ## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>J’ai reçu le message *« La machine virtuelle signale que l’agent est dans l’état général Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état général de l’agent signalé par l’agent de machine virtuelle est « Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas signalé par la machine virtuelle. Par conséquent, elle ne peut pas faire l’objet d’une migration. »*
 

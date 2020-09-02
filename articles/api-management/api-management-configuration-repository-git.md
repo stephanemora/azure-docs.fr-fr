@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254841"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723943"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -82,7 +82,7 @@ Pour générer un mot de passe, vérifiez d’abord que le champ **Expiration** 
 
 Les exemples suivants utilisent l’outil Git Bash de [Git pour Windows](https://www.git-scm.com/downloads) , mais vous pouvez utiliser n’importe quel outil Git auquel vous êtes habitué.
 
-Ouvrez votre outil Git dans le dossier de votre choix et exécutez la commande suivante pour cloner le dépôt git sur votre ordinateur local, à l’aide de la commande fournie par le portail Azure.
+Ouvrez votre outil Git dans le dossier de votre choix et exécutez la commande suivante pour cloner le référentiel Git sur votre ordinateur local, à l'aide de la commande fournie par le portail Azure.
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -146,7 +146,7 @@ Pour plus d’informations sur l’exécution de cette opération en utilisant l
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Référence de la structure des fichiers et des dossiers du dépôt Git local
 
-Les fichiers et dossiers dans le dépôt git local contiennent les informations de configuration sur l’instance de service.
+Les fichiers et dossiers figurant dans le référentiel Git local contiennent les informations de configuration relatives à l'instance de service.
 
 | Élément | Description |
 | --- | --- |

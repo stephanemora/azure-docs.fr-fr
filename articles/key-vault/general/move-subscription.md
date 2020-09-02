@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585744"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782717"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -59,7 +59,9 @@ Accédez à la page Azure Policy dans le Portail Azure et vérifiez que les attr
 
 ## <a name="procedure"></a>Procédure
 
-### <a name="initial-steps-moving-key-vault"></a>Étapes initiales (déplacement Key Vault)
+Si vous 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Déplacer Key Vault vers un nouvel abonnement au sein du même locataire
 
 1. Connectez-vous au portail Azure.
 2. Accédez à votre coffre de clés.
@@ -70,9 +72,9 @@ Accédez à la page Azure Policy dans le Portail Azure et vérifiez que les attr
 7. Confirmer la lecture de l’avertissement sur le déplacement des ressources
 8. Sélectionnez « OK ».
 
-### <a name="additional-steps-post-move"></a>Étapes supplémentaires (après déplacement)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Étapes supplémentaires si vous avez déplacé le coffre de clés vers un abonnement associé à un nouveau locataire
 
-Maintenant que vous avez déplacé votre coffre de clés vers le nouvel abonnement, vous devez mettre à jour l’ID de locataire et supprimer les anciennes stratégies d’accès. Voici des didacticiels pour ces étapes dans PowerShell et Azure CLI.
+Si vous avez déplacé votre coffre de clés vers un abonnement associé à un nouveau locataire, vous devez manuellement mettre à jour l'ID du locataire et supprimer les anciennes stratégies d'accès. Voici des didacticiels pour ces étapes dans PowerShell et Azure CLI. Si vous utilisez PowerShell, vous devrez peut-être exécuter la commande Clear-AzContext documentée ci-dessous pour pouvoir visualiser les ressources en dehors de l'étendue sélectionnée actuelle. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

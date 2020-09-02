@@ -3,12 +3,12 @@ title: Gérer les certificats d’un cluster Azure Service Fabric
 description: Explique comment ajouter de nouveaux certificats, substituer un certificat ou supprimer un certificat pour un cluster Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658387"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869743"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
@@ -260,7 +260,7 @@ Outre les certificats de cluster, vous pouvez ajouter des certificats clients po
 
 Vous pouvez ajouter deux types de certificats clients : administrateur ou en lecture seule. Ces certificats peuvent ensuite être utilisés pour contrôler l’accès aux opérations d’administration et aux opérations de requête sur le cluster. Par défaut, les certificats de cluster sont ajoutés à la liste de certificats administrateur autorisés.
 
-Vous pouvez spécifier autant de certificats clients que vous souhaitez. Chaque ajout/suppression entraîne une mise à jour de la configuration du cluster Service Fabric
+Vous pouvez spécifier autant de certificats clients que vous le souhaitez. Chaque ajout/suppression entraîne une mise à jour de la configuration du cluster Service Fabric.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Ajout d’un certificat client administrateur ou en lecture seule via le portail

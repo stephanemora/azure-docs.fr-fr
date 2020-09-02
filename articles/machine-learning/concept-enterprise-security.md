@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366925"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918585"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -119,19 +119,14 @@ Vous pouvez également activer le service Liaison privée Azure pour votre espac
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
 > [!IMPORTANT]
-> Si votre espace de travail contient des données sensibles, nous vous recommandons de définir l’[indicateur hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) lors de la création de votre espace de travail. 
+> Si votre espace de travail contient des données sensibles, nous vous recommandons de définir l’[indicateur hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) lors de la création de votre espace de travail. L’indicateur `hbi_workspace` ne peut être défini qu’au moment de la création d’un espace de travail. Il ne peut pas être modifié pour un espace de travail existant.
 
-L’indicateur `hbi_workspace` contrôle la quantité de données que Microsoft collecte à des fins de diagnostic, et permet un chiffrement supplémentaire dans des environnements gérés par Microsoft. Il active par ailleurs les opérations suivantes :
+L'indicateur `hbi_workspace` contrôle la quantité de [données que Microsoft collecte à des fins de diagnostic](#microsoft-collected-data), et permet un [chiffrement supplémentaire dans des environnements gérés par Microsoft](../security/fundamentals/encryption-atrest.md). Il active par ailleurs les opérations suivantes :
 
 * Lance le chiffrement du disque de travail local dans votre cluster de calcul Azure Machine Learning, à condition que vous n’ayez créé aucun cluster dans cet abonnement. Autrement, vous devez ouvrir un ticket de support pour activer le chiffrement du disque de travail de vos clusters de calcul. 
 * Nettoie votre disque de travail local entre les exécutions.
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
 * Active le filtrage IP pour s’assurer que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres que AzureMachineLearningService.
-
-> [!WARNING]
-> L’indicateur `hbi_workspace` ne peut être défini qu’au moment de la création d’un espace de travail. Il ne peut pas être modifié pour un espace de travail existant.
-
-Pour plus d’informations sur le fonctionnement du chiffrement au repos dans Azure, consultez [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Stockage Blob Azure
 

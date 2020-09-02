@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612399"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723926"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
@@ -49,7 +49,7 @@ Voici comment activer les paramètres de diagnostic pour votre instance Azure Di
     
 4. Enregistrez les nouveaux paramètres. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d’écran montrant la page des paramètres de diagnostic et le bouton à ajouter":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Capture d'écran montrant la page des paramètres de diagnostic où l'utilisateur a renseigné un nom de paramètre de diagnostic et coché quelques cases en rapport avec les détails de la catégorie et de la destination. Le bouton Enregistrer est en surbrillance.":::
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux réapparaissent dans la cible configurée sur la page **Paramètres de diagnostic** de votre instance. 
 
@@ -64,7 +64,7 @@ Voici des détails supplémentaires sur les catégories de journaux qui peuvent 
 | ADTEventRoutesOperation | Consigner tous les appels d’API se rapportant aux itinéraires d’événements, ainsi que la sortie d’événements provenant d’Azure Digital Twins vers un service de point de terminaison comme Event Grid, Event Hubs et Service Bus |
 | ADTDigitalTwinsOperation | Consigner tous les appels d’API se rapportant à Azure Digital Twins |
 
-Chaque catégorie de journal se compose d’opérations d’écriture, de lecture, de suppression et d’action.  Ces opérations sont mappées à des appels d'API REST, comme suit :
+Chaque catégorie de journal se compose d'opérations d'écriture, de lecture, de suppression et d'action.  Ces opérations sont mappées à des appels d'API REST, comme suit :
 
 | Type d'événement | Opérations de l'API REST |
 | --- | --- |
@@ -86,13 +86,142 @@ Voici une liste complète des opérations et des [appels d’API REST Azure Digi
 |  | Microsoft.DigitalTwins/models/action | API d’ajout des modèles de jumeaux numériques |
 | ADTQueryOperation | Microsoft.DigitalTwins/query/action | API de jumeaux numériques de requête |
 | ADTEventRoutesOperation | Microsoft.DigitalTwins/eventroutes/write | API d’ajout de routages d’événements |
-|  | Microsoft.DigitalTwins/eventroutes/read | API de routages d’événements Get by ID et Liste |
+|  | Microsoft.DigitalTwins/eventroutes/read | API de routages d'événements Get by ID et Liste |
 |  | Microsoft.DigitalTwins/eventroutes/delete | API de suppression de routages d’événements |
 |  | Microsoft.DigitalTwins/eventroutes/action | Échec lors de la tentative de publication des événements sur un service de point de terminaison (pas un appel d’API) |
 | ADTDigitalTwinsOperation | Microsoft.DigitalTwins/digitaltwins/write | Ajouter des jumeaux numériques, Ajouter une relation, Mettre à jour, Mettre à jour un composant |
 |  | Microsoft.DigitalTwins/digitaltwins/read | Jumeaux numériques Get by ID, Obtenir un composant, Obtenir une relation par ID, Relations entrantes, Lister les relations |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Supprimer des jumeaux numériques, Supprimer une relation |
 |  | Microsoft.DigitalTwins/digitaltwins/action | Envoyer des données de télémétrie de composant de jumeaux numériques, Envoyer des données de télémétrie |
+
+## <a name="log-schemas"></a>Schémas des journaux 
+
+Chaque catégorie de journal dispose d'un schéma qui définit la façon dont les événements de cette catégorie sont signalés. Chaque entrée de journal est stockée sous forme de texte et formatée en tant qu'objet blob JSON. Les champs du journal et des exemples de corps JSON sont fournis pour chaque type de journal ci-dessous. 
+
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation` utilisent un schéma de journal d'API cohérent ; `ADTEventRoutesOperation` dispose d'un schéma distinct.
+
+### <a name="api-log-schemas"></a>Schéma des journaux d'API
+
+Ce schéma de journal est cohérent pour `ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation`. Il contient des informations relatives aux appels d'API à une instance d'Azure Digital Twins.
+
+Vous trouverez ci-dessous les descriptions des champs et des propriétés des journaux d'API.
+
+| Nom du champ | Type de données | Description |
+|-----|------|-------------|
+| `Time` | DateTime | Date et heure (UTC) auxquelles l'événement s'est produit |
+| `ResourceID` | String | ID Azure Resource Manager de la ressource sur laquelle l'événement s'est produit |
+| `OperationName` | String  | Type d'action réalisée pendant l'événement |
+| `OperationVersion` | String | Version de l'API utilisée pendant l'événement |
+| `Category` | String | Type de ressource émise |
+| `ResultType` | String | Résultat de l'événement |
+| `ResultSignature` | String | Code d'état HTTP de l'événement |
+| `ResultDescription` | String | Détails supplémentaires sur l'événement |
+| `DurationMs` | String | Temps nécessaire pour exécuter l'événement, en millisecondes |
+| `CallerIpAddress` | String | Adresse IP source masquée de l'événement |
+| `CorrelationId` | Guid | Le client a fourni un identificateur unique pour l'événement |
+| `Level` | String | Gravité de la journalisation de l'événement |
+| `Location` | String | Région où s'est produit l'événement |
+| `RequestUri` | Uri | Point de terminaison utilisé pendant l'événement |
+
+Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types de journaux.
+
+#### <a name="adtdigitaltwinsoperation"></a>ADTDigitalTwinsOperation
+
+```json
+{
+  "time": "2020-03-14T21:11:14.9918922Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "DigitalTwinOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "314",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+}
+```
+
+#### <a name="adtmodelsoperation"></a>ADTModelsOperation
+
+```json
+{
+  "time": "2020-10-29T21:12:24.2337302Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/models/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "ModelsOperation",
+  "resultType": "Success",
+  "resultSignature": "201",
+  "resultDescription": "",
+  "durationMs": "935",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+}
+```
+
+#### <a name="adtqueryoperation"></a>ADTQueryOperation
+
+```json
+{
+  "time": "2020-12-04T21:11:44.1690031Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/query/action",
+  "operationVersion": "2020-05-31-preview",
+  "category": "QueryOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "255",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+}
+```
+
+### <a name="egress-log-schemas"></a>Schéma des journaux de sortie
+
+Il s'agit du schéma des journaux `ADTEventRoutesOperation`. Ceux-ci contiennent des détails sur les exceptions et les opérations d'API relatives aux points de terminaison de sortie connectés à une instance d'Azure Digital Twins.
+
+|Nom du champ | Type de données | Description |
+|-----|------|-------------|
+| `Time` | DateTime | Date et heure (UTC) auxquelles l'événement s'est produit |
+| `ResourceId` | String | ID Azure Resource Manager de la ressource sur laquelle l'événement s'est produit |
+| `OperationName` | String  | Type d'action réalisée pendant l'événement |
+| `Category` | String | Type de ressource émise |
+| `ResultDescription` | String | Détails supplémentaires sur l'événement |
+| `Level` | String | Gravité de la journalisation de l'événement |
+| `Location` | String | Région où s'est produit l'événement |
+| `EndpointName` | String | Nom du point de terminaison de sortie créé dans Azure Digital Twins |
+
+Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types de journaux.
+
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
+
+```json
+{
+  "time": "2020-11-05T22:18:38.0708705Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/eventroutes/action",
+  "category": "EventRoutesOperation",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+  "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+  "level": "3",
+  "location": "southcentralus",
+  "properties": {
+    "endpointName": "endpointEventGridInvalidKey"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

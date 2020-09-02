@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 08/26/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27144dcd4c7d7490aba3626264e1cb4b64fbb162
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 348d436d1cb1fa838a34c9ebe86f5e37f0f85803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019197"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930557"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du Portail Azure
 
 Les identités managées pour ressources Azure fournissent aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier auprès de services prenant en charge l’authentification Azure AD, sans avoir recours à des informations d’identification dans votre code. 
 
-Dans cet article, vous allez découvrir comment créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur en utilisant le Portail Azure.
+Dans cet article, vous allez découvrir comment créer, répertorier, supprimer ou attribuer un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,13 +40,13 @@ Pour créer une identité managée affectée par l’utilisateur, votre compte a
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant un compte associé à l’abonnement Azure pour créer l’identité managée affectée par l’utilisateur.
 2. Dans la zone de recherche, saisissez *Identités managées*, puis sous **Services**, cliquez sur **Identités managées**.
 3. Cliquez sur **Ajouter** et entrez des valeurs dans les champs suivants dans le volet d’identité **Créer une identité managée affectée par l’utilisateur** :
-   - **Nom de la ressource** : Il s’agit du nom de votre identité managée affectée par l’utilisateur, par exemple UAI1.
-   - **Abonnement**: Sélectionnez l’abonnement sous lequel créer l’identité managée affectée par l’utilisateur.
-   - **Groupe de ressources** : Créez un groupe de ressources pour contenir votre identité managée affectée par l’utilisateur, ou choisissez **Utiliser l’existant** pour créer l’identité managée affectée par l’utilisateur dans un groupe de ressources existant.
-   - **Emplacement** : Choisissez un emplacement où déployer l’identité managée affectée par l’utilisateur, par exemple **USA Ouest**.
-4. Cliquez sur **Créer**.
-
-![Créer une identité managée attribuée par l’utilisateur](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+    - **Abonnement**: Sélectionnez l’abonnement sous lequel créer l’identité managée affectée par l’utilisateur.
+    - **Groupe de ressources** : Choisissez un groupe de ressources pour créer l’identité managée affectée à l’utilisateur ou cliquez sur **Créer un nouveau** pour créer un groupe de ressources.
+    - **Région** : Choisissez une région où déployer l’identité managée affectée par l’utilisateur, par exemple **USA Ouest**.
+    - **Name** : Il s’agit du nom de votre identité managée affectée par l’utilisateur, par exemple UAI1.
+    ![Créer une identité managée attribuée par l’utilisateur](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. Cliquez sur **Vérifier + créer** pour passer en revue les modifications.
+5. Cliquez sur **Créer**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Répertorier les identités managées affectées par l’utilisateur
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449522"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660906"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -180,7 +180,7 @@ Update Management analyse les données des machines gérées à l’aide des rè
 
 * Chaque machine Linux : Update Management effectue une analyse toutes les heures.
 
-La consommation moyenne de données par les journaux Azure Monitor pour une machine utilisant Update Management est d’environ 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour assurer le suivi de votre consommation exacte. Pour plus d’informations sur l’analyse de l’utilisation des données, consultez [Gérer l’utilisation et le coût](../../azure-monitor/platform/manage-cost-storage.md).
+La consommation moyenne de données par les journaux Azure Monitor pour une machine utilisant Update Management est d’environ 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour assurer le suivi de votre consommation exacte. Pour plus d'informations sur l'analyse de l'utilisation des données des journaux d'activité Azure Monitor, consultez [Gérer l'utilisation et les coûts](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Planification réseau
 

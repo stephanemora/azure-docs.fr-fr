@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311279"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892063"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -93,9 +93,21 @@ Effectuez chaque étape pour réaliser votre déploiement IoT Edge pour Azure Se
 
 1. Sous l’onglet **Paramètres de jumeau de module**, ajoutez la configuration suivante :
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Propriété de jumeau de module :
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
+
+   Contenu de la propriété de jumeau de module : 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Pour plus d’informations sur la configuration de l’agent, consultez [Configurer des agents de sécurité](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Sélectionnez **Update**.
 

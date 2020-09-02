@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135808"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855792"
 ---
 # <a name="what-is-virtual-network-nat"></a>Qu’est-ce que le service NAT de Réseau virtuel ?
 
@@ -123,31 +123,17 @@ Vous pouvez superviser le fonctionnement de votre NAT par le biais de métriques
 
 En disponibilité générale, le chemin de données NAT est au moins disponible à 99,9 %.
 
-
 ## <a name="pricing"></a>Tarifs
 
-La passerelle NAT est facturée avec deux compteurs distincts :
-
-| Compteur | Tarif |
-| --- | --- |
-| Heures de ressource | 0,045 dollars/heure |
-| Données traitées | 0,045 dollar/Go |
-
-Les heures de ressource tiennent compte de la durée pendant laquelle une ressource de passerelle NAT existe.
-Les données traitées tiennent compte de tout le trafic traité par une ressource de passerelle NAT.
+Pour plus d'informations sur les tarifs, consultez [Tarification des réseaux virtuels](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="availability"></a>Disponibilité
 
-Le service NAT de réseau virtuel et la ressource de passerelle NAT sont disponibles dans toutes les [régions](https://azure.microsoft.com/global-infrastructure/regions/) du cloud public Azure.
-
-## <a name="support"></a>Support
-
-NAT est pris en charge par le biais des canaux normaux.
+Le service NAT de réseau virtuel et la ressource de passerelle NAT sont disponibles dans toutes les [régions](https://azure.microsoft.com/global-infrastructure/regions/) des clouds Azure.
 
 ## <a name="suggestions"></a>Suggestions
 
 Nous aimerions savoir comment nous pouvons améliorer le service. Proposez-nous de nouvelles fonctionnalités et votez pour celles que vous préférez en nous contactant sur [UserVoice for NAT](https://aka.ms/natuservoice).
-
 
 ## <a name="limitations"></a>Limites
 

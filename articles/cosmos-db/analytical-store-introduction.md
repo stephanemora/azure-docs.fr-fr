@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037097"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815825"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Qu’est-ce que Azure Cosmos DB Analytical Store (préversion) ?
 
@@ -22,7 +22,7 @@ Le magasin analytique Azure Cosmos DB est un magasin de colonnes totalement isol
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Défis liés à l’analytique à grande échelle des données opérationnelles
 
-Les données opérationnelles multi-modèles dans un conteneur de Azure Cosmos DB sont stockées en interne dans un « magasin transactionnel » basé sur des lignes indexées. Le format du magasin de lignes est conçu pour permettre des requêtes opérationnelles ainsi que des lectures et des écritures transactionnelles rapides avec des temps de réponse de l’ordre de la milliseconde. Si votre jeu de données devient volumineux, les requêtes analytiques complexes peuvent être coûteuses en termes de débit approvisionné sur les données stockées dans ce format. À son tour, la consommation élevée de débit approvisionné affecte les performances des charges de travail transactionnelles utilisées par vos applications et services en temps réel.
+Les données opérationnelles multi-modèles dans un conteneur de Azure Cosmos DB sont stockées en interne dans un « magasin transactionnel » basé sur des lignes indexées. Le format du magasin de lignes est conçu pour permettre des requêtes opérationnelles ainsi que des lectures et des écritures transactionnelles rapides avec des temps de réponse de l’ordre de la milliseconde. Si votre jeu de données devient volumineux, les requêtes analytiques complexes peuvent être coûteuses en termes de débit approvisionné sur les données stockées dans ce format. Une consommation élevée de débit approvisionné a également un impact sur les performances des charges de travail transactionnelles utilisées par vos applications et services en temps réel.
 
 Traditionnellement, pour analyser de grandes quantités de données, les données opérationnelles sont extraites du magasin transactionnel de Azure Cosmos DB et stockées dans une couche de données distincte. Par exemple, les données sont stockées dans un entrepôt de données ou un lac de données dans un format approprié. Ces données sont ensuite utilisées pour l’analytique à grande échelle et analysées à l’aide du moteur de calcul, comme les clusters Apache Spark. Cette séparation des couches de calcul et de stockage analytique des données opérationnelles entraîne une latence supplémentaire, car les pipelines ETL (Extract, Transform, Load) sont exécutés moins fréquemment pour réduire l’impact potentiel sur vos charges de travail transactionnelles.
 
@@ -131,10 +131,10 @@ Le magasin analytique suit un modèle de tarification basé sur la consommation 
 
 * Opérations d’écriture analytique : synchronisation complètement managée des mises à jour des données opérationnelles vers le magasin analytique à partir du magasin transactionnel (synchronisation automatique)
 
-* Opérations de lecture analytique : opérations de lecture effectuées sur le magasin analytique à partir des temps d’exécution Synapse Analytics Spark et SQL Serverless.
+* Opérations de lecture analytique : opérations de lecture effectuées sur le magasin analytique à partir des temps d'exécution Synapse Analytics Spark et SQL serverless.
 
 > [!NOTE]
-> Le magasin analytique Azure Cosmos DB est disponible gratuitement en préversion jusqu’au 30 août 2020.
+> Le magasin analytique Azure Cosmos DB est actuellement disponible gratuitement en préversion publique.
 
 La tarification du magasin analytique est distincte du modèle de tarification du magasin de transactions. Il n’existe aucun concept d’unités de demande approvisionnées dans le magasin analytique. Pour plus d’informations sur le modèle de tarification du magasin analytique, consultez la [page de tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
@@ -144,7 +144,7 @@ Afin d’obtenir une estimation précise des coûts d’activation du magasin an
 
 La durée de vie analytique indique la durée pendant laquelle les données doivent être conservées dans votre magasin analytique, pour un conteneur. 
 
-Les insertions, les mises à jour et les suppressions apportées aux données opérationnelles sont automatiquement synchronisées à partir du magasin transactionnel vers le magasin analytique, quelle que soit la configuration de la durée de vie transactionnelle. La conservation de ces données opérationnelles dans le magasin analytique peut être contrôlée par la valeur de la durée de vie analytique au niveau du conteneur, comme indiqué ci-dessous :
+Si le magasin analytique est activé, les insertions, les mises à jour et les suppressions apportées aux données opérationnelles sont automatiquement synchronisées entre le magasin transactionnel et le magasin analytique, quelle que soit la configuration de la durée de vie transactionnelle. La conservation de ces données opérationnelles dans le magasin analytique peut être contrôlée par la valeur de la durée de vie analytique au niveau du conteneur, comme indiqué ci-dessous :
 
 La durée de vie analytique sur un conteneur est définie à l’aide de la propriété `AnalyticalStoreTimeToLiveInSeconds` :
 
@@ -152,7 +152,7 @@ La durée de vie analytique sur un conteneur est définie à l’aide de la prop
 
 * S’il existe et que la valeur est définie sur « -1 » : le magasin analytique conserve toutes les données d’historique, indépendamment de la conservation des données dans le magasin transactionnel. Ce paramètre indique que le magasin analytique a une conservation infinie de vos données opérationnelles
 
-* S’il existe et que la valeur est définie sur un nombre positif « n » : les éléments expirent du magasin analytique « n » secondes après leur dernière heure de modification dans le magasin transactionnel. Ce paramètre peut être exploité si vous souhaitez conserver vos données opérationnelles pendant une période limitée dans le magasin analytique, indépendamment de la conservation des données dans le magasin transactionnel.
+* S’il existe et que la valeur est définie sur un nombre positif « n » : les éléments expirent du magasin analytique « n » secondes après leur dernière heure de modification dans le magasin transactionnel. Ce paramètre peut être utilisé si vous souhaitez conserver vos données opérationnelles pendant une période limitée dans le magasin analytique, indépendamment de la conservation des données dans le magasin transactionnel.
 
 Éléments à prendre en considération :
 *   Une fois que le magasin analytique est activé avec une valeur TTL analytique, il peut être mis à jour avec une valeur valide différente ultérieurement. 

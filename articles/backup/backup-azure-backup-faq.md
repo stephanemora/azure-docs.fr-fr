@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553085"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892760"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -26,7 +26,7 @@ Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Combien de sources de données/éléments peuvent être protégés dans un coffre ?
 
-Vous pouvez protéger jusqu’à 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL, AFS, etc.) dans un coffre.
+Vous pouvez protéger un maximum de 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL ou AFS, par exemple) d'un coffre.
 Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages Azure Files dans le coffre, vous ne pouvez y protéger que 1 100 bases de données SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Combien de stratégies puis-je créer par coffre ?
@@ -214,7 +214,7 @@ Oui. Les données dans Azure sont chiffrées au repos.
 - Pour la sauvegarde sur site, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure.
 - Pour les machines virtuelles Azure, les données sont chiffrées au repos à l’aide de Storage Service Encryption (SSE).
 
-Microsoft ne déchiffre les données de sauvegarde à aucun moment.
+À aucun moment Microsoft ne déchiffre les données de sauvegarde.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?
 
@@ -222,7 +222,7 @@ La clé de chiffrement utilisée par l’agent Microsoft Azure Recovery Services
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer les données ? Microsoft peut-il récupérer les données ?
 
-La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement sur votre site. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
+La clé utilisée pour chiffrer les données de sauvegarde est disponible uniquement sur votre site. Microsoft ne conserve pas de copie dans Azure et n'a pas accès à la clé. Si la clé est égarée, Microsoft ne peut pas récupérer les données de sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

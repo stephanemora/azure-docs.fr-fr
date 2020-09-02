@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875453"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932948"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Quelconque | Valeur à convertir |
+| <*value*> | Oui | Quelconque | Valeur à convertir en valeur booléenne. |
 |||||
+
+Si vous utilisez `bool()` avec un objet, la valeur de l'objet doit être une chaîne ou un entier qui peut être converti en valeur booléenne.
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| True ou False | Boolean | Version booléenne de la valeur spécifiée |
+| `true` ou `false` | Boolean | Version booléenne de la valeur spécifiée. |
 ||||
 
-*Exemple*
+*Sorties*
 
-Ces exemples illustrent la conversion des valeurs spécifiées en valeurs booléennes :
+Ces exemples illustrent les différents types d'entrée pris en charge pour `bool()` :
 
-```
-bool(1)
-bool(0)
-```
-
-Et retournent les résultats suivants :
-
-* Premier exemple : `true`
-* Second exemple : `false`
+| Valeur d'entrée | Type | Valeur de retour |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 

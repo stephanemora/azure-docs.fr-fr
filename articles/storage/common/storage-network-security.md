@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9c95501c4e17e0afaa082c3e02c29934435c1a19
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032500"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827458"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -396,7 +396,7 @@ Le paramètre **Autoriser les services Microsoft approuvés...** permet à une i
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Autorise l’écriture des données d’un IoT Hub dans le stockage d’objets blob. [En savoir plus](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permet aux applications logiques d’accéder aux comptes de stockage. [Plus d’informations](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity) |
 | Service Azure Machine Learning | Microsoft.MachineLearningServices      | Les espaces de travail Azure Machine Learning autorisés écrivent des sorties, des modèles et des journaux expérimentaux dans le stockage d’objets blob et lisent les données. [Plus d’informations](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace) | 
-| Azure SQL Data Warehouse.       | Microsoft.Sql                          | Permet l’importation et l’exportation de données d’instances SQL Database spécifiques à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
+| Azure Synapse Analytics (anciennement SQL Data Warehouse)       | Microsoft.Sql                          | Permet l'importation et l'exportation de données à partir de bases de données SQL spécifiques à l'aide de l'instruction COPY ou de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) |
 | Azure SQL Database       | Microsoft.Sql                          | Permet d'[importer](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) des données à partir de comptes de stockage et d'[écrire](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) des données d'audit sur des comptes de stockage situés derrière un pare-feu. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Autorise l’écriture des données d’une tâche de streaming dans le stockage d’objets blob. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. [Plus d’informations](/azure/stream-analytics/blob-output-managed-identity) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permet l’accès aux données dans Stockage Azure à partir de Synapse Analytics. |

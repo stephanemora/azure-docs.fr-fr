@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535023"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719340"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Dans les étapes suivantes, vous allez développer un modèle pour prédire si u
 
 Étant donné que les données brutes sont au format Parquet, vous pouvez utiliser le contexte Spark pour extraire le fichier en mémoire directement en tant que tramedonnées. Le code ci-dessous utilise les options par défaut, mais il est possible de forcer le mappage des types de données et d’autres attributs de schéma si nécessaire.
 
-1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. Cela récupère les données via l’API Open Datasets. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. L’utilisation de start_date et end_date applique un filtre qui retourne un mois de données.
+1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. Cela récupère les données via l’API Open Datasets. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. L'exemple de code suivant utilise start_date et end_date pour appliquer un filtre qui renvoie un seul mois de données.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -96,7 +96,7 @@ Dans les étapes suivantes, vous allez développer un modèle pour prédire si u
     display(sampled_taxi_df)
     ```
 
-4. Selon la taille de la taille du jeu de données généré et la nécessité ou non d’expérimenter ou d’exécuter le bloc-notes plusieurs fois, il peut être préférable de mettre en cache le jeu de données localement dans l’espace de travail. Il existe trois façons d’effectuer une mise en cache explicite :
+4. Selon la taille de la taille du jeu de données généré et la nécessité ou non d’expérimenter ou d’exécuter le bloc-notes plusieurs fois, il peut être préférable de mettre en cache le jeu de données localement dans l’espace de travail. Il existe trois façons d'effectuer une mise en cache explicite :
 
    - enregistrer la tramedonnées localement en tant que fichier ;
    - enregistrer la tramedonnées sous la forme d’une table ou d’un affichage temporaires ;
@@ -126,7 +126,7 @@ ax1.set_ylabel('Counts')
 plt.suptitle('')
 plt.show()
 
-# How many passengers tip'd by various amounts
+# How many passengers tipped by various amounts
 ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
 ax2.set_title('Tip amount by Passenger count')
 ax2.set_xlabel('Passenger count')
@@ -157,7 +157,7 @@ Le code ci-après exécute les quatre classes d’opérations suivantes :
 - suppression des valeurs hors normes/incorrectes par filtrage ;
 - suppression des colonnes superflues ;
 - caractérisation, c’est-à-dire création de nouvelles colonnes dérivées des données brutes pour renforcer l’efficacité de fonctionnement du modèle ;
-- étiquetage, car vous effectuez une classification binaire (selon qu’il y a ou non un pourboire associé à une course donnée) nécessitant la conversion du montant du pourboire en valeur 0 ou 1.
+- étiquetage - car vous effectuez une classification binaire (selon qu'il y a ou non un pourboire associé à une course donnée) nécessitant la conversion du montant du pourboire en valeur 0 ou 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -196,7 +196,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-caractéristique*, où le *vecteur caractéristique* est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir les colonnes catégoriques en nombres. Les colonnes `trafficTimeBins` et `weekdayString` doivent être converties en représentations sous forme d’entiers. Il existe plusieurs approches de la conversion. Celle adoptée dans cet exemple est l’approche courante *OneHotEncoding*.
 
 ```python
-# The sample uses an algorithm that only works with numeric features convert them so they can be consumed
+# Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
 sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex")
 en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
 sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Maintenant qu’il y a deux tramedonnées, la tâche suivante consiste à créer la formule modèle et à l’exécuter sur la tramedonnées d’apprentissage, puis à valider par rapport à la tramedonnées de test. Vous devez expérimenter différentes versions de la formule modèle pour voir l’impact de différentes combinaisons.
 
 > [!Note]
-> Pour enregistrer le modèle, vous aurez besoin du rôle Azure « Contributeur aux données blob du stockage ». Sous votre compte de stockage, accédez à Access Control (IAM), puis sélectionnez Ajouter une attribution de rôle. Attribuez le rôle Azure « Contributeur aux données blob du stockage » à votre serveur SQL Database. Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Pour enregistrer le modèle, vous aurez besoin du rôle Azure « Contributeur aux données blob du stockage ». Sous votre compte de stockage, accédez à Access Control (IAM), puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure « Contributeur aux données blob du stockage » à votre serveur SQL Database. Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model
@@ -250,7 +250,7 @@ metrics = BinaryClassificationMetrics(predictionAndLabels)
 print("Area under ROC = %s" % metrics.areaUnderROC)
 ```
 
-La sortie de cette cellule est
+La sortie de cette cellule est :
 
 ```shell
 Area under ROC = 0.9779470729751403

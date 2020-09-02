@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711508"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931962"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -38,7 +38,7 @@ Un plan de protection DDoS définit un ensemble de réseaux virtuels pour lesque
 La création de plusieurs plans n’est pas requise pour la plupart des organisations. Un plan ne peut pas être déplacé d’un abonnement vers un autre. Si vous souhaitez changer l’abonnement auquel un plan est rattaché, vous devez [supprimer le plan existant](#work-with-ddos-protection-plans) et en créer un.
 
 1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
-2. Recherchez *DDoS*. Quand **Plan de protection DDoS** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
+2. Recherchez *DDoS*. Lorsque **Plan de protection DDoS** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 3. Sélectionnez **Create** (Créer).
 4. Entrez ou sélectionnez vos propres valeurs ou les exemples de valeurs suivants, puis sélectionnez **Créer** :
 
@@ -61,7 +61,7 @@ La création de plusieurs plans n’est pas requise pour la plupart des organisa
     | Abonnement    | Sélectionnez votre abonnement.                                    |
     | Resource group  | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
     | Emplacement        | USA Est                                                      |
-    | Protection DDoS | Sélectionnez **Standard** puis, sous **Protection DDoS**, sélectionnez **myDdosProtectionPlan**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.|
+    | DDoS Protection Standard | Sélectionnez **Activer**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.|
 
 Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressources ou abonnement quand la protection DDoS Standard est activée pour le réseau virtuel. Si vous devez déplacer un réseau virtuel pour lequel la protection DDoS Standard est activée, désactivez d’abord celle-ci, déplacez le réseau virtuel, puis activez la protection DDoS Standard. Après le déplacement, les seuils de stratégie réglée automatiquement pour toutes les adresses IP publiques protégées dans le réseau virtuel sont réinitialisés.
 
@@ -81,8 +81,7 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
 ## <a name="disable-ddos-for-a-virtual-network"></a>Désactiver la protection DDoS pour un réseau virtuel
 
 1. Entrez le nom du réseau virtuel pour lequel vous souhaitez désactiver le service DDoS Protection Standard dans la zone **Rechercher dans les ressources, les services et les documents** en haut du portail. Quand le nom du réseau virtuel apparaît dans les résultats de la recherche, sélectionnez-le.
-2. Sélectionnez **Protection DDoS**, sous **PARAMÈTRES**.
-3. Sélectionnez **De base** sous **Plan de protection DDoS**, puis sélectionnez **Enregistrer**.
+2. Sélectionnez **Sous protection DDoS standard**, puis **Désactiver**.
 
 **Commandes** 
 - Azure CLI : [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)

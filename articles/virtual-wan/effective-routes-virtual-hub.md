@@ -7,42 +7,29 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513704"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762264"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Afficher les routes effectives d’un hub virtuel
 
 Vous pouvez afficher tous les itinéraires de votre hub WAN virtuel dans le portail Azure. Cet article détaille les étapes permettant d’afficher les itinéraires effectifs. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
-> [!NOTE]
-> Sur le Portail Azure, certaines de ces fonctionnalités peuvent encore être en cours de déploiement et non disponibles avant la semaine du 17 août. 
->
-
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Sélectionner des connexions ou des tables de routage
 
 1. Accédez à votre hub virtuel, puis sélectionnez **Routage**. Sur la page de Routage, sélectionnez **Itinéraires effectifs**.
-1. Dans la liste déroulante, vous pouvez sélectionner **Type de connexion** ou une **Table de routage**. Si vous ne voyez pas d’option de table de routage, cela signifie que vous n’avez pas de table de routage personnalisée ou par défaut configurée dans ce hub virtuel.
-1. Dans la liste déroulante des **Connexions/Tables de routage**, vous pouvez sélectionner l’un des éléments suivants :
-
-   * Connexion de réseau virtuel
-   * Connexion au site VPN
-   * Connexion ExpressRoute
-   * Connexion point à site
-   * Table de routage
-
-   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Routage":::
+1. Dans la liste déroulante, vous pouvez sélectionner **Table de routage**. Si vous ne voyez pas d’option de table de routage, cela signifie que vous n’avez pas de table de routage personnalisée ou par défaut configurée dans ce hub virtuel.
 
 ## <a name="view-output"></a><a name="output"></a>Afficher la sortie
 
 La sortie de la page affiche les champs suivants :
 
-* **Préfixe** : Préfixe d’adresse connu de l’entité actuelle.
+* **Préfixe** : préfixe d'adresse connu de l'entité actuelle (transmis par le routeur du hub virtuel)
 * **Type de tronçon suivant** : Il peut s’agir d’une connexion de réseau virtuel, d’une VPN_S2S_Gateway, d’une ExpressRouteGateway, d’un hub distant ou d’un pare-feu Azure.
-* **Tronçon suivant** : Il s’agit de l’adresse IP, ou affiche simplement le libellé On-link pour impliquer le hub actuel.
+* **Tronçon suivant** : il s'agit du lien d'accès à l'ID de ressource du tronçon suivant, ou affiche simplement le libellé On-link pour impliquer le hub actuel.
 * **Origine** : ID de ressource de la source de routage.
 * **Chemin AS** : Le chemin d’accès AS (système autonome) de l’attribut BGP répertorie tous les numéros AS qui doivent être parcourus pour atteindre l’emplacement à partir duquel le chemin d’accès est attaché.
 
@@ -54,13 +41,15 @@ Utilisez la barre de défilement au bas de la table pour voir le « Chemin AS 
 
 | **Préfixe** |  **Type de tronçon suivant** | **Tronçon suivant** |  **Origine de la route** |**Chemin AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
+| 10.2.0.0/24| VPN_S2S_Gateway |/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw|/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
 **Considérations :**
 
 * Si vous voyez 0.0.0.0/0 dans la sortie **Obtenir des itinéraires effectifs**, cela signifie que l’itinéraire existe dans l’une des tables de routage. Toutefois, si cet itinéraire a été configuré pour Internet, un indicateur supplémentaire **« enableInternetSecurity » : true** est requis sur la connexion. L’itinéraire effectif sur la carte réseau de la machine virtuelle n’affiche pas l’itinéraire si l’indicateur « enableInternetSecurity » sur la connexion est « false ».
 
 * Le champ **Propager l’itinéraire par défaut** s’affiche dans le portail Azure Virtual WAN lorsque vous modifiez une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Ce champ affiche l’indicateur **enableInternetSecurity**, qui est toujours défini par défaut sur « false » pour les connexions ExpressRoute et VPN, mais sur « true » pour les connexions de réseau virtuel.
+
+* Lorsque vous consultez les itinéraires effectifs sur la carte réseau d'une machine virtuelle, si le tronçon suivant correspond à « Virtual Network Gateway », cela implique le routeur du hub virtuel si la machine virtuelle se trouve dans un réseau en étoile connecté à un hub Virtual WAN.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

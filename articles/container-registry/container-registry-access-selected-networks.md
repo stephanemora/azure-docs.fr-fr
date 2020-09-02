@@ -2,13 +2,13 @@
 title: Configurer l’accès au registre public
 description: Configurez des règles IP pour activer l’accès à un registre de conteneurs Azure à partir de certaines IP publiques ou plages d’adresses.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523823"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660923"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurer des règles de réseau IP public
 
@@ -61,18 +61,18 @@ az acr network-rule add \
 
 Éventuellement, désactivez le point de terminaison public sur le registre. La désactivation du point de terminaison public écrase toutes les configurations de pare-feu. Par exemple, vous souhaiterez peut-être désactiver l’accès public à un registre sécurisé dans un réseau virtuel à l’aide d’[Azure Private Link](container-registry-private-link.md).
 
+> [!NOTE]
+> Si le registre est configuré dans un réseau virtuel avec un [point de terminaison de service](container-registry-vnet.md), la désactivation de l'accès au point de terminaison public du registre désactive également l'accès au registre au sein du réseau virtuel.
+
 ### <a name="disable-public-access---cli"></a>Désactiver l’accès public (CLI)
 
-Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` sur `false`. 
-
-> [!NOTE]
-> L’argument `public-network-enabled` requiert Azure CLI 2.6.0 ou une version ultérieure. 
+Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` avec `false`. L’argument `public-network-enabled` nécessite Azure CLI 2.6.0 ou ultérieur. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false
 ```
 
-### <a name="disable-public-access---portal"></a>Désactiver l’accès public (Portail)
+### <a name="disable-public-access---portal"></a>Désactiver l’accès public (portail)
 
 1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
 1. Sous l’onglet **Accès public**, dans **Autoriser l’accès au réseau public**, sélectionnez **Désactivé**. Ensuite, sélectionnez **Enregistrer**.

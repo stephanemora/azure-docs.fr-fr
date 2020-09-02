@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608655"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871176"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Résolution des problèmes de réplication dans la migration de machines virtuelles VMware sans agent
 
@@ -38,6 +38,29 @@ Pour analyser l’état de réplication de vos machines virtuelles, procédez co
 
 Cette section décrit quelques-unes des erreurs courantes et la façon dont vous pouvez les résoudre.
 
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Erreur Échec de l’opération de Key Vault lors de la tentative de réplication de machines virtuelles
+
+**Erreur :** « L’opération de Key Vault a échoué. Opération : Configurer un compte de stockage managé, Key Vault : Key-vault-name, Compte de stockage : nom du compte de stockage a échoué avec l’erreur : »
+
+**Erreur :** « L’opération de Key Vault a échoué. Opération : Générer une définition de signature d’accès partagé, Key Vault : Key-vault-name, Compte de stockage : nom du compte de stockage a échoué avec l’erreur : »
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Cette erreur se produit généralement lorsque la stratégie d’accès utilisateur de Key Vault ne donne pas à l’utilisateur actuellement connecté les autorisations nécessaires pour configurer les comptes de stockage que Key Vault doit gérer. Pour vérifier la stratégie d’accès utilisateur sur le coffre de clés, accédez à la page Key Vault sur le portail du coffre de clés et sélectionnez Stratégies d’accès. 
+
+Lorsque le portail crée le coffre de clés, il ajoute également une stratégie d’accès utilisateur accordant à l’utilisateur actuellement connecté des autorisations pour configurer les comptes de stockage que Key Vault doit gérer. Cela peut échouer pour deux raisons
+
+- L’utilisateur connecté est un principal distant sur le locataire Azure du client (abonnement CSP et l’utilisateur connecté est l’administrateur partenaire). Dans ce cas, la solution de contournement consiste à supprimer le coffre de clés, à vous déconnecter du portail, puis à vous connecter avec un compte utilisateur du locataire du client (pas un principal distant), puis à réessayer l’opération. Le partenaire CSP dispose généralement d’un compte utilisateur dans le locataire Azure Active Directory du client qu’il est possible d’utiliser. Si ce n’est pas le cas, il peut créer un nouveau compte utilisateur pour lui-même dans le locataire Azure Active Directory du client, se connecter au portail en tant que nouvel utilisateur, puis réessayer l’opération de réplication. Le compte utilisé doit disposer des autorisations Propriétaire ou or Contributeur+Administrateur d’accès utilisateur sur le compte dans le groupe de ressources (groupe de ressources Migrer un projet)
+
+- L’autre cas où cela peut se produire est lorsqu’un utilisateur (utilisateur1) a tenté d’initialiser la réplication et a rencontré une défaillance, mais que le coffre de clés a déjà été créé (et que la stratégie d’accès utilisateur est attribuée de manière appropriée à cet utilisateur). Ultérieurement, un autre utilisateur (utilisateur2) tente de configurer la réplication, mais l’opération de configuration du compte de stockage managé ou de génération de la définition SAS échoue, car il n’existe aucune stratégie d’accès utilisateur correspondant à utilisateur2 dans le coffre de clés.
+
+**Résolution** : Pour résoudre ce problème, créez une stratégie d’accès utilisateur pour utilisateur2 dans le coffre qui accorde l’autorisation à utilisateur2 de configurer un compte de stockage managé et de générer des définitions SAS. Utilisateur2 peut faire cela à partir d’Azure PowerShell à l’aide des cmdlets ci-dessous :
+
+$userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+
+
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 
 **ID d’erreur :** 181008
@@ -59,7 +82,7 @@ Le composant qui tente de répliquer des données dans Azure est indisponible ou
 
    2.  Ouvrez le composant logiciel enfichable MMC des services Microsoft (Exécuter > services.msc) et vérifiez si « Service de passerelle Microsoft Azure » est en cours d’exécution. Si le service est arrêté ou n’est pas en cours d’exécution, démarrez-le. Vous pouvez également ouvrir l’invite de commandes ou PowerShell pour effectuer l’opération : « Net Start asrgwy ».
 
-3. Vérifiez les problèmes de connectivité entre l’appliance Azure Migrate et le cache Compte de stockage : 
+3. Vérifiez les problèmes de connectivité entre l’appliance Azure Migrate et l’appliance Compte de stockage : 
 
     Après avoir téléchargé azcopy dans l’appliance Azure Migrate, exécutez la commande suivante :
     
@@ -149,7 +172,7 @@ Les causes possibles sont les suivantes :
     
       1. [Téléchargez](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy.
         
-      2. Recherchez l’appliance Compte de stockage dans le groupe de ressources. Le nom du compte de stockage ressemble à migrategwsa\*\*\*\*\*\*\*\*\*\*. Il s’agit de la valeur du paramètre [account] dans la commande ci-dessus.
+      2. Recherchez l’appliance Compte de stockage dans le groupe de ressources. Le nom du compte de stockage ressemble à migratelsa\*\*\*\*\*\*\*\*\*\*. Il s’agit de la valeur du paramètre [account] dans la commande ci-dessus.
         
       3. Recherchez votre compte de stockage dans le portail Azure. Assurez-vous que l’abonnement que vous utilisez pour effectuer la recherche est le même abonnement (abonnement cible) que celui dans lequel le compte de stockage est créé. Accédez à Conteneurs dans la section Service BLOB. Cliquez sur +Conteneur et créez un conteneur. Laissez le niveau d’accès public à la valeur sélectionnée par défaut.
         
@@ -226,7 +249,7 @@ Par exemple : Message d’erreur : Une erreur interne s’est produite. [Une co
 
 La section suivante répertorie certaines des erreurs VMware les plus fréquentes et la façon dont vous pouvez les atténuer.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Message d’erreur : Une erreur interne s’est produite. [Connexion refusée par le serveur]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Message d’erreur : Une erreur interne s’est produite. [Connexion refusée par le serveur]
 
 Le problème est un problème connu de VMware et se produit dans le VDDK 6.7. Vous devez arrêter le service de passerelle en cours d’exécution dans l’appliance Azure Migrate, [télécharger une mise à jour à partir de la base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138889) et redémarrer le service de passerelle.
 
@@ -240,33 +263,33 @@ Procédure de démarrage du service de passerelle :
 1. Appuyez sur Windows+R, ouvrez services.msc. Cliquez avec le bouton droit sur « Service de passerelle Microsoft Azure », puis démarrez-le.
 2. Vous pouvez également ouvrir l’invite de commandes ou PowerShell pour effectuer l’opération : Net Start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Message d’erreur : Une erreur interne s’est produite. [« Une configuration d’instantané non valide a été détectée. »]
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Message d’erreur : Une erreur interne s’est produite. [« Une configuration d’instantané non valide a été détectée. »]
 
 Si votre machine virtuelle est dotée de plusieurs disques, cette erreur peut se produire si vous supprimez un disque de la machine virtuelle. Pour remédier à ce problème, reportez-vous aux étapes décrites dans [cet article VMware](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Message d’erreur : Une erreur interne s’est produite. [Suspension de la génération de l’instantané]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Message d’erreur : Une erreur interne s’est produite. [Suspension de la génération de l’instantané]
 
-Ce problème se produit lorsque la génération d’instantané est suspendue. Lorsque ce problème se produit, vous pouvez voir que la tâche de création d’un instantané s’arrête à 95 % ou 99 %. Pour résoudre ce problème, consultez cette [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138969).
+Ce problème se produit lorsque la génération d’instantané ne répond plus. Lorsque ce problème se produit, vous pouvez voir que la tâche de création d’un instantané s’arrête à 95 % ou 99 %. Pour résoudre ce problème, consultez cette [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138969).
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Message d’erreur : Une erreur interne s’est produite. [Échec de la consolidation des disques sur les machines virtuelles _[Raisons]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Message d’erreur : Une erreur interne s’est produite. [Échec de la consolidation des disques sur les machines virtuelles _[Raisons]_ ]
 
 Lorsque nous consolidons les disques à la fin du cycle de réplication, l’opération échoue. Suivez les instructions de la [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138970) en sélectionnant la _raison_ appropriée pour résoudre le problème.
 
 Les erreurs suivantes se produisent lorsque les opérations liées aux instantanés VMware de création, suppression ou consolidation des disques échouent. Suivez les instructions de la section suivante pour corriger les erreurs :
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Message d’erreur : Une erreur interne s’est produite. [Une autre tâche est déjà en cours]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Message d’erreur : Une erreur interne s’est produite. [Une autre tâche est déjà en cours]
 
 Ce problème se produit lorsque des tâches conflictuelles de la machine virtuelle sont exécutées en arrière-plan, ou lorsqu’une tâche au sein de vCenter Server expire. Suivez la résolution fournie dans la [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138891) suivante.
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Message d’erreur : Une erreur interne s’est produite. [Opération non autorisée dans l’état actuel]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Message d’erreur : Une erreur interne s’est produite. [Opération non autorisée dans l’état actuel]
 
 Ce problème survient lorsque les agents de gestion de vCenter Server cessent de fonctionner. Pour résoudre ce problème, reportez-vous à la résolution dans la [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138971) suivante.
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Message d’erreur : Une erreur interne s’est produite. [Taille du disque d’instantané non valide]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Message d’erreur : Une erreur interne s’est produite. [Taille du disque d’instantané non valide]
 
 Il s’agit d’un problème VMware connu dans lequel la taille du disque indiquée par l’instantané devient zéro. Suivez la résolution indiquée dans la [base de connaissances VMware](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Message d’erreur : Une erreur interne s’est produite. [L’allocation de mémoire a échoué. Mémoire insuffisante.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Message d’erreur : Une erreur interne s’est produite. [L’allocation de mémoire a échoué. Mémoire insuffisante.]
 
 Cela se produit lorsque la mémoire tampon de l’hôte NFC est insuffisante. Pour résoudre ce problème, vous devez déplacer la machine virtuelle (compute vMotion) vers un autre hôte, dont les ressources sont disponibles.
 

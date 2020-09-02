@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921027"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661518"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -75,7 +75,7 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 
 **Q : Mes requêtes sont-elles limitées ?**
 
-**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Pour plus de détails, consultez nos pages sur la [Reconnaissance vocale](speech-to-text.md).
+**R** : Consultez [Quotas et limites des services Speech](speech-services-quotas-and-limits.md).
 
 **Q : Comment suis-je facturé pour l’audio à deux canaux ?**
 
@@ -85,52 +85,14 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 > Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
 
 ## <a name="increasing-concurrency"></a>Augmentation du niveau de concurrence
+Consultez [Quotas et limites des services Speech](speech-services-quotas-and-limits.md).
 
-**Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?**
-
-**R** : Vous pouvez augmenter l’échelle de votre modèle par incréments de 20 requêtes simultanées.
-
-À l’aide des informations nécessaires, créez une demande de support dans le [portail de support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Ne postez pas les informations sur les canaux publics (GitHub, StackOverflow...) qui sont mentionnés dans la [page de support](support.md).
-
-Pour augmenter la concurrence d’un ***modèle personnalisé***, nous avons besoin des informations suivantes :
-
-- la région dans laquelle le modèle est déployé,
-- l’ID de point de terminaison du modèle déployé :
-  - Accédez au [portail Custom Speech](https://aka.ms/customspeech).
-  - Connectez-vous (si nécessaire).
-  - Sélectionnez votre projet et votre déploiement.
-  - Sélectionnez le point de terminaison pour lequel vous avez besoin d’augmenter la concurrence.
-  - Copiez le `Endpoint ID`.
-
-Pour augmenter la concurrence d’un ***modèle de base***, nous avons besoin des informations suivantes :
-
-- La région de votre service,
-
-et
-
-- un jeton d’accès pour votre abonnement (voir [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
-
-or
-
-- l’ID de ressource de votre abonnement :
-  - Accédez au [portail Azure](https://portal.azure.com).
-  - sélectionnez `Cognitive Services` dans la zone de recherche,
-  - parmi les services affichés, sélectionnez le service vocal pour lequel vous souhaitez augmenter la concurrence,
-  - Affichez les `Properties` de ce service.
-  - copiez le `Resource ID` complet.
-  
-**Q : Le coût sera-t-il supérieur si j’augmente ma limite de concurrence ?**
-
-**R** : Non, le coût dépend de l’utilisation. L’augmentation de la concurrence n’entraîne pas de coûts plus élevés. Pour plus d’informations sur les coûts, consultez notre [page des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
-  
->[!NOTE]
->Les [conteneurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) n’impliquent pas d’augmentation des limites de concurrence, car ils ne sont limités que par les processeurs du matériel sur lequel ils sont hébergés.
 
 ## <a name="importing-data"></a>Importation de données
 
 **Q : Quelle est la limite de taille d’un jeu de données, et pourquoi ?**
 
-**R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP.
+**R** : Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. Consultez [Quotas et limites des services Speech](speech-services-quotas-and-limits.md) pour la limite réelle.
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?**
 
@@ -198,7 +160,7 @@ or
 
 **Q : Quelles sont les améliorations apportées par le modèle de locataire aux expériences de reconnaissance vocale ?**
 
-**R :** Une fois le modèle de locataire activé, créé et publié, celui-ci permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service Speech, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise.
+**R :** Une fois le modèle de locataire activé, créé et publié, celui-ci permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service Speech, qui transmettent également un jeton Azure AD d’utilisateur indiquant l’appartenance à l’entreprise.
 
 La création d’un modèle de locataire pour vos applications Speech ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
 

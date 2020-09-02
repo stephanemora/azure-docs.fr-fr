@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/25/2020
+ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120838"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855774"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -28,19 +28,19 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
     1. Sélectionnez **Stockage** dans le volet **Nouveau**. Une liste **Éléments proposés** apparaît à droite.
     1. Sélectionnez **Compte de stockage** pour commencer la création du compte. Suivez les instructions pour [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Procédure de création d’un compte Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Procédure de création d'un compte de stockage Azure.":::
 
         Pour en savoir plus sur les comptes de stockage, consultez [Tutoriel de démarrage rapide](../../storage/index.yml). Pour plus d’informations sur la tarification du stockage, consultez [Tarification de Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Attendez que votre compte de stockage soit approvisionné. Ce processus prend généralement quelques minutes. 
+1. Attendez que votre compte de stockage soit approvisionné. Ce processus prend généralement quelques minutes.
 
 ## <a name="create-a-table-in-your-storage-account"></a>Créer une table dans votre compte de stockage
 
-1. À partir de la page **Accueil** du Portail Azure, sélectionnez **Voir toutes vos ressources** pour accéder à votre compte de stockage. Vous pouvez également sélectionner **Toutes les ressources** dans la barre de menu de gauche du portail Azure.
+1. Sur la **page d'accueil** du portail Azure, sélectionnez **Voir toutes vos ressources** pour accéder à votre compte de stockage. Vous pouvez également sélectionner **Toutes les ressources** dans la barre de menu de gauche du portail Azure.
 
-    ![Accéder à votre compte de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Accéder à votre compte de stockage Azure.":::
 
-1. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès**, puis copiez la valeur **Chaîne de connexion** pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de **Chaîne de connexion de compte de stockage** que vous devrez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché Azure. 
+1. Dans le volet de votre compte de stockage, sélectionnez **Clés d’accès**, puis copiez la valeur **Chaîne de connexion** pour la clé. Enregistrez cette valeur, car il s’agit de la valeur de **Chaîne de connexion de compte de stockage** que vous devrez fournir dans le portail de publication afin de recevoir des prospects pour votre offre de la Place de marché Azure.
 
     Voici un exemple de chaîne de connexion.
 
@@ -48,13 +48,14 @@ Si votre système Gestion des relations avec la clientèle (CRM) n’est pas exp
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Clé de stockage Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Clé de stockage Azure.":::
+
 
 1. Dans le volet de votre compte de stockage, sélectionnez **Tables**, puis **+ Table** pour créer une table. Entrez un nom pour votre table et sélectionnez **OK**. Enregistrez cette valeur car vous en aurez besoin si vous voulez configurer un flux pour qu’il reçoive des notifications par e-mail lors de la réception de prospects.
 
     ![Tables Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Vous pouvez utiliser l’[Explorateur de stockage Microsoft Azure](https://archive.codeplex.com/?p=azurestorageexplorer) ou tout autre outil pour afficher de votre table de stockage. Vous pouvez également exporter les données de la table Azure. 
+    Vous pouvez utiliser l’[Explorateur de stockage Microsoft Azure](https://archive.codeplex.com/?p=azurestorageexplorer) ou tout autre outil pour afficher de votre table de stockage. Vous pouvez également exporter les données de la table Azure.
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>(Facultatif) Utiliser Power Automate pour obtenir des notifications de prospect
 
@@ -66,7 +67,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
 
 1. Connectez-vous à votre compte Power Automate.
 1. Dans la barre de gauche, sélectionnez **Mes flux**.
-1. Dans la barre supérieure, sélectionnez **+ Nouveau**. 
+1. Dans la barre supérieure, sélectionnez **+ Nouveau**.
 1. Dans la liste déroulante, sélectionnez **+ Planifié entièrement**.
 
    ![Mes flux + Planifié entièrement](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
@@ -90,7 +91,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
 
     ![Définir l’intervalle Obtenir l'heure passée](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
-   >[!TIP] 
+   >[!TIP]
    >Vous pouvez vérifier votre flux à tout moment pour confirmer que chaque étape est correctement configurée. Pour vérifier votre flux, sélectionnez **Vérificateur de flux** dans la barre de menus **Flux**.
 
    Dans les étapes suivantes, vous allez vous connecter à votre table et configurer la logique de traitement des nouveaux prospects.
@@ -123,7 +124,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
 
 1. Dans la fenêtre **Condition**, sélectionnez **Choisissez une valeur**. Sélectionnez ensuite **Expression** dans la fenêtre contextuelle.
 
-1. Collez `length(body('Get_entities')?['value'])` dans la zone **fx**. Sélectionnez **OK** pour ajouter cette fonction. 
+1. Collez `length(body('Get_entities')?['value'])` dans la zone **fx**. Sélectionnez **OK** pour ajouter cette fonction.
 
 1. Pour terminer la configuration de la condition :
     1. Sélectionnez **est supérieur à** dans la liste déroulante.
@@ -134,7 +135,7 @@ L’exemple crée un flux qui envoie automatiquement une notification par e-mail
    Dans les étapes suivantes, vous définissez l’action à exécuter selon le résultat de la condition :
 
    * Si la condition donne **If no**, vous n’avez rien à faire.
-   * Si la condition affiche la valeur **If yes**, déclenchez une action pour vous connecter à votre compte Office 365 afin d’envoyer un message électronique. 
+   * Si la condition affiche la valeur **If yes**, déclenchez une action pour vous connecter à votre compte Office 365 afin d’envoyer un message électronique.
 
 1. Sélectionnez **Ajouter une action** sous **Si oui**.
 

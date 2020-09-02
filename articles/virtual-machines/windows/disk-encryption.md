@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448932"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815587"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Chiffrement côté serveur du Stockage sur disque Azure pour PowerShell
 
 Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. 
 
@@ -84,8 +84,8 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [PowerShell](disks-enable-host-based-encryption-powershell.md) ou le [portail Azure](disks-enable-host-based-encryption-portal.md).
-- Activez le double chiffrement au repos pour les disques managés avec [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou le [portail Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Activez les clés gérées par le client pour les disques managés avec [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou le [portail Azure](disks-enable-customer-managed-keys-portal.md).
+- Activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [PowerShell](disks-enable-host-based-encryption-powershell.md) ou le [portail Azure](../disks-enable-host-based-encryption-portal.md).
+- Activez le double chiffrement au repos pour les disques managés avec [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou le [portail Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Activez les clés gérées par le client pour les disques managés avec [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou le [portail Azure](../disks-enable-customer-managed-keys-portal.md).
 - [Découvrez les modèles Azure Resource Manager permettant de créer des disques chiffrés avec des clés gérées par le client](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)

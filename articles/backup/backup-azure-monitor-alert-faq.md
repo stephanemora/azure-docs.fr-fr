@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les réponses aux questions les plus f
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989567"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892556"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerte de supervision de Sauvegarde Azure - Questions fréquentes (FAQ)
 
@@ -48,22 +48,6 @@ Oui, vous pouvez afficher des rapports sur différents coffres et abonnements, a
 
 Si vous êtes un utilisateur [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) doté d’un accès délégué aux abonnements ou aux espaces de travail LA de vos clients, vous pouvez utiliser des rapports de sauvegarde pour consulter les données de tous vos locataires.
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
-
-Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
-
-Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
-
-Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
-
-* Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
-* Si un travail est annulé
-* Si un travail de sauvegarde secondaire a échoué, parce que le travail de sauvegarde principal est en cours
-
 ## <a name="recovery-services-vault"></a>Coffre Recovery Services
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
@@ -76,7 +60,7 @@ Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauve
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
 
-Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
+Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
 
 * Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
 * Si un travail est annulé

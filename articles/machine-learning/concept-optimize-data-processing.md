@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500961"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719272"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimiser le traitement des données avec Azure Machine Learning
 
@@ -45,7 +45,17 @@ Généralement, une erreur de *mémoire insuffisante* se produit lorsqu’un dat
 
 Augmenter la RAM pour y faire tenir le dataframe est une solution. Nous vous recommandons d’utiliser une taille de calcul et une puissance de traitement représentant le double de la taille de RAM. Ainsi, si votre dataframe est de 10 Go, utilisez la cible de calcul avec au moins 20 Go de RAM pour que le dataframe tienne aisément dans la mémoire et soit traitée. 
 
-Pour plusieurs processeurs virtuels, gardez à l’esprit qu’une partition est nécessaire pour contenir la RAM allouée à chaque processeur virtuel sur la machine. Autrement dit, si vous avez 16 Go de RAM pour 4 processeurs virtuels, vous aurez besoin d’environ 2 Go de dataframe pour chaque processeur virtuel.
+Pour plusieurs processeurs virtuels, gardez à l’esprit qu’une partition est nécessaire pour contenir la RAM allouée à chaque processeur virtuel sur la machine. Autrement dit, si vous avez 16 Go de RAM pour 4 processeurs virtuels, vous aurez besoin d'environ 2 Go de dataframe pour chaque processeur virtuel.
+
+### <a name="local-vs-remote"></a>Local vs distant
+
+Vous remarquerez peut-être que certaines commandes de dataframe pandas s'exécutent plus rapidement sur votre PC local que sur une machine virtuelle distante que vous avez approvisionnée avec Azure Machine Learning. Un fichier d'échange est généralement activé sur votre PC local, ce qui vous permet de charger plus de données que ne peut en contenir la mémoire physique ; autrement dit, votre disque dur est utilisé comme extension de votre RAM. Actuellement, les machines virtuelles Azure Machine Learning s'exécutent sans fichier d'échange et ne peuvent donc charger que la quantité de données correspondant à la RAM physique disponible. 
+
+Pour les travaux de calcul intensif, nous vous recommandons de choisir une machine virtuelle de plus grande taille afin d'améliorer la vitesse de traitement.
+
+Découvrez-en plus sur les [séries et tailles de machines virtuelles disponibles](concept-compute-target.md#supported-vm-series-and-sizes) pour Azure Machine Learning. 
+
+Concernant les spécifications de la RAM, consultez les pages des séries de machines virtuelles correspondantes, comme la [série Dv2-Dsv2](../virtual-machines/dv2-dsv2-series-memory.md) ou la [série NC](../virtual-machines/nc-series.md).
 
 ### <a name="minimize-cpu-workloads"></a>Réduire les charges de travail de l’UC
 

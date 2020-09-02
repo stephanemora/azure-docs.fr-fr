@@ -3,12 +3,12 @@ title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060451"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934291"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -99,6 +99,25 @@ Live Video Analytics sur IoT Edge émet des événements ou des données de tél
    }
    ```
 Les événements émis par le module sont envoyés au [hub IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), et depuis ce dernier, ils peuvent être routés vers d’autres destinations. 
+
+### <a name="timestamps-in-analytic-events"></a>Timestamps des événements analytiques
+Comme indiqué ci-dessus, un timestamp est associé aux événements générés dans le cadre de l'analyse vidéo. Si vous avez [enregistré la vidéo en direct](video-recording-concept.md) dans le cadre de votre topologie graphique, ce timestamp vous aide à localiser où un événement particulier s'est produit dans la vidéo enregistrée. Les instructions suivantes expliquent comment mapper le timestamp d'un événement analytique avec la chronologie de la vidéo enregistrée dans un [élément multimédia Azure Media Service](terminology.md#asset).
+
+Tout d'abord, extrayez la valeur `eventTime`. Utilisez cette valeur dans un [filtre d'intervalle de temps](playback-recordings-how-to.md#time-range-filters) pour extraire une portion appropriée de l'enregistrement. Par exemple, vous souhaitez peut-être extraire une vidéo qui commence 30 secondes avant `eventTime` et se termine 30 secondes après. Avec l'exemple ci-dessus, où `eventTime` correspond à 2020-05-12T23:33:09.381Z, une demande de manifeste HLS pour la fenêtre +/- 30s ressemblerait à ceci :
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+L'URL ci-dessus renverrait une [playlist principale](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming) contenant les URL des playlists multimédias. La playlist multimédia contiendrait des entrées semblables aux suivantes :
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+Dans ce qui précède, l'entrée indique qu'un fragment vidéo est disponible et qu'il commence à une valeur de timestamp de `143039375031270`. La valeur `timestamp` de l'événement analytique utilise la même échelle de temps que la playlist multimédia, et peut être utilisée pour identifier le fragment vidéo pertinent et rechercher l'image qui convient.
+
+Pour plus d'informations, vous pouvez lire l'un des nombreux [articles](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) disponibles sur la recherche précise d'images dans HLS.
 
 ## <a name="controlling-events"></a>Contrôle des événements
 

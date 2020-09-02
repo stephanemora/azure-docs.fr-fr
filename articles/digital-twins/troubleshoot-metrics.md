@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905197"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749026"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -88,9 +88,9 @@ Métriques en rapport avec le routage :
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messages routés (préversion) | Count | Total | Nombre de messages routés vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Opération, <br>Résultats |
-| RoutingFailureRate | Taux d’échec de routage (préversion) | Pourcentage | Average | Pourcentage d’événements qui génèrent une erreur lors de leur routage à partir d’Azure Digital Twins vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Opération, <br>Résultats |
-| RoutingLatency | Latence du routage (préversion) | Millisecondes | Average | Temps écoulé entre le routage d’un événement à partir d’Azure Digital Twins et sa publication sur le service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Opération, <br>Résultats |
+| MessagesRouted | Messages routés (préversion) | Count | Total | Nombre de messages routés vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
+| RoutingFailureRate | Taux d’échec de routage (préversion) | Pourcentage | Average | Pourcentage d’événements qui génèrent une erreur lors de leur routage à partir d’Azure Digital Twins vers un service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
+| RoutingLatency | Latence du routage (préversion) | Millisecondes | Average | Temps écoulé entre le routage d’un événement à partir d’Azure Digital Twins et sa publication sur le service Azure de point de terminaison, tel que Event Hub, Service Bus ou Event Grid. | Type de point de terminaison, <br>Résultats |
 
 ## <a name="dimensions"></a>Dimensions
 
@@ -100,7 +100,7 @@ Les dimensions permettent d’identifier plus de détails sur les métriques. Ce
 | --- | --- |
 | Authentification | OAuth |
 | Opération (pour les demandes d’API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
-| Opération (pour le routage) | Event Grid, <br>Event Hub, <br>Service Bus |
+| Type de point de terminaison | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocol | HTTPS |
 | Résultats | Réussite, <br>Échec |
 | Code d’état | 200, 404, 500, etc. |

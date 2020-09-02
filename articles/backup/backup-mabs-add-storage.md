@@ -3,12 +3,12 @@ title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde 
 description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513708"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825866"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
 
@@ -18,7 +18,7 @@ Azure Backup Server V2 et les versions ultérieures prennent en charge le stocka
 > Pour utiliser le stockage de sauvegarde moderne, vous devez exécuter le Serveur de sauvegarde V2 ou V3 sur Windows Server 2016 ou V3 sur Windows Server 2019.
 > Si vous exécutez le Serveur de sauvegarde V2 sur une version antérieure de Windows Server, le Serveur de sauvegarde Azure ne peut pas tirer parti du stockage de sauvegarde moderne. Au lieu de cela, il protège les charges de travail comme il le fait avec le Serveur de sauvegarde V1. Pour plus d’informations, voir la [matrice protection](backup-mabs-protection-matrix.md) de la version du Serveur de sauvegarde.
 >
-> Pour améliorer les performances de sauvegarde, nous vous recommandons de déployer MABS v3 avec un stockage hiérarchisé sur Windows Server 2019. Découvrez comment configurer un stockage hiérarchisé dans l’article DPM intitulé « [Configurer MBS avec un stockage hiérarchisé](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) ».
+> Pour améliorer les performances de sauvegarde, nous vous recommandons de déployer MABS v3 avec un stockage hiérarchisé sur Windows Server 2019. Reportez-vous à la section « [Configurer MBS avec un stockage hiérarchisé](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) » de l'article DPM pour apprendre à configurer un stockage hiérarchisé.
 
 ## <a name="volumes-in-backup-server"></a>Volumes dans le Serveur de sauvegarde
 

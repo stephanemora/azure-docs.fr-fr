@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136335"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826767"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -172,12 +172,19 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 
 ## <a name="how-we-convert-currency"></a>Procédure de conversion des devises
 
-Pour tous les types d’offres payantes, les éditeurs de logiciels indépendants ont la possibilité de saisir les prix en dollars américains ou de charger les prix dans la devise locale. Les prix entrés en USD sont convertis automatiquement dans la devise locale lors de l’enregistrement de la page. Les taux utilisés dans l’Espace partenaires sont mis à jour quotidiennement. Les éditeurs de logiciels indépendants peuvent exporter les prix et passer en revue les équivalents convertis.
+Pour tous les types d'offres payantes, vous avez la possibilité de saisir les prix en dollars américains ou de charger les prix dans la devise locale. Les prix entrés en USD sont convertis automatiquement dans la devise locale lors de l’enregistrement de la page. Les taux utilisés dans l’Espace partenaires sont mis à jour quotidiennement. Vous pouvez exporter les prix et passer en revue les équivalents convertis.
 
 Pour ajuster un tarif avant sa publication, il vous suffit d’exporter la feuille de calcul de tarification, de la modifier et de la charger avec les modifications.
 
 > [!NOTE]
 > Une fois qu’un prix pour un marché dans votre plan est publié, il ne peut pas être modifié ultérieurement. Pour vérifier que les prix sont corrects avant de les publier, exportez la feuille de calcul de prix et passez en revue les prix sur chaque marché.
+
+Le prix d'une offre est toujours indiqué aux clients dans leur devise locale. Le prix que vous sélectionnez dans l'Espace partenaires est converti dans la devise locale des clients en fonction du taux de change en vigueur au moment où vous avez enregistré le prix dans l'Espace partenaires. Le prix indiqué aux clients dans les magasins en ligne ne change pas, sauf si vous republiez votre offre.
+
+Microsoft reçoit les paiements des clients dans leur devise locale et vous paie dans votre devise locale. Microsoft convertit la devise locale du client en votre devise locale en se basant sur le taux de change du jour de l'achat.
+
+> [!NOTE]
+> Microsoft convertit les prix des offres en se basant sur le taux de change de Microsoft Treasury.
 
 ## <a name="retrieving-currency-information-by-api"></a>Récupération des informations sur la devise avec une API
 

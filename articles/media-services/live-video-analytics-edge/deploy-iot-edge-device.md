@@ -3,17 +3,16 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067890"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684097"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
 Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,6 +22,7 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Créer un compte Azure Media Services](../latest/create-account-howto.md)
+
     * Utilisez l’une de ces régions : USA Est 2, USA Centre, USA Centre Nord, Japon Est, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.
     * Nous vous recommandons d’utiliser des comptes de stockage universels v2 (GPv2).
 
@@ -51,7 +51,7 @@ Utilisez cette commande pour commencer le point de terminaison de streaming
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Pour obtenir les informations d’identification pour accéder aux API Media Service, suivez les étapes de cet article : [accéder aux API Media Service](../latest/access-api-howto.md#use-the-azure-portal).
+Pour obtenir les informations d'identification et accéder aux API Media Service, suivez les étapes décrites dans cet article : [Accéder aux API Media Service](../latest/access-api-howto.md?tabs=portal). Puis sélectionnez l'onglet Portail.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Créer et utiliser un compte d’utilisateur local pour le déploiement
 Afin d’exécuter le module Live Video Analytics sur IoT Edge, créez un compte d’utilisateur local doté du moins de privilèges possible. Par exemple, exécutez les commandes suivantes sur votre ordinateur Linux :
@@ -168,7 +168,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
     * {resourceGroupName} : il s’agit du groupe de ressources auquel appartient votre compte Media Service
     * {AMS-Account-Name} : il s’agit du nom de votre compte Media Services
     
-    Pour obtenir les autres valeurs, consultez [Accéder à l’API Azure Media Services](../latest/access-api-howto.md#use-the-azure-portal).  
+    Pour obtenir les autres valeurs, consultez [Accéder à l'API Azure Media Services](../latest/access-api-howto.md?tabs=portal) et sélectionnez l'onglet Portail.  
     * aadTenantId : l’ID de votre locataire qui est identique au « AadTenantId » du lien ci-dessus.
     * aadServicePrincipalAppId : l’ID de l’application du principal de service pour votre compte Media Service qui est identique au « AadClientId » du lien ci-dessus.
     * aadServicePrincipalSecret : mot de passe du principal du service ; identique au « AadSecret » du lien ci-dessus.
@@ -190,6 +190,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > La propriété de jumeau **allowUnsecuredEndpoints** est définie sur true dans le cadre des tutoriels et démarrages rapides.   
    Vous devez définir cette propriété sur **false** lors de l’exécution dans l’environnement de production. Cela permet de s’assurer que l’application bloque tous les points de terminaison non sécurisés. De plus, pour exécuter les topologies de graphique, des informations d’identification de connexion valides sont nécessaires.  
@@ -210,8 +211,8 @@ Vérifiez les informations de votre déploiement, puis sélectionnez Créer.
 
 Une fois le déploiement créé, vous êtes redirigé vers la page IoT Edge de votre hub IoT.
 
-1.  Sélectionnez le périphérique IoT Edge que vous avez ciblé avec le déploiement pour accéder à ses informations détaillées.
-2.  Dans les détails de l’appareil, vérifiez que le module de stockage d’objets blob figure dans **Spécifié lors du déploiement et Signalé par l’appareil**.
+1. Sélectionnez le périphérique IoT Edge que vous avez ciblé avec le déploiement pour accéder à ses informations détaillées.
+2. Dans les détails de l’appareil, vérifiez que le module de stockage d’objets blob figure dans **Spécifié lors du déploiement et Signalé par l’appareil**.
 
 Il peut s’écouler quelques instants avant que le module ne démarre sur l’appareil et qu’il ne soit renvoyé à IoT Hub. Actualisez la page pour afficher un état mis à jour.
 Code d’état : 200 –OK signifie que [le runtime d’IoT Edge](../../iot-edge/iot-edge-runtime.md) est sain et fonctionne correctement.
@@ -247,6 +248,7 @@ Testons ensuite l’exemple en appelant une méthode directe. Lisez [Méthodes d
     ![Message d’état 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Essayez [Démarrage rapide : Bien démarrer – Live Video Analytics sur IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

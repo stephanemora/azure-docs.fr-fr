@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053743"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654886"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurer des clés managées par le client pour votre compte Azure Batch avec Azure Key Vault et l’identité managée
 
@@ -19,7 +19,7 @@ Par défaut Azure Batch utilise des clés managées par la plate-forme pour chif
 Les clés que vous fournissez doivent être générées dans [Azure Key Vault](../key-vault/general/basic-concepts.md), et les comptes Batch que vous souhaitez configurer avec les clés managées par le client doivent être activés avec l’[identité managée Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Dans Azure Batch, la prise en charge des clés managées par le client est actuellement disponible en préversion publique dans les régions USA Centre-Ouest, USA Est, USA Centre Sud, USA Ouest 2, US Gov Virginie et US Gov Arizona.
+> Dans Azure Batch, la prise en charge des clés gérées par le client est actuellement disponible en préversion publique pour les régions Europe Ouest, Europe Nord, Suisse Nord, USA Centre, USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest 2, US Gov Virginie et US Gov Arizona.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
