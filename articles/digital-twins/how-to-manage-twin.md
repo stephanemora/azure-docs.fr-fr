@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587597"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796950"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Cet appel retourne les données du jumeau sous forme de chaîne JSON. 
 
-> [!TIP]
-> Seules les propriétés qui ont été définies au moins une fois sont retournées lorsque vous récupérez un jumeau avec `GetDigitalTwin`.
+Seules les propriétés qui ont été définies au moins une fois sont retournées lorsque vous récupérez un jumeau avec `GetDigitalTwin`.
+
+>[!TIP]
+>La `displayName` pour un jumeau est une partie de ses métadonnées de modèle, donc elle ne s’affichera pas lors de l’obtention de données pour l’instance jumelle. Pour afficher cette valeur, vous pouvez [la récupérer à partir du modèle](how-to-manage-model.md#retrieve-models).
 
 Pour récupérer plusieurs jumeaux à l’aide d’un seul appel d’API, consultez les exemples d’API de requête dans [*Procédure : Interroger le graphique de jumeaux*](how-to-query-graph.md).
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: b-juche
-ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258227"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690542"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -68,6 +68,7 @@ Cette section fournit des références pour les Solutions SAP sur Azure.
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [Configurations du stockage des machines virtuelles SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
 * [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 

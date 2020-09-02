@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890465"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 

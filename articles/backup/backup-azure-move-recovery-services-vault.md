@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612569"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827118"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -50,7 +50,7 @@ France Centre, France Sud, Allemagne Nord-Est, Allemagne Centre, US Gov Iowa, Ch
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Utiliser le portail Azure pour déplacer un coffre Recovery Services vers un autre groupe de ressources
 
-Pour déplacer un coffre Recovery Services et ses ressources associées vers un autre groupe de ressources
+Pour déplacer un coffre Recovery Services et ses ressources associées vers un autre groupe de ressources :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Ouvrez la liste des **coffres Recovery Services** et sélectionnez le coffre à déplacer. Quand le tableau de bord du coffre s’ouvre, il s’affiche comme illustré dans l’image suivante.
@@ -106,7 +106,7 @@ Vous pouvez déplacer un coffre Recovery Services et ses ressources associées v
 7. Sélectionnez l’option **Je comprends que les outils et les scripts associés aux ressources déplacées ne fonctionnent pas tant que je ne les mets pas à jour pour utiliser de nouveaux ID de ressource;** , puis sélectionnez **OK**.
 
 > [!NOTE]
-> La sauvegarde entre abonnements (le coffre Recovery Services et les machines virtuelles protégées se trouvent dans des abonnements différents) n’est pas un scénario pris en charge. En outre, pendant l’opération de déplacement du coffre, vous ne pouvez pas changer l’option de redondance du stockage de stockage localement redondant (LRS) en stockage globalement redondant (GRS) et inversement.
+> La sauvegarde entre abonnements (le coffre RS et les machines virtuelles protégées se trouvent dans des abonnements différents) n’est pas un scénario pris en charge. En outre, pendant l’opération de déplacement du coffre, vous ne pouvez pas modifier l’option de redondance du stockage de stockage localement redondant (LRS) en stockage globalement redondant (GRS) et inversement.
 >
 >
 
@@ -141,7 +141,7 @@ Pour déplacer des ressources vers un nouvel abonnement, spécifiez le paramètr
 ## <a name="post-migration"></a>Après la migration
 
 1. Définissez/vérifiez les contrôles d’accès pour les groupes de ressources.  
-2. La fonctionnalité de création de rapports et de surveillance de Sauvegarde doit être reconfigurée pour le coffre une fois le déplacement terminé. La configuration antérieure est perdue lors de l’opération de déplacement.
+2. La fonctionnalité de création de rapports et d’analyse de Sauvegarde doit être reconfigurée pour le coffre une fois le déplacement terminé. La configuration antérieure est perdue lors de l’opération de déplacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

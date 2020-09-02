@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507431"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815050"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -39,6 +39,7 @@ Ces risques sont calculés hors connexion à l’aide de sources d’information
 | Détection d’événements à risque | Description |
 | --- | --- |
 | Informations d’identification divulguées | Ce type de détection d’événement à risque indique que les informations d’identification valides de l’utilisateur ont fuité. Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’utilisateurs légitimes, ils le font dans le but de les rendre publics. Ce partage se fait généralement en publiant publiquement sur le « dark web », via des sites de pastebin, ou en échangeant et vendant des informations d’identification sur le marché noir. Lorsque le service d’informations de connexion fuitées de Microsoft acquiert des informations d’identification utilisateur sur le dark web, des ou d’autres sources, ces informations sont comparées aux informations d’identification valides actuelles des utilisateurs d’Azure AD pour rechercher des correspondances valides. Pour plus d’informations sur informations de connexion divulguées, consultez [Questions courantes](#common-questions). |
+| Pulvérisation de mots de passe | Une attaque par pulvérisation de mots de passe est l’endroit où plusieurs noms d’utilisateur sont attaqués à l’aide de mots de passe communs dans une méthode de force brute unifiée pour obtenir un accès non autorisé. Cette détection des risques est déclenchée lorsqu’une attaque par pulvérisation de mots de passe a été effectuée. |
 | Azure AD Threat Intelligence | Ce type de détection d’événement à risque indique une activité utilisateur inhabituelle pour l’utilisateur donné ou qui est cohérente avec des modèles d’attaque connus selon les sources internes et externes de Microsoft Threat Intelligence. |
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
@@ -68,9 +69,9 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 
 ### <a name="risk-levels"></a>Niveaux de risque
 
-Identity Protection catégorise les risques en trois niveaux : faible, moyen et sévère. 
+La protection d’identité catégorise les risques en trois niveaux : faible, moyen, sévère. 
 
-Bien que Microsoft ne communique pas en détail sur la manière dont le risque est calculé, nous pouvons affirmer que chaque niveau souligne avec un peu plus de certitude que l’utilisateur ou la connexion est compromis(e). Par exemple, une instance de propriétés de connexion inconnues pour un utilisateur pourrait être moins dangereuse que la divulgation d’informations d’identification pour un autre utilisateur.
+Bien que Microsoft ne communique pas en détail sur l'évaluation du risque, nous pouvons affirmer que chaque niveau souligne avec un peu plus de certitude que l'utilisateur ou la connexion est compromis(e). Par exemple, une instance de propriétés de connexion non connues pour un utilisateur pourrait être moins dangereuse que la divulgation d’informations d’identification pour un autre utilisateur.
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 

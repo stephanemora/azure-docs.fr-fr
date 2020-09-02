@@ -17,12 +17,12 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144479"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794937"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Applets de commande Azure AD PowerShell pour la création de rapports
 
@@ -34,6 +34,7 @@ Pour installer la préversion publique, utilisez ceci :
 ```powershell
 Install-module AzureADPreview
 ```
+
 Pour plus d’informations sur la façon de se connecter à Azure AD à l’aide de PowerShell, consultez l’article [Azure AD PowerShell pour Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Avec les rapports Azure Active Directory (Azure AD), vous pouvez afficher des informations sur les activités concernant toutes les opérations d’écriture dans votre direction (journaux d’audit) et les données d’authentification (journaux de connexion). Bien que les informations soient disponibles à l’aide de MS API Graph, vous pouvez maintenant récupérer les mêmes données à l’aide des cmdlets PowerShell Azure AD pour la création de rapports.

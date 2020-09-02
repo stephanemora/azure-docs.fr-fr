@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 992c29cb8380cf6acbe970b2fd5e958b6b2b33dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026711"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855487"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -144,7 +144,19 @@ using Microsoft.Identity.Web;
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftWebApiAuthentication(Configuration, "AzureAd");
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+
+ services.AddControllers();
+}
+```
+
+vous pouvez également écrire ce qui suit (qui est équivalent)
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+ // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
+ services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
 
  services.AddControllers();
 }
@@ -156,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 > - `$"api://{ClientId}` dans tous les autres cas (pour les [jetons d’accès](access-tokens.md) v1.0).
 > Pour plus d’informations, consultez le [code source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83) de Microsoft.Identity.Web.
 
-L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Cette méthode appelle [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), qui lui-même indique à l’intergiciel comment valider le jeton. Pour plus d’informations, consultez son [code source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
+L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftIdentityWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27). Cette méthode appelle [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58), qui lui-même indique à l’intergiciel comment valider le jeton. Pour plus d’informations, consultez son [code source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122).
 
 ## <a name="token-validation"></a>Validation du jeton
 
@@ -194,7 +206,8 @@ Dans la plupart des cas, vous n’avez pas besoin de modifier les paramètres. L
 Dans ASP.NET Core, si vous souhaitez personnaliser les paramètres de validation du jeton, utilisez l’extrait de code suivant dans votre *Startup.cs* :
 
 ```c#
-services.AddMicrosoftWebApiAuthentication(Configuration);
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
   var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;

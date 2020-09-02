@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374846"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749178"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Vue d’ensemble d’Azure HDInsight 4.0
 
@@ -92,7 +92,7 @@ Il n’existe aucun chemin de mise à niveau des versions précédentes de HDIns
 * HDInsight 4.0 ne prend pas en charge MapReduce pour Apache Hive. Utilisez plutôt Apache Tez. Découvrez plus en détail [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 ne prend pas en charge Apache Storm.
 * HDInsight 4,0 ne prend pas en charge le type de cluster ML services.
-* L’affichage Hive n’est plus disponible dans HDInsight 4.0.
+* La vue Hive est uniquement disponible sur les clusters HDInsight 4.0 dotés d’un numéro de version supérieur ou égal à 4.1. Ce numéro de version est disponible dans Administrateur Ambari -> Versions.
 * L’interpréteur de commandes d’Apache Zeppelin n’est pas pris en charge dans les clusters Spark et Interactive Query.
 * Vous ne pouvez pas *désactiver* LLAP sur un cluster Spark-LLAP. Vous pouvez uniquement désactiver LLAP.
 * Azure Data Lake Storage Gen2 ne peut pas enregistrer les blocs-notes Jupyter dans un cluster Spark.

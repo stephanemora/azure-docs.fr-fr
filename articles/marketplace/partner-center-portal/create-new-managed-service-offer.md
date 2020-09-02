@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606058"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816981"
 ---
 # <a name="create-a-managed-service-offer"></a>Créer une offre de service managé
 
@@ -29,7 +29,7 @@ Vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou 
     ![Illustre le menu de navigation de gauche.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->Après la publication d’une offre, les modifications qui lui ont été apportées dans Espace partenaires apparaissent uniquement dans les magasins en ligne après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
+>Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires n’apparaissent dans les magasins en ligne qu’après republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 ## <a name="new-offer"></a>Nouvelle offre
 
@@ -135,18 +135,19 @@ Dans cette section, vous pouvez fournir des logos et des images qui seront utili
 >[!NOTE]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
-#### <a name="marketplace-logos"></a>Logos dans la Place de marché
+#### <a name="store-logos"></a>Stocker des logos
 
-Fournissez le logo de votre offre en quatre tailles (en pixels) :
+Fournissez un fichier PNG pour le logo de **Grande** taille. L'Espace partenaires l'utilisera pour créer un logo **Petit** et **Moyen**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
 
-- **Petit** (48 x 48)
-- **Moyen** (90 x 90)
-- **Grand** (216 x 216)
-- **Large** (255 x 115)
+- **Grand** (de 216 x 216 à 350 x 350 px, obligatoire)
+- **Moyen** (90 x 90 px, facultatif)
+- **Petit** (48 x 48 px, facultatif)
 
-Ces logos sont utilisés à différents endroits de la Place de marché Azure :
+Ces logos sont utilisés à différents emplacements dans la liste :
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

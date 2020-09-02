@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes de sa
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513844"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824268"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
@@ -17,7 +17,7 @@ Cet article décrit les solutions aux problèmes que vous pouvez rencontrer lors
 
 ## <a name="basic-troubleshooting"></a>Dépannage de base
 
-Nous vous recommandons d’effectuer les validations ci-dessous avant de résoudre les problèmes de sauvegarde de l’état du système :
+Nous vous recommandons d’effectuer les étapes de validation suivantes avant de commencer à résoudre les problèmes de sauvegarde de l’état du système :
 
 - [Vérifiez que l'agent Microsoft Azure Recovery Services (MARS) est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Vérifiez la connectivité réseau entre l’agent MARS et Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, effectuez la vérification des prérequis indiqués ci-dessous.  
+Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, effectuez la vérification des prérequis ci-dessous.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Vérifier que la fonctionnalité Sauvegarde Windows Server est installée
 
@@ -56,7 +56,7 @@ Si la sortie affiche **l’état d’installation** **disponible**, cela signifi
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>Méthode 1 : installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell
 
-Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell, exécutez la commande ci-dessous :
+Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell, exécutez la commande suivante :
 
   ```powershell
   Install-WindowsFeature -Name Windows-Server-Backup
@@ -77,12 +77,12 @@ Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide du Gesti
 3. Sélectionnez un serveur dans le pool de serveurs, puis cliquez sur **Suivant**. Dans l’onglet Rôles de serveurs, laissez la sélection par défaut, puis cliquez sur **Suivant**.
 4. Sélectionnez **Sauvegarde Windows Server** dans l’onglet **Fonctionnalités**, puis cliquez sur **Suivant**.
 
-    ![features](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Fenêtre Sélectionner les fonctionnalités](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. Dans l’onglet **Confirmation**, cliquez sur **Installer** pour démarrer le processus d’installation.
 6. L’onglet **Résultats** affiche la fonctionnalité Sauvegarde Windows Server qui a été installée sur Windows Server.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Résultats de l’installation](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Autorisation sur le dossier System Volume Information
 
@@ -90,7 +90,7 @@ Assurez-vous que le système local dispose d’un contrôle total sur le dossier
 
 ### <a name="dependent-services"></a>Services dépendants
 
-Vérifiez que les services indiqués ci-dessous sont en cours d’exécution :
+Vérifiez que les services ci-dessous sont à l’état « En cours d’exécution » :
 
 **Nom du service** : | **Type de démarrage**
 --- | ---
@@ -113,7 +113,7 @@ Pour valider l’état de la fonctionnalité Sauvegarde Windows Server, effectue
 
     - Si la commande échoue avec cette erreur, réinstallez la fonctionnalité Sauvegarde Windows Server sur l’ordinateur serveur, comme indiqué dans les prérequis mentionnés à l’étape 1.
 
-  - Assurez-vous que la fonctionnalité Sauvegarde Windows Server fonctionne correctement en exécutant la commande ci-dessous à partir d’une invite de commandes avec élévation de privilèges :
+  - Vérifiez que la fonctionnalité Sauvegarde Windows Server fonctionne correctement en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

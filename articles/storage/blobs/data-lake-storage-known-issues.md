@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056076"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923736"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -60,9 +60,9 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans les SDK, PowerShell et Azure CLI
+## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Prise en charge de la définition de listes de contrôle d’accès (ACL) de manière récursive
 
-- Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
+La possibilité d’appliquer les modifications aux listes ACL de manière récursive du répertoire parent vers les éléments enfants est proposée dans la [préversion publique](recursive-access-control-lists.md). Dans la version actuelle de cette fonctionnalité, vous pouvez appliquer des modifications aux listes ACL à l’aide de PowerShell, du SDK .NET et du SDK Python. La prise en charge n’est pas encore disponible pour le SDK Java, Azure CLI, le portail Azure ou l’Explorateur Stockage Azure.
 
 <a id="known-issues-tools"></a>
 

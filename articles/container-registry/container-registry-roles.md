@@ -2,17 +2,17 @@
 title: Autorisations et rôles Azure
 description: Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et la gestion des identités et des accès (IAM) pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 ms.topic: article
-ms.date: 12/02/2019
-ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/17/2020
+ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920073"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661382"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
-Le service Azure Container Registry prend en charge un ensemble de [rôles Azure intégrés](../role-based-access-control/built-in-roles.md) fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/index.yml) pour attribuer des autorisations spécifiques aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
+Le service Azure Container Registry prend en charge un ensemble de [rôles Azure intégrés](../role-based-access-control/built-in-roles.md) fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/index.yml) pour attribuer des autorisations spécifiques aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. Vous pouvez également définir des [rôles personnalisés](#custom-roles) avec des autorisations affinées vers un registre pour différentes opérations.
 
 | Rôle/autorisation       | [Accéder à Resource Manager](#access-resource-manager) | [Créer/supprimer le Registre](#create-and-delete-registry) | [Pousser (push) l’image](#push-image) | [Extraire (pull) l’image](#pull-image) | [Supprimer les données d’image](#delete-image-data) | [Changer de stratégies](#change-policies) |   [Signer les images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -70,7 +70,7 @@ Capacité de signer des images, habituellement affectées à un processus automa
 
 ## <a name="custom-roles"></a>Rôles personnalisés
 
-Comme pour les autres ressources Azure, vous pouvez créer vos propres [rôles personnalisés](../role-based-access-control/custom-roles.md) avec des autorisations affinées pour Azure Container Registry. Attribuez ensuite les rôles personnalisés aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
+Comme pour les autres ressources Azure, vous pouvez créer des [rôles personnalisés](../role-based-access-control/custom-roles.md) avec des autorisations affinées vers Azure Container Registry. Attribuez ensuite les rôles personnalisés aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
 
 Pour déterminer les autorisations à appliquer à un rôle personnalisé, consultez la liste des [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) Microsoft.ContainerRegistry, passez en revue les actions autorisées des [rôles ACR intégrés](../role-based-access-control/built-in-roles.md) ou exécutez la commande suivante :
 
@@ -82,6 +82,36 @@ Pour définir un rôle personnalisé, consultez [Procédure de création d’un 
 
 > [!IMPORTANT]
 > Dans un rôle personnalisé, Azure Container Registry ne prend actuellement pas en charge les caractères génériques tels que `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` qui accordent l’accès à toutes les actions correspondantes. Spécifiez une action requise individuellement dans le rôle.
+
+### <a name="example-custom-role-to-import-images"></a>Exemple : Rôle personnalisé pour importer des images
+
+Par exemple, le code JSON suivant définit les actions minimales pour un rôle personnalisé qui autorise l’[importation d’images](container-registry-import-images.md) vers un registre.
+
+```json
+{
+   "assignableScopes": [
+     "/subscriptions/<optional, but you can limit the visibility to one or more subscriptions>"
+   ],
+   "description": "Can import images to registry",
+   "Name": "AcrImport",
+   "permissions": [
+     {
+       "actions": [
+         "Microsoft.ContainerRegistry/registries/push/write",
+         "Microsoft.ContainerRegistry/registries/pull/read",
+         "Microsoft.ContainerRegistry/registries/read",
+         "Microsoft.ContainerRegistry/registries/importImage/action"
+       ],
+       "dataActions": [],
+       "notActions": [],
+       "notDataActions": []
+     }
+   ],
+   "roleType": "CustomRole"
+ }
+```
+
+Pour créer ou mettre à jour un rôle personnalisé à l’aide de la description JSON, utilisez [Azure CLI](../role-based-access-control/custom-roles-cli.md), le [modèle Azure Resource Manager](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md) ou d’autres outils Azure. Ajoutez ou supprimez des attributions de rôles pour un rôle personnalisé de la même façon que vous gérez les attributions de rôles pour les rôles Azure intégrés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

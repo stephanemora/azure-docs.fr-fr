@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543467"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639832"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -47,6 +47,7 @@ Voici quelques détails clés sur Private Endpoint :
  
 - Plusieurs instances Private Endpoint privées peuvent être créées sur des sous-réseaux identiques ou différents au sein du même réseau virtuel. Il existe des limites au nombre d’instances Private Endpoint que vous pouvez créer dans un abonnement. Pour plus d’informations, consultez  [Limites Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- L’abonnement de la ressource de lien privé doit également être inscrit auprès du fournisseur de ressources Microsoft Network. Pour plus d’informations, consultez  [Fournisseurs de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Ressource Private Link 

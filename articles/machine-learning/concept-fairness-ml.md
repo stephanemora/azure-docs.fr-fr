@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829371"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689675"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Atténuer l’impartialité dans les modèles Machine Learning (préversion)
 
@@ -108,6 +108,6 @@ Le package open source Fairlearn fournit des algorithmes d’atténuation de pos
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/user_guide/index.html), les [exemples](https://fairlearn.github.io/auto_examples/notebooks/index.html)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
+- Découvrez comment utiliser les différents composants en consultant le [GitHub](https://github.com/fairlearn/fairlearn/), le [guide de l’utilisateur](https://fairlearn.github.io/user_guide/index.html), les [exemples](https://fairlearn.github.io/auto_examples/)et les [exemples de notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks) de Fairlearn.
 - Découvrez [comment](how-to-machine-learning-fairness-aml.md) activer l’évaluation de l’impartialité des modèles de Machine Learning dans Azure Machine Learning.
 - Consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) pour connaître d’autres scénarios d’évaluation de l’impartialité dans Azure Machine Learning. 

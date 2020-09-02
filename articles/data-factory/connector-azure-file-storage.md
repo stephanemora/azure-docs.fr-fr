@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: be12393591d534b4141594439f0409d0db331bd0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/21/2020
+ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522672"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718252"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -33,7 +33,12 @@ Ce connecteur Stockage Fichier Azure est pris en charge pour les activités suiv
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)
 - [Supprimer l’activité](delete-activity.md)
 
-Plus spécifiquement, ce connecteur Stockage Fichier Azure prend en charge la copie de fichiers en l’état ou l’analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+Vous pouvez copier des données depuis Stockage Fichier Azure vers un magasin de données récepteur pris en charge, ou copier des données depuis un magasin de données sources pris en charge vers Stockage Fichier Azure. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs pour l’activité de copie, consultez [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+
+Plus précisément, ce connecteur Stockage Fichier Azure prend en charge ce qui suit :
+
+- Copie de fichiers en utilisant des authentifications par clé de compte et par signature d’accès partagé (SAS) de service.
+- Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -43,7 +48,139 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Les propriétés prises en charge pour le service lié Stockage Fichier Azure sont les suivantes :
+Ce connecteur Stockage Fichier Azure prend en charge les types d’authentification suivants. Pour plus d’informations, consultez les sections correspondantes.
+
+- [Authentification par clé de compte](#account-key-authentication)
+- [Authentification avec une signature d’accès partagé](#shared-access-signature-authentication)
+
+>[!NOTE]
+> Si vous utilisiez le service lié Stockage Fichier Azure avec le [modèle hérité](#legacy-model), avec l’interface utilisateur de création ADF présentée comme « Authentification de base », il est toujours pris en charge en l’état, mais il vous est suggéré d’utiliser le nouveau modèle à l’avenir. Le modèle hérité transfère des données depuis/vers le stockage via le protocole SMB (Server Message Block), tandis que le nouveau modèle utilise le kit SDK de stockage qui offre un meilleur débit. Pour effectuer la mise à niveau, vous pouvez modifier votre service lié pour basculer la méthode d’authentification sur « Clé de compte » ou « URI SAS ». Aucune modification n’est nécessaire sur le jeu de données ou l’activité de copie.
+
+### <a name="account-key-authentication"></a>Authentification par clé de compte
+
+Pour l’authentification par clé de compte Stockage Fichier Azure, Data Factory prend en charge les propriétés suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type doit être définie sur : **AzureFileStorage**. | Oui |
+| connectionString | Spécifiez les informations requises pour se connecter au Stockage Fichier Azure. <br/> Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et l’article [Stocker les informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| fileShare | Spécifiez le partage de fichiers. | Oui |
+| instantané | Spécifiez la date de l’[instantané de partage de fichiers](../storage/files/storage-snapshots-files.md) si vous souhaitez effectuer une copie à partir d’un instantané. | Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+
+**Exemple :**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net;",
+            "fileShare": "<file share name>"
+        },
+        "connectVia": {
+          "referenceName": "<name of Integration Runtime>",
+          "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple : stockage de la clé de compte dans Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
+            "fileShare": "<file share name>",
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
+### <a name="shared-access-signature-authentication"></a>Authentification avec une signature d’accès partagé
+
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez utiliser une signature d’accès partagé pour octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+Pour l’authentification par signature d’accès partagé, Data Factory prend en charge les propriétés suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété type doit être définie sur : **AzureFileStorage**. | Oui |
+| sasUri | Spécifiez l’URI de signature d’accès partagé aux ressources. <br/>Marquez ce champ comme **SecureString** pour le stocker en toute sécurité dans Data Factory. Vous pouvez également placer le jeton SAP dans Azure Key Vault pour utiliser la rotation automatique et supprimer la portion jeton. Pour plus d’informations, consultez les exemples suivants et [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| fileShare | Spécifiez le partage de fichiers. | Oui |
+| instantané | Spécifiez la date de l’[instantané de partage de fichiers](../storage/files/storage-snapshots-files.md) si vous souhaitez effectuer une copie à partir d’un instantané. | Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+
+**Exemple :**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the resource e.g. https://<accountname>.file.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            },
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemple : stockage de la clé de compte dans Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.file.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="legacy-model"></a>Modèle hérité
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -52,13 +189,6 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 | userid | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure comme suit : <br/>\- Utilisation de l’interface utilisateur : spécifiez `AZURE\<storage name>`<br/>\- Utilisation de JSON : `"userid": "AZURE\\<storage name>"`. | Oui |
 | mot de passe | Spécifiez la clé d’accès au stockage. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non pour Source, Oui pour Récepteur |
-
->[!IMPORTANT]
-> - Pour copier des données dans le Stockage Fichier Azure à l’aide d’Azure Integration Runtime, [créez un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) explicitement avec l’emplacement de Stockage Fichier, puis associez-le au service lié, comme dans l’exemple suivant.
-> - Pour copier des données depuis/vers Stockage Fichier Azure à l’aide du runtime d’intégration auto-hébergé en dehors d’Azure, n’oubliez pas d’ouvrir le port TCP 445 sortant sur votre réseau local.
-
->[!TIP]
->Lorsque vous utilisez l’interface utilisateur d’Azure Data Factory pour la création, vous trouverez l’entrée spécifique « Stockage Fichier Azure » pour la création du service lié, qui génère l’objet de type `FileServer`.
 
 **Exemple :**
 
@@ -137,13 +267,14 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerReadSettings**. | Oui                                           |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
-| OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
-| OPTION 2 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
-| OPTION 3 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Si vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
+| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 2 : préfixe de fichier<br>- prefix | Préfixe du nom de fichier sous le partage de fichiers donné, configuré dans un jeu de données pour filtrer les fichiers sources. Les fichiers dont le nom commence par `fileshare_in_linked_service/this_prefix` sont sélectionnés. Il utilise le filtre côté service pour le Stockage Fichier Azure, qui offre de meilleures performances qu’un filtre de caractères génériques. Cette fonctionnalité n’est pas prise en charge lors de l’utilisation d’un [modèle de service lié hérité](#legacy-model). | Non                                                          |
+| OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
+| OPTION 3 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
+| OPTION 4 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Si vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
 | ***Paramètres supplémentaires :*** |  | |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
-| deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie binaire, où les magasins sources de données sont Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP ou FTP. La valeur par défaut est false. |Non |
+| deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichier binaire, où les magasins sources de données sont Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure file, SFTP ou FTP. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. <br>Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur Null, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
@@ -253,9 +384,9 @@ Cette section décrit le comportement résultant de l’utilisation du chemin d�
 
 En supposant que vous disposez de la structure de dossiers source suivante et que vous souhaitez copier les fichiers en gras :
 
-| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration ADF                                            |
+| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration ADF                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- chemin d’accès du dossier : `root/FolderA`<br><br>**Dans la source de l’activité de copie :**<br>- chemin d’accès à la liste de fichiers : `root/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès à la liste de fichiers pointe vers un fichier texte dans le même magasin de données qui contient la liste de fichiers que vous voulez copier, un fichier par ligne étant le chemin d’accès relatif au chemin d’accès configuré dans le jeu de données. |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- chemin d’accès du dossier : `root/FolderA`<br><br>**Dans la source de l’activité de copie :**<br>- chemin d’accès à la liste de fichiers : `root/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès à la liste de fichiers pointe vers un fichier texte dans le même magasin de données qui contient la liste de fichiers que vous voulez copier, un fichier par ligne étant le chemin d’accès relatif au chemin d’accès configuré dans le jeu de données. |
 
 ### <a name="recursive-and-copybehavior-examples"></a>exemples de valeurs recursive et copyBehavior
 

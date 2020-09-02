@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300805"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798837"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -81,6 +81,10 @@ Le nœud processeur de filtre de fréquence d’images vous permet d’échantil
 
 Le nœud processeur d’extension HTTP vous permet de connecter votre propre module IoT Edge à un graphe multimédia. Ce nœud prend les images vidéo décodées comme entrée et les transmet à un point de terminaison REST HTTP exposé par votre module. Ce nœud peut s’authentifier auprès du point de terminaison REST, le cas échéant. En outre, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles ne soient relayées vers le point de terminaison REST. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP.
 
+#### <a name="grpc-extension-processor"></a>Processeur d’extension gRPC
+
+Le nœud du processeur d’extension gRPC prend les images vidéo décodées comme entrée et les relaie à un point de terminaison [gRPC](terminology.md#grpc) exposé par votre module. De plus, le nœud dispose d’un formateur d’image intégré pour la mise à l’échelle et l’encodage des images vidéo avant qu’elles soient relayées au point de terminaison gRPC. Le processus de mise à l’échelle propose des options permettant de préserver les proportions de l’image, de la remplir ou de l’étirer. L’encodeur d’image prend en charge les formats JPEG, PNG ou BMP.
+
 #### <a name="signal-gate-processor"></a>Processeur de porte de signal  
 
 Le nœud processeur de la porte de signal vous permet de transférer de manière conditionnelle des médias d’un nœud à un autre. Il agit également comme une mémoire tampon, ce qui permet la synchronisation des médias et des événements. Un cas d’usage classique consiste à insérer un nœud processeur de porte de signal entre le nœud source RTSP et le nœud récepteur de ressources, et à utiliser la sortie d’un nœud processeur de détecteur de mouvement pour déclencher la porte. Avec ce type de graphe multimédia, vous enregistrez la vidéo uniquement lorsqu’un mouvement est détecté.
@@ -101,7 +105,7 @@ Un nœud récepteur de messages IoT Hub vous permet de publier des événements 
 
 ## <a name="rules-on-the-use-of-nodes"></a>Règles d’utilisation des nœuds
 
-Pour plus d’informations sur la façon dont différents nœuds peuvent être utilisés dans un graphe multimédia, consultez [les quotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview).
+Pour plus d’informations sur les autres règles d’utilisation de nœuds différents dans un graphe multimédia, consultez [Limitations relatives aux topologies de graphe](quotas-limitations.md#limitations-on-graph-topologies-at-preview).
 
 ## <a name="scenarios"></a>Scénarios
 

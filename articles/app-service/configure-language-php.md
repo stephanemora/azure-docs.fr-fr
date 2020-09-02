@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 306afb2bfba7c222798bbfd1bef334387b6f9771
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080077"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717980"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configurer une application PHP pour Azure App Service
 
@@ -276,8 +276,8 @@ Si vous préférez ne pas utiliser la réécriture *.htaccess*, vous pouvez à l
 Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
 ```php
-if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
-  // Do something when HTTPS is used
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+// Do something when HTTPS is used
 }
 ```
 
@@ -408,15 +408,15 @@ Les installations PHP intégrées contiennent les extensions les plus fréquemme
 
 Pour activer des extensions supplémentaires, effectuez les étapes suivantes :
 
-Ajoutez un répertoire `bin` au répertoire racine de votre application et placez-y les fichiers d'extension `.so` (par exemple, *mongodb.so*). Assurez-vous que les extensions sont compatibles avec la version de PHP dans Azure, ainsi qu'avec VC9 et NTS (Non-Thread Safe).
+Ajoutez un répertoire `bin` au répertoire racine de votre application et placez-y les fichiers d’extension `.dll` (par exemple *mongodb.dll*). Assurez-vous que les extensions sont compatibles avec la version de PHP dans Azure, ainsi qu'avec VC9 et NTS (Non-Thread Safe).
 
 Déployez vos modifications.
 
 Suivez les étapes décrites dans [Personnaliser les directives PHP_INI_SYSTEM](#customize-php_ini_system-directives), ajoutez les extensions au fichier *.ini* personnalisé avec l'[extension](https://www.php.net/manual/ini.core.php#ini.extension) ou les directives [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension).
 
 ```
-extension=d:\home\site\wwwroot\bin\mongodb.so
-zend_extension=d:\home\site\wwwroot\bin\xdebug.so
+extension=d:\home\site\wwwroot\bin\mongodb.dll
+zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
 ```
 
 Redémarrez l'application pour que les modifications soient prises en compte.

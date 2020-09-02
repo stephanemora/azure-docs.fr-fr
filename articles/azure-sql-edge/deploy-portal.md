@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233239"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816862"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Déployer Azure SQL Edge (préversion) 
 
@@ -114,9 +114,114 @@ La Place de marché Azure est un marché d’applications et de services en lign
 12. Cliquez sur **Suivant**.
 13. Cliquez sur **Envoyer**.
 
-Dans ce guide de démarrage rapide, vous avez déployé un module SQL Edge sur un appareil IoT Edge.
+## <a name="connect-to-azure-sql-edge"></a>Se connecter à Azure SQL Edge
+
+La procédure suivante utilise l’outil en ligne de commande Azure SQL Edge, **sqlcmd**, dans le conteneur pour se connecter à Azure SQL Edge.
+
+> [!NOTE]
+> L’outil sqlcmd n’est pas disponible dans la version ARM64 des conteneurs SQL Edge.
+
+1. Utilisez la commande `docker exec -it` pour démarrer un interpréteur de commandes bash interactif dans votre conteneur en cours d’exécution. Dans l’exemple suivant, `azuresqledge` est le nom spécifié par le paramètre `Name` de votre module IoT Edge.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. Une fois dans le conteneur, connectez-vous localement avec sqlcmd. Sqlcmd n’est pas dans le chemin par défaut, vous devez spécifier le chemin complet.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > Vous pouvez omettre le mot de passe sur la ligne de commande pour être invité à l’entrer.
+
+3. Si l’opération réussit, vous devez accéder à une invite de commandes **sqlcmd** : `1>`.
+
+## <a name="create-and-query-data"></a>Créer et interroger des données
+
+Les sections suivantes vous guident lors de l’utilisation de **sqlcmd** et Transact-SQL pour créer une base de données, ajouter des données et exécuter une requête simple.
+
+### <a name="create-a-new-database"></a>Créer une base de données
+
+La procédure suivante crée une base de données nommée `TestDB`.
+
+1. À partir de l’invite de commandes **sqlcmd**, collez la commande Transact-SQL suivante pour créer une base de données de test :
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. Sur la ligne suivante, écrivez une requête pour retourner le nom de toutes les bases de données sur votre serveur :
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### <a name="insert-data"></a>Insertion des données
+
+Créez ensuite une table, `Inventory`, et insérez deux nouvelles lignes.
+
+1. À partir de l’invite de commandes **sqlcmd**, basculez le contexte vers la nouvelle base de données `TestDB` :
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Créez une table nommée `Inventory` :
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Insérez des données dans la nouvelle table :
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Tapez `GO` pour exécuter les commandes précédentes :
+
+   ```sql
+   GO
+   ```
+
+### <a name="select-data"></a>Sélectionner les données
+
+Exécutez maintenant une requête pour retourner des données de la table `Inventory`.
+
+1. Dans l’invite de commandes **sqlcmd**, entrez une requête qui retourne les lignes de la table `Inventory` dont la quantité est supérieure à 152 :
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Exécutez la commande :
+
+   ```sql
+   GO
+   ```
+
+### <a name="exit-the-sqlcmd-command-prompt"></a>Quitter l’invite de commandes sqlcmd
+
+1. Pour mettre fin à votre session **sqlcmd**, tapez `QUIT` :
+
+   ```sql
+   QUIT
+   ```
+
+2. Pour quitter l’invite de commandes interactive dans votre conteneur, tapez `exit`. Le conteneur continue de s’exécuter une fois que vous avez quitté l’interpréteur de commandes bash interactif.
+
+## <a name="connect-from-outside-the-container"></a> Se connecter en dehors du conteneur
+
+Vous pouvez vous connecter et exécuter des requêtes SQL sur votre instance Azure SQL Edge à partir de n’importe quel outil externe Linux, Windows ou macOS qui prend en charge les connexions SQL. Pour plus d’informations sur la connexion à un conteneur SQL Edge depuis l’extérieur, consultez [Connecter et interroger Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+Dans ce guide de démarrage rapide, vous avez déployé un module SQL Edge sur un appareil IoT Edge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Machine Learning et intelligence artificielle avec ONNX dans SQL Edge](onnx-overview.md).
 - [Création d’une solution IoT de bout en bout avec SQL Edge à l’aide d’IoT Edge](tutorial-deploy-azure-resources.md).
+- [Streaming de données dans Azure SQL Edge](stream-data.md)

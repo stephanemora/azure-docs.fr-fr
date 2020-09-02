@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607398"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816267"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -54,12 +54,12 @@ Les catégories et sous-catégories sont mappées à chaque magasin en ligne en 
 
 Sélectionnez les catégories et sous-catégories qui correspondent le mieux à votre offre et à votre public cible. Vous pouvez sélectionner :
 
-* Jusqu’à deux (2) catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
-* Jusqu’à deux (2) sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est sélectionnée, votre offre sera tout de même découvrable sur la catégorie sélectionnée uniquement.
+* Jusqu’à deux catégories, y compris une catégorie principale et une catégorie secondaire (facultatif).
+* Jusqu’à deux sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est sélectionnée, votre offre sera tout de même découvrable sur la catégorie sélectionnée uniquement.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**IMPORTANT : Offres SaaS et compléments Microsoft 365**
+#### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANT : Offres SaaS et compléments Microsoft 365
 
 Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez le [guide par type d’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée :
 
@@ -120,9 +120,9 @@ Les mots clés peuvent aider les clients à trouver votre offre lorsqu’ils eff
 ## <a name="online-store-marketing-details"></a>Détails marketing du magasin en ligne
 | Paramètre | Bonne pratique |
 |:--- |:--- |  
-| Logo de l’offre (format PNG, 48&nbsp;&times;&nbsp;48) : page de recherche | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page de recherche de l’offre. |
-| Logo de l’offre (format PNG, 216&nbsp;&times;&nbsp;216) : page de détails de l’application | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page détaillant les applications de votre offre. |
-| Documents « Plus d’informations » | Incluez dans la section « Plus d’informations » des ressources de ventes et marketing de support, par exemple : <ul> <li> Livres blancs </li> <li> Brochures </li> <li> Checklists </li> <li> Présentations PowerPoint</li> </ul>Enregistrez tous les fichiers au format PDF. Votre objectif avec ces documents doit être de renseigner les clients, pas de leur faire acheter. <br><br>Ajoutez un lien à votre application vers la page d’accueil avec tous vos documents, et ajoutez des paramètres d’URL pour vous assister dans le suivi des visiteurs et des essais gratuits. |
+| Logo de l’offre (format PNG, de 216 × 216 à 350 x 350 px) : page Détails de l’application | Concevez et optimisez votre logo pour un support numérique :<br>Chargez le logo au format PNG vers la page détaillant les applications de votre offre. L’Espace partenaires le redimensionne sur les tailles de logo requises. |
+| Logo de l’offre (format PNG, 48 x 48 pixels) : page de recherche | L’Espace partenaires génère ce logo à partir du grand logo que vous avez chargé. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image. |
+| Documents « Plus d’informations » | Incluez dans la section « Plus d’informations » des ressources de ventes et marketing de support, par exemple :<ul><li>livres blancs</li><li> brochures</li><li>Checklists</li><li> présentations PowerPoint</li></ul><br>Enregistrez tous les fichiers au format PDF. Votre objectif avec ces documents doit être de renseigner les clients, pas de leur faire acheter.<br><br>Ajoutez un lien à votre application vers la page d’accueil avec tous vos documents, et ajoutez des paramètres d’URL pour vous assister dans le suivi des visiteurs et des essais gratuits. |
 | Vidéos : offres AppSource, de services de conseil et SaaS uniquement | Les vidéos les plus percutantes expriment la valeur de votre offre sous forme narrative :<ul> <li> Faites du client le héros de l’histoire, et non votre entreprise. </li> <li> Votre vidéo doit évoquer les principaux défis et objectifs de votre client cible. </li> <li> Durée recommandée : 60 à 90 secondes.</li> <li> Incorporez des mots clés de recherche similaires aux noms des vidéos. </li> <li> Vous pouvez ajouter d’autres vidéos, telles qu’une vidéo explicative, un tutoriel ou des témoignages client. </li> </ul> |
 | Captures d’écran (1280&nbsp;&times;&nbsp;720) | Ajoutez jusqu'à cinq captures d’écran :<br>Incorporez les mots clés de recherche dans le nom des fichiers. |
 
@@ -141,4 +141,3 @@ L’ajout de ces paramètres dans votre URL AppSource vous permet d’observer l
 Apprenez-en plus sur les [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md).
 
 Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
-

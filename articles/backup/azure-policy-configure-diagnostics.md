@@ -3,12 +3,12 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612501"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892233"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 
@@ -20,9 +20,9 @@ Pour simplifier la création de paramètres de diagnostic à grande échelle (av
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* La stratégie peut être appliquée simultanément à tous les coffres Recovery Services d’un abonnement donné (ou à un groupe de ressources dans l’abonnement). L’utilisateur qui attribue la stratégie doit disposer d’un accès « Propriétaire » à l’abonnement auquel la stratégie est attribuée.
+* La stratégie peut être appliquée simultanément à tous les coffres Recovery Services d’un abonnement donné (ou à un groupe de ressources dans l’abonnement). L’utilisateur qui attribue la stratégie doit disposer d’un accès **Propriétaire** à l’abonnement auquel la stratégie est attribuée.
 
-* L’espace de travail Log Analytics indiqué par l’utilisateur (auquel seront envoyées les données de diagnostic) peut se trouver dans un abonnement différent des coffres auxquels la stratégie est attribuée. L’utilisateur doit disposer d’un accès « Lecteur », « Contributeur » ou « Propriétaire » à l’abonnement dans lequel se trouve l’espace de travail Log Analytics spécifié.
+* L’espace de travail Log Analytics indiqué par l’utilisateur (auquel seront envoyées les données de diagnostic) peut se trouver dans un abonnement différent des coffres auxquels la stratégie est attribuée. L’utilisateur doit disposer d’un accès **Lecteur**, **Contributeur** ou **Propriétaire** à l’abonnement dans lequel se trouve l’espace de travail Log Analytics spécifié.
 
 * L’étendue du groupe d’administration n’est pas prise en charge pour le moment.
 
@@ -78,7 +78,7 @@ De plus, si seulement une partie des six événements propres à une ressource s
 >
 > Si le coffre comporte un paramètre de diagnostic avec un **sous-ensemble des catégories propres à une ressources** activées et qu’il est configuré de façon à envoyer des données à un espace de travail Log Analytics spécifique, par exemple « Espace de travail X », la tâche de correction échouera (pour ce coffre uniquement) si l’espace de travail Log Analytics de destination fourni dans l’attribution de stratégie est le **même** « Espace de travail X ».
 >
->En effet, si les événements activés par deux paramètres de diagnostic différents sur la même ressource **se chevauchent** sous une forme ou une autre, les paramètres ne peuvent pas avoir le même espace de travail Log Analytics comme destination. Vous devrez résoudre ce problème manuellement, en accédant au coffre concerné et en configurant un paramètre de diagnostic avec un autre espace de travail Log Analytics comme destination.
+>En effet, si les événements activés par deux paramètres de diagnostic différents sur la même ressource **se chevauchent** sous une forme ou une autre, les paramètres ne peuvent donc pas avoir le même espace de travail Log Analytics comme destination. Vous devrez résoudre ce problème manuellement, en accédant au coffre concerné et en configurant un paramètre de diagnostic avec un autre espace de travail Log Analytics comme destination.
 >
 > Il est à noter que la tâche de correction n’échoue **pas** si seul AzureBackupReport est activé pour le paramètre de diagnostic existant et que la destination est l’Espace de travail X, puisque, dans ce cas, il n’y a aucun chevauchement entre les événements activés par le paramètre existant et les événements activés par le paramètre créé par la tâche de correction.
 

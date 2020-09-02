@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791994"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799330"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -144,6 +144,22 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
     ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
+### <a name="elevate-access-for-a-global-administrator"></a>Élever l’accès d’un administrateur général
+
+Pour élever l’accès d’un administrateur général à l’aide de l’Azure CLI, effectuez les étapes de base suivantes.
+
+1. Utilisez la commande [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) pour appeler le point de terminaison `elevateAccess`, qui vous accorde le rôle Administrateur de l’accès utilisateur au niveau de l’étendue racine (`/`).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
+
+    Pour obtenir des informations sur l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md).
+
+1. Procédez de la manière décrite dans une section ultérieure pour supprimer votre accès avec élévation de privilèges.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Lister une attribution de rôle au niveau de l’étendue racine (/)
 

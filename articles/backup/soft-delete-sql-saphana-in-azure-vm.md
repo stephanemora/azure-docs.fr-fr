@@ -3,12 +3,12 @@ title: Suppression réversible pour les charges de travail SQL Server dans Azure
 description: Découvrez comment la suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM permet de rendre les sauvegardes plus sécurisées.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538188"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825169"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM
 
@@ -17,7 +17,7 @@ Le service Sauvegarde Azure propose désormais la suppression réversible pour l
 La [suppression réversible](backup-azure-security-feature-cloud.md) est une fonctionnalité de sécurité qui permet de protéger les données de sauvegarde même après leur suppression. Avec la suppression réversible, même si un intervenant malveillant supprime la sauvegarde d’une base de données (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires. Cela permet de récupérer cet élément de sauvegarde sans perte de données. Cette conservation durant 14 jours supplémentaires des données de sauvegarde à l’état de « suppression réversible » n’entraîne aucun frais pour le client.
 
 >[!NOTE]
->Une fois que la préversion est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA, tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
+>Une fois que la préversion est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
 
 ## <a name="steps-to-enroll-in-preview"></a>Étapes d’inscription à la préversion
 
@@ -99,7 +99,7 @@ La séquence d’étapes pour l’utilisation d’Azure PowerShell est la même 
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Supprimer l’élément de sauvegarde à l’aide d’Azure PowerShell
 
-Supprimez l’élément de sauvegarde en utilisant l’applet de commande PS [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
+Supprimez l’élément de sauvegarde en utilisant l’applet de commande PowerShell [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Ensuite, effectuez l’opération d’annulation de suppression en utilisant l’applet de commande PS [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
+Ensuite, effectuez l’opération d’annulation de suppression en utilisant l’applet de commande PowerShell [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

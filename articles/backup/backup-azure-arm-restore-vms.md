@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 0607133f26113123f1c75d714c6c71f19cf2db63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263008"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826512"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -65,7 +65,7 @@ Si vous n’avez pas ces autorisations, vous pouvez [restaurer un disque](#resto
     - **Créer** : Utilisez cette option si vous souhaitez créer une machine virtuelle. Vous pouvez créer une machine virtuelle avec des paramètres simples, ou restaurer un disque et créer une machine virtuelle personnalisée.
     - **Remplacer l’existant** : Utilisez cette option si vous souhaitez remplacer les disques sur une machine virtuelle existante.
 
-        ![Assistant Configuration de restauration](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Assistant Restaurer la configuration d’une machine virtuelle](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Spécifiez les paramètres de l’option de restauration sélectionnée.
 
@@ -79,7 +79,7 @@ Cette [option de restauration](#restore-options) vous permet de créer rapidemen
 1. Dans **Réseau virtuel**, sélectionnez le réseau virtuel dans lequel la machine virtuelle sera placée. Tous les réseaux virtuels associés à l’abonnement sont affichés. Sélectionnez le sous-réseau. Le premier sous-réseau est sélectionné par défaut.
 1. Dans **Emplacement de mise en lots**, spécifiez le compte de stockage pour la machine virtuelle. [Plus d’informations](#storage-accounts)
 
-    ![Assistant Configuration de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Assistant Restaurer une configuration - Choisir les options de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Sélectionnez **Restaurer** pour démarrer l’opération de restauration.
 
@@ -184,7 +184,7 @@ L’expérience utilisateur de restauration de la région secondaire est similai
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Restauration des VM et des disques non gérés comme étant gérés
 
-Vous disposez d’une option pour restaurer les [disques non gérés](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) en tant que [disques gérés](../virtual-machines/windows/managed-disks-overview.md) lors de la restauration. Par défaut, les machines virtuelles/disques non gérés sont restaurés en tant que machines virtuelles/disques non gérés. Toutefois, si vous choisissez de restaurer en tant que machines virtuelles/disques gérés, il est maintenant possible de le faire. Ces restaurations ne sont pas déclenchées à partir de la phase d’instantané, mais uniquement à partir de la phase de coffre. Cette fonctionnalité n’est pas disponible pour les machines virtuelles chiffrées non gérées.
+Vous disposez d’une option pour restaurer les [disques non gérés](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) en tant que [disques gérés](../virtual-machines/managed-disks-overview.md) lors de la restauration. Par défaut, les machines virtuelles/disques non gérés sont restaurés en tant que machines virtuelles/disques non gérés. Toutefois, si vous choisissez de restaurer en tant que machines virtuelles/disques gérés, il est maintenant possible de le faire. Ces restaurations ne sont pas déclenchées à partir de la phase d’instantané, mais uniquement à partir de la phase de coffre. Cette fonctionnalité n’est pas disponible pour les machines virtuelles chiffrées non gérées.
 
 ![Restaurer sous forme de disques managés](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

@@ -10,13 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: b06a01bf280d6d12e2df122d411e15e3432e61c7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/25/2020
+ms.openlocfilehash: 2a861a31a36d30bfec9ad3bde9dc6e91ac067c8a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847061"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816614"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et à partir d’une instance managée SQL Azure à l’aide d’Azure Data Factory
 
@@ -66,7 +66,7 @@ Les propriétés prises en charge pour le service lié SQL Managed Instance sont
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Azure Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant | Spécifiez les informations de locataire, comme le nom de domaine ou l’ID de locataire, dans lequel votre application se trouve. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auquel votre application AAD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
 | connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser un runtime d'intégration auto-hébergé ou un runtime d'intégration Azure si votre instance managée possède un terminal public et autorise Azure Data Factory à y accéder. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Oui |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
@@ -487,7 +487,7 @@ Meilleures pratiques pour charger des données avec l’option de partition :
 1. Choisissez une colonne distinctive comme colonne de partition (p. ex. : clé primaire ou clé unique) pour éviter l’asymétrie des données. 
 2. Si la table possède une partition intégrée, utilisez l’option de partition « Partitions physiques de la table » pour obtenir de meilleures performances.  
 3. Si vous utilisez Azure Integration Runtime pour copier des données, vous pouvez définir des « [unités d’intégration de données (DIU)](copy-activity-performance-features.md#data-integration-units) » plus grandes (>4) pour utiliser davantage de ressources de calcul. Vérifiez les scénarios applicables ici.
-4. Le « [degré de parallélisme de copie](copy-activity-performance-features.md#parallel-copy) » contrôle le nombre de partitions : un nombre trop élevé nuit parfois aux performances. Il est recommandé de définir ce nombre selon (DIU ou nombre de nœuds d’IR auto-hébergé) * (2 à 4).
+4. Le « [degré de parallélisme de copie](copy-activity-performance-features.md#parallel-copy) » contrôle le nombre de partitions : un nombre trop élevé nuit parfois aux performances. Il est recommandé de définir ce nombre selon (DIU ou nombre de nœuds d'IR auto-hébergé) * (2 à 4).
 
 **Exemple : chargement complet à partir d’une table volumineuse, avec des partitions physiques**
 

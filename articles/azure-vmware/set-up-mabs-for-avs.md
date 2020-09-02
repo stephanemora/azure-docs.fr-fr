@@ -3,12 +3,12 @@ title: Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 description: Configurez votre environnement Azure VMware Solution pour sauvegarder des machines virtuelles à l’aide du serveur de sauvegarde Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079534"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750619"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 
@@ -56,7 +56,7 @@ Pour configurer le serveur de sauvegarde Azure pour Azure VMware Solution, vous 
 
 Le serveur de sauvegarde Azure est déployé en tant que machine virtuelle Azure infrastructure as a service (IaaS) pour protéger les machines virtuelles d’Azure VMware Solution.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Architecture de déploiement AVS" border="false":::
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Le serveur de sauvegarde Azure est déployé en tant que machine virtuelle Azure infrastructure as a service (IaaS) pour protéger les machines virtuelles d’Azure VMware Solution." border="false":::
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Conditions préalables pour l’environnement du serveur de sauvegarde Azure
 
@@ -140,23 +140,23 @@ Un coffre Recovery Services est une entité de stockage qui stocke les points de
 
 1. Dans le menu de gauche, sélectionnez **Tous les services**.
 
-   ![Sélectionner Tous les services](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![Dans le menu de gauche, sélectionnez Tous les services.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Dans la boîte de dialogue **Tous les services**, entrez **Recovery Services** et sélectionnez **coffres Recovery Services** dans la liste.
 
-   ![Entrée et choisir Coffres Recovery Services](../backup/media/backup-create-rs-vault/all-services.png)
+   ![Entrez et choisissez Coffres Recovery Services.](../backup/media/backup-create-rs-vault/all-services.png)
 
    La liste des coffres Recovery Services de l’abonnement s’affiche.
 
 1. Dans le tableau de bord **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
-   ![Ajouter un coffre Recovery Services](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Ajoutez un coffre Recovery Services.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    La boîte de dialogue **Coffre Recovery Services** s’ouvre.
 
 1. Attribuez des valeurs aux champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
-   ![Configurer le coffre Recovery Services](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
+   ![Configurez le coffre Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Name** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
    - **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.
@@ -165,11 +165,11 @@ Un coffre Recovery Services est une entité de stockage qui stocke les points de
 
 1. Quand vous êtes prêt à créer le coffre Recovery Services, sélectionnez **Créer**.
 
-   ![Créer le coffre Recovery Services](../backup/media/backup-create-rs-vault/click-create-button.png)
+   ![Créez le coffre Recovery Services.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
    La création du coffre Recovery Services peut prendre un certain temps. Surveillez les notifications d’état dans la zone **Notifications** dans l’angle supérieur droit du portail. Une fois que le coffre est créé, il apparaît dans la liste des coffres Recovery Services. Si vous ne voyez pas votre coffre, sélectionnez **Actualiser**.
 
-   ![Actualiser la liste des coffres de sauvegarde](../backup/media/backup-create-rs-vault/refresh-button.png)
+   ![Actualisez la liste des coffres de sauvegarde.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Définir la réplication du stockage
 
@@ -184,7 +184,7 @@ L’option de réplication du stockage vous permet de choisir entre le stockage 
 
 1. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
 
-   ![Définir la configuration de stockage du nouveau coffre](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![Définissez la configuration de stockage du nouveau coffre.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Télécharger et installer le package logiciel
 
@@ -206,15 +206,15 @@ Suivez les étapes de cette section pour télécharger, extraire et installer le
 
    Le tableau de bord de l’archivage sélectionné s'ouvre.
 
-   ![Ouvrez le tableau de bord du coffre](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+   ![Le tableau de bord de l’archivage sélectionné s'ouvre.](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
    L’option **Paramètres** s’ouvre par défaut. Si elle est fermée, sélectionnez **Paramètres** pour l’ouvrir.
 
-   ![Option Ouvrir les paramètres du coffre](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
+   ![L’option Paramètres s’ouvre par défaut. Si elle est fermée, sélectionnez Paramètres pour l’ouvrir.](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 1. Sélectionnez **Sauvegarde** pour ouvrir l’Assistant **Prise en main**.
 
-   ![La sauvegarde ouvre l’Assistant Prise en main](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+   ![Sélectionnez Sauvegarde pour ouvrir l’Assistant Prise en main.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 1. Dans la fenêtre qui s’ouvre, procédez comme suit :
 
@@ -241,7 +241,7 @@ Suivez les étapes de cette section pour télécharger, extraire et installer le
    > [!NOTE]
    > Vous devez télécharger tous les fichiers dans le même dossier. Puisque la taille de téléchargement de l’ensemble des fichiers est supérieure à 3Go, le téléchargement peut prendre jusqu’à 60 minutes. 
 
-   ![Sélectionner des fichiers dans le Centre de téléchargement](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+   ![Sur la page de téléchargement, sélectionnez tous les fichiers et sélectionnez Suivant.](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
 ### <a name="extract-the-software-package"></a>Extraire le package logiciel
 
@@ -256,7 +256,7 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
 
 1. Sélectionnez **Extraire** pour démarrer le processus d'extraction.
 
-   ![L’Assistant Installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+   ![Sélectionnez Extraire pour démarrer le processus d'extraction.](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1. Une fois l’extraction effectuée, sélectionnez l’option pour **Exécuter setup. exe** puis sélectionnez **Terminer**.
 
@@ -267,17 +267,17 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
 
 1. Dans la fenêtre d’installation, sous **Installer**, sélectionnez **Sauvegarde Microsoft Azure** pour ouvrir l’Assistant Installation.
 
-   ![Bouton Assistant Installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+   ![Dans la fenêtre d’installation, sous Installer, sélectionnez Sauvegarde Microsoft Azure pour ouvrir l’Assistant Installation.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
 1. Sur l’écran de **Bienvenue**, sélectionnez **Suivant** pour passer à la page **Vérifications des conditions préalables**.
 
 1. Sélectionnez **Vérifier à nouveau** afin de déterminer si les configurations matérielles et logicielles requises pour le serveur de sauvegarde Azure sont respectées. Si c’est le cas, sélectionnez **Suivant**.
 
-   ![Vérification des conditions préalables requises du serveur de sauvegarde Azure](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Sélectionnez Vérifier à nouveau afin de déterminer si les configurations matérielles et logicielles requises pour le serveur de sauvegarde Azure sont respectées. Si c’est le cas, sélectionnez Suivant.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Le package d’installation du serveur de sauvegarde Azure fait partie d’une offre groupée. Il est fourni avec les fichiers binaires SQL Server appropriés requis. Lorsque vous démarrez une nouvelle installation de serveur de sauvegarde Azure, sélectionnez l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation**. Sélectionnez ensuite **Vérifier et Installer**.
 
-   ![Vérification SQL Server du serveur de sauvegarde Azure](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
+   ![Le package d’installation du serveur de sauvegarde Azure fait partie d’une offre groupée. Il est fourni avec les fichiers binaires SQL Server appropriés requis.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
    > Si vous souhaitez utiliser votre propre instance de SQL Server, les versions de SQL Server prises en charge sont SQL Server 2014 SP1 ou ultérieur, 2016 et 2017. Toutes les versions de SQL Server doivent être Standard ou Entreprise 64 bits. Le serveur de sauvegarde Azure ne fonctionne pas avec une instance de SQL Server distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez une instance de SQL Server existante pour le serveur de sauvegarde Azure, la configuration prend uniquement en charge l’utilisation d’*instances nommées* de SQL Server.
@@ -321,18 +321,18 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
    > [!NOTE]
    > Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être configurés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et le stockage sur disque](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
-   ![Paramètres d’installation du programme d’installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
+   ![Fournissez un emplacement pour l’installation des fichiers du serveur de sauvegarde Microsoft Azure puis cliquez sur Suivant.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
 1. Fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et sélectionnez **Suivant**.
 
-   ![Paramètres de sécurité de du programme d’installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
+   ![Fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et sélectionnez Suivant.](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
 
 1. Indiquez si vous souhaitez utiliser Microsoft Update pour vérifier les mises à jour et sélectionnez **Suivant**.
 
    > [!NOTE]
    > Nous conseillons de faire en sorte que Windows Update soit redirigé vers Microsoft Update, qui offre une sécurité et des mises à jour importantes pour Windows et d’autres produits tels que le serveur le serveur de sauvegarde Azure.
 
-   ![Choisir Microsoft Update pour le programme d’installation Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+   ![Indiquez si vous souhaitez utiliser Microsoft Update pour vérifier les mises à jour et sélectionnez Suivant.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1. Examinez le **Résumé des paramètres** et sélectionnez **Installer**.
 
@@ -352,7 +352,7 @@ Si vous avez téléchargé le package logiciel sur un autre serveur, copiez les 
 
    Une fois l’installation de l’agent Microsoft Azure Recovery Services terminée, l’étape d’installation passe à l’installation et à la configuration de SQL Server et des composants du serveur de sauvegarde Azure.
 
-   ![Installation du programme d’installation de Sauvegarde Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+   ![Une fois l’installation de l’agent Microsoft Azure Recovery Services terminée, l’étape d’installation passe à l’installation et à la configuration de SQL Server et des composants du serveur de sauvegarde Azure.](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 1. Une fois l’étape de l’installation terminée, sélectionnez **Fermer**.
 

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371734"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892335"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -23,12 +23,12 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
 
 * Assurez-vous que l’agent de machine virtuelle (WA Agent) est la [version la plus récente](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * Vérifiez que la version du système d’exploitation de la machine virtuelle Windows ou Linux est prise en charge, consultez la [matrice de prise en charge de sauvegarde de machine virtuelle IaaS](./backup-support-matrix-iaas.md).
-* Vérifiez qu’un autre service de sauvegarde ne fonctionne pas.
+* Vérifiez qu’aucun autre service de sauvegarde n’est en cours d’exécution.
   * Pour vous assurer qu’il n’existe aucun problème d’extension de capture instantanée, [désinstallez les extensions pour forcer le rechargement, puis réessayez la sauvegarde](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Vérifiez la connectivité Internet de la machine virtuelle.
-  * Assurez-vous qu’un autre service de sauvegarde n’est pas en cours d’exécution.
+  * Vérifiez qu’aucun autre service de sauvegarde n’est en cours d’exécution.
 * À partir de `Services.msc`, assurez-vous que le service d’**agent invité Windows Azure** est en **cours d’exécution**. Si le service d’**agent invité Windows Azure** est manquant, installez-le à partir de la [sauvegarde de machines virtuelles Azure dans un coffre Recovery Services](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple, la sauvegarde de Windows Server, et ne sont pas dus à la sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
+* Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple la sauvegarde de Windows Server, qui ne sont pas dus à la sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
   * En cas d’erreur avec une entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
   * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
   * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle la Sauvegarde Azure fonctionnait correctement mais la « Sauvegarde Windows Server » échouait :<br>
@@ -90,11 +90,11 @@ L’opération de sauvegarde a échoué en raison d’un problème avec l’**ap
 
 * Essayez de démarrer ou redémarrer l’**application système COM+** du service Windows  (dans une invite de commandes avec élévation de privilèges **- net start COMSysApp**).
 * Vérifiez que le service **Distributed Transaction Coordinator** s’exécute en tant que compte de **Service réseau**. Sinon, modifiez l’**application système COM+** pour qu’elle s’exécute en tant que compte de **Service réseau**, puis redémarrez-la.
-* Si vous ne parvenez pas à redémarrer le service, réinstallez le service **Distributed Transaction Coordinator** en procédant comme suit :
+* Si vous ne parvenez pas à redémarrer le service, réinstallez le service **Distributed Transaction Coordinator** en effectuant les étapes suivantes :
   * Arrêtez le service MSDTC
   * Ouvrez une invite de commandes (cmd)
-  * Exécutez la commande « msdtc -uninstall »
-  * Exécutez la commande « msdtc -install »
+  * Exécutez la commande `msdtc -uninstall`
+  * Exécutez la commande `msdtc -install`
   * Lancez le service MSDTC
 * Démarrez le service Windows **Application système COM+** . Une fois que **Application système COM+** démarre, déclenchez un travail de sauvegarde à partir du Portail Azure.</ol>
 
@@ -167,12 +167,12 @@ Message d’erreur : L’opération de capture instantanée a échoué, car cer
 
 L’opération de capture instantanée a échoué parce que la limite de captures instantanées a été dépassée pour certains des disques attachés. Suivez les étapes de dépannage ci-dessous, puis réessayez l’opération.
 
-* Supprimez les instantanés d’objet blob de disque qui ne sont pas nécessaires. Faites attention à ne pas supprimer l’objet blob de disque. Seuls les objets blobs d’instantané doivent être supprimés.
-* Si la suppression réversible est activée sur les comptes de stockage sur disque de machine virtuelle, configurez la rétention de suppression réversible de sorte que le nombre d’instantanés existants soit toujours inférieur au nombre maximum autorisé.
+* Supprimez les instantanés d’objets blob de disque qui ne sont pas nécessaires. Veillez à ne pas supprimer les objets blob de disque. Seuls les instantanés d’objets blob doivent être supprimés.
+* Si la suppression réversible est activée sur les comptes de stockage sur disque de machine virtuelle, configurez la conservation de suppression réversible afin que le nombre d’instantanés existants soit toujours inférieur au nombre maximal autorisé.
 * Si Azure Site Recovery est activé sur la machine virtuelle sauvegardée, effectuez les étapes suivantes :
 
   * Assurez-vous que la valeur **isanysnapshotfailed** est définie sur false dans /etc/azure/vmbackup.conf.
-  * Planifiez l’exécution d’Azure Site Recovery à un autre moment, de sorte qu’elle ne soit pas en conflit avec l’opération de sauvegarde.
+  * Planifiez l’exécution d’Azure Site Recovery à un autre moment, afin qu’elle ne soit pas en conflit avec l’opération de sauvegarde.
 
 ### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive – Échec de l’opération de capture instantanée en raison de ressources de machine virtuelle inadéquates
 
@@ -183,7 +183,7 @@ L’opération de sauvegarde sur la machine virtuelle a échoué en raison d’u
 
 **Étape 1** : Créer une capture instantanée via l’hôte
 
-À partir d’une invite de commandes avec élévation (administrateur), exécutez la commande suivante :
+À partir d’une invite de commandes avec élévation de privilèges (administrateur), exécutez la commande suivante :
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Cela garantira que les captures instantanées soient effectuées via l’hôte plutôt que via l’invité. Relancez l’opération de sauvegarde.
 
-**Étape 2** : Essayer de modifier la planification de la sauvegarde en la définissant sur une heure à laquelle la machine virtuelle est moins chargée (moins d’UC/IOPS etc.)
+**Étape 2** : Essayer de modifier la planification de la sauvegarde en la définissant sur une heure à laquelle la machine virtuelle est moins chargée (moins de processeurs ou IOPS)
 
 **Étape 3** : Essayer d’[augmenter la taille de machine virtuelle](https://azure.microsoft.com/blog/resize-virtual-machines/), puis réessayez l’opération
 
@@ -289,23 +289,23 @@ Si votre sauvegarde prend plus de 12 heures, ou si la restauration prend plus de
 
 En règle générale, l’agent de machine virtuelle est déjà présent dans les machines virtuelles qui sont créées à partir de la galerie Azure. Cependant, les machines virtuelles qui sont migrées à partir de centres de données locaux n’ont pas d’agent de machine virtuelle installé. Pour ces machines virtuelles, l’agent de machine virtuelle doit être installé de manière explicite.
 
-#### <a name="windows-vms"></a>Machines virtuelles Windows
+#### <a name="windows-vms---set-up-the-agent"></a>Machines virtuelles Windows - Configurer l’agent
 
 * Téléchargez et installez le fichier [MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges Administrateur pour terminer l’installation.
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) pour indiquer que l’agent est installé. Cette étape n’est pas requise pour les machines virtuelles Azure Resource Manager.
 
-#### <a name="linux-vms"></a>Machines virtuelles Linux
+#### <a name="linux-vms---set-up-the-agent"></a>Machines virtuelles Linux - Configurer l’agent
 
 * Installez la dernière version de l’agent à partir du référentiel de distribution. Pour plus de d’informations sur le nom du package, consultez le [référentiel de l’agent Linux](https://github.com/Azure/WALinuxAgent).
 * Pour les machines virtuelles créées à l'aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) et vérifiez que l'agent est installé. Cette étape n’est pas requise pour les machines virtuelles du Gestionnaire des ressources.
 
 ### <a name="update-the-vm-agent"></a>Mettre à jour l’agent de machine virtuelle
 
-#### <a name="windows-vms"></a>Machines virtuelles Windows
+#### <a name="windows-vms---update-the-agent"></a>Machines virtuelles Windows - Mettre à jour l’agent
 
 * Pour mettre à jour l’agent de machine virtuelle, réinstallez les [fichiers binaires de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Avant de mettre à jour l’agent, assurez-vous qu’aucune opération de sauvegarde ne se déroule pendant la mise à jour de l’agent de machine virtuelle.
 
-#### <a name="linux-vms"></a>Machines virtuelles Linux
+#### <a name="linux-vms---update-the-agent"></a>Machines virtuelles Linux - Mettre à jour l’agent
 
 * Pour mettre à jour l’agent de machine virtuelle Linux, suivez les instructions de l’article [Guide pratique pour mettre à jour l’agent Linux Azure sur une machine virtuelle](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

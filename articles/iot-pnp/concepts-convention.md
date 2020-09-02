@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475666"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856056"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -127,7 +127,7 @@ L’appareil doit ajouter le marqueur `{"__t": "c"}` pour indiquer que l’élé
 
 L’appareil doit confirmer qu’il a reçu la propriété en envoyant une propriété rapportée. La propriété rapportée doit inclure :
 
-- `value` : valeur reçue par l’appareil.
+- `value` : valeur réelle de la propriété (en général, la valeur reçue, mais l’appareil peut décider de signaler une autre valeur).
 - `ac` : code d’accusé de réception qui utilise un code d’état HTTP.
 - `av` : version d’accusé de réception qui fait référence à la `$version` de la propriété souhaitée.
 - `ad` : description facultative de l’accusé de réception.

@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049466"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826699"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -171,7 +171,7 @@ Vous pouvez arrêter la protection d’une base de données SAP HANA de deux man
 
 Si vous choisissez de conserver les points de récupération, gardez à l’esprit les considérations suivantes :
 
-* Tous les points de récupération resteront intacts, toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
+* Tous les points de récupération resteront intacts et toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
 * Vous serez facturé pour l’instance protégée et le stockage utilisé. Pour plus d’informations, voir [Tarification Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes échouent.
 

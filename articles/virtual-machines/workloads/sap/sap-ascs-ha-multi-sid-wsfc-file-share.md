@@ -13,19 +13,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035976"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855212"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Système d’exploitation Windows][Logo_Windows] Windows
 >
 
 Vous pouvez gérer plusieurs adresses IP virtuelles à l'aide d'un [équilibreur de charge interne Azure][load-balancer-multivip-overview]. 
@@ -61,6 +61,7 @@ _**Figure 1 :** Une instance SAP ASCS/SCS et SOFS déployés dans deux clusters
 > * Différents partages de fichiers Hôte global SAP appartenant à différents SID SAP doivent partager le même cluster SOFS.
 > * Chaque SID de système de gestion de base de données (SGBD) a son propre cluster WSFC dédié.
 > * Les serveurs d’applications SAP appartenant au système SAP SID utilisent leurs propres machines virtuelles.
+> * La combinaison d’Enqueue Replication Server 1 et Enqueue Replication Server 2 sur le même cluster n’est pas prise en charge.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>Architecture multi-SID SAP ASCS/SCS avec partage de fichiers
 

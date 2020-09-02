@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190513"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757283"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -121,6 +121,18 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Échec de l’installation du SDK Azure Machine Learning avec une exception : ModuleNotFoundError : Absence du module nommé « ruamel »ou « ImportError » : Absence du module nommé « ruamel.yaml »**
+   
+   Ce problème se produit pendant l’installation du SDK Azure Machine Learning pour Python sur le pip le plus récent (>20.1.1) dans l’environnement de base conda pour toutes les versions publiées du SDK Azure Machine Learning pour Python. Reportez-vous aux solutions de contournement suivantes :
+
+    * Évitez d’installer le SDK Python dans l’environnement de base conda. Créez plutôt votre environnement conda et installez le SDK dans cet environnement utilisateur nouvellement créé. Le pip le plus récent devrait fonctionner dans ce nouvel environnement conda.
+
+    * Pour créer des images dans docker, où vous ne pouvez pas quitter l’environnement de base conda, épinglez le pip <=20.1.1 dans le fichier docker.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Échec Databricks lors de l’installation des packages**
 
     L’installation du Kit de développement logiciel (SDK) Azure Machine Learning échoue sur Azure Databricks lorsque plusieurs packages sont installés. Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Azure Databricks et non au Kit de développement logiciel (SDK) Azure Machine Learning. Vous pouvez également rencontrer ce problème avec d’autres bibliothèques. Exemple :

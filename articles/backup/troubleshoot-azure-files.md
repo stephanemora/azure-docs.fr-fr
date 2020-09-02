@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524486"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889806"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -25,7 +25,7 @@ Cet article fournit des informations pour vous aider à résoudre des problèmes
   >Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. [Ce script](scripts/backup-powershell-script-find-recovery-services-vault.md) vous aide à trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
 
 - Assurez-vous que le partage de fichiers ne figure pas dans un des compte de stockage non pris en charge. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
-- Vérifiez que la longueur combinée du nom du compte de stockage et du nom du groupe de ressources ne dépasse pas 84 caractères en cas de nouveaux comptes de stockage, et 77 caractères dans le cas de comptes de stockage classiques. 
+- Vérifiez que la longueur combinée du nom du compte de stockage et du nom du groupe de ressources ne dépasse pas 84 caractères en cas de nouveaux comptes de stockage, et 77 caractères dans le cas de comptes de stockage classiques.
 - Vérifiez les paramètres de pare-feu du compte de stockage pour vous assurer que l’option autorisant les services Microsoft approuvés à accéder au compte de stockage est activée.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erreur dans le portail indiquant que la découverte des comptes de stockage a échoué
@@ -54,7 +54,7 @@ Réessayez l’inscription. Si le problème persiste, contactez le support techn
 Dans le portail Azure, ouvrez **Coffre** > **Infrastructure de sauvegarde** > **Comptes de stockage**, puis cliquez sur **Annuler l’enregistrement** pour supprimer le compte de stockage du coffre Recovery Services.
 
 >[!NOTE]
->Vous ne pouvez supprimer un coffre Recovery Services qu’après avoir annulé l’enregistrement de tous les comptes de stockage inscrits auprès du coffre.
+>Vous ne pouvez supprimer un coffre Recovery Services qu’après avoir annulé l’inscription de tous les comptes de stockage inscrits auprès du coffre.
 
 ## <a name="common-backup-or-restore-errors"></a>Erreurs courantes de sauvegarde ou de restauration
 
@@ -300,7 +300,7 @@ Message d’erreur : Les points de restauration listés ne sont pas disponibles,
 Déterminez si le partage de fichiers sauvegardés a été supprimé. S'il était dans un état de suppression réversible, déterminez si la période de rétention de la suppression réversible est terminée et vérifiez que celle-ci n'a pas été récupérée. Dans les deux cas, vous perdrez définitivement tous vos instantanés et ne pourrez pas récupérer les données.
 
 >[!NOTE]
-> Nous vous recommandons de ne pas supprimer le partage de fichiers sauvegardés, ou s'il est dans un état de suppression réversible, de le supprimer avant la fin de la période de rétention de la suppression réversible, pour éviter de perdre tous vos points de restauration.
+> Nous vous recommandons de ne pas supprimer le partage de fichiers sauvegardé ou, s’il est dans un état de suppression réversible, d’annuler la suppression avant la fin de la période de conservation de la suppression réversible, pour éviter de perdre tous vos points de restauration.
 
 ### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState - La sauvegarde a échoué car le partage de fichiers Azure est dans un état de suppression réversible
 

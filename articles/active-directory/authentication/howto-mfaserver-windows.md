@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abfb970ca322724adb0f8919b7509bc8a641378
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 8b945b984210dc3fc3338da8a5670a7813198e40
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652797"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919469"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Authentification Windows et serveur Azure Multi-Factor Authentication
 
@@ -27,7 +27,11 @@ La section Authentification Windows d’Azure Multi-Factor Authentication Server
 * Les adresses IP de confiance varient selon que l'application est en mesure de fournir l'IP du client avec l'authentification. Actuellement, seul Terminal Services est pris en charge.  
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander une authentification multifacteur au cours des événements de connexion doivent utiliser l’authentification multifacteur informatique Azure.
+>
+> Pour vous familiariser avec l’authentification multifacteur informatique, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Les clients existants qui ont activé le serveur MFA avant le 1er juillet 2019 peuvent télécharger la dernière version, les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
 
 > [!NOTE]
 > Cette fonctionnalité n'est pas prise en charge pour sécuriser Terminal Services sur Windows Server 2012 R2.

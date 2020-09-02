@@ -2,14 +2,14 @@
 title: Exécuter des tâches sous des comptes d’utilisateur
 description: Découvrez les types de comptes d’utilisateur et comment les configurer.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142675"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719357"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
@@ -49,18 +49,13 @@ Le niveau d’élévation du compte d’utilisateur indique si une tâche s’ex
 
 ## <a name="auto-user-accounts"></a>Comptes d’utilisateur automatique
 
-Par défaut, les tâches s’exécutent dans Batch sous un compte d’utilisateur automatique, en tant qu’utilisateur standard qui ne dispose pas d’un accès avec élévation de privilèges, et avec une étendue de tâche bien définie. Lorsque la spécification d’utilisateur automatique est configurée pour l’étendue de la tâche, le service Batch crée un compte d’utilisateur automatique pour cette tâche uniquement.
+Par défaut, les tâches s’exécutent dans Batch sous un compte d’utilisateur automatique, en tant qu’utilisateur standard qui ne dispose pas d’un accès avec élévation de privilèges, et avec une étendue de pool bien définie. L’étendue de pool signifie que la tâche s’exécute sous un compte d’utilisateur automatique disponible pour n’importe quelle tâche du pool. Pour plus d’informations sur l’étendue de pool, consultez [Exécution d’une tâche en tant qu’utilisateur automatique avec une étendue de pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
-L’étendue de la tâche peut être remplacée par une étendue de pool. Lorsque la spécification d’utilisateur automatique d’une tâche est configurée pour l’étendue du pool, la tâche s’exécute sous un compte d’utilisateur automatique disponible pour n’importe quelle tâche dans le pool. Pour plus d’informations sur l’étendue de pool, consultez [Exécution d’une tâche en tant qu’utilisateur automatique avec une étendue de pool](#run-a-task-as-an-auto-user-with-pool-scope).
-
-L’étendue par défaut est différente sur les nœuds Windows et Linux :
-
-- Sur les nœuds Windows, les tâches s’exécutent sous l’étendue de la tâche par défaut.
-- Les nœuds Linux s’exécutent toujours sous l’étendue du pool.
+L’étendue de pool peut être remplacée par une étendue de tâche. Lorsque la spécification d’utilisateur automatique est configurée pour l’étendue de la tâche, le service Batch crée un compte d’utilisateur automatique pour cette tâche uniquement.
 
 Il existe quatre configurations possibles pour la spécification d’utilisateur automatique, chacune correspondant à un compte d’utilisateur automatique unique :
 
-- Accès non-admin avec étendue de la tâche (la spécification d’utilisateur automatique par défaut)
+- Accès non-admin avec étendue de pool
 - Accès admin (avec élévation de privilèges) avec étendue de la tâche
 - Accès non-admin avec étendue de pool
 - Accès admin avec étendue de pool
@@ -75,7 +70,7 @@ Vous pouvez configurer la spécification d’utilisateur automatique pour des pr
 > [!NOTE]
 > Utilisez l’accès avec élévation de privilèges uniquement lorsque cela est nécessaire. Les meilleures pratiques recommandent d’accorder le privilège minimal nécessaire pour atteindre le résultat souhaité. Par exemple, si une tâche de démarrage installe le logiciel pour l’utilisateur actuel, et non pour l’ensemble des utilisateurs, vous pouvez sans doute éviter d’accorder aux tâches un accès avec élévation de privilèges. Vous pouvez configurer la spécification d’utilisateur automatique d’étendue du pool et d’accès non-admin pour toutes les tâches qui doivent s’exécuter sous le même compte, y compris la tâche de démarrage.
 
-Les extraits de code suivants montrent comment configurer la spécification d’utilisateur automatique. Les exemples définissent le niveau d’élévation sur `Admin` et l’étendue sur `Task`. L’étendue de la tâche est le paramètre par défaut, mais elle est incluse ici à titre d’exemple.
+Les extraits de code suivants montrent comment configurer la spécification d’utilisateur automatique. Les exemples définissent le niveau d’élévation sur `Admin` et l’étendue sur `Task`.
 
 #### <a name="batch-net"></a>.NET Batch
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Python Batch
@@ -113,7 +108,7 @@ Lorsqu’un nœud est approvisionné, deux comptes d’utilisateur automatique a
 
 Lorsque vous spécifiez l’étendue du pool pour l’utilisateur automatique, toutes les tâches qui s’exécutent avec un accès administrateur s’exécutent sous le même compte d’utilisateur automatique au niveau du pool. De même, les tâches qui s’exécutent sans autorisations d’administrateur s’exécutent également sous un seul compte d’utilisateur automatique au niveau du pool.
 
-> [!NOTE] 
+> [!NOTE]
 > Les deux comptes d’utilisateur automatique au niveau du pool sont des comptes distincts. Les tâches qui s’exécutent sous le compte d’administrateur au niveau du pool ne peuvent pas partager de données avec les tâches qui s’exécutent sous le compte standard, et inversement.
 
 L’avantage d’exécuter une tâche sous le même compte d’utilisateur automatique est que les tâches sont en mesure de partager des données avec d’autres tâches en cours d’exécution sur le même nœud.

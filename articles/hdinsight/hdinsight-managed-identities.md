@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408942"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749860"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identités managées dans Azure HDInsight
 
@@ -25,7 +25,9 @@ Il existe deux types d’identités managées : celles affectées par l’utili
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implémentation des identités managées dans HDInsight
 
-Dans Azure HDInsight, des identités managées sont provisionnées sur chaque nœud du cluster. Ces composants d’identités sont toutefois utilisables uniquement par le service HDInsight. Il n’existe actuellement aucune méthode prise en charge permettant de générer des jetons d’accès avec les identités managées installées sur des nœuds de cluster HDInsight. Dans certains services Azure, les identités managées sont implémentées avec un point de terminaison que vous pouvez utiliser pour acquérir des jetons d’accès vous permettant d’interagir vous-même avec d’autres services Azure.
+Dans Azure HDInsight, les identités gérées sont uniquement utilisables par le service HDInsight pour les composants internes. Il n’existe actuellement aucune méthode prise en charge permettant de générer des jetons d’accès avec les identités managées installées sur des nœuds de cluster HDInsight pour l’accès à des services externes. Dans certains services Azure comme les machines virtuelles de calcul, les identités managées sont implémentées avec un point de terminaison que vous pouvez utiliser pour acquérir des jetons d’accès. Ce point de terminaison n’est pas disponible actuellement dans les nœuds HDInsight.
+
+Si vous avez besoin de démarrer vos applications pour éviter de renseigner des secrets/mots de passe dans les travaux d’analyse (par exemple, les travaux SCALA), vous pouvez distribuer vos propres certificats sur les nœuds de cluster à l’aide d’actions de script, puis utiliser ce certificat pour acquérir un jeton d’accès (par exemple, pour accéder à Azure Key Vault).
 
 ## <a name="create-a-managed-identity"></a>Créer une identité managée
 

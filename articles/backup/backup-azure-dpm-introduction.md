@@ -3,12 +3,12 @@ title: Préparer le serveur DPM pour sauvegarder des charges de travail
 description: Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612654"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890805"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -90,7 +90,7 @@ Pour obtenir les informations d’identification, téléchargez le fichier d’i
 - Les informations d’identification de coffre sont utilisées uniquement pendant le flux de travail d’inscription.
 - Il est de votre responsabilité de vous assurer que le fichier d’informations d’identification de coffre est sûr et n’est pas compromis.
   - En cas de perte du contrôle des informations d’identification, les informations d’identification du coffre peuvent servir à inscrire d’autres machines auprès du coffre.
-  - Toutefois, les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète qui appartient au client. De fait, les données de sauvegarde existantes ne peuvent pas être compromises.
+  - Toutefois, les données de sauvegarde sont chiffrées à l’aide d’une phrase secrète qui vous appartient. De fait, les données de sauvegarde existantes ne peuvent pas être compromises.
 - Vérifiez que le fichier est enregistré dans un emplacement accessible à partir de votre serveur DPM. Si elles sont stockées dans un partage de fichiers/SMB, vérifiez les autorisations d’accès.
 - Les informations d’identification du coffre expirent au bout de 48 heures. Vous pouvez télécharger de nouvelles informations d’identification de coffre aussi souvent que nécessaire. Cependant, seul le dernier fichier de d’informations d’identification de coffre peut être utilisé pendant l’inscription.
 - Le service Sauvegarde Azure ne connaît pas la clé privée du certificat. De plus, cette clé n’est disponible ni dans le portail, ni dans le service.
@@ -160,7 +160,7 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
     ![Chiffrement](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > Vous êtes seul détenteur de la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette information.
+    > Vous possédez la phrase secrète de chiffrement et Microsoft n’a aucune visibilité sur cette information.
     > Si la phrase secrète est perdue ou oubliée, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde.
 
 7. Sélectionnez **Inscrire** pour inscrire le serveur DPM dans le coffre.

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054540"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827186"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -30,10 +30,10 @@ Les travaux provenant des solutions Sauvegarde Azure suivantes sont indiqués ic
 - Sauvegarde de charge de travail Azure comme SQL et SAP HANA
 - Agent Microsoft Azure Recovery Services (MARS)
 
-Les travaux provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichés.
+Les travaux provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure ne sont pas affichés.
 
 > [!NOTE]
-> Les charges de travail Azure comme les sauvegardes SQL et SAP HANA au sein de machines virtuelles Azure ont un très grand nombre de travaux de sauvegarde. Par exemple, les sauvegardes de fichier journal peuvent s’exécuter toutes les 15 minutes. Par conséquent, pour ces charges de travail de base de données, seules les opérations déclenchées par l’utilisateur sont affichées. Les opérations de sauvegarde planifiées ne sont PAS affichées.
+> Les charges de travail Azure comme les sauvegardes SQL et SAP HANA au sein de machines virtuelles Azure ont un très grand nombre de travaux de sauvegarde. Par exemple, les sauvegardes de fichier journal peuvent s’exécuter toutes les 15 minutes. Par conséquent, pour ces charges de travail de base de données, seules les opérations déclenchées par l’utilisateur sont affichées. Les opérations de sauvegarde planifiées ne sont pas affichées.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertes de sauvegarde dans le coffre Recovery Services
 
@@ -52,10 +52,10 @@ Les scénarios suivants sont définis par le service en tant que scénarios pouv
 - Sauvegardes de machines virtuelles Azure
 - Sauvegardes de fichiers Azure
 - Sauvegardes de charge de travail Azure comme SQL, SAP HANA
-- Agent Microsoft Azure Recovery Services (MARS) 
+- Agent Microsoft Azure Recovery Services (MARS)
 
 > [!NOTE]
-> Les alertes provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichées ici.
+> Les alertes provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure ne sont pas affichées ici.
 
 ### <a name="consolidated-alerts"></a>Alertes consolidées
 
@@ -83,7 +83,7 @@ Les alertes peuvent être définies selon trois types, en fonction de leur gravi
 ## <a name="notification-for-backup-alerts"></a>Notification pour les alertes de sauvegarde
 
 > [!NOTE]
-> La configuration de la notification peut être effectuée uniquement via le Portail Azure. La prise en charge de l’interface CLI/de PS/de l’API REST/du modèle Azure Resource Manager n’est pas assurée.
+> La configuration de la notification peut être effectuée uniquement via le portail Azure. La prise en charge de l’interface CLI/de PS/de l’API REST/du modèle Azure Resource Manager n’est pas assurée.
 
 Lorsqu’une alerte est déclenchée, les utilisateurs en sont informés. Le service Sauvegarde Azure fournit un mécanisme intégré de notification par e-mail. Vous pouvez spécifier des adresses e-mail individuelles ou des listes de distribution pour être informé de la génération d’une alerte. Vous pouvez également choisir d’être informé à chaque alerte ou de les grouper dans une synthèse horaire avant d’être informé.
 
@@ -95,12 +95,12 @@ Si la fréquence était définie sur une synthèse horaire et qu’une alerte a 
 
 > [!NOTE]
 >
-> - Si une opération destructive comme **l’arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont PAS configurées pour le coffre Recovery Services.
+> - Si une opération destructive comme l’**arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont pas configurées pour le coffre Recovery Services.
 > - Pour configurer la notification pour les travaux réussis, utilisez [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Désactivation des alertes
 
-Pour désactiver/résoudre une alerte active, vous pouvez cliquer sur l’élément de liste correspondant à l’alerte que vous voulez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton « Désactiver » en haut. Le fait de cliquer sur ce bouton change l’état de l’alerte en « Inactif ». Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant « Désactiver ».
+Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de cliquer sur ce bouton change l’état de l’alerte en **Inactif**. Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver**.
 
 ![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

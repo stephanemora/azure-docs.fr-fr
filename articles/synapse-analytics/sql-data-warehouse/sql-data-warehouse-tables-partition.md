@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075736"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763131"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionnement de tables dans un pool SQL Synapse
 
@@ -30,7 +30,7 @@ Le partitionnement peut bénéficier de la maintenance des données et des perfo
 
 ### <a name="benefits-to-loads"></a>Avantages pour les charges
 
-Le principal avantage du partitionnement dans un pool SQL Synapse est d’améliorer l’efficacité et les performances du chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de dates étroitement liée à l’ordre selon lequel les données sont chargées dans la base de données. L’un des avantages majeurs de l’utilisation de partitions pour la maintenance des données et qu’elle évite la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de chargement peut considérablement améliorer les performances.
+Le principal avantage du partitionnement dans un pool SQL Synapse est d’améliorer l’efficacité et les performances du chargement de données en utilisant la suppression, le basculement et la fusion de partitions. Dans la plupart des cas, les données sont partitionnées sur une colonne de dates étroitement liée à l’ordre selon lequel les données sont chargées dans la base de données. L’utilisation de partitions à des fins de maintenance des données présente l’avantage d’éviter la journalisation des transactions. Bien que l’insertion, la mise à jour ou la suppression de données constituent l’approche la plus simple, avec un peu de réflexion et d’efforts, l’utilisation du partitionnement pendant votre processus de chargement peut considérablement améliorer les performances.
 
 Le basculement de partitions peut servir à supprimer ou à remplacer rapidement une section d’une table.  Par exemple, une table de faits des ventes peut contenir seulement des données pour les 36 derniers mois. À la fin de chaque mois, le mois de données de ventes le plus ancien est supprimé de la table.  Ces données ont pu être supprimées à l’aide d’une instruction delete pour supprimer les données pour le mois plus ancien. 
 

@@ -8,19 +8,21 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448629"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782581"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Module de régression d’arbre de décision boosté
 
 Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un ensemble d’arbres de régression à l’aide du boosting. Le terme *boosting* signifie que chaque arbre dépend des arbres précédents. L’algorithme apprend en ajustant les valeurs résiduelles des arbres précédents. Par conséquent, le boosting d’un arbre de décision a tendance à améliorer la précision avec un léger risque de diminution de la couverture.  
+
+Ce module est basé sur l’algorithme LightGBM.
   
 Cette méthode de régression est une méthode d’apprentissage supervisé et nécessite donc un *jeu de données étiqueté*. La colonne de libellés doit contenir des valeurs numériques.  
 
@@ -82,11 +84,11 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
 
     + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    + Si vous définissez **Créer un mode d’apprentissage** sur **Plage de paramètres**, connectez un jeu de données avec balises et effectuez l’apprentissage du modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
-    > Si vous transmettez une plage de paramètres au module [Entraîner le modèle](train-model.md), il utilise uniquement la valeur par défaut dans la liste des paramètres uniques.  
+    > Si vous transmettez une plage de paramètres à [Entraîner le modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
     > 
     > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
     > 

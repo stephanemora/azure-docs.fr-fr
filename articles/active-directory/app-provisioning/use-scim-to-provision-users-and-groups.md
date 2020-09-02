@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235466"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690253"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -153,6 +153,7 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
 * Prise en charge de l'exécution de requêtes de groupes par ID et par membre, conformément à la section 3.4.2 du protocole SCIM.  
 * Acceptation d’un jeton du porteur unique pour l’authentification et l’autorisation d’Azure AD dans votre application.
+* Prend en charge la suppression réversible d’un utilisateur `active=false` et la restauration de l'utilisateur `active=true`.
 
 Suivez ces recommandations lors de l’implémentation d’un point de terminaison SCIM pour garantir la compatibilité avec Azure AD :
 

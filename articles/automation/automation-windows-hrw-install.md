@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Windows dans Azure Automation
 description: Cet article décrit comment déployer un Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des ordinateurs Windows de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270578"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660510"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -29,6 +29,9 @@ Le rôle Runbook Worker hybride dépend d’un espace de travail Azure Monitor L
 Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consultez le [guide de conception des journaux Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) avant de créer l’espace de travail.
 
 Si vous avez déjà un espace de travail, mais que celui-ci n’est pas lié à votre compte Automation, l’activation d’une fonctionnalité Automation ajoute certaines fonctionnalités pour Azure Automation, comme la prise en charge de la fonctionnalité Runbook Worker hybride. Quand vous activez l’une des fonctionnalités Azure Automation dans votre espace de travail Log Analytics, notamment [Update Management](update-management/update-mgmt-overview.md) ou [Change Tracking and Inventory](change-tracking.md), les composants Worker sont automatiquement poussés vers la machine agent.
+
+> [!NOTE]
+> Lors de l’activation de la fonctionnalité Update Management ou Change Tracking et Inventory, Azure Automation prend uniquement en charge certaines régions pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](how-to/region-mappings.md). Avant d’activer l’une ou l’autre fonctionnalité, passez en revue les informations sur les [tarifs Azure](https://azure.microsoft.com/pricing/details/automation/) pour Azure Automation.
 
    Pour ajouter la fonctionnalité Update Management à votre espace de travail, exécutez l’applet de commande PowerShell suivante :
 
@@ -123,9 +126,6 @@ Téléchargez le script **New-OnPremiseHybridWorker.ps1** à partir de [PowerShe
 | `SubscriptionID` | Obligatoire | Identificateur de l’abonnement Azure associé à votre compte Automation. |
 | `TenantID` | Facultatif | Identificateur de l’organisation locataire associée à votre compte Automation. |
 | `WorkspaceName` | Facultatif | Nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure. |
-
-> [!NOTE]
-> Lors de l’activation de fonctionnalités, Azure Automation prend uniquement en charge certaines régions pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Étape 2 : Ouvrir un interpréteur de commandes Windows PowerShell
 

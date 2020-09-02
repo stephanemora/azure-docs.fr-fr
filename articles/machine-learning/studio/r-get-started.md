@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431963"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854821"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Bien démarrer avec Azure Machine Learning Studio (classique) dans R
 
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Nous avons déjà abordé la question du chargement des jeux de données dans la section [Chargement du jeu de données](#loading). Dès que vous avez créé et testé le script R présenté dans la section précédente, procédez comme suit :
 
-1. Enregistrez le script R dans un fichier .R. J'appelle mon fichier de script « simpleplot.R ». Voici le contenu.
+1. Enregistrez le script R dans un fichier .R. J'appelle mon fichier de script « simpleplot.R ». Voici ce que contient le fichier :
 
    ```r
    ## Only one of the following two lines should be used
@@ -570,7 +570,7 @@ Tout semble fonctionner. Nous disposons de la nouvelle colonne et le tableau de 
 
 Dans cette section, nous allons effectuer quelques transformations simples sur les valeurs de certaines colonnes du tableau de données. Le langage R prend en charge les transformations de valeurs presque arbitraires. Parmi les références indiquées dans [Informations supplémentaires](#appendixb) figurent des exemples détaillés.
 
-Si on examine les valeurs contenues dans les aperçus du tableau de données, on note certaines incohérences. Par exemple, produit-on vraiment plus de crème glacée que de lait en Californie ? Bien sûr que non, au grand dam peut-être des amateurs de glaces. Les unités sont différentes. Le prix est exprimé en unités de livres américaines, le lait en unités de 1 M de livres américaines, la crème glacée en unités de 1 000 gallons américains et le fromage blanc en unités de 1 000 livres américaines. En supposant que le poids de la crème glacée est d’environ 6,5 livres par gallon, nous pouvons facilement effectuer la conversion en multipliant les valeurs pour qu’elles soient toutes exprimées dans les mêmes unités de 1 000 livres.
+Si vous examinez les valeurs contenues dans les résumés du dataframe, vous y trouverez certaines incohérences. Par exemple, produit-on vraiment plus de crème glacée que de lait en Californie ? Bien sûr que non, au grand dam peut-être des amateurs de glaces. Les unités sont différentes. Le prix est exprimé en unités de livres américaines, le lait en unités de 1 M de livres américaines, la crème glacée en unités de 1 000 gallons américains et le fromage blanc en unités de 1 000 livres américaines. En supposant que le poids de la crème glacée est d’environ 6,5 livres par gallon, nous pouvons facilement effectuer la conversion en multipliant les valeurs pour qu’elles soient toutes exprimées dans les mêmes unités de 1 000 livres.
 
 Pour notre modèle de prévision, nous utilisons un modèle multiplicatif de façon à ajuster ces données en fonction des variations saisonnières et tendancielles. Une transformation logarithmique nous permet d'utiliser un modèle linéaire, ce qui simplifie ce processus. Nous pouvons appliquer la transformation logarithmique dans la fonction où le multiplicateur est appliqué.
 
@@ -828,7 +828,7 @@ Nous avons déjà vu un exemple de programmation défensive dans la section Tran
 
 Notez que la régression linéaire utilisée pour éliminer la tendance est une régression chronologique. La variable explicative est un objet de série chronologique.  
 
-Une fois que la fonction `ts.detrend()` est définie, nous l’appliquons aux variables appropriées du tableau de données. Nous devons convertir de force la liste obtenue créée par `lapply()` en tableau de données à l’aide de `as.data.frame()`. Compte tenu des aspects défensifs de `ts.detrend()`, l’échec du traitement de l’une des variables n’empêchera pas le traitement correct des autres.  
+Une fois que la fonction `ts.detrend()` est définie, nous l’appliquons aux variables intéressantes du dataframe. Nous devons convertir de force la liste obtenue créée par `lapply()` en tableau de données à l’aide de `as.data.frame()`. Compte tenu des aspects défensifs de `ts.detrend()`, l’échec du traitement de l’une des variables n’empêchera pas le traitement correct des autres.  
 
 La dernière ligne de code crée un nuage de points par paire. Les résultats du nuage de points obtenu après l’exécution du code R sont illustrés dans la figure 17.
 
@@ -1338,7 +1338,7 @@ RStudio est très bien documenté. Voici quelques liens vers les principales sec
 Ce tutoriel sur la programmation en R couvre les concepts de base de ce qu’il vous faut pour utiliser le langage R avec Azure Machine Learning Studio (classique). Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
 * [R pour les débutants](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) d’Emmanuel Paradis constitue un bon point de départ.  
-* [Une introduction à R](https://cran.r-project.org/doc/manuals/R-intro.html) par W. N. Venables, et al. approfondit un peu le sujet.
+* [Une introduction à R](https://cran.r-project.org/doc/manuals/R-intro.html) par W. N. Venables et al. entre un peu plus dans les détails.
 
 Il existe de nombreux livres sur le langage R qui peuvent vous aider à vous lancer. En voici quelques-uns que j'ai trouvés utiles :
 
@@ -1355,7 +1355,8 @@ L’ouvrage « **Introductory Time Series with R** » de Paul Cowpertwait et A
 Voici quelques ressources Internet particulièrement utiles :
 
 * apprenez le langage R tout en restant confortablement installé devant votre navigateur, grâce à des leçons vidéo et des exercices de codage. Il existe des didacticiels interactifs sur les dernières techniques et de langage R. Suivez le [didacticiel R interactif gratuit](https://www.datacamp.com/courses/introduction-to-r).
-* [Découvrez la programmation en R, le Guide de référence](https://www.programiz.com/r-programming) de Programiz.
+* [Learn R Programming, The Definitive Guide](https://www.datamentor.io/r-programming/) from DataMentor.
+* [R CODER](https://r-coder.com/). Tutoriels R détaillés et cours gratuit pour débutants sur le langage R.
 * Un [bref didacticiel sur le langage R](https://www.cyclismo.org/tutorial/R/) par Kelly Black de l’Université de Clarkson.
 * Il existe plus de 60 ressources R répertoriées dans les [ressources de langage R pour améliorer vos compétences en matière de données](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

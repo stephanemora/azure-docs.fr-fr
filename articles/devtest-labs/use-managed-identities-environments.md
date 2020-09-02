@@ -3,43 +3,46 @@ title: Utiliser des identités managées Azure pour créer des environnements da
 description: Découvrez comment utiliser des identités managées dans Azure pour déployer des environnements dans un labo dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478873"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718972"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 
+
 En tant que propriétaire de labo, vous pouvez utiliser une identité managée pour déployer des environnements dans un labo. Cette fonctionnalité est utile dans les scénarios où l’environnement contient des ressources Azure (par exemple, des coffres de clés, des galeries d’images partagées et des réseaux externes au groupe de ressources de l’environnement) ou qu’il a des références à de telles ressources. Elle permet de créer des environnements de bac à sable (sandbox) qui ne sont pas limités au groupe de ressources de cet environnement.
 
 > [!NOTE]
 > Actuellement, une seule identité attribuée par l’utilisateur est prise en charge par labo. 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
+
 - [Créer, lister, supprimer ou affecter un rôle à une identité managée attribuée par l’utilisateur à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Vérifiez que votre identité managée a été créée dans la même région et le même abonnement que votre labo. L’identité managée ne doit pas nécessairement se trouver dans le même groupe de ressources.
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
+
 Dans cette section, vous, en tant que propriétaire de labo, utilisez le portail Azure pour ajouter une identité managée par l’utilisateur au labo. 
 
-1. Dans la page du labo, sélectionnez **Configuration et stratégies**. 
-1. Sélectionnez **Identité** dans la section **Paramètres**.
-1. Pour ajouter une identité attribuée par l’utilisateur, sélectionnez **Ajouter** dans la barre d’outils. 
-1. Sélectionnez une **identité** dans une liste déroulante préremplie.
-1. Sélectionnez **OK**.
-
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Recherchez **DevTest Labs**.
+1. Dans la liste des laboratoires, sélectionnez le laboratoire souhaité.
+1. Sélectionnez **Configuration et stratégies** -> **Identité (Préversion)** . 
+1. Pour ajouter une identité affectée par l’utilisateur, sélectionnez l’onglet **Affectée par l’utilisateur**.
+1. Appuyez sur **Ajouter**.
+1. Dans la liste déroulante, sélectionnez un utilisateur existant que vous avez créé et/ou auquel vous avez accès.
+ 
     ![Ajouter une identité managée par l’utilisateur](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. L’identité managée par l’utilisateur ajoutée s’affiche dans la liste. 
+1. Appuyez sur **Enregistrer** en haut de la page.
 
-    ![Identité managée par l’utilisateur dans la liste](./media/use-managed-identities-environments/identity-in-list.png)
-
-Une fois cette identité enregistrée, le labo l’utilise lors du déploiement de tous les environnements de labo. Vous pouvez également accéder à la ressource d’identité dans Azure en sélectionnant l’identité dans la liste. 
+    Une fois cette identité enregistrée, le labo l’utilise lors du déploiement de tous les environnements de labo. Vous pouvez également accéder à la ressource d’identité dans Azure en sélectionnant l’identité dans la liste. 
 
 Le propriétaire du labo n’a pas besoin d’effectuer une action particulière lors du déploiement d’un environnement tant que l’identité ajoutée au labo dispose d’autorisations sur les ressources externes auxquelles l’environnement doit accéder. 
 
-Pour changer l’identité managée par l’utilisateur attribuée au labo, supprimez d’abord l’identité attachée au labo, puis ajoutez-lui en une autre. Pour supprimer une identité attachée au labo, sélectionnez les points de suspension ( **...** ), puis cliquez sur **Supprimer**. 
-
-![Identité managée par l’utilisateur dans la liste](./media/use-managed-identities-environments/replace-identity.png)  
+Pour changer l’identité managée par l’utilisateur attribuée au labo, supprimez d’abord l’identité attachée au labo, puis ajoutez-lui en une autre. Pour supprimer une identité attachée au labo, sélectionnez les points de suspension (**...**), puis cliquez sur **Supprimer**. 
 
 ## <a name="use-api"></a>Utiliser une API
 

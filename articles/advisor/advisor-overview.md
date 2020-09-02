@@ -3,12 +3,12 @@ title: Présentation d’Azure Advisor
 description: Le conseiller Azure permet d’optimiser vos déploiements Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057689"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654019"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -55,7 +55,7 @@ Vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Pour quelles ressources le conseiller fournit-il des recommandations ?
 
-Advisor fournit des recommandations pour Application Gateway, App Services, les groupes à haute disponibilité, le Cache Azure, Azure Data Factory, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure Database pour MariaDB, Azure ExpressRoute, Azure Cosmos DB, les adresses IP publiques Azure, SQL Data Warehouse, les serveurs SQL, les comptes de stockage, les profils Traffic Manager et les machines virtuelles.
+Advisor fournit des recommandations pour Application Gateway, App Services, les groupes à haute disponibilité, le Cache Azure, Azure Data Factory, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, les adresses IP publiques Azure, Azure Synapse Analytics, les serveurs SQL, les comptes de stockage, les profils Traffic Manager et les machines virtuelles.
 
 Azure Advisor inclut également vos recommandations de [Azure Security Center](../security-center/security-center-recommendations.md), pouvant inclure des recommandations pour des types de ressources supplémentaires.
 

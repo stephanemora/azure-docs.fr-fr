@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192028"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930908"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -27,7 +27,9 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 
 * Version de modèle `2020-07-01` pour les points de terminaison v3 `/keyphrases`, `/pii` et `/languages`, qui ajoute ce qui suit :
     * Des [catégories d’entités](named-entity-types.md?tabs=personal) supplémentaires spécifiques à un gouvernement ou un pays pour la Reconnaissance d’entité nommée.
+    * Prise en charge du norvégien et du turc dans Analyse des sentiments v3.
 * Une erreur HTTP 400 est désormais retournée pour les demandes d’API v3 qui dépassent les [limites de données](concepts/data-limits.md) publiées. 
+* Les points de terminaison qui retournent un offset prennent désormais en charge le paramètre facultatif `stringIndexType`, qui ajuste les valeurs `offset` et `length` retournées pour qu’elles correspondent à un schéma d’index de chaîne [ pris en charge](concepts/text-offsets.md).
 
 ### <a name="text-analytics-for-health-container-august-updates"></a>Analyse de texte pour le conteneur d’intégrité - Mises à jour du mois d’août
 

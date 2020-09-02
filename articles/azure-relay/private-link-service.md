@@ -3,12 +3,12 @@ title: Intégrer Azure Relay au service Azure Private Link
 description: Découvrir comment intégrer Azure Relay au service Azure Private Link
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317319"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719425"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Intégrer Azure Relay à Azure Private Link (préversion)
 Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple, Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
@@ -207,7 +207,7 @@ Il existe quatre états de provisionnement :
 3. Vous devez voir que l’état a été remplacé par **Déconnecté**. Vous voyez ensuite que le point de terminaison n’est plus dans la liste. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Vérifier le fonctionnement de la connexion à liaison privée
-Vous devez vérifier que les ressources au sein du même sous-réseau du point de terminaison privé se connectent à votre espace de noms Azure Relay via son adresse IP privée.
+Vous devez vérifier que les ressources qui se trouvent sur le réseau virtuel du point de terminaison privé se connectent à votre espace de noms Azure Relay par le biais de son adresse IP privée.
 
 Pour ce test, créez une machine virtuelle en suivant les étapes décrites dans [Créer une machine virtuelle Windows dans le portail Azure](../virtual-machines/windows/quick-create-portal.md).
 

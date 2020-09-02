@@ -3,12 +3,12 @@ title: Activer automatiquement la sauvegarde lors de la création de machines vi
 description: Article décrivant comment utiliser Azure Policy pour activer automatiquement la sauvegarde de toutes les machines virtuelles créées dans une étendue donnée
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612671"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826070"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
 
@@ -52,7 +52,7 @@ Pour attribuer la stratégie à l’étendue requise, suivez les étapes ci-dess
 
 > [!NOTE]
 >
-> Nous vous recommandons de ne pas attribuer cette stratégie à plus de 200 machines virtuelles à la fois. Attribuer la stratégie au-delà de ce nombre peut entraîner le déclenchement de la sauvegarde quelques heures plus tard que celle spécifiée par la planification.
+> Nous vous recommandons de ne pas attribuer cette stratégie à plus de 200 machines virtuelles à la fois. Si la stratégie est attribuée à plus de 200 machines virtuelles, ce nombre peut entraîner le déclenchement de la sauvegarde quelques heures plus tard que celle spécifiée par la planification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

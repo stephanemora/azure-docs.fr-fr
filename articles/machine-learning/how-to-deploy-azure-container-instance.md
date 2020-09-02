@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855274"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,8 +56,9 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 Pour déployer un modèle sur Azure Container instances, créez une __configuration de déploiement__ décrivant les ressources de calcul nécessaires. Par exemple, le nombre de cœurs et la mémoire. Vous avez également besoin d’une __configuration d’inférence__ décrivant l’environnement nécessaire pour héberger le modèle et le service Web. Pour plus d’informations sur la création de la configuration d’inférence, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
 
 > [!NOTE]
-> * ACI convient uniquement aux petits modèles de taille < 1 Go. 
-> * Nous vous recommandons d’utiliser un seul nœud AKS pour le développement et le test de modèles plus volumineux.
+> * ACI convient uniquement pour les petits modèles de taille inférieure à 1 Go. 
+> * Nous vous recommandons d’utiliser AKS mononœud pour développer/tester des modèles plus volumineux.
+> * Le nombre de modèles à déployer est limité à 1 000 modèles par déploiement (par conteneur). 
 
 ### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 

@@ -273,7 +273,9 @@
               href: msal-net-adfs-support.md
             - name: Migrer vers MSAL.NET
               href: msal-net-migration.md
-            - name: Migrer des applications Xamarin avec des répartiteurs vers MSAL.NET
+            - name: Migrer une application Xamarin Android utilisant un répartiteur vers MSAL.NET
+              href: msal-net-migration-android-broker.md
+            - name: Migrer une application Xamarin iOS utilisant un répartiteur vers MSAL.NET
               href: msal-net-migration-ios-broker.md
             - name: Considérations sur le navigateur web
               href: msal-net-web-browsers.md

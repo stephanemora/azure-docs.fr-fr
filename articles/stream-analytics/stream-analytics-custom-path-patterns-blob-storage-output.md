@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747638"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869811"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Lorsque l’exécution du travail commence, le conteneur *clients* peut ressembl
 
 ![Conteneur clients](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Chaque dossier peut contenir plusieurs objets blob contenant chacun un ou plusieurs enregistrements. Dans l’exemple ci-dessus, il y a un seul objet blob dans un dossier étiqueté « 06000000 » avec le contenu suivant :
+Chaque dossier peut contenir plusieurs objets blob contenant chacun un ou plusieurs enregistrements. Dans l’exemple ci-dessus, il y a un seul blob dans un dossier étiqueté « 06000000 » avec le contenu suivant :
 
 ![Contenu d’objet blob](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -113,7 +113,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>Exemple
 
-Créez un compte de stockage, un groupe de ressources, un travail Stream Analytics et une source d’entrée en vous aidant du guide de démarrage rapide [Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md). Utilisez les mêmes exemples de données que dans le guide de démarrage rapide (également disponibles sur [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)).
+Créez un compte de stockage, un groupe de ressources, un travail Stream Analytics et une source d’entrée conformément au guide de démarrage rapide [du Portail Azure d’Azure Stream Analytics](stream-analytics-quick-create-portal.md). Utilisez les mêmes exemples de données que dans le guide de démarrage rapide (également disponibles sur [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)).
 
 Créez un récepteur de sortie Blob avec la configuration suivante :
 

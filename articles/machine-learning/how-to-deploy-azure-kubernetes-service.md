@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6c85a7315fe05bb4fedabd176295523c2fa95d81
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120828"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855231"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 - Options d’__accélération matérielle__, telles que le GPU et les FPGA (Field-Programmable Gate Array).
 
 > [!IMPORTANT]
-> La mise à l’échelle du cluster n’est pas fournie par le kit SDK Azure Machine Learning. Pour plus d’informations sur la mise à l’échelle des nœuds dans un cluster AKS, voir [Mettre le nombre de nœuds à l’échelle dans un cluster Azure Kubernetes Service (AKS)](../aks/scale-cluster.md).
+> La mise à l’échelle du cluster n’est pas fournie par le kit SDK Azure Machine Learning. Pour plus d’informations sur la mise à l’échelle des nœuds d’un cluster AKS, consultez 
+- [Mettre à l’échelle manuellement le nombre de nœuds dans un cluster AKS](../aks/scale-cluster.md)
+- [Configurer l’utilitaire de mise à l’échelle automatique de cluster dans AKS](../aks/cluster-autoscaler.md)
 
 Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un cluster AKS qui est __connecté à votre espace de travail__. Il existe deux façons de connecter un cluster AKS à votre espace de travail :
 
@@ -65,9 +67,16 @@ Le cluster AKS et l’espace de travail AML peuvent se trouver dans des groupes 
 
 - Si vous devez déployer un équilibreur de charge SLB (Standard Load Balancer) au lieu d’un équilibreur de charge BLB (Basic Load Balancer) dans votre cluster, créez un cluster sur le portail AKS/l’interface CLI/le Kit SDK, puis attachez-le à l’espace de travail AML.
 
+- Si vous avez une stratégie Azure Policy qui limite la création d’adresses IP publiques, la création de cluster AKS échouera. AKS a besoin d’une adresse IP publique pour le [trafic de sortie](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Cet article fournit également des conseils pour verrouiller le trafic sortant du cluster via l’adresse IP publique, sauf pour quelques noms de domaine complets (FQDN). Il existe deux façons d’activer une adresse IP publique :
+  - Le cluster peut utiliser l’adresse IP publique créée par défaut avec l’équilibreur de charge BLB ou SLB, ou
+  - Le cluster peut être créé sans adresse IP publique ; une adresse IP publique est alors configurée avec un pare-feu avec une route définie par l’utilisateur comme indiqué [ici](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  Le plan de contrôle AML ne communique pas avec cette adresse IP publique. Il communique avec le plan de contrôle AKS pour les déploiements. 
+
 - Si vous attachez un cluster AKS pour lequel [une plage d’adresses IP autorisées a accès au serveur d’API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), activez les plages d’adresses IP du plan de contrôle AML pour le cluster AKS. Le plan de contrôle AML est déployé sur les régions jumelées et déploie des pods d’inférence sur le cluster AKS. Le déploiement des pods d’inférence n’est pas possible sans accès au serveur d’API. Utilisez les [plages d’adresses IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) des deux [régions jumelées]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) lors de l’activation des plages d’adresses IP dans un cluster AKS.
 
-__Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load Balancer.__
+
+  Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load Balancer.
  
  - Le nom de calcul DOIT être unique dans un espace de travail.
    - Le nom est obligatoire et doit comprendre entre 3 et 24 caractères.
@@ -76,10 +85,6 @@ __Les plages d’adresses IP autorisées ne fonctionnent qu’avec Standard Load
    - Le nom doit être unique parmi tous les calculs existants au sein d’une région Azure. Si le nom que vous choisissez n’est pas unique, une alerte s’affiche.
    
  - Si vous souhaitez déployer des modèles sur des nœuds GPU ou FPGA (ou sur une référence SKU spécifique), vous devez créer un cluster de la référence SKU en question. Il n’est pas possible de créer un pool de nœuds secondaire dans un cluster existant et de déployer des modèles dans le pool de nœuds secondaire.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Créer un cluster AKS
 
@@ -228,6 +233,10 @@ Pour plus d’informations, consultez la référence [az ml computetarget attach
 ## <a name="deploy-to-aks"></a>Déployer sur AKS
 
 Pour déployer un modèle sur Azure Kubernetes Service, créez une __configuration de déploiement__ décrivant les ressources de calcul nécessaires. Par exemple, le nombre de cœurs et la mémoire. Vous avez également besoin d’une __configuration d’inférence__ décrivant l’environnement nécessaire pour héberger le modèle et le service Web. Pour plus d’informations sur la création de la configuration d’inférence, consultez la section [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
+
+> [!NOTE]
+> Le nombre de modèles à déployer est limité à 1 000 modèles par déploiement (par conteneur).
+
 
 ### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 

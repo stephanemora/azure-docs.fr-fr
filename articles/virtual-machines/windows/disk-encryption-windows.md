@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509159"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794482"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
@@ -264,9 +264,8 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Création d’une image ou d’une capture instantanée d’une machine virtuelle chiffrée et utilisation de celle-ci pour déployer des machines virtuelles supplémentaires.
 - Machines virtuelles Gen2 (consultez : [Prise en charge des machines virtuelles de génération 2 sur Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
-- Application d’Azure Disk Encryption (ADE) à une machine virtuelle qui possède ou *a possédé* des disques chiffrés avec un [chiffrement côté serveur à l’aide de clés gérées par le client](disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
-- Migration d’une machine virtuelle chiffrée par ADE vers le [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
-
+- Application d’ADE à une machine virtuelle qui possède des disques chiffrés avec un [chiffrement côté serveur avec des clés gérées par le client](disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
+- Migration d’une machine virtuelle chiffrée par ADE ou n’a **jamais** été chiffrée avec ADE, pour un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

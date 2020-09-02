@@ -7,14 +7,14 @@ ms.topic: include
 author: dannyevers
 ms.author: mingshen
 ms.reviewer: trkeya
-ms.date: 08/07/2020
-ms.openlocfilehash: 5dcf1f932e72473b6d4bc2442b19b5a674becaa4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/18/2020
+ms.openlocfilehash: 3659b9dbdd6108a650ffc44169bed1d33b140345
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031486"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815626"
 ---
--   Le petit logo (48 x 48 pixels) s’affiche dans les résultats de la recherche de la Place de marché Azure.
--   Le logo moyen (90 x 90 pixels) s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
--   Le grand logo (entre 216 x 216 et 350 x 350 pixels) apparaît sur la page de votre liste d’offres dans la Place de marché Azure.
+- Le grand logo apparaît sur la page de votre liste d’offres dans la Place de marché Azure.
+- Le logo moyen (facultatif) s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
+- Le petit logo (facultatif) s’affiche dans les résultats de la recherche de la Place de marché Azure.

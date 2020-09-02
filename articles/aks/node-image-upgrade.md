@@ -5,15 +5,15 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 08/17/2020
+ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562785"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654274"
 ---
-# <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Préversion : mises à niveau d’images de nœud Azure Kubernetes service (AKS)
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Mise à niveau des images de nœud Azure Kubernetes service (AKS)
 
 AKS prend en charge la mise à niveau des images sur un nœud afin que vous soyez à jour des dernières mises à jour du système d’exploitation et du runtime. AKS fournit une nouvelle image par semaine avec les dernières mises à jour. Il est donc préférable de régulièrement mettre à niveau les images de votre nœud pour bénéficier des dernières fonctionnalités, notamment les correctifs Linux ou Windows. Cet article explique comment mettre à niveau des images de nœud de cluster AKS et comment mettre à jour des images de pool de nœuds sans mettre à niveau la version de Kubernetes.
 
@@ -21,23 +21,9 @@ Si vous souhaitez en savoir plus sur les images les plus récentes fournies par 
 
 Pour plus d’informations sur la mise à niveau de la version Kubernetes pour votre cluster, consultez [Mettre à niveau un cluster AKS][upgrade-cluster].
 
-## <a name="register-the-node-image-upgrade-preview-feature"></a>Inscrire la fonctionnalité d’évaluation de la mise à niveau de l’image de nœud
+## <a name="install-the-aks-cli-extension"></a>Installer l’extension CLI AKS
 
-Pour utiliser la fonctionnalité de mise à niveau d’image de nœud pendant la période de préversion, vous devez inscrire la fonctionnalité.
-
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
-
-L’inscription peut prendre plusieurs minutes. Utilisez la commande suivante pour vérifier que la fonctionnalité est inscrite :
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-Pendant la préversion, vous avez besoin de l’extension CLI *aks-preview* pour utiliser la mise à niveau de l’image de nœud. Utilisez la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Avant la publication de la version suivante de l’interface CLI principale, vous devez disposer de l’extension CLI *aks-preview* pour utiliser la mise à niveau des images de nœud. Utilisez la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,12 +32,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Mettre à niveau tous les nœuds dans tous les pools de nœuds
 

@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905123"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641957"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -203,6 +203,12 @@ Le tableau suivant présente les systèmes d’exploitation et les langages qui 
 | TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup> La modification dans le portail est activée uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et dédié.
+
+## <a name="deployment-behaviors"></a>Comportements de déploiement
+
+Lorsque vous effectuez un déploiement, toutes les exécutions existantes ont l’autorisation de se terminer ou d’expirer, après quoi le nouveau code est chargé pour commencer le traitement des demandes.
+
+Si vous avez besoin de davantage de contrôle sur cette transition, vous devez utiliser des emplacements de déploiement.
 
 ## <a name="deployment-slots"></a>Emplacements de déploiement
 

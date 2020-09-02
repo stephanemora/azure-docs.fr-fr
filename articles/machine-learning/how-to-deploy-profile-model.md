@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544461"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935583"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profiler votre modèle pour déterminer l’utilisation des ressources
 
@@ -36,6 +36,9 @@ Pour profiler votre modèle, vous aurez besoin des éléments suivants :
 
 > [!IMPORTANT]
 > À ce stade, nous ne prenons en charge que le profilage des services qui s’attendent à ce que leurs données de requête soient une chaîne, par exemple : chaîne JSON sérialisée, texte, image sérialisée de chaîne, etc. Le contenu de chaque ligne du jeu de données (chaîne) est placé dans le corps de la requête HTTP et envoyé au service qui encapsule le modèle pour le scoring.
+
+> [!IMPORTANT]
+> Nous prenons uniquement en charge le profilage jusqu’à 2 processeurs dans les régions ChinaEast2 et USGovArizona.
 
 Vous trouverez ci-dessous un exemple de création d’un jeu de données d’entrée pour profiler un service qui s’attend à ce que ses données de requête entrantes contiennent une chaîne JSON sérialisée. Dans ce cas, nous avons créé un jeu de données basé sur 100 instances du même contenu de données de requête. Dans les scénarios réels, nous vous suggérons d’utiliser des jeux de données plus volumineux contenant différentes entrées, en particulier si votre utilisation ou le comportement des ressources du modèle sont dépendants de l’entrée.
 

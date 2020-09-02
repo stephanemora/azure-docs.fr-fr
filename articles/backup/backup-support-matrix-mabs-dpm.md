@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4ed4452cf8f1f44e90cfc991c2b1d13d30dddcd2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612773"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825220"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -76,7 +76,7 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **DPM localement** | Serveur physique/machine virtuelle Hyper-V : System Center 2012 SP1 ou ultérieur.<br/><br/> Machine virtuelle VMware : System Center 2012 R2 avec Update 5 ou ultérieur.
 
 >[!NOTE]
->L’installation de Serveur de sauvegarde Azure n’est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
+>L'installation du serveur de sauvegarde Azure n'est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
 
 ## <a name="management-support"></a>Prise en charge de la gestion
 

@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606754"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705042"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
-Les récompenses du marketplace vous soutiennent dans votre phase de croissance spécifique, en commençant par des activités de sensibilisation pour vous aider à décrocher vos premiers clients. À mesure que vous progressez sur le marketplace commercial, vous déverrouillez de nouveaux avantages conçus pour vous aider à convertir vos clients et conclure des affaires.
+Les récompenses du marketplace vous soutiennent dans votre phase de croissance spécifique, en commençant par des activités de sensibilisation pour vous aider à décrocher vos premiers clients. À mesure que vous progressez sur le marketplace commercial Microsoft, vous déverrouillez de nouveaux avantages conçus pour vous aider à convertir vos clients et conclure des affaires.
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance vous aident à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme le marketplace commercial.
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](../determine-your-listing-type.md#choose-a-call-to-action).
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité.
 
-Pour les partenaires Transact, lorsque vous augmentez vos ventes facturées par le biais de la plateforme Place de marché, vous déverrouillez les avantages par niveau.
+Pour les partenaires Transact, vous débloquez des avantages supplémentaires par niveau à mesure que vous augmentez vos ventes facturées par le biais de la plateforme du marketplace commercial.
 
-La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur la place de marché en tant que plateforme.
+La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
 
 Vous bénéficierez d’un support technique pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [évaluer vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Vérifiez votre admissibilité au programme Récompenses de la place de marché [ici](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
+Pour vérifier votre éligibilité au programme Marketplace Rewards, consultez la page [Récompenses de la place de marché](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) dans Espace partenaires.
 
 Les étapes à suivre pour démarrer sont simples :
 

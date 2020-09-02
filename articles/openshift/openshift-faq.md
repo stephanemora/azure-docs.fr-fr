@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497577"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816233"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -65,25 +65,9 @@ Sur les clusters Azure Red Hat OpenShift 4.x, les nœuds d’infrastructure ne 
 
 Sur les clusters Azure Red Hat OpenShift 3.11, les nœuds d’infrastructure sont inclus par défaut.
 
-## <a name="upgrades"></a>Mises à niveau
+## <a name="how-do-i-handle-cluster-upgrades"></a>Comment faire gérer les mises à niveau de cluster ?
 
-###  <a name="what-is-the-general-upgrade-process"></a>En quoi consiste le processus général de mise à niveau ?
-
-Les correctifs sont appliqués automatiquement à votre cluster. Vous n’avez aucune action à effectuer pour recevoir des mises à niveau de correctifs sur votre cluster.
-
-Le processus d’exécution d’une mise à niveau est sécurisé et ne doit pas perturber les services de cluster. L’équipe Microsoft-Red Hat conjointe peut déclencher le processus de mise à niveau lorsque de nouvelles versions sont disponibles ou que des failles et menaces courantes ne sont pas résolues. Les mises à jour disponibles sont testées dans un environnement intermédiaire, puis elles sont appliquées aux clusters de production. Les bonnes pratiques permettent de réduire au maximum, voire d’éviter les temps d’arrêt.
-
-La maintenance planifiée n’est pas préprogrammée avec le client. Les notifications relatives à la maintenance peuvent être envoyées par e-mail.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>En quoi consiste le processus de maintenance d’Azure Red Hat OpenShift ?
-
-Il existe deux types de maintenance pour Azure Red Hat OpenShift : les mises à niveau et la maintenance lancée par le fournisseur de services cloud.
-- Les mises à niveau incluent les mises à niveau logicielles et les corrections de failles et menaces courantes.
-- La maintenance lancée par le fournisseur de cloud comprend les pannes relatives au réseau et au stockage, ainsi que les pannes régionales. La maintenance est dépendante du fournisseur de cloud, notamment pour les mises à jour que celui-ci fournit.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Quelle est la différence entre les fenêtres de maintenance planifiée et les fenêtres de maintenance d’urgence ?
-
-Nous ne faisons pas la distinction entre ces deux types de maintenances. Nos équipes sont disponibles 24 h/24, 7 j/7 et 365 j/365. Elles n’utilisent pas les fenêtres de maintenance traditionnelles planifiées en dehors des heures de bureau.
+Pour plus d’informations sur les mises à niveau, la maintenance et les versions prises en charge, consultez le [Guide du cycle de vie du support ](support-lifecycle.md).
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Comment sont mis à jour le système d’exploitation hôte et le logiciel OpenShift ?
 

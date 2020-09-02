@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84870959"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795777"
 ---
 # <a name="configure-database-settings"></a>Configurer les paramètres de base de données 
 
@@ -26,7 +26,10 @@ Le débit doit être provisionné afin qu’il y ait suffisamment de ressources 
 > Dans la mesure où différentes opérations consomment un nombre distinct de RU, nous retournons le nombre réel de RU consommées dans chaque appel d’API au sein de l’en-tête de réponse. Ainsi, vous pouvez profiler le nombre de RU consommées par votre application.
 
 ## <a name="update-throughput"></a>Mettre à jour le débit
+
 Si vous souhaitez changer ce paramètre dans le portail Azure, accédez à votre API Azure pour FHIR, puis ouvrez le panneau Base de données. Remplacez ensuite le débit provisionné par la valeur souhaitée en fonction de vos besoins de performances. Vous pouvez changer la valeur du nombre d’unités de requête en veillant à ne pas dépasser la limite maximale de 10 000 RU/s. Si vous avez besoin d’une valeur supérieure, contactez le support Azure.
+
+Si le débit de la base de données est supérieur à 10 000 RU/s ou si les données stockées dans la base de données sont supérieures à 50 Go, votre application cliente doit être en capacité de gérer les jetons de continuation. Une nouvelle partition est créée dans la base de données pour chaque augmentation du débit de 10 000 RU/s ou si la quantité de données stockées est supérieure à 50 Go. Plusieurs partitions créent une réponse de plusieurs pages dans laquelle la pagination est implémentée à l’aide de jetons de continuation.
 
 > [!NOTE] 
 > Une valeur plus élevée signifie un débit plus élevé pour l’API Azure pour FHIR mais également un coût plus élevé du service.

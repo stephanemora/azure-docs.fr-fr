@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 60e0ace70fa87c6a4c47e94eb3ff7f121c9a37cb
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509040"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852574"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Vous pouvez également :
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée NGINX et cert-manager. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès aux référentiels Helm *stable* et *jetstack*. Pour des instructions de mise à niveau, consultez la [documentation d’installation de Helm][helm-install]. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
+Cet article utilise [Helm 3][helm] pour installer le contrôleur d’entrée NGINX et cert-manager. Assurez-vous que vous utilisez la version la plus récente de Helm et que vous avez accès aux référentiels Helm *ingress-nginx* et *jetstack*. Pour des instructions de mise à niveau, consultez la [documentation d’installation de Helm][helm-install]. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
 
 Pour les besoins de cet article, vous devez également exécuter Azure CLI version 2.0.64 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
@@ -76,11 +76,11 @@ Mettez à jour le script suivant avec **l’adresse IP** de votre contrôleur d
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
-# Add the official stable repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress stable/nginx-ingress \
+helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
@@ -92,11 +92,10 @@ helm install nginx-ingress stable/nginx-ingress \
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP statique est affectée, comme indiqué dans l’exemple de sortie suivant :
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
-nginx-ingress-controller                    LoadBalancer   10.0.232.56   STATIC_IP      80:31978/TCP,443:32037/TCP   3m
-nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 Aucune règle d’entrée n’a encore été créée. Par conséquent, la page 404 par défaut du contrôleur d’entrée NGINX s’affiche si vous accédez à l’adresse IP publique. Les étapes suivantes permettent de configurer les règles d’entrée.
@@ -167,7 +166,7 @@ spec:
                 "kubernetes.io/os": linux
 ```
 
-Pour créer l’émetteur, utilisez la commande `kubectl apply -f cluster-issuer.yaml`.
+Pour créer l’émetteur, utilisez la commande `kubectl apply`.
 
 ```
 $ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
@@ -305,7 +304,7 @@ spec:
         path: /(.*)
 ```
 
-Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic`.
+Créez la ressource d’entrée avec la commande `kubectl apply`.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
@@ -355,7 +354,7 @@ spec:
     kind: ClusterIssuer
 ```
 
-Pour créer la ressource de certificat, utilisez la commande `kubectl apply -f certificates.yaml`.
+Pour créer la ressource de certificat, utilisez la commande `kubectl apply`.
 
 ```
 $ kubectl apply -f certificates.yaml

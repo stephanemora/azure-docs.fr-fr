@@ -2,15 +2,15 @@
 title: Présentation des specs de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a88e799d2298cb21b5196f5aa143e5453c0447c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921876"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783788"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
 
@@ -37,32 +37,32 @@ L’exemple suivant montre un modèle simple pour la création d’un compte de 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_LRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_GRS",
-                "Standard_ZRS",
-                "Premium_LRS"
-            ]
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "[concat('store', uniquestring(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "[parameters('storageAccountType')]"
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[concat('store', uniquestring(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      }
+    }
+  ]
 }
 ```
 
@@ -70,21 +70,59 @@ Lorsque vous créez la spec de modèle, les commandes PowerShell ou CLI sont tra
 
 Créez une spec de modèle en utilisant :
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
 ```
 
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az template-specs create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+---
+
 Vous pouvez afficher toutes les specs de modèle dans votre abonnement en utilisant :
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec
 ```
 
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az template-specs list
+```
+
+---
+
 Vous pouvez afficher les détails d’une spec de modèle, notamment ses versions, avec :
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az template-specs show \
+    --name storageSpec \
+    --resource-group templateSpecRG \
+    --version "1.0"
+```
+
+---
 
 ## <a name="deploy-template-spec"></a>Déployer une spec de modèle
 
@@ -98,7 +136,9 @@ Au lieu de passer par un chemin d’accès ou un URI pour un modèle, vous dépl
 
 Notez que l’ID de ressource contient un numéro de version pour la spec de modèle.
 
-Par exemple, vous déployez une spec de modèle à l’aide de la commande PowerShell suivante.
+Par exemple, vous déployez une spec de modèle à l’aide de la commande suivante.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
@@ -108,15 +148,41 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG
 ```
 
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
+
 Dans la pratique, vous exécutez généralement `Get-AzTemplateSpec` pour obtenir l’ID de la spec de modèle que vous souhaitez déployer.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
 
 New-AzResourceGroupDeployment `
-  -TemplateSpecId $id `
-  -ResourceGroupName demoRG
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
 
 ## <a name="parameters"></a>Paramètres
 
@@ -124,12 +190,25 @@ Passer des paramètres au modèle de spécification revient exactement à passer
 
 Pour passer un paramètre en ligne, utilisez :
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -StorageAccountType Standard_GRS
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters storageAccountType='Standard_GRS'
+```
+
+---
 
 Pour créer un fichier de paramètres locaux, utilisez :
 
@@ -147,12 +226,25 @@ Pour créer un fichier de paramètres locaux, utilisez :
 
 Puis transmettez ce fichier de paramètres avec :
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -TemplateParameterFile ./mainTemplate.parameters.json
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters "./mainTemplate.parameters.json"
+```
+
+---
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Créer une spec de modèle avec des modèles liés
 
@@ -162,35 +254,34 @@ L’exemple suivant est constitué d’un modèle principal et de deux modèles 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/webapp.json"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/database.json"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/webapp.json"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/database.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
-
 ```
 
 Lorsque la commande PowerShell ou CLI permettant de créer la spec de modèle est exécutée pour l’exemple précédent, la commande recherche trois fichiers (le modèle principal, le modèle d’application web [`webapp.json`] et le modèle de base de données [`database.json`]), et les empaquette dans la spec de modèle.
@@ -207,35 +298,35 @@ L’exemple suivant est similaire à l’exemple précédent, mais vous utilisez
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "networkingDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "storageDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "networkingDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "storageDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

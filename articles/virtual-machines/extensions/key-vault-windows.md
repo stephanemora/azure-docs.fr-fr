@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 18ca9244f818fa745725f13d79a23c1a232e01ed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545384"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932574"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -89,7 +89,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine ou CurrentUser (respect de la casse) | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | tableau de chaînes
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
@@ -130,6 +130,8 @@ La configuration JSON d’une extension de machine virtuelle doit être imbriqu�
 
 
 ## <a name="azure-powershell-deployment"></a>Déploiement d’Azure PowerShell
+> [!WARNING]
+> Les clients PowerShell ajoutent souvent `\` à `"` dans settings.json, ce qui entraîne l’échec de akvvm_service avec l’erreur suivante : `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 Azure PowerShell vous permet de déployer l’extension de machine virtuelle Key Vault sur une machine virtuelle ou un groupe de machines virtuelles identiques existants. 
 

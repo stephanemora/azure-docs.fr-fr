@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f31e8d36d6ba615b21a4043c7d39716fc6d89a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999052"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653492"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>Le disque dur virtuel n’est pas pris en charge lorsque vous créez une machine virtuelle dans Azure.
 
@@ -62,7 +62,6 @@ Pour plus d’informations sur la création et le chargement d’un disque dur v
 
 Des problèmes persistants peuvent indiquer un disque dur virtuel endommagé. Dans ce cas, nous vous recommandons de reconstruire le disque dur virtuel à partir de zéro.
 
-Pour plus d’informations, consultez les articles suivants :
+Pour plus d’informations, consultez l’article suivant :
 
-- [À propos du disque dur virtuel Windows](../windows/managed-disks-overview.md)
-- [À propos du disque dur virtuel Linux](../linux/managed-disks-overview.md)
+- [À propos du disque dur virtuel](../managed-disks-overview.md)

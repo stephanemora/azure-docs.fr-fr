@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034194"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826682"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -310,7 +310,7 @@ Notez que **RowKey** est à présent une clé composée, basée sur l’ID d’e
 
 L'exemple suivant indique comment vous pouvez récupérer toutes les données d'évaluation d'un employé donné (par exemple, l'employé 000123 du service des ventes) :  
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt '000123_2012')&$select=RowKey,Manager Rating,Peer Rating,Comments  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141718"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855207"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modèle de série chronologique dans Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Cet article décrit le modèle de série chronologique, les capacités et la fa�
 > [!TIP]
 >
 > * Pour obtenir un exemple de modèle de série chronologique en direct, accédez à l’environnement de  [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples).
-> * Découvrez [comment utiliser le modèle de série chronologique](/azure/time-series-insights/how-to-edit-your-model) à l’aide de l’explorateur Azure Time Series Insights Gen2.
+> * Découvrez [comment utiliser le modèle de série chronologique](/azure/time-series-insights/how-to-edit-your-model) à l’aide de l’explorateur Azure Time Series Insights TSI.
 
 ## <a name="summary"></a>Résumé
 
@@ -75,7 +75,7 @@ Ces composants sont combinés pour spécifier un modèle de série chronologique
 
 [![Graphique de vue d’ensemble du modèle de la série chronologique](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+Un modèle de série chronologique peut être créé et géré par le biais de l’[explorateur Azure Time Series Insights TSI](/azure/time-series-insights/concepts-model-overview). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instances de modèle de série chronologique
 
@@ -87,7 +87,7 @@ Les instances sont associées à des informations descriptives appelées *propri
 
 Les *champs d’instance* sont un ensemble d’informations descriptives qui peuvent inclure des valeurs pour les niveaux hiérarchiques, ainsi que pour le fabricant, l’opérateur, etc.
 
-Une fois qu’une source d’événement est configurée pour l’environnement Azure Time Series Insights Gen2, les instances sont automatiquement découvertes et créées dans un modèle de série chronologique. Elles peuvent être créées ou mises à jour via l’explorateur Azure Time Series Insights Gen2 à l’aide de requêtes de modèle de série chronologique.
+Une fois qu’une source d’événement est configurée pour l’environnement Azure Time Series Insights Gen2, les instances sont automatiquement découvertes et créées dans un modèle de série chronologique. Elles peuvent être créées ou mises à jour via l’explorateur Azure Time Series Insights TSI à l’aide de requêtes de modèle de série chronologique.
 
 La [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples) fournit plusieurs exemples d’instances en direct.
 
@@ -216,7 +216,7 @@ Prenons un exemple dans lequel la hiérarchie **H1** a `building`, `floor` et `r
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | Aucune des valeurs « building », « floor » ou « room » n’est définie. |
 
-Les séries chronologiques **ID1** et **ID4** sont affichées dans la hiérarchie **H1** dans l’[explorateur Azure Time Series Insights Gen2](time-series-insights-update-explorer.md), car elles ont des paramètres *building*, *floor* et *room* entièrement définis et correctement ordonnés.
+Les séries chronologiques **ID1** et **ID4** sont affichées dans la hiérarchie **H1** dans l’[explorateur Azure Time Series Insights TSI](time-series-insights-update-explorer.md), car elles ont des paramètres *building*, *floor* et *room* entièrement définis et correctement ordonnés.
 
 Les autres sont classés sous *Instances sans parent*, car elles ne sont pas conformes à la hiérarchie de données spécifiée.
 

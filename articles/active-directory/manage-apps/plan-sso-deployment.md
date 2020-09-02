@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054798"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642382"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -285,7 +285,7 @@ Les liens suivants présentent des scénarios de dépannage. Vous pouvez créer 
 
 - [Problèmes de connexion à partir du portail personnalisé](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problèmes de connexion à partir du panneau d’accès](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problèmes de connexion à partir de Mes applications](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Erreur sur la page de connexion de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

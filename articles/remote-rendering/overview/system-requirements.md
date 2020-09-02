@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300604"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798463"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -24,7 +24,7 @@ Ce chapitre décrit la configuration requise pour utiliser *Azure Remote Renderi
 
 * Windows 10 version 1903 ou ultérieure.
 * Pilotes graphiques à jour.
-* Facultatif : Décodeur vidéo matériel H265, si vous souhaitez utiliser l’aperçu local du contenu rendu à distance (par exemple, dans Unity).
+* Facultatif : [Décodeur vidéo matériel H265](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), si vous souhaitez utiliser l’aperçu local du contenu rendu à distance (par exemple, dans Unity).
 
 > [!IMPORTANT]
 > Windows Update ne fournissant pas toujours les pilotes GPU les plus récents, consultez le site web du fabricant de votre GPU pour obtenir les pilotes les plus récents :
@@ -52,7 +52,7 @@ Il est important d’utiliser le codec HEVC le plus récent, car les versions pl
 1. Démarrez **Microsoft Store**.
 1. Cliquez sur le bouton **« ... »** dans l’angle supérieur droit.
 1. Sélectionnez **Téléchargements et mises à jour**.
-1. Dans la liste, recherchez **Extensions vidéo HEVC du fabricant de l’appareil**.
+1. Dans la liste, recherchez **Extensions vidéo HEVC du fabricant de l’appareil**. Si cet élément n’est pas listé sous les mises à jour, la version la plus récente est déjà installée.
 1. Assurez-vous que la version du codec répertorié est au minimum la version **1.0.21821.0**.
 1. Cliquez sur le bouton **Obtenir les mises à jour**, puis attendez que l’installation soit terminée.
 
@@ -74,7 +74,7 @@ Les logiciels suivants doivent être installés :
   * **Développement de la plateforme Windows universelle (UWP)**
 * **Le SDK Windows 10.0.18362.0** [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(télécharger)](https://git-scm.com/downloads)
-* Facultatif : Pour afficher le flux vidéo du serveur sur un PC de bureau, vous avez besoin des **Extensions vidéo HEVC** [(lien du Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Facultatif : Pour afficher le flux vidéo du serveur sur un PC de bureau, vous avez besoin des **Extensions vidéo HEVC** [(lien du Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Vérifiez que la version la plus récente est installée en recherchant des mises à jour dans le Store.
 
 ## <a name="unity"></a>Unity
 

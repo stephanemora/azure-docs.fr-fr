@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564086"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923447"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
 Vous pouvez écrire des requêtes sur la Recherche cognitive Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans la Recherche cognitive Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans la Recherche cognitive Azure à l’aide d’expressions `$filter`. 
 
 > [!NOTE]
-> La syntaxe Lucene complète est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
+> La syntaxe Lucene complète est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
 
 ## <a name="invoke-full-parsing"></a>Appeler l’analyse complète
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-Pour obtenir d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans la Recherche cognitive Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Pour obtenir d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans la Recherche cognitive Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  La Recherche cognitive Azure prend également en charge une [syntaxe de requête simple](query-simple-syntax.md) : il s’agit d’un langage de requête simple et robuste qui peut être utilisé pour la recherche directe de mots clés.  
@@ -139,7 +139,7 @@ Vous pouvez définir une opération de recherche par champ avec la syntaxe `fiel
 
 Veillez à placer les chaînes multiples entre guillemets si vous voulez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux artistes distincts sont recherchés dans le champ `artists`.  
 
-Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
+Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](/rest/api/searchservice/create-index).  
 
 > [!NOTE]
 > Lorsque vous utilisez des expressions de recherche par champ, il est inutile d’utiliser le paramètre `searchFields`, car chaque expression de recherche par champ a un nom de champ spécifié explicitement. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=genre:jazz NOT history&searchFields=description` ne correspondrait à `jazz` qu’au niveau du champ `genre`, alors qu’elle correspondrait au champ `NOT history` avec le champ `description`. Le nom du champ fourni dans `fieldName:searchExpression` a toujours priorité sur le paramètre `searchFields`, c’est pourquoi dans cet exemple, nous n’avons pas besoin d’inclure `genre` dans le paramètre `searchFields`.
@@ -183,7 +183,16 @@ La correspondance de suffixe, où `*` ou `?` précède la chaîne (comme dans `s
 > [!NOTE]  
 > En règle générale, les critères spéciaux sont lents ; vous préférerez donc peut-être explorer d’autres méthodes, telles que la tokenisation Edge n-Gram qui crée des jetons pour les séquences de caractères d’un terme. L’index sera plus grand, mais les requêtes pourront s’exécuter plus rapidement, en fonction de la construction du modèle et de la longueur des chaînes que vous indexez.
 >
-> Pendant l’analyse des requêtes, les requêtes qui sont formulées sous forme de préfixe, de suffixe, de caractère générique ou d’expression régulière sont transmises telles quelles à l’arborescence de requête, en ignorant [l’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Les correspondances ne seront trouvées que si l’index contient les chaînes au format spécifié par votre requête. Dans la plupart des cas, vous aurez besoin d’un autre analyseur lors de l’indexation qui préserve l’intégrité de la chaîne pour que le terme partiel et les critères spéciaux soient respectés. Pour plus d’informations, consultez [Recherche de termes partiels dans les requêtes Recherche cognitive Azure](search-query-partial-matching.md).
+
+### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Impact d’un analyseur sur les requêtes génériques
+
+Pendant l’analyse des requêtes, les requêtes qui sont formulées sous forme de préfixe, de suffixe, de caractère générique ou d’expression régulière sont transmises telles quelles à l’arborescence de requête, en ignorant [l’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Les correspondances ne seront trouvées que si l’index contient les chaînes au format spécifié par votre requête. Dans la plupart des cas, vous aurez besoin d’un analyseur pendant l’indexation qui préserve l’intégrité de la chaîne pour que le terme partiel et les critères spéciaux soient respectés. Pour plus d’informations, consultez [Recherche de termes partiels dans les requêtes Recherche cognitive Azure](search-query-partial-matching.md).
+
+Supposons que vous souhaitez que la requête de recherche « terminat* » retourne des résultats qui contiennent des termes tels que « terminate », « termination » et « terminates ».
+
+Si vous deviez utiliser l’analyseur en.lucene (Lucene anglais), il appliquerait une recherche de radical agressive pour chaque terme. Par exemple, « terminate », « termination », « terminates » seraient tous réduits au jeton « termi » dans votre index. D’un côté, comme les termes dans les requêtes utilisant des caractères génériques ou une recherche approximative ne sont pas analysés du tout, la requête « terminat* » ne donnerait aucun résultat.
+
+D’un autre côté, les analyseurs Microsoft (dans ce cas, l’analyseur en.microsoft) sont un peu plus avancés et utilisent la lemmatisation et non la recherche de radical. Cela signifie que tous les jetons générés doivent être des mots anglais valides. Par exemple, « terminate », « terminates » et « termination » seront généralement conservés dans leur forme entière dans l’index, ce qui constitue un choix préférable pour les scénarios qui dépendent beaucoup des caractères génériques et de la recherche approximative.
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
 
@@ -193,6 +202,6 @@ La Recherche cognitive Azure utilise un scoring basé sur la fréquence ([TF-IDF
 
 + [Exemples de requêtes pour une recherche simple](search-query-simple-examples.md)
 + [Exemples de requêtes pour une recherche Lucene complète](search-query-lucene-examples.md)
-+ [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Recherche dans des documents](/rest/api/searchservice/Search-Documents)
 + [Syntaxe des expressions OData pour les filtres et le tri](query-odata-filter-orderby-syntax.md)   
-+ [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)   
++ [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)

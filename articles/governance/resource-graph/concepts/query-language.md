@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541819"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798548"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -64,6 +64,25 @@ Resources
 > [!NOTE]
 > Quand vous limitez les résultats de `join` avec `project`, la propriété utilisée par `join` pour associer les deux tables (_subscriptionId_  dans l’exemple ci-dessus) doit être incluse dans `project`.
 
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propriétés étendues (préversion)
+
+En tant que fonctionnalité de _préversion_, certains types de ressources dans Resource Graph ont des propriétés supplémentaires liées au type, disponibles pour effectuer une requête au-delà des propriétés fournies par Azure Resource Manager. Cet ensemble de valeurs, connu sous le nom de _propriétés étendues_, existe sur un type de ressource pris en charge dans `properties.extended`. Pour voir quels types de ressources ont des _propriétés étendues_, utilisez la requête suivante :
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Exemple : Obtenir le nombre total de machines virtuelles à l’aide de `instanceView.powerState.code` :
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
 ## <a name="resource-graph-custom-language-elements"></a>Éléments de langage personnalisés Resource Graph
 
 ### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Syntaxe des requêtes partagées (préversion)
@@ -93,7 +112,7 @@ Cette requête utilise d’abord la requête partagée, puis se sert de `limit` 
 
 ## <a name="supported-kql-language-elements"></a>Éléments du langage KQL pris en charge
 
-Resource Graph prend en charge tous les [types de données](/azure/kusto/query/scalar-data-types/), [fonctions scalaires](/azure/kusto/query/scalarfunctions), [opérateurs scalaires](/azure/kusto/query/binoperators) et [fonctions d’agrégation](/azure/kusto/query/any-aggfunction) du langage KQL. Des [opérateurs tabulaires](/azure/kusto/query/queries) spécifiques sont pris en charge par Resource Graph, dont certains présentent différents comportements.
+Resource Graph prend en charge un sous-ensemble des [types de données](/azure/kusto/query/scalar-data-types/), [fonctions scalaires](/azure/kusto/query/scalarfunctions), [opérateurs scalaires](/azure/kusto/query/binoperators) et [fonctions d’agrégation](/azure/kusto/query/any-aggfunction) du langage KQL. Des [opérateurs tabulaires](/azure/kusto/query/queries) spécifiques sont pris en charge par Resource Graph, dont certains présentent différents comportements.
 
 ### <a name="supported-tabulartop-level-operators"></a>Opérateurs tabulaires/de niveau supérieur pris en charge
 
@@ -123,8 +142,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 L’étendue des abonnements à partir desquels les ressources sont retournées par une requête dépend de la méthode d’accès à Azure Resource Graph. Azure CLI et Azure PowerShell remplissent la liste des abonnements à inclure dans la demande en fonction du contexte de l’utilisateur autorisé. La liste des abonnements peut être définie manuellement pour chacun respectivement avec des **abonnements** des **paramètres d’abonnement**.
 Dans l’API REST et tous les autres kits de développement logiciel (SDK), la liste des abonnements dont inclure les ressources doit être définie explicitement dans le cadre de la demande.
 
-En guide d’**aperçu**, la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si ni le groupe d’administration, ni la liste d’abonnements ne sont définis, l’étendue de la requête est l’ensemble des ressources auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration.
-Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
+En guide d’**aperçu**, la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si un groupe d’administration ou une liste d’abonnements n’est pas défini(e), l’étendue de la requête correspond à l’ensemble des ressources auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration. Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
 
 Exemple : Interroger toutes les ressources dans la hiérarchie du groupe d’administration nommé « Mon groupe d’administration » avec l’ID « myMG ».
 

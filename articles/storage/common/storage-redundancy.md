@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871154"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -24,7 +24,7 @@ Le service Stockage Azure stocke toujours plusieurs copies de vos données afin 
 Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scénario, réfléchissez aux compromis possibles entre, d’une part, des coûts réduits et, de l’autre, une disponibilité et une durabilité accrues. Les facteurs déterminant le choix de l’option de redondance sont les suivants :  
 
 - Mode de réplication de vos données dans la région primaire
-- Réplication éventuelle de vos données vers un deuxième emplacement géographiquement éloigné de la région primaire, afin d’offrir une protection contre des catastrophes régionales
+- Réplication éventuelle de vos données vers une deuxième région géographiquement éloignée de la région primaire, afin d’offrir une protection contre des catastrophes régionales
 - Nécessité ou non pour l’application d’avoir accès en lecture aux données répliquées dans la région secondaire si la région primaire devient indisponible pour une raison quelconque
 
 ## <a name="redundancy-in-the-primary-region"></a>Redondance dans la région primaire
@@ -64,8 +64,8 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 | Type de compte de stockage | Régions prises en charge | Services pris en charge |
 |--|--|--|
 | Universel v2<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Afrique du Sud Nord<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
-| BlockBlobStorage<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe occidentale<br /> USA Est | Objets blob de blocs Premium uniquement |
-| FileStorage | Asie du Sud-Est<br /> Australie Est<br /> Europe occidentale<br /> USA Est | Partages de fichiers Premium uniquement |
+| BlockBlobStorage<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> USA Est <br /> USA Ouest 2| Objets blob de blocs Premium uniquement |
+| FileStorage | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> USA Est <br /> USA Ouest 2 | Partages de fichiers Premium uniquement |
 
 <sup>1</sup> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS.<br />
 <sup>2</sup> Les comptes de stockage qui contiennent des disques managés Azure pour les machines virtuelles utilisent toujours LRS. Les disques non managés Azure doivent également utiliser LRS. Il est possible de créer un compte de stockage utilisant GRS pour les disques non managés Azure, mais cela n’est pas recommandé en raison de problèmes potentiels relatifs à la cohérence de la géoréplication asynchrone. Ni les disques managés, ni les disques non managés ne prennent en charge ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -83,9 +83,9 @@ Le service Stockage Azure offre deux options pour la copie de vos données vers 
 - La réplication par **stockage géoredondant (GRS)** copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire en utilisant une réplication LRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
 - La réplication par **stockage géoredondant interzone (GZRS)** copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire en utilisant une réplication ZRS. Elle copie ensuite vos données de façon asynchrone vers un emplacement physique unique dans la région secondaire.
 
-La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans l’emplacement secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant une réplication LRS. LRS dans la région secondaire protège vos données contre les défaillances matérielles.
+La principale différence entre les réplications GRS et GZRS réside dans la manière dont les données sont répliquées dans la région primaire. Dans la région secondaire, les données sont toujours répliquées de manière synchrone trois fois en utilisant un stockage localement redondant. LRS dans la région secondaire protège vos données contre les défaillances matérielles.
 
-Avec les réplications GRS ou GZRS, les données de l’emplacement secondaire ne sont disponibles pour l’accès en lecture ou en écriture qu’en cas de basculement vers la région secondaire. Pour un accès en lecture à l’emplacement secondaire, configurez votre compte de stockage pour utiliser un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS). Pour plus d’informations, voir [Accès en lecture aux données dans la région secondaire](#read-access-to-data-in-the-secondary-region).
+Avec le stockage GRS ou GZRS, les données de la région secondaire ne sont disponibles pour l’accès en lecture ou en écriture qu’en cas de basculement vers la région secondaire. Pour un accès en lecture à la région secondaire, configurez votre compte de stockage pour utiliser un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS). Pour plus d’informations, voir [Accès en lecture aux données dans la région secondaire](#read-access-to-data-in-the-secondary-region).
 
 Si la région primaire devient indisponible, vous pouvez choisir de basculer vers la région secondaire. Une fois le basculement terminé, la région secondaire devient la région primaire et vous pouvez de nouveau lire et écrire des données. Pour plus d’informations sur la récupération d’urgence et pour savoir comment basculer vers la région secondaire, voir [Récupération d’urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md).
 

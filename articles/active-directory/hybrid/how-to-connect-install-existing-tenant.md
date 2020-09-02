@@ -16,14 +16,14 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358826"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640648"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
+# <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
 
 ## <a name="the-basics"></a>Concepts de base

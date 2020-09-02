@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090975"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890553"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Dans certaines circonstances, le service Sauvegarde Azure déclenche des sauvega
 - Si vous choisissez de remplacer la base de données lors de la restauration, la sauvegarde de fichier journal ou différentielle suivante échoue et une sauvegarde complète est déclenchée.
 - Si une sauvegarde complète est requise pour redéfinir les chaînes de fichier journal en raison d’une modification du modèle de récupération de base de données, cette sauvegarde est déclenchée lors de la planification suivante.
 
-Par défaut, la correction automatique est activée pour tous les utilisateurs, mais si vous décidez de la désactiver, procédez comme suit :
+La réparation automatique en tant que fonctionnalité est activée par défaut pour tous les utilisateurs. Toutefois, si vous choisissez de ne pas l’utiliser, effectuez les étapes suivantes :
 
 - Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez ou modifiez le fichier **ExtensionSettingsOverrides.json**.
 - Dans le fichier **ExtensionSettingsOverrides.json**, définissez *{"EnableAutoHealer": false}* .
@@ -52,11 +52,11 @@ La valeur par défaut de DefaultBackupTasksThreshold est **20**.
  Si cette méthode est utile quand l’application de sauvegarde consomme beaucoup de ressources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) offre un moyen plus générique de spécifier des limites quant aux quantités de ressources (processeur, E/S physiques et mémoire) utilisables par les requêtes d’application entrantes.
 
 > [!NOTE]
-> Dans l’expérience utilisateur, vous pouvez planifier autant de sauvegardes que vous le souhaitez à un moment donné, mais elles seront traitées dans une fenêtre glissante de 5, par exemple, conformément à l’exemple ci-dessus.
+> Dans l’expérience utilisateur, vous pouvez continuer et planifier autant de sauvegardes que vous le souhaitez à un moment donné. Toutefois, elles seront traitées dans une fenêtre glissante, par exemple de 5, conformément à l’exemple ci-dessus.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
 
-Conformément aux limites SQL, vous pouvez exécuter une sauvegarde de copie uniquement sur un réplica secondaire, mais la sauvegarde complète n’est pas autorisée.
+Conformément aux limites SQL, vous pouvez exécuter une sauvegarde de copie uniquement sur un réplica secondaire. En revanche, la sauvegarde complète n’est pas autorisée.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Puis-je protéger des groupes de disponibilité en local ?
 
@@ -68,7 +68,7 @@ Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des travaux de sauvegarde génère-t-elle des alertes ?
 
-Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](backup-azure-monitoring-built-in-monitor.md). Cela étant, si vous souhaitez recevoir des alertes pour les travaux ayant abouti, vous pouvez utiliser [Surveillance à l'aide d'Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. Le comportement détaillé des alertes de portail est détaillé [ici](backup-azure-monitoring-built-in-monitor.md). Toutefois, si vous souhaitez obtenir des alertes même pour des travaux réussis, vous pouvez utiliser la [supervision à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
 
@@ -92,9 +92,9 @@ Si vous choisissez d'**arrêter la sauvegarde avec suppression des données**, a
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Si je modifie le nom de la base de données après qu'elle a été protégée, comment se comportera-t-elle ?
 
-Une base de données renommée est traitée en tant que nouvelle base de données. Le service gèrera donc cette situation comme si la base de données était introuvable et les sauvegardes échoueront.
+Une base de données renommée est traitée en tant que nouvelle base de données. Par conséquent, le service gère cette situation comme si la base de données était introuvable, et les sauvegardes échouent.
 
-Vous pouvez sélectionner la base de données renommée et configurer la protection. En cas d'activation de la protection automatique sur l'instance, la base de données renommée sera automatiquement détectée et protégée.
+Vous pouvez sélectionner la base de données renommée et configurer la protection. Si la protection automatique est activée sur l’instance, la base de données renommée sera automatiquement détectée et protégée.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Pourquoi ne puis-je pas voir une base de données ajoutée pour une instance protégée automatiquement ?
 

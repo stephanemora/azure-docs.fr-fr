@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/16/2020
+ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 877134fb1d4417c04da3bf6a96267b413389ecb2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258447"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661314"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -44,7 +44,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Oui | Non | |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Oui | Non | |
 |Microsoft.CognitiveServices/accounts | Oui | Non | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | Oui | Oui | [Machines virtuelles](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | Oui | Oui<sup>1</sup> | [Machines virtuelles](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Oui | Non |[Groupes de machines virtuelles identiques](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Oui| Non | [Groupes de conteneur](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | Non | Non | [Registres de conteneurs](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -111,6 +111,8 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Web/serverfarms | Oui | Non | [Plans App Service](./metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | Oui | Non | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) et [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Oui | Non | [Slots App Service](./metrics-supported.md#microsoftwebsitesslots)|
+
+<sup>1</sup> pris en charge pour les mesures de plateforme uniquement (pas de mesures personnalisées)
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 

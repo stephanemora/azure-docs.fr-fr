@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171857"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640580"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -117,6 +117,28 @@ Erreur 50004 : « Impossible de se connecter à un hôte ou à un cluster, ca
     3. Ajoutez l’adresse IP et le nom d’hôte dans une ligne. Répétez cette opération pour chaque hôte ou cluster pour lequel vous voyez cette erreur.
     4. Enregistrez et fermez le fichier hôtes.
     5. Vérifiez si l’appliance peut se connecter aux hôtes en utilisant l’application de gestion de l’appliance. Au bout de 30 minutes, vous devriez voir les informations à jour sur ces hôtes dans le Portail Azure.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Erreur 60001 : Connexion au serveur impossible 
+
+- Assurez-vous qu’il existe de la connectivité entre l’appliance et le serveur
+- S’il s’agit d’un serveur Linux, assurez-vous que l’authentification par mot de passe est activée en procédant comme suit :
+    1. Connectez-vous à la machine Linux, puis ouvrez le fichier de configuration ssh à l’aide de la commande « VI/etc/ssh/sshd_config ».
+    2. Définissez l’option « PasswordAuthentication » sur Oui. Enregistrez le fichier .
+    3. Redémarrez le service ssh en exécutant « service sshd restart ».
+- S’il s’agit d’un serveur Windows, assurez-vous que le port 5985 est ouvert pour permettre les appels WMI distants.
+- Si vous découvrez un serveur GCP Linux et que vous utilisez un utilisateur root, utilisez les commandes suivantes pour modifier le paramètre par défaut de la connexion racine.
+    1. Connectez-vous à la machine Linux, puis ouvrez le fichier de configuration ssh à l’aide de la commande « VI/etc/ssh/sshd_config ».
+    2. Définissez l’option « PermitRootLogin » sur Oui.
+    3. Redémarrez le service ssh en exécutant « service sshd restart ».
+
+## <a name="error-no-suitable-authentication-method-found"></a>Erreur : Aucune méthode d’authentification appropriée n’a été trouvée
+
+Assurez-vous que l’authentification par mot de passe est activée sur le serveur Linux en procédant comme suit :
+    1. Connectez-vous à la machine Linux, puis ouvrez le fichier de configuration ssh à l’aide de la commande « VI/etc/ssh/sshd_config ».
+    2. Définissez l’option « PasswordAuthentication » sur Oui. Enregistrez le fichier .
+    3. Redémarrez le service ssh en exécutant « service sshd restart ».
+
 
 ## <a name="discovered-vms-not-in-portal"></a>Machines virtuelles découvertes absentes du portail
 

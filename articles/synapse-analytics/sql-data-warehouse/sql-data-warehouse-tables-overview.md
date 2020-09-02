@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4cf9e2d02030021d3092629731fcd8b77566907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213939"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798565"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Concevoir des tables dans un pool SQL Synapse
 
@@ -294,6 +294,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> Pour améliorer les performances dans Synapse SQL, envisagez d’utiliser **sys.pdw_permanent_table_mappings** au lieu de **sys.pdw_table_mappings** sur les tables utilisateur permanentes. Pour plus d’informations, consultez **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Résumé de l’espace de table
 

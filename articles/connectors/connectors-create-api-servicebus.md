@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461598"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853302"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -78,27 +78,30 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
    Certains déclencheurs (par exemple, **Quand un ou plusieurs messages arrivent dans une file d’attente (autocomplétion)** ) peuvent retourner un ou plusieurs messages. Quand ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifié par la propriété **Nombre maximal de messages** du déclencheur.
 
+    > [!NOTE]
+    > Le déclencheur de saisie semi-automatique rédige automatiquement un message, mais la saisie semi-automatique se produit uniquement lors de l’exécution du déclencheur suivant. Ce comportement peut affecter la conception de votre application logique. Par exemple, si vous configurez le déclencheur de saisie semi-automatique pour rechercher des messages toutes les minutes, mais que la durée de verrouillage est définie sur 30 secondes au niveau du Service Bus, le résultat est un échec « lock expired » qui se produit lors de la saisie du message. Vous devez définir la durée de verrouillage sur une valeur supérieure à la fréquence d’interrogation.
+
 1. Si votre déclencheur se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
 
    1. Fournissez un nom pour votre connexion, puis sélectionnez votre espace de noms Service Bus.
 
-      ![Créer une connexion Service Bus, partie 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Capture d’écran montrant le nom de la connexion et la sélection d’un espace de noms Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Pour entrer manuellement la chaîne de connexion, sélectionnez **Entrer manuellement les informations de connexion**. Si vous ne disposez pas de chaîne de connexion, découvrez [comment obtenir votre chaîne de connexion](#permissions-connection-string).
 
    1. Sélectionnez votre stratégie Service Bus, puis **Créer**.
 
-      ![Créer une connexion Service Bus, partie 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Capture d’écran montrant comment sélectionner une stratégie Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Sélectionnez l’entité de messagerie souhaitée, comme une file d’attente ou une rubrique. Pour cet exemple, sélectionnez votre file d’attente Service Bus.
    
-      ![Sélectionner la file d’attente Service Bus.](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Capture d’écran montrant comment sélectionner une file d’attente Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Fournissez les informations nécessaires pour le déclencheur sélectionné. Pour ajouter d’autres propriétés disponibles à l’action, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les propriétés souhaitées.
 
    Pour le déclencheur de cet exemple, sélectionnez l’intervalle d’interrogation et la fréquence de vérification de la file d’attente.
 
-   ![Définir l’intervalle d'interrogation](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Capture d’écran montrant la définition d’une fréquence d’interrogation sur le déclencheur du Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Pour plus d’informations sur les déclencheurs et les propriétés disponibles, consultez la page d’[informations de référence](/connectors/servicebus/) du connecteur.
 
@@ -120,29 +123,29 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
    Pour cet exemple, sélectionnez l’action **Envoyer un message**.
 
-   ![Sélectionner une action Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Capture d’écran montrant l’action du Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Si votre action se connecte à votre espace de noms Service Bus pour la première fois, suivez ces étapes quand le concepteur d’application logique vous invite à fournir vos informations de connexion.
 
    1. Fournissez un nom pour votre connexion, puis sélectionnez votre espace de noms Service Bus.
 
-      ![Créer une connexion Service Bus, partie 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Capture d’écran montrant un nom de connexion et la sélection d’un espace de noms Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Pour entrer manuellement la chaîne de connexion, sélectionnez **Entrer manuellement les informations de connexion**. Si vous ne disposez pas de chaîne de connexion, découvrez [comment obtenir votre chaîne de connexion](#permissions-connection-string).
 
    1. Sélectionnez votre stratégie Service Bus, puis **Créer**.
 
-      ![Créer une connexion Service Bus, partie 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Capture d’écran montrant la sélection d’une stratégie Service Bus et la sélection du bouton Créer](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Sélectionnez l’entité de messagerie souhaitée, comme une file d’attente ou une rubrique. Pour cet exemple, sélectionnez votre file d’attente Service Bus.
 
-      ![Sélectionner la file d’attente Service Bus.](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Capture d’écran montrant la sélection d’une file d’attente Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Fournissez les informations nécessaires pour l’action sélectionnée. Pour ajouter d’autres propriétés disponibles à l’action, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les propriétés souhaitées.
 
    Par exemple, sélectionnez les propriétés **Contenu** et **Type de contenu** pour pouvoir les ajouter à l’action. Ensuite, spécifiez le contenu du message que vous voulez envoyer.
 
-   ![Fournir les détails et le contenu du message](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Capture d’écran montrant le type de contenu du message et des détails](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Pour plus d’informations sur les actions disponibles et leurs propriétés, consultez la page d’[informations de référence](/connectors/servicebus/) du connecteur.
 

@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure avec l’API REST
 description: Apprenez à utiliser l’API REST pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036740"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824863"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Sauvegarder un partage de fichiers Azure à l’aide de Sauvegarde Azure via l’API REST
 
@@ -54,13 +54,13 @@ L’URI POST contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vault
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Réponses
+#### <a name="responses-to-the-refresh-operation"></a>Réponses à l’opération d’actualisation
 
 L’opération « Actualiser » est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, et 200 (OK) quand cette opération est terminée.
 
-##### <a name="example-responses"></a>Exemples de réponses
+##### <a name="example-responses-to-the-refresh-operation"></a>Exemples de réponses à l’opération d’actualisation
 
 Une fois la demande *POST* envoyée, une réponse 202 (Accepté) est retournée.
 
@@ -175,7 +175,7 @@ Définissez les variables pour l’URI comme suit :
    Dans notre exemple, il s’agit de *StorageContainer;Storage;AzureFiles;testvault2*
 
 >[!NOTE]
-> Prenez toujours l’attribut de nom dans la réponse et renseignez-le dans cette requête. Ne codez PAS en dur ni ne créez le format container-name. Si vous le créez ou le codez en dur, l’appel d’API échoue si le format container-name change à l’avenir.
+> Prenez toujours l’attribut de nom dans la réponse et renseignez-le dans cette requête. Ne codez pas en dur ni ne créez le format container-name. Si vous le créez ou le codez en dur, l’appel d’API échoue si le format container-name change à l’avenir.
 
 <br>
 
@@ -373,7 +373,7 @@ Dans notre exemple, l’ID du partage de fichiers que vous souhaitez protéger e
 Ou bien, vous pouvez faire référence à l’attribut **name** du conteneur de protection et aux réponses d’éléments protégeables.
 
 >[!NOTE]
->Prenez toujours l’attribut de nom dans la réponse et renseignez-le dans cette requête. Ne codez PAS en dur ni ne créez le format container-name ou celui du nom de l’élément protégé. Si vous le créez ou le codez en dur, l’appel d’API échoue si le format container-name ou celui du nom de l’élément protégé change à l’avenir.
+>Prenez toujours l’attribut de nom dans la réponse et renseignez-le dans cette requête. Ne codez pas en dur ni ne créez le format container-name ou celui du nom de l’élément protégé. Si vous le créez ou le codez en dur, l’appel d’API échoue si le format container-name ou celui du nom de l’élément protégé change à l’avenir.
 
 <br>
 
@@ -487,13 +487,13 @@ Exemple de corps de la demande
 }
 ```
 
-### <a name="responses"></a>Réponses
+### <a name="responses-to-the-on-demand-backup-operation"></a>Réponses à l’opération de sauvegarde à la demande
 
 Le déclenchement d’une sauvegarde à la demande est une [opération asynchrone](../azure-resource-manager/management/async-operations.md). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, et 200 (OK) quand cette opération est terminée.
 
-### <a name="example-responses"></a>Exemples de réponses
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Exemples de réponses à l’opération de sauvegarde à la demande
 
 Une fois que vous envoyez la demande *POST* pour une sauvegarde à la demande, la réponse initiale est 202 (Accepté) avec un en-tête d’emplacement ou Azure-async-header.
 

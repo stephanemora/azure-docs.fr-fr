@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742908"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815995"
 ---
 # <a name="start-using-privileged-identity-management"></a>Commencer à utiliser Privileged Identity Management
 
@@ -38,9 +38,7 @@ Pour plus d’informations, consultez [Exigences relatives aux licences pour l�
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Préparer PIM pour les rôles Azure AD
 
-Une fois que vous avez activé Privileged Identity Management pour votre annuaire, vous pouvez préparer Privileged Identity Management pour gérer des rôles Azure AD.
-
-Voici les tâches que nous vous recommandons pour préparer pour les rôles Azure AD, dans l’ordre :
+Voici les tâches que nous vous recommandons pour préparer Privileged Identity Management et gérer les rôles Azure AD :
 
 1. [Configurez les paramètres de rôle Azure AD](pim-how-to-change-default-settings.md).
 1. [Donnez des affectations éligibles](pim-how-to-add-role-to-user.md).
@@ -48,11 +46,9 @@ Voici les tâches que nous vous recommandons pour préparer pour les rôles Azur
 
 ## <a name="prepare-pim-for-azure-roles"></a>Préparer PIM pour les rôles Azure
 
-Une fois que vous avez activé Privileged Identity Management pour votre annuaire, vous pouvez préparer Privileged Identity Management pour gérer des rôles Azure pour l’accès aux ressources Azure sur un abonnement.
+Voici les tâches que nous vous recommandons pour préparer Privileged Identity Management et gérer les rôles Azure pour un abonnement :
 
-Voici les tâches que nous vous recommandons pour préparer pour les rôles Azure, dans l’ordre :
-
-1. [Découvrez les ressources Azure](pim-resource-roles-discover-resources.md)
+1. [Découvrir les ressources Azure](pim-resource-roles-discover-resources.md)
 1. [Configurez les paramètres de rôle Azure](pim-resource-roles-configure-role-settings.md).
 1. [Donnez des affectations éligibles](pim-resource-roles-assign-roles.md).
 1. [Autorisez les utilisateurs éligibles à activer leurs rôles Azure juste-à-temps](pim-resource-roles-activate-your-roles.md).
@@ -67,8 +63,8 @@ Une fois Privileged Identity Management configuré, vous pouvez vous familiarise
 | --- | --- |
 | **Mes rôles**  | Affiche la liste des rôles éligibles et actifs qui vous sont attribués. C’est là où vous pouvez activer tout rôle éligible attribué. |
 | **Mes demandes** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
-| **Approuver des requêtes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
-| **Révision d’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
+| **Approuver les demandes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
+| **Revoir l’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
 | **Rôles Azure AD** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord, sur l’ensemble de l’organisation. |
 | **Ressources Azure** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles de ressources Azure. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord, sur l’ensemble de l’organisation. |
 
@@ -82,15 +78,15 @@ Pour faciliter l’ouverture de Privileged Identity Management, ajoutez une vign
 
     ![Azure AD Privileged Identity Management dans Tous les services](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Sélectionnez le démarrage rapide Privileged Identity Management.
+1. Sélectionnez le **Démarrage rapide** Privileged Identity Management.
 
-1. Cochez la case **Épingler le panneau au tableau de bord** pour épingler le panneau de démarrage rapide de Privileged Identity Management au tableau de bord.
+1. Sélectionnez **Épingler le panneau au tableau de bord** pour épingler la page **Démarrage rapide** Privileged Identity Management au tableau de bord.
 
-    ![Icône en punaise pour épingler le panneau Privileged Identity Management au tableau de bord](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icône de punaise pour épingler la page Privileged Identity Management au tableau de bord](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Dans le tableau de bord Azure, vous verrez une vignette comme celle-ci :
 
-    ![Mosaïque de démarrage rapide Privileged Identity Management sur le tableau de bord](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Mosaïque Démarrage rapide Privileged Identity Management sur le tableau de bord](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/21/2020
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682631"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926862"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -44,8 +44,8 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 | Nombre maximal de champs de collection complexe par index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Nombre maximal d’éléments dans toutes les collections complexes par document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profondeur maximale des champs complexes |10 |10 |10 |10 |10 |10 |10 |10 |
-| Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
-| Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Nombre maximal de [générateurs de suggestions](/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Nombre maximal de [profils de score](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Les services de base créés avant décembre 2017 présentent des limites inférieures (5 au lieu de 15) sur les index. Le niveau De base est la seule référence soumise à une limite inférieure de 100 champs par index.
@@ -58,7 +58,7 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 
 À compter d’octobre 2018, il n’y a plus de limites du nombre de documents pour tout nouveau service créé, quel que soit le niveau facturable (De base, S1, S2, S3, S3 HD) et la région. Les services plus anciens créés avant octobre 2018 peuvent toujours être soumis à des limites de nombre de documents.
 
-Pour déterminer si des limites du document sont définies pour votre service, utilisez l’[API REST GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Les limites du document figurent dans la réponse, `null` indiquant aucune limite.
+Pour déterminer si des limites du document sont définies pour votre service, utilisez l’[API REST GET Service Statistics](/rest/api/searchservice/get-service-statistics). Les limites du document figurent dans la réponse, `null` indiquant aucune limite.
 
 > [!NOTE]
 > Bien qu’il n’y ait aucune limite de document imposée par le service, il existe une limite de partition d’environ 24 milliards de documents par index sur les services de recherche de base, S1, S2 et S3. Pour S3 HD, la limite de partition est de 2 milliards de documents par index. Chaque élément d’une collection complexe compte comme un document distinct en termes de limites de partition.
@@ -83,8 +83,8 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 | Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
 | Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |Aucune limite |Aucune limite |
 | Planification minimale | 5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes | 5 minutes |
-| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |24 heures |24 heures |
-| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
+| Durée maximale d’exécution| 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |24 heures |24 heures |
+| Durée d’exécution maximale pour les indexeurs avec un ensemble de compétences <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;millions |8&nbsp;millions |16&nbsp;millions |N/A |4&nbsp;millions |4&nbsp;millions |
 
@@ -120,7 +120,7 @@ Pour les niveaux à stockage optimisé (L1 et L2), attendez-vous à un plus faib
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement de l’IA)
 
-Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisant appel à une ressource Analyse de texte pour la [reconnaissance d’entités](cognitive-search-skill-entity-recognition.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md), la [détection de la langue](cognitive-search-skill-language-detection.md) et la [détection d’informations personnelles](cognitive-search-skill-pii-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
+Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisant appel à une ressource Analyse de texte pour la [reconnaissance d’entités](cognitive-search-skill-entity-recognition.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md), la [détection de la langue](cognitive-search-skill-language-detection.md) et la [détection d’informations personnelles](cognitive-search-skill-pii-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de la limitation
 
@@ -141,7 +141,7 @@ Limites de taux de requêtes statiques pour les opérations liées à un index 
 * 32 champs maximum dans la clause $orderby
 * La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
 
-<sup>1</sup> Dans la Recherche cognitive Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)).
+<sup>1</sup> Dans la Recherche cognitive Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](/rest/api/searchservice/supported-data-types)).
 
 ## <a name="api-response-limits"></a>Limites de réponse d’API
 * 1 000 documents maximum retournés par page de résultats de recherche

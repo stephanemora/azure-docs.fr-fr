@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764942"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642127"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 
@@ -49,7 +49,7 @@ Chacune de ces options est accessible dans votre application sous « Applicatio
 
 Cette page propose une autre option d’authentification : l’authentification liée. Cette option est également prise en charge par le proxy d’application. Toutefois, cette option n’ajoute pas l’authentification unique à l’application. Cela étant dit, il se peut que l’authentification unique soit déjà implémentée dans l’application par le biais d’un autre service tel qu’Active Directory Federation Services. 
 
-Cette option permet à l’administrateur de créer un lien vers une application présentée préalablement aux utilisateurs lorsqu’ils accèdent à l’application. Par exemple, s’il existe une application qui est configurée pour authentifier les utilisateurs avec Active Directory Federation Services 2.0, l’administrateur peut utiliser l’option d’authentification liée pour créer un lien vers cette application dans le panneau d’accès.
+Cette option permet à l’administrateur de créer un lien vers une application présentée préalablement aux utilisateurs lorsqu’ils accèdent à l’application. Par exemple, s’il existe une application qui est configurée pour authentifier les utilisateurs avec Active Directory Federation Services 2.0, l’administrateur peut utiliser l’option d’authentification liée pour créer un lien vers cette application dans Mes applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-password-vaulting.md)

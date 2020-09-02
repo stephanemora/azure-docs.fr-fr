@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/18/2020
+ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386178"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661195"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
-Après avoir [installé la *passerelle de données locale* sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md) et avant de pouvoir accéder aux sources de données locales à partir de vos applications logiques, vous devez créer une ressource de passerelle dans Azure pour l’installation de votre passerelle. Vous pouvez ensuite sélectionner cette ressource de passerelle dans les déclencheurs et les actions que vous souhaitez utiliser pour les [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors) disponibles dans Azure Logic Apps.
+Après avoir [installé la *passerelle de données locale* sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md) et avant de pouvoir accéder aux sources de données locales à partir de vos applications logiques, vous devez créer une ressource de passerelle dans Azure pour l’installation de votre passerelle. Vous pouvez ensuite sélectionner cette ressource de passerelle dans les déclencheurs et les actions que vous souhaitez utiliser pour les [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors) disponibles dans Azure Logic Apps. Azure Logic Apps prend en charge les opérations de lecture et d’écriture par le biais de la passerelle de données. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](/data-integration/gateway/service-gateway-onprem#considerations).
 
 Cet article explique comment créer votre ressource de passerelle Azure pour une [passerelle précédemment installée sur votre ordinateur local](../logic-apps/logic-apps-gateway-install.md). Pour obtenir des informations détaillées sur la passerelle, consultez [Fonctionnement de la passerelle](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -48,7 +48,7 @@ Dans Azure Logic Apps, la passerelle de données locale prend en charge les [con
 * SQL Server
 * Teradata
 
-Azure Logic Apps prend en charge les opérations de lecture et d’écriture par le biais de la passerelle de données. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](/data-integration/gateway/service-gateway-onprem#considerations). Bien que la passerelle proprement dite n’entraîne pas de frais supplémentaires, le [modèle tarifaire de Logic Apps](../logic-apps/logic-apps-pricing.md) s’applique à ces connecteurs et à d’autres opérations dans Azure Logic Apps.
+Vous pouvez aussi créer des [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) qui se connectent à des sources de données via HTTP ou HTTPS en utilisant REST ou SOAP. Bien que la passerelle proprement dite n’entraîne pas de frais supplémentaires, le [modèle tarifaire de Logic Apps](../logic-apps/logic-apps-pricing.md) s’applique à ces connecteurs et à d’autres opérations dans Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Prérequis
 

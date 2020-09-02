@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345357"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869862"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Diffuser des données en continu dans Azure SQL Database à l’aide d’une intégration Azure Stream Analytics (préversion)
 
@@ -31,7 +31,7 @@ Les utilisateurs peuvent désormais ingérer, traiter, afficher et analyser des 
 - Facilité d’utilisation accrue avec les données de préversion : Données de préversion entrantes à partir de la source des événements (Event Hub/IoT Hub) dans le contexte de la table sélectionnée
 
 > [!IMPORTANT]
-> Un travail Azure Stream Analytics peut sortir vers Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Un travail Azure Stream Analytics peut sortir vers Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse). Pour plus d’informations, consultez la section [Sorties](../../stream-analytics/sql-database-output.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,7 +50,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
 
 3. Pour commencer à recevoir vos données de diffusion en continu dans cette base de données, sélectionnez **Créer** et donnez un nom à votre travail de diffusion en continu, puis sélectionnez **Suivant : Entrée**.
 
-    ![créer un travail Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![Configurer des principes de base de travail Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Entrez les détails de votre source de l'événement, puis cliquez sur **Suivant : Sortie**.
 
@@ -64,7 +64,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des ressources suiva
 
       Nous vous recommandons de créer un groupe de consommateurs et une stratégie pour chaque nouveau travail Azure Stream Analytics que vous créez à partir d’ici. Les groupes de consommateurs autorisent uniquement cinq lecteurs simultanés et dès lors, fournir un groupe de consommateurs dédié pour chaque travail permet d’éviter les erreurs liées à un dépassement de cette limite. Une stratégie dédiée vous permet de faire pivoter votre clé ou de révoquer des autorisations sans affecter d’autres ressources.
 
-     ![créer un travail Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![configurer la sortie du travail Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Sélectionnez la table dans laquelle vous souhaitez ingérer vos données de diffusion en continu. Une fois terminé, sélectionnez **Créer**.
 

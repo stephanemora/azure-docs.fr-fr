@@ -3,12 +3,12 @@ title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532007"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892165"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -188,7 +188,7 @@ Pour protéger vos données, Sauvegarde Azure comprend la fonctionnalité de sup
 
 * Si les machines virtuelles Azure configurées pour la sauvegarde Azure sont supprimées ou déplacées sans arrêter la protection, les travaux de sauvegarde planifiés et à la demande (ad hoc) échouent avec l’erreur UserErrorVmNotFoundV2. La prévérification de sauvegarde apparaît comme étant critique uniquement pour les travaux de sauvegarde à la demande qui ont échoué (les travaux planifiés qui ont échoué n’apparaissent pas).
 * Ces éléments de sauvegarde restent actifs dans le système qui adhère à la stratégie de sauvegarde et de conservation définie par l’utilisateur. Les données sauvegardées pour ces machines virtuelles Azure sont conservées conformément à la stratégie de conservation. Les points de récupération qui ont expiré (à l’exception du dernier) sont nettoyés en fonction de la plage de conservation définie dans la stratégie de sauvegarde.
-* Il est recommandé aux utilisateurs de supprimer les éléments de sauvegarde dans lesquels la source de données principale n'existe plus afin d'éviter tout surcoût, si l'élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le dernier point de récupération est conservé indéfiniment et l'utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
+* Nous recommandons de supprimer les éléments de sauvegarde dans lesquels la source de données principale n'existe plus afin d'éviter tout surcoût, si l'élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le dernier point de récupération est conservé indéfiniment et l'utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

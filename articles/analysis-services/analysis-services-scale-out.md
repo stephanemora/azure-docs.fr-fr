@@ -4,15 +4,15 @@ description: Répliquer les serveurs Azure Analysis Services avec Scale-out. Les
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247991"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716926"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -50,7 +50,7 @@ Lors des opérations ultérieures de montée en charge (par exemple, augmentatio
 
 ### <a name="synchronization-mode"></a>Mode de synchronisation
 
-Par défaut, les réplicas de requête sont réalimentés intégralement, et non pas de façon incrémentielle. La réalimentation se produit par étapes. Ils sont détachés et attachés deux à la fois (en supposant qu’il existe au moins trois réplicas) pour garantir qu’au moins un réplica est conservé en ligne pour les requêtes à tout moment. Dans certains cas, les clients peuvent avoir besoin de se reconnecter à l’un des réplicas en ligne pendant que ce processus a lieu. En utilisant le paramètre (en préversion) **ReplicaSyncMode**, vous pouvez désormais spécifier la synchronisation du réplica de requête en parallèle. La synchronisation parallèle offre les avantages suivants : 
+Par défaut, les réplicas de requête sont réalimentés intégralement, et non pas de façon incrémentielle. La réalimentation se produit par étapes. Ils sont détachés et attachés deux à la fois (en supposant qu’il existe au moins trois réplicas) pour garantir qu’au moins un réplica est conservé en ligne pour les requêtes à tout moment. Dans certains cas, les clients peuvent avoir besoin de se reconnecter à l’un des réplicas en ligne pendant que ce processus a lieu. En utilisant le paramètre **ReplicaSyncMode**, vous pouvez désormais spécifier la synchronisation du réplica de requête en parallèle. La synchronisation parallèle offre les avantages suivants : 
 
 - Réduction significative du temps de synchronisation. 
 - Les données des réplicas sont plus susceptibles d’être cohérentes au cours du processus de synchronisation. 

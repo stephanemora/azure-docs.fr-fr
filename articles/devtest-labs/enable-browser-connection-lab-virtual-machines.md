@@ -3,12 +3,12 @@ title: Activer la connexion du navigateur sur les machines virtuelles Azure Dev
 description: DevTest Labs s’intègre désormais à Azure Bastion. En tant que propriétaire du labo, vous pouvez activer l’accès à toutes les machines virtuelles du labo via un navigateur.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272349"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870491"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Activer la connexion du navigateur sur les machines virtuelles Azure DevTest Labs 
 DevTest Labs s’intègre à [Azure Bastion](../bastion/index.yml), ce qui vous permet de vous connecter à vos machines virtuelles via un navigateur. Vous devez tout d’abord activer la connexion du navigateur sur les machines virtuelles du labo.
@@ -19,14 +19,12 @@ En tant que propriétaire d’un labo, vous pouvez activer l’accès à toutes 
 Cet article vous indique comment activer la connexion du navigateur sur les machines virtuelles du labo.
 
 ## <a name="prerequisites"></a>Prérequis 
-Déployez un hôte bastion dans le réseau virtuel de votre labo existant **(OU)** connectez votre labo à un réseau virtuel configuré sur Bastion. 
-
+- Déployez un hôte bastion dans le réseau virtuel de votre labo existant **(OU)** connectez votre labo à un réseau virtuel configuré sur Bastion.
 Pour découvrir comment déployer un hôte bastion dans un réseau virtuel, consultez la page [Créer un hôte bastion Azure](../bastion/bastion-create-host-portal.md). Lorsque vous créez l’hôte Bastion, sélectionnez le réseau virtuel du labo. 
-
-Tout d’abord, vous devez créer un deuxième sous-réseau dans le réseau virtuel bastion, car AzureBastionSubnet n’autorise pas la création de ressources autres que bastion. 
+- L’utilisateur du labo doit disposer d’un rôle de **Lecteur** sur l’hôte Bastion et le réseau virtuel sur lequel Bastion a été configuré. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Créez un deuxième sous-réseau dans le réseau virtuel bastion
-Vous ne pouvez pas créer de machines virtuelles de labo dans un sous-réseau Azure Bastion. Créez un autre sous-réseau au sein du réseau virtuel bastion, comme indiqué dans l’image suivante :
+Tout d’abord, vous devez créer un deuxième sous-réseau dans le réseau virtuel bastion, car AzureBastionSubnet n’autorise pas la création de ressources autres que bastion. Créez un autre sous-réseau au sein du réseau virtuel bastion, comme indiqué dans l’image suivante :
 
 ![Deuxième sous-réseau dans le réseau virtuel Azure Bastion](./media/connect-virtual-machine-through-browser/second-subnet.png)
 

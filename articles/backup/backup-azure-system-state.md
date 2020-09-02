@@ -3,12 +3,12 @@ title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server vers Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263042"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824460"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Sauvegarder l’état du système Windows vers Azure
 
@@ -98,7 +98,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 ## <a name="install-and-register-the-agent"></a>Installer et inscrire l’agent
 
 > [!NOTE]
-> La fonction de sauvegarde via le portail Azure n’est pas disponible pour le moment. Utilisez l’agent Microsoft Azure Recovery Services pour sauvegarder l’état du système Windows Server.
+> La sauvegarde via le Portail Azure n’est pas disponible pour le moment. Utilisez l’agent Microsoft Azure Recovery Services pour sauvegarder l’état du système Windows Server.
 >
 
 1. Recherchez et double-cliquez sur **MARSagentinstaller.exe** dans le dossier Téléchargements (ou tout autre emplacement d’enregistrement).
@@ -116,7 +116,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
    * Enregistrer la phrase secrète de chiffrement dans un emplacement sécurisé.
 
      > [!NOTE]
-     > En cas de perte ou d’oubli de la phrase secrète, Microsoft ne pourra pas vous aider à récupérer les données de sauvegarde. Enregistrez le fichier dans un emplacement sécurisé. Il est nécessaire pour restaurer une sauvegarde.
+     > En cas de perte ou d’oubli de la phrase secrète, Microsoft ne sera pas en mesure de vous aider à récupérer les données de sauvegarde. Enregistrez le fichier dans un emplacement sécurisé. Il est obligatoire pour restaurer une sauvegarde.
      >
      >
 
@@ -132,7 +132,7 @@ La sauvegarde initiale comprend deux tâches :
 Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Recovery Services.
 
 > [!NOTE]
-> Vous pouvez sauvegarder l’état du système sur Windows Server, de la version 2008 R2 à la version 2016. La sauvegarde de l’état du système n’est pas prise en charge sur les références (SKU) de client. L’état du système n’apparaît pas comme option pour les clients Windows ni pour les machines Windows Server 2008 SP2.
+> Vous pouvez sauvegarder l’état du système sur Windows Server, de la version 2008 R2 à la version 2016. La sauvegarde de l’état du système n’est pas prise en charge sur les références SKU du client. L’état du système n’apparaît pas comme option pour les clients Windows ni pour les machines Windows Server 2008 SP2.
 >
 >
 

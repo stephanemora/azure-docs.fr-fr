@@ -1,14 +1,14 @@
 ---
 title: Effectuer une récupération d’urgence de machines virtuelles
-description: Cet article explique comment effectuer une récupération d’urgence des machines virtuelles à l’aide d’AVS
+description: Cet article explique comment effectuer une reprise d’activité après sinistre des machines virtuelles à l’aide d’Azure VMware Solution
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a417b9ba00c4c0e6e958e5a04d19aecfe24563
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749952"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752270"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Effectuer une récupération d'urgence de machines virtuelles à l'aide de la solution Azure VMware
 
@@ -46,7 +46,7 @@ Accédez à la zone **RÉCUPÉRATION D’URGENCE**, puis cliquez sur **PROTÉGER
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="Sélectionner Protéger les machines virtuelles" border="true":::
 
-Dans la fenêtre qui s’ouvre, sélectionnez la Source et le Site distant. Dans ce cas, ce doit être le cloud privé AVS.
+Dans la fenêtre qui s’ouvre, sélectionnez la Source et les Site distant. En l’occurrence, le site distant doit être le cloud privé Azure VMware Solution.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="Fenêtre Protéger les machines virtuelles" border="true":::
 
@@ -56,7 +56,7 @@ Si nécessaire, sélectionnez les options de réplication par défaut :
 
 - **Enable l’arrêt inactif :** suspend l’activité de la machine virtuelle pour s’assurer de la cohérence de la copie synchronisée avec le site distant.
 
-- **Stockage de destination :** sélectionnez le magasin de données distant pour les machines virtuelles protégées. Dans un cloud privé AVS, cette sélection doit être le magasin de données vSAN.
+- **Stockage de destination :** sélectionnez le magasin de données distant pour les machines virtuelles protégées. Dans un cloud privé Azure VMware Solution, cette sélection doit être le magasin de données vSAN.
 
 - **Conteneur de calcul :** cluster vSphere ou pool de ressources distants.
 
@@ -95,7 +95,7 @@ Lorsque la machine virtuelle est sous tension, le processus de synchronisation d
 
 ## <a name="complete-a-test-recover-of-virtual-machines"></a>Effectuer un test de récupération de machines virtuelles
 
-Connectez-vous au **Client vSphere** sur le site distant qui est le cloud privé AVS. Dans le **plug-in HCX**, dans la zone Récupération d’urgence, sélectionnez l’ellipse verticale sur toute machine virtuelle pour afficher le menu Opérations. Sélectionnez **Tester la récupération de la machine virtuelle**.
+Connectez-vous au **Client vSphere** sur le site distant, qui est le cloud privé Azure VMware Solution. Dans le **plug-in HCX**, dans la zone Récupération d’urgence, sélectionnez l’ellipse verticale sur toute machine virtuelle pour afficher le menu Opérations. Sélectionnez **Tester la récupération de la machine virtuelle**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Sélectionner Tester la récupération de la machine virtuelle" border="true":::
 
@@ -105,7 +105,7 @@ Dans la nouvelle fenêtre, sélectionnez les options pour le test. Sélectionnez
 
 Après que vous avez cliqué sur **Tester**, l’opération de récupération commence.
 
-Une fois l’opération de test de récupération terminée, vous pouvez vérifier la nouvelle machine virtuelle dans le vCenter du cloud privé AVS.
+Une fois l’opération de test de récupération terminée, vous pouvez vérifier la nouvelle machine virtuelle dans le vCenter du cloud privé Azure VMware Solution.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="Vérifier l’opération de récupération" border="true":::
 
@@ -115,7 +115,7 @@ Enfin, une fois les tests effectués sur la machine virtuelle ou toute applicati
 
 ## <a name="recover-virtual-machines"></a>Récupérer les machines virtuelles
 
-Connectez-vous au **Client vSphere** sur le site distant qui est le cloud privé AVS, puis accédez au **plug-in HCX**.
+Connectez-vous au **Client vSphere** sur le site distant, qui est le cloud privé Azure VMware Solution, puis accédez au **plug-in HCX**.
 
 Pour le scénario de récupération, un groupe de machines virtuelles est utilisé pour cet exemple.
 
@@ -131,7 +131,7 @@ Une fois l’opération de récupération terminée, les nouvelles machines virt
 
 ## <a name="complete-a-reverse-replication-on-virtual-machines"></a>Effectuer une réplication inverse sur des machines virtuelles
 
-Connectez-vous au **Client vSphere** sur votre cloud privé AVS, puis accédez au **plug-in HCX**.
+Connectez-vous au **Client vSphere** sur votre cloud privé Azure VMware Solution, puis accédez au **plug-in HCX**.
 Avant le démarrage de la réplication inverse, les machines virtuelles d’origine sur le site source doivent impérativement être hors tension. L’opération échoue si les machines virtuelles ne sont pas hors tension.
 
 Sélectionnez dans la liste les machines virtuelles à restaurer par réplication vers le site source, ouvrez le menu **ACTIONS**, puis sélectionnez **Inverser**. Dans la fenêtre contextuelle, cliquez sur **Inverser** pour démarrer la réplication.

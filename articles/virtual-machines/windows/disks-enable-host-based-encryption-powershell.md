@@ -4,18 +4,18 @@ description: Activer le chiffrement de bout en bout sur vos machines virtuelles 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a352ecc2d2b02f03e2b55f7c5896ac905077921
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088459"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814790"
 ---
-# <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Activer le chiffrement de bout en bout à l'aide du chiffrement sur l'hôte - Azure PowerShell
+# <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utiliser le module Azure PowerShell pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
 Lorsque vous activez le chiffrement sur l'hôte, les données stockées sur l'hôte de machine virtuelle sont chiffrées au repos et les flux sont chiffrés dans le service de stockage. Pour obtenir des informations conceptuelles sur le chiffrement sur l'hôte ainsi que sur d'autres types de chiffrement de disques managés, consultez [Chiffrement sur l'hôte : chiffrement de bout en bout pour vos données de machine virtuelle](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

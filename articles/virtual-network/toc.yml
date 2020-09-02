@@ -37,9 +37,6 @@
       href: powershell-samples.md
     - name: Modèles Resource Manager
       href: template-samples.md
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Continuité de l’activité
@@ -98,7 +95,7 @@
       items:
         - name: Groupes de sécurité réseau
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: security-overview.md
             - name: Fonctionnement
               href: network-security-group-how-it-works.md
@@ -226,6 +223,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: Adressage IP
           items:
+            - name: Créer des adresses IP publiques - portail
+              href: create-public-ip-portal.md
+            - name: Créer des adresses IP publiques - PowerShell
+              href: create-public-ip-powershell.md
+            - name: Créer des adresses IP publiques - Azure CLI
+              href: create-public-ip-cli.md
             - name: Gérer des adresses IP publiques
               href: virtual-network-public-ip-address.md
             - name: Gérer un préfixe IP public
@@ -432,6 +435,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

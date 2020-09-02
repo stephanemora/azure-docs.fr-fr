@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1c5a003eb113289bcb798423ff649b944dcf186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ff3ca98c0fa5929a5e1c0ad5678222253130b6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84761066"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641787"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Guide pratique pour utiliser l’accès aux applications en libre-service
 
-Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis leur panneau d’accès, vous devez activer l’option **Accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès.
+Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis Mes applications, vous devez activer l’option d’**accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès.
 
 Cette fonctionnalité est un excellent moyen pour un groupe informatique d’économiser du temps et de l’argent, et elle est recommandée dans le cadre d’un déploiement d’applications modernes avec Azure Active Directory.
 

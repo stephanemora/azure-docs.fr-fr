@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321273"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639900"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -26,6 +26,7 @@ Les métriques personnalisées d’Azure Monitor sont actuelles en préversion p
 
 Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’aide de plusieurs méthodes :
 - Instrumenter votre application en utilisant le SDK Azure Application Insights et envoyer des données de télémétrie personnalisées à Azure Monitor 
+- Installez Azure Monitor Agent (préversion) sur votre [machine virtuelle Azure Windows ou Linux](azure-monitor-agent-overview.md) et utilisez une [règle de collecte de données](data-collection-rule-azure-monitor-agent.md) pour envoyer des compteurs de performances aux indicateurs de performance Azure Monitor.
 - Installer l’extension Microsoft Azure Diagnostics (WAD) sur votre [machine virtuelle Azure](collect-custom-metrics-guestos-resource-manager-vm.md), votre [groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md), votre [machine virtuelle classique](collect-custom-metrics-guestos-vm-classic.md) ou votre [instance Cloud Services classique](collect-custom-metrics-guestos-vm-cloud-service-classic.md), et envoyer des compteurs de performances à Azure Monitor 
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
 - Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](./metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`

@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708737"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689505"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services dans Azure SQL Managed Instance (préversion)
 
@@ -52,7 +52,23 @@ Les distributions de base de Python et de R sont incluses dans Machine Learning 
 
 Cette préversion publique limitée est soumise aux [conditions des préversions d'Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Si vous souhaitez rejoindre le programme en préversion et accepter ces conditions, vous pouvez demander une inscription en créant un ticket de support Azure sur [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). Pour choisir le « Type de problème », sélectionnez « Technique », pour choisir le « Service », sélectionnez « SQL Database Managed Instance », et pour choisir le « Type de problème », sélectionnez « Autre ». Dans votre demande, indiquez que vous souhaitez vous inscrire dans le cadre de la préversion publique limitée du Machine Learning pour SQL Managed Instance avec les détails suivants : nom du serveur logique, région et ID d’abonnement.
+Si vous souhaitez rejoindre le programme en préversion et accepter ces conditions, vous pouvez demander une inscription en créant un ticket de support Azure sur [ **https://azure.microsoft.com/support/create-ticket/** ](https://azure.microsoft.com/support/create-ticket/). 
+
+1. Sélectionnez les options suivantes :
+   - Type de problème : **technique**
+   - Abonnement : *sélectionnez votre abonnement*
+   - Service : **SQL Database Managed Instance**
+   - Récapitulatif : *fournissez une brève description de votre demande*
+   - Type de problème : **Machine Learning Services pour SQL Managed Instance (préversion)**
+   - Sous-type de problème : **Autre problème ou questions pratiques**
+
+1. Cliquez sur **Suivant : Solutions**.
+
+1. Lisez les informations sur la préversion, puis cliquez sur **Détails**.
+
+1. Dans **Description**, entrez les détails de votre demande, notamment le nom du serveur logique, la région et l’ID d’abonnement que vous souhaitez inscrire dans la préversion. Entrez d’autres détails, le cas échéant.
+
+1. Lorsque vous avez fini, cliquez sur **Suivant : Vérifier + créer**, puis cliquez sur **Créer**.
 
 Une fois inscrit dans le programme, Microsoft vous intègre à la préversion publique et active Machine Learning Services sur votre base de données existante ou nouvelle.
 

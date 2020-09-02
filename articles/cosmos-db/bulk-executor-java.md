@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309152"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892607"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
@@ -183,7 +183,8 @@ Vous pouvez mettre à jour des documents existants à l’aide de l’API BulkUp
    |int getNumberOfDocumentsUpdated()  |   Nombre total de documents qui ont été mis à jour avec succès, sur tous les documents fournis à l’appel d’API de mise à jour en bloc.      |
    |double getTotalRequestUnitsConsumed() |  Nombre total d’unités de requête (RU) consommées par l’appel d’API de mise à jour en bloc.       |
    |Duration getTotalTimeTaken()  |   Temps total nécessaire à l’exécution de l’appel d’API de mise à jour en bloc.      |
-   |List\<Exception> getErrors()   |       Obtient la liste des erreurs si certains documents du lot fourni à l’appel d’API de mise à jour en bloc n’ont pas pu être insérés.      |
+   |List\<Exception> getErrors()   |       Obtient la liste des problèmes opérationnels ou de réseau liés à l’opération de mise à jour.      |
+   |List\<BulkUpdateFailure> getFailedUpdates()   |       Obtient la liste des mises à jour qui n’ont pas pu être effectuées, ainsi que les exceptions spécifiques menant aux échecs.|
 
 3. Une fois l’application de mise à jour en bloc prête, générez l’outil en ligne de commande à partir de la source à l’aide de la commande « mvn clean package ». Cette commande génère un fichier jar dans le dossier cible :  
 

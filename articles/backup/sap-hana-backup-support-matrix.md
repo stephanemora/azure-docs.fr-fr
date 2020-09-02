@@ -4,12 +4,12 @@ description: Dans cet article,découvrez les scénarios et limitations pris en c
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 5b0d1b603e8a9c06e210083863e0ca6bfbee2399
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439582"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826461"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -29,7 +29,7 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 | **Déploiements HANA**       | SAP HANA sur une machine virtuelle Azure unique - Scale-up uniquement. <br><br> Pour les déploiements à haute disponibilité, les deux nœuds présents sur les deux ordinateurs sont traités individuellement avec des chaînes de données distinctes.               | Montée en charge <br><br> Dans les déploiements à haute disponibilité, la sauvegarde ne bascule pas automatiquement vers le nœud secondaire. La configuration de la sauvegarde doit être effectuée séparément pour chaque nœud.                                           |
 | **Instances HANA**         | Une seule SAP HANA instance sur une seule machine virtuelle Azure - montée en puissance uniquement | Plusieurs instances de SAP HANA sur une seule machine virtuelle                  |
 | **Types de bases de données HANA**    | Conteneur de base de données unique (SDC) sur 1.x, conteneur de bases de données multiples (MDC) sur 2.x | MDC dans HANA 1. x                                              |
-| **Taille de la base de données HANA**     | Bases de données HANA de taille <= 2 To (il ne s’agit pas de la taille de la mémoire du système HANA)               |                                                              |
+| **Taille de la base de données HANA**     | Bases de données HANA de taille <= 2 To (il ne s’agit pas de la taille de la mémoire du système HANA)               |                                                              |
 | **Types de sauvegarde**           | Sauvegardes complètes, différentielles et de fichier journal                          | Incrémentielle, instantanés                                       |
 | **Types de restaurations**          | Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour connaître les types de restauration pris en charge |                                                              |
 | **Limites de sauvegarde**          | Jusqu’à 2 To de taille de sauvegarde complète par instance de SAP HANA         |                                                              |
@@ -41,7 +41,6 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 >Sauvegarde Azure ne s’ajuste pas automatiquement au changement d’heure lorsque vous sauvegardez une base de données SAP HANA qui s’exécute dans une machine virtuelle Azure.
 >
 >Modifiez la stratégie manuellement en fonction des besoins.
-
 
 > [!NOTE]
 > Vous pouvez maintenant [superviser les travaux de sauvegarde et de restauration](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (sur la même machine) déclenchés à partir de clients natifs HANA (SAP HANA Studio/Cockpit/DBA Cockpit) sur le portail Azure.

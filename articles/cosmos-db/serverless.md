@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: d99deea8271a3f9e630a7d2e8cd9f73bd41645a2
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608634"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757895"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
 
@@ -82,7 +82,7 @@ Vous pouvez trouver le même graphique lorsque vous utilisez Azure Monitor, comm
 Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit approvisionné :
 
 - **Disponibilité** : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
-- **Latence** : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Les opérations de lecture de point consistent à extraire un seul élément par son ID et sa valeur de clé de partition.
+- **Latence** : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
 - **Prise en charge de l’augmentation du trafic** : Une fois que l’offre serverless sera en disponibilité générale, la charge des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 95 %. Cela signifie que la charge maximale peut être atteinte au moins 95 % du temps.
 
 > [!NOTE]

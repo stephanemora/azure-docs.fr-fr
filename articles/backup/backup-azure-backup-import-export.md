@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Sauvegarde Azure pour envoyer des donn�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187827"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892012"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Workflow de la sauvegarde hors connexion dans Sauvegarde Azure
 
@@ -148,7 +148,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
 
     ![Connexion à l’abonnement Azure](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque l’outil vous y invite, au cas où le disque fourni n’aurait pas suffisamment d’espace pour les données de sauvegarde. <br/>
+    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque l’outil vous y invite, si le disque fourni n’a pas suffisamment d’espace pour les données de sauvegarde. <br/>
 
     Une fois que l’outil a été correctement exécuté, l’invite de commandes fournit trois informations :
 

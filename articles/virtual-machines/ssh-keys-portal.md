@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041746"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929434"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Générer et stocker des clés SSH dans le portail Azure
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur la création et l’utilisation de clés SSH avec
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com).
 
-1. En haut de la page, tapez *SSH* pour rechercher. Sous **Marketplace*, sélectionnez **Clés SSH**.
+1. En haut de la page, tapez *SSH* pour rechercher. Sous **Marketplace**, sélectionnez **Clés SSH**.
 
 1. Dans la page **Clé SSH**, sélectionnez **Créer**.
 
@@ -89,6 +89,20 @@ Vous pouvez également charger une clé SSH publique à stocker dans Azure. Pour
 1. Une fois la validation terminée, sélectionnez **Créer**. 
 
 Une fois la clé chargée, vous pouvez choisir de l’utiliser lors de la création d’une machine virtuelle.
+
+## <a name="list-keys"></a>Afficher la liste des clés
+
+Les clés SSH créées dans le portail sont stockées en tant que ressources, ce qui vous permet de filtrer l’affichage de vos ressources pour les voir toutes.
+
+1. Dans le portail Azure, sélectionnez **Tous les ressources**.
+1. Dans les filtres, sélectionnez **Type**, désélectionnez l’option **Tout sélectionner** pour effacer la liste.
+1. Tapez **SSH** dans le filtre et sélectionnez **Clé SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Capture d’écran montrant comment filtrer la liste pour voir toutes vos clés SSH.":::
+
+## <a name="get-the-public-key"></a>Obtenir la clé publique
+
+Si vous avez besoin de votre clé publique, vous pouvez facilement la copier à partir de la page du portail pour la clé. Listez simplement vos clés (à l’aide du processus indiqué dans la dernière section), puis sélectionnez une clé dans la liste. La page de votre clé s’ouvre et vous pouvez cliquer sur l’icône **Copier dans le Presse-papiers** en regard de la clé pour la copier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

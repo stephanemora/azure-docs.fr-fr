@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009116"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641022"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -55,9 +55,9 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
-1. Sous **Conditions**, sélectionnez **Applications clientes (préversion)** .
+1. Sous **Conditions**, sélectionnez **Applications clientes**.
    1. Définissez **Configurer** sur **Oui**.
-   1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
+   1. Sélectionnez **Applications mobiles et clients de bureau** et désélectionnez le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
    - **Exiger une stratégie de protection des applications (préversion)**
@@ -76,10 +76,9 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 Exchange Online**.
-1. Sous **Conditions** :
-   1. **Applications clientes (préversion)**  :
-      1. Définissez **Configurer** sur **Oui**.
-      1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
+1. Sous **Conditions**, sélectionnez **Applications clientes** :
+   1. Définissez **Configurer** sur **Oui**.
+   1. Sélectionnez **Clients Exchange ActiveSync** et désélectionnez tout le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Exiger une stratégie de protection des applications** et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.
@@ -107,9 +106,9 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
-1. Sous **Conditions**, sélectionnez **Applications clientes (préversion)** .
+1. Sous **Conditions**, sélectionnez **Applications clientes**.
    1. Définissez **Configurer** sur **Oui**.
-   1. Sélectionnez **Navigateur**.
+   1. Sélectionnez **Navigateur** et désélectionnez tout le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
    - **Exiger une stratégie de protection des applications (préversion)**
@@ -140,9 +139,9 @@ Les organisations doivent effectuer les trois étapes suivantes pour exiger l’
 1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
-1. Sous **Conditions**, sélectionnez **Applications clientes (préversion)** .
+1. Sous **Conditions**, sélectionnez **Applications clientes**.
    1. Définissez **Configurer** sur **Oui**.
-   1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
+   1. Sélectionnez **Applications mobiles et clients de bureau** et désélectionnez le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
    - **Exiger une stratégie de protection des applications (préversion)**
@@ -159,10 +158,9 @@ Les organisations doivent effectuer les trois étapes suivantes pour exiger l’
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 Exchange Online**.
-1. Sous **Conditions** :
-   1. **Applications clientes (préversion)**  :
-      1. Définissez **Configurer** sur **Oui**.
-      1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
+1. Sous **Conditions**, sélectionnez **Applications clientes** :
+   1. Définissez **Configurer** sur **Oui**.
+   1. Sélectionnez **Clients Exchange ActiveSync** et désélectionnez tout le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Exiger une stratégie de protection des applications** et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.

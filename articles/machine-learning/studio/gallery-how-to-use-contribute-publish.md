@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431199"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691256"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
 **S’APPLIQUE À :**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Azure AI Gallery](https://gallery.azure.ai)** est un site communautaire ayant pour but d’explorer et de partager des solutions intégrées avec Azure AI.
 La galerie contient diverses ressources que vous pouvez utiliser pour développer vos propres solutions d’analyse.
@@ -34,7 +34,6 @@ Azure AI Gallery contient un certain nombre de ressources différentes qui ont 
 * **Tutoriels** : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
 * **Collections** : une collection vous permet de regrouper des expériences, des API et d’autres ressources de la galerie qui répondent à une solution ou à un concept spécifiques.
 * **Modules personnalisés** : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio (classique) à utiliser dans vos propres expériences.
-* **Blocs-notes Jupyter** : les blocs-notes Jupyter incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif. Les blocs-notes dans la galerie fournissent des didacticiels et des explications détaillées sur les solutions et les techniques avancées de Machine Learning.
 
 ## <a name="discover-and-contribute"></a>Découvrir et contribuer
 
@@ -49,12 +48,12 @@ Vous pouvez même partager une ressource d’intérêt avec vos amis ou collègu
 
 Lorsque vous vous connectez, vous devenez membre de la communauté de la galerie. Cela vous permet de télécharger des ressources ou de partager vos propres éléments de galerie afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
 
-Vous pouvez télécharger des **expériences**, des **modules personnalisés** et des **blocs-notes Jupyter** en vue de les utiliser dans le développement de vos propres solutions d’analytique.
+Vous pouvez télécharger des **expériences**, des **modules personnalisés** en vue de les utiliser dans le développement de vos propres solutions d’analytique.
 Vous pouvez partager des **expériences**, des **tutoriels** et des **collections** dans la galerie.
 
-## <a name="download-experiments-modules-notebooks"></a>Télécharger des expériences, des modules et des blocs-notes
+## <a name="download-experiments-modules"></a>Télécharger des expériences, des modules
 
-Vous pouvez télécharger des **expériences**, des **modules personnalisés** et des **blocs-notes Jupyter** dans votre espace de travail Machine Learning Studio (classique) en vue de les utiliser dans le développement de vos propres solutions.
+Vous pouvez télécharger des **expériences**, des **modules personnalisés** dans votre espace de travail Machine Learning Studio (classique) en vue de les utiliser dans le développement de vos propres solutions.
 
 Pour télécharger une ressource à partir de AI Gallery :
 

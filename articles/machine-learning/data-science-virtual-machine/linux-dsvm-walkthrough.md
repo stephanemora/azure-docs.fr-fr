@@ -8,19 +8,17 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/17/2020
+ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078107"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816216"
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
+# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Ubuntu sur Azure
 
-Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données à l’aide de la Data Science Virtual Machine (DSVM) Linux. La Data Science VM Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la Data Science Virtual Machine facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Vous pouvez facilement mettre à l’échelle la DSVM si nécessaire, et vous pouvez l’arrêter lorsqu’elle n’est pas utilisée. Cette DSVM est donc flexible et économique.
-
-Les tâches de science des données décrites dans cette procédure pas à pas suivent les étapes décrites dans [Qu’est-ce que le processus Team Data Science Process ?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) Le processus de science des données fournit une approche systématique de la science des données qui aide les équipes de scientifiques des données à collaborer efficacement tout au long du cycle de vie du développement d’applications intelligentes. Le processus de science des données fournit également une infrastructure itérative pour la science des données, qui peut être suivie par une personne.
+Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données à l’aide de la Data Science Virtual Machine (DSVM) Ubuntu. La Data Science VM Ubuntu est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans [Approvisionnement d’une machine virtuelle de science des données Ubuntu](./dsvm-ubuntu-intro.md). L’image de la Data Science Virtual Machine facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Vous pouvez facilement mettre à l’échelle la DSVM si nécessaire, et vous pouvez l’arrêter lorsqu’elle n’est pas utilisée. Cette DSVM est donc flexible et économique.
 
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase est un ensemble d’e-mails marqués comme courrier indésirable ou normal (n’est pas considéré comme courrier indésirable). Spambase contient également des statistiques sur le contenu des e-mails. Nous parlerons des statistiques plus loin dans la procédure pas à pas.
 
@@ -29,10 +27,10 @@ Au cours de cette procédure pas à pas, nous analysons le jeu de données [spam
 Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants requis suivants :
 
 * **Abonnement Azure**. pour obtenir un abonnement Azure, consultez [Créer votre compte Azure gratuit aujourd'hui](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](dsvm-ubuntu-intro.md#x2go).
+
+* [**Instance Ubuntu de Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Ubuntu](linux-dsvm-intro.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](linux-dsvm-intro.md#x2go).
 * Pour une expérience de défilement plus fluide, dans le navigateur web Firefox de la DSVM, basculez l'indicateur `gfx.xrender.enabled`dans `about:config`. [Plus d’informations](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de régler `mousewheel.enable_pixel_scrolling` sur `False`. [Plus d’informations](https://support.mozilla.org/questions/981140)
-* **Compte Azure Machine Learning**. Si vous n’en avez pas déjà un, inscrivez-vous pour obtenir un compte sur la [page d’espace d’Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Télécharger le jeu de données spambase
 
@@ -228,7 +226,7 @@ Les sections restantes vous montrent comment utiliser certains des outils instal
 * JupyterHub
 * Rattle
 * PostgreSQL et SQuirreL SQL
-* SQL Server Data Warehouse
+* Azure Synapse Analytics (anciennement SQL DW)
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -286,31 +284,6 @@ clf = svm.SVC()
 clf.fit(X, y)
 ```
 
-Pour publier le modèle dans Azure Machine Learning :
-
-```Python
-# Publish the model.
-workspace_id = "<workspace-id>"
-workspace_token = "<workspace-token>"
-from azureml import services
-@services.publish(workspace_id, workspace_token)
-@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-@services.returns(int) # 0 or 1
-def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-    return clf.predict(inputArray)
-
-# Get some info about the resulting model.
-predictSpam.service.url
-predictSpam.service.api_key
-
-# Call the model
-predictSpam.service(1, 1, 1)
-```
-
-> [!NOTE]
-> Cette option est disponible uniquement pour Python 2.7. Elle n’est pas encore prise en charge sur Python 3.5. Pour exécuter, utilisez **/anaconda/bin/python2.7**.
-
 ### <a name="jupyterhub"></a>JupyterHub
 
 La distribution Anaconda dans la machine virtuelle de science des données est fournie avec un Jupyter Notebook, un environnement multiplateforme pour partager Python, R, ou le code et l’analyse Julia. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez à https://\<DSVM DNS name or IP address\>:8000/ en utilisant votre nom d’utilisateur et votre mot de passe Linux locaux. Tous les fichiers de configuration pour JupyterHub se trouvent dans /etc/jupyterhub.
@@ -334,7 +307,6 @@ Plusieurs exemples de notebooks sont déjà installés sur la DSVM :
 
 * Exemples de notebooks Python :
   * [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
-  * [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb)
 * Exemple de notebook R :
   * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
@@ -532,9 +504,9 @@ La plupart des e-mails qui ont une occurrence élevée de *3d* sont apparemment 
 
 Si vous souhaitiez effectuer du Machine Learning avec des données stockées dans une base de données PostgreSQL, envisagez d’utiliser [MADlib](https://madlib.incubator.apache.org/).
 
-### <a name="sql-data-warehouse"></a>SQL Data Warehouse
+### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (anciennement SQL DW)
 
-Azure SQL Data Warehouse est une base de données de mise à l’échelle basée sur le cloud qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Pour plus d’informations, consultez [En quoi consiste Azure SQL Data Warehouse ?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure Synapse Analytics est une base de données de mise à l’échelle basée sur le cloud qui prend en charge le traitement de grands volumes de données relationnelles et non relationnelles. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Synapse Analytics ?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 Pour vous connecter à l’entrepôt de données et créer la table, exécutez la commande suivante depuis une invite de commandes :
 
@@ -567,8 +539,4 @@ GO
 
 Vous pouvez également interroger à l’aide de SQuirreL SQL. Suivez des étapes similaires à PostgreSQL avec le pilote JDBC SQL Server. Le pilote JDBC se trouve dans le dossier /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 
-## <a name="next-steps"></a>Étapes suivantes
 
-Pour une vue d’ensemble des articles qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [processus de science des données pour les équipes](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
-
-Pour une description des procédures pas à pas complètes illustrant les étapes du processus TDSP pour des scénarios spécifiques, voir [Procédures pas à pas du processus TDSP (Team Data Science Process)](../team-data-science-process/walkthroughs.md). Les procédures pas à pas montrent également comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.

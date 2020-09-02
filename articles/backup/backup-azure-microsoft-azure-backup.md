@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892284"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -70,7 +70,7 @@ Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de dédu
 > * Un ordinateur sur lequel Exchange Server s’exécute
 > * Un ordinateur qui est un nœud d’un cluster
 >
-> L'installation de serveur de sauvegarde Azure n'est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
+> L'installation du serveur de sauvegarde Azure n'est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
 
 Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur vers un autre domaine, installez d’abord le serveur de sauvegarde Azure, puis joignez-le au nouveau domaine. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
@@ -129,13 +129,13 @@ Pour modifier le paramètre de réplication du stockage :
     L’Assistant **Mise en route de la sauvegarde** modifie l’option de **préparation de l’infrastructure** pour sauvegarder les charges de travail sur Azure.
 
    > [!NOTE]
-   > Si vous souhaitez sauvegarder uniquement des fichiers et dossiers, nous vous recommandons d’utiliser l’agent Azure Backup et de suivre les instructions de l’article [Premier aperçu : sauvegarder des fichiers et des dossiers dans un déploiement de Resource Manager](./backup-windows-with-mars-agent.md). Si vous envisagez de protéger davantage de fichiers et de dossiers, ou si à l’avenir vous envisagez d’étendre les besoins de protection, sélectionnez ces charges de travail.
+   > Si vous souhaitez sauvegarder uniquement des fichiers et dossiers, nous vous recommandons d’utiliser l’agent Azure Backup et de suivre les instructions de l’article [Premier aperçu : sauvegarder des fichiers et des dossiers dans un déploiement de Resource Manager](./backup-windows-with-mars-agent.md). Si vous envisagez de protéger davantage de fichiers et de dossiers ou si vous planifiez d’étendre les besoins de protection dans le futur, sélectionnez ces charges de travail.
    >
    >
 
     ![Modification de l’Assistant Mise en route](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. Dans le volet **Préparer l’infrastructure** qui s’ouvre, sélectionnez les **liens de téléchargement** pour installer le serveur de sauvegarde Azure et télécharger les informations d’identification du coffre. Vous utilisez les informations d’identification du coffre lors de l’inscription d’Azure Backup Server dans le coffre Recovery Services. Les liens vous dirigent vers le Centre de téléchargement à partir duquel le package logiciel peut être téléchargé.
+6. Dans le volet **Préparer l’infrastructure** qui s’ouvre, sélectionnez les **liens de téléchargement** pour installer le serveur de sauvegarde Azure et télécharger les informations d’identification du coffre. Vous utilisez les informations d’identification du coffre lors de l’inscription du serveur de sauvegarde Azure dans le coffre Recovery Services. Les liens vous dirigent vers le Centre de téléchargement à partir duquel le package logiciel peut être téléchargé.
 
     ![Préparer l’infrastructure pour Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Pour modifier le paramètre de réplication du stockage :
 
     ![Centre de téléchargement 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puisque la taille de téléchargement de l’ensemble des fichiers est supérieure à 3Go, sur un lien de téléchargement de 10 Mbits/s, le téléchargement peut prendre jusqu’à 60 minutes.
+    Puisque la taille de téléchargement de l’ensemble des fichiers est supérieure à 3 Go, sur un lien de téléchargement de 10 Mbits/s, le téléchargement peut prendre jusqu’à 60 minutes.
 
 ### <a name="extracting-the-software-package"></a>Extraction du package logiciel
 
@@ -170,7 +170,7 @@ Une fois le processus d’extraction terminé, cochez la case pour lancer le fic
 
     >[!NOTE]
     >Si vous souhaitez utiliser votre propre serveur SQL, les versions de SQL Server prises en charge sont SQL Server 2014 SP1 ou ultérieur, 2016 et 2017.  Toutes les versions de SQL Server doivent être Standard ou Entreprise 64 bits.
-    >Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez un serveur SQL existant pour MABS, la configuration MABS prend uniquement en charge l’utilisation d’*instances nommées* du serveur SQL.
+    >Le serveur de sauvegarde Azure ne fonctionne pas avec une instance SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez un serveur SQL existant pour MABS, la configuration MABS prend uniquement en charge l’utilisation d’*instances nommées* du serveur SQL.
 
     ![Serveur de sauvegarde Azure - Vérification SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -343,7 +343,7 @@ Procédez comme suit pour mettre à niveau MABS :
 
    > [!NOTE]
    >
-   > Ne quittez pas pendant la mise à niveau de votre instance SQL, car ceci désinstallera l’instance de création de rapports SQL et, par conséquent, une tentative de nouvelle mise à niveau de MABS échouera.
+   > Ne quittez pas pendant la mise à niveau de votre instance SQL. Le fait de quitter entraine la désinstallation de l’instance de rapports SQL et par conséquent l’échec d’une tentative de nouvelle mise à niveau de MABS.
 
    > [!IMPORTANT]
    >

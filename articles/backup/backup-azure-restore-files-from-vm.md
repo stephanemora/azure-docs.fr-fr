@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611838"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892573"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -68,7 +68,7 @@ Reportez-vous à la section [Conditions d’accès](#access-requirements) pour v
 
 Lorsque vous exécutez l’exécutable, le système d’exploitation monte les nouveaux volumes et attribue des lettres de lecteur. Vous pouvez utiliser l’Explorateur Windows ou l’Explorateur de fichiers pour parcourir ces lecteurs. Les lettres de lecteur affectées aux volumes peuvent ne pas être les mêmes que celles de la machine virtuelle d’origine. Toutefois, le nom du volume est conservé. Par exemple, si le volume de la machine virtuelle d’origine était « Disque de données (E:`\`) », ce volume peut être connecté sur l’ordinateur local en tant que « Disque de données (n’importe quelle lettre:`\`) ». Parcourez tous les volumes mentionnés dans la sortie du script jusqu’à trouver vos fichiers ou votre dossier.  
 
-   ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Volumes de récupération attachés](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>Pour Linux
 
@@ -169,7 +169,7 @@ La première colonne (PV) affiche le volume physique, les colonnes suivantes aff
 
 ###### <a name="duplicate-volume-groups"></a>Groupes de volumes en double
 
-Il existe des scénarios dans lesquels les noms de groupes de volumes peuvent avoir 2 UUID après l’exécution du script. Cela signifie que les noms de groupes de volumes dans l’ordinateur sur lequel le script est exécuté et dans la machine virtuelle sauvegardée sont identiques. Ensuite, nous devons renommer les groupes de volumes de machines virtuelles sauvegardés. Jetez un coup d’œil à l’exemple ci-dessous.
+Il existe des scénarios dans lesquels les noms de groupes de volumes peuvent avoir 2 UUID après l’exécution du script. Cela signifie que les noms de groupes de volumes dans l’ordinateur sur lequel le script est exécuté et dans la machine virtuelle sauvegardée sont identiques. Ensuite, nous devons renommer les groupes de volumes de machines virtuelles sauvegardés. Examinez l’exemple suivant.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -200,13 +200,13 @@ Nous avons maintenant tous les noms de groupes de volumes avec des ID uniques.
 
 ###### <a name="active-volume-groups"></a>Groupes de volumes actifs
 
-Assurez-vous que les groupes de volumes correspondant aux volumes du script sont actifs. La commande ci-dessous permet d’afficher les groupes de volumes actifs. Vérifiez si les groupes de volumes associés au script sont présents dans cette liste.
+Assurez-vous que les groupes de volumes correspondant aux volumes du script sont actifs. La commande suivante permet d’afficher des groupes de volumes actifs. Vérifiez si les groupes de volumes associés au script sont présents dans cette liste.
 
 ```bash
 vgdisplay -a
 ```  
 
-Autrement, activez le groupe de volumes à l’aide de la commande ci-dessous.
+Autrement, activez le groupe de volumes à l’aide de la commande suivante.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Listage des volumes logiques dans les groupes de volumes
 
-Une fois que nous obtenons la liste active unique des groupes de volumes associés au script, les volumes logiques présents dans ceux-ci peuvent être répertoriés à l’aide de la commande ci-dessous.
+Une fois que nous obtenons la liste active unique des groupes de volumes associés au script, les volumes logiques présents dans ceux-ci peuvent être répertoriés à l’aide de la commande suivante.
 
 ```bash
 #!/bin/bash
@@ -285,7 +285,7 @@ Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaure
 | OpenSUSE | 42.2 et versions ultérieures |
 
 > [!NOTE]
-> Nous avons rencontré des problèmes lors de l’exécution du script de récupération de fichiers sur les ordinateurs équipés du système d’exploitation SLE 12 SP4 et nous étudions l’équipe SLES.
+> Nous avons rencontré des problèmes lors de l’exécution du script de récupération de fichiers sur les ordinateurs équipés du système d’exploitation SLE 12 SP4 et nous étudions la question avec l’équipe SLES.
 > Actuellement, l’exécution du script de récupération de fichier fonctionne sur des ordinateurs équipés des versions de système d’exploitation SLES 12 SP2 et SP3.
 >
 
@@ -302,7 +302,7 @@ Le script requiert également les composants Python et bash pour exécuter et é
 Si vous exécutez le script sur un ordinateur disposant d’un accès restreint, assurez-vous qu’il a accès aux éléments suivants :
 
 - `download.microsoft.com`
-- URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
+- URL Recovery Services (le nom de la zone géographique fait référence à la région où réside le coffre Recovery Services.)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Pour les régions publiques Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Pour Azure Chine 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Pour Azure US Government)
@@ -332,7 +332,7 @@ Cette section explique comment effectuer une récupération de fichiers à parti
     - Assurez-vous que le système d’exploitation est WS 2012 ou ultérieur.
     - Vérifiez que les clés de Registre sont définies comme indiqué ci-dessous dans le serveur de restauration et assurez-vous de redémarrer le serveur. Le nombre en regard du GUID peut être compris entre 0001 et 0005. Dans l’exemple suivant, il s’agit de 0004. Parcourez le chemin d’accès de la clé de Registre jusqu’à la section des paramètres.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Modifications apportées aux clés de registre](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Cette section explique comment effectuer une récupération de fichiers à parti
 
 - Si le serveur de restauration est une machine virtuelle Linux :
   - Dans le fichier /etc/iSCSI/iSCSId.conf, modifiez le paramètre à partir de :
-    - node.conn[0].timeo.noop_out_timeout = 5 à node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5` à `node.conn[0].timeo.noop_out_timeout = 30`
 - Après avoir apporté les modifications ci-dessus, réexécutez le script. Avec ces modifications, il est très probable que la récupération de fichiers aboutisse.
 - Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (durée d’une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
 - Après la récupération de fichier, assurez-vous de revenir au portail et sélectionnez **Démonter les disques** pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
@@ -355,7 +355,7 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Message d’erreur/Scénario | Cause probable | Action recommandée |
 | ------------------------ | -------------- | ------------------ |
 | Sortie de l’exécutable : *Exception interceptée lors de la connexion à la cible* | Le script n’est pas en mesure d’accéder au point de récupération    | Vérifiez si la machine remplit les [conditions d’accès précédentes](#access-requirements). |  
-| Sortie de l’exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils NE peuvent PAS être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’explorateur de fichiers pour localiser votre fichier. |
+| Sortie de l’exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils ne peuvent pas être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’explorateur de fichiers pour localiser votre fichier. |
 | Sortie de l’exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail, ou la limite de douze heures a été dépassée | Ce fichier exécutable n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération dans le temps, visitez le portail pour obtenir un nouveau fichier exe.|
 | Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne seront plus démontés une fois que vous avez cliqué sur le bouton démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. L’exploration de tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
 | Sortie de l’exécutable : Le script s’exécute correctement, mais les « nouveaux volumes attachés » ne s’affichent pas dans la sortie du script. |    Il s’agit d’une erreur temporaire.    | Les volumes auront déjà été attachés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez le même ordinateur pour exécuter des scripts à chaque fois, envisagez de redémarrer la machine et la liste devrait être affichée dans la liste des exécutions du fichier exe ultérieures. |

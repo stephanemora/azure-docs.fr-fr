@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 72c038bda88ecc9b7518f1f764a41bd4c49f52c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589416"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890499"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
@@ -156,7 +156,7 @@ Ingérez également les journaux via Azure Monitor pour agréger les données de
 
 **Aide** : Pour la journalisation d’audit du plan de contrôle, activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos ressources Azure.
 
-En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent être collectés et utilisés à des fins d’analyse, d’alerte et de création de rapports. Vous pouvez configurer les paramètres de diagnostic d’un coffre Recovery Services via le Portail Azure. Vous pouvez envoyer un ou plusieurs événements de diagnostic à un compte de stockage, un Event Hub ou un espace de travail Log Analytics.
+En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent être collectés et utilisés à des fins d’analyse, d’alerte et de création de rapports. Vous pouvez configurer les paramètres de diagnostic d’un coffre Recovery Services par le biais du portail Azure. Vous pouvez envoyer un ou plusieurs événements de diagnostic à un compte de stockage, un Event Hub ou un espace de travail Log Analytics.
 
 - [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
 
@@ -580,7 +580,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements.  Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
@@ -606,7 +606,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Conseils** : Utilisez des étiquettes, des groupes d’administration et des abonnements distincts, le cas échéant, pour organiser et suivre les ressources Azure. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
+**Aide** : Utilisez des étiquettes, des groupes d’administration et des abonnements distincts, le cas échéant, pour organiser et suivre les ressources Azure. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
 En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients à l’aide des définitions de stratégie intégrées suivantes : Types de ressources non autorisés et Types de ressources autorisés.
 
@@ -630,7 +630,7 @@ En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements.  Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
@@ -730,7 +730,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -750,7 +750,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -770,7 +770,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -788,7 +788,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer les outils de gestion de la configuration système pour les systèmes d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -806,7 +806,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -860,7 +860,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Sauvegarde Azure), mais il ne s’exécute pas sur votre contenu.
 
-Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcul, comme App Service, des Data Lake Storage, Stockage Blob, etc.
+Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcul, comme App Service, Data Lake Storage et Stockage Blob.
 
 Utilisez la détection des menaces pour les services de données dans Azure Security Center pour détecter les programmes malveillants chargés sur les comptes de stockage.
 
@@ -874,7 +874,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 

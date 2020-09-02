@@ -3,18 +3,18 @@ title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263325"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756059"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
 Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du coffre Recovery Services pour surveiller et gérer vos coffres Recovery Services. Lorsque vous ouvrez un coffre Recovery Services à partir de la liste, le tableau de bord **Vue d’ensemble** du coffre sélectionné s’ouvre. Le tableau de bord fournit des informations détaillées sur le coffre. Il s’y trouve des *vignettes* qui montrent l’état des alertes d’avertissement et des alertes critiques, les travaux de sauvegarde en cours et ceux qui ont échoué, ainsi que la quantité de stockage localement redondant (LRS) et la quantité de stockage géoredondant (GRS) utilisée. Si vous sauvegardez des machines virtuelles Azure dans le coffre, la vignette [**État de la prévérification de sauvegarde** affiche toutes les alertes d’avertissement et toutes les alertes critiques](#backup-pre-check-status). L’image suivante représente le tableau de bord **Vue d’ensemble** pour **Contoso-vault**. La vignette **Éléments de sauvegarde** montre que neuf éléments sont inscrits dans le coffre.
 
-![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Tableau de bord du coffre Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Les prérequis de cet article sont : un abonnement Azure, un coffre Recovery Services, et au moins un élément de sauvegarde configuré pour le coffre.
 
@@ -36,7 +36,7 @@ Pour surveiller les alertes ou afficher les données de gestion concernant un co
 
 4. Dans la liste des coffres, sélectionnez un coffre pour ouvrir son tableau de bord **Vue d’ensemble**.
 
-    ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Tableau de bord du coffre Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     Le tableau de bord Vue d’ensemble utilise des vignettes pour fournir des alertes et des données de travaux de sauvegarde.
 
@@ -65,12 +65,12 @@ Le menu Alertes de sauvegarde, dans l’image ci-dessus, est filtré par : l’
 
 ### <a name="backup-pre-check-status"></a>État de la prévérification de sauvegarde
 
-Les vérifications préalables de la sauvegarde vérifient la configuration de vos machines virtuelles et recherchent les problèmes susceptibles de nuire aux sauvegardes. Elles compilent ces informations pour que vous puissiez les consulter directement dans le tableau de bord du coffre Recovery Services et fournissent des mesures correctives recommandées afin de garantir la réussite des sauvegardes des applications et des fichiers. Elles ne nécessitent aucune infrastructure et n’entraînent aucun coût supplémentaire.  
+Les vérifications préalables de la sauvegarde vérifient la configuration de vos machines virtuelles et recherchent les problèmes susceptibles de nuire aux sauvegardes. Elles agrègent ces informations pour que vous puissiez les consulter directement dans le tableau de bord du coffre Recovery Services et fournissent des mesures correctives recommandées afin de garantir la réussite des sauvegardes des applications et des fichiers. Elles ne nécessitent aucune infrastructure et n’entraînent aucun coût supplémentaire.  
 
 Les prévérifications de sauvegarde s’exécutent dans le cadre des opérations de sauvegarde planifiée pour vos machines virtuelles Azure. Elles concluent à un des états suivants :
 
 * **Réussite** : cet état indique que la configuration de votre machine virtuelle doit déboucher sur des sauvegardes réussies et qu’aucune action corrective n’est nécessaire.
-* **Avertissement** : cet état indique un ou plusieurs problèmes dans la configuration de la machine virtuelle qui *peuvent* entraîner des échecs de la sauvegarde. Il fournit des étapes *recommandées* pour garantir la réussite des sauvegardes. Par exemple, si vous n’avez pas installé le dernier agent de machine virtuelle, les sauvegardes peuvent échouer par intermittence. Cette situation peut déboucher sur l’état Avertissement.
+* **Avertissement** : cet état indique un ou plusieurs problèmes dans la configuration de la machine virtuelle qui *peuvent* entraîner des échecs de la sauvegarde. Il fournit des étapes *recommandées* pour garantir la réussite des sauvegardes. Par exemple, si vous n’avez pas installé le dernier agent de machine virtuelle, les sauvegardes peuvent échouer par intermittence. Cette situation débouchera sur l’état Avertissement.
 * **Critique** : Cet état indique un ou plusieurs problèmes critiques dans la configuration de la machine virtuelle qui *vont* entraîner des échecs de la sauvegarde et fournit des étapes *obligatoires* pour garantir la réussite des sauvegardes. Par exemple, un problème réseau provoqué par une mise à jour des règles du groupe de sécurité réseau d’une machine virtuelle entraîne l’échec des sauvegardes, car il empêche la machine virtuelle de communiquer avec le service Azure Backup. Cette situation peut déboucher sur un état critique.
 
 Suivez les étapes ci-dessous pour commencer à résoudre les problèmes signalés par les vérifications préalables à la sauvegarde pour les sauvegardes de machines virtuelles sur votre coffre Recovery Services.
@@ -96,7 +96,7 @@ La liste Alertes de sauvegarde affiche les informations sélectionnées pour les
 | Niveau d’alerte | Événements qui génèrent des alertes |
 | ----------- | ----------- |
 | Critique | Vous recevez des alertes critiques quand : Des travaux de sauvegarde échouent, des travaux de récupération échouent, et quand vous suspendez la protection sur un serveur mais conservez les données.|
-| Avertissement | Vous recevez des alertes d’avertissement quand : Des travaux de sauvegarde se terminent avec des avertissements, par exemple lorsque moins de 100 fichiers n’ont pas été sauvegardés en raison de problèmes d’altération, ou lorsque plus de 1 000 000 fichiers ont été correctement sauvegardés. |
+| Avertissement | Vous recevez des alertes d’avertissement quand : Les travaux de sauvegarde se terminent par des avertissements. Par exemple, lorsque moins de 100 fichiers n’ont pas été sauvegardés en raison de problèmes d’altération ou lorsque plus de 1 000 000 fichiers ont été correctement sauvegardés. |
 | Informationnel | Actuellement, les alertes d’information ne sont pas utilisées. |
 
 ### <a name="viewing-alert-details"></a>Affichage des détails de l’alerte

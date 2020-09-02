@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2a69bc40090e74ad5885c2576c040693f90d5d03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094107"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683876"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutoriel de configuration d’Experian avec Azure Active Directory B2C
 
@@ -129,7 +129,7 @@ Dans les stratégies personnalisées fournies, recherchez les espaces réservés
 | {your_tenant_extensions_app_objectid}                  | ID d’objet de l’application de stockage de votre locataire                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Nom de la clé de nom d’utilisateur que vous avez créée [ici](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiUsername                     |
 | {your_api_password_key_name}                           | Nom de la clé de mot de passe que vous avez créée [ici](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiPassword                     |
-| {your_app_service_URL}                                 | URL du service d’application que vous avez configurée                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL du service d’application que vous avez configurée                                             | `https://yourapp.azurewebsites.net`          |
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Partie 6 : Configuration de la stratégie Azure AD B2C
 

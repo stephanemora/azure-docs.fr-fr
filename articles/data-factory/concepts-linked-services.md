@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: b4cd1fefb728da797d5ff56fe833662f21630c58
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338054"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796406"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Services liés dans Azure Data Factory
 
@@ -69,19 +69,19 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 Propriété | Description | Obligatoire |
 -------- | ----------- | -------- |
 name | Nom du service lié. Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
-type | Type du service lié. Par exemple : Stockage Azure (magasin de données) ou AzureBatch (calcul). Consultez la description de typeProperties. | Oui |
-typeProperties | Les propriétés type sont différentes pour chaque magasin de données et chaque unité de calcul. <br/><br/> Vous trouverez la liste des types de magasins de données pris en charge et leurs propriétés dans le tableau [type de jeu de données](concepts-datasets-linked-services.md#dataset-type) de cet article. Accédez à l’article sur le connecteur de magasin de données pour en savoir plus sur les propriétés de type propres à un magasin de données. <br/><br/> Vous trouverez la liste des types de calcul pris en charge et leurs propriétés sur la page [Services liés de calcul](compute-linked-services.md). | Oui |
+type | Type du service lié. Par exemple : AzureBlobStorage (magasin de données) ou AzureBatch (calcul). Consultez la description de typeProperties. | Oui |
+typeProperties | Les propriétés type sont différentes pour chaque magasin de données et chaque unité de calcul. <br/><br/> Vous trouverez la liste des types de magasins de données pris en charge et leurs propriétés dans l’article [vue d’ensemble du connecteur](copy-activity-overview.md#supported-data-stores-and-formats). Accédez à l’article sur le connecteur de magasin de données pour en savoir plus sur les propriétés de type propres à un magasin de données. <br/><br/> Vous trouverez la liste des types de calcul pris en charge et leurs propriétés sur la page [Services liés de calcul](compute-linked-services.md). | Oui |
 connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre magasin de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non
 
 ## <a name="linked-service-example"></a>Exemple de service lié
 
-Le service lié suivant est un service lié Stockage Azure. Notez que le type est défini sur Stockage Azure. Les propriétés de type du service lié Stockage Azure comprennent une chaîne de connexion. Le service Data Factory l’utilise pour se connecter au magasin de données à l’exécution.
+Le service lié suivant est un service lié au stockage d’objets blob. Notez que le type est défini sur Stockage d’objets blob Azure. Les propriétés de type du service lié au stockage d’objets blob Azure comprennent une chaîne de connexion. Le service Data Factory l’utilise pour se connecter au magasin de données à l’exécution.
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706203"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761863"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ Pour répondre aux exigences de gestion et de sécurité des clients, SQL Manage
 
 Avec la configuration de sous-réseau assistée par service, l’utilisateur contrôle totalement le trafic de données (TDS), tandis que SQL Managed Instance assume la responsabilité de garantir un flux ininterrompu du trafic de gestion afin de respecter le contrat de niveau de service.
 
-La configuration de sous-réseau assistée par le service s’appuie sur la fonctionnalité de [délégation de sous-réseau](../../virtual-network/subnet-delegation-overview.md) de réseau virtuel pour fournir une gestion automatique de la configuration du réseau et activer les points de terminaison de service. Des points de terminaison de service pourraient être utilisés pour configurer des règles de pare-feu de réseau virtuel sur des comptes de stockage qui conservent des sauvegardes et journaux d’audit.
+La configuration de sous-réseau assistée par le service s’appuie sur la fonctionnalité de [délégation de sous-réseau](../../virtual-network/subnet-delegation-overview.md) de réseau virtuel pour fournir une gestion automatique de la configuration du réseau et activer les points de terminaison de service. 
+
+Des points de terminaison de service pourraient être utilisés pour configurer des règles de pare-feu de réseau virtuel sur des comptes de stockage qui conservent des sauvegardes et journaux d’audit. Même avec les points de terminaison de service activés, les clients sont encouragés à utiliser la [liaison privée](../../private-link/private-link-overview.md) qui renforce la sécurité des points de terminaison de service.
+
+> [!IMPORTANT]
+> En raison des spécificités de la configuration du plan de contrôle, la configuration de sous-réseau assistée par le service n’active pas les points de terminaison de service dans les clouds nationaux. 
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 

@@ -2,17 +2,17 @@
 title: Activation du protocole TLS de bout en bout sur Azure Application Gateway
 description: Cet article fournit une vue d’ensemble de la prise en charge TLS de bout en bout pour Application Gateway.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962099"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723297"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway
 
@@ -30,7 +30,7 @@ Application Gateway prend en charge l’arrêt TLS au niveau de la passerelle, 
 Pour configurer l’arrêt TLS, un certificat TLS/SSL doit être ajouté à l’écouteur pour permettre à la passerelle d’application de dériver une clé symétrique conformément aux spécifications du protocole TLS/SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat TLS/SSL doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
 
 > [!IMPORTANT] 
-> Notez que le certificat sur l’écouteur requiert le chargement de la de la chaîne de certificats entière. 
+> Le certificat sur l’écouteur exige le chargement de la totalité de la chaîne de certificats (le certificat racine de l’autorité de certification, les intermédiaires et le certificat feuille) pour établir la chaîne d’approbation. 
 
 
 > [!NOTE] 

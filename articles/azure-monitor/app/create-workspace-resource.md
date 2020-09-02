@@ -4,13 +4,13 @@ description: En savoir plus sur les étapes requises pour activer les nouvelles 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824985"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783839"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Ressources Application Insights basées sur un espace de travail (préversion)
 
@@ -27,7 +27,7 @@ Pour tester la nouvelle expérience, connectez-vous au [portail Azure](https://p
 
 Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../learn/quick-create-workspace.md).
 
-Pour la préversion publique, **les ressources basées sur un espace de travail sont actuellement limitées aux régions USA Ouest 2, USA Est et USA Centre Sud**.
+**Les ressources basées sur l’espace de travail sont actuellement disponibles dans toutes les régions commerciales et Azure Government**
 
 Une fois votre ressource créée, les informations correspondantes de l’espace de travail s’affichent dans le volet **Vue d’ensemble** :
 
@@ -184,6 +184,14 @@ La commande PowerShell `New-AzApplicationInsights` ne prend pas actuellement en 
 }
 
 ```
+
+## <a name="new-capabilities"></a>Nouvelles fonctionnalités
+
+Les Application Insights basées sur l’espace de travail vous permettent de tirer profit de toutes les dernières fonctionnalités d’Azure Monitor, y compris :
+
+* [Les clés gérées par le client (CMK)](../platform/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
+* [Azure Private Link](../platform/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
+* [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modification de l’espace de travail associé
 

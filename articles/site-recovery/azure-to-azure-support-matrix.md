@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815366"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -195,6 +195,7 @@ Groupes de placement de proximité | Prise en charge | Les machines virtuelles s
 -- | ---
 Redimensionner le disque sur la machine virtuelle répliquée | Pris en charge sur la machine virtuelle source avant le basculement. Vous n’avez pas besoin de désactiver/réactiver la réplication.<br/><br/> Si vous modifiez la machine virtuelle source après le basculement, les modifications ne sont pas capturées.<br/><br/> Si vous modifiez la taille du disque sur la machine virtuelle Azure après le basculement, les modifications ne sont pas capturées par Site Recovery et la restauration automatique sera à la taille de la machine virtuelle d’origine.
 Ajouter un disque à une machine virtuelle répliquée | Prise en charge
+Modifications hors connexion apportées aux disques protégés | La déconnexion des disques et leur modification hors connexion nécessitent le déclenchement d’une resynchronisation complète.
 
 ## <a name="replicated-machines---storage"></a>Machines répliquées - Stockage
 
@@ -206,8 +207,8 @@ Ce tableau récapitule la prise en charge du disque du système d’exploitation
 
 **Composant** | **Support** | **Détails**
 --- | --- | ---
-Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/windows/managed-disks-overview.md) sur les disques de machines virtuelles.
-Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/windows/managed-disks-overview.md)
+Taille maximale du disque du système d’exploitation | 2048 GB | [En savoir plus](../virtual-machines/managed-disks-overview.md) sur les disques de machines virtuelles.
+Disque temporaire | Non pris en charge | Le disque temporaire est toujours exclu de la réplication.<br/><br/> Ne conservez pas de données persistantes sur le disque temporaire. [Plus d’informations](../virtual-machines/managed-disks-overview.md)
 Taille maximale du disque de données | 8192 Go pour les disques managés<br></br>4095 Go pour les disques non managés|
 Taille minimale du disque de données | Aucune restriction pour les disques non managés. 2 Go pour les disques managés |
 Nombre maximal de disques de données | Jusqu’à 64, en adéquation avec la prise en charge pour une taille spécifique de machine virtuelle Azure | [En savoir plus](../virtual-machines/sizes.md) sur les tailles de machines virtuelles.
@@ -254,6 +255,7 @@ Le tableau suivant récapitule les limites de Site Recovery.
 - Ces limites sont basées sur nos tests, mais ne couvrent pas toutes les combinaisons d’E/S d’application possibles.
 - Les résultats réels varient en fonction de la combinaison d’E/S de votre application.
 - Il existe deux limites à prendre en compte, le taux d’activité de données par disque et le taux d’activité de données par machine virtuelle.
+- La limite actuelle de l’activité des données par machine virtuelle est de 54 Mo/s, quelle que soit la taille.
 
 **Cible de stockage** | **E/S moyennes de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
 ---|---|---|---
@@ -267,7 +269,7 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 ## <a name="replicated-machines---networking"></a>Machines répliquées - Mise en réseau
 **Paramètre** | **Support** | **Détails**
 --- | --- | ---
-Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement. <br/><br/> Il n’est pas garanti que l’ordre des cartes réseau après basculement soit le même que l’ordre d’origine. <br/><br/> Vous pouvez renommer des cartes réseau dans la région cible conformément aux conventions de nommage de votre organisation.
+Carte d’interface réseau | Nombre maximal pris en charge pour une taille de machine virtuelle Azure spécifique | Les cartes réseau sont créées lors de la création de la machine virtuelle pendant le basculement.<br/><br/> Le nombre de cartes réseau sur la machine virtuelle de basculement dépend du nombre de cartes réseau que possède la machine virtuelle source au moment de l’activation de la réplication. Si vous ajoutez ou supprimez une carte réseau après l’activation de la réplication, cela n’affecte pas le nombre de cartes réseau sur la machine virtuelle répliquée après le basculement. <br/><br/> Il n’est pas garanti que l’ordre des cartes réseau après basculement soit le même que l’ordre d’origine. <br/><br/> Vous pouvez renommer des cartes réseau dans la région cible conformément aux conventions de nommage de votre organisation. Le renommage des cartes réseau est pris en charge en utilisant PowerShell.
 Équilibreur de charge Internet | Prise en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
 Équilibreur de charge interne | Prise en charge | Associez l’équilibreur de charge préconfiguré à l’aide d’un script Azure Automation dans un plan de récupération.
 Adresse IP publique | Prise en charge | Associez une adresse IP publique existante à la carte réseau. Ou, créez une adresse IP publique et associez-la à la carte réseau à l’aide d’un script Azure Automation dans un plan de récupération.

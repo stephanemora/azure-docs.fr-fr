@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835729"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824030"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -146,7 +146,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, la sauvegarde peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
 1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](./backup-instant-restore-capability.md).
 
-Vous n'avez pas besoin d'autoriser explicitement la connexion Internet pour sauvegarder vos machines virtuelles Azure.
+Vous n’avez pas besoin d’autoriser explicitement la connectivité Internet pour sauvegarder vos machines virtuelles Azure.
 
 ![Sauvegarde des machines virtuelles Azure](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -193,9 +193,8 @@ Les machines virtuelles Azure utilisent des disques pour stocker leur système d
 
 Pour plus d’informations sur le stockage sur disque et les types de disques disponibles pour les machines virtuelles, voir les articles suivants :
 
-- [Disques managés Azure pour machines virtuelles Windows](../virtual-machines/windows/managed-disks-overview.md)
-- [Disques managés Azure pour machines virtuelles Linux](../virtual-machines/linux/managed-disks-overview.md)
-- [Types de disques disponibles pour machines virtuelles](../virtual-machines/windows/disks-types.md)
+- [Disques managés Azure pour machines virtuelles Linux](../virtual-machines/managed-disks-overview.md)
+- [Types de disques disponibles pour machines virtuelles](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Sauvegarder et restaurer des machines virtuelles Azure avec un stockage premium
 
@@ -204,7 +203,7 @@ Vous pouvez sauvegarder des machines virtuelles Azure en utilisant un stockage p
 - Lors du processus de sauvegarde de machines virtuelles avec un stockage premium, le service Sauvegarde crée un emplacement intermédiaire temporaire nommé *AzureBackup-* dans le compte de stockage. La taille de l’emplacement intermédiaire est égale à celle de la capture instantanée du point de récupération.
 - Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez [Objectifs de scalabilité pour les comptes de stockage d’objets blob de pages Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Ne modifiez pas l’emplacement intermédiaire.
 - Une fois la sauvegarde terminée, l’emplacement intermédiaire est supprimé.
-- Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/windows/disks-types.md#billing).
+- Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/disks-types.md#billing).
 
 Quand vous restaurez des machines virtuelles Azure utilisant un stockage premium, vous pouvez les restaurer vers un stockage premium ou standard. En règle générale, vous les restaurerez vers un stockage premium. Mais si vous n’avez besoin que d’un sous-ensemble des fichiers de la machine virtuelle, il peut être économique de les restaurer vers un stockage standard.
 

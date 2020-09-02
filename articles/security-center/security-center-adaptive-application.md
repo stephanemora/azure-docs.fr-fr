@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036957"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691477"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -83,7 +83,7 @@ Sélectionnez la recommandation ou ouvrez la page des contrôles d’application
     - **Aucune recommandation** : les machines sans liste verte d’applications définie et qui ne prennent pas en charge la fonctionnalité. Votre machine peut se trouver dans cet onglet pour les raisons suivantes :
       - Il manque un agent Log Analytics
       - L’agent Log Analytics n’envoie pas d’événements
-      - Il s’agit d’un ordinateur Windows avec une stratégie [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) préexistante activée par un GPO ou une stratégie de sécurité locale
+      - Il s’agit d’un ordinateur Windows avec une stratégie [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) préexistante activée par un GPO ou une stratégie de sécurité locale
 
       > [!TIP]
       > Security Center a besoin d’au moins deux semaines de données pour définir les recommandations uniques par groupe d’ordinateurs. Les machines qui ont été créées récemment, ou qui appartiennent à des abonnements qui ont été récemment activés avec le niveau standard, s’affichent sous l’onglet **Aucune recommandation**.

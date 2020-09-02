@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263059"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827005"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -228,7 +228,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 4. Le serveur de sauvegarde Microsoft Azure requiert SQL Server. Le package d’installation du serveur de sauvegarde Azure fait partie d’une offre groupée. Il est fourni avec les fichiers binaires SQL Server appropriés. Libre à vous d’utiliser votre propre installation de SQL si vous le souhaitez. Toutefois, nous vous recommandons de laisser le programme d’installation ajouter une nouvelle instance de SQL Server. Pour vérifier que votre choix est en adéquation avec votre environnement, cliquez sur **Vérifier et installer**.
 
    > [!NOTE]
-   > Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
+   > Le serveur de sauvegarde Azure ne fonctionne pas avec une instance de SQL Server distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
    >
 
     ![Serveur de sauvegarde Azure – Paramètres SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

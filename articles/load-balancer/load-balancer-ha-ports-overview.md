@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447061"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639849"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -92,7 +92,7 @@ Vous pouvez configurer *une* ressource Standard Load Balancer publique pour les 
 ## <a name="limitations"></a>Limites
 
 - Les règles d’équilibrage de charge des ports haute disponibilité sont utilisables uniquement avec l’équilibreur Standard Load Balancer interne.
-- La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge de ports sans haute disponibilité pointant vers les mêmes configurations IP back-end n’est pas prise en charge, sauf si l’adresse IP flottante est activée pour les deux.
+- La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge de ports sans haute disponibilité pointant vers les mêmes configurations IP back-end n’est **pas** prise en charge dans une seule configuration Adresse IP du front-end sauf si l’adresse IP flottante est activée pour les deux.
 - Les fragments IP existants sont transférés par les règles d’équilibrage de charge des ports haute disponibilité vers la même destination que le premier paquet.  La fragmentation IP d’un paquet UDP ou TCP n’est pas prise en charge.
 - La symétrie des flux (principalement pour les scénarios d'appliance virtuelle réseau) est prise en charge avec l'instance du serveur back-end et une seule carte réseau (ainsi qu'une seule configuration IP) uniquement en cas d'utilisation tel qu'indiqué dans le diagramme ci-dessus et avec les règles d'équilibrage de charge des ports haute disponibilité. Elle n’est pas fournie dans les autres scénarios. Autrement dit, plusieurs ressources Load Balancer et leurs règles respectives prennent des décisions indépendantes et ne sont jamais coordonnées. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). Lorsque vous utilisez plusieurs cartes réseau ou insérez l’appliance virtuelle réseau entre un équilibreur de charge public et l’équilibreur de charge Load Balancer interne, la symétrie des flux n’est pas disponible.  Vous serez peut-être en mesure de contourner ce problème en approvisionnant la traduction d’adresses réseau du flux d’entrée vers l’adresse IP de l’appliance pour autoriser la réception de réponses sur la même appliance virtuelle réseau.  Toutefois, nous vous recommandons vivement d'utiliser une seule carte réseau et l'architecture de référence présentée dans le diagramme ci-dessus.
 

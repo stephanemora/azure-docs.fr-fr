@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446984"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718541"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -37,9 +37,11 @@ Le tableau suivant répertorie les rôles et les versions de système d’exploi
 
 |Role| Système d’exploitation/version|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 ou supérieure|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+Les installations Windows Server Core ne sont pas prises en charge.
 
 Notez que les fonctionnalités proposées par le service peuvent varier selon le rôle et le système d’exploitation. En d’autres termes, toutes les fonctionnalités peuvent ne pas être disponibles pour toutes les versions de système d’exploitation. Consultez les descriptions des fonctionnalités pour plus d’informations.
 

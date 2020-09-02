@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les fonctionnalités de sécurité dans
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611243"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892454"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 
@@ -39,7 +39,7 @@ Si vous créez un coffre Recovery Services, vous pouvez utiliser toutes les fonc
 
     ![Capture d’écran de l’option Parcourir du portail Azure](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    La liste des coffres Recovery Services s’affiche. Dans cette liste, sélectionnez un coffre. Le tableau de bord de l’archivage sélectionné s'ouvre.
+    La liste des archivages de Recovery Services s’affiche. Dans cette liste, sélectionnez un coffre. Le tableau de bord de l’archivage sélectionné s'ouvre.
 3. Dans la liste d’éléments qui s’affiche sous le coffre, sous **Paramètres**, sélectionnez **Propriétés**.
 
     ![Capture d’écran des options de coffre Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
@@ -112,9 +112,9 @@ Les fonctionnalités de sécurité mentionnées dans cet article fournissent des
 
 | Opération | Détails de l’erreur | Résolution |
 | --- | --- | --- |
-| Modification de la stratégie |Impossible de modifier la stratégie de sauvegarde. Erreur : Échec de l’opération en cours en raison d’une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention en deçà des valeurs minimales spécifiées ci-dessus et que vous utilisez une version non prise en charge (les versions prises en charge sont indiquées dans la première remarque de cet article). <br/>**Action recommandée :**<br/> Dans ce cas, vous devez définir la période de rétention sur une valeur supérieure à la période de rétention minimale spécifiée (sept jours pour la rétention quotidienne, quatre semaines pour la rétention hebdomadaire, trois semaines pour la rétention mensuelle ou une année pour la rétention annuelle) pour exécuter les mises à jour relatives à la stratégie. Vous pouvez également mettre à jour l’agent de sauvegarde, le serveur de sauvegarde Azure et/ou le correctif cumulatif de DPM pour tirer parti de toutes les mises à jour de sécurité. |
+| Modification de la stratégie |Impossible de modifier la stratégie de sauvegarde. Erreur : Échec de l’opération en cours en raison d’une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |**Cause :**<br/>Cette erreur apparaît lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention en deçà des valeurs minimales spécifiées ci-dessus et que vous utilisez une version non prise en charge (les versions prises en charge sont indiquées dans la première remarque de cet article). <br/>**Action recommandée :**<br/> Dans ce cas, vous devez définir la période de rétention sur une valeur supérieure à la période de rétention minimale spécifiée (sept jours pour la rétention quotidienne, quatre semaines pour la rétention hebdomadaire, trois semaines pour la rétention mensuelle ou une année pour la rétention annuelle) pour exécuter les mises à jour relatives à la stratégie. Vous pouvez également mettre à jour l’agent de sauvegarde, le serveur de sauvegarde Azure et/ou le correctif cumulatif de DPM pour tirer parti de toutes les mises à jour de sécurité. |
 | Modification de la phrase secrète |Le code PIN de sécurité entré est incorrect. (ID : 100130) Indiquez le code PIN de sécurité approprié pour effectuer cette opération. |**Cause :**<br/> Cette erreur se produit lorsque vous entrez un code PIN de sécurité non valide ou qui a expiré lors d’une opération critique (par exemple, la modification de la phrase secrète). <br/>**Action recommandée :**<br/> Pour exécuter l’opération, vous devez entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
-| Modification de la phrase secrète |Échec de l’opération. ID : 120002 |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde vers la version minimale 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer le code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
+| Modification de la phrase secrète |Échec de l’opération. ID : 120002 |**Cause :**<br/>Cette erreur apparaît lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde vers la version 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

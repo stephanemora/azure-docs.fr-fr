@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510791"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782326"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -75,6 +75,8 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coréen |`ko`   |
+|Kurde (central)  |`ku`   |
+|Kurde (Nord) |`kmr`  |
 |Letton|   `lv`    |
 |Lituanien|    `lt`    |
 |Malgache|  `mg`    |
@@ -158,6 +160,7 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 |Malais| `ms`        |
 |Maltais|   `mt`    |
 |Norvégien| `nb`    |
+|Pachto|    `ps`    |
 |Persan|   `fa`    |
 |Polonais|    `pl`    |
 |Portugais (Brésil)|   `pt-br` |
@@ -194,19 +197,19 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Chinois (traditionnel) `Hant`|
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Latin `Latn` |
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Chinois (simplifié) `Hans` |
-| Goudjrati | `gu`  | Goudjrati `Gujr` | --> | Latin `Latn` |
+| Goudjrati | `gu`  | Goudjrati `Gujr` | <--> | Latin `Latn` |
 | Hébreu | `he` | Hébreu `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
 | Japonais | `ja` | Japonais `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Dévanâgarî `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pendjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbe (cyrillique) | `sr-Cyrl` | Cyrillique `Cyrl`  | --> | Latin `Latn` |
 | Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
-| Tamoul | `ta` | Tamoul `Taml` | --> | Latin `Latn` |
-| Télougou | `te` | Télougou `Telu` | --> | Latin `Latn` |
+| Tamoul | `ta` | Tamoul `Taml` | <--> | Latin `Latn` |
+| Télougou | `te` | Télougou `Telu` | <--> | Latin `Latn` |
 | Thaï | `th` | Thaï `Thai` | --> | Latin `Latn` |
 
 ### <a name="dictionary"></a>Dictionnaire
@@ -296,6 +299,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
+| Goudjrati| `gu`    |
 | Hébreu      | `he`          |
 | Hindi      | `hi`          |
 | Hongrois      | `hu`          |
@@ -309,11 +313,14 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Letton      | `lv`          |
 | Lituanien      | `lt`          |
 | Malgache| `mg`    |
+| Malais|    `ms`        |
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norvégien      | `nb`          |
 | Persan      | `fa`          |
 | Polonais      | `pl`          |
 | Portugais (Brésil) | `pt-br` |
+| Pendjabi|`pa`|
 | Roumain      | `ro`          |
 | Russe      | `ru`          |
 | Samoan|   `sm`    |
@@ -325,6 +332,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Thaï      | `th`          |
 | Turc      | `tr`          |
 | Ukrainien      | `uk`          |
+| Ourdou| `ur`    |
 | Vietnamien      | `vi`          |
 | Gallois | `cy` |
 

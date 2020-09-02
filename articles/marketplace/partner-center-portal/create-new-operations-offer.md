@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606116"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816998"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Créer une offre Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ Cette rubrique explique comment créer une nouvelle offre Dynamics 365 for Oper
 Avant de commencer, [créez un compte Place de marché commerciale dans l’Espace partenaires](create-account.md) si vous ne l’avez pas déjà fait. Vérifiez que votre compte est inscrit dans le programme Place de marché commerciale.
 
 >[!NOTE]
-> Dès lors qu’une offre est publiée, les modifications dont elle fait l’objet dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont dans le store après republication. Veillez à soumettre l’offre pour publication après y avoir apporté des modifications.
+> Une fois l’offre publiée, les modifications apportées à l’offre sont uniquement mises à jour dans l’espace partenaires et le magasin en ligne une fois que vous avez envoyé à nouveau l’offre en vue de sa publication.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
@@ -189,16 +189,20 @@ Dans cette section, vous pouvez fournir des logos et des images qui seront utili
 [!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez le logo de votre offre en deux tailles (en pixels) :
+Fournissez un fichier PNG pour le logo de **Grande** taille. L’Espace partenaires s’en servira pour créer un **Petit** logo. Vous pouvez éventuellement le remplacer par la suite par une autre image.
 
-- **Petit** (48 x 48)
-- **Grand** (216 x 216)
+- **Grand** (de 216 x 216 à 350 x 350 px, obligatoire)
+- **Petit** (48 x 48 px, facultatif)
+
+Ces logos sont utilisés à différents emplacements dans la liste :
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

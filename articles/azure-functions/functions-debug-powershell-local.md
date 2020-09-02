@@ -1,17 +1,17 @@
 ---
 title: Déboguer localement des fonctions PowerShell Azure
-description: Découvrez comment développer des fonctions à l’aide de PowerShell.
+description: Découvrez comment déboguer des fonctions PowerShell en cas d’exécution locale.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082985"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799364"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
 
@@ -242,6 +242,16 @@ L’extension PowerShell utilise `Debug-Runspace`, qui à son tour dépend de la
 Le runtime Azure Functions exécute quelques commandes avant d’appeler véritablement votre script `run.ps1`. Il est donc possible que le débogueur finisse par s’arrêter au sein de `Microsoft.Azure.Functions.PowerShellWorker.psm1` ou de `Microsoft.Azure.Functions.PowerShellWorker.psd1`.
 
 Si cet arrêt doit se produire, exécutez la commande `continue` ou `c` pour ignorer ce point d’arrêt. Vous vous arrêtez ensuite au point d’arrêt attendu.
+
+## <a name="troubleshooting"></a>Dépannage
+
+Si vous rencontrez des difficultés pendant le débogage, vous devez vérifier les éléments suivants :
+
+| Vérification | Action |
+|------|------|
+| Exécutez `func --version` à partir du terminal. Si vous recevez une erreur indiquant que `func` est introuvable, il se peut que Core Tools (func.exe) soit absent de la variable `path` locale.| [Réinstallez Core Tools](functions-run-local.md#v2).|  
+| Dans Visual Studio Code, le terminal par défaut doit avoir accès à func.exe. Vérifiez que vous n’utilisez pas un terminal par défaut sur lequel Core Tools n’est pas installé, tel que le sous-système Windows pour Linux (WSL).  | Définissez PowerShell 7 (recommandé) ou Windows PowerShell 5.1 comme interpréteur de commandes par défaut dans Visual Studio Code.|
+  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

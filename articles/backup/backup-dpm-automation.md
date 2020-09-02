@@ -3,12 +3,12 @@ title: Sauvegarder des charges de travail DPM à l’aide de PowerShell
 description: Découvrez comment déployer et gérer Sauvegarde Azure pour Data Protection Manager (DPM) à l’aide de PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538851"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892318"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
 
@@ -51,7 +51,7 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 
 Les étapes suivantes vous montrent comment créer un coffre Recovery Services. Un coffre Recovery Services diffère d’un coffre de sauvegarde.
 
-1. Si vous utilisez le service Sauvegarde Azure pour la première fois, vous devez utiliser la cmdlet **Register-AzResourceProvider** pour associer le fournisseur Azure Recovery Service à votre abonnement.
+1. Si vous utilisez Sauvegarde Azure pour la première fois, vous devez utiliser la cmdlet **Register-AzResourceProvider** pour associer le fournisseur Azure Recovery Service à votre abonnement.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -69,7 +69,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou [Stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
+4. Spécifiez le type de redondance de stockage à utiliser. Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testVault a la valeur GeoRedundant.
 
    > [!TIP]
    > De nombreuses applets de commande Azure Backup nécessitent l’objet coffre Recovery Services en tant qu’entrée. Pour cette raison, il est pratique de stocker l’objet coffre Backup Recovery Services dans une variable.
@@ -111,7 +111,7 @@ Pour installer l’agent, exécutez la commande ci-après dans une console Power
 MARSAgentInstaller.exe /q
 ```
 
-Cette opération installe l’agent avec les options par défaut. L’installation s’effectue en arrière-plan et prend quelques minutes. Si vous ne spécifiez pas l’option */nu* , la fenêtre **Windows Update** s’ouvre à la fin de l’installation pour rechercher des mises à jour.
+Cette opération installe l’agent avec les options par défaut. L’installation s’effectue en arrière-plan et prend quelques minutes. Si vous ne spécifiez pas l’option */nu*, la fenêtre **Windows Update** s’ouvre à la fin de l’installation pour rechercher des mises à jour.
 
 L’agent apparaît dans la liste des programmes installés. Pour afficher la liste des programmes installés, cliquez sur **Panneau de configuration** > **Programmes** > **Programmes et fonctionnalités**.
 
@@ -140,7 +140,7 @@ Les options disponibles incluent :
 | /pu |Nom d’utilisateur de l’hôte proxy |- |
 | /pw |Mot de passe du proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Inscription de DPM dans un coffre Recovery Services
+## <a name="registering-dpm-to-a-recovery-services-vault"></a>Inscription de DPM auprès d’un coffre Recovery Services
 
 Une fois que vous avez créé un coffre Recovery Services, téléchargez le dernier agent et les informations d’identification de coffre et stockez-les dans un emplacement pratique comme C:\Téléchargements.
 
@@ -177,7 +177,7 @@ Une fois que le serveur DPM est inscrit auprès du coffre Recovery Services, il 
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Toutes les modifications sont apportées à cet objet PowerShell local ```$setting```. L’objet complet est ensuite validé vers DPM et la Sauvegarde Azure à des fins d’enregistrement à l’aide de l’applet de commande [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). Vous devez utiliser l’indicateur ```–Commit``` pour vous assurer que les modifications sont conservées. Les paramètres ne sont pas appliqués ni utilisés par Sauvegarde Azure tant qu’ils ne sont pas validés.
+Toutes les modifications sont apportées à cet objet PowerShell local ```$setting```. L’objet complet est ensuite validé vers DPM et la Sauvegarde Azure à des fins d’enregistrement à l’aide de l’applet de commande [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). Vous devez utiliser l’indicateur ```–Commit``` pour vous assurer que les modifications sont conservées. Les paramètres ne sont pas appliqués ni utilisés par la sauvegarde Azure tant qu’ils ne sont pas validés.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -185,7 +185,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="networking"></a>Mise en réseau
 
-Si la connectivité entre l’ordinateur DPM et le service Azure Backup sur Internet est établie via un serveur proxy, les paramètres du serveur proxy doivent être fournis pour que les sauvegardes soient réussies. Pour cela, utilisez les paramètres ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` et ```ProxyPassword``` avec l’applet de commande [DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes informations concernant un proxy.
+Si la connectivité entre l’ordinateur DPM et le service Azure Backup sur Internet est établie via un serveur proxy, les paramètres du serveur proxy doivent être fournis pour que les sauvegardes soient réussies. Pour cela, utilisez les paramètres ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` et ```ProxyPassword``` avec l’applet de commande [DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019). Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes les informations relatives au proxy.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -220,7 +220,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 ```
 
 > [!IMPORTANT]
-> Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
+> Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pouvez pas restaurer les données à partir d’Azure sans cette phrase secrète.
 >
 >
 
@@ -262,7 +262,7 @@ Chaque agent DPM connaît la liste des sources de données sur le serveur sur le
 3. Extrayez une liste de toutes les sources de données sur le serveur.
 4. Choisissez une ou plusieurs sources de données et ajoutez-les au groupe de protection.
 
-Vous pouvez obtenir la liste des serveurs sur lesquels l’agent DPM est installé et géré par le serveur DPM à l'aide de l’applet de commande [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . Dans cet exemple, nous allons filtrer et configurer uniquement PS avec une sauvegarde nommée *productionserver01* .
+Vous pouvez obtenir la liste des serveurs sur lesquels l’agent DPM est installé et géré par le serveur DPM à l'aide de l’applet de commande [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . Dans cet exemple, nous allons filtrer et configurer uniquement PowerShell avec la sauvegarde nommée *productionserver01*.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
@@ -321,7 +321,7 @@ Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 
 Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-Dans l’exemple ci-dessus, ```$onlineSch``` est un tableau constitué de quatre éléments qui contient la planification de protection en ligne existante pour le groupe de protection dans le schéma GFS :
+Dans l'exemple ci-dessus, ```$onlineSch``` est un tableau avec quatre éléments qui contient la planification de protection en ligne existante pour le groupe de protection dans le schéma GFS :
 
 1. ```$onlineSch[0]``` contient la planification quotidienne
 2. ```$onlineSch[1]``` contient la planification hebdomadaire

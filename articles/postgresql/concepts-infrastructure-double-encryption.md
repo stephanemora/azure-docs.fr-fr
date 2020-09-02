@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067492"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918092"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database pour PostgreSQL - Chiffrement double d’infrastructure
 
@@ -62,6 +62,12 @@ Les fonctionnalités de chiffrement fournies par Azure Database pour PostgreSQL 
 Pour Azure Database pour PostgreSQL, la prise en charge du double chiffrement de l’infrastructure à l’aide de la clé gérée par le service présente les limitations suivantes :
 
 * La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
+* Vous pouvez créer un Azure Database pour PostgreSQL avec un double chiffrement d’infrastructure activé dans les régions suivantes :
+
+   * USA Est
+   * États-Unis - partie centrale méridionale
+   * USA Ouest 2
+   
 * Cette fonctionnalité est uniquement prise en charge dans les régions et les serveurs qui prennent en charge jusqu’à 16 To de stockage. Pour obtenir la liste des régions Azure qui prennent en charge le stockage jusqu’à 16 To, reportez-vous à la [documentation du stockage](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

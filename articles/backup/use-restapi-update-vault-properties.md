@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment mettre à jour la configuratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513113"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890040"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 
@@ -17,7 +17,7 @@ Cet article explique comment mettre à jour les configurations liées à la sauv
 
 ## <a name="soft-delete-state"></a>État de suppression réversible
 
-La suppression des sauvegardes d’un élément protégé est une opération importante qui doit être supervisée. Pour vous protéger contre les suppressions accidentelles, le coffre Azure Recovery Services dispose d’une fonctionnalité de suppression réversible. Cette fonctionnalité permet aux clients de restaurer des sauvegardes supprimées, si nécessaire, au cours d’une période après la suppression.
+La suppression des sauvegardes d’un élément protégé est une opération importante qui doit être supervisée. Pour vous protéger contre les suppressions accidentelles, le coffre Azure Recovery Services dispose d’une fonctionnalité de suppression réversible. Cette fonctionnalité vous permet de restaurer des sauvegardes supprimées, si nécessaire, au cours d’une période après la suppression.
 
 Toutefois, il existe des scénarios dans lesquels cette fonctionnalité n’est pas nécessaire. Un coffre Azure Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde, même dans l’état de suppression réversible. Cela peut poser un problème si le coffre doit être supprimé immédiatement. Par exemple, les opérations de déploiement nettoient souvent les ressources créées dans le même workflow. Un déploiement peut créer un coffre, configurer des sauvegardes pour un élément, effectuer une restauration de test, puis supprimer les éléments de sauvegarde et le coffre. En cas d’échec de la suppression du coffre, l’intégralité du déploiement peut échouer. La désactivation de la suppression réversible est le seul moyen de garantir la suppression immédiate.
 
@@ -65,7 +65,7 @@ Une fois la demande « GET » envoyée, une réponse 200 (réussite) est retou
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Mettre à jour l’état de suppression réversible à l’aide de l’API REST
 
-Pour mettre à jour l’état de suppression réversible du coffre Recovery Services à l’aide de l’API REST, utilisez l’opération *PATCH* suivante :
+Pour mettre à jour l’état de suppression réversible du coffre Recovery Services à l’aide de l’API REST, utilisez l’opération *PATCH* suivante
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -103,7 +103,7 @@ L’exemple suivant permet de définir l’état de suppression réversible sur 
 }
 ```
 
-#### <a name="responses"></a>Réponses
+#### <a name="responses-for-the-patch-operation"></a>Réponses à l’opération PATCH
 
 La réponse correcte pour l’opération « PATCH » est indiquée ci-dessous :
 
@@ -111,7 +111,7 @@ La réponse correcte pour l’opération « PATCH » est indiquée ci-dessous�
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>Exemple de réponse
+##### <a name="example-response-for-the-patch-operation"></a>Exemple de réponse à l’opération PATCH
 
 Une fois la demande « PATCH » envoyée, une réponse 200 (réussite) est retournée.
 

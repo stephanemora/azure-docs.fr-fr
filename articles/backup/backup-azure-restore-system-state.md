@@ -3,12 +3,12 @@ title: Restaurer l’état du système sur un serveur Windows Server
 description: Explication étape par étape pour la restauration de l’état du système Windows Server à partir d’une sauvegarde dans Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263433"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892539"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 

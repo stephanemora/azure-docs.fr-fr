@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287224"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890912"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -34,7 +34,7 @@ Le diagramme montre les composants d’un espace de travail suivants :
 
 + Un espace de travail peut contenir des [instances de calcul Azure Machine Learning](concept-compute-instance.md), des ressources cloud configurées avec l’environnement Python nécessaire pour exécuter Azure Machine Learning.
 
-+ Les [rôles d’utilisateur](how-to-assign-roles.md) vous permettent de partager votre espace de travail avec d’autres utilisateurs, équipes ou projets.
++ Les [rôles utilisateur](how-to-assign-roles.md) vous permettent de partager votre espace de travail avec d’autres utilisateurs, équipes ou projets.
 + Les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-targets) vous permettent d’exécuter vos expériences.
 + Lorsque vous créez l’espace de travail, les [ressources associées](#resources) sont également créées à votre place.
 + Les [expériences](concept-azure-machine-learning-architecture.md#experiments) sont des exécutions d’entraînement qui vous permettent de créer vos modèles.  
@@ -89,7 +89,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a> Créer un espace de travail
 
-Lorsque vous créez un espace de travail, vous décidez de le créer avec [l’édition De base ou Enterprise](overview-what-is-azure-ml.md#sku). L’édition détermine les fonctionnalités disponibles dans l’espace de travail. Parmi d’autres fonctionnalités, l’édition Enterprise vous permet d’accéder au [concepteur Azure Machine Learning](concept-designer.md) et à la version studio de la génération [d’expériences Machine Learning automatisées](tutorial-first-experiment-automated-ml.md).  Pour plus de détails et pour obtenir des informations sur la tarification, consultez [Tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Lorsque vous créez un espace de travail, vous décidez de le créer avec [l’édition De base ou Enterprise](overview-what-is-azure-ml.md#sku). L’édition détermine les fonctionnalités disponibles dans l’espace de travail. Parmi d’autres fonctionnalités, l’édition Enterprise vous permet d’accéder au [concepteur Azure Machine Learning](concept-designer.md) et à la version studio de la génération [d’expériences Machine Learning automatisées](tutorial-first-experiment-automated-ml.md).  Pour obtenir des informations complémentaires ainsi que des informations sur les tarifs, consultez [Tarification Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Il existe plusieurs moyens de créer un espace de travail :  
 
@@ -117,8 +117,16 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 > [!NOTE]
 > En plus de créer de nouvelles versions, vous pouvez utiliser les services Azure existants.
 
+### <a name="azure-storage-account"></a>Compte Azure Storage
+
+Le compte Stockage Azure créé par défaut avec l’espace de travail est un compte v1 universel. Vous pouvez le mettre à niveau vers un compte v2 universel après avoir créé l’espace de travail en suivant les étapes décrites dans l’article [Mettre à niveau vers un compte de stockage v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+
 > [!IMPORTANT]
-> Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni l’espace de noms hiérarchique ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
+> N’activez pas l’espace de noms hiérarchique sur le compte de stockage après une mise à niveau vers un compte v2 universel.
+
+Si vous souhaitez utiliser un compte de stockage Azure existant, il ne doit pas s’agir d’un compte Premium (Premium_LRS ou Premium_GRS). Il ne peut pas non plus comporter d’espace de noms hiérarchique (utilisé avec Azure Data Lake Storage Gen2). Ni le stockage Premium ni les espaces de noms hiérarchiques ne sont pris en charge avec le compte de stockage _par défaut_ de l’espace de travail. Ils peuvent en revanche être utilisés avec des comptes de stockage _autres que les comptes par défaut_.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

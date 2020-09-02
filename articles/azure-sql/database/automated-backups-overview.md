@@ -5,18 +5,18 @@ description: Azure SQL Database et Azure SQL Managed Instance créent automatiqu
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921943"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853213"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -36,19 +36,24 @@ Quand vous restaurez une base de données, le service identifie les sauvegardes 
 
 ### <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
-> [!IMPORTANT]
-> La redondance de stockage configurable pour les sauvegardes n’est actuellement disponible que pour SQL Managed Instance et ne peut être spécifiée que pendant le processus de création d’une instance gérée. Une fois que la ressource est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde.
+Par défaut, SQL Database et SQL Managed Instance stockent les données dans des [objets BLOB de stockage](../../storage/common/storage-redundancy.md) géo-redondants (RA-GRS) qui sont répliqués dans une [région couplée](../../best-practices-availability-paired-regions.md). Cela permet de se protéger contre les pannes affectant le stockage de sauvegarde dans la région primaire et vous permet de restaurer votre serveur dans une autre région en cas de sinistre. 
 
-L’option de configuration de la redondance du stockage de sauvegarde offre la possibilité de choisir entre des [objets BLOB de stockage](../../storage/common/storage-redundancy.md) à redondance locale (LRS), redondant dans une zone (ZRS) ou géo-redondant (RA-GRS). La redondance de stockage stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. Cette fonctionnalité n’est pas disponible actuellement pour SQL Managed Instance.
+SQL Managed Instance introduit la possibilité de modifier la redondance du stockage en blocs de stockage localement redondant (LRS) ou redondant interzone (ZRS) afin de garantir que vos données restent dans la même région que celle où votre instance gérée est déployée. La redondance de stockage stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. 
 
-Les objets BLOB de stockage RA-GRS sont répliqués dans une [région couplée](../../best-practices-availability-paired-regions.md) pour se protéger contre les pannes affectant le stockage de sauvegarde dans la région primaire et vous permettent de restaurer votre serveur dans une autre région en cas de sinistre. 
+L’option de configuration de la redondance du stockage de sauvegarde offre la possibilité de choisir entre des objets blob de stockage localement redondant (LRS), de stockage redondant interzone (ZRS) ou de stockage géographiquement redondant avec accès en lecture (RA-GRS) pour une instance Azure SQL Managed Instance. Configurez la redondance de stockage de sauvegarde pendant le processus de création d’une instance gérée car, une fois la ressource approvisionnée, il n’est plus possible de modifier la redondance de stockage. (Pour le moment, le stockage redondant interzone (ZRS) est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-À l’inverse, les objets BLOB de stockage LRS et ZRS garantissent que vos données restent dans la même région où votre SQL Database ou votre Managed Instance SQL est déployée. Pour l’instant, le stockage redondant interzone (ZRS) est uniquement disponible dans [certaines régions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 > [!IMPORTANT]
 > Dans SQL Managed Instance, la redondance de sauvegarde configurée est appliquée aux paramètres de rétention de sauvegarde à long terme utilisés pour la restauration dans le temps (PITR) et les sauvegardes de rétention à long terme utilisées pour les sauvegardes à long terme (LTR).
 
+
+> [!NOTE]
+> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion privée limitée pour certains clients dans la région Azure Asie Sud-Est. Si vous souhaitez être pris en compte pour l’inscription dans cette préversion privée, contactez [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com). 
+
+Si vos règles de protection des données nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](long-term-retention-overview.md) à la fois pour les bases de données uniques et mises en pool.
+
 ### <a name="backup-usage"></a>Utilisation de la sauvegarde
+
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 

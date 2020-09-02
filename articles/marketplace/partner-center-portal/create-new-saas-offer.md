@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604742"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856067"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la Place de marché commerciale
 
@@ -234,7 +234,7 @@ Deux types de modifications sont proposées aux éditeurs de la place de marché
 
 #### <a name="terms-and-conditions"></a>Conditions générales
 
-Si vous souhaitez fournir vos propres conditions générales, vous pouvez les saisir dans le champ Conditions générales. Vous pouvez saisir jusqu’à 10 000 caractères dans ce champ. Si vos conditions générales nécessitent une description plus longue, saisissez un lien URL unique dans ce champ où trouver les conditions générales. Ceci affichera un lien actif aux clients.
+Si vous souhaitez fournir vos propres conditions générales, vous pouvez les saisir dans le champ Conditions générales. Vous pouvez saisir jusqu’à 10 000 caractères dans ce champ. Si vos conditions générales nécessitent une description plus longue, saisissez un lien URL unique dans ce champ où trouver les conditions générales.
 
 Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
 
@@ -282,18 +282,19 @@ Ce champ est obligatoire.
 #### <a name="files-and-images"></a>Fichiers et images
 
 - **Documents** (obligatoire) : ajoutez des documents marketing connexes à votre offre, au format PDF, au minimum un et au maximum trois documents par offre.
-- **Images** - Chargez des images de logo au format PNG :
+- **Images** (obligatoire) – Il existe plusieurs lieux où les images du logo de votre offre peuvent apparaître sur les places de marché. Fournissez un fichier PNG pour le logo de **Grande** taille. L'Espace partenaires l'utilisera pour créer un logo **Petit** et **Moyen**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
 
-  - **Petite** (48 x 48 pixels, requise)
-  - **Moyenne** (90 x 90 pixels, requise)
-  - **Grande** (216 x 216 pixels, requise)
-  - **Immense** (255 x 115 pixels) (facultative)
+  - **Grand** (de 216 x 216 à 350 x 350 px, obligatoire)
+  - **Moyen** (90 x 90 px, facultatif)
+  - **Petit** (48 x 48 px, facultatif)
+  
+  Ces logos sont utilisés à différents emplacements dans la liste :
 
-   Ces trois tailles de logo sont utilisées à différents emplacements dans les magasins en ligne :
+   - Le grand logo apparaît sur la page de votre liste d’offres dans la Place de marché Azure et Microsoft AppSource.
+   - Le logo moyen s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
+   - Le petit logo s’affiche dans les résultats de recherche de la Place de marché Azure et dans la page principale de Microsoft AppSource et la page des résultats de recherche.
 
-   -   Le petit logo (48 x 48 pixels) s’affiche dans les résultats de recherche de la place de marché Azure et dans la page principale de Microsoft AppSource et les pages de résultats de recherche. 
-   -   Le logo moyen (90 x 90 pixels) s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
-   -   Le grand logo (entre 216 x 216 et 350 x 350 pixels) apparaît sur la page de votre liste d’offres dans la Place de marché Azure et Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Captures d’écran** (obligatoire) : ajoutez au maximum cinq captures d’écran illustrant votre offre, dimensionnées à 1280 x 720 pixels. Toutes les images doivent être au format .PNG.
 - **Vidéos** (facultatif) : ajoutez des liens vers des vidéos présentant votre offre. Vous pouvez utiliser des liens de vidéos YouTube et/ou Vimeo, qui seront présentées aux clients en même temps que votre offre. Vous devez également inclure une miniature de la vidéo, au format PNG de 1280 x 720 pixels. Vous pouvez afficher un maximum de quatre vidéos par offre.

@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926482"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826716"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -24,19 +24,19 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 
 Une fois que vous avez créé et configuré un coffre Recovery Services, la découverte des bases de données et de la configuration de la sauvegarde est un processus en deux étapes.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Objectif de sauvegarde - SQL Server dans une machine virtuelle Azure](./media/backup-azure-sql-database/sql.png)
 
-Pendant la configuration de la sauvegarde, si la machine virtuelle SQL et ses instances ne sont pas visibles dans les **bases de données de détection dans les machines virtuelles** et dans **Configurer la sauvegarde** (voir l’image ci-dessus), assurez-vous que :
+Pendant la configuration de la sauvegarde, si la machine virtuelle SQL et ses instances ne sont pas visibles dans les **bases de données de détection dans les machines virtuelles** et dans **Configurer la sauvegarde** (voir l’image ci-dessus), assurez-vous que :
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Étape 1 : Bases de données de détection dans les machines virtuelles
 
-- Si la machine virtuelle n’est pas répertoriée dans la liste des machines virtuelles détectées et qu’elle n’est pas inscrite pour la sauvegarde SQL dans un autre coffre, suivez les étapes de la [sauvegarde SQL Server de détection](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases).
+- Si la machine virtuelle n’est pas listée dans la liste des machines virtuelles découvertes et qu’elle n’est pas inscrite pour la sauvegarde SQL dans un autre coffre, suivez les étapes de la [sauvegarde SQL Server de découverte](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases).
 
 ### <a name="step-2-configure-backup"></a>Étape 2 : Configurez une sauvegarde
 
 - Si le coffre dans lequel la machine virtuelle SQL est inscrite est le même coffre que celui utilisé pour protéger les bases de données, suivez les étapes [Configurer la sauvegarde](./backup-sql-server-database-azure-vms.md#configure-backup).
 
-Si la machine virtuelle SQL doit être inscrite dans le nouveau coffre, elle doit être désinscrite de l’ancien coffre.  Pour désinscrire une machine virtuelle SQL du coffre, vous devez arrêter toutes les sources de données protégées. Ensuite, vous pourrez supprimer les données sauvegardées. La suppression des données sauvegardées est une opération destructrice.  Une fois que vous avez consulté et pris toutes les précautions nécessaires pour annuler l’inscription de la machine virtuelle SQL, inscrivez cette même machine virtuelle dans un nouveau coffre et réessayez l’opération de sauvegarde.
+Si la machine virtuelle SQL doit être inscrite dans le nouveau coffre, elle doit être désinscrite de l’ancien coffre.  Pour désinscrire une machine virtuelle SQL du coffre, vous devez arrêter toutes les sources de données protégées. Ensuite, vous pourrez supprimer les données sauvegardées. La suppression des données sauvegardées est une opération destructrice.  Une fois que vous avez passé en revue et pris toutes les précautions nécessaires pour annuler l’inscription de la machine virtuelle SQL, inscrivez cette même machine virtuelle auprès d’un nouveau coffre et réessayez l’opération de sauvegarde.
 
 ## <a name="troubleshoot-backup-and-recovery-issues"></a>Résoudre les problèmes de sauvegarde et de récupération  
 
@@ -62,7 +62,7 @@ Dans certains cas, des échecs aléatoires peuvent se produire lors d’opérati
 
 | severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
-| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions n’est possible. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge sont ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde à la demande.
+| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions ne sont possibles. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge sont ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde à la demande.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -113,6 +113,13 @@ Dans certains cas, des échecs aléatoires peuvent se produire lors d’opérati
 |---|---|---|
 | Restore failed as the database could not be brought offline. (Échec de la restauration car la base de données n’a pas pu être mise hors connexion.) | Pendant que vous effectuez une restauration, la base de données cible doit être mise hors connexion. Sauvegarde Azure ne peut pas mettre ces données hors connexion. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Pour plus d’informations, consultez la [documentation SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Message d’erreur |Causes possibles  |Action recommandée  |
+|---------|---------|---------|
+|Une erreur d’entrée/de sortie s’est produite durant l’opération. Recherchez les erreurs d’E/S courantes sur la machine virtuelle.   |   Autorisations d’accès ou contraintes d’espace sur la cible.       |  Recherchez les erreurs d’E/S courantes sur la machine virtuelle. Vérifiez que le lecteur/partage réseau cible sur l’ordinateur : <li> dispose d’une autorisation en lecture/écriture pour le compte NT AUTHORITY\SYSTEM sur l’ordinateur. <li> a suffisamment d’espace pour que l’opération se termine correctement.<br> Pour plus d’informations, consultez [Restaurer sous forme de fichiers](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Message d’erreur | Causes possibles | Action recommandée |
@@ -153,19 +160,19 @@ Dans certains cas, des échecs aléatoires peuvent se produire lors d’opérati
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-L’opération est bloquée, car vous avez atteint la limite du nombre d’opérations autorisées en 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. <br> Par exemple : Si vous avez atteint la limite du nombre de tâches de sauvegarde de configuration qui peuvent être déclenchées par jour et que vous essayez de configurer la sauvegarde sur un nouvel élément, cette erreur s’affiche. | En règle générale, le fait de retenter l’opération après 24 heures résout ce problème. Toutefois, si le problème persiste, vous pouvez contacter le support technique Microsoft pour obtenir de l’aide.
+L’opération est bloquée, car vous avez atteint la limite du nombre d’opérations autorisées en 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur s’affiche. <br> Par exemple : Si vous avez atteint la limite du nombre de tâches de sauvegarde de configuration qui peuvent être déclenchées par jour et que vous essayez de configurer la sauvegarde sur un nouvel élément, cette erreur s’affiche. | En règle générale, le fait de retenter l’opération après 24 heures résout ce problème. Toutefois, si le problème persiste, vous pouvez contacter le support technique Microsoft pour obtenir de l’aide.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. Cette erreur se produit généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service Sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple : si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
+L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur s’affiche. Cette erreur s’affiche généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service de sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple : si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de Sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| - Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure vers Sauvegarde Azure, le service Sauvegarde Azure, Stockage Azure ou les services Azure Active Directory. Suivez ces [étapes](./backup-sql-server-database-azure-vms.md#nsg-tags) pour autoriser l’accès.<br>- Assurez-vous que DNS résout les points de terminaison Azure.<br>- Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles.<br>- Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
+La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| - Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser l’étiquette de service AzureBackup pour autoriser l’accès sortant au service de sauvegarde Azure, au stockage Azure ou aux services Azure Active Directory. Suivez ces [étapes](./backup-sql-server-database-azure-vms.md#nsg-tags) pour autoriser l’accès.<br>- Assurez-vous que DNS résout les points de terminaison Azure.<br>- Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles.<br>- Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
 
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 
@@ -175,7 +182,7 @@ Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déc
 - Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
 
   - absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;
-  - arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu ;
+  - Arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu.
   - problèmes de réseau.
 
    ![Réinscription de machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
@@ -261,7 +268,7 @@ Dans le contenu précédent, vous pouvez obtenir le nom logique du fichier de ba
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Ce fichier doit être placé avant de déclencher l’opération de restauration.
 

@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433245"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691273"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Création et partage d’un espace de travail Azure Machine Learning Studio (classique)
 
@@ -70,7 +70,7 @@ Si vous rencontrez un problème lors de la création de votre espace de travail,
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Partager un espace de travail Azure Machine Learning Studio (classique)
-Une fois l’espace de travail Machine Learning Studio (classique) créé, vous pouvez inviter des utilisateurs à partager l’accès à celui-ci et à l’ensemble de ses expériences, jeux de données, notebooks, etc. Vous pouvez ajouter des utilisateurs dans l’un des deux rôles :
+Une fois l’espace de travail Machine Learning Studio (classique) créé, vous pouvez inviter des utilisateurs à partager l’accès à celui-ci et à l’ensemble de ses expériences, jeux de données, etc. Vous pouvez ajouter des utilisateurs dans l’un des deux rôles :
 
 * **Utilisateur** : un utilisateur de l’espace de travail peut créer, ouvrir, modifier et supprimer des expérimentations, jeux de données, etc. dans l’espace de travail.
 * **Propriétaire** : un propriétaire peut inviter et supprimer des utilisateurs dans l’espace de travail, ainsi que les actions qu’ils sont autorisés à effectuer.

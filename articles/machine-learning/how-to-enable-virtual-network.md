@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506496"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824200"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolement réseau pendant l’entraînement et l’inférence avec les réseaux virtuels privés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -366,6 +366,12 @@ Pour ce faire, il y a deux manières de procéder :
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Si vous utilisez les régions USA Virginie, USA Arizona ou les régions Chine Est 2, ces commandes ne retournent aucune adresse IP. Utilisez plutôt un des liens suivants pour télécharger une liste d’adresses IP :
+        >
+        > * [Plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062)
     
     Lorsque vous ajoutez les UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez __Type de tronçon suivant__ sur __Internet__. L’illustration suivante propose un exemple de cet UDR dans le portail Azure :
 

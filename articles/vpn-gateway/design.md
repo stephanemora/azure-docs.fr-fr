@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302311"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852705"
 ---
 # <a name="vpn-gateway-design"></a>Conception de la passerelle VPN
 
@@ -26,6 +26,8 @@ Il est important de savoir qu’il existe différentes configurations disponible
 Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux. Une connexion site à site nécessite un appareil VPN local auquel est assignée une adresse IP publique. Pour plus d’informations sur la sélection d’un périphérique VPN, consultez [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s) (FAQ sur la passerelle VPN - Périphériques VPN).
 
 ![Exemple de connexion site à site de passerelle VPN Azure](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+La passerelle VPN peut être configurée en mode actif/en attente à l’aide d’une adresse IP publique ou en mode actif/actif à l’aide de deux adresses IP publiques. En mode actif/de secours, un tunnel IPsec est actif et l’autre est en veille. Dans cette configuration, le trafic transite par le tunnel actif et, si un problème se produit avec ce tunnel, le trafic bascule vers le tunnel de secours. La configuration d’une passerelle VPN en mode actif/actif est *recommandée* dans laquelle les deux tunnels IPsec sont simultanément actifs, les données transitant par les deux tunnels en même temps. L’un des avantages supplémentaires du mode actif/actif est que les clients bénéficient de débits plus élevés.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Multi-sites
 

@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547718"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717538"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -25,8 +25,7 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 > [!IMPORTANT]
 > Les stratégies personnalisées avec Guest Configuration sont une fonctionnalité en préversion.
 >
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez les définitions de stratégie suivantes :
-> - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle sur toutes les machines Linux, attribuez la définition de stratégie suivante : `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 

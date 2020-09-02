@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: b8b19b5bbb327c55b4f4103a133e77e73f0ae4bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088255"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853110"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP
 
@@ -101,7 +101,7 @@ Conditions préalables pour un partage de fichiers SMB :
 
 Le partage pour les services centraux SAP de cette architecture de référence est proposé par Azure NetApp Files :
 
-![Architecture à haute disponibilité SAP ASCS/SCS avec partage SMB](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-detail.png)
+![Détails sur l’architecture à haute disponibilité SAP ASCS/SCS avec partage SMB](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-detail.png)
 
 ## <a name="create-and-mount-smb-volume-for-azure-netapp-files"></a>Créer et monter un volume SMB pour Azure NetApp Files
 
@@ -112,8 +112,8 @@ Procédez comme suit pour préparer l’utilisation d’Azure NetApp Files.
 3. Configurez le pool de capacité, en suivant les instructions de la rubrique [Configurer un pool de capacité](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
 4. Les ressources d’Azure NetApp Files doivent résider dans un sous-réseau délégué. Suivez les instructions de la rubrique [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) pour créer un sous-réseau délégué.  
 
-> [!IMPORTANT]
-> Vous devez créer des connexions Active Directory avant de créer un volume SMB. Passez en revue la [configuration requise pour les connexions Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > [!IMPORTANT]
+   > Vous devez créer des connexions Active Directory avant de créer un volume SMB. Passez en revue la [configuration requise pour les connexions Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
 
 5. Créez la connexion Active Directory, comme décrit dans [Créer une connexion Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
 6. Créez un volume SMB Azure NetApp Files, en suivant les instructions fournies dans [Ajouter un volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
@@ -124,15 +124,11 @@ Procédez comme suit pour préparer l’utilisation d’Azure NetApp Files.
 
 ## <a name="prepare-the-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster"></a>Préparer l’infrastructure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows 
 
-1. [Définissez l’adresse IP DNS requise](./sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e)  
-2. [Définissez des adresses IP statiques pour les machines virtuelles SAP](./sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30).
-3. [Définissez une adresse IP statique pour l’équilibrage de charge interne Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e).
-4. [Définissez des règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibrage de charge interne Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c).
-5. [Changer les règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibreur de charge interne Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716).
-6. [Ajoutez des machines virtuelles Windows au domaine](./sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c).
-7. [Ajoutez des entrées de registre aux deux nœuds de cluster de l’instance SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158)
-8. [Configurez un cluster de basculement Windows Server pour une instance SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
-9. Si vous utilisez Windows Server 2016, nous vous recommandons de configurer un [témoin Azure Cloud](/windows-server/failover-clustering/deploy-cloud-witness).
+1. [Définissez les règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibreur de charge interne Azure](./sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716).
+2. [Ajoutez des machines virtuelles Windows au domaine](./sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c).
+3. [Ajoutez des entrées de registre aux deux nœuds de cluster de l’instance SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md#661035b2-4d0f-4d31-86f8-dc0a50d78158)
+4. [Configurez un cluster de basculement Windows Server pour une instance SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+5. Si vous utilisez Windows Server 2016, nous vous recommandons de configurer un [témoin Azure Cloud](/windows-server/failover-clustering/deploy-cloud-witness).
 
 
 ## <a name="install-sap-ascs-instance-on-both-nodes"></a>Installer l’instance SAP ASCS sur les deux nœuds
@@ -150,13 +146,13 @@ Vous avez besoin des logiciels suivants de SAP :
 1. Installez une instance ASCS/SCS SAP sur le premier nœud de cluster. Démarrez l’outil d’installation de SAP SWPM, puis accédez à : **Product (Produit)**  > **DBMS (SGBD)** > Installation > Application Server ABAP (ou Java) > High-Availability System (Système haute disponibilité) > ASCS/SCS instance (Instance ASCS/SCS) > First cluster node (Premier nœud de cluster).  
 
 2. Sélectionnez **File Share Cluster (Cluster de partage de fichiers)** en tant que configuration de partage de cluster dans SWPM.  
-3. Lorsque vous y êtes invité à l’étape **SAP System Cluster Parameters (Paramètres du cluster du système SAP)** , entrez le nom d’hôte du partage SMB Azure NetApp Files que vous avez déjà créé comme **File Share Host Name (Nom d’hôte du partage de fichiers)** .  Dans cet exemple, le nom d’hôte du partage SMB est **anfsmb-9562**. 
+3. Lorsque vous y êtes invité à l’étape **SAP System Cluster Parameters (Paramètres du cluster du système SAP)**, entrez le nom d’hôte du partage SMB Azure NetApp Files que vous avez déjà créé comme **File Share Host Name (Nom d’hôte du partage de fichiers)**.  Dans cet exemple, le nom d’hôte du partage SMB est **anfsmb-9562**. 
 
-> [!IMPORTANT]
-> Si les résultats de l’outil de vérification de la configuration requise dans SWPM indiquent que la fonctionnalité de disponibilité continue n’est pas remplie, vous pouvez résoudre ce problème en suivant les instructions figurant dans [Retard de message d’erreur lorsque vous essayez d’accéder à un dossier partagé qui n’existe plus dans Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  
+   > [!IMPORTANT]
+   > Si les résultats de l’outil de vérification de la configuration requise dans SWPM indiquent que la fonctionnalité de disponibilité continue n’est pas remplie, vous pouvez résoudre ce problème en suivant les instructions figurant dans [Retard de message d’erreur lorsque vous essayez d’accéder à un dossier partagé qui n’existe plus dans Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  
 
-> [!TIP]
-> Si les résultats de l’outil de vérification de la configuration requise dans SWPM indiquent qu’une condition de taille d’échange n’est pas remplie, vous pouvez ajuster la taille d’échange en accédant à Poste de travail > Propriétés système > Paramètres de performances > Options avancées > Mémoire virtuelle > Modifier.  
+   > [!TIP]
+   > Si les résultats de l’outil de vérification de la configuration requise dans SWPM indiquent qu’une condition de taille d’échange n’est pas remplie, vous pouvez ajuster la taille d’échange en accédant à Poste de travail > Propriétés système > Paramètres de performances > Options avancées > Mémoire virtuelle > Modifier.  
 
 4. Configurez une ressource de cluster SAP, le port de sonde `SAP-SID-IP`, à l’aide de PowerShell. Exécutez cette configuration sur l’un des nœuds de cluster SAP ASCS/SCS, comme décrit dans [Configurer le port de sonde](./sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
 

@@ -4,15 +4,15 @@ description: Résoudre les problèmes de niveau de performance connus avec les p
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009271"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782368"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -20,9 +20,9 @@ Cet article répertorie certains problèmes courants liés à des partages de fi
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Latence élevée, débit faible et problèmes généraux de niveau de performance
 
-### <a name="cause-1-share-experiencing-throttling"></a>Cause 1 : Limitation de bande passante lors du partage
+### <a name="cause-1-share-was-throttled"></a>Cause 1 : Le partage a été limité
 
-Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur l’approvisionnement et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) du guide de planification.
+Les requêtes sont limitées lorsque les limites d’IOPS, d’entrée ou de sortie d’un partage de fichiers sont atteintes. Pour comprendre les limites des partages de fichiers standard et Premium, consultez [Cibles de partage de fichiers et de mise à l’échelle des fichiers](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriques Azure dans le portail.
 
@@ -47,7 +47,8 @@ Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriqu
 
 ### <a name="solution"></a>Solution
 
-- Augmentez le partage de capacité approvisionnée en spécifiant un quota plus élevé pour votre partage.
+- Si vous utilisez un partage de fichiers standard, activez [partages de fichiers volumineux](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) sur votre compte de stockage. Les partages de fichiers volumineux prennent en charge jusqu’à 10 000 IOPS par partage.
+- Si vous utilisez un partage de fichiers premium, augmentez la taille du partage de fichiers configuré pour rehausser la limite d'IOPS. Pour en savoir plus, consultez la section [Comprendre l’approvisionnement pour les partages de fichiers premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) du guide de planification Azure Files.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Cause 2 : Métadonnées/charge de travail importante de l’espace de noms
 

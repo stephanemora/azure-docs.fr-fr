@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808625"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825577"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -22,7 +22,7 @@ Le public cible principal de cet article est l’informatique et les administrat
 
 ### <a name="how-this-article-is-organized"></a>Organisation de cet article
 
-Bien qu’il soit facile de commencer à protéger l’infrastructure et les applications sur Azure, lorsque vous vous assurez que les ressources Azure sous-jacentes sont correctement configurées et utilisées de manière optimale, vous pouvez accélérer votre temps de valeur. Cet article présente une brève présentation des considérations relatives à la conception et des conseils pour la configuration optimale de votre déploiement de sauvegarde Azure. Il examine les composants principaux (par exemple, coffre Recovery Services, la stratégie de sauvegarde) et les concepts (par exemple, la gouvernance) et comment les comparer et leurs fonctionnalités avec des liens vers la documentation détaillée du produit.
+Bien qu’il soit facile de commencer à protéger l’infrastructure et les applications sur Azure, lorsque vous vous assurez que les ressources Azure sous-jacentes sont correctement configurées et utilisées de manière optimale, vous pouvez accélérer votre temps de valeur. Cet article présente une brève présentation des considérations relatives à la conception et des conseils pour la configuration optimale de votre déploiement de sauvegarde Azure. Il examine les composants principaux (par exemple, coffre Recovery Services, stratégie de sauvegarde) et les concepts (par exemple la gouvernance) et comment les évaluer ainsi que leurs fonctionnalités, avec des liens vers la documentation détaillée du produit.
 
 ## <a name="architecture"></a>Architecture
 
@@ -48,7 +48,7 @@ Sauvegarde Azure active la protection des données pour différentes charges de 
 
 ### <a name="management-plane"></a>Plan de gestion
 
-* **Contrôle d'accès** – Le coffre Recovery Services fournit les fonctionnalités de gestion et est accessible via le Portail Azure, le kit de développement logiciel (SDK), l’interface CLI et même les API REST. Il s’agit également d’une limite RBAC, qui vous permet de limiter l’accès aux sauvegardes uniquement aux administrateurs de sauvegarde autorisés.
+* **Contrôle d’accès** – Le coffre Recovery Services fournit les fonctionnalités de gestion et est accessible par le biais du portail Azure, du SDK, de l’interface CLI et même des API REST. Il s’agit également d’une limite RBAC, qui vous permet de limiter l’accès aux sauvegardes uniquement aux administrateurs de sauvegarde autorisés.
 
 * **Gestion des stratégies** – Les stratégies de sauvegarde Azure dans chaque coffre définissent le moment où les sauvegardes doivent être déclenchées et la durée pendant laquelle elles doivent être conservées. Vous pouvez également gérer ces stratégies et les appliquer à plusieurs éléments.
 
@@ -72,7 +72,7 @@ Vous pouvez utiliser un coffre unique ou plusieurs coffres pour organiser et gé
 
 * Si vos charges de travail sont réparties entre les abonnements, vous pouvez créer plusieurs coffres, un ou plusieurs par abonnement.
   * Pour simplifier l’analyse des activités opérationnelles sur l’ensemble des coffres, abonnements et locataires, vous pouvez utiliser l’Explorateur de sauvegarde et les rapports. [Pour plus d’informations, consultez](monitor-azure-backup-with-backup-explorer.md) pour obtenir une vue agrégée.
-  * Si vous avez besoin d’une stratégie cohérente dans les coffres, vous pouvez utiliser une stratégie Azure pour propager la stratégie de sauvegarde dans plusieurs coffres. Vous pouvez écrire une [définition de stratégie Azure](../governance/policy/concepts/definition-structure.md) personnalisée qui utilise l’effet [« deployifnotexists »](../governance/policy/concepts/effects.md#deployifnotexists) pour propager une stratégie de sauvegarde dans plusieurs coffres. Vous pouvez [attribuer](../governance/policy/assign-policy-portal.md) cette définition de stratégie Azure à un domaine particulier (abonnement ou RG), de sorte qu'elle déploie une ressource de « politique de sauvegarde » dans tous les coffres Recovery services dans le cadre de l'attribution de la stratégie Azure. Les paramètres de la stratégie de sauvegarde (par exemple, la fréquence de sauvegarde, la rétention, etc.) doivent être spécifiés par l’utilisateur en tant que paramètres dans l’affectation de la stratégie Azure.
+  * Si vous avez besoin d’une stratégie cohérente dans les coffres, vous pouvez utiliser une stratégie Azure pour propager la stratégie de sauvegarde dans plusieurs coffres. Vous pouvez écrire une [définition de stratégie Azure](../governance/policy/concepts/definition-structure.md) personnalisée qui utilise l’effet [« deployifnotexists »](../governance/policy/concepts/effects.md#deployifnotexists) pour propager une stratégie de sauvegarde dans plusieurs coffres. Vous pouvez [attribuer](../governance/policy/assign-policy-portal.md) cette définition Azure Policy à un domaine particulier (abonnement ou RG), de sorte qu’elle déploie une ressource de « politique de sauvegarde » dans tous les coffres Recovery services dans le cadre de l’attribution Azure Policy. Les paramètres de la stratégie de sauvegarde (par exemple, la fréquence de sauvegarde, la rétention, etc.) doivent être spécifiés par l’utilisateur en tant que paramètres dans l’affectation de la stratégie Azure.
 
 * À mesure que l’encombrement de votre organisation augmente, vous souhaiterez peut-être déplacer les charges de travail entre les abonnements pour les raisons suivantes : aligner par stratégie de sauvegarde, consolider les coffres,compromis sur une redondance moindre pour économiser sur les coûts (passage de GRS à LRS).  Sauvegarde Azure permet de déplacer un coffre de Recovery Services entre les abonnements Azure, ou vers un autre groupe de ressources au sein du même abonnement. [En savoir plus ici](backup-azure-move-recovery-services-vault.md).
 
@@ -108,7 +108,7 @@ Respectez les consignes suivantes lorsque vous créez une stratégie de sauvegar
 
 * Rétention à long terme :
   * Planifiée (exigences de conformité) - si vous savez à l’avance que les données seront nécessaires pour les années à venir, utilisez la rétention à long terme.
-  * Non planifiée (exigence à la demande) - si vous ne le savez pas à l’avance, vous pouvez utiliser des paramètres de rétention personnalisée spécifiques (ces paramètres de rétention personnalisés ne sont pas affectés par les paramètres de stratégie).
+  * Non planifiée (exigence à la demande) - si vous ne le savez pas à l’avance, vous pouvez utiliser des paramètres de conservation personnalisés spécifiques (ces paramètres de conservation personnalisés ne sont pas affectés par les paramètres de stratégie).
 
 * Sauvegarde à la demande avec rétention personnalisée - si vous devez effectuer une sauvegarde non planifiée à l’aide d’une stratégie de sauvegarde, vous pouvez utiliser une sauvegarde à la demande. Cela peut être utile pour effectuer des sauvegardes qui ne correspondent pas à votre sauvegarde planifiée ou pour une sauvegarde granulaire (par exemple, plusieurs sauvegardes de machines virtuelles IaaS par jour, puisque la sauvegarde planifiée n’autorise qu’une seule sauvegarde par jour). Il est important de noter que la stratégie de rétention définie dans la stratégie planifiée ne s’applique pas aux sauvegardes à la demande.
 
@@ -175,7 +175,7 @@ La sauvegarde de machines virtuelles Azure nécessite un déplacement de donnée
 
 * *Sauvegarde machine virtuelle Azure* - toutes les opérations de communication et de transfert de données entre le stockage et le service Sauvegarde Azure se produisent uniquement sur le réseau principal Azure sans nécessité d’accéder à votre réseau virtuel. Par conséquent, la sauvegarde de machines virtuelles Azure placées dans des réseaux sécurisés ne vous oblige pas à autoriser l’accès à des adresses IP ou à des noms de domaine complets.
 
-* *Les bases de données SAP HANA ou SLQ Server s’exécutant sur une machine virtuelle Azure* nécessitent une connectivité avec le service Sauvegarde Azure, Stockage Azure et Azure Active Directory. Pour ce faire, vous pouvez utiliser des points de terminaison privés ou autoriser l’accès aux IP publiques ou aux noms de domaine complets (FQDN) requis. Le fait de ne pas permettre une connectivité appropriée aux services Azure requis peut entraîner l’échec d’opérations telles que la détection de base de données, la configuration de la sauvegarde, l’exécution de sauvegardes et la restauration de données. Pour obtenir une aide complète sur le réseau lors de l’utilisation des balises NSG, du pare-feu Azure et du proxy HTTP, reportez-vous aux articles [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) et [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity).
+* *Les bases de données SAP HANA ou SLQ Server s’exécutant sur une machine virtuelle Azure* nécessitent une connectivité avec le service Sauvegarde Azure, Stockage Azure et Azure Active Directory. Pour ce faire, vous pouvez utiliser des points de terminaison privés ou autoriser l’accès aux IP publiques ou aux noms de domaine complets (FQDN) requis. Le fait de ne pas permettre une connectivité appropriée aux services Azure requis peut entraîner l’échec d’opérations telles que la détection de base de données, la configuration de la sauvegarde, l’exécution de sauvegardes et la restauration de données. Pour obtenir une aide complète sur le réseau lors de l’utilisation des étiquettes de NSG, du pare-feu Azure et du proxy HTTP, reportez-vous aux articles [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) et [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity).
 
 * *Hybrides* - l’agent MARS (Microsoft Azure Recovery Services) requiert un accès réseau pour toutes les opérations critiques (installation, configuration, sauvegarde et restauration). L’agent MARS peut se connecter au service de sauvegarde Azure sur [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) à l’aide de l’appairage public (disponible pour les anciens circuits) et de l’homologation Microsoft, à l’aide de [points de terminaison privés](install-mars-agent.md#private-endpoints) ou via le [proxy/pare-feu avec les contrôles d’accès appropriés](install-mars-agent.md#verify-internet-access).
 
@@ -247,13 +247,13 @@ En tant qu’administrateur ou utilisateur de sauvegarde, vous devez être en me
 
 * Sauvegarde Azure fournit un mécanisme de notification**d’alerte intégré**par courrier électronique pour les défaillances, les avertissements et les opérations critiques. Vous pouvez spécifier des adresses e-mail individuelles ou des listes de distribution pour être informé de la génération d’une alerte. Vous pouvez également choisir d’être informé à chaque alerte ou de les grouper dans une synthèse horaire avant d’être informé.
   * Ces alertes sont définies par le service et assurent la prise en charge des scénarios limités (échecs de sauvegarde/restauration, arrêt de la protection avec conservation des données/arrêt de la protection avec suppression des données, etc.). [En savoir plus ici](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Si une opération destructive comme l’arrêt de la protection avec suppression des données est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont PAS configurées pour le coffre Recovery Services.
+  * Si une opération destructive comme l’arrêt de la protection avec suppression des données est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont **pas** configurées pour le coffre Recovery Services.
   * Certaines charges de travail peuvent générer une fréquence élevée d’échecs (par exemple, SQL Server toutes les 15 minutes). Pour éviter de saturer les alertes déclenchées pour chaque occurrence d’échec, les alertes sont consolidées. [En savoir plus ici](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Les alertes intégrées ne peuvent pas être personnalisées et sont limitées aux courriers électroniques définis dans le Portail Azure.
 
 * Si vous devez **créer des alertes personnalisées** (par exemple, des alertes de travaux réussis), utilisez Log Analytics. Dans Azure Monitor, vous pouvez créer vos propres alertes dans un espace de travail Log Analytics. Les charges de travail hybrides (DPM/MABS) peuvent également envoyer des données à LA et utiliser LA pour fournir des alertes courantes entre les charges de travail prises en charge par sauvegarde Azure.
 
-* Vous pouvez également recevoir des notifications par le biais des **journaux d’activité**du coffre Recovery Services. Toutefois, il prend en charge des scénarios limités et ne convient pas pour des opérations telles que la sauvegarde planifiée, qui s’aligne mieux avec les journaux de ressources qu’avec les journaux d’activité. Pour en apprendre davantage sur ces limitations et savoir comment utiliser un espace de travail Log Analytics pour la supervision et la génération d’alertes à grande échelle pour toutes vos charges de travail protégées par Sauvegarde Azure, consultez cet [article](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Vous pouvez également recevoir des notifications par le biais des **journaux d’activité** intégrés au coffre Recovery Services. Toutefois, ils prennent en charge des scénarios limités et ne conviennent pas pour des opérations telles que la sauvegarde planifiée, qui s’aligne mieux avec les journaux de ressources qu’avec les journaux d’activité. Pour en apprendre davantage sur ces limitations et savoir comment utiliser un espace de travail Log Analytics pour la supervision et la génération d’alertes à grande échelle pour toutes vos charges de travail protégées par Sauvegarde Azure, consultez cet [article](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

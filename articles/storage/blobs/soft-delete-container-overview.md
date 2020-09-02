@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066608"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854538"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -27,8 +27,8 @@ Pour la protection de bout en bout de vos données de blobs, Microsoft recommand
 - Suppression réversible de blob, pour vous protéger de la suppression ou du remplacement accidentel d’un blob. Pour savoir comment activer la suppression réversible de blob, consultez [Suppression réversible pour les blobs](soft-delete-blob-overview.md).
 - Contrôle de version des blobs (préversion), pour gérer automatiquement les versions précédentes d’un blob. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur. Pour savoir comment activer le contrôle de version des blobs, consultez [Activer et gérer le contrôle de version des blobs](versioning-enable.md).
 
-> [!IMPORTANT]
-> Pour empêcher toute suppression accidentelle d’un compte de stockage, configurez un verrou **CannotDelete** verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> La suppression d’un compte de stockage est irréversible. La suppression réversible ne protège pas contre la suppression d’un compte de stockage. Pour empêcher toute suppression accidentelle d’un compte de stockage, configurez un verrou **CannotDelete** verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Fonctionnement de la suppression réversible de conteneur
 

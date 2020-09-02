@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: dpalled
-ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8d9b166d4ac9290a0389eac23f9d6882f667e1a0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167995"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856099"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Ajout de la prise en charge du type de données long dans Azure Time Series Insights Gen2
 
@@ -33,7 +33,7 @@ Si vous êtes concerné par l’un des cas suivants, apportez les modifications 
 
 Si l’un des cas s’applique à vous, apportez des modifications à votre modèle. Mettez à jour l’expression de série chronologique (TSX) dans votre définition de variable en apportant les modifications recommandées. Mettez à jour :
 
-- l’Explorateur Azure Time Series Insights Gen2 ;
+- Explorateur Azure Time Series Insights TSI
 - tout client personnalisé qui utilise nos API.
 
 En fonction de votre solution IoT et de vos contraintes, vous risquez de ne pas avoir de visibilité des données envoyées à votre environnement Azure Time Series Insights Gen2. Si vous ignorez si vos données sont uniquement intégrales ou à la fois intégrales et non intégrales, plusieurs options s’offrent à vous.

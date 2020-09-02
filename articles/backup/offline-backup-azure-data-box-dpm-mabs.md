@@ -3,18 +3,18 @@ title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 8b585dc46eb2bdd54e48950ca861f0edc8f0a7ed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186761"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890023"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
 
 > [!NOTE]
 > Cette fonctionnalité s’applique à Data Protection Manager (DPM) 2019 UR2 et versions ultérieures.<br><br>
-> Cette fonctionnalité est actuellement disponible en préversion pour Serveur de sauvegarde Microsoft Azure (MABS). Si vous souhaitez utiliser Azure Data Box pour l’amorçage hors connexion avec MABS, contactez-nous sur [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> Cette fonctionnalité est actuellement disponible en préversion pour Serveur de sauvegarde Microsoft Azure (MABS). Si vous souhaitez utiliser Azure Data Box pour l’amorçage hors connexion avec MABS, contactez-nous à l’adresse [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
 
 Cet article explique comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion de DPM et MABS dans un coffre Azure Recovery Services.
 
@@ -58,16 +58,16 @@ Vérifiez les points suivants :
 
 - Un abonnement Azure valide.
 - L’utilisateur désigné pour exécuter la stratégie de sauvegarde hors connexion doit être propriétaire de l’abonnement Azure.
-- Le travail Data Box et le coffre Recovery Services (dans lequel les données doivent être amorcées) ont l’obligation d’être disponibles dans le même abonnement.
+- Le travail Data Box et le coffre Recovery Services (dans lequel les données doivent être amorcées) doivent obligatoirement être disponibles dans le même abonnement.
     > [!NOTE]
-    > Nous vous recommandons de situer le compte de stockage cible et le coffre Recovery Services dans la même région. Cependant, cela n'est pas obligatoire.
+    > Nous vous recommandons de situer le compte de stockage cible et le coffre Recovery Services dans la même région. Cependant, cela n’est pas obligatoire.
 
 ### <a name="order-and-receive-the-data-box-device"></a>Commander et recevoir l’appareil Data Box
 
 Assurez-vous que les appareils Data Box requis sont dans l’état *Livré* avant de déclencher la sauvegarde hors connexion. Pour commander le SKU qui répond le mieux à vos besoins, reportez-vous à [Taille des données de sauvegarde et SKU Data Box pris en charge](#backup-data-size-and-supported-data-box-skus). Suivez les étapes décrites dans [cet article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) pour commander et recevoir vos appareils Data Box.
 
 > [!IMPORTANT]
-> Ne sélectionnez pas *BlobStorage* pour le **Type de compte**. Le serveur DPM/MABS exige un compte qui prend en charge les objets blob de pages, ce qui n’est pas possible quand *BlobStorage* est sélectionné. Sélectionnez le **type de compte** **Stockage V2 (v2 universel)** lors de la création du compte de stockage cible pour votre travail Azure Data Box.
+> Ne sélectionnez pas *BlobStorage* pour le **type de compte**. Le serveur DPM/MABS exige un compte qui prend en charge les objets blob de pages, ce qui n’est pas possible quand *BlobStorage* est sélectionné. Sélectionnez le **type de compte** **Stockage V2 (v2 universel)** lors de la création du compte de stockage cible pour votre travail Azure Data Box.
 
 ![Configurer Azure Data Box](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -131,7 +131,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
     ![Choisir la réplication en ligne initiale](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > L’option permettant de sélectionner **Transférer à l’aide de disques appartenant à Microsoft** n’est pas disponible pour MABS v3, car la fonctionnalité est en préversion. Veuillez nous contacter à l’adresse [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) si vous souhaitez utiliser cette fonctionnalité pour MABS v3.
+    > L’option permettant de sélectionner **Transférer à l’aide de disques appartenant à Microsoft** n’est pas disponible pour MABS v3, car la fonctionnalité est en préversion. Contactez-nous à l’adresse [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) si vous souhaitez utiliser cette fonctionnalité pour MABS v3.
 
 12. Connectez-vous à Azure lorsque vous y êtes invité à l’aide des informations d’identification d’utilisateur qui disposent d’un accès propriétaire à l’abonnement Azure. Une fois la connexion établie, l’écran suivant s’affiche :
 
@@ -194,7 +194,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 Procédez comme suit une fois que la sauvegarde des données sur Azure Data Box Disk est réussie.
 
 - Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
-- [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box *effectué*, le serveur DPM/MABS déplace automatiquement les données depuis le compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué comme *Travail effectué* si un point de récupération a correctement été créé.
+- [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box *effectué*, le serveur DPM/MABS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué comme *Travail effectué* si un point de récupération a correctement été créé.
 
   > [!NOTE]
   > Le serveur DPM/MABS déclenche les sauvegardes aux heures planifiées pendant la création du groupe de protection. Toutefois, ces travaux indiquent *En attente de la fin du travail Azure Data Box* tant que le travail n’est pas terminé.
@@ -234,7 +234,7 @@ Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de co
 2. Si aucun autre serveur n’a d’amorçage hors connexion configuré et ne dépend de l’application `AzureOfflineBackup_<Azure User Id>`, supprimez cette application depuis **Portail Azure > Azure Active Directory > Inscriptions d’applications**.
 
    > [!NOTE]
-   > Vérifiez si l’application `AzureOfflineBackup_<Azure User Id>` n’a pas d’autre amorçage hors connexion configuré et si aucun autre serveur ne dépend de cette application. Accédez à **Paramètres > Clés**. Sous la section **Clés publiques**, aucune autre clé publique ne doit être ajoutée. Examinez la capture d’écran suivante à des fins de référence :
+   > Vérifiez si l’application `AzureOfflineBackup_<Azure User Id>` n’a pas d’autre amorçage hors connexion configuré et si aucun autre serveur ne dépend de cette application. Accédez à **Paramètres >Clés** sous la section Clés publiques. Elle ne doit pas avoir d’autres **clés publiques** ajoutées. Examinez la capture d’écran suivante à des fins de référence :
    >
    > ![Clés publiques](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 
@@ -260,7 +260,7 @@ Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de co
 6. Cliquez avec le bouton droit sur la chaîne ajoutée à l’étape ci-dessus, puis sélectionnez **Modifier**. Dans la valeur, fournissez l’empreinte du certificat que vous avez exporté au **point 2**, puis sélectionnez **OK**.
 7. Pour obtenir la valeur de l’empreinte, double-cliquez sur le certificat, sélectionnez **Détails** et faites défiler le contenu jusqu’à ce que le champ de l’empreinte apparaisse. Sélectionnez **Empreinte** et copiez la valeur.
 
-   ![Certificat](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Valeur de l’empreinte](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

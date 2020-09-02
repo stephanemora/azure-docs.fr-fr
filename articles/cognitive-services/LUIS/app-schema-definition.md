@@ -2,13 +2,13 @@
 title: Définition de schéma d’application
 description: L’application LUIS est représentée dans le `.json` ou `.lu` et comprend toutes les intentions, les entités, les exemples de énoncés, les fonctionnalités et les paramètres.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684346"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756786"
 ---
 # <a name="app-schema-definition"></a>Définition de schéma d’application
 
@@ -55,12 +55,30 @@ Lorsque vous importez et exportez l’application, choisissez `.json` ou `.lu`.
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| element                  | Commentaire                              |
+|--------------------------|--------------------------------------|
+| "hierarchicals" : [],     | Déprécié, utilisez [entités de machine-learning](luis-concept-entity-types.md).   |
+| "composites" : [],        | Déprécié, utilisez [entités de machine-learning](luis-concept-entity-types.md). Référence d’[entité composite](reference-entity-composite.md). |
+| "closedLists" : [],       | Référence d’[entités de liste](reference-entity-list.md), principalement utilisée comme fonctionnalités pour les entités.    |
+| "versionId" : "0.1",      | Version d’une application LUIS.|
+| "name" : "example-app",   | Nom de l’application LUIS. |
+| "desc" : "",              | Description facultative de l’application LUIS.  |
+| "culture" : "en-us",      | [Langue](luis-language-support.md) de l’application, a un impact sur les fonctionnalités sous-jacentes telles que les entités prédéfinies, le machine learning et le générateur de jetons.  |
+| "tokenizerVersion" : "1.0.0", | [Générateur de jetons](luis-language-support.md#tokenization)  |
+| "patternAnyEntities" : [],   | [Entité Pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities" : [],    |  [Entité d’expression régulière](reference-entity-regular-expression.md)   |
+| "phraselists" : [],       |  [Listes d’expressions (fonctionnalité)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features" : [],    |  Déprécié, utilisez [entités de machine-learning](luis-concept-entity-types.md). |
+| "patterns" : [],          |  [Les modèles améliorent la précision de la prédiction](luis-concept-patterns.md) avec la [syntaxe de modèle](reference-pattern-syntax.md)   |
+| "settings" : []           | [Paramètres de l’application](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Version 6.x
 

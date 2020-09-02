@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c928056ec0e7b101d991c8d8c8db3bd659251ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036826"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799126"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide de PowerShell
 
@@ -81,13 +81,16 @@ Le chiffrement du stockage Azure prend en charge les clés RSA et RSA-HSM dans l
 
 Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. Dans cette étape, configurez votre compte de stockage Azure pour utiliser des clés gérées par le client à l’aide d’Azure Key Vault, puis spécifiez la clé à lui associer.
 
-Lorsque vous configurez le chiffrement avec des clés gérées par le client, vous pouvez choisir de faire pivoter automatiquement la clé utilisée pour le chiffrement lorsque la version change dans le coffre de clés associé. Vous pouvez également spécifier explicitement une version de clé à utiliser pour le chiffrement jusqu’à ce que la version de clé soit mise à jour manuellement.
+Quand vous configurez le chiffrement avec des clés gérées par le client, vous pouvez choisir de mettre à jour automatiquement la clé utilisée pour le chiffrement quand la version de la clé change dans le coffre de clés associé. Vous pouvez également spécifier explicitement une version de clé à utiliser pour le chiffrement jusqu’à ce que la version de clé soit mise à jour manuellement.
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurer le chiffrement pour la rotation automatique des clés gérées par le client
+> [!NOTE]
+> Pour effectuer la rotation d’une clé, créez une version de la clé dans Azure Key Vault. Le stockage Azure ne gère pas la rotation de la clé dans Azure Key Vault. Vous devez donc effectuer la rotation de votre clé manuellement ou créer une fonction pour effectuer cette opération selon une planification.
 
-Afin de configurer le chiffrement avec permutation automatique des clés gérées par le client, installez le module [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), version 2.0.0 ou ultérieure.
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>Configurer le chiffrement pour mettre à jour automatiquement la version de la clé
 
-Pour faire pivoter automatiquement les clés gérées par le client, omettez la version de clé lorsque vous configurez des clés gérées par le client pour le compte de stockage. Appelez [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme indiqué dans l’exemple suivant, et incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+Pour configurer le chiffrement avec les clés gérées par le client afin de mettre à jour automatiquement la version de la clé, installez le module [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), version 2.0.0 ou ultérieure.
+
+Pour mettre à jour automatiquement la version d’une clé gérée par le client, omettez la version de la clé quand vous configurez le chiffrement avec les clés gérées par le client pour le compte de stockage. Appelez [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme indiqué dans l’exemple suivant, et incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -97,7 +100,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configurer le chiffrement pour la rotation manuelle des versions de clé
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>Configurer le chiffrement pour la mise à jour manuelle des versions de clé
 
 Pour spécifier explicitement une version de clé à utiliser pour le chiffrement, fournissez la version de clé lorsque vous configurez le chiffrement avec les clés gérées par le client pour le compte de stockage. Appelez [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage, comme indiqué dans l’exemple suivant, et incluez l’option **-KeyvaultEncryption** pour activer les clés gérées par le client pour le compte de stockage. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 
@@ -110,7 +113,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-Lorsque vous faites pivoter manuellement la version de clé, vous devez mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version. Tout d’abord, appelez la commande [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) pour obtenir la dernière version de la clé. Appelez ensuite la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans l’exemple précédent.
+Quand vous mettez à jour manuellement la version de clé, vous devez mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version. Tout d’abord, appelez la commande [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) pour obtenir la dernière version de la clé. Appelez ensuite la commande [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans l’exemple précédent.
 
 ## <a name="use-a-different-key"></a>Utiliser une autre clé
 

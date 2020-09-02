@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263297"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893066"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -80,7 +80,7 @@ Vous pouvez ajouter des règles d’exclusion pour ignorer les fichiers et les d
     ![Sélectionner les éléments à supprimer](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Prenez garde lorsque vous supprimez complètement un volume de la stratégie.  Si vous devez l’ajouter à nouveau, il sera traité comme un nouveau volume. La prochaine sauvegarde planifiée effectuera une sauvegarde initiale (sauvegarde complète) au lieu d’une sauvegarde incrémentielle. Si vous avez besoin de supprimer et d’ajouter temporairement des éléments, nous vous recommandons d’utiliser **Paramètres d’exclusions** au lieu de **Supprimer des éléments** pour garantir l’exécution une sauvegarde incrémentielle au lieu d’une sauvegarde complète.
+    > Prenez garde lorsque vous supprimez complètement un volume de la stratégie.  Si vous devez l’ajouter à nouveau, il sera traité comme un nouveau volume. La prochaine sauvegarde planifiée effectuera une sauvegarde initiale (sauvegarde complète) au lieu d’une sauvegarde incrémentielle. Si vous avez besoin de supprimer temporairement et d’ajouter ultérieurement des éléments, nous vous recommandons d’utiliser **Paramètres d’exclusions** au lieu de **Supprimer des éléments** pour garantir l’exécution une sauvegarde incrémentielle au lieu d’une sauvegarde complète.
 
 2. Effectuez les étapes suivantes, puis sélectionnez **Terminer** pour terminer l’opération.
 
@@ -92,7 +92,7 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
   - Cette option arrête la protection sur toutes les futures tâches de sauvegarde.
   - Le service Sauvegarde Azure conservera tous les points de récupération existants.  
   - Vous pourrez restaurer les données sauvegardées pour les points de récupération non expirés.
-  - Si vous décidez de reprendre la protection, vous pouvez utiliser l’option *Réactiver la planification de sauvegarde*. Après cela, les données sont conservées en fonction de la nouvelle stratégie de conservation.
+  - Si vous décidez de reprendre la protection, vous pouvez utiliser l’option *Réactiver la planification de sauvegarde*. Après cela, les données sont conservées en fonction de la nouvelle stratégie de rétention.
 - **Arrêter la protection et supprimer les données de sauvegarde**.
   - Cette option empêche toutes les futures tâches de sauvegarde de protéger vos données et supprime tous les points de récupération.
   - Vous recevrez un e-mail d’alerte de suppression des données de sauvegarde comportant le message *Vos données relatives à cet élément de sauvegarde ont été supprimées. Ces données seront temporairement disponibles pendant 14 jours, après quoi elles seront définitivement supprimées* et l’action recommandée *Protégez à nouveau l’élément de sauvegarde dans un délai de 14 jours pour récupérer vos données.*

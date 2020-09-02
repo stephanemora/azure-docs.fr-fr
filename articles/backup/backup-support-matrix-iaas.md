@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611532"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825254"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -49,7 +49,7 @@ Sauvegardes par jour (via DPM/MABS) | Deux sauvegardes planifiées par jour.
 Sauvegarde mensuelle/annuelle| Non pris en charge lors de la sauvegarde avec l’extension de machine virtuelle Azure. Seules les sauvegardes quotidiennes et hebdomadaires sont prises en charge.<br/><br/> Vous pouvez configurer la stratégie pour conserver des sauvegardes quotidiennes/hebdomadaires pour une période de conservation mensuelle/annuelle.
 Ajustement automatique de l’horloge | Non pris en charge.<br/><br/> La Sauvegarde Azure ne s’ajuste pas automatiquement au changement d’heure lorsque vous sauvegardez une machine virtuelle.<br/><br/>  Modifiez la stratégie manuellement en fonction des besoins.
 [Fonctionnalités de sécurité pour la sauvegarde hybride](./backup-azure-security-feature.md) |La désactivation des fonctionnalités de sécurité n’est pas prise en charge.
-Sauvegarder la machine virtuelle dont l’heure machine a été modifiée | Non pris en charge.<br/><br/> Si l’heure de la machine est remplacée par une heure ultérieure après l’activation de la sauvegarde pour cette machine virtuelle ; toutefois, même si le changement d’heure est rétabli, la réussite de la sauvegarde n’est pas garantie.
+Sauvegarder la machine virtuelle dont l’heure machine a été modifiée | Non pris en charge.<br/><br/> Si l’heure de la machine est remplacée par une heure ultérieure après l’activation de la sauvegarde pour cette machine virtuelle, et même si le changement d’heure est rétabli, la réussite de la sauvegarde n’est pas garantie.
 Machines virtuelles Azure dans des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/overview.md) | La sauvegarde et la restauration sont prises en charge pour les machines virtuelles dont le [mode d’orchestration](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) est défini sur 3. <br><br>Les groupes à haute disponibilité ne sont pas pris en charge.
 
 ## <a name="operating-system-support-windows"></a>Prise en charge des systèmes d’exploitation (Windows)
@@ -149,7 +149,7 @@ Sauvegarde avec les [Paramètres de diagnostic](../azure-monitor/platform/platfo
 Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle la [zone de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) est disponible)<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible, la restauration échoue.
 Machines virtuelles de deuxième génération | Prise en charge <br> Sauvegarde Azure prend en charge la sauvegarde et la restauration des [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Lorsque ces machines virtuelles sont restaurées à partir du point de récupération, elles sont restaurées sous la forme de [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge pour les machines virtuelles non managées. <br><br> Pris en charge pour les machines virtuelles managées.
-[Machines virtuelles Spot](../virtual-machines/windows/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
+[Machines virtuelles Spot](../virtual-machines/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
 
 ## <a name="vm-storage-support"></a>Prise en charge du stockage des machines virtuelles
 
@@ -165,7 +165,7 @@ Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvega
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas prise en charge. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
-[Disques partagés](../virtual-machines/windows/disks-shared-enable.md) | Non pris en charge.
+[Disques partagés](../virtual-machines/disks-shared-enable.md) | Non pris en charge.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

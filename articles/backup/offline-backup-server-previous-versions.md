@@ -3,12 +3,12 @@ title: Sauvegarde en mode hors connexion pour Data Protection Manager (DPM) et l
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour les versions précédentes de DPM et du serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261920"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890091"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Workflow de sauvegarde en mode hors connexion pour DPM et le serveur de sauvegarde Azure (versions précédentes)
 
@@ -203,7 +203,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA q
 
 1. Entrez la lettre du disque, sans les deux-points de fin, correspondant au disque monté que vous souhaitez préparer pour le transfert vers Azure. Lorsque vous y êtes invité, confirmez le formatage du disque.
 
-    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque l’outil vous y invite, au cas où le disque fourni n’aurait pas suffisamment d’espace pour les données de sauvegarde. <br/>
+    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être joindre des disques supplémentaires lorsque l’outil vous y invite, si le disque fourni n’a pas suffisamment d’espace pour les données de sauvegarde. <br/>
 
     À la fin de l’exécution correcte de l’outil, un ou plusieurs disques que vous avez fournis sont préparés pour l’expédition à Azure. Une tâche d’importation du nom que vous avez fourni lors du workflow de la section « Lancer la sauvegarde hors connexion » est également créée dans Azure. Enfin, l’outil affiche l’adresse d’expédition du centre de données Azure auquel les disques doivent être envoyés.
 

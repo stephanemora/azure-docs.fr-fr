@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796967"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
@@ -32,7 +32,7 @@ Cet article explique comment personnaliser une route de sortie d’un cluster po
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Vue d’ensemble des types de sortie dans AKS
 
-Un cluster AKS peut être personnalisé avec un `outboundType` unique de type équilibreur de charge ou routage défini par l’utilisateur.
+Un cluster AKS peut être personnalisé à l’aide d’un `outboundType` unique de type `loadBalancer` ou `userDefinedRouting`.
 
 > [!IMPORTANT]
 > Le type de sortie impacte seulement le trafic sortant de votre cluster. Pour plus d’informations, consultez [Configuration des contrôleurs d’entrée](ingress-basic.md).
@@ -62,7 +62,11 @@ Si `userDefinedRouting` est défini, AKS ne configure pas automatiquement les ch
 
 Le cluster AKS doit être déployé dans un réseau virtuel existant qui contient un sous-réseau préalablement configuré. En effet, quand vous n’utilisez pas l’architecture SLB (équilibreur de charge standard), vous devez configurer une sortie explicite. Cette architecture requiert l’envoi explicite du trafic sortant vers une appliance comme un pare-feu, une passerelle ou un proxy, ou pour permettre à la traduction d’adresses réseau (NAT) d’être effectuée par une adresse IP publique attribuée à l’équilibreur de charge standard ou à l’appliance.
 
-Le fournisseur de ressources AKS déploie un équilibreur de charge standard. L’équilibreur de charge n’est configuré avec aucune règle et [n’entraîne pas de frais tant qu’une règle n’a pas été mise en place](https://azure.microsoft.com/pricing/details/load-balancer/). AKS ne configure **pas** automatiquement une adresse IP publique pour l’équilibreur SLB front-end et il ne configure pas non plus automatiquement le pool back-end de l’équilibreur de charge.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Création d’un équilibreur de charge avec userDefinedRouting
+
+Les clusters AKS avec un type sortant de UDR reçoivent un équilibreur de charge standard (SLB) uniquement lorsque le premier service Kubernetes de type « loadBalancer » est déployé. L’équilibrage de charge est configuré avec une adresse IP publique pour les demandes *entrantes* et un pool principal pour les demandes *sortantes*. Les règles de trafic entrant sont configurées par le fournisseur cloud Azure, mais **aucune adresse IP publique sortante ou des règles de trafic sortant** sont configurées en raison d’un type d’UDR sortant. Votre UDR sera toujours la seule source de trafic sortant.
+
+Les équilibreurs de charge Azure [n’entraînent pas de frais tant qu’une règle n’a pas été mise en place](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Déployer un cluster avec le type de sortie UDR et le pare-feu Azure
 
@@ -70,9 +74,7 @@ Pour illustrer l’application d’un cluster avec un type de sortie utilisant u
 
 > [!IMPORTANT]
 > Le type sortant d’UDR requiert une route pour 0.0.0.0/0 et la destination de tronçon suivant de l’appliance virtuelle réseau (NVA) dans la table de routage.
-> La table de route a déjà une valeur par défaut 0.0.0.0/0 vers Internet, sans adresse IP publique vers SNAT. Le simple ajout de cette route ne vous fournira pas de sortie. AKS vérifiera que la route 0.0.0.0/0 que vous créez ne pointe pas vers Internet, mais vers une appliance réseau virtuelle, une passerelle, etc.
-> 
-> Quand vous utilisez un type sortant d’UDR, aucune adresse IP publique d’équilibreur de charge n’est créée, sauf si un service de type *LoadBalancer* est configuré.
+> La table de route a déjà une valeur par défaut 0.0.0.0/0 vers Internet, sans adresse IP publique vers SNAT. Le simple ajout de cette route ne vous fournira pas de sortie. AKS vérifiera que la route 0.0.0.0/0 que vous créez ne pointe pas vers Internet, mais vers une appliance réseau virtuelle, une passerelle, etc. Quand vous utilisez un type sortant d’UDR, aucune adresse IP publique d’équilibreur de charge pour les **demandes entrantes** n’est créée, sauf si un service de type *loadbalancer* est configuré. Une adresse IP publique pour les **demandes sortantes** n’est jamais créée par AKS si un type sortant d’UDR est défini.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

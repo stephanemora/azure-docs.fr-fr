@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367748"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690270"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
@@ -35,7 +35,7 @@ Lorsque vous voyez cette erreur, recherchez le code d’état indiqué dans la p
 - **Passerelle incorrecte** : le connecteur ne peut pas atteindre l’application back-end. Cette erreur peut indiquer une configuration incorrecte de l’application.
 - **Interdit** : l’utilisateur n’est pas autorisé à accéder à l’application. Cette erreur peut se produire si l’utilisateur n’est pas affecté à l’application dans Azure Active Directory ou s’il n’est pas autorisé à accéder à l’application sur le backend.
 
-Pour trouver le code, examinez le champ « Code d’état » situé en bas à gauche du message d’erreur. Recherchez également d’éventuels conseils supplémentaires au bas de la page.
+Pour trouver le code, examinez le champ « Code d’état » situé en bas à gauche du message d’erreur. Recherchez également d’éventuels conseils supplémentaires au bas de la page.
 
 ![Exemple : Erreur liée au dépassement du délai de la passerelle](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
@@ -50,7 +50,7 @@ Un dépassement du délai de la passerelle se produit quand le service ne peut p
 Une passerelle incorrecte indique que le connecteur ne peut pas atteindre l’application back-end. Vérifiez que vous avez publié la bonne l’application. Les erreurs courantes à l’origine de ce problème sont :
 
 - Faute de frappe ou erreur dans l’URL interne
-- Non-publication de la racine de l’application Par exemple, publication de <http://expenses/reimbursement> lors d’une tentative d’accès à <http://expenses>
+- Non-publication de la racine de l’application Par exemple, publication de `http://expenses/reimbursement` lors d’une tentative d’accès à `http://expenses`
 - Problèmes liés à la configuration de la délégation Kerberos contrainte
 - Problèmes liés à l’application back-end
 
@@ -75,8 +75,8 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 1. Si le mauvais groupe de connecteurs apparaît, utilisez la liste déroulante pour sélectionner le bon groupe et vérifiez l’absence d’avertissements. Si le groupe de connecteurs souhaité apparaît, cliquez sur le message de l’avertissement pour ouvrir la page dans l’outil de gestion des connecteurs.
 1. À partir de là, plusieurs options s’offrent à vous :
 
-   - Déplacer un connecteur actif dans le groupe : si vous avez un connecteur actif qui doit appartenir à ce groupe et qui dispose d’une visibilité directe sur l’application back-end cible, vous pouvez déplacer le connecteur dans le groupe affecté. Pour cela, cliquez sur le connecteur. Dans le champ « Groupe de connecteurs », utilisez la liste déroulante pour sélectionner le groupe approprié, puis cliquez sur Enregistrer.
-   - Télécharger un nouveau connecteur pour ce groupe : cette page contient un lien pour [télécharger un nouveau connecteur](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installez le connecteur sur une machine avec une ligne de vue directe sur l’application backend. En règle générale, le connecteur est installé sur le même serveur que l’application. Utilisez le lien Télécharger le connecteur pour télécharger un connecteur sur l’ordinateur cible. Cliquez ensuite sur le connecteur, puis utilisez la liste déroulante « Groupe de connecteurs » pour vérifier qu’il appartient au bon groupe.
+   - Déplacer un connecteur actif dans le groupe : si vous avez un connecteur actif qui doit appartenir à ce groupe et qui dispose d’une visibilité directe sur l’application back-end cible, vous pouvez déplacer le connecteur dans le groupe affecté. Pour cela, cliquez sur le connecteur. Dans le champ « Groupe de connecteurs », utilisez la liste déroulante pour sélectionner le groupe approprié, puis cliquez sur Enregistrer.
+   - Télécharger un nouveau connecteur pour ce groupe : cette page contient un lien pour [télécharger un nouveau connecteur](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installez le connecteur sur une machine avec une ligne de vue directe sur l’application backend. En règle générale, le connecteur est installé sur le même serveur que l’application. Utilisez le lien Télécharger le connecteur pour télécharger un connecteur sur l’ordinateur cible. Cliquez ensuite sur le connecteur, puis utilisez la liste déroulante « Groupe de connecteurs » pour vérifier qu’il appartient au bon groupe.
    - Résoudre le problème d’un connecteur inactif : si un connecteur est répertorié comme étant inactif, il ne peut pas atteindre le service. Cette erreur vient généralement du fait que certains ports nécessaires sont bloqués. Pour résoudre ce problème, passez à la vérification de l’autorisation de tous les ports nécessaires.
 
 Après avoir suivi ces étapes pour vérifier que l’application est affectée à un groupe comprenant des connecteurs opérationnels, retestez l’application. Si elle ne fonctionne toujours pas, passez à la section suivante.

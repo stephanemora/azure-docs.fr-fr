@@ -3,16 +3,16 @@ title: Déployer des modèles d’application logique
 description: Découvrez comment déployer des modèles Azure Resource Manager créés pour Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3ef4275e5b309bb499338fe90c0f527aeaeb71f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501506"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855584"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Déployer des modèles Azure Resource Manager pour Azure Logic Apps
 
@@ -119,13 +119,20 @@ Voici les principales étapes pour utiliser Azure Pipelines :
 
 ## <a name="authorize-oauth-connections"></a>Autoriser des connexions OAuth
 
-Après le déploiement, votre application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, vous devez encore autoriser les connexions OAuth à générer des jetons d’accès valides pour l’[authentification de vos informations d’identification](../active-directory/develop/authentication-vs-authorization.md). Voici comment vous pouvez autoriser les connexions OAuth :
+Après le déploiement, votre application logique fonctionne de bout en bout avec des paramètres valides, mais pour générer des jetons d’accès valides à des fins d’[authentification de vos informations d’identification](../active-directory/develop/authentication-vs-authorization.md), vous devez toujours autoriser ou utiliser des connexions OAuth préautorisées. Toutefois, il vous suffit de déployer et d’authentifier des ressources de connexion d’API une seule fois, ce qui signifie que vous n’êtes pas tenu d’inclure ces ressources de connexion dans les déploiements suivants, sauf s’il vous faut mettre à jour les informations de connexion. Si vous utilisez un pipeline d’intégration continue et de déploiement continu, vous déployez uniquement les ressources Logic Apps mises à jour et n’êtes pas tenu de réautoriser les connexions à chaque fois.
 
-* Pour les déploiements automatisés, vous pouvez utiliser un script qui fournit le consentement pour chaque connexion OAuth. Vous trouverez un exemple de script sur GitHub dans le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth).
+Voici quelques suggestions pour gérer les connexions autorisées :
 
-* Pour autoriser manuellement les connexions OAuth, ouvrez votre application logique dans le Concepteur d’application logique, dans le portail Azure ou dans Visual Studio. Dans le concepteur, autorisez toutes les connexions requises.
+* Préautorisez et partagez les ressources de connexion d’API entre des applications logiques situées dans la même région. Les connexions d’API existent en tant que ressources Azure indépendamment des applications logiques. Bien que les applications logiques présentent des dépendances vis-à-vis des ressources de connexion d’API, ces dernières ne présentent pas de dépendances vis-à-vis des applications logiques. En outre, les applications logiques peuvent utiliser des connexions d’API présentes dans d’autres groupes de ressources. Cela étant, le concepteur d’applications logiques prend uniquement en charge la création de connexions d’API dans le même groupe de ressources que vos applications logiques.
 
-Si vous utilisez un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) à la place pour autoriser les connexions, découvrez comment [spécifier les paramètres du principal du service dans votre modèle d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+  > [!NOTE]
+  > Si vous envisagez de partager des connexions d’API, assurez-vous que votre solution peut [gérer les problèmes de limitation potentiels](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). La limitation intervient au niveau de la connexion et dès lors, réutiliser la même connexion sur plusieurs applications logiques peut augmenter les problèmes de limitation.
+
+* À moins que votre scénario ne concerne des services et des systèmes nécessitant une authentification multifacteur, vous pouvez utiliser un script PowerShell afin de fournir un consentement pour chaque connexion OAuth en exécutant un worker d’intégration continue en tant que compte d’utilisateur normal sur un ordinateur virtuel disposant de sessions de navigateur actives avec les autorisations et le consentement déjà fournis. Par exemple, vous pouvez réaffecter l’exemple de script fourni par le projet [LogicAppConnectionAuth dans le référentiel GitHub Logic Apps](https://github.com/logicappsio/LogicAppConnectionAuth).
+
+* Pour autoriser manuellement les connexions OAuth, ouvrez votre application logique dans le Concepteur d’application logique, dans le portail Azure ou dans Visual Studio.
+
+* Si vous utilisez un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) à la place pour autoriser les connexions, découvrez comment [spécifier les paramètres du principal du service dans votre modèle d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

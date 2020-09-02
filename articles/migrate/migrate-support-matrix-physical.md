@@ -3,12 +3,12 @@ title: Prise en charge pour l’évaluation de serveurs physiques dans Azure Mig
 description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423777"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640121"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -34,7 +34,7 @@ Pour évaluer des serveurs physiques, vous créez un projet Azure Migrate et ajo
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
 | **Déploiement de serveur physique**       | Le serveur physique peut être autonome ou déployé dans un cluster. |
-| **autorisations**           | **Windows :** Utilisez un compte de domaine pour les ordinateurs joints à un domaine, et un compte local pour les ordinateurs qui ne sont pas joints à un domaine. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances. <br/><br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
+| **autorisations**           | **Windows :** Utilisez un compte de domaine pour les ordinateurs joints à un domaine, et un compte local pour les ordinateurs qui ne sont pas joints à un domaine. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances. <br/><br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. <br/> Vous pouvez également vérifier que les fonctionnalités requises sont définies à l’aide des commandes suivantes. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (si/usr/sbin/fdisk n’est pas présent) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
 | **Système d’exploitation** | Tous les systèmes d’exploitation, à l’exception de Windows Server 2003 et SUSE Linux, peuvent être évalués pour la migration. |
 
 

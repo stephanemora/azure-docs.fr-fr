@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983409"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782156"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -77,11 +77,11 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 
 Quand l’entraînement est terminé :
 
-+ Pour voir un ensemble de métriques de précision pour le meilleur modèle, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**.
++ Pour afficher les résultats de balayage, cliquez avec le bouton de droite sur le module, puis sélectionnez **Visualiser**.
 
-    La sortie inclut toutes les métriques de justesse qui s’appliquent au type de modèle, mais la métrique que vous avez sélectionnée pour le classement détermine le modèle considéré « optimal ».
+    La sortie inclut toutes les mesures d’exactitude et de balayage du paramètre qui s’appliquent au type de modèle, mais la métrique que vous avez sélectionnée pour le classement détermine le modèle considéré comme « optimal ».
 
-+ Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
++ Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties+journaux d'activité** dans le panneau de droite du module **Effectuer l'apprentissage du modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 
 ## <a name="technical-notes"></a>Notes techniques

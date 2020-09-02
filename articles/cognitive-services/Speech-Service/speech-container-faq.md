@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289035"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918466"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs de service Speech
 
@@ -305,7 +306,7 @@ Pouvez-vous nous aider à remplir les métriques de test suivantes, y compris le
 - Les assertions sont déclenchées par Carbon dans les versions de production (avec arrêt du processus).
 
 La solution de contournement consiste à utiliser la reconnaissance continue dans votre code ou à vous connecter (plus rapidement) aux points de terminaison interactifs ou continus dans le conteneur.
-Pour votre code, définissez le point de terminaison sur <hôte:port>/speech/recognition/interactive/cognitiveservices/v1
+Pour votre code, définissez le point de terminaison sur `host:port`/speech/recognition/interactive/cognitiveservices/v1
 
 Pour les différents modes, consultez les modes Speech, voir ci-dessous :
 

@@ -3,12 +3,12 @@ title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Dans cet article, découvrez comment résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564110"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763505"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -224,7 +224,7 @@ L’opération de sauvegarde risque d’échouer si le dossier du cache (égalem
 
 ### <a name="prerequisites"></a>Prérequis
 
-Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter la configuration suivante :
+Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter les exigences suivantes :
 
 - [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier temporaire](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Vérifiez que l’emplacement du dossier temporaire est valide et accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -238,7 +238,7 @@ Les opérations de sauvegarde peuvent échouer si l’espace de stockage de clic
 
 - Vérifiez l’espace de stockage de cliché instantané actuel à partir de l’invite de commandes avec élévation de privilèges :<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Augmentez l’espace de stockage de cliché instantané en utilisant la commande ci-dessous :<br/>
+- Augmentez l’espace de stockage de la mise en mémoire fantôme en utilisant la commande suivante :<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Un autre processus ou logiciel antivirus bloque l’accès au dossier du cache
@@ -258,25 +258,25 @@ Cette section décrit les erreurs courantes que vous rencontrez lors de l’util
 
 Message d’erreur | Action recommandée
 --|--
-L’agent Microsoft Azure Recovery Services n’a pas pu accéder à la somme de contrôle de sauvegarde stockée sur l’emplacement temporaire | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+L’agent Microsoft Azure Recovery Services n’a pas pu accéder à la somme de contrôle de sauvegarde stockée sur l’emplacement temporaire | Pour résoudre ce problème, procédez comme suit, puis redémarrez le serveur <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Message d’erreur | Action recommandée
 --|--
-L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplacement temporaire pour initialiser le disque dur virtuel (VHD) | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou un autre processus verrouille les fichiers dans l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplacement temporaire pour initialiser le disque dur virtuel (VHD) | Pour résoudre ce problème, procédez comme suit, puis redémarrez le serveur <br/> - [Vérifiez si un antivirus ou un autre processus verrouille les fichiers dans l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Message d’erreur | Action recommandée
 --|--
-La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
+La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, procédez comme suit, puis retentez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Message d’erreur | Action recommandée
 --|--
-Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
+Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, procédez comme suit, puis retentez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#prerequisites)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

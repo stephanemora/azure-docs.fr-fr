@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c66c1fc9a9b93d5b4d3af0440ec3fdc276a9b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763412"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640444"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
@@ -58,7 +58,7 @@ Voici les opérations que vous devez effectuer en tant qu’administrateur gén�
 Configurer des règles d’accès par application de vos applications SaaS. Par exemple, vous pouvez requérir un MFA, ou autoriser l’accès aux utilisateurs uniquement sur les réseaux approuvés. Pour plus d’informations à ce sujet, voir [Configuration des règles d’accès](../conditional-access/app-based-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configurer l’application pour qu’elle demande l’affectation de l’utilisateur et affecter des utilisateurs
-Par défaut, les utilisateurs peuvent accéder aux applications sans affectation. Toutefois, si l’application expose des rôles ou que vous souhaitez qu’elle s’affiche sur le panneau d’accès d’un utilisateur, vous devez demander l’affectation de l’utilisateur.
+Par défaut, les utilisateurs peuvent accéder aux applications sans affectation. Toutefois, si l’application expose des rôles ou que vous souhaitez qu’elle s’affiche sur Mes applications d’un utilisateur, vous devez demander l’affectation de l’utilisateur.
 
 Si vous êtes abonné à Azure AD Premium ou Enterprise Mobility Suite (EMS), nous vous recommandons fortement d’utiliser les groupes. L’affectation de groupes à l’application vous permet de déléguer la gestion d’accès en continu au propriétaire du groupe. Vous pouvez créer un groupe ou demander à la personne responsable au sein de votre organisation de créer un groupe à l’aide de votre dispositif de gestion de groupe.
 

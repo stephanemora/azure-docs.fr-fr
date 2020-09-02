@@ -3,12 +3,12 @@ title: Prise en charge de la migration Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge de la migration Hyper-V avec Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122062"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871494"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -25,7 +25,7 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 | :-------------------       | :------------------- |
 | **Déploiement**       | L'hôte Hyper-V peut être autonome ou déployé dans un cluster. <br/>Le logiciel de réplication Azure Migrate (fournisseur de réplication Hyper-V) est installé sur les hôtes Hyper-V.|
 | **autorisations**           | Vous avez besoin des droits d'administrateur sur l'hôte Hyper-V. |
-| **Système d'exploitation hôte** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. |
+| **Système d'exploitation hôte** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 avec les dernières mises à jour. Notez que l’installation Server Core de ces systèmes d’exploitation est également prise en charge. |
 | **Accès au port** |  Connexions sortantes sur le port HTTPS 443 pour envoyer les données de réplication des machines virtuelles.
 
 
@@ -35,10 +35,10 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 | :----------------------------- | :------------------- |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](../virtual-machines/linux/endorsed-distros.md) pris en charge par Azure. |
 **Windows Server 2003** | Pour les machines virtuelles exécutant Windows Server 2003, vous devez [installer Hyper-V Integration Services](prepare-windows-server-2003-migration.md) avant la migration. | 
-**Machines virtuelles Linux dans Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure.<br/><br/> Pour Linux, Azure Migrate effectue automatiquement les modifications pour les systèmes d’exploitation suivants :<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. Pour les autres systèmes d’exploitation, [modifications requises](prepare-for-migration.md#linux-machines) sont à faire manuellement.
+**Machines virtuelles Linux dans Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure.<br/><br/> Azure Migrate effectue automatiquement les modifications pour les systèmes d’exploitation Linux suivants :<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. Pour les autres systèmes d’exploitation, [modifications requises](prepare-for-migration.md#linux-machines) sont à faire manuellement.
 | **Modifications nécessaires pour Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure. Effectuez les ajustements manuellement avant la migration. Les articles pertinents contiennent des instructions sur la façon de procéder. |
 | **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
-| **Démarrage UEFI**                  | La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.|
+| **Démarrage UEFI**                  | Pris en charge. Assurez-vous que vous sélectionnez une taille de machine virtuelle prise en charge par la machine virtuelle Azure 2e génération  |
 | **Taille du disque**                  | 2 To pour le disque du système d’exploitation ; 4 To pour les disques de données.|
 | **Nombre de disques** | Un maximum de 16 disques par machine virtuelle.|
 | **Disques/volumes chiffrés**    | Non pris en charge pour la migration.|

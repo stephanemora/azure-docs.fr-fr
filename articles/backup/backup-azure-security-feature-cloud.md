@@ -3,18 +3,18 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538834"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892471"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les données de sauvegarde après la suppression.
 
-Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client.
+Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour vous.
 
 La protection Suppression réversible est disponible pour les services suivants :
 
@@ -44,9 +44,9 @@ Pour désactiver la suppression réversible, procédez comme suit :
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Désactivation de la suppression réversible à l’aide d’Azure PowerShell
 
 > [!IMPORTANT]
-> La version Az.RecoveryServices minimale requise pour utiliser la suppression réversible avec Azure PowerShell est la version 2.2.0. Utilisez ```Install-Module -Name Az.RecoveryServices -Force``` pour récupérer la version la plus récente.
+> La version minimale d’Az.RecoveryServices qui permet d’utiliser la suppression réversible à l’aide d’Azure PowerShell est la version 2.2.0. Utilisez ```Install-Module -Name Az.RecoveryServices -Force``` pour récupérer la version la plus récente.
 
-Pour effectuer la désactivation, utilisez l’applet de commande PS [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty).
+Pour effectuer la désactivation, utilisez l’applet de commande PowerShell [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty).
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Si des éléments ont été supprimés avant que la suppression réversible ne soit désactivée, ils sont dans un état de suppression réversible. Pour les supprimer immédiatement, l’opération de suppression doit être inversée, puis réexécutée.
 
-1. Tout d’abord, annulez les opérations de suppression en suivant les étapes mentionnées [ici](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. Tout d’abord, annulez les opérations de suppression en suivant les étapes mentionnées [ici](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Ensuite, désactivez la fonctionnalité de suppression réversible à l’aide de l’API REST en suivant les étapes mentionnées [ici](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Enfin, supprimez les sauvegardes à l’aide de l’API REST comme indiqué [ici](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
@@ -176,7 +176,7 @@ Non. Vous ne pouvez pas forcer la suppression des éléments supprimés de mani�
 
 ### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Est-il possible d’effectuer des opérations de suppression réversible dans PowerShell ou CLI ?
 
-Les opérations de suppression réversible peuvent être effectuées à l’aide de PowerShell. L’interface CLI n’est pas prise en charge.
+Les opérations de suppression réversible peuvent être effectuées à l’aide de PowerShell. Actuellement, l’interface CLI n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

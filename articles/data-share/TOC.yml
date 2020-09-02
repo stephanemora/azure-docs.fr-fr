@@ -9,9 +9,9 @@
       href: supported-data-stores.md
 - name: Démarrages rapides
   items:
-    - name: Créer un partage de données - Portail Azure
+    - name: Partager les données - Portail Azure
       href: share-your-data-portal.md
-    - name: Créer un partage de données - Modèle ARM
+    - name: Partager des données - Modèle ARM
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriels
@@ -39,6 +39,10 @@
   items:
     - name: Partager et recevoir des données par source
       items:
+        - name: Partager à partir du Stockage Azure
+          href: how-to-share-from-storage.md
+        - name: Partager à partir d’Azure SQL Database ou Synapse Analytics
+          href: how-to-share-from-sql.md
         - name: Partager depuis Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true

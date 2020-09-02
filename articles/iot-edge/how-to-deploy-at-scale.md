@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512008"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855389"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -61,7 +61,7 @@ La création d’un déploiement nécessite cinq étapes. Les sections suivantes
 
 ### <a name="step-2-modules"></a>Étape 2 : Modules
 
-Vous pouvez ajouter jusqu’à 30 modules à un déploiement. Si vous créez un déploiement sans module, il supprime tous les modules actuels des appareils cibles.
+Vous pouvez ajouter jusqu’à 50 modules dans un déploiement. Si vous créez un déploiement sans module, il supprime tous les modules actuels des appareils cibles.
 
 Dans les déploiements, vous pouvez gérer les paramètres de l’agent IoT Edge et des modules du hub IoT Edge. Sélectionnez **Paramètres du runtime** pour configurer les deux modules de runtime. Dans un déploiement en couches, les modules de runtime ne sont pas inclus et ne peuvent donc pas être configurés.
 

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525647"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930670"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> La possibilité de définir et de changer des niveaux par le biais de PowerShell est fournie dans le module PowerShell Az.Storage en préversion. Quand vous créez des scripts, gardez à l’esprit que ces applets de commande ou leur sortie peuvent changer avant leur publication dans le module PowerShell AZ.Storage mis à la disposition générale.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Les fonctionnalités permettant de créer ou de déplacer un partage de fichiers vers un niveau spécifique sont disponibles dans la dernière mise à jour d’Azure CLI. La mise à jour d’Azure CLI est spécifique du système d’exploitation ou de la distribution Linux que vous utilisez. Pour obtenir des instructions sur la façon de mettre à jour Azure CLI sur votre système, consultez [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> La possibilité de définir un niveau avec le paramètre `--access-tier` est fournie dans le dernier package Azure CLI. Cette commande ou sa sortie peut changer avant d’être marquée comme étant mise à la disposition générale. Vous devez donc créer des scripts en en tenant compte.
+
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes

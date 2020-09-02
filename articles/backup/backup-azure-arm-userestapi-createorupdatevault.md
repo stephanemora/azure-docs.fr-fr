@@ -4,16 +4,16 @@ description: Dans cet article, découvrez comment gérer les opérations de sauv
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079330"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757249"
 ---
-# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
+# <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer un coffre Azure Recovery Services à l’aide de l’API REST
 
-Les étapes de création d’un coffre Azure Recovery Services à l’aide d’une API REST sont décrites dans la documentation [API REST create vault](/rest/api/recoveryservices/vaults/createorupdate). Nous allons utiliser ce document comme référence pour créer un coffre appelé « testVault » dans la région « USA Ouest ».
+Les étapes de création d’un coffre Azure Recovery Services à l’aide d’une API REST sont décrites dans la documentation [API REST créer un coffre](/rest/api/recoveryservices/vaults/createorupdate). Nous allons utiliser ce document comme référence pour créer un coffre appelé « testVault » dans la région « USA Ouest ».
 
 Pour créer ou mettre à jour un coffre Azure Recovery Services, utilisez l’opération *PUT* suivante.
 

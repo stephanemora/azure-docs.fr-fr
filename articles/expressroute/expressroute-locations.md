@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/13/2020
+ms.date: 08/26/2020
 ms.author: cherylmc
-ms.openlocfilehash: 55bf91a0f01c66d43d87b734ce66b68f3995c1c3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e47f555e33b9b6d3548f82485767184c89236731
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225595"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927627"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partenaires de connectivité ExpressRoute et localisations de peering
 
@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | --- | --- | --- |
 | **Secteur public australien** |Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
 | **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Berlin, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
-| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, New York, Querétaro (Mexique), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto, Vancouver |
+| **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montréal, New York, Phoenix, Québec, Querétaro(Mexique), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Vancouver, Washington DC, Washington DC2 |
 | **Asie** | Asie Est, Asie Sud-Est | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | Japon Ouest, Japon Est |Osaka, Tokyo, Tokyo2 |

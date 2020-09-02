@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: Analyser vos machines virtuelles à la recherche de vulnérabilités
       items:
-        - name: Vue d’ensemble de l’analyse des vulnérabilités
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: Analyseur de vulnérabilités intégré pour les machines virtuelles
-          href: built-in-vulnerability-assessment.md
-        - name: Utilisation d’analyseurs externes
-          href: partner-vulnerability-assessment.md
+        - name: Déployer l’analyseur de vulnérabilité intégré sur vos machines virtuelles
+          href: deploy-vulnerability-assessment-vm.md
+        - name: Déployer une solution de vulnérabilité BYOL sur vos machines virtuelles
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: Examiner et corriger les vulnérabilités sur vos machines virtuelles
+          href: remediate-vulnerability-findings-vm.md
     - name: Configurer la protection contre les menaces et traiter les alertes
       items:
         - name: Gérer les alertes de sécurité

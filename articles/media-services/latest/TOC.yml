@@ -49,20 +49,22 @@
   items:
     - name: .NET
       items:
-        - name: Encoder et diffuser en streaming un fichier distant REST
-          href: stream-files-tutorial-with-rest.md
         - name: Encoder et diffuser en streaming un fichier distant .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Encoder et diffuser en streaming un fichier chargé
+        - name: Encoder et diffuser en streaming un fichier chargé .NET
           href: stream-files-tutorial-with-api.md
-        - name: Diffuser en direct
+        - name: Streaming en direct avec .NET
           href: stream-live-tutorial-with-api.md
-        - name: Analyser votre vidéo
+        - name: Analyser votre vidéo avec .NET
           href: analyze-videos-tutorial-with-api.md
         - name: Chiffrer dynamiquement avec AES-128
           href: protect-with-aes128.md
         - name: Chiffrer dynamiquement avec DRM
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: Encoder et diffuser en streaming un fichier distant REST
+          href: stream-files-tutorial-with-rest.md
     - name: Interface de ligne de commande
       items:
         - name: Encoder et diffuser en streaming un fichier distant CLI

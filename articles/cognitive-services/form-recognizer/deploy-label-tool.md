@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212443"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717895"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -70,6 +70,7 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
 
 6. Nous allons maintenant configurer votre conteneur Docker. Sauf indication contraire, tous les champs sont obligatoires :
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0)  
    * Options : sélectionnez **Conteneur unique**
    * Source d’image : sélectionnez **Registre privé** 
    * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
@@ -78,6 +79,18 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
    * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
    * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1) 
+   * Options : sélectionnez **Conteneur unique**
+   * Source d’image : sélectionnez **Registre privé** 
+   * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
+   * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
+   * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
+   * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
+   * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
+    
+    ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurer Docker](./media/quickstarts/formre-configure-docker.png)
@@ -100,6 +113,8 @@ Voici quelques éléments que vous devez savoir à propos de cette commande :
 
 À partir d’Azure CLI, exécutez cette commande pour créer une ressource d’application web pour l’outil d’étiquetage des exemples : 
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Se connecter à Azure AD pour l’autorisation
 

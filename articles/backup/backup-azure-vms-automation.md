@@ -3,12 +3,12 @@ title: Sauvegarder et récupérer des machines virtuelles Azure avec PowerShell
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7957253565658ca387502acb413bc3e6f9a1a3a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538800"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892403"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -51,14 +51,14 @@ Pour commencer :
     Get-Command *azrecoveryservices*
     ```
 
-    Les alias et cmdlets pour Sauvegarde Azure, Azure Site Recovery et le coffre Recovery Services s’affichent. L’image suivante est un exemple de ce que vous allez voir. Il ne s’agit pas de la liste complète des cmdlets.
+    Les alias et cmdlets pour Sauvegarde Azure, Azure Site Recovery et le coffre Recovery Services s’affichent. L’image suivante est un exemple de ce que vous allez voir. Il ne s’agit pas de la liste complète des applets de commande.
 
     ![Liste des services Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. Connectez-vous à votre compte Azure à l'aide de **Connect-AzAccount**. Cette applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte :
 
     * Vous pouvez également inclure les informations d'identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide du paramètre **-Credential**.
-    * Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple : **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire, à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple : **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
 
@@ -66,7 +66,7 @@ Pour commencer :
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Si vous utilisez le service Sauvegarde Azure pour la première fois, vous devez utiliser la cmdlet **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** pour associer le fournisseur Azure Recovery Service à votre abonnement.
+5. Si vous utilisez le service de sauvegarde Azure pour la première fois, vous devez utiliser l’applet de commande **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** pour inscrire le fournisseur Azure Recovery Service avec votre abonnement.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -96,7 +96,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Spécifiez le type de redondance de stockage à utiliser : [Stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou [Stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testvault est définie sur GeoRedundant.
+3. Spécifiez le type de redondance de stockage à utiliser. Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) ou le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md). L’exemple suivant montre que l’option -BackupStorageRedundancy pour testvault est définie sur GeoRedundant.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -189,14 +189,14 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Une stratégie de protection de la sauvegarde est associée à au moins une stratégie de rétention. Une stratégie de conservation définit la durée de conservation d’un point de restauration avant sa suppression.
+Une stratégie de protection de la sauvegarde est associée à au moins une stratégie de rétention. Une stratégie de rétention définit la durée de conservation d’un point de restauration avant sa suppression.
 
 * Utilisez [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) pour afficher la stratégie de rétention par défaut.
 * De même, vous pouvez utiliser [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) pour obtenir la stratégie de planification par défaut.
 * La cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) crée un objet PowerShell contenant des informations sur la stratégie de sauvegarde.
 * Les objets des stratégies de planification et de rétention sont utilisés comme entrées pour la cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-Par défaut, une heure de début est définie dans l’objet de la stratégie de planification. Utilisez l’exemple suivant pour modifier l’heure de début sur l’heure de début souhaitée. L’heure de début souhaitée doit également être au format UTC. L’exemple ci-dessous suppose que l’heure de début souhaitée est 01:00 AM UTC pour les sauvegardes quotidiennes.
+Par défaut, une heure de début est définie dans l’objet de la stratégie de planification. Utilisez l’exemple suivant pour modifier l’heure de début sur l’heure de début souhaitée. L’heure de début souhaitée doit également être au format UTC. L’exemple suivant suppose que l’heure de début souhaitée est 01:00 UTC pour les sauvegardes quotidiennes.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -206,7 +206,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]
-> Vous devez fournir l’heure de début en multiples de 30 minutes uniquement. Dans l’exemple ci-dessus, il peut s’agir uniquement de « 01:00:00 » ou de « 02:30:00 ». L’heure de début ne peut pas être « 01:15:00 ».
+> Vous devez fournir l’heure de début en multiples de 30 minutes uniquement. Dans l’exemple ci-dessus, il peut s’agir uniquement de « 01:00:00 » ou de « 02:30:00 ». L’heure de début ne peut pas être « 01:15:00 »
 
 L’exemple suivant stocke la stratégie de planification et la stratégie de conservation dans des variables. L’exemple utilise ces variables pour définir les paramètres lors de la création d’une stratégie de protection, *NewPolicy*.
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Une fois que vous avez défini la stratégie de protection, vous devez encore activer la stratégie pour un élément. Utilisez [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) pour activer la protection. L’activation de la protection nécessite deux objets : l’élément et la stratégie. Une fois que la stratégie a été associée au coffre, le flux de travail de la sauvegarde est déclenché à l’heure planifiée dans la planification de la stratégie.
 
 > [!IMPORTANT]
-> Si vous utilisez PS pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Actuellement, le client PS ne se bloque pas explicitement s’il y a plus de 100 machines virtuelles, cela sera vérifié à l’avenir.
+> Si vous utilisez PowerShell pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Si, pour l’heure, le client PowerShell ne se bloque pas explicitement dans le cas où plus de 100 machines virtuelles sont présentes, cela sera vérifié à l’avenir.
 
 Les exemples suivants activent la protection pour l’élément V2VM. Ils utilisent la stratégie NewPolicy. Les exemples diffèrent selon que la machine virtuelle est chiffrée et le type de chiffrement.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Si vous êtes sur le cloud Azure Government, utilisez la valeur ff281ffe-705c-4f53-9f37-a40e6f2c68f3 pour le paramètre ServicePrincipalName dans la cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy).
+> Si vous êtes sur le cloud Azure Government, utilisez la valeur `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` pour le paramètre **ServicePrincipalName** dans l’applet de commande [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy).
 >
 
 ## <a name="monitoring-a-backup-job"></a>Surveillance d’une tâche de sauvegarde
@@ -294,7 +294,7 @@ Lorsque vous créez une stratégie de protection, une heure de début lui est at
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Configuration de la rétention des instantanés de la restauration instantanée
 
 > [!NOTE]
-> À partir d'Az PS 1.6.0, il est possible d'utiliser PowerShell pour mettre à jour la période de rétention des instantanés de la restauration d’instantané dans la stratégie
+> À partir de la version 1.6.0 d’Azure PowerShell, il est possible d’utiliser PowerShell pour mettre à jour la période de conservation des instantanés de la restauration d’instantané dans la stratégie
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -323,12 +323,12 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-La valeur par défaut est 2 ; l’utilisateur peut opter pour une valeur comprise entre 1 (minimum) et 5 (maximum). Pour les stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
+La valeur par défaut est 2. Vous pouvez définir une valeur comprise entre 1 et 5. Pour les stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Créer un groupe de ressources Sauvegarde Azure lors de la conservation des instantanés
 
 > [!NOTE]
-> À partir de la version 3.7.0 d’Azure PS, vous pouvez créer et modifier le groupe de ressources destiné au stockage des instantanés.
+> À partir de la version 3.7.0 d’Azure PowerShell, il est possible de créer et modifier le groupe de ressources destiné au stockage des instantanés.
 
 Pour en savoir plus sur les règles de création du groupe de ressources et d’autres informations pertinentes, consultez la documentation [Groupe de ressources Sauvegarde Azure pour les machines virtuelles](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Modifier la stratégie pour les éléments de sauvegarde
 
-L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) avec l’élément de sauvegarde comme paramètre.
+Vous pouvez modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) avec l’élément de sauvegarde comme paramètre.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Conserver les données
 
-Si l’utilisateur souhaite arrêter la protection, il peut utiliser la cmdlet PS [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection). Les sauvegardes planifiées seront arrêtées, mais les données sauvegardées jusqu’à présent seront conservées indéfiniment.
+Si vous souhaitez arrêter la protection, vous pouvez utiliser l’applet de commande PowerShell [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection). Les sauvegardes planifiées seront arrêtées, mais les données sauvegardées jusqu’à présent seront conservées indéfiniment.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -394,7 +394,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
-Pour supprimer complètement les données de sauvegarde stockées dans le coffre, il suffit d’ajouter l’indicateur/l’instruction switch « -RemoveRecoveryPoints » à la [commande de protection « disable »](#retain-data).
+Pour supprimer complètement les données de sauvegarde stockées dans le coffre, ajoutez l’indicateur/le commutateur '-RemoveRecoveryPoints' à la [commande de protection 'disable'](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
@@ -402,7 +402,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 ## <a name="restore-an-azure-vm"></a>Restauration d’une machine virtuelle Azure
 
-Il existe une différence importante entre restaurer une machine virtuelle à l’aide du portail Microsoft Azure et restaurer une machine virtuelle à l’aide de PowerShell. Avec PowerShell, l’opération de restauration est terminée dès que sont créés les disques et les informations de configuration à partir d’un point de restauration. L’opération de restauration ne crée pas la machine virtuelle. Pour créer une machine virtuelle à partir d’un disque, consultez la section [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Si vous ne voulez pas restaurer l’intégralité de la machine virtuelle, mais que vous voulez restaurer ou récupérer quelques fichiers seulement depuis une sauvegarde de machine virtuelle Azure, reportez-vous à la [section de récupération des fichiers](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup).
+Il existe une différence importante entre la restauration d’une machine virtuelle à l’aide du portail Azure et la restauration d’une machine virtuelle à l’aide de PowerShell. Avec PowerShell, l’opération de restauration est terminée dès que sont créés les disques et les informations de configuration à partir d’un point de restauration. L’opération de restauration ne crée pas la machine virtuelle. Pour créer une machine virtuelle à partir d’un disque, consultez la section [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Si vous ne voulez pas restaurer l’intégralité de la machine virtuelle, mais que vous voulez restaurer ou récupérer quelques fichiers seulement depuis une sauvegarde de machine virtuelle Azure, reportez-vous à la [section de récupération des fichiers](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup).
 
 > [!Tip]
 > L’opération de restauration ne crée pas la machine virtuelle.
@@ -422,7 +422,7 @@ Les étapes de base pour restaurer une machine virtuelle Azure sont :
 * Restaurez les disques.
 * Créez la machine virtuelle à partir des disques stockés.
 
-### <a name="select-the-vm"></a>Sélection de la machine virtuelle
+### <a name="select-the-vm-when-restoring-files"></a>Sélectionner la machine virtuelle (lors de la restauration de fichiers)
 
 Pour obtenir l’objet PowerShell permettant d’identifier l’élément à restaurer, vous devez commencer au niveau du conteneur dans le coffre et descendre dans la hiérarchie d’objets. Pour sélectionner le conteneur qui représente la machine virtuelle, utilisez l’applet de commande [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) et dirigez-la vers l’applet de commande [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -431,7 +431,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Choisir un point de récupération
+### <a name="choose-a-recovery-point-when-restoring-files"></a>Choisir un point de récupération (lors de la restauration de fichiers)
 
 Utilisez la cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) afin de répertorier tous les points de récupération correspondant à l'élément de sauvegarde. Ensuite, choisissez le point de récupération à restaurer. Si vous ne savez pas quel point de récupération utiliser, nous vous conseillons de choisir le point RecoveryPointType = AppConsistent le plus récent dans la liste.
 
@@ -462,7 +462,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Restaurer les disques
 
-Utilisez l’applet de commande [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) pour restaurer les données et la configuration d’un élément de sauvegarde à un point de récupération. Lorsque vous avez identifié un point de récupération, utilisez-le comme valeur du paramètre **-RecoveryPoint**. Dans l’exemple de code précédent, **$rp[0]** était le point de récupération à utiliser. Dans l’exemple de code suivant, **$rp [0]** est le point de récupération à utiliser pour restaurer le disque.
+Utilisez l’applet de commande [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) pour restaurer les données et la configuration d’un élément de sauvegarde à un point de récupération. Lorsque vous avez identifié un point de récupération, utilisez-le comme valeur du paramètre **-RecoveryPoint**. Dans l’exemple ci-dessus, **$rp[0]** était le point de récupération à utiliser. Dans l’exemple de code suivant, **$rp [0]** est le point de récupération à utiliser pour restaurer le disque.
 
 Pour restaurer les disques et les informations de configuration :
 
@@ -481,7 +481,7 @@ $restorejob
 Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés.
 
 > [!IMPORTANT]
-> Il est vivement recommandé d'utiliser le paramètre **TargetResourceGroupName** pour la restauration des disques managés car il améliore considérablement les performances. Si ce paramètre n’est pas donné, les clients ne peuvent pas tirer parti de la fonctionnalité de restauration instantanée et l’opération de restauration sera plus lente en comparaison. Si l’objectif est de restaurer des disques managés en tant que disques non managés, ne spécifiez pas ce paramètre et rendez l’intention clair en spécifiant le paramètre -RestoreAsUnmanagedDisks. Le paramètre -RestoreAsUnmanagedDisks est disponible à partir d’AZ PS 3.7.0. Dans les versions ultérieures, il sera obligatoire de spécifier l’un de ces paramètres pour la bonne expérience de restauration.
+> Il est vivement recommandé d’utiliser le paramètre **TargetResourceGroupName** pour la restauration des disques managés, car il améliore considérablement les performances. Si ce paramètre n’est pas fourni, vous ne pouvez pas tirer parti de la fonctionnalité de restauration instantanée et l’opération de restauration sera plus lente en comparaison. Si l’objectif est de restaurer des disques managés en tant que disques non managés, ne spécifiez pas ce paramètre et indiquez clairement l’intention en spécifiant le paramètre `-RestoreAsUnmanagedDisks`. Le paramètre `-RestoreAsUnmanagedDisks` est disponible dans Azure PowerShell 3.7.0 et versions ultérieures. Dans les versions ultérieures, il sera obligatoire de spécifier l’un de ces paramètres pour une expérience de restauration correcte.
 >
 >
 
@@ -530,7 +530,7 @@ Après avoir restauré les disques, utilisez les étapes ci-après pour créer e
 >
 > 1. Le module AzureAz 3.0.0 (ou version ultérieure) est requis. <br>
 > 2. Pour créer des machines virtuelles chiffrées à partir de disques restaurés, votre rôle Azure doit avoir l’autorisation d’effectuer l’action **Microsoft.KeyVault/vaults/deploy/action**. Si votre rôle ne dispose pas de cette autorisation, créez un rôle personnalisé avec cette action. Pour plus d’informations, consultez [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/custom-roles.md). <br>
-> 3. Après avoir restauré les disques, vous pouvez obtenir un modèle de déploiement que vous pouvez utiliser directement pour créer une machine virtuelle. Les cmdlets PS permettant de créer des machines virtuelles gérées/non gérées qui sont chiffrées/non chiffrées ne sont plus différentes.<br>
+> 3. Après avoir restauré les disques, vous pouvez obtenir un modèle de déploiement que vous pouvez utiliser directement pour créer une machine virtuelle. Vous n’avez pas besoin de différentes applets de commande PowerShell pour créer des machines virtuelles managées/non managées qui sont chiffrées/non chiffrées.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Créer une machine virtuelle à l’aide du modèle de déploiement
@@ -636,9 +636,9 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
         }
     ```
 
-    * **Machines virtuelles non managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles non managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur l’objet blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour l’objet blob de données). $dekurl peut être extrait du coffre de clés restauré.
+    * **Machines virtuelles non managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles non managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur l’objet blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour un objet blob de données). $dekurl peut être extrait du coffre de clés restauré.
 
-    Le script ci-dessous doit être exécuté uniquement quand le secret et le coffre de clés sources ne sont pas disponibles.
+    Le script suivant doit être exécuté uniquement quand le secret/keyVault source n’est pas disponible.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -652,7 +652,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
     Une fois que les **secrets sont disponibles** et que les détails de chiffrement ont été définis sur l’objet blob de système d’exploitation, attachez les disques en utilisant le script ci-dessous.
 
-    Si les secrets/coffre de clés sources sont déjà disponibles, vous n’êtes pas obligé d’exécuter le script ci-dessus.
+    Si les secrets/keyVault sources sont déjà disponibles, vous n’êtes pas obligé d’exécuter le script ci-dessus.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -663,9 +663,9 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
         }
     ```
 
-    * **Machines virtuelles non managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles non managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/clé/coffre de clés sources ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur l’objet blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour l’objet blob de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
+    * **Machines virtuelles non managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles non managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/clé/coffre de clés sources ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur l’objet blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour un objet blob de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
 
-    Le script ci-dessous doit être exécuté uniquement quand le secret/clé/coffre de clés source ne sont pas disponibles.
+    Le script ci-dessous doit être exécuté uniquement quand le secret/keyVault ou la clé source ne sont pas disponibles.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -680,7 +680,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
     Une fois que **les secrets et la clé sont disponibles** et que les détails de chiffrement ont été définis sur l’objet blob de système d’exploitation, attachez les disques en utilisant le script ci-dessous.
 
-    Si les secrets/clé/coffre de clés sources sont disponibles, vous n’êtes pas obligé d’exécuter le script ci-dessus.
+    Si les secrets/coffre de clés/clé sources sont disponibles, vous n’êtes pas obligé d’exécuter le script ci-dessus.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -697,9 +697,9 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
     * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK)** avec Azure AD : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) avec Azure AD, attachez les disques managés restaurés. Pour plus d’informations, consultez [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour le disque de données). $dekurl peut être extrait du coffre de clés restauré.
+    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque de système d’exploitation restauré (cette étape n’est pas nécessaire pour un disque de données). $dekurl peut être extrait du coffre de clés restauré.
 
-    Le script ci-dessous doit être exécuté uniquement quand le secret et le coffre de clés sources ne sont pas disponibles.  
+    Le script ci-dessous doit être exécuté uniquement quand le secret/coffre de clés source n’est pas disponible.  
 
     ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -718,9 +718,9 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
     Une fois que les secrets sont disponibles et que les détails de chiffrement ont été définis sur le disque du système d’exploitation, pour attacher les disques managés restaurés, consultez [Attacher un disque de données à une machine virtuelle Windows dans Azure à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/la clé/le coffre de clés sources ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour les disques de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
+    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/la clé/le coffre de clés sources ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque de système d’exploitation restauré (cette étape n’est pas nécessaire pour les disques de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
 
-    Le script ci-dessous doit être exécuté uniquement quand le secret/clé/coffre de clés source n’est pas disponible.
+    Le script suivant doit être exécuté uniquement quand le secret/coffre de clés ou la clé source ne sont pas disponibles.
 
     ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -811,7 +811,7 @@ Les étapes élémentaires pour restaurer un fichier à partir d’une sauvegard
 * Copier les fichiers nécessaires
 * Démonter le disque
 
-### <a name="select-the-vm"></a>Sélection de la machine virtuelle
+### <a name="select-the-vm-when-restoring-the-vm"></a>Sélectionner la machine virtuelle (lors de la restauration de la machine virtuelle)
 
 Pour obtenir l’objet PowerShell permettant d’identifier l’élément à restaurer, vous devez commencer au niveau du conteneur dans le coffre et descendre dans la hiérarchie d’objets. Pour sélectionner le conteneur qui représente la machine virtuelle, utilisez l’applet de commande [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) et dirigez-la vers l’applet de commande [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -820,7 +820,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Choisir un point de récupération
+### <a name="choose-a-recovery-point-when-restoring-the-vm"></a>Choisir un point de récupération (lors de la restauration de la machine virtuelle)
 
 Utilisez la cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) afin de répertorier tous les points de récupération correspondant à l'élément de sauvegarde. Ensuite, choisissez le point de récupération à restaurer. Si vous ne savez pas quel point de récupération utiliser, nous vous conseillons de choisir le point RecoveryPointType = AppConsistent le plus récent dans la liste.
 

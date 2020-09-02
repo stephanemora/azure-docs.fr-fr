@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611855"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892386"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -58,7 +58,7 @@ Sauvegarde Azure se sert de l’extension de capture instantanée de machine vir
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 - **Vérifiez si l’accès au réseau est requis** : Les paquets d’extensions sont téléchargés à partir du référentiel d’extensions de Stockage Azure, et les chargements d’état d’extension sont publiés sur Stockage Azure. [Plus d’informations](../virtual-machines/extensions/features-windows.md#network-access)
-  - Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+  - Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le Stockage Azure dans cette région à partir de la machine virtuelle.
   - Si vous avez bloqué l’accès à l’adresse `168.63.129.16` à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires. [En savoir plus](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Vérifiez que le protocole DHCP est activé à l’intérieur de la machine virtuelle invitée** : Il est nécessaire pour obtenir l’adresse de l’hôte ou de l’infrastructure à partir de DHCP pour que la sauvegarde de machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le portail Azure ou PowerShell et vérifier que l’option DHCP de la machine virtuelle est activée. [En savoir plus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
@@ -119,7 +119,7 @@ Cette erreur se produit lorsqu’un des échecs d’extension met la machine vir
 Action recommandée :<br>
 Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage.
 > [!NOTE]
-> Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Il est conseillé de ne pas verrouiller le groupe de ressources créé pour une utilisation par le service Sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>`. Par exemple : *AzureBackupRG_northeurope_1*
 
 **Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
@@ -175,7 +175,7 @@ Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machi
 
 L’un de vos derniers travaux de sauvegarde a échoué, car il y a déjà un travail de sauvegarde en cours. Vous ne pouvez pas en lancer de nouvelle tant que la tâche en cours n’est pas terminée. Vérifiez que l’opération de sauvegarde en cours est terminée avant d’en déclencher ou d’en programmer d’autres. Pour vérifier l’état des travaux de sauvegarde, procédez comme suit :
 
-1. Connectez-vous au portail Azure, puis sélectionnez **Tous les services**. Saisissez Recovery Services, puis sélectionnez **Coffres Recovery Services**. La liste des coffres Recovery Services s’affiche.
+1. Connectez-vous au portail Azure, puis sélectionnez **Tous les services**. Saisissez Recovery Services, puis sélectionnez **Coffres Recovery Services**. La liste des archivages de Recovery Services s’affiche.
 2. Dans la liste des coffres Recovery Services, sélectionnez un coffre dont la sauvegarde est configurée.
 3. Dans le menu du tableau de bord du coffre, sélectionnez **Travaux de sauvegarde** pour afficher tous les travaux de sauvegarde.
    - Si une tâche de sauvegarde est en cours, attendez qu’elle se termine ou annulez-la.
@@ -297,7 +297,7 @@ Pour nettoyer les points de restauration, suivez l’une des méthodes suivantes
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Nettoyer la collection de points de restauration en exécutant une sauvegarde sur demande
 
-Après avoir supprimé le verrou, déclenchez une sauvegarde sur demande. Cette action garantit le nettoyage automatique des points de restauration. Attendez-vous à ce que cette opération sur demande échoue la première fois. Toutefois, elle garantit le nettoyage automatique à la place de la suppression manuelle des points de restauration. Après le nettoyage, votre sauvegarde planifiée suivante devrait réussir.
+Après avoir supprimé le verrou, déclenchez une sauvegarde sur demande. Cette action garantit le nettoyage automatique des points de restauration. Attendez-vous à l’échec de cette opération à la demande la première fois. Toutefois, elle assure le nettoyage automatique à la place de la suppression manuelle des points de restauration. Après le nettoyage, votre sauvegarde planifiée suivante devrait réussir.
 
 > [!NOTE]
 > Le nettoyage automatique a lieu quelques heures après le déclenchement de la sauvegarde sur demande. Si votre sauvegarde planifiée échoue à nouveau, essayez de supprimer manuellement la collection de points de restauration à l’aide de la procédure indiquée [ici](#clean-up-restore-point-collection-from-azure-portal).
@@ -320,4 +320,4 @@ Pour effacer manuellement la collection des points de restauration, qui n’est 
 6. Renouvelez l’opération de sauvegarde.
 
 > [!NOTE]
- >Si la ressource (RP Collection) compte un grand nombre de points de restauration, leur suppression du portail peut entraîner un dépassement de temps et un échec. Il s’agit d’un problème CRP connu, où tous les points de restauration ne sont pas supprimés dans le temps imparti, ce qui entraîne l’expiration du délai d’attente de l’opération ; cependant, l’opération de suppression réussit généralement après 2 ou 3 tentatives.
+ >Si la ressource (RP Collection) compte un grand nombre de points de restauration, leur suppression du portail peut entraîner un dépassement de temps et un échec. Il s’agit d’un problème CRP connu, où tous les points de restauration ne sont pas supprimés dans le temps imparti, ce qui entraîne l’expiration du délai d’attente de l’opération. Toutefois, l’opération de suppression est généralement effectuée après deux ou trois nouvelles tentatives.

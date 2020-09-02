@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 66a2fde47f71536661431959b957246e28c81d6a
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042012"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639803"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Créer une ressource Lecteur immersif et configurer l’authentification Azure Active Directory
 
@@ -44,7 +44,8 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
         $unused = ''
@@ -93,12 +94,13 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -155,6 +157,7 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
       -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
       -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
+      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_Expiration>'
     ```
 
     | Paramètre | Commentaires |
@@ -168,7 +171,12 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
     | ResourceGroupLocation |Si votre groupe de ressources n’existe pas, vous devez fournir un emplacement dans lequel créer le groupe. Pour trouver une liste d’emplacements, exécutez `az account list-locations`. Utilisez la propriété *name* (sans espaces) du résultat retourné. Ce paramètre est facultatif si votre groupe de ressources existe déjà. |
     | AADAppDisplayName |Nom d’affichage de l’application Azure Active Directory. Si une application Azure AD existante est introuvable, une nouvelle application avec ce nom est créée. Ce paramètre est facultatif si l’application Azure AD existe déjà. |
     | AADAppIdentifierUri |URI de l’application Azure AD. Si une application Azure AD existante est introuvable, une nouvelle application avec cet URI est créée. Par exemple : `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |Mot de passe que vous créez et qui sera utilisé plus tard pour l’authentification lors de l’acquisition d’un jeton pour lancer le Lecteur immersif. Le mot de passe doit comporter au moins 16 caractères et contenir au moins 1 caractère spécial et 1 caractère numérique. |
+    | AADAppClientSecret |Mot de passe que vous créez et qui sera utilisé plus tard pour l’authentification lors de l’acquisition d’un jeton pour lancer le Lecteur immersif. Le mot de passe doit comporter au moins 16 caractères et contenir au moins 1 caractère spécial et 1 caractère numérique. Pour gérer les codes secrets du client d’application Azure AD après avoir créé cette ressource, visitez https://portal.azure.com et accédez à Accueil -> Azure Active Directory -> Inscriptions d’applications-> `[AADAppDisplayName]` -> Certificats et secrets -> section Secrets des clients (comme indiqué dans la capture d’écran « Gérer vos secrets d’application » ci-dessous). |
+    | AADAppClientSecretExpiration |Date ou heure à laquelle votre `[AADAppClientSecret]` expire (par exemple, '2020-12-31T11:59:59+00:00' ou '2020-12-31'). |
+
+    Gérer l’application et les secrets de votre application Azure AD
+
+    ![Panneau Certificats et secrets du portail Azure](./media/client-secrets-blade.png)
 
 1. Copiez la sortie JSON dans un fichier texte pour l’utiliser ultérieurement. La sortie doit se présenter comme suit.
 

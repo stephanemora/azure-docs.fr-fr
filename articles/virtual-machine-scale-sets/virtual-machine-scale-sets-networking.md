@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837157"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783720"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -43,28 +43,7 @@ La mise en réseau accélérée Azure améliore les performances du réseau en a
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Groupes de machines virtuelles identiques avec Azure Load Balancer
-
-Lorsque vous utilisez des groupes de machines virtuelles identiques et un équilibreur de charge, prenez en compte les éléments suivants :
-
-* **Plusieurs groupes de machines virtuelles identiques ne peuvent pas utiliser le même équilibreur de charge**.
-* **Réacheminement de port et règles NAT de trafic entrant** :
-  * Chaque groupe de machines virtuelles identiques doit avoir une règle NAT de trafic entrant.
-  * Une fois le groupe identique créé, le port principal ne peut pas être modifié lorsqu'une règle d'équilibrage de charge est utilisée par une sonde d'intégrité pour l'équilibreur de charge. Pour modifier le port, vous pouvez supprimer la sonde d'intégrité en mettant à jour le groupe identique de machines virtuelles Azure, puis mettre à jour le port et reconfigurer la sonde d'intégrité.
-  * Lorsque vous utilisez un groupe de machines virtuelles identiques dans le pool principal de l’équilibreur de charge, des règles NAT de trafic entrant par défaut sont automatiquement créées.
-* **Pool NAT de trafic entrant** :
-  * Le pool NAT de trafic entrant est un ensemble de règles NAT de trafic entrant. Un pool NAT de trafic entrant ne peut pas prendre en charge plusieurs groupes de machines virtuelles identiques.
-* **Règles d’équilibrage de charge** :
-  * Lorsque vous utilisez un groupe de machines virtuelles identiques dans le pool principal de l’équilibreur de charge, des règles d’équilibrage de charge par défaut sont automatiquement créées.
-* **Règles de trafic sortant** :
-  *  Pour créer une règle de trafic sortant pour un pool principal déjà référencé par une règle d’équilibrage de charge, vous devez d’abord définir **« Créer des règles de trafic sortant implicites »** sur **Non** dans le portail au moment de créer la règle d’équilibrage de charge entrante.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Création d'une règle d’équilibrage de charge" border="true":::
-
-Les méthodes suivantes peuvent être utilisées pour déployer un groupe identique de machines virtuelles avec un équilibreur de charge Azure existant.
-
-* [Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide du portail Azure](../load-balancer/configure-vm-scale-set-portal.md).
-* [Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide d’Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
-* [Configurer un groupe de machines virtuelles identiques avec un service Azure Load Balancer existant à l’aide d’Azure CLI](../load-balancer/configure-vm-scale-set-cli.md).
+Consultez [Azure Load Balancer et Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) pour en savoir plus sur comment configurer votre Standard Load Balancer avec Virtual Machine Scale Sets en fonction de votre scénario.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Créer un groupe identique qui fait référence à une passerelle d’application
 Pour créer un groupe identique qui utilise une passerelle d’application, référencez le pool d’adresses principal de la passerelle d’application dans la section ipConfigurations de votre groupe identique, comme dans cette configuration de modèle ARM :

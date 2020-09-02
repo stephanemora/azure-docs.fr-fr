@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009220"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825441"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Créer un conteneur de profil avec Azure Files et AD DS
 
@@ -151,15 +151,15 @@ Pour configurer vos autorisations NTFS :
 
 1. Ouvrez une invite de commandes sur une machine virtuelle jointe au domaine.
 
-2. Exécutez la cmdlet suivante pour monter le partage de fichiers Azure et lui attribuer une lettre de lecteur :
+2. Exécutez la commande suivante pour monter le partage de fichiers Azure et lui attribuer une lettre de lecteur :
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Exécutez la cmdlet suivante pour vérifier les autorisations d’accès au partage de fichiers Azure :
+3. Exécutez la commande suivante pour vérifier les autorisations d’accès au partage de fichiers Azure :
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Pour configurer vos autorisations NTFS :
 
     Les *Utilisateurs Autorité NT\Utilisateurs authentifiés* et *BUILTIN\Users* disposent de certaines autorisations par défaut. Ces autorisations par défaut permettent à ces utilisateurs de lire les conteneurs de profils d’autres utilisateurs. Toutefois, les autorisations décrites dans [Configurer les autorisations de stockage à utiliser avec les conteneurs de profils et les conteneurs Office](/fslogix/fslogix-storage-config-ht) ne permettent pas aux utilisateurs de lire les conteneurs de profils d’autres utilisateurs.
 
-4. Exécutez les cmdlet suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leurs propres conteneurs de profils tout en bloquant l’accès à leur conteneur de profil à d’autres utilisateurs.
+4. Exécutez les commandes suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès à leurs conteneurs de profils par d’autres utilisateurs.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -181,7 +181,7 @@ Pour configurer vos autorisations NTFS :
 
      Par exemple :
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"

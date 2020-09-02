@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163167"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855153"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Interrogation des données à partir d’Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 permet d’interroger les données sur les événements et les métadonnées stockées dans l’environnement via des API de surface publiques. Ces API sont également utilisées par l’[explorateur Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 permet d’interroger les données sur les événements et les métadonnées stockées dans l’environnement via des API de surface publiques. Ces API sont également utilisées par l’[explorateur Azure Time Series Insights TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
 Trois catégories principales d’API sont disponibles dans Azure Time Series Insights Gen2 :
 
@@ -73,4 +73,4 @@ Ces API sont disponibles dans les deux magasins (chaud et froid) de notre soluti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les différentes variables qui peuvent être définies dans le [modèle Time Series](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* En savoir plus sur l’interrogation des données à partir de l’[explorateur Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Découvrez-en plus sur l’interrogation des données à partir de l’[explorateur Azure Time Series Insights TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

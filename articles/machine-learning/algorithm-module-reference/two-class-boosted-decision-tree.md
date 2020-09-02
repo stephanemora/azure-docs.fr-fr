@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137652"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782173"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
@@ -22,9 +22,11 @@ Cet article décrit un module dans le concepteur Azure Machine Learning (version
 
 Ce module vous permet de créer un modèle Machine Learning reposant sur l’algorithme d’arbres de décision optimisés. 
 
-Un arbre de décision optimisé est une méthode d’apprentissage d’ensemble dans laquelle le second arbre corrige les erreurs du premier arbre, le troisième arbre corrige les erreurs du premier et du deuxième arbres, et ainsi de suite.  Les prédictions sont effectuées par l’ensemble d’arbres complet.
+Un arbre de décision optimisé est une méthode d’apprentissage d’ensemble dans laquelle le second arbre corrige les erreurs du premier arbre, le troisième arbre corrige les erreurs du premier et du deuxième arbres, et ainsi de suite. Les prédictions sont effectuées par l’ensemble d’arbres complet.
   
 En règle générale, lorsque les arbres de décision sont correctement configurés, ils représentent le moyen le plus simple d’obtenir des performances optimales sur un large éventail de tâches Machine Learning. Toutefois, ils constituent également l’un des apprentissages qui utilisent le plus de mémoire, et l’implémentation actuelle conserve toutes les données en mémoire. Par conséquent, un modèle d’arbre de décision optimisé n’est pas toujours en mesure de traiter des jeux de données volumineux qui peuvent être gérés par certains apprentissages linéaires.
+
+Ce module est basé sur l’algorithme LightGBM.
 
 ## <a name="how-to-configure"></a>Comment configurer
 
@@ -73,7 +75,7 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
     > 
     > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
     > 
-    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.  
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent sur une plage de valeurs.  
    
 ## <a name="results"></a>Résultats
 

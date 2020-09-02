@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116340"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814609"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 

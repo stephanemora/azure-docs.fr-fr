@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136594"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661348"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
 
 Le Portail Azure comprend une visionneuse de ressources Kubernetes (préversion) pour un accès facile aux ressources Kubernetes dans votre cluster Azure Kubernetes service (AKS). L’affichage des ressources Kubernetes à partir du Portail Azure réduit le basculement de contexte entre le Portail Azure et l’outil de ligne de commande `kubectl`, ce qui simplifie l’expérience d’affichage et de modification de vos ressources Kubernetes. La visionneuse de ressources comprend actuellement plusieurs types de ressources, tels que les déploiements, les pods et les jeux de réplicas.
 
 La vue de ressources Kubernetes du Portail Azure remplace le [module complémentaire du tableau de bord AKS][kubernetes-dashboard], qui est défini pour la désapprobation.
+
+>[!NOTE]
+>La capacité n’est pas prise en charge actuellement sur les [clusters Azure Kubernetes Service privés](https://docs.microsoft.com/azure/aks/private-clusters).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

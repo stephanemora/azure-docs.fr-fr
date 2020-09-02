@@ -46,6 +46,8 @@
       href: disable-private-link-service-network-policy.md
     - name: Gérer les points de terminaison privés
       href: manage-private-endpoint.md
+    - name: Inspecter le trafic avec le Pare-feu Azure
+      href: inspect-traffic-with-azure-firewall.md
     - name: Dépanner
       items:
         - name: Résoudre les problèmes de connectivité aux points de terminaison privés

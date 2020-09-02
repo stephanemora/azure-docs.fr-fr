@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533374"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755906"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage
 
@@ -338,6 +338,10 @@ Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez 
 L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage avec la version minimale de TLS définie sur TLS 1.0 (valeur par défaut pour un nouveau compte) quand une stratégie avec effet de refus exige que la version minimale de TLS soit définie sur TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
+
+## <a name="network-considerations"></a>Considérations relatives au réseau
+
+Quand un client envoie une demande au compte de stockage, il établit une connexion avec le point de terminaison public du compte de stockage, puis la demande est traitée. Le paramètre de version TLS minimale est vérifié après l’établissement de la connexion. Si la demande utilise une version de TLS antérieure à celle spécifiée par le paramètre, la connexion continue, mais la demande finit par échouer. Pour plus d’informations sur les points de terminaison publics pour le stockage Azure, consultez [Syntaxe d’URI de ressource](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

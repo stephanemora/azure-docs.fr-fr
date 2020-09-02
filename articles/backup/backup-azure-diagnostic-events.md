@@ -3,12 +3,12 @@ title: Utiliser des paramètres de diagnostic pour les coffres Recovery Services
 description: Cet article décrit comment utiliser les anciens et nouveaux événements de diagnostic pour Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 2b562ee7fc4afbc28119aa36cfa071291dd61f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612620"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826665"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Utiliser des paramètres de diagnostic pour les coffres Recovery Services
 
@@ -29,7 +29,7 @@ Sauvegarde Azure fournit les événements de diagnostic suivant. Chaque événem
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Si vous utilisez l’[événement hérité](#legacy-event) AzureBackupReport, il est recommandé d’utiliser les événements ci-dessus dès que possible.
+Si vous utilisez toujours l’[événement hérité](#legacy-event) AzureBackupReport, nous vous recommandons de passer à l’utilisation des événements ci-dessus.
 
 Pour plus d’informations, consultez [Modèle de données pour les événements de diagnostics de Sauvegarde Azure](./backup-azure-reports-data-model.md).
 
@@ -110,7 +110,7 @@ Vous pouvez choisir d’avoir des paramètres de diagnostic distincts pour Azure
 > L’événement AzureBackupReport est pris en charge *uniquement* dans le mode Diagnostics Azure. *Si vous essayez d’envoyer des données pour cet événement en mode Spécifique de la ressource, aucune donnée n’est dirigée vers l’espace de travail Log Analytics.*
 
 > [!NOTE]
-> Le bouton bascule **Diagnostics Azure** ou **Spécifique de la ressource** n’apparaît que si l’utilisateur sélectionne **Envoyer à Log Analytics**. Pour envoyer des données à un compte de stockage ou à un Event Hub, un utilisateur sélectionne la destination requise et coche les événements souhaités, sans aucune entrée supplémentaire. Là encore, nous recommandons de ne plus choisir l’événement AzureBackupReport hérité.
+> Le bouton bascule **Diagnostics Azure** ou **Spécifique de la ressource** n’apparaît que si l’utilisateur sélectionne **Envoyer à Log Analytics**. Pour envoyer des données à un compte de stockage ou à un Event Hub, un utilisateur sélectionne la destination requise et coche les événements souhaités, sans aucune entrée supplémentaire. Là encore, nous vous recommandons de ne plus choisir l’événement hérité AzureBackupReport.
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Envoyer des événements d’Azure Site Recovery à Log Analytics
 

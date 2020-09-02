@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873634"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889938"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -24,9 +24,9 @@ Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l
 
 Même si les informations contenues dans ce document sont basées sur l’utilisation de [Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md), elles devraient également s’appliquer à d’autres produits de pare-feu. Si vous avez des questions sur la façon d’autoriser la communication via votre pare-feu, consultez la documentation du pare-feu que vous utilisez.
 
-## <a name="network-rules"></a>Règles de réseau
+## <a name="application-rules"></a>Règles d’application
 
-Sur votre pare-feu, créez une règle de réseau autorisant le trafic vers et depuis les adresses mentionnées dans cet article.
+Sur votre pare-feu, créez une _règle d’application_ autorisant le trafic vers et depuis les adresses mentionnées dans cet article.
 
 > [!TIP]
 > Lors de l’ajout de la règle de réseau, définissez __Protocole__ sur un protocole quelconque et les ports sur `*`.
@@ -57,6 +57,7 @@ Les hôtes de cette section sont détenus par Microsoft et fournissent les servi
 | **mcr.microsoft.com** | Registre de conteneurs Microsoft Container Registry pour les images Docker de base |
 | **your-acr-server-name.azurecr.io** | Nécessaire uniquement si votre Azure Container Registry se trouve derrière le réseau virtuel. Dans cette configuration, un lien privé est créé à partir de l’environnement Microsoft vers l’instance ACR dans votre abonnement. Utilisez le nom du serveur ACR pour votre espace de travail Azure Machine Learning. |
 | **\*.notebooks.azure.net** | Requis par les notebooks dans Azure Machine Learning Studio. |
+| **graph.windows.net** | Nécessaire pour les notebooks |
 
 ## <a name="python-hosts"></a>Hôtes Python
 
@@ -78,6 +79,15 @@ Les hôtes de cette section sont utilisés pour installer les packages R. Ils s
 | **Nom d’hôte** | **Objectif** |
 | ---- | ---- |
 | **cloud.r-project.org** | Utilisé lors de l’installation des packages CRAN. |
+
+## <a name="azure-government-region"></a>Région Azure Government
+
+URL nécessaires pour les régions Azure Government.
+
+| **Nom d’hôte** | **Objectif** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Région USA Arizona |
+| **usgovvirginia.api.ml.azure.us** | Région USA Virginie |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

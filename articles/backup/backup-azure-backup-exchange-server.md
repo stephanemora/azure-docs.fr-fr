@@ -4,12 +4,12 @@ description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l�
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 48a0e0f4b838b3f9b26de5a9cf297ddcdfc2a7e9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091128"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889717"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azu
 * Télécharger les informations d’identification de l’agent et du coffre sur le serveur DPM.
 * Installer l’agent sur le serveur DPM.
 * Utiliser les informations d’identification pour enregistrer le serveur DPM.
-* Si vous protégez Exchange 2016, mettez à niveau vers DPM 2012 R2 UR9 ou une version ultérieure
+* Si vous protégez Exchange 2016, mettez à niveau vers DPM 2012 R2 UR9 ou une version ultérieure.
 
 ## <a name="dpm-protection-agent"></a>Agent de protection DPM
 
@@ -49,7 +49,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 4. Sélectionnez la base de données du serveur Exchange que vous souhaitez protéger, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](/system-center/dpm/back-up-exchange).
+   > Si vous protégez Exchange 2013, vérifiez les [prérequis pour Exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

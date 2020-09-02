@@ -3,14 +3,14 @@ title: Guide pratique pour créer des déploiements de mises à jour pour Azure 
 description: Cet article explique comment planifier des déploiements de mises à jour et vérifier leur état.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449558"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717691"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -41,8 +41,10 @@ Pour planifier un nouveau déploiement de mises à jour
 
 6. Utilisez la section **Classifications des mises à jour** pour spécifier des [classifications des mises à jour](update-mgmt-view-update-assessments.md#work-with-update-classifications) pour les produits. Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour.
 
-7. Utilisez la section **Inclure/exclure des mises à jour** pour sélectionner des mises à jour spécifiques pour le déploiement. La page Inclure/Exclure affiche les mises à jour par numéro d’ID d’article de la Base de connaissances à inclure ou exclure.
-    
+    Si votre déploiement est censé appliquer uniquement un ensemble de mises à jour, il est nécessaire de désélectionner toutes les classifications de mise à jour présélectionnées lors de la configuration de l’option **Inclure/exclure des mises à jour**, comme décrit à l’étape suivante. Cela garantit que seules les mises à jour que vous avez spécifiées comme devant être *incluses* dans ce déploiement sont installées sur les ordinateurs cibles.
+
+7. Utilisez la région **Inclure/exclure des mises à jour** pour ajouter ou exclure des mises à jour sélectionnées du déploiement. Dans la page **Inclure/Exclure**, vous entrez les numéros d’identification des articles de la Base de connaissances à inclure ou exclure.
+
    > [!IMPORTANT]
    > N’oubliez pas que les exclusions sont prioritaires par rapport aux inclusions. Par exemple, si vous définissez une règle d’exclusion `*`, Update Management exclut tous les correctifs et packages de l’installation. Les correctifs exclus sont toujours affichés comme étant manquants sur les machines. Sur les machines Linux, si vous incluez un package qui a un package dépendant ayant été exclu, Update Management n’installe pas le package principal.
 

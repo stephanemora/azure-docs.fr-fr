@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c0b7b25eeecad8e8c519d37139551590a51a29e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586186"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892352"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -20,7 +20,7 @@ ms.locfileid: "88586186"
 La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spécifier le mode de réplication de ce stockage.
 
 > [!NOTE]
-> Vous devez remplacer la valeur du paramètre **Type de réplication du stockage** (Localement redondant/Géoredondant) par un coffre Recovery Services avant de configurer les sauvegardes dans le coffre. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée.
+> La modification du paramètre **Type de réplication du stockage** (Localement redondant/Géoredondant) pour un coffre Recovery Services doit être opérée avant de configurer des sauvegardes dans le coffre. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée.
 >
 >- Si vous n’avez pas encore configuré la sauvegarde, [procédez comme suit](#set-storage-redundancy) pour vérifier et modifier les paramètres.
 >- Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à LRS, [consultez ces solutions de contournement](#how-to-change-from-grs-to-lrs-after-configuring-backup).
@@ -37,7 +37,7 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
    - Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md) et [locale](../storage/common/storage-redundancy.md).
 
 >[!NOTE]
->Les paramètres de réplication de stockage pour le coffre ne sont pas pertinents pour la sauvegarde de partage de fichiers Azure, car la solution actuelle est basée sur un instantané et aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage de fichiers sauvegardé.
+>Les paramètres de réplication de stockage pour le coffre ne sont pas pertinents pour la sauvegarde de partage de fichiers Azure, car la solution actuelle est basée sur une capture instantanée et aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage de fichiers sauvegardé.
 
 ## <a name="set-cross-region-restore"></a>Définir la restauration interrégion
 
@@ -58,7 +58,7 @@ Dans le cadre de ce processus, les implications tarifaires sont liées au niveau
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, la CRR est prise en charge uniquement pour Type de gestion des sauvegardes : Machine virtuelle Azure ARM (les machines virtuelles Azure classiques ne sont pas prises en charge).  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
->- Actuellement, la restauration interrégion ne peut pas être rétablie sur GRS ou LRS une fois la protection initiée pour la première fois.
+>- Actuellement, la Restauration inter-régions ne peut pas être rétablie sur le GRS ou le LRS une fois la protection initiée pour la première fois.
 
 ### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
 
@@ -144,7 +144,7 @@ Si vous devez conserver les données protégées actuelles dans le coffre GRS e
 
 - Pour une machine virtuelle Azure, vous pouvez [arrêter la protection avec conservation des données](backup-azure-manage-vms.md#stop-protecting-a-vm) pour la machine virtuelle dans le coffre GRS, déplacer la machine virtuelle vers un autre groupe de ressources, puis protéger la machine virtuelle dans le coffre LRS. Voir [les conseils et les limites](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) pour déplacer une machine virtuelle vers un autre groupe de ressources.
 
-  Une machine virtuelle ne peut être protégée que dans un coffre à la fois. Toutefois, la machine virtuelle dans le nouveau groupe de ressources peut être protégée dans le coffre LRS, car elle est considérée comme une machine virtuelle différente.
+  Une machine virtuelle ne peut être protégée que dans un coffre à la fois. Toutefois, la machine virtuelle du nouveau groupe de ressources ne peut pas être protégée sur le coffre du stockage localement redondant car il est considéré comme une machine virtuelle différente.
 
   - Le service Sauvegarde Azure conservera les points de récupération qui ont été sauvegardés dans le coffre GRS.
   - Vous devrez payer pour conserver ces points de récupération dans le coffre GRS (voir [Tarification de Sauvegarde Azure](azure-backup-pricing.md) pour en savoir plus).

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044392"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718201"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format Excel dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +32,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | type             | La propriété type du jeu de données doit être définie sur **Excel**.   | Oui      |
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. | Oui      |
 | sheetName        | Nom de la feuille de calcul Excel pour lire les données.                       | Oui      |
-| range            | Plage de cellules dans la feuille de calcul donnée pour localiser les données sélectives, par exemple `A3:H5` (tableau de A3 à H5), `A3` (tableau commençant à partir de la cellule A3), `A3:A3` (cellule unique). Si cela n’est pas spécifié, ADF lit la totalité de la feuille de calcul en tant que tableau. | Non       |
+| range            | Plage de cellules dans la feuille de calcul donnée pour localiser les données sélectives, par exemple :<br>- Non spécifiée : lit l’intégralité de la feuille de calcul en tant que table à partir des premières ligne et colonne non vides<br>- `A3` : lit une table en commençant à la cellule donnée, détecte de façon dynamique toutes les lignes situées en dessous et toutes les colonnes à droite<br>- `A3:H5` : lit cette plage fixe en tant que table<br>- `A3:A3` : lit cette cellule unique | Non       |
 | firstRowAsHeader | Spécifie s’il faut considérer la première ligne dans la feuille de calcul/plage donnée comme une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut). | Non       |
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |

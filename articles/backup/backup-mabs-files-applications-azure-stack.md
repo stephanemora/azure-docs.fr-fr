@@ -3,19 +3,19 @@ title: Sauvegarder des fichiers dans des machines virtuelles Azure Stack
 description: Utilisez Sauvegarde Azure pour sauvegarder et restaurer des fichiers et applications Azure Stack dans votre environnement Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b45e3a0916f46f247503ea336105646f5538246c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263127"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825798"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Sauvegarder des fichiers et applications sur Azure Stack
 
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
 
 > [!NOTE]
-> Bien qu’un serveur de sauvegarde Azure et Microsoft System Center Data Protection Manager (DPM) soient similaires, DPM n’est pas pris en charge pour une utilisation avec Azure Stack.
+> Bien qu’un serveur de sauvegarde Azure et Data Protection Manager (DPM) System Center soient similaires, DPM n’est pas pris en charge pour une utilisation avec Azure Stack.
 >
 
 Cet article ne couvre pas l’installation du serveur de sauvegarde Azure dans l’environnement Azure Stack. Pour installer un serveur de sauvegarde Azure sur Azure Stack, voir l’article [Installer un serveur de sauvegarde Azure](backup-mabs-install-azure-stack.md).
