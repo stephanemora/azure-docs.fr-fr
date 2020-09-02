@@ -3,12 +3,12 @@ title: Gérer la sauvegarde de partage de fichiers Azure avec l’API REST
 description: Découvrez comment utiliser l’API REST pour gérer et superviser les partages de fichiers Azure sauvegardés par Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5e2823472c6a7bdd6b3f9819db3079d7efa78c4e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073248"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892845"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gérer la sauvegarde de partage de fichiers Azure avec l’API REST
 

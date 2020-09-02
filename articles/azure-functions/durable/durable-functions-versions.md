@@ -3,14 +3,14 @@ title: Vue d’ensemble des versions de Durable Functions - Azure Functions
 description: En savoir plus sur les versions de Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024722"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719408"
 ---
 # <a name="durable-functions-versions-overview"></a>Vue d’ensemble des versions de Durable Functions
 
@@ -44,7 +44,29 @@ Cette section décrit comment migrer votre extension Durable Functions existante
 
 ### <a name="upgrade-the-extension"></a>Mettre à niveau l’extension
 
-Installez la version 2.x de [l’extension de liaisons Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans votre projet. Pour en savoir plus, consultez [Inscrire des extensions de liaison Azure Functions](../functions-bindings-register.md).
+Installez la dernière version 2.x de l’extension de liaisons Durable Functions dans votre projet.
+
+#### <a name="javascript-python-and-powershell"></a>JavaScript, Python, et PowerShell
+
+Durable Functions 2.x est disponible dans la version 2.x du [pack d’extension Azure Functions](../functions-bindings-register.md#extension-bundles).
+
+Pour mettre à jour la version du pack d’extension dans votre projet, ouvrez host.json et mettez à jour la section `extensionBundle` pour utiliser la version 2.x (`[2.*, 3.0.0)`).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+#### <a name="net"></a>.NET
+
+Mettez à jour votre projet .NET pour utiliser la dernière version de l’[extension de liaisons Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
+
+Pour en savoir plus, consultez [Inscrire des extensions de liaison Azure Functions](../functions-bindings-register.md#local-csharp).
 
 ### <a name="update-your-code"></a>Mettre à jour votre code
 

@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533391"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934512"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > L’ajustement des styles oraux ne fonctionne qu’avec les voix neurales.
 
-Par défaut, le service de synthèse vocale synthétise le texte à l’aide d’un style oral neutre pour les voix standard et neuronales. Avec les voix neuronales, vous pouvez ajuster le ton pour exprimer différentes émotions, comme la joie, l’empathie ou le calme, ou bien optimiser la voix pour différents scénarios comme le service personnalisé, la diffusion d’informations et les assistants vocaux, à l’aide de l’élément <mstts :express-as>. Il s’agit d’un élément facultatif propre au service Speech.
+Par défaut, le service de synthèse vocale synthétise le texte à l’aide d’un style oral neutre pour les voix standard et neuronales. Avec les voix neuronales, vous pouvez ajuster le ton pour exprimer différentes émotions, comme la joie, l’empathie ou le calme, ou bien optimiser la voix pour différents scénarios comme le service personnalisé, la diffusion d’informations et les assistants vocaux, à l’aide de l’élément `mstts:express-as` . Il s’agit d’un élément facultatif propre au service Speech.
 
 Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
 * `en-US-AriaNeural`

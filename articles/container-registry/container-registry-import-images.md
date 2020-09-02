@@ -2,13 +2,13 @@
 title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 08/17/2020
+ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023514"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660493"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -28,6 +28,8 @@ L’importation d’images dans un registre de conteneurs Azure présente les av
 
 * Quand vous importez des images multi-architecture (notamment des images Docker officielles), les images pour toutes les architectures et plateformes spécifiées dans la liste de manifeste sont copiées.
 
+* L’accès aux registres source et cible ne doit pas nécessairement utiliser les points de terminaison publics des registres.
+
 Pour importer des images conteneur, cet article nécessite que vous exécutiez l’interface Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 > [!NOTE]
@@ -38,7 +40,7 @@ Pour importer des images conteneur, cet article nécessite que vous exécutiez l
 
 Si vous ne disposez pas d’un registre de conteneurs Azure, créez-en un. Pour connaître les étapes à suivre, voir [Démarrage rapide : Créer un registre de conteneurs privé avec Azure CLI](container-registry-get-started-azure-cli.md).
 
-Pour importer une image dans un registre de conteneurs Azure, votre identité doit avoir des autorisations en écriture sur le registre cible (au moins le rôle Contributeur). Consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md). 
+Pour importer une image dans un registre de conteneurs Azure, votre identité doit avoir des autorisations en écriture sur le registre cible (au moins le rôle Contributeur ou un rôle personnalisé permettant l’action importimage). Consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md#custom-roles). 
 
 ## <a name="import-from-a-public-registry"></a>Importer à partir d’un registre public
 
@@ -85,9 +87,11 @@ az acr import \
 
 Vous pouvez importer une image à partir d’un autre registre de conteneurs Azure à l’aide des autorisations Azure Active Directory intégrées.
 
-* Votre identité doit disposer d’autorisations Azure Active Directory pour lire à partir du registre source (rôle Lecteur) et pour écrire dans le registre cible (rôle Contributeur).
+* Votre identité doit disposer d’autorisations Azure Active Directory pour lire à partir du registre source (rôle Lecteur) et pour écrire dans le registre cible (rôle Contributeur ou [rôle personnalisé](container-registry-roles.md#custom-roles) permettant l’action importImage).
 
 * Le registre peut se trouver dans un abonnement Azure identique ou différent dans le même locataire Active Directory.
+
+* L’[accès public](container-registry-access-selected-networks.md#disable-public-network-access) au registre source peut être désactivé. Si l’accès public est désactivé, spécifiez le registre source par ID de ressource plutôt que par nom de serveur de connexion au registre.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importer à partir d’un registre dans le même abonnement
 
@@ -98,6 +102,16 @@ az acr import \
   --name myregistry \
   --source mysourceregistry.azurecr.io/aci-helloworld:latest \
   --image aci-helloworld:latest
+```
+
+L’exemple suivant importe l’image `aci-helloworld:latest` vers *myregistry* à partir d’un registre source *mysourceregistry* dans lequel l’accès au point de terminaison public du registre est désactivé. Indiquez l’ID de ressource du registre source avec le paramètre `--registry`. Notez que le paramètre `--source` spécifie uniquement le dépôt source et l’étiquette, pas le nom du serveur de connexion au registre.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source aci-helloworld:latest \
+  --image aci-helloworld:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 L’exemple suivant importe une image par code de hachage de manifeste (hachage SHA-256, représenté sous la forme `sha256:...`), et non par étiquette :

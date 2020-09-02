@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285201"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869437"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -150,6 +150,10 @@ Chaîne **--exclude-pattern** Exclut les fichiers dont le nom correspond à la l
 Chaîne **--include-pattern** Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : `*.jpg;*.pdf;exactName`
 
 **--log-level** string     Définit le niveau de détail pour le fichier journal. Niveaux disponibles : `INFO`(toutes les demandes et réponses), `WARNING`(réponses lentes), `ERROR`(uniquement les demandes ayant échoué) et `NONE`(aucun journal de sortie). (par défaut `INFO`). 
+
+**--preserve-smb-info**   False par défaut.Conserve les informations de propriété SMB (heure de la dernière écriture, heure de création, bits d’attribut) entre les ressources prenant en charge SMB (Windows et Azure Files).Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern). Les informations transférées pour les dossiers sont les mêmes que pour les fichiers, à l’exception de l’heure de la dernière écriture, qui n’est pas conservée pour les dossiers.
+
+**--preserve-smb-permissions**   False par défaut.Conserve les listes de contrôle d’accès (ACL) SMB entre les ressources prenant en charge SMB (Windows et Azure Files). Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple,  `include-pattern`).
 
 **--put-md5**     Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.
 

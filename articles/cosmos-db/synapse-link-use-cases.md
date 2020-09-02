@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119492"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814414"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link pour Azure Cosmos DB : Scénarios d‘utilisation courants d’analyse en quasi temps réel
 
@@ -52,9 +52,9 @@ Sur la base de l’architecture précédente, vous pouvez obtenir les cas d’ut
 
   Synapse Link pour Azure Cosmos DB permet de créer des scénarios riches d’analyse décisionnelle ou de rapports :
 
-  * Interroger des données opérationnelles à partir du magasin analytique Azure Cosmos DB à l’aide de l’intégration native avec Synapse SQL Serverless et l’expressivité complète du langage T-SQL.
+  * Interroger des données opérationnelles à partir du magasin analytique Azure Cosmos DB à l’aide de l’intégration native avec Synapse SQL serverless et l’expressivité complète du langage T-SQL.
 
-  * Modéliser et publier automatiquement les tableaux de bord BI sur Azure Cosmos DB par le biais de la prise en charge Synapse SQL Serverless des outils BI classiques. Par exemple, Azure Analysis Services, Power BI Premium, etc.
+  * Modéliser et publier automatiquement les tableaux de bord BI sur Azure Cosmos DB par le biais de la prise en charge Synapse SQL serverless des outils BI classiques. Par exemple, Azure Analysis Services, Power BI Premium, etc.
 
 Voici quelques conseils pour l’intégration de données pour les données par lot et les données en flux dans Azure Cosmos DB :
 
