@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298445"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705382"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,7 +26,7 @@ Cet article résume et explique les différences de syntaxe et de comportement e
 
 SQL Managed Instance offre une haute compatibilité avec le moteur de base de données SQL Server, et la plupart des fonctionnalités sont prises en charge dans une instance gérée SQL.
 
-![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Migration facile à partir de SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 Certaines limitations PaaS ont été introduites dans SQL Managed Instance et certains comportements ont changé par rapport à SQL Server. Les différences se répartissent en différentes catégories, à savoir : <a name="Differences"></a>
 
@@ -364,7 +364,7 @@ Certaines cibles propres à Windows pour les événements étendus (XEvent) ne s
 
 ### <a name="external-libraries"></a>Bibliothèques externes
 
-Les bibliothèques externes R et Python en base de données ne sont pas encore prises en charge. Consultez [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+Les bibliothèques externes R et Python dans la base de données sont prises en charge dans la préversion publique limitée. Consultez [Machine Learning Services dans Azure SQL Managed Instance (préversion)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>Flux de fichier et Filetable
 

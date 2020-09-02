@@ -1,6 +1,6 @@
 ---
 title: Chiffrement côté serveur de Disques managés Azure - Azure CLI
-description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez compter sur des clés gérées par Microsoft pour le chiffrement de vos disques managés, ou bien utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés.
+description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449144"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816896"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -80,7 +80,7 @@ Les clients sensibles haute sécurité qui sont concernés par les risques assoc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Activez le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [CLI](disks-enable-host-based-encryption-cli.md) ou le [portail Azure](disks-enable-host-based-encryption-portal.md).
-- Activez le double chiffrement au repos pour les disques managés avec [CLI](disks-enable-double-encryption-at-rest-cli.md) ou le [portail Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Activez les clés gérées par le client pour les disques managés avec [CLI](disks-enable-customer-managed-keys-cli.md) ou le [portail Azure](disks-enable-customer-managed-keys-portal.md).
+- Activez le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte avec [CLI](disks-enable-host-based-encryption-cli.md) ou le [portail Azure](../disks-enable-host-based-encryption-portal.md).
+- Activez le double chiffrement au repos pour les disques managés avec [CLI](disks-enable-double-encryption-at-rest-cli.md) ou le [portail Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Activez les clés gérées par le client pour les disques managés avec [CLI](disks-enable-customer-managed-keys-cli.md) ou le [portail Azure](../disks-enable-customer-managed-keys-portal.md).
 - [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)

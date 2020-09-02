@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608549"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641362"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -483,7 +483,7 @@ Bien que la fenêtre d’indisponibilité planifiée elle-même puisse être min
 
 Une fois le déploiement terminé, vous pouvez envoyer des communications informant les utilisateurs que le déploiement a réussi et leur rappelant les nouvelles étapes à suivre.
 
-* Demandez aux utilisateurs d’utiliser le [panneau d’accès](https://myapps.microsoft.com) pour accéder à toutes les applications migrées. 
+* Demandez aux utilisateurs d’utiliser le volet [Mes applications](https://myapps.microsoft.com) pour accéder à toutes les applications migrées. 
 
 * Rappelez aux utilisateurs qu’ils devront peut-être mettre à jour leurs paramètres d’authentification multifacteur. 
 

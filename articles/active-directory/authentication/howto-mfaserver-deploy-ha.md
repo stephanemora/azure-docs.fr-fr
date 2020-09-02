@@ -11,19 +11,23 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f5f1e123447bfff53a603bad23b0444a93e4a83
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653383"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919622"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurer un serveur Azure Multi-Factor Authentication pour la haute disponibilité
 
 Pour atteindre une haute disponibilité avec votre déploiement de serveur Azure MFA, vous devez déployer plusieurs serveurs MFA. Cette section fournit des informations sur la conception à charge équilibrée permettant d’atteindre vos objectifs de haute disponibilité dans votre déploiement de serveur Azure MFA.
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander une authentification multifacteur au cours des événements de connexion doivent utiliser l’authentification multifacteur Azure basée sur le cloud.
+>
+> Pour commencer à utiliser l’authentification multifacteur basée sur le cloud, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Les clients existants qui ont activé le serveur MFA avant le 1er juillet 2019 peuvent télécharger la dernière version, les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
 
 ## <a name="mfa-server-overview"></a>Vue d’ensemble du serveur MFA
 

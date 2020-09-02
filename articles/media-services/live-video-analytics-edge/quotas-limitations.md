@@ -3,12 +3,12 @@ title: Quotas de Live Video Analytics sur IoT Edge - Azure
 description: Cet article décrit les quotas et limitations de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091808"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750224"
 ---
 # <a name="quotas-and-limitations"></a>Quotas et limitations
 
@@ -36,21 +36,23 @@ Avec la préversion, il existe des limitations sur les différents nœuds qui pe
    * Une seule source RTSP est autorisée par topologie de graphe.
 * Processeur de filtre de fréquence d’images
    * Doit être immédiatement en aval de la source RTSP ou du processeur de détection de mouvement.
-   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP.
+   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP ou gRPC.
    * Ne peut pas être en amont d’un processeur de détection de mouvement.
 * Processeur d’extension HTTP
+   * Il ne peut exister qu’un seul processeur de ce type par topologie de graphe.
+* Processeur d’extension gRPC
    * Il ne peut exister qu’un seul processeur de ce type par topologie de graphe.
 * Processeur de détection de mouvement
    * Doit être immédiatement en aval de la source RTSP.
    * Il ne peut exister qu’un seul processeur de ce type par topologie de graphe.
-   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP.
+   * Ne peut pas être utilisé en aval d’un processeur d’extension HTTP ou gRPC.
 * Processeur de porte de signal
    * Doit être immédiatement en aval de la source RTSP.
 * Récepteur de ressources 
    * Doit être immédiatement en aval de la source RTSP ou du processeur de porte de signal.
 * Récepteur de fichiers
    * Doit être immédiatement en aval du processeur de porte de signal.
-   * Ne peut pas être immédiatement en aval du processeur d’extension HTTP ou du processeur de détection de mouvement
+   * Ne peut pas être immédiatement en aval du processeur d’extension HTTP ou gRPC, ou d’une processeur de détection de mouvement
 * Récepteur IoT Hub
    * Ne peut pas être immédiatement en aval d’une source IoT Hub.
 

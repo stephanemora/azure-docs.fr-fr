@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873600"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749876"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -133,6 +133,9 @@ Lors de la configuration, pour le point de terminaison de stockage par défaut, 
 
 > [!IMPORTANT]
 > L’activation du transfert de stockage sécurisé après la création d’un cluster peut entraîner des erreurs lors de l’utilisation de votre compte de stockage, et n’est donc pas recommandée. Il est préférable de créer un cluster à l’aide d’un compte de stockage sur lequel le transfert sécurisé est déjà activé.
+
+> [!Note]  
+> Azure HDInsight ne transfère pas, ne déplace pas ou ne copie pas automatiquement vos données stockées dans Stockage Azure d’une région à l’autre.
 
 ### <a name="metastore-settings"></a>Paramètres du metastore
 

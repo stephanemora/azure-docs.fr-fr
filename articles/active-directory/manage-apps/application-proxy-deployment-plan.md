@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367782"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642416"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -271,7 +271,7 @@ Les fonctionnalités suivantes peuvent être utilisées pour prendre en charge l
 
 * Accès conditionnel basé sur les risques : Protégez vos données contre les pirates grâce à une [stratégie d’accès conditionnel basée sur les risques](https://www.microsoft.com/cloud-platform/conditional-access), qui peut être appliquée à l’ensemble de vos applications et utilisateurs, aussi bien localement que dans le cloud.
 
-* Panneau d’accès Azure AD : une fois votre service Proxy d’application déployé et vos applications publiées de façon sécurisée, proposez à vos utilisateurs un hub simple à partir duquel ils pourront découvrir et accéder à toutes leurs applications. Améliorez votre productivité grâce à des fonctionnalités en libre-service, telles que la possibilité de demander l’accès à de nouveaux groupes et applications, ou de gérer l’accès à ces ressources pour le compte d’autres utilisateurs via le [volet d’accès](https://aka.ms/AccessPanelDPDownload).
+* Mes applications Azure AD : une fois votre service Proxy d’application déployé et vos applications publiées de façon sécurisée, proposez à vos utilisateurs un hub simple à partir duquel ils pourront découvrir et accéder à toutes leurs applications. Améliorez votre productivité grâce à des fonctionnalités en libre-service, telles que la possibilité de demander l’accès à de nouveaux groupes et applications, ou de gérer l’accès à ces ressources pour le compte d’autres utilisateurs via le volet [Mes applications](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Gérer l’implémentation
 

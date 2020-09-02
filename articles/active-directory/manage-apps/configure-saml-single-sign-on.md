@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461185"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640478"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurer l’authentification unique SAML
 
@@ -48,7 +48,7 @@ Les valeurs doivent vous être communiquées par le fournisseur de l’applicati
 |:--|:--|:--|:--|
 | **Identificateur (ID d'entité)** | Requis pour certaines applications | Requis pour certaines applications | Identifie l’application de manière unique. Azure AD envoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML. L’application est censée le valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application. Entrez une URL dont le modèle est le suivant : « https://<subdomain>.contoso.com ». *Cette valeur correspond à l’élément **Émetteur** dans la demande SAML **AuthnRequest** envoyée par l’application.* |
 | **URL de réponse** | Obligatoire | Obligatoire | Spécifie l’adresse à laquelle l’application s’attend à recevoir le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). Vous pouvez utiliser les champs URL de réponse supplémentaires pour spécifier plusieurs URL de réponse. Par exemple, vous pourriez avoir besoin d'URL de réponse supplémentaires pour plusieurs sous-domaines. Ou, à des fins de test, vous pouvez spécifier simultanément plusieurs URL de réponse (hôte local et URL publiques). |
-| **URL d’authentification** | Obligatoire | Ne pas spécifier | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou du panneau d’accès Azure AD. Quand elle est vide, Azure AD effectue une authentification initiée par le fournisseur d’identité quand un utilisateur lance l’application à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique Azure AD.|
+| **URL d’authentification** | Obligatoire | Ne pas spécifier | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou de Mes applications Azure AD. Quand elle est vide, Azure AD effectue une authentification initiée par le fournisseur d’identité quand un utilisateur lance l’application à partir d’Office 365, de Mes applications Azure AD ou de l’URL d’authentification unique Azure AD.|
 | **État de relais** | Facultatif | Facultatif | Indique à l’application où rediriger l’utilisateur une fois l’authentification terminée. En règle générale, la valeur est une URL valide pour l’application. Toutefois, certaines applications utilisent ce champ différemment. Pour plus d’informations, consultez le fournisseur de l’application.
 | **URL de déconnexion** | Facultatif | Facultatif | Utilisé pour renvoyer les réponses de déconnexion SAML à l’application.
 

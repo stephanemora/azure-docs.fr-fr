@@ -8,22 +8,25 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2561a6dc3ad8c0af1c266b3822a80c76f45c174
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074237"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639679"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Créer des clusters MATLAB Distributed Computing Server sur des machines virtuelles Azure
 Utilisez des machines virtuelles Microsoft Azure pour créer un ou plusieurs clusters MATLAB Distributed Computing Server afin d’exécuter vos charges de travail MATLAB parallèles nécessitant beaucoup de ressources système. Installez votre logiciel MATLAB Distributed Computing Server sur une machine virtuelle à utiliser en tant qu’image de base, et utilisez un modèle de démarrage rapide Azure ou un script Azure PowerShell (disponible sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) pour déployer et gérer le cluster. Après le déploiement, connectez-vous au cluster pour exécuter vos charges de travail.
+
+> [!IMPORTANT]
+> Depuis l’écriture de cet article, il existe désormais une prise en charge formelle de l’utilisation d’applications MATLAB dans Azure. Il est recommandé d’utiliser ces fonctionnalités plus récentes à la place du modèle et des scripts référencés dans cet article. Recherchez « matlab » dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Pour plus d’informations sur l’exécution d’applications MATLAB sur Azure, consultez [MathWorks](https://www.mathworks.com/solutions/cloud.html#public-cloud).
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Présentation de MATLAB et de MATLAB Distributed Computing Server
 La plateforme [MATLAB](https://www.mathworks.com/products/matlab/) a été optimisée pour la résolution des problèmes techniques et scientifiques. Les utilisateurs MATLAB ayant recours à des simulations à grande échelle et à des tâches de traitement de données peuvent utiliser les produits de calcul parallèle MathWorks pour accélérer leurs charges de travail nécessitant beaucoup de ressources système en tirant avantage des clusters de calcul et des services de Grid Computing. [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing/) permet aux utilisateurs MATLAB de mettre des applications en parallèle et de tirer parti de processeurs multicœur, de GPU et de clusters de calcul. [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) permet aux utilisateurs MATLAB d’utiliser de nombreux ordinateurs dans un cluster de calcul.
 
 Grâce aux machines virtuelles Azure, vous pouvez créer des clusters MATLAB Distributed Computing Server disposant tous des mêmes mécanismes pour soumettre un travail parallèle en tant que clusters locaux, comme des travaux interactifs, des traitements par lots, des tâches indépendantes et des tâches de communication. L’utilisation conjointe d’Azure et de la plateforme MATLAB offre de nombreux avantages par rapport à l’approvisionnement et à l’utilisation des matériels locaux traditionnels : différentes tailles de machine virtuelle, création de clusters à la demande vous permettant de payer uniquement les ressources de calcul que vous utilisez, et possibilité de tester les modèles à grande échelle.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour communiquer avec Azure et le cluster MATLAB Distributed Computing Server après le déploiement.
 * **Azure PowerShell** : voir [Installation et configuration d’Azure PowerShell](/powershell/azure/) pour installer Azure PowerShell sur votre ordinateur client.
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.

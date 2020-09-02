@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335560"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797800"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -111,7 +111,8 @@ IoT Hub impose d’autres limites opérationnelles :
 | Configurations automatiques d’appareils et de modules<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
 | Déploiement automatique IoT Edge<sup>1</sup> | 50 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
 | Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
-| Stratégies d’accès partagé | Le nombre maximum de stratégies d'accès partagé est de 16 |
+| Stratégies d’accès partagé | Le nombre maximum de stratégies d’accès partagé est de 16. |
+| Certificats d’autorité de certification x509 | Le nombre maximal de certificats d’autorité de certification x509 pouvant être inscrits sur IoT Hub est de 25. |
 
 <sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md).
 

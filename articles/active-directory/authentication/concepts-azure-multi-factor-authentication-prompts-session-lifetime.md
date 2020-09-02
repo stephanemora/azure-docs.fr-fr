@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169338"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919673"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication
 
@@ -45,6 +45,8 @@ Pour optimiser la fréquence des invites d’authentification envoyées aux util
 ### <a name="evaluate-session-lifetime-policies"></a>Évaluer les stratégies de durée de vie des sessions
 
 Sans paramètres définis pour la durée de vie des sessions, il n’y a pas de cookies persistants dans une session de navigateur. Chaque fois qu’un utilisateur ferme et rouvre le navigateur, il reçoit une invite de réauthentification. Dans les clients Office, la période par défaut est de 90 jours consécutifs. Avec cette configuration Office par défaut, si l’utilisateur a réinitialisé son mot de passe ou s’il n’y a pas eu d’activité depuis plus de 90 jours, l’utilisateur est invité à se réauthentifier avec tous les facteurs requis (premier et deuxième facteurs).
+
+Un utilisateur peut voir plusieurs invites d’authentification multifacteur sur un appareil qui n’a pas d’identité dans Azure AD. Des invites multiples se produisent quand chaque application a son propre jeton d’actualisation OAuth qui n’est pas partagé avec d’autres applications clientes. Dans ce scénario, l’authentification multifacteur plusieurs invites, car chaque application demande un jeton d’actualisation OAuth à valider avec l’authentification multifacteur.
 
 Dans Azure AD, la stratégie la plus restrictive pour la durée de vie des sessions détermine à quel moment l’utilisateur doit se réauthentifier. Examinez le cas suivant :
 

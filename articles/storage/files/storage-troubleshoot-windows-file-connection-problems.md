@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927213"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797783"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -364,6 +364,16 @@ Vous pouvez être confronté aux symptômes décrits ci-dessous quand vous tente
 ### <a name="solution"></a>Solution
 
 Pour contourner le problème, nous vous recommandons d’utiliser l’[outil icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) afin de configurer des autorisations au niveau des répertoires/fichiers. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Erreurs lors de l’exécution de la cmdlet join-AzStorageAccountForAuth
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Erreur : « Le service d’annuaire n’a pas pu allouer un identificateur relatif »
+
+Cette erreur peut se produire si un contrôleur de domaine titulaire du rôle FSMO du maître RID n’est pas disponible ou a été supprimé du domaine, puis restauré à partir d’une sauvegarde.  Vérifiez que tous les contrôleurs de domaine sont en cours d’exécution et disponibles.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erreur : « Impossible de lier les paramètres positionnels, car aucun nom n’a été fourni »
+
+Cette erreur est probablement déclenchée par une erreur de syntaxe dans la commande Join-AzStorageAccountforAuth.  Vérifiez que la commande ne contient pas de fautes de frappe ou d’erreurs syntaxe, et que la version la plus récente du module AzFilesHybrid (https://github.com/Azure-Samples/azure-files-samples/releases) est installée.  
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799500"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642025"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 
-Cet article explique comment attribuer des utilisateurs ou des groupes à des applications d’entreprise dans Azure Active Directory (Azure AD) à partir du portail Azure ou à l’aide de PowerShell. Lorsque vous attribuez un utilisateur à une application, celle-ci apparaît dans le [panneau d’accès Mes applications](https://myapps.microsoft.com/) de l’utilisateur pour en faciliter l’accès. Si l’application expose des rôles, vous pouvez également attribuer un rôle spécifique à l’utilisateur.
+Cet article explique comment attribuer des utilisateurs ou des groupes à des applications d’entreprise dans Azure Active Directory (Azure AD) à partir du portail Azure ou à l’aide de PowerShell. Lorsque vous attribuez un utilisateur à une application, celle-ci apparaît dans le volet [Mes applications](https://myapps.microsoft.com/) de l’utilisateur pour en faciliter l’accès. Si l’application expose des rôles, vous pouvez également attribuer un rôle spécifique à l’utilisateur.
 
 Pour un meilleur contrôle, vous pouvez configurer certains types d’applications d’entreprise pour [exiger l’affectation d’utilisateur](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Quand une affectation d’utilisateur est requise, seuls les utilisateurs que vo
 
 Lorsque l’affectation *n’est pas obligatoire*, soit parce que vous avez défini cette option sur **Non**, soit parce que l’application utilise un autre mode d’authentification unique, n’importe quel utilisateur peut accéder à l’application s’il dispose d’un lien direct vers celle-ci ou vers l’**URL d’accès utilisateur** dans la page **Propriétés** de l’application. 
 
-Ce paramètre n’a pas d’incidence sur l’apparition ou non d’une application dans le panneau d’accès Mes applications. Les applications apparaissent dans les panneaux d’accès Mes applications des utilisateurs une fois que vous avez affecté un utilisateur ou un groupe à l’application. Pour plus d’informations, consultez [Gestion de l’accès aux applications](what-is-access-management.md).
+Ce paramètre n’a pas d’incidence sur l’apparition ou non d’une application dans le volet Mes applications. Les applications apparaissent dans les panneaux d’accès Mes applications des utilisateurs une fois que vous avez affecté un utilisateur ou un groupe à l’application. Pour plus d’informations, consultez [Gestion de l’accès aux applications](what-is-access-management.md).
 
 
 Pour exiger une affectation d’utilisateur pour une application :
@@ -161,7 +161,7 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
 ## <a name="related-articles"></a>Articles connexes
 
 - [En savoir plus sur l’accès des utilisateurs finaux aux applications](end-user-experiences.md)
-- [Planifier le déploiement d’un panneau d’accès Azure AD](access-panel-deployment-plan.md)
+- [Planifier un déploiement de Mes applications Azure AD](access-panel-deployment-plan.md)
 - [Gestion de l’accès aux applications](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Étapes suivantes

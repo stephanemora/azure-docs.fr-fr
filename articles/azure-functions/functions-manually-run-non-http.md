@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121745"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640959"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Exécuter manuellement une fonction non déclenchée via HTTP
 
@@ -37,7 +37,7 @@ Vous utilisez cet emplacement de requête dans Postman, de même que la clé pri
 
 ## <a name="get-the-functions-master-key"></a>Obtenir la clé principale de la fonction
 
-1. Accédez à votre fonction dans le Portail Azure et sélectionnez **touches de fonction**. Ensuite, sélectionnez la touche de fonction que vous souhaitez copier. 
+1. Accédez à votre application de fonction dans le [portail Azure](https://portal.azure.com), sélectionnez **Clés d’application**, puis la clé `_master`. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Localisez la clé principale à copier." border="true":::
 
@@ -50,7 +50,7 @@ Vous utilisez cet emplacement de requête dans Postman, de même que la clé pri
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Affichez les journaux pour voir les résultats du test de clé principale." border="true":::
 
 > [!CAUTION]  
-> En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans une application.
+> En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans une application. La clé ne doit être envoyée qu’à un point de terminaison HTTPS.
 
 ## <a name="call-the-function"></a>Appeler la fonction
 

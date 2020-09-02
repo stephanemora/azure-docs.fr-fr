@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186632"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816454"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
 
@@ -24,19 +24,17 @@ Cet article décrit les solutions aux erreurs que vous pouvez rencontrer lors de
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Code d’erreur : La validation a échoué pour le document CsmDocument_2_0
 
-### <a name="error"></a>Error
+**Erreur** : « Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT ACTION URL\> »
 
-« Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT ACTION URL\> »
-
-#### <a name="error-message"></a>Message d’erreur
+### <a name="error-message-1"></a>Message d’erreur 1
 
 « Le serveur distant a retourné une erreur : (404) introuvable. »
 
-### <a name="cause"></a>Cause
+#### <a name="cause"></a>Cause
 
 Le service HDInsight ne peut pas accéder à l’URL d’action de script que vous avez fournie dans le cadre de la requête de création de cluster. Le service reçoit le message d’erreur précédent lorsqu’il tente d’accéder à l’action de script.
 
-### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution
 
 - Pour une URL HTTP ou HTTPs, vérifiez l’URL en tentant d’accéder à celle-ci à partir d’une fenêtre de navigateur incognito.
 - Pour une URL WASB, assurez-vous que le script existe dans le compte de stockage que vous fournissez dans la requête. Assurez-vous également que la clé de stockage pour ce compte de stockage est correcte.
@@ -44,37 +42,29 @@ Le service HDInsight ne peut pas accéder à l’URL d’action de script que v
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Code d’erreur : La validation a échoué pour le document CsmDocument_2_0
-
-### <a name="error"></a>Error
-
-« Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT_ACTION_URL\> »
-
-#### <a name="error-message"></a>Message d’erreur
+### <a name="error-message-2"></a>Message d’erreur 2
 
 « L’URI de script donné \<SCRIPT_URI\> se trouve dans ADLS, mais ce cluster n’a pas de principal de stockage Data Lake »
 
-### <a name="cause"></a>Cause
+#### <a name="cause"></a>Cause
 
 Le service HDInsight ne peut pas accéder à l’URL d’action de script que vous avez fournie dans le cadre de la requête de création de cluster. Le service reçoit le message d’erreur précédent lorsqu’il tente d’accéder à l’action de script.
 
-### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution
 
 Ajoutez le compte Azure Data Lake Storage GEN 1 correspondant au cluster. Ajoutez également le principal du service qui accède au compte Data Lake Storage GEN 1 au cluster.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Code d’erreur : La validation a échoué pour le document CsmDocument_2_0
-
-### <a name="error"></a>Error
+### <a name="error-message-3"></a>Message d’erreur 3
 
 « La taille de la machine virtuelle ’\<CUSTOMER_SPECIFIED_VM_SIZE\>’ fournie dans la requête n’est pas valide ou n’est pas prise en charge pour le ’\<ROLE\>’ du rôle. Les valeurs valides sont les suivantes : \<VALID_VM_SIZE_FOR_ROLE\>. »
 
-### <a name="cause"></a>Cause
+#### <a name="cause"></a>Cause
 
 La taille de machine virtuelle que vous avez spécifiée n’est pas autorisée pour le rôle. Cette erreur peut se produire si la valeur de la taille de la machine virtuelle ne fonctionne pas comme prévu ou n’est pas adaptée au rôle de l’ordinateur.
 
-### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution
 
 Le message d’erreur répertorie les valeurs valides pour la taille de la machine virtuelle. Sélectionnez l’une de ces valeurs et réessayez d’exécuter la requête de création de cluster.
 

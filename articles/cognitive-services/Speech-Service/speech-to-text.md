@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678062"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640410"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La reconnaissance vocale du service Speech permet la transcription en temps réel des flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur ce texte sous la forme d’une entrée de commande. Ce service s’appuie sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office. Il fonctionne de façon homogène avec les offres de service de <a href="./speech-translation.md" target="_blank">traduction<span class="docon docon-navigate-external x-hidden-focus"></span></a> et de <a href="./text-to-speech.md" target="_blank">synthèse vocale <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Vous trouverez une liste complète des langues compatibles avec la reconnaissance vocale dans [Langues prises en charge](language-support.md#speech-to-text).
 
@@ -30,6 +28,8 @@ Avec une entrée de texte de référence supplémentaire, le service de reconnai
 > [!NOTE]
 > La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.
 > - [Effectuer une migration entre la Reconnaissance vocale Bing et le service Speech](how-to-migrate-from-bing-speech.md)
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
 
@@ -58,6 +58,10 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 ## <a name="customization"></a>Personnalisation
 
 En plus du modèle du service Speech standard, vous pouvez créer des modèles personnalisés. La personnalisation permet d’éliminer les obstacles à la reconnaissance vocale, comme le style d’élocution, le bruit de fond et le vocabulaire. Consultez [Custom Speech](how-to-custom-speech.md). Les options de personnalisation varient selon la langue et les paramètres régionaux. Consultez [Langues prises en charge](supported-languages.md) pour vérifier ce qui est pris en charge.
+
+## <a name="batch-transcription"></a>Transcription Batch
+
+La transcription par lots est un ensemble d’opérations d’API REST qui vous permettent de transcrire une grande quantité de données audio dans un stockage. Vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAP) et recevoir les résultats de la transcription de manière asynchrone. Pour plus d’informations sur l’utilisation de l’API de transcription par lot, consultez la [procédure](batch-transcription.md).
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 

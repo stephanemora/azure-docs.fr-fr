@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 08/18/2020
+ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607362"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816250"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -40,13 +40,13 @@ Le type d’offre Module IoT Edge est un type spécifique de conteneur s’exéc
 
 **Sélection du magasin en ligne approprié**
 
-Les modules IoT Edge sont uniquement publiés sur la Place de marché Microsoft Azure. AppSource ne s’applique pas.  Pour plus d’informations sur les différences entre les magasins en ligne et leur public cible, consultez [Déterminer votre option de publication](determine-your-listing-type.md).
- 
+Les modules IoT Edge sont uniquement publiés sur la Place de marché Microsoft Azure. AppSource ne s’applique pas. Pour plus d’informations sur les différences entre les magasins en ligne et leur public cible, consultez [Déterminer votre option de publication](determine-your-listing-type.md).
+
 **Options de facturation**
 
 La place de marché prend en charge les options de facturation **Gratuit** et **BYOL (apportez votre propre licence)** pour les modules IoT Edge.
- 
-**Options de publication**
+
+### <a name="publishing-options"></a>Options de publication
 
 Dans tous les cas, les modules IoT Edge doivent sélectionner l’option de publication **Transact**.  Consultez [Choisir une option de publication](determine-your-listing-type.md) pour plus d’informations sur les options de publication.  
 
@@ -54,28 +54,27 @@ Dans tous les cas, les modules IoT Edge doivent sélectionner l’option de publ
 
 Toutes les conditions des contrats et politiques de la Place de marché Microsoft Azure s’appliquent aux offres Module IoT Edge.  En outre, il existe des prérequis et des exigences techniques pour les modules IoT Edge.  
 
-**Conditions préalables**
+### <a name="prerequisites"></a>Prérequis
 
 Pour publier un module IoT Edge sur la Place de marché Microsoft Azure, vous devez satisfaire aux prérequis suivants :
 
 - Accès à l’Espace partenaires. Pour plus d’informations, consultez le [Guide de publication sur AppSource et la Place de marché Azure](marketplace-publishers-guide.md).
-- Héberger votre module IoT Edge dans un registre de conteneurs Azure. 
-- Disposer des métadonnées de votre module IoT Edge suivantes, (liste non exhaustive) : 
+- Héberger votre module IoT Edge dans un registre de conteneurs Azure.
+- Disposer des métadonnées de votre module IoT Edge suivantes, (liste non exhaustive) :
     - Un titre
     - Une description (au format HTML)
-    - Une image de logo (format PNG et tailles d’image fixes, y compris 40x40px, 90x90px, 115x115px, 255x115px)
+    - Une image de logo (d’une taille de 48 x 48 (facultatif), 90 x 90 (facultatif) et de 216 x 216 à 350 x 350 px, toutes au format PNG)
     - Conditions d’utilisation et politique de confidentialité
     - Configuration du module par défaut (route, propriétés souhaitées du jumeau, createOptions, variables d’environnement)
     - Documentation
     - Contacts du support
 
-**Exigences techniques**
+### <a name="technical-requirements"></a>Exigences techniques
 
 Les principales exigences techniques pour qu’un module IoT Edge soit certifié et publié sur la Place de marché Azure sont détaillées dans [Préparer vos ressources techniques de module IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Apprenez-en davantage](https://azuremarketplace.microsoft.com/sell) sur la Place de marché commerciale.
-- [Créez une offre de module IoT Edge] dans l’Espace partenaires.
 - Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
-- Pour plus d’informations sur la publication d’une offre de module IoT Edge, consultez [Créer une offre de module Azure IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md).
+- [Créez une offre de module IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) dans l’Espace partenaires.

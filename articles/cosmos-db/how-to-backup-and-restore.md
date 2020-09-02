@@ -4,19 +4,19 @@ description: Cet article explique comment restaurer des données Azure Cosmos DB
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/01/2019
+ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1a0075f9b4fc3ff919d4db4bd440a5435d711c83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9956ca0ca9c0957557e7ee74883a75c074ff22f8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261730"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797970"
 ---
-# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurer des données à partir d'une sauvegarde dans Azure Cosmos DB 
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurer des données à partir d'une sauvegarde dans Azure Cosmos DB
 
-En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure]( https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support technique Azure est disponible seulement pour certains plans, comme **Standard**, **Développeur** et les plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/). 
+En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible uniquement pour certains plans, tels que **Standard**, **Développeur** et des plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/).
 
 Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
 
@@ -34,12 +34,9 @@ Vous devez avoir les informations suivantes avant de demander une restauration 
 
 * Si un ou plusieurs conteneurs sont supprimés, vous devez fournir le nom du compte Azure Cosmos, les noms des bases de données et les noms des conteneurs. Spécifiez aussi s’il existe un conteneur portant le même nom.
 
-* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes.
-  
-  * Si vous avez accidentellement supprimé votre base de données ou votre conteneur, ouvrez un cas de support Sev B ou Sev C Azure. 
-  * Si vous avez accidentellement supprimé ou endommagé certains documents au sein du conteneur, ouvrez un cas de support Sev A. 
+* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes. **Avant de créer une demande de support pour restaurer les données, veillez à [allonger la période de rétention des sauvegardes](online-backup-and-restore.md) de votre compte à au moins sept jours. Il est préférable d’allonger la période de rétention dans les 8 heures qui suivent l’événement.** Ainsi, l’équipe de support Azure Cosmos DB disposera de suffisamment de temps pour restaurer votre compte.
 
-En cas d’endommagement des données, et si les documents au sein d’un conteneur sont modifiés ou supprimés, **supprimez le conteneur le plus vite possible**. La suppression du conteneur peut éviter qu’Azure Cosmos DB remplace les sauvegardes. Si pour une raison quelconque la suppression n’est pas possible, vous devez émettre un ticket dès que possible. En plus du nom du compte Azure Cosmos, des noms de bases de données et des noms de conteneurs, vous devez spécifier le moment dans le temps auquel les données peuvent être restaurées. Il est important d’être aussi précis que possible, afin de nous aider à déterminer les sauvegardes disponibles à ce moment-là. Il est également important de spécifier l’heure au format UTC. 
+En plus du nom du compte Azure Cosmos, des noms de bases de données et des noms de conteneurs, vous devez spécifier le moment dans le temps auquel les données peuvent être restaurées. Il est important d’être aussi précis que possible, afin de nous aider à déterminer les sauvegardes disponibles à ce moment-là. **Il est également important de spécifier l’heure au format UTC.**
 
 La capture d’écran suivante illustre comment créer une demande de support pour un conteneur (collection/graphe/table) afin de restaurer des données à l’aide du portail Azure. Fournissez des détails supplémentaires tels que le type de données, l’objectif de la restauration et le moment auquel les données ont été supprimées, afin de nous aider à affecter une priorité à la demande.
 

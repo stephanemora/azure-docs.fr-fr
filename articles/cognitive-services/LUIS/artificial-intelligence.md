@@ -1,20 +1,21 @@
 ---
-title: Intelligence artificielle
-description: LUIS utilise l’intelligence artificielle pour la compréhension du langage naturel de vos données, en fonction du schéma que vous avez défini.
+title: Intelligence artificielle (IA)
+description: LUIS utilise l’intelligence artificielle (IA) pour la compréhension du langage naturel de vos données, en fonction du schéma que vous avez défini.
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 4f145585e097a3cf6a2338dbab879f6fce07f71d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802636"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751349"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Intelligence artificielle dans Language Understanding (LUIS)
 
-LUIS utilise l’intelligence artificielle pour la compréhension du langage naturel (NLU) de vos données, en fonction du schéma que vous avez défini.
+LUIS utilise l’intelligence artificielle (IA) pour la compréhension du langage naturel (NLU) de vos données, en fonction du schéma que vous avez défini.
 
-## <a name="natural-language-processing"></a>Traitement en langage naturel
+## <a name="natural-language-processing-nlp"></a>Traitement en langage naturel
 
 La compréhension du langage naturel (NLU) est une sous-rubrique spécifique du traitement en langage naturel (NLP).
 
@@ -31,14 +32,14 @@ Le traitement en langage naturel est un concept plus large qui gère toute forme
 ## <a name="natural-language-processing-in-luis"></a>Traitement en langage naturel dans LUIS
 
 Le traitement en langage naturel est disponible dans votre application LUIS des manières suivantes :
-* [Compréhension du langage naturel](#natural-language-understanding) (LUIS)
+* [Compréhension du langage naturel](#natural-language-processing-nlp) (LUIS)
 * Aspects du traitement en langage naturel configurables dans LUIS :
     * [Segmentation du texte en unités lexicales](luis-language-support.md#tokenization)
     * Morphologique à travers les signes diacritiques, la ponctuation et la forme des mots [Paramètres de l’API](luis-reference-application-settings.md)
 * Avant ou après le traitement de l’énoncé de requête fourni par d’autres [Cognitive Services](../Welcome.md) comme :
     * [Traduction](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding"></a>Compréhension du langage naturel
+## <a name="natural-language-understanding-nlu"></a>Compréhension du langage naturel
 
 NLU est la capacité à _transformer_ une déclaration linguistique en une représentation qui vous permet de comprendre naturellement vos utilisateurs. La compréhension du langage naturel reste un problème très compliqué et est définie comme un problème d’_IA-complet_.
 

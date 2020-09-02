@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313436"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751445"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identité Microsoft
 
@@ -30,7 +30,7 @@ Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont con
 
 ![Diagramme montrant les rôles OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* Le **Serveur d’autorisation** est le point de terminaison de la plateforme d’identités Microsoft qui est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources ainsi que l’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties d’un flux.
+* Le **Serveur d’autorisation** est le point de terminaison de la plateforme d’identités Microsoft qui est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources ainsi que l’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties dans un flux.
 * Le **Propriétaire de la ressource** est généralement l’utilisateur final. Il s’agit de la partie qui détient les données et qui a le pouvoir d’autoriser les clients à accéder à ces données ou ressources.
 * Le **Client OAuth** est votre application, identifiée par son ID d’application. Le client OAuth, qui est en général la partie avec laquelle l’utilisateur final interagit, demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
 * Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès du porteur pour garantir l’octroi de l’accès à une ressource.

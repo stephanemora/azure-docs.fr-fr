@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8d57b4499f3f1b2f22c14cc912e81b709ec4054c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d1e7c90e558a6834a169b528d2e8c2f96af377b0
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500325"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705695"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Trouver et supprimer les disques managés et non managés Azure non attachés
 
@@ -52,14 +52,14 @@ foreach ($md in $managedDisks) {
 Les disques non managés sont des fichiers VHD qui sont stockés en tant [qu’objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) dans des [comptes de stockage Azure](../../storage/common/storage-account-overview.md). Le script suivant recherche les disques non managés non attachés (objets blob de pages) en examinant la valeur de la propriété **LeaseStatus**. Lorsqu’un disque non managé est attaché à une machine virtuelle, la valeur de la propriété **LeaseStatus** est définie sur **Locked**. Lorsqu’un disque non managé est non attaché, la valeur de la propriété **LeaseStatus** est définie sur **Unlocked**. Le script examine tous les disques non managés dans l’ensemble des comptes de stockage Azure d’un abonnement Azure. Lorsque le script localise un disque non managé dont une propriété **LeaseStatus** a la valeur**Unlocked**, il détermine que le disque n’est pas attaché.
 
 >[!IMPORTANT]
->En premier lieu, exécutez le script en définissant la variable **deleteUnattachedVHDs** sur 0. Cette action vous permet de rechercher et d’afficher tous les disques durs virtuels non managés non attachés.
+>En premier lieu, exécutez le script en définissant la variable **deleteUnattachedVHDs** sur `$false`. Cette action vous permet de rechercher et d’afficher tous les disques durs virtuels non managés non attachés.
 >
->Après avoir examiné tous les disques non attachés, exécutez de nouveau le script et définissez la valeur de la variable **deleteUnattachedVHDs** sur 1. Cette action vous permet de supprimer tous les disques durs virtuels non managés non attachés.
+>Après avoir examiné tous les disques non attachés, exécutez de nouveau le script et définissez la valeur de la variable **deleteUnattachedVHDs** sur `$true`. Cette action vous permet de supprimer tous les disques durs virtuels non managés non attachés.
 
 ```azurepowershell-interactive
-# Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
-# Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
-$deleteUnattachedVHDs=0
+# Set deleteUnattachedVHDs=$true if you want to delete unattached VHDs
+# Set deleteUnattachedVHDs=$false if you want to see the Uri of the unattached VHDs
+$deleteUnattachedVHDs=$false
 $storageAccounts = Get-AzStorageAccount
 foreach($storageAccount in $storageAccounts){
     $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
@@ -71,7 +71,7 @@ foreach($storageAccount in $storageAccounts){
         $blobs | Where-Object {$_.BlobType -eq 'PageBlob' -and $_.Name.EndsWith('.vhd')} | ForEach-Object { 
             #If a Page blob is not attached as disk then LeaseStatus will be unlocked
             if($_.ICloudBlob.Properties.LeaseStatus -eq 'Unlocked'){
-                    if($deleteUnattachedVHDs -eq 1){
+                    if($deleteUnattachedVHDs){
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                         $_ | Remove-AzStorageBlob -Force
                         Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"

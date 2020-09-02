@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459383"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640546"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurer l’authentification unique par mot de passe
 
@@ -29,7 +29,7 @@ L’authentification unique par mot de passe (SSO) est un excellent moyen pour c
 
 - prendre en charge les applications qui requièrent plusieurs champs de connexion pour les applications qui demandent d’autres champs en plus du nom d’utilisateur et du mot de passe pour la connexion ;
 
-- personnaliser les étiquettes des champs de nom d’utilisateur et de mot de passe que vos utilisateurs voient dans le [volet d’accès aux applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) lorsqu’ils entrent leurs informations d’identification ;
+- personnaliser les étiquettes des champs de nom d’utilisateur et de mot de passe que vos utilisateurs voient dans [Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quand ils entrent leurs informations d’identification ;
 
 - autoriser vos utilisateurs à fournir leurs propres noms d’utilisateur et mots de passe de tout compte d’application existant qu’ils saisissent manuellement ;
 
@@ -71,7 +71,7 @@ Si la tentative d'analyse Azure AD échoue, vous pouvez configurer l’authentif
    ![Configuration manuelle de l’authentification unique par mot de passe](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Sélectionnez **Capturer les champs de connexion**. Une page d’état de la capture s’ouvre dans un nouvel onglet affichant le message **Capture des métadonnées en cours**.
 
-4. Si la mention **Extension Volet d’accès requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur **My Apps Secure Sign-in Extension**. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture.
+4. Si la mention **Extension Mes applications requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur **Extension de connexion sécurisée à Mes applications**. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture.
 
    L’extension de navigateur ouvre ensuite un nouvel onglet qui affiche l’URL entrée.
 5. Dans l’onglet contenant l’URL saisie, suivez le processus de connexion. Renseignez les champs de nom d’utilisateur et de mot de passe et essayez de vous connecter. (Vous n’êtes pas obligé de fournir le mot de passe correct.)

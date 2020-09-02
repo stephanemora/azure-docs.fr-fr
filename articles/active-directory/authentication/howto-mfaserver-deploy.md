@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4bd817fda762e62e791542aea2df65deb0dae3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: bbe8b4176e33ff04ff8033af3b50cbdd0d882ae2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054049"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919571"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -27,7 +27,11 @@ ms.locfileid: "88054049"
 Cette page vous indique comment installer le serveur et le configurer avec votre Active Directory local. Si le serveur MFA est déjà installé et que vous souhaitez effectuer une mise à niveau, voir [Mise à niveau vers le serveur Azure Multi-Factor Authentication le plus récent](howto-mfaserver-deploy-upgrade.md). Pour plus d’informations sur l’installation du service web, voir [Déploiement du service web de l’application mobile pour le serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander une authentification multifacteur au cours des événements de connexion doivent utiliser l’authentification multifacteur Azure basée sur le cloud.
+>
+> Pour commencer à utiliser l’authentification multifacteur basée sur le cloud, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Les clients existants qui ont activé le serveur MFA avant le 1er juillet 2019 peuvent télécharger la dernière version, les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
 
 ## <a name="plan-your-deployment"></a>Planifier votre déploiement
 
@@ -106,6 +110,13 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 ## <a name="download-the-mfa-server"></a>Télécharger le serveur MFA
 
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
+
+> [!IMPORTANT]
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser le service Azure Multi-Factor Authentication basé sur le cloud.
+>
+> Pour commencer à utiliser l’authentification multifacteur basée sur le cloud, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Les clients existants qui ont activé le serveur MFA avant le 1er juillet 2019 peuvent télécharger la dernière version, les futures mises à jour et générer des informations d’identification d’activation comme d’habitude. Les étapes suivantes fonctionnent uniquement si vous êtes un client du Serveur Azure MFA.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Sécurité** > **MFA**.
@@ -209,7 +220,7 @@ Le nouveau serveur est maintenant en place, avec les données d’utilisateur et
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestion des protocoles TLS/SSL et des suites de chiffrement
 
-Une fois que vous avez installé la version 8.x ou ultérieure du serveur MFA ou que vous avez effectué une mise à niveau vers cette dernière, il est recommandé que les suites de chiffrement plus anciennes et plus faible soient désactivées ou supprimées, à moins qu’elles ne soient requises par votre organisation. Vous trouverez plus d’informations sur la manière d’effectuer cette tâche dans l’article [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+Une fois que vous avez installé la version 8.x ou ultérieure du serveur MFA ou que vous avez effectué une mise à niveau vers cette dernière, il est recommandé que les suites de chiffrement plus anciennes et plus faible soient désactivées ou supprimées, à moins qu’elles ne soient requises par votre organisation. Vous trouverez plus d’informations sur la manière d’effectuer cette tâche dans l’article [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
