@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631720"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278834"
 ---
 # <a name="what-is-azure-ad-connect"></a>Qu’est-ce qu’Azure AD Connect ?
 
@@ -26,7 +26,7 @@ L’outil Microsoft Azure AD Connect a été conçu pour vous permettre d’atte
 - [Authentification directe](how-to-connect-pta.md) : méthode d’authentification qui permet aux utilisateurs d’utiliser le même mot de passe localement et dans le cloud, mais sans nécessiter l’infrastructure supplémentaire d’un environnement fédéré.
 - [Intégration de fédération](how-to-connect-fed-whatis.md) : la fédération est une partie facultative d’Azure AD Connect qui peut servir à configurer un environnement hybride à l’aide d’une infrastructure AD FS locale. Elle offre également des fonctionnalités de gestion AD FS telles que le renouvellement de certificat et les déploiements de serveurs AD FS supplémentaires.
 - [Synchronisation](how-to-connect-sync-whatis.md) : ce composant est chargé de créer des utilisateurs, des groupes et d’autres objets,  et également de s’assurer que les informations d’identité relatives aux utilisateurs et aux groupes dans votre environnement local correspondent à celles qui se trouvent dans le cloud.  Cette synchronisation inclut également des hachages de mot de passe.
-- [Analyse du fonctionnement](whatis-hybrid-identity-health.md) : Azure AD Connect Health peut assurer une supervision robuste et offrir un emplacement central dans le Portail Azure pour la visualisation de cette activité. 
+- [Analyse du fonctionnement]() : Azure AD Connect Health peut assurer une supervision robuste et offrir un emplacement central dans le Portail Azure pour la visualisation de cette activité. 
 
 
 ![Qu’est-ce qu’Azure AD Connect ?](./media/whatis-hybrid-identity/arch.png)
@@ -76,4 +76,4 @@ Avantages clés et bonnes pratiques :
 - [Matériel et conditions préalables](how-to-connect-install-prerequisites.md) 
 - [Paramètres Express](how-to-connect-install-express.md)
 - [Paramètres personnalisés](how-to-connect-install-custom.md)
-- [Installation des agents Azure AD Connect Health](how-to-connect-health-agent-install.md) 
+- [Installation des agents Azure AD Connect Health](how-to-connect-health-agent-install.md)

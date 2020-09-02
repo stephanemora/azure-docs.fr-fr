@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481389"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229514"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -44,9 +44,9 @@ L’architecture de création de rapports s’appuie sur deux axes principaux 
 
 Les rapports de sécurité vous aident à protéger les identités de votre organisation. Il existe deux types de rapports de sécurité :
 
-- **Utilisateurs avec indicateur de risque** : le [rapport de sécurité de ce type](concept-user-at-risk.md) présente une vue d’ensemble des comptes d’utilisateurs qui peuvent avoir été compromis.
+- **Utilisateurs avec indicateur de risque** : le [rapport de sécurité de ce type](../identity-protection/overview-identity-protection.md) présente une vue d’ensemble des comptes d’utilisateurs qui peuvent avoir été compromis.
 
-- **Connexions à risque** : le [rapport de sécurité de ce type](concept-risky-sign-ins.md) contient un indicateur pour les tentatives de connexion susceptibles d’avoir été effectuées par une personne autre que le propriétaire légitime d’un compte d’utilisateur. 
+- **Connexions à risque** : le [rapport de sécurité de ce type](../identity-protection/overview-identity-protection.md) contient un indicateur pour les tentatives de connexion susceptibles d’avoir été effectuées par une personne autre que le propriétaire légitime d’un compte d’utilisateur. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>De quelle licence Azure AD avez-vous besoin pour accéder à un rapport de sécurité ?  
 
@@ -81,7 +81,7 @@ Le [rapport de journaux d’audit](concept-audit-logs.md) vous fournit les enreg
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>De quelle licence Azure AD avez-vous besoin pour accéder au rapport de journaux d’audit ?  
 
-Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Une comparaison détaillée des fonctionnalités selon les [différents types de licences](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) est disponible dans la [page Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
+Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes. Une comparaison détaillée des fonctionnalités selon les [différents types de licences](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) est disponible dans la [page Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Pour plus de détails, consultez [Fonctionnalités Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Rapport de connexions
 
@@ -101,6 +101,6 @@ En plus de l’interface utilisateur, Azure AD vous fournit également un [acc�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rapport sur les connexions à risque](concept-risky-sign-ins.md)
+- [Rapport sur les connexions à risque](../identity-protection/overview-identity-protection.md)
 - [Rapport de journaux d’audit](concept-audit-logs.md)
 - [Rapport de journaux d’activité de connexions](concept-sign-ins.md)

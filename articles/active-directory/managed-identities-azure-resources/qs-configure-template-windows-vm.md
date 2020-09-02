@@ -3,7 +3,7 @@ title: Configurer des identités managées sur une machine virtuelle Azure à l�
 description: Instructions détaillées pour configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18d38d3ab8cbbfb1f409b368cddc1df854baa8e0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609025"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266882"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant des modèles
 
@@ -41,7 +41,7 @@ Comme pour le portail Azure et le script, les modèles [Azure Resource Manager](
 
    - Utiliser un [modèle personnalisé à partir de Place de marché Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
    - Dériver à partir d’un groupe de ressources existant, en exportant un modèle à partir du [déploiement d’origine](../../azure-resource-manager/templates/export-template-portal.md), ou à partir de l’[état actuel du déploiement](../../azure-resource-manager/templates/export-template-portal.md).
-   - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/resource-manager-create-first-template.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
+   - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
    - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio pour créer et déployer un modèle.  
 
 Quelle que soit l’option choisie, la syntaxe de modèle est identique lors du déploiement initial et lors du redéploiement. L’activation d’une identité managée affectée par le système ou par l’utilisateur sur une machine virtuelle s’effectue de la même manière, que la machine soit nouvelle ou existante. De plus, par défaut, Azure Resource Manager effectue une [mise à jour incrémentielle](../../azure-resource-manager/templates/deployment-modes.md) au niveau des déploiements.
@@ -52,7 +52,7 @@ Dans cette section, vous allez activer et désactiver une identité managée aff
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Activer une identité managée affectée par le système pendant la création d’une machine virtuelle Azure ou sur une machine virtuelle existante
 
-Pour activer l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
+Pour activer l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
@@ -107,7 +107,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
 Après avoir activé l’identité managée affectée par le système sur votre machine virtuelle, vous pouvez lui attribuer un rôle, comme l’accès en **lecture** au groupe de ressources dans lequel elle a été créée.
 
-Pour affecter un rôle à l’identité attribuée par le système à votre machine virtuelle, votre compte a besoin de l’affectation de rôle [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+Pour affecter un rôle à l’identité attribuée par le système à votre machine virtuelle, votre compte a besoin de l’affectation de rôle [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
@@ -151,7 +151,7 @@ Pour affecter un rôle à l’identité attribuée par le système à votre mach
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Désactiver une identité managée affectée par le système d’une machine virtuelle Azure
 
-Pour supprimer l’identité managée affectée par le système d’une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
+Pour supprimer l’identité managée affectée par le système d’une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
@@ -188,7 +188,7 @@ Dans cette section, vous allez attribuer une identité managée affectée par l�
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Attribuer une identité managée affectée par l’utilisateur à une machine virtuelle Azure
 
-Pour affecter une identité managée affectée par l’utilisateur à une machine virtuelle, votre compte a besoin de l’affectation de rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) et [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
+Pour affecter une identité managée affectée par l’utilisateur à une machine virtuelle, votre compte a besoin de l’affectation de rôle [Opérateur d’identité managée](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) et [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-operator). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
 1. Sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer une identité managée affectée par l’utilisateur à votre machine virtuelle.  Veillez à remplacer `<USERASSIGNEDIDENTITY>` par le nom de l’identité managée affectée par l’utilisateur que vous avez créée.
 
@@ -312,7 +312,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Supprimer une identité managée affectée par l’utilisateur d’une machine virtuelle Azure
 
-Pour supprimer une identité affectée par l’utilisateur d’une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
+Pour supprimer une identité affectée par l’utilisateur d’une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor). Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 

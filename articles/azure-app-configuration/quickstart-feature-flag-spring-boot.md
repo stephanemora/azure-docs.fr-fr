@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121899"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019740"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -97,7 +97,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
     ```
 
 > [!Note]
-> Il existe une bibliothèque de gestion des fonctionnalités non web qui n’a pas de dépendance envers spring-web. Consultez la [documentation](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) de GitHub pour connaître les différences.
+> Il existe une bibliothèque de gestion des fonctionnalités non web qui n’a pas de dépendance envers spring-web. Consultez la [documentation](https://github.com/microsoft/spring-cloud-azure) de GitHub pour connaître les différences.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 

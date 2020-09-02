@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: ac924d6cccbc6f36afc00154c230cac118bd9257
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928239"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Démarrage rapide : Extraire le texte à l’aide de l’opération de lecture de l’API REST Vision par ordinateur 3.0 et C#
 

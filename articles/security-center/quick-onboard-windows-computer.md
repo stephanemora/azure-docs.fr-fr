@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519760"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013739"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Log Analytics.
@@ -74,7 +74,7 @@ Vous devez maintenant installer le fichier téléchargé sur l’ordinateur cibl
 
 Quand vous avez terminé, l’**agent Log Analytics** apparaît dans le **Panneau de configuration**. Vous pouvez vérifier votre configuration et vous assurer que l’agent est connecté.
 
-Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Vous pouvez maintenant effectuer le monitoring de vos machines virtuelles Azure et de vos ordinateurs extérieurs à Azure en un seul et même endroit. La fenêtre **Calcul** affiche une vue d’ensemble de toutes les machines virtuelles et de tous les ordinateurs, ainsi que des recommandations. Chaque colonne représente un ensemble de recommandations. La couleur correspond à l’état de sécurité actuel de l’ordinateur ou de la machine virtuelle pour une recommandation donnée. Security Center met également en évidence les éventuelles détections d’alertes de sécurité pour ces ordinateurs.
 

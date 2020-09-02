@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039821"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948859"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
 
@@ -25,7 +25,7 @@ Si vous souhaitez obtenir le consentement des utilisateurs avant qu’ils ne pui
 - Une méthode simple pour configurer les conditions d’utilisation
 - La possibilité d’exiger l’acceptation de vos conditions d’utilisation à l’aide d’une stratégie d’accès conditionnel  
 
-Ce démarrage rapide vous montre comment configurer une [stratégie d’accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md) qui vous permet de demander aux utilisateurs d’accepter vos conditions d’utilisation pour accéder à une certaine application cloud de votre environnement.
+Ce démarrage rapide vous montre comment configurer une [stratégie d’accès conditionnel Azure AD](./overview.md) qui vous permet de demander aux utilisateurs d’accepter vos conditions d’utilisation pour accéder à une certaine application cloud de votre environnement.
 
 ![Créer une stratégie](./media/require-tou/5555.png)
 
@@ -209,4 +209,4 @@ Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la st
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exiger une authentification multifacteur pour certaines applications spécifiques](app-based-mfa.md)
+> [Exiger une authentification multifacteur pour certaines applications spécifiques](../authentication/tutorial-enable-azure-mfa.md)

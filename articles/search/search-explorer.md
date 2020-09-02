@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488203"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929786"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Démarrage rapide : Utiliser l’Explorateur de recherche pour exécuter des requêtes dans le portail
 
 **L’Explorateur de recherche** est un outil de requête intégré utilisé pour exécuter des requêtes sur un index de recherche dans Recherche cognitive Azure. Cet outil facilite l’apprentissage de la syntaxe des requêtes, le test d’une requête ou d’une expression de filtre, ou la confirmation de l’actualisation des données en vérifiant si du nouveau contenu existe dans l’index.
 
-Ce guide de démarrage rapide utilise un index existant pour illustrer l’explorateur de recherche. Les requêtes sont formulées à l’aide de [l’API REST Search](https://docs.microsoft.com/rest/api/searchservice/), avec les réponses retournées sous forme de documents JSON.
+Ce guide de démarrage rapide utilise un index existant pour illustrer l’explorateur de recherche. Les requêtes sont formulées à l’aide de [l’API REST Search](/rest/api/searchservice/), avec les réponses retournées sous forme de documents JSON.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -133,7 +133,7 @@ Ajoutez [ **$orderby**](search-query-odata-orderby.md) pour trier les résultats
 
    ![Expression orderby](./media/search-explorer/search-explorer-example-ordery.png "Changer l’ordre de tri")
 
-Les expressions **$filter** et **$orderby** sont des constructions OData. Pour plus d’informations, consultez l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
+Les expressions **$filter** et **$orderby** sont des constructions OData. Pour plus d’informations, consultez l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
 <a name="start-search-explorer"></a>
 
@@ -147,7 +147,7 @@ Dans ce guide de démarrage rapide, vous avez utilisé **l’Explorateur de rech
 
 + Les requêtes de forme libre, semblables à celles que vous entrez dans un navigateur web commercial, permettent de tester une expérience d'utilisateur final. Par exemple, dans le cas de l'exemple d'index realestate intégré, vous pourriez entrer « Seattle apartments lake washington », puis utiliser Ctrl+F pour rechercher des termes dans les résultats de la recherche. 
 
-+ Les expressions de requête et de filtre sont articulées dans une syntaxe prise en charge par la Recherche cognitive Azure. Par défaut, cela correspond à une [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mais vous pouvez également utiliser [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) pour de plus puissantes requêtes. Les [expressions de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) présentent une syntaxe OData.
++ Les expressions de requête et de filtre sont articulées dans une syntaxe prise en charge par la Recherche cognitive Azure. Par défaut, cela correspond à une [syntaxe simple](/rest/api/searchservice/simple-query-syntax-in-azure-search), mais vous pouvez également utiliser [Lucene complète](/rest/api/searchservice/lucene-query-syntax-in-azure-search) pour de plus puissantes requêtes. Les [expressions de filtre](/rest/api/searchservice/odata-expression-syntax-for-azure-search) présentent une syntaxe OData.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -159,7 +159,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la syntaxe et les structures des requêtes, utilisez Postman ou un outil équivalent pour créer des expressions de requête qui utilisent d’autres parties de l’API. [L’API REST Recherche](https://docs.microsoft.com/rest/api/searchservice/) est particulièrement utile pour l’apprentissage et l’exploration.
+Pour en savoir plus sur la syntaxe et les structures des requêtes, utilisez Postman ou un outil équivalent pour créer des expressions de requête qui utilisent d’autres parties de l’API. [L’API REST Recherche](/rest/api/searchservice/) est particulièrement utile pour l’apprentissage et l’exploration.
 
 > [!div class="nextstepaction"]
 > [Créer une requête de base dans Postman](search-query-simple-examples.md)

@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961329"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Créer une application Ruby on Rails dans App Service
 
-[Azure App Service sur Linux](overview.md#app-service-on-linux) fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel de démarrage rapide montre comment déployer une application Ruby on Rails sur App Service sur Linux à l’aide de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[Azure App Service sur Linux](overview.md#app-service-on-linux) fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel de démarrage rapide montre comment déployer une application Ruby on Rails sur App Service sur Linux à l’aide de [Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
-> La pile de développement Ruby ne prend en charge que Ruby on Rails pour l’instant. Si vous souhaitez utiliser une autre plateforme telle que Sinatra, ou si vous souhaitez utiliser une version non prise en charge de Ruby, vous devez [l’exécuter dans un conteneur personnalisé](containers/quickstart-docker-go.md).
+> La pile de développement Ruby ne prend en charge que Ruby on Rails pour l’instant. Si vous souhaitez utiliser une autre plateforme telle que Sinatra, ou si vous souhaitez utiliser une version non prise en charge de Ruby, vous devez [l’exécuter dans un conteneur personnalisé](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 

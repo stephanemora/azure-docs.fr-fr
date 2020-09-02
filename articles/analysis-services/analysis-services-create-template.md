@@ -6,14 +6,14 @@ ms.author: owend
 tags: azure-resource-manager
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: e282e3a7e6efc5c989955a5a6b96030b3054b446
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641906"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230770"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Démarrage rapide : Créer un serveur - Modèle ARM
 
@@ -105,6 +105,5 @@ Write-Host "Press [ENTER] to continue..."
 
 Dans ce guide de démarrage rapide, vous avez utilisé un modèle ARM pour créer un groupe de ressources et une ressource de serveur Azure Analysis Services. Une fois que vous avez créé une ressource de serveur à l’aide du modèle, consultez les documents suivants :
 
-- [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)
-- [Ajouter un exemple de modèle à partir du portail](analysis-services-create-sample-model.md)
-- [Configurer les rôles d’utilisateur et d’administrateur de serveur](tutorials/analysis-services-tutorial-roles.md)
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Configurer un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)   
