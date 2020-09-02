@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39dd9604cf0e58eda94acf6528ab31eca26355d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587560"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936773"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utiliser les API et les kits SDK Azure Digital Twins
 
@@ -63,16 +63,16 @@ Vous pouvez également utiliser des API de plan de données en interagissant ave
 Le SDK .NET (C#) Azure Digital Twins fait partie du SDK Azure pour .NET. Il est open source et est basé sur les API de plan de données Azure Digital Twins.
 
 > [!NOTE]
-> Pour obtenir des informations détaillées sur la conception des SDK, consultez les [principes généraux de conception pour les SDK Azure](https://azure.github.io/azure-sdk/general_introduction.html), ainsi que les [instructions de conception de .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> Pour obtenir des informations détaillées sur la conception des kit de développement logiciel (SDK), consultez les [principes de conception pour les kits de développement logiciel (SDK) Azure](https://azure.github.io/azure-sdk/general_introduction.html) généraux, ainsi que les [instructions de conception de .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) spécifiques.
 
-Pour utiliser le SDK, incluez le package NuGet **Azure.DigitalTwins.Core** dans votre projet. Vous aurez également besoin du package **Azure.Identity** (version 1.1.1).
+Pour utiliser le SDK, incluez le package NuGet **Azure.DigitalTwins.Core** dans votre projet. Vous aurez également besoin de la dernière version du package **Azure.Identity**.
 
 * Dans Visual Studio, vous pouvez ajouter des packages à l’aide du gestionnaire de package NuGet (accessible via *Outils > Gestionnaire de package NuGet > Gérer les packages NuGet pour la solution*). 
 * À l’aide de l’outil en ligne de commande .NET, vous pouvez exécuter ceci :
 
     ```cmd/sh
     dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-    dotnet add package Azure.identity --version 1.1.1
+    dotnet add package Azure.identity
     ```
 
 Pour obtenir une procédure détaillée de l’utilisation des API dans la pratique, consultez le [*Tutoriel : Coder une application cliente*](tutorial-code.md). 
@@ -143,7 +143,7 @@ Vous trouverez d’autres exemples dans le [dépôt GitHub du SDK .NET (C#)](htt
 
 #### <a name="serialization-helpers"></a>Applications d’assistance de sérialisation
 
-Comme nous l’avons vu précédemment, les méthodes principales du SDK retournent des données au format JSON. Toutefois, le SDK contient également des classes d’assistance pour la sérialisation. Ces fonctions d’assistance vous permettent de créer ou de désérialiser rapidement des données de jumeau afin d’accéder à des informations de base.
+Les assistances de sérialisation sont des fonctions d’assistance disponibles dans le kit de développement logiciel (SDK) pour créer ou désérialiser rapidement des données de jumeaux pour accéder à des informations de base. Étant donné que les méthodes principales du kit de développement logiciel (SDK) retournent des données de jumeaux au format JSON par défaut, il peut être utile d’utiliser ces classes d’assistance pour décomposer les données de jumeaux.
 
 Les classes d’assistance disponibles sont les suivantes :
 * `BasicDigitalTwin`: Représente les données de base d’un jumeau numérique
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Créer une relation
 
-À l’aide de la classe `BasicDigitalTwin`, vous pouvez également préparer des données pour créer des relations dans une instance de jumeau :
+À l’aide de la classe `BasicRelationship`, vous pouvez également préparer des données pour créer des relations dans une instance de jumeau :
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

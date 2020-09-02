@@ -1,35 +1,35 @@
 ---
 title: Forum aux questions
-description: Apporte des réponses à des questions récurrentes à propos de la solution Azure VMware (AVS).
+description: Apporte des réponses à des questions récurrentes à propos d’Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: cffa31bb66adfde2af24ab2542322479639ed9dd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872325"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752181"
 ---
-# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Forum aux questions sur la préversion de la solution VMware Azure (AVS)
+# <a name="frequently-asked-questions-about-azure-vmware-solution-preview"></a>Forum aux questions sur la préversion d’Azure VMware Solution
 
-Réponses à des questions fréquemment posées sur la solution VMware Azure (AVS)
+Réponses à des questions fréquemment posées sur Azure VMware Solution.
 
 ## <a name="general"></a>Général
 
-**Qu’est-ce que la solution Azure VMware (AVS) ?**
+**Présentation d’Azure VMware Solution**
 
-Tandis que les entreprises mettent en œuvre des stratégies de modernisation informatique pour améliorer la réactivité, réduire les coûts et accélérer l’innovation, les plateformes cloud hybrides apparaissent comme des activateurs clés de la transformation numérique des clients. AVS combine le logiciel SDDC (Software Defined Data Center) de VMware avec l’écosystème du service cloud global de Microsoft Azure. La solution est managée pour satisfaire à une série d’exigences en matière de performances, de disponibilité, de sécurité et de conformité.
+Tandis que les entreprises mettent en œuvre des stratégies de modernisation informatique pour améliorer la réactivité, réduire les coûts et accélérer l’innovation, les plateformes cloud hybrides apparaissent comme des activateurs clés de la transformation numérique des clients. Azure VMware Solution combine le logiciel SDDC (Software Defined Data Center) de VMware avec l’écosystème du service cloud global de Microsoft Azure. Azure VMware Solution est managée pour satisfaire à une série d’exigences en matière de performances, de disponibilité, de sécurité et de conformité.
 
-## <a name="avs-service"></a>Service AVS
+## <a name="azure-vmware-solution-service"></a>Service Azure VMware Solution
 
-**Où la solution AVS est-elle disponible aujourd’hui ?**
+**Où Azure VMware Solution est-elle disponible aujourd’hui ?**
 
 Le service est régulièrement ajouté à de nouvelles régions. Pour en savoir plus, consultez les [dernières informations de disponibilité du service](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware). 
 
-**Des charges de travail exécutées dans une instance AVS peuvent-elles utiliser des services Azure ou s’intégrer avec ceux-ci ?**
+**Des charges de travail exécutées dans une instance Azure VMware Solution peuvent-elles utiliser des services Azure ou s’intégrer avec ceux-ci ?**
 
-Tous les services Azure sont à la disposition des clients de la solution AVS. Les limitations de performances et de disponibilité pour des services spécifiques doivent être traitées au cas par cas.
+Tous les services Azure sont à la disposition des clients d’Azure VMware Solution. Les limitations de performances et de disponibilité pour des services spécifiques doivent être traitées au cas par cas.
 
 **Dois-je utiliser les mêmes outils que ceux que j’utilise actuellement pour gérer des ressources de cloud privé ?**
 
@@ -37,13 +37,13 @@ Oui. Le portail Azure est utilisé pour le déploiement et un certain nombre d�
 
 **Puis-je gérer un cloud privé avec mon serveur VMware vCenter local ?**
 
-Au lancement, AVS ne prend pas en charge une expérience de gestion unique dans des environnements de cloud local et privé. Les clusters de clouds privés sont gérés avec les logiciels vCenter et NSX Manager locaux d’un cloud privé.
+Au lancement, Azure VMware Solution ne prend pas en charge une expérience de gestion unique dans des environnements de cloud local et privé. Les clusters de clouds privés sont gérés avec les logiciels vCenter et NSX Manager locaux d’un cloud privé.
 
 **Puis-je exécuter la solution vRealize Suite en local ?** 
 
 Les intégrations et cas d’usage spécifiques peuvent être évalués individuellement.
 
-**Puis-je migrer des machines virtuelles vSphere à partir d’environnements locaux vers des clouds privés AVS ?**
+**Puis-je migrer des machines virtuelles vSphere à partir d’environnements locaux vers des clouds privés Azure VMware Solution ?**
 
 Oui. Vous pouvez utiliser une migration de machine virtuelle et vMotion pour déplacer des machines virtuelles vers un cloud privé si les configurations requises standard croisées de vCenter et de [vMotion](https://kb.vmware.com/s/article/210695) sont réunies.
 
@@ -89,7 +89,7 @@ Chaque hôte ESXi est doté de deux groupes de disques vSAN d’une capacité de
 
 **Quelle est la quantité de bande passante réseau disponible dans chaque hôte ESXi ?**
 
-Chaque hôte ESXi dans AVS est configuré avec quatre cartes réseau 25 Gbit/s, deux cartes réseau étant configurées pour le trafic système ESXi, et deux cartes réseau pour le trafic de la charge de travail. 
+Chaque hôte ESXi dans Azure VMware Solution est configuré avec quatre cartes réseau 25 Gbit/s, deux cartes réseau étant configurées pour le trafic système ESXi, et deux cartes réseau pour le trafic de la charge de travail. 
 
 **Les données stockées dans les magasins de données vSAN sont-elles chiffrées au repos ?**
 
@@ -111,13 +111,13 @@ Oui, les clusters se mettent à l’échelle entre les nombres minimal et maxima
 
 **Que sont les clusters d’évaluation ?**
 
-Les clusters d’évaluation sont des clusters de trois hôtes utilisés pour effectuer des évaluations d’un mois de clouds privés AVS.
+Les clusters d’évaluation sont des clusters de trois hôtes utilisés pour effectuer des évaluations d’un mois de clouds privés Azure VMware Solution.
 
 **Puis-je utiliser des hôtes haut de gamme pour des clusters d’évaluation ?**
 
 Non. Les hôtes ESXi haut de gamme sont réservés à une utilisation dans des clusters de production.
 
-## <a name="avs-and-vmware-software"></a>Logiciel AVS et VMware
+## <a name="azure-vmware-solution-and-vmware-software"></a>Azure VMware Solution et logiciel VMware
 
 **Quelles sont les versions des logiciels VMware utilisées dans les clouds privés ?**
 
@@ -125,7 +125,7 @@ Les clouds privés utilisent vSphere 6.7, vSAN 6.7, HCX et NSX-T version 2.5.
 
 **Les clouds privés utilisent-ils VMware NSX ?**
 
-Oui, NSX-T 2.5 est utilisé pour la mise en réseau définie par logiciel dans les clouds privés AVS.
+Oui, NSX-T 2.5 est utilisé pour la mise en réseau définie par logiciel dans les clouds privés Azure VMware Solution.
 
 **Puis-je utiliser VMware NSX-V dans un cloud privé ?**
 
@@ -147,9 +147,9 @@ Les logiciels du cloud privé sont mis à niveau selon une planification qui sui
 
 **Quelle est la planification d’adresse IP réseau requise pour incorporer des clouds privés avec des environnements locaux ?**
 
-Un espace d’adressage /22 de réseau privé est requis pour déployer un cloud privé AVS. Cet espace d’adressage privé ne doit pas chevaucher d’autres réseaux virtuels dans un abonnement ou des réseaux locaux.
+Un espace d’adressage /22 de réseau privé est requis pour déployer un cloud privé Azure VMware Solution. Cet espace d’adressage privé ne doit pas chevaucher d’autres réseaux virtuels dans un abonnement ou des réseaux locaux.
  
-**Comment me connecter à partir d’environnements locaux à un cloud privé AVS ?**
+**Comment me connecter à partir d’environnements locaux à un cloud privé Azure VMware Solution ?**
 
 Vous pouvez vous connecter au service de deux façons : 
 
@@ -170,7 +170,7 @@ Oui. Vous devez utiliser le gestionnaire NSX-T pour créer un pare-feu restreign
 
 ## <a name="accounts-and-privileges"></a>Comptes et privilèges
 
-**Quels comptes et privilèges vais-je obtenir avec mon nouveau cloud privé AVS ?**
+**Quels comptes et privilèges vais-je obtenir avec mon nouveau cloud privé Azure VMware Solution ?**
 
 Vous recevez des informations d’identification d’utilisateur de CloudAdmin dans vCenter et un accès administrateur sur le gestionnaire NSX-T. Il existe également un groupe CloudAdmin qui peut être utilisé pour incorporer Azure Active Directory. Pour plus d’informations, consultez [Concepts d’accès et d’identité](concepts-identity.md).
 
@@ -191,19 +191,19 @@ Vous disposerez de privilèges d’administrateur complets sur NSX-T et pourrez 
 
 ## <a name="billing-and-support"></a>Facturation et support
 
-**Comment suis-je facturé pendant la période de préversion d’AVS ?**
+**Comment suis-je facturé pendant la période de préversion d’Azure VMware Solution ?**
 
-La facturation d’AVS pendant la période de préversion est mensuelle et basée sur l’utilisation. Des options supplémentaires seront disponibles au moment de la mise en disponibilité générale.
+La facturation d’Azure VMware Solution pendant la période de préversion est mensuelle et basée sur l’utilisation. Des options supplémentaires seront disponibles au moment de la mise en disponibilité générale.
 
-**Comment la facturation est-elle structurée pendant la période de préversion d’AVS ?**
+**Comment la facturation est-elle structurée pendant la période de préversion d’Azure VMware Solution ?**
 
 Pour toute question générale concernant la tarification, consultez la page de [tarification](https://azure.microsoft.com/pricing/details/azure-vmware) de la solution Azure VMware. La tarification de la préversion étant disponible sur demande, contactez votre équipe de compte ou cliquez sur le lien de la page de tarification pour contacter le service Ventes.
 
-**Qui assure le support d’AVS ?**
+**Qui prend en charge Azure VMware Solution ?**
 
-Le support d’AVS est fourni par Microsoft. Notez que, conformément à nos directives concernant les préversions, nous assurons un support pendant les heures d’ouverture, du lundi au vendredi de 9 h à 17 h PST. Pour ouvrir un ticket de support, suivez [ce lien](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+La prise en charge d’Azure VMware Solution est assurée par Microsoft. Notez que, conformément à nos directives concernant les préversions, nous assurons un support pendant les heures d’ouverture, du lundi au vendredi de 9 h à 17 h PST. Pour ouvrir un ticket de support, suivez [ce lien](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-**De quels comptes ai-je besoin pour créer un cloud privé AVS ?**
+**De quels comptes ai-je besoin pour créer un cloud privé Azure VMware Solution ?**
 
 Vous devez disposer d’un compte Azure dans un abonnement Azure.
 

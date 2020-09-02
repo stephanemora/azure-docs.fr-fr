@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510230"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650613"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ En règle générale, les processus d’installation et de configuration sur Win
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure du stockage d’une machine virtuelle pour les déploiements SGBDR
 Pour suivre le présent chapitre, lisez d’abord attentivement le contenu de [ce chapitre][deployment-guide-3] du [Guide de déploiement][deployment-guide]. Vous devez comprendre et connaître les différentes séries de machines virtuelles ainsi que les différences entre le stockage Standard et Premium. 
 
-Pour découvrir le stockage Azure sur les machines virtuelles Azure, consultez :
-
-- [Présentation des disques managés pour les machines virtuelles Azure Windows](../../windows/managed-disks-overview.md).
-- [Présentation des disques managés pour les machines virtuelles Azure Linux](../../linux/managed-disks-overview.md).
+Pour en savoir plus sur le stockage Azure pour les machines virtuelles Azure, consultez [Présentation des disques managés pour machines virtuelles Azure](../../managed-disks-overview.md).
 
 Dans une configuration de base, nous privilégions généralement une structure de déploiement dans laquelle le système d’exploitation, le SGBD et les fichiers binaires SAP éventuels sont séparés des fichiers de base de données. Nous recommandons que les systèmes SAP qui sont exécutés sur les machines virtuelles Azure aient le même disque dur virtuel (ou le même disque) de base installé avec le système d’exploitation, les exécutables du SGBD et les exécutables de SAP. 
 

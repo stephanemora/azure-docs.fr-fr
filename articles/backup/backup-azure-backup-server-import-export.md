@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067340"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890074"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure (MABS)
 
@@ -41,7 +41,7 @@ Grâce à la capacité d’amorçage hors connexion de Sauvegarde Azure et au se
 Assurez-vous que les prérequis suivants sont remplis avant de démarrer le workflow de sauvegarde hors connexion :
 
 * Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) a été créé. Pour en créer un, suivez les étapes décrites dans [Créer un coffre Recovery Services](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)tutorial-backup-windows-server-to-azure#create-a-recovery-services-vault).
-* Assurez-vous que soit installé uniquement la [dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent) sur SC DPM ou MABS et qu’elle soit inscrite au sein d’un coffre Recovery Services.
+* Vérifiez que seule la [dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent) est installée sur SC DPM ou MABS, et qu’elle est inscrite auprès d’un coffre Recovery Services.
 * Le correctif cumulatif 1 est installé sur SC DPM 2019 ou MABS v3.
 
   > [!NOTE]
@@ -136,7 +136,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
 
     ![Écran de connexion Azure](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
 
-    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque l’outil vous y invite, au cas où le disque fourni n’aurait pas suffisamment d’espace pour les données de sauvegarde. <br/>
+    L’outil commence ensuite à préparer le disque et à copier les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque l’outil vous y invite, si le disque fourni n’a pas suffisamment d’espace pour les données de sauvegarde. <br/>
 
     Une fois que l’outil a été correctement exécuté, l’invite de commandes fournit trois informations :
     * Le ou les disques que vous avez fournis sont préparés en vue de leur envoi dans un centre de données Azure.

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bbec605f25c2e74178bdb5c28d0a7995e4e265f1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168029"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690389"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -85,7 +85,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet sur la façon d’interroger des données à partir d’un environnement Gen1, consultez [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        Consultez le référentiel [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] pour accéder au code C#. 
 
    1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Azure Time Series Insights.
 
@@ -157,7 +157,7 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 | Paramètre de requête facultatif | Description | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
+| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | Première génération |
 | `storeType=<storeType>` | Pour les environnements Gen2 avec le magasin chaud activé, la requête peut être exécutée sur `WarmStore` ou `ColdStore`. Ce paramètre dans la requête définit le magasin sur lequel la requête doit être exécutée. S’il n’est pas défini, la requête est exécutée sur le magasin Cold. Pour interroger le magasin Warm, **storeType** doit être défini sur `WarmStore`. S’il n’est pas défini, la requête est exécutée par rapport au magasin Cold. | Deuxième génération |
 
 ## <a name="next-steps"></a>Étapes suivantes

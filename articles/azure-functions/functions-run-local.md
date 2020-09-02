@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505714"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929485"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Il existe trois versions d’Azure Functions Core Tools. La version que vous uti
 
 + **Version 1.x** : Prend en charge la version 1.x du runtime Azure Functions. Cette version des outils est uniquement prise en charge sur les ordinateurs Windows et est installée à partir d’un [package npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Sauf indication contraire, les exemples de cet article concernent la version 3.x.
+Vous ne pouvez installer qu’une seule version de Core Tools sur un ordinateur donné. Sauf indication contraire, les exemples de cet article concernent la version 3.x.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -257,20 +257,21 @@ Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le dével
 
   ![Copier une chaîne de connexion à partir de l’Explorateur Stockage Azure](./media/functions-run-local/storage-explorer.png)
 
-+ Utilisez Core Tools pour télécharger la chaîne de connexion à partir d’Azure à l’aide d’une des commandes suivantes :
++ Utilisez Core Tools à partir de la racine du projet pour télécharger la chaîne de connexion à partir d’Azure à l’aide d’une des commandes suivantes :
 
   + Téléchargez tous les paramètres à partir d’une application de fonction existante :
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Obtenez la chaîne de connexion pour un compte de stockage spécifique :
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Si vous n’êtes pas encore connecté à Azure, vous êtes invité à le faire.
+    Si vous n’êtes pas encore connecté à Azure, vous êtes invité à le faire. Ces commandes remplacent les paramètres existants dans le fichier local.settings.json. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Créer une fonction
 

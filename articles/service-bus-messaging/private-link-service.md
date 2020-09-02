@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423420"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716620"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Service Bus via des points de terminaison privés
 
@@ -234,7 +234,7 @@ Il existe quatre états de provisionnement :
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Vérifier le fonctionnement de la connexion à liaison privée
 
-Vous devez vérifier que les ressources contenues dans le sous-réseau de la ressource de point de terminaison privé se connectent à votre espace de noms Service Bus via une adresse IP privée, et qu’elles sont intégrées à la zone DNS privée appropriée.
+Vous devez vérifier que les ressources contenues dans le réseau virtuel du point de terminaison privé se connectent à votre espace de noms Service Bus via une adresse IP privée, et qu’elles sont intégrées à la zone DNS privée appropriée.
 
 Commencez par créer une machine virtuelle en suivant les étapes décrites dans [Créer une machine virtuelle Windows sur le portail Azure](../virtual-machines/windows/quick-create-portal.md).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b5bf7cc74a5444e5f51aaddb1d088f6b0c1e52a8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036706"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798888"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flux de modification dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -21,26 +21,6 @@ La prise en charge du [flux de modification](change-feed.md) dans l’API pour M
 
 > [!NOTE]
 > Pour utiliser les flux de modification, créez le compte à l’aide de la version 3.6 ou une version ultérieure de l’API d’Azure Cosmos DB pour MongoDB. Si vous exécutez les exemples de flux de modification sur une version antérieure, vous pouvez voir l’erreur `Unrecognized pipeline stage name: $changeStream`.
-
-## <a name="current-limitations"></a>Limites actuelles
-
-Les limitations suivantes s’appliquent quand plusieurs flux de modification sont utilisés :
-
-* Les propriétés `operationType` et `updateDescription` ne sont pas encore prises en charge dans le document de sortie.
-* Les types d'opérations `insert`, `update` et `replace` sont actuellement pris en charge. 
-* L’opération de suppression ou d’autres événements ne sont pas encore pris en charge.
-
-En raison de ces limitations, l’étape $match, l’étape $project et les options fullDocument sont requises, comme indiqué dans les exemples précédents.
-
-Contrairement au flux de modification dans l’API SQL d’Azure Cosmos DB, il n’existe pas de [bibliothèque de processeurs de flux de modification](change-feed-processor.md) distincte pour consommer des flux de modification ou un conteneur de baux. Il n’existe actuellement aucune prise en charge pour les [déclencheurs Azure Functions](change-feed-functions.md) permettant de traiter les flux de modification.
-
-## <a name="error-handling"></a>Gestion des erreurs
-
-Les codes d’erreur et messages suivants sont pris en charge lorsque des flux de modification sont utilisés :
-
-* **Code d’erreur HTTP 16500** : lorsque le flux de modification est limité, il retourne une page vide.
-
-* **NamespaceNotFound (OperationType Invalidate)**  : si vous exécutez le flux de modification sur une collection qui n’existe pas ou si la collection est supprimée, une erreur `NamespaceNotFound` est retournée. Étant donné que la propriété `operationType` ne peut pas être retournée dans le document de sortie, au lieu de l’erreur `operationType Invalidate`, l’erreur `NamespaceNotFound` est retournée.
 
 ## <a name="examples"></a>Exemples
 
@@ -156,15 +136,17 @@ var cursor = db.coll.watch(
 Les limitations suivantes s’appliquent quand plusieurs flux de modification sont utilisés :
 
 * Les propriétés `operationType` et `updateDescription` ne sont pas encore prises en charge dans le document de sortie.
-* Les types d'opérations `insert`, `update` et `replace` sont actuellement pris en charge. L’opération de suppression ou d’autres événements ne sont pas encore pris en charge.
+* Les types d'opérations `insert`, `update` et `replace` sont actuellement pris en charge. Toutefois, l’opération de suppression ou d’autres événements ne sont pas encore pris en charge.
 
 En raison de ces limitations, l’étape $match, l’étape $project et les options fullDocument sont requises, comme indiqué dans les exemples précédents.
+
+Contrairement au flux de modification dans l’API SQL d’Azure Cosmos DB, il n’existe pas de [bibliothèque de processeurs de flux de modification](change-feed-processor.md) distincte pour consommer des flux de modification ou un conteneur de baux. Il n’existe actuellement aucune prise en charge pour les [déclencheurs Azure Functions](change-feed-functions.md) permettant de traiter les flux de modification.
 
 ## <a name="error-handling"></a>Gestion des erreurs
 
 Les codes d’erreur et messages suivants sont pris en charge lorsque des flux de modification sont utilisés :
 
-* **Code d’erreur HTTP 429** : lorsque le flux de modification est limité, il retourne une page vide.
+* **Code d’erreur HTTP 16500** : lorsque le flux de modification est limité, il retourne une page vide.
 
 * **NamespaceNotFound (OperationType Invalidate)**  : si vous exécutez le flux de modification sur une collection qui n’existe pas ou si la collection est supprimée, une erreur `NamespaceNotFound` est retournée. Étant donné que la propriété `operationType` ne peut pas être retournée dans le document de sortie, au lieu de l’erreur `operationType Invalidate`, l’erreur `NamespaceNotFound` est retournée.
 

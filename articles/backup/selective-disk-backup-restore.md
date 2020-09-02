@@ -4,12 +4,12 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566231"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824744"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -190,7 +190,7 @@ Quand vous exécutez ces commandes, vous voyez `"diskExclusionProperties": null`
 
 ## <a name="using-powershell"></a>Utilisation de PowerShell
 
-Veillez à utiliser Azure PS version 3.7.0 ou supérieure.
+Veillez à utiliser Azure PowerShell version 3.7.0 ou supérieure.
 
 ### <a name="enable-backup-with-powershell"></a>Activer la sauvegarde avec PowerShell
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 580d3cea94e3c550954fc0fa1aa6f2c3a73e9386
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554708"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683859"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutoriel de configuration d’Onfido avec Azure Active Directory B2C
 
@@ -136,7 +136,7 @@ Dans les stratégies personnalisées fournies, recherchez les espaces réservés
 | {your_tenant_extensions_app_objectid}                  | ID d’objet de l’application de stockage de votre locataire                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_app_insights_instrumentation_key} | Clé d’instrumentation de votre instance App Insights*| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_ui_file_base_url}| URL de l’emplacement où se trouvent les dossiers **ocean_blue**, **dist** et **assets** de votre interface utilisateur | https://yourstorage.blob.core.windows.net/UI/|
-| {your_app_service_URL}                                 | URL du service d’application que vous avez configurée                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL du service d’application que vous avez configurée                                             | `https://yourapp.azurewebsites.net`          |
 
 *Application Insights peut se trouver dans un autre locataire. Cette étape est facultative. Supprimez les éléments TechnicalProfiles et OrchestrationSteps correspondants s’ils ne sont pas nécessaires.
 

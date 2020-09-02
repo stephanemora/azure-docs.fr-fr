@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
-ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/19/2020
+ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475547"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650891"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -76,6 +76,10 @@ Vous pouvez également voir le minutage détaillé de chaque étape de transform
          ]
 }
 ```
+
+### <a name="post-processing-time"></a>Temps de post-traitement
+
+Lorsque vous sélectionnez une icône de transformation de récepteur dans votre mappage, le panneau déroulant à droite affiche un point de données supplémentaire appelé « temps de post-traitement » en bas. Il s’agit du temps consacré à l’exécution de votre travail sur le cluster Spark *après* que vos données ont été chargées, transformées et écrites. Ce temps peut comprendre la fermeture de pools de connexions, l’arrêt de pilotes, la suppression de fichiers, la fusion de fichiers, etc. Lorsque vous effectuez des actions dans votre flux, telles que le « déplacement de fichiers » et la « sortie vers un seul fichier », vous voyez probablement une augmentation de la valeur du temps de post-traitement.
   
 ## <a name="monitor-icons"></a>Icônes Superviser
 

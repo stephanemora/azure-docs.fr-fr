@@ -3,18 +3,18 @@ title: SDK Python Azure Data Lake Storage Gen2 pour les fichiers et les listes d
 description: Utilisez Python pour gérer les répertoires et les listes de contrôle d’accès de fichiers et de répertoires dans des comptes de stockage dotés d’un espace de noms hiérarchique (HNS) activé.
 author: normesta
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 762f616a27338750973e843a999b36a22171fbcd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3056e167a7482cb2967a68bbf1cd40e4bad49093
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847599"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923838"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -332,6 +332,10 @@ def list_directory_contents():
     except Exception as e:
      print(e) 
 ```
+
+## <a name="set-an-acl-recursively-preview"></a>Définir une liste ACL de manière récursive (préversion)
+
+Vous pouvez ajouter, mettre à jour et supprimer des listes ACL de manière récursive au niveau des éléments enfants existants d’un répertoire parent sans avoir à apporter ces modifications individuellement à chaque élément enfant. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## <a name="see-also"></a>Voir aussi
 

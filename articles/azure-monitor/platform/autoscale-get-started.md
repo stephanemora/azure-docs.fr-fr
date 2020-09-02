@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078884"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794531"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -112,6 +112,28 @@ Vous pouvez maintenant définir le nombre d’instances à mettre à l’échell
 ![Définir l’échelle manuelle][14]
 
 Vous pouvez toujours revenir à la mise à l’échelle automatique en cliquant sur **Activer la mise à l’échelle automatique** puis sur **Enregistrer**.
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Acheminer le trafic vers des instances saines (App Service)
+
+Lorsque vous effectuez un scale-out vers plusieurs instances, App Service peut effectuer des contrôles d’intégrité sur vos instances pour acheminer le trafic uniquement vers les instances saines. Pour ce faire, ouvrez le portail de votre App Service, puis sélectionnez **Contrôle d’intégrité** sous **Analyse**. Sélectionnez **Activer** et fournissez un chemin d’URL valide pour votre application, par exemple `/health` ou `/api/health`. Cliquez sur **Enregistrer**.
+
+### <a name="health-check-path"></a>Chemin de contrôle d'intégrité
+
+Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si le site a des HTTP**S** activés, le contrôle d’intégrité respecte les HTTP**S** et envoie la demande à l’aide de ce protocole.
+
+Le chemin du contrôle d'intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin d’accès doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
+
+### <a name="behavior"></a>Comportement
+
+Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue un test ping du chemin toutes les instances. Si un code de réponse correct n’est pas reçu après 5 tests ping, cette instance est considérée comme « non saine ». La ou les instances non saines seront exclues de la rotation de l’équilibreur de charge. En outre, lorsque vous effectuez un scaling up ou un scaling out, App Service effectue un test ping du chemin du contrôle d’intégrité pour s’assurer que les nouvelles instances sont prêtes à recevoir des requêtes.
+
+Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas, où aucune instance n’est saine, aucune ne sera exclue.
+
+Si une instance n’est pas saine pendant une heure, elle sera remplacée par une nouvelle instance. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
+
+### <a name="monitoring"></a>Surveillance
+
+Après avoir fourni le chemin de contrôle d’intégrité de votre application, vous pouvez surveiller l’intégrité de votre site à l’aide d’ Azure Monitor. Dans le panneau **Contrôle d’intégrité** du portail, cliquez sur **Métriques** dans la barre d’outils supérieure. Un nouveau panneau s’ouvre, dans lequel vous pouvez voir l’état d’intégrité historique du site et créer une nouvelle règle d’alerte. Pour plus d’informations sur la surveillance de vos sites, [consultez le guide sur Azure Monitor](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

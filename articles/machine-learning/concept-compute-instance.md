@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829439"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651913"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -155,26 +155,22 @@ Vous pouvez également créer une instance
 * Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-1st-experiment-sdk-setup.md#azure)
 * Dans le portail Azure
 * À partir d’un modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle d’instance de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Grâce au Kit de développement logiciel (SDK) Azure Machine Learning
 * À partir de l’[extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Les cœurs dédiés par région, le quota par famille de machines virtuelles et le quota régional total qui s’appliquent à la création de l’instance de calcul sont unifié et partagés avec le quota de cluster de calcul d’apprentissage de Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
 
 ## <a name="compute-target"></a>Cible de calcul
 
-Les instances de calcul peuvent être utilisées comme [cible de calcul d’entraînement](concept-compute-target.md#train), comme les clusters d’entraînement pour le calcul Azure Machine Learning. 
+Les instances de calcul peuvent être utilisées comme [cible de calcul d’entraînement](concept-compute-target.md#train) de la même façon que les clusters de calcul Azure Machine Learning. 
 
 Une instance de calcul :
 * a une file d’attente de travaux ;
 * exécute des travaux en toute sécurité dans un environnement de réseau virtuel, sans qu’il soit nécessaire d’ouvrir un port SSH. Le travail s’exécute dans un environnement conteneurisé et empaquette les dépendances de votre modèle dans un conteneur Docker.
 * peut exécuter plusieurs petits travaux en parallèle (préversion).  Deux travaux par cœur peuvent s’exécuter en parallèle, tandis que les autres travaux sont mis en file d’attente.
+* Prend en charge les travaux d’entraînement distribués sur un seul nœud équipé de plusieurs GPU
 
 Vous pouvez utiliser une instance de calcul en tant que cible de déploiement d’inférence locale dans des scénarios de test ou de débogage.
-
-> [!NOTE]
-> Une instance de calcul ne prend pas en charge les travaux d’apprentissage distribué.  Pour l’apprentissage distribué, utilisez (clusters de calcul](how-to-set-up-training-targets.md#amlcompute).
-
-Pour plus d’informations, consultez le bloc-notes [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Ce bloc-notes est également disponible dans le dossier **Samples** de studio, dans *training/train-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Qu’est-il arrivé à la machine virtuelle Notebook ?
 

@@ -39,9 +39,6 @@
   items:
     - name: Exemples de code de coffre de clés
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Éléments intégrés Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Concepts
   items:
     - name: Concepts de base
@@ -90,6 +87,8 @@
           href: managed-identity.md
         - name: Utiliser une stratégie de contrôle d’accès
           href: group-permissions-for-apps.md
+        - name: Utiliser un contrôle d’accès basé sur le rôle Azure (préversion)
+          href: rbac-guide.md
         - name: Résolution des problèmes d’accès
           href: troubleshooting-access-issues.md
     - name: Développer
@@ -163,6 +162,9 @@
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

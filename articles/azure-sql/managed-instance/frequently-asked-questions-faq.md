@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210504"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661416"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Pour optimiser les performances de stockage, consultez [Bonnes pratiques de stoc
 Non, le stockage de sauvegarde n’est pas déduit de votre espace de stockage d’instance gérée. Le stockage de sauvegarde est indépendant de l’espace de stockage d’instance et n’est pas limité en taille. Le stockage de sauvegarde est limité par la durée de rétention de la sauvegarde de vos bases de données d’instance configurables jusqu’à 35 jours. Pour plus d’informations. consultez [Sauvegardes automatisées](../database/automated-backups-overview.md).
 
 **Comment puis-je voir quand des sauvegardes automatisées sont effectuées sur mon instance managée ?**
+
 Pour suivre les sauvegardes automatisées effectuées sur Managed Instance, consultez [Guide pratique pour suivre les sauvegardes automatisées pour Azure SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **La sauvegarde à la demande est-elle prise en charge ?**
+
 Oui, vous pouvez créer une sauvegarde complète en copie seule dans le stockage Blob Azure, mais elle ne peut être restaurée que dans Managed Instance. Pour plus d’informations, consultez [Sauvegarde en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Cependant, la sauvegarde en copie seule est impossible si la base de données est chiffrée par le TDE managé par le service, car le certificat utilisé pour le chiffrement est inaccessible. Dans ce cas-là, utilisez la fonctionnalité de restauration dans le temps pour déplacer la base de données vers un autre service SQL Managed Instance ou basculer vers une clé gérée par le client.
 
 **La restauration native (des fichiers. bak) est-elle prise en charge par Managed Instance ?**
+
 Oui, elle est prise en charge et disponible pour les versions SQL Server 2005 et ultérieures.  Pour utiliser la restauration native, chargez votre fichier. bak dans le stockage Blob Azure et exécutez des commandes T-SQL. Pour plus d’informations, consultez [Restauration native à partir d’une URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuité de l’activité
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (remplacez « test » par le nom de connexion souhaité et ajustez les valeurs de stratégie et d’expiration)
+
+
+## <a name="service-updates"></a>Mises à jour de service
+
+**Qu’est-ce qu’un événement de maintenance planifiée pour SQL Managed Instance ?**
+
+Consultez [Planifier les événements de maintenance Azure dans SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Commentaires et support Azure
 

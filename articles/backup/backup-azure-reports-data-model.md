@@ -3,12 +3,12 @@ title: Modèle de données pour les événements de diagnostics de sauvegarde Az
 description: Ce modèle de données fait référence au mode spécifique à la ressource pour envoyer des événements de diagnostic à Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538868"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892522"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure
 
@@ -53,7 +53,7 @@ Ce tableau fournit des informations sur les entités de sauvegarde principales, 
 | ProtectedContainerWorkloadType    | Texte          | Type du conteneur protégé sauvegardé. Par exemple, IaaSVMContainer |
 | ProtectionGroupName               | Texte          | Nom du groupe de protection dans lequel l’élément de sauvegarde est protégé, pour SC DPM et MABS, le cas échéant |
 | ResourceGroupName                 | Texte          | Groupe de ressources de la ressource (par exemple coffre Recovery Services) pour les données collectées |
-| SchemaVersion                     | Texte          | Ce champ indique la version actuelle du schéma, **V2** |
+| SchemaVersion                     | Texte          | Ce champ indique la version actuelle du schéma. Il s’agit de **V2** |
 | SecondaryBackupProtectionState    | Texte          | Indique si la protection secondaire est activée pour l’élément de sauvegarde  |
 | State                             | Texte          | État de l’objet élément de sauvegarde. Par exemple, Actif, Supprimé |
 | StorageReplicationType            | Texte          | Type de réplication de stockage pour le coffre. Par exemple, Géoredondant |
@@ -165,12 +165,12 @@ Ce tableau fournit plus d’informations sur les champs liés à la stratégie.
 | DiffBackupTime                  | Temps           | Durée des sauvegardes différentielles pour SQL dans une sauvegarde de machine virtuelle Azure     |
 | LogBackupFrequency              | Nombre décimal | Fréquence des sauvegardes de fichier journal pour SQL                            |
 | LogBackupRetentionDuration      | Nombre décimal | Durée de conservation des sauvegardes de fichier journal pour SQL dans une sauvegarde de machine virtuelle Azure |
-| MonthlyRetentionDaysOfTheMonth  | Texte           | Semaines du mois au cours desquelles la rétention mensuelle est configurée.  Par exemple, Première, Dernière, etc. |
+| MonthlyRetentionDaysOfTheMonth  | Texte           | Semaines du mois au cours desquelles la rétention mensuelle est configurée.  Par exemple, Première, Dernière |
 | MonthlyRetentionDaysOfTheWeek   | Texte           | Jours de la semaine sélectionnés pour la rétention mensuelle              |
 | MonthlyRetentionDuration        | Texte           | Durée totale de rétention en mois des sauvegardes configurées    |
 | MonthlyRetentionFormat          | Texte           | Type de configuration de la rétention mensuelle. Par exemple, quotidienne pour une configuration quotidienne, hebdomadaire pour une configuration hebdomadaire |
 | MonthlyRetentionTimes           | Texte           | Date et heure auxquelles la rétention mensuelle est configurée           |
-| MonthlyRetentionWeeksOfTheMonth | Texte           | Semaines du mois au cours desquelles la rétention mensuelle est configurée.   Par exemple, Première, Dernière, etc. |
+| MonthlyRetentionWeeksOfTheMonth | Texte           | Semaines du mois au cours desquelles la rétention mensuelle est configurée.   Par exemple, Première, Dernière |
 | PolicyName                      | Texte           | Nom de la stratégie définie                                   |
 | PolicyUniqueId                  | Texte           | ID unique d’identification de la stratégie                             |
 | PolicyTimeZone                  | Texte           | Fuseau horaire dans lequel les champs d’heure de la stratégie sont spécifiés dans les journaux |

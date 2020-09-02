@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963663"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816017"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -117,7 +117,14 @@ Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de te
 > [!IMPORTANT]
 > Vous pouvez sélectionner le point de terminaison d’accès uniquement lors de la création de l’ISE et ne pouvez pas modifier cette option ultérieurement.
 
-* **Interne** : Les points de terminaison privés autorisent les appels aux applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties dans l’historique des exécutions des applications logiques *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’ISE ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’ISE, par exemple par le biais du peering ou d’un réseau privé virtuel.
+* **Interne** : Les points de terminaison privés autorisent les appels aux applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties dans l’historique des exécutions des applications logiques *uniquement depuis l’intérieur de votre réseau virtuel*.
+
+  > [!IMPORTANT]
+  > Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Dans le cas contraire, lorsque vous essayez d’afficher l’historique des exécutions de votre application logique, un message d’erreur indiquant « Erreur inattendue. Échec de récupération » s’affiche.
+  >
+  > ![Erreur d’action Stockage Azure résultant de l’impossibilité d’envoyer du trafic via le pare-feu](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’environnement de service d’intégration ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’environnement de service d’intégration, par le biais d’un peering ou d’un réseau privé virtuel. 
 
 * **Externe** : Les points de terminaison publics autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties de l’historique des exécutions des applications logiques *depuis l’extérieur de votre réseau virtuel*. Si vous utilisez des groupes de sécurité réseau (NSG), assurez-vous qu’ils sont configurés avec des règles de trafic entrant pour autoriser l’accès aux entrées et sorties de l’historique des exécutions. Pour plus d'informations, consultez [Activer l’accès à ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 

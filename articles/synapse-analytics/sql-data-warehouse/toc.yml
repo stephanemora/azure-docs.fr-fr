@@ -98,7 +98,7 @@
               href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
         - name: Authentification
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: /azure/sql-database/sql-database-aad-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
@@ -122,7 +122,7 @@
               href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
             - name: TDE avec Service Bring Your Own Key (BYOK)
               href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-    - name: Chargement de données
+    - name: Ingestion et préparation des données
       items:
         - name: Vue d’ensemble
           href: design-elt-data-loading.md
@@ -132,7 +132,7 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Meilleures pratiques
           href: sql-data-warehouse-best-practices-development.md
@@ -284,7 +284,7 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: Activer le chiffrement - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-    - name: Charger les données
+    - name: Charger et préparer les données
       items:
         - name: Depuis Azure Data Lake Storage
           href: sql-data-warehouse-load-from-azure-data-lake-store.md

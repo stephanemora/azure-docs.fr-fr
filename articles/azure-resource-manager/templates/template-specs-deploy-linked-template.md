@@ -2,17 +2,17 @@
 title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094098"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918381"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié (préversion)
 
-Découvrez comment déployer une [spec de modèle](template-specs.md) existante à l’aide d’un [déploiement lié](linked-templates.md#linked-template). Les specs de modèle permettent de partager des modèles ARM avec d’autres utilisateurs de votre organisation. Une fois que vous avez créé une spec de modèle, vous pouvez la déployer à l’aide d’Azure PowerShell. Vous pouvez également déployer la spec de modèle dans le cadre de votre solution à l’aide d’un modèle lié.
+Découvrez comment déployer une [spec de modèle](template-specs.md) existante à l’aide d’un [déploiement lié](linked-templates.md#linked-template). Les specs de modèle permettent de partager des modèles ARM avec d’autres utilisateurs de votre organisation. Une fois que vous avez créé une spec de modèle, vous pouvez la déployer à l’aide d’Azure PowerShell ou Azure CLI. Vous pouvez également déployer la spec de modèle dans le cadre de votre solution à l’aide d’un modèle lié.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -117,9 +117,22 @@ Pour déployer une spec de modèle dans un modèle Resource Manager, ajoutez une
 
 L’ID de spec de modèle est généré à l’aide de la fonction [`resourceID()`](template-functions-resource.md#resourceid). L’argument de groupe de ressources dans la fonction resourceID() est facultatif si le templateSpec se trouve dans le même groupe de ressources que le déploiement actuel.  Vous pouvez également transmettre directement l’ID de ressource en tant que paramètre. Pour récupérer l’ID, utilisez :
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Il existe un problème connu relatif à l’obtention de l’id de la spec de modèle puis de son attribution à une variable dans Windows PowerShell.
+
+---
 
 La syntaxe permettant de transmettre des paramètres à la spec de modèle est la suivante :
 
@@ -138,6 +151,8 @@ La syntaxe permettant de transmettre des paramètres à la spec de modèle est l
 
 Lorsque vous déployez le modèle lié, il déploie l’application web et le compte de stockage. Le déploiement est identique au déploiement d’autres modèles ARM.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -147,6 +162,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

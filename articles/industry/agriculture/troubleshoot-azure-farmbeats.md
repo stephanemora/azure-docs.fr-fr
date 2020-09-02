@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497061"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797936"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Résoudre les problèmes liés à Azure FarmBeats
 
-Cet article fournit des solutions aux problèmes courants liés à Azure FarmBeats. Pour obtenir de l’aide supplémentaire, contactez notre [Forum de support](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envoyez-nous un e-mail à l’adresse farmbeatssupport@microsoft.com.
+Cet article fournit des solutions aux problèmes courants liés à Azure FarmBeats. Pour obtenir de l’aide supplémentaire, contactez notre [Forum de support questions et réponses](https://aka.ms/farmbeatssupport) ou envoyez-nous un e-mail à l’adresse farmbeatssupport@microsoft.com.
 
 > [!NOTE]
   > Si vous avez installé FarmBeats au mois d’avril et que vos travaux échouent avec un message d’erreur vide, il se peut que votre installation n’ait pas reçu de quota Batch pour hiérarchiser le support apporté à des organisations critiques en matière de sécurité et de santé. Pour plus d’informations, consultez [cet article](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Vous devez demander l’allocation de machines virtuelles au compte Batch pour exécuter les tâches.

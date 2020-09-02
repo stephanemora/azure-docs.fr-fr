@@ -178,7 +178,7 @@
           href: generation-2.md
         - name: Usage général
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../sizes-general.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: "Série\_Av2"
               href: ../av2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -198,7 +198,7 @@
               href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../sizes-compute.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série Fsv2
               href: ../fsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -657,11 +657,13 @@
           href: instance-metadata-service.md
         - name: Activer la virtualisation imbriquée
           href: nested-virtualization.md
+        - name: Mise à jour corrective automatique des machines virtuelles (préversion)
+          href: automatic-vm-guest-patching.md
     - name: Maintenance de la plateforme
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -671,7 +673,7 @@
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Contrôle de la maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -716,7 +718,7 @@
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agent Log Analytics
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Agents Windows
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

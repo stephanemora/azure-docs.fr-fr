@@ -10,18 +10,19 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: e85ae50321b9aa034f6a6d2cadcc329a24dafa62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.reviewer: cynthn
+ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500016"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660093"
 ---
-# <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problèmes connus avec les machines virtuelles des séries HC et HB
+# <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
-Cet article indique les problèmes les plus courants et les solutions correspondantes lors de l’utilisation de machines virtuelles de série HC et HB.
+Cet article présente les problèmes les plus courants et les solutions correspondantes lors de l’utilisation de machines virtuelles de série [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
 
 ## <a name="dram-on-hb-series"></a>DRAM sur la série HB
 
@@ -34,10 +35,6 @@ La mise en réseau accélérée Azure n’est pas activée pour l’instant, mai
 ## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
 
 Pour empêcher l’accès au matériel de bas niveau pouvant entraîner des failles de sécurité, Queue Pair 0 n’est pas accessible aux machines virtuelles invitées. Cela ne doit affecter que les actions généralement associées à l’administration de la carte réseau ConnectX-5 et à l’exécution des diagnostics InfiniBand comme ibdiagnet, et pas les applications de l’utilisateur final elles-mêmes.
-
-## <a name="ud-transport"></a>Transport UD
-
-Au lancement, les séries HB et HC ne prennent pas en charge le transport connecté de façon dynamique (DCT). La prise en charge de DCT sera implémentée en temps voulu. Les transports de connexion fiable (RC) et de datagramme non fiable (UD) sont pris en charge.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 
@@ -87,6 +84,15 @@ Vous pouvez voir les messages d’avertissement du noyau suivants lors du démar
 
 Vous pouvez ignorer cet avertissement. Il s’agit d’une limitation connue de l’hyperviseur Azure, qui sera corrigée en temps voulu.
 
+
+## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Installation du pilote InfiniBand sur les tailles de machine virtuelle de série N compatibles avec InfiniBand
+
+NC24r_v3 et ND40r_v2 sont compatibles avec SR-IOV alors que NC24r et NC24r_v2 ne le sont pas. Vous trouverez des détails sur la bifurcation [ici](../../sizes-hpc.md#rdma-capable-instances).
+InfiniBand (IB) peut être configuré sur les tailles de machine virtuelle compatibles avec SR-IOV à l’aide de pilotes OFED tandis que les tailles de machine virtuelle non compatibles avec SR-IOV requièrent des pilotes ND. Cette prise en charge IB est disponible de manière appropriée sur [CentOS-HPC VMIs](configure.md). Pour Ubuntu, consultez les instructions disponibles [ici](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) pour installer les pilotes OFED et ND, comme décrit dans la [documentation](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Informez-vous sur le [calcul haute performance](/azure/architecture/topics/high-performance-computing/) dans Azure.
+- Consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md) pour en savoir plus sur la configuration optimale des charges de travail pour les performances et la scalabilité.
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

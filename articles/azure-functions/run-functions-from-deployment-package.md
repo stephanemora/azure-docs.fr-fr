@@ -3,12 +3,12 @@ title: Exécuter Azure Functions à partir d’un package
 description: Exécutez vos fonctions avec le runtime Azure Functions, en montant un fichier de package de déploiement qui contient les fichiers projet de votre application de fonction.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214230"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639883"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
@@ -50,6 +50,9 @@ L’exemple suivant montre une application de fonction configurée pour s’exé
 ## <a name="integration-with-zip-deployment"></a>Intégration au déploiement zip
 
 [Déploiement zip][Zip deployment for Azure Functions] est une fonctionnalité Azure App Service qui vous permet de déployer votre projet d’application de fonction dans le répertoire `wwwroot`. Le projet est empaqueté dans un fichier de déploiement zip. Les mêmes API peuvent être utilisées pour déployer votre package dans le dossier `d:\home\data\SitePackages`. Quand le paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` est défini sur `1`, les API de déploiement zip copient votre package dans le dossier `d:\home\data\SitePackages` au lieu d’extraire les fichiers dans `d:\home\site\wwwroot`. Le fichier `packagename.txt` est également créé. Après un redémarrage, le package est monté sur `wwwroot` en tant que système de fichiers en lecture seule. Pour plus d’informations sur le déploiement zip, consultez [Déploiement zip pour Azure Functions](deployment-zip-push.md).
+
+> [!NOTE]
+> Lorsqu’un déploiement se produit, un redémarrage de l’application de fonction est déclenché. Avant un redémarrage, toutes les exécutions de fonction existantes sont autorisées à se terminer ou à expirer. Pour plus d’informations, consultez [Comportements de déploiement](functions-deployment-technologies.md#deployment-behaviors).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Ajout du paramètre WEBSITE_RUN_FROM_PACKAGE
 

@@ -3,12 +3,12 @@ title: Ce que le serveur de sauvegarde Azure v3 RTM peut sauvegarder
 description: Cet article fournit une matrice de protection répertoriant toutes les charges de travail, tous les types de données et toutes les installations que protège le serveur de sauvegarde Azure v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611974"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763607"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure v3 RTM
 
@@ -32,9 +32,9 @@ La matrice suivante répertorie ce qui peut être protégé à l’aide du serve
 |Serveurs (32 bits et 64 bits)|Windows Server 2012/2012 avec SP1 - Datacenter et Standard|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système<br /><br />Le serveur de sauvegarde Azure doit s’exécuter sur au moins Windows Server 2012 R2 pour protéger des volumes dédupliqués Windows Server 2012.|
 |Serveurs (32 bits et 64 bits)|Windows Server 2012/2012 avec SP1 - Datacenter et Standard|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier<br /><br />Le serveur de sauvegarde Azure doit s’exécuter sur au moins Windows Server 2012 R2 pour protéger des volumes dédupliqués Windows Server 2012.|
 |Serveurs (32 bits et 64 bits)|Windows Server 2012/2012 avec SP1 - Datacenter et Standard|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système<br /><br />Le serveur de sauvegarde Azure doit s’exécuter sur au moins Windows Server 2012 R2 pour protéger des volumes dédupliqués Windows Server 2012.|
-|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
-|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partage, dossier, fichier|
-|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
+|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
+|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partage, dossier, fichier|
+|Serveurs (32 bits et 64 bits)|Windows Server 2008 R2 SP1 - Standard et Enterprise|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2<br />Vous devez exécuter SP1 et installez [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
 |Serveurs (32 bits et 64 bits)|Windows Server 2008 SP2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|Non pris en charge|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
 |Serveurs (32 bits et 64 bits)|Windows Server 2008 SP2|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
 |Serveurs (32 bits et 64 bits)|Windows Storage Server 2008|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
@@ -92,7 +92,7 @@ Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants�
 * `.microsoftonline.com`
 * `.windows.net`
 
-Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
+Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 
 * Azure Active Directory (12076:5060)
 * Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)

@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: d0f6655d22818c119d1098bbce96ea3699a42a50
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168131"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705841"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
 Le service Instance Metadata Service fournit des informations sur les instances de machine virtuelle actuellement en cours d’exécution, et peut être utilisé pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour obtenir la liste complète des données disponibles, consultez [API de métadonnées](#metadata-apis).
-Instance Metadata Service est disponible à la fois pour les instances de machine virtuelle et de groupe de machines virtuelles identiques. Le service est uniquement disponible pour l’exécution de machines virtuelles créées/gérées à l’aide [d’Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service est disponible pour l’exécution d’instance de machine virtuelle et de groupe de machines virtuelles identiques. Toutes les API prennent en charge les machines virtuelles créées/gérées à l’aide d’[Azure Resource Manager](/rest/api/resources/). Seuls les points de terminaison attestés et de réseau prennent en charge les machines virtuelles classiques (non ARM) et les points de terminaison attestés ne le font que dans une mesure limitée.
 
 Le service IMDS d’Azure est un point de terminaison REST disponible sur une adresse IP non routable bien connue (`169.254.169.254`) ; il est accessible uniquement à partir de la machine virtuelle. La communication entre la machine virtuelle et IMDS ne quitte jamais l’hôte.
 Nous vous recommandons de faire en sorte que vos clients HTTP contournent les proxys web au sein de la machine virtuelle lors de l’interrogation d’IMDS et traitent `169.254.169.254` de la même façon que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -176,7 +176,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 
 La version de Instance Metadata Service est gérée et la spécification de la version de l’API dans la requête HTTP est obligatoire.
 
-Les versions d'API prises en charge sont : 
+Les versions d’API prises en charge sont : 
 - 2017-03-01
 - 2017-04-02
 - 2017-08-01 
@@ -684,7 +684,7 @@ Nonce est une chaîne facultative de 10 chiffres. S’il n’est pas fourni, IM
 }
 ```
 
-L’objet blob de signature est une version signée [pkcs7](https://aka.ms/pkcs7) du document. Il contient le certificat utilisé pour la signature ainsi que les détails de machine virtuelle, comme vmId, sku, nonce, subscriptionId, timeStamp pour la création et l’expiration du document, et les informations du plan sur l’image. Les informations du plan ne sont fournies que pour les images de la Place de marché Azure. Le certificat peut être extrait de la réponse et utilisé pour valider que la réponse est correcte et provient d’Azure.
+L’objet blob de signature est une version signée [pkcs7](https://aka.ms/pkcs7) du document. Il contient le certificat utilisé pour la signature, ainsi que certains détails spécifiques de la machine virtuelle. Pour les machines virtuelles ARM, cela comprend vmId, sku, nonce, subscriptionId et timeStamp pour la création et l’expiration du document et les informations de plan relatives à l’image. Les informations du plan ne sont fournies que pour les images de la Place de marché Azure. Pour les machines virtuelles classiques (non ARM), le remplissage de vmId est garanti. Le certificat peut être extrait de la réponse et utilisé pour valider que la réponse est correcte et provient d’Azure.
 Le document contient les champs suivants :
 
 Données | Description
@@ -696,6 +696,9 @@ timestamp/expiresOn | Horodatage UTC d’expiration du document signé.
 vmId |  [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle
 subscriptionId | Abonnement Azure pour la machine virtuelle, inauguré dans `2019-04-30`
 sku | Référence SKU spécifique pour l’image de machine virtuelle, introduite dans `2019-11-01`
+
+> [!NOTE]
+> Pour les machines virtuelles classiques (non ARM), le remplissage de vmId est garanti.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Exemple 2 : Avoir la garantie que la machine virtuelle s’exécute dans Azure
 

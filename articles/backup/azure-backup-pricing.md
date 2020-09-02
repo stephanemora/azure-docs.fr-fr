@@ -3,12 +3,12 @@ title: Tarifs Sauvegarde Azure
 description: Découvrez comment estimer vos coûts de budgétisation de la tarification de la Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035754"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654529"
 ---
 # <a name="azure-backup-pricing"></a>Tarifs Sauvegarde Azure
 
@@ -161,7 +161,7 @@ Pour estimer les coûts liés à la sauvegarde des partages de fichiers Azure à
 
 - Quantité attendue d’attribution des données sur les partages de fichiers que vous souhaitez sauvegarder. <br>L’attrition fait référence à la quantité de modifications des données et a un impact direct sur la taille de stockage des instantanés. Par exemple, si vous avez un partage de fichiers avec 200 Go de données à sauvegarder et que 10 Go de données sont modifiées quotidiennement, l’attribution quotidienne est de 5 %.
   - Une plus grande attrition signifie que la quantité de données modifiées dans le contenu du partage de fichiers chaque jour est élevée, et que l’instantané incrémentiel (en capturant uniquement les données modifiées) serait également plus important.
-  - Sélectionner Faible (1 %), Modérée (3 %) ou Élevée (5 %) en fonction des caractéristiques et de l’utilisation de votre partage de fichiers.
+  - Sélectionnez Faible (1 %), Modérée (3 %) ou Élevée (5 %) en fonction des caractéristiques et de l’utilisation de votre partage de fichiers.
   - Si vous connaissez le **pourcentage d’attrition** exact de votre partage de fichiers, vous pouvez sélectionner l’option **Entrer votre propre pourcentage** dans la liste déroulante. Spécifiez les valeurs (en pourcentage) pour une attrition quotidienne, hebdomadaire, mensuelle et annuelle.
 
 - Type de compte de stockage (Standard ou Premium) et paramètre de redondance de stockage du compte de stockage hébergeant le partage de fichiers sauvegardé. <br>Dans la solution de sauvegarde actuelle pour les partages de fichiers Azure, les instantanés sont stockés dans le même compte de stockage que le partage de fichiers sauvegardé. Le coût de stockage associé aux instantanés est donc facturé dans le cadre de votre facture Azure Files, en fonction de la tarification des instantanés pour le type de compte et du paramètre de redondance du compte de stockage hébergeant le partage de fichiers et les instantanés sauvegardés.

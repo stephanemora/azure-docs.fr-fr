@@ -3,12 +3,12 @@ title: Architecture de l’appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770898"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919741"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architecture de l’appliance Azure Migrate
 
@@ -31,7 +31,7 @@ L’appliance est dotée d’un certain nombre de composants.
 
 - **Application de gestion** : il s’agit d’une application web pour l’entrée des utilisateurs pendant le déploiement de l’appliance. Utilisation lors de l’évaluation des machines pour la migration vers Azure.
 - **Agent de découverte** : l’agent collecte les données de configuration de la machine. Utilisation lors de l’évaluation des machines pour la migration vers Azure. 
-- **Agent d’évaluation** : l’agent collecte les données de performances. Utilisation lors de l’évaluation des machines pour la migration vers Azure.
+- **Agent collecteur** : l’agent collecte les données de performances. Utilisation lors de l’évaluation des machines pour la migration vers Azure.
 - **Agent DRA** : orchestre la réplication des machines virtuelles et coordonne la communication entre les machines répliquées et Azure. Utilisation seulement lors de la réplication de machines virtuelles VMware sur Azure avec la migration sans agent.
 - **Passerelle** : envoie des données répliquées vers Azure. Utilisation seulement lors de la réplication de machines virtuelles VMware sur Azure avec la migration sans agent.
 - **Service de mise à jour automatique** : met à jour les composants de l’appliance (s’exécute toutes les 24 heures).

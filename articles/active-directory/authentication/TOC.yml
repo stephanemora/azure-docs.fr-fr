@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Authentification unique auprès de ressources locales
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Questions fréquentes (FAQ) sur l’hybride
+              href: howto-authentication-passwordless-faqs.md
+            - name: Résoudre les problèmes liés à l’hybride
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Connexion par téléphone sans mot de passe
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello Entreprise
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Dépanner
       items:
-        - name: Résoudre les problèmes SSPR
+        - name: SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: FAQ sur SSPR
           href: active-directory-passwords-faq.md

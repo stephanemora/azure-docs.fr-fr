@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036587"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826818"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -72,3 +72,7 @@ Les JIRA ci-dessous sont portés pour HBase :
 
 ## <a name="component-version-change"></a>Changement de la version des composants
 Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## <a name="known-issues"></a>Problèmes connus
+
+Un problème a été résolu dans le portail Azure, en raison duquel les utilisateurs rencontraient une erreur en créant un cluster Azure HDInsight à l’aide d’un type d’authentification SSH de clé publique. Quand un utilisateur cliquait sur **Vérifier + créer**, il recevait l’erreur « Ne doit pas avoir trois caractères consécutifs du nom d’utilisateur SSH ». Ce problème a été résolu, mais vous devrez peut-être actualiser le cache de votre navigateur en appuyant sur Ctrl+F5 pour charger la vue corrigée. La solution de contournement à ce problème a consisté à créer un cluster avec un modèle ARM. 

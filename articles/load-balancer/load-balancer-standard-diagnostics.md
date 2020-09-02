@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090448"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717334"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -25,7 +25,7 @@ Azure Load Balancer Standard expose les fonctionnalités de diagnostic suivantes
 
 * **Métriques multidimensionnelles et alertes** : des fonctionnalités de diagnostic multidimensionnel sont proposées par le biais d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour les configurations d’équilibreur standard. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge standard.
 
-* **Intégrité des ressources** : La page associée à l’équilibreur de charge dans le portail Azure et celle associée à l’intégrité des ressources (sous Monitor) affichent la section Intégrité des ressources pour Standard Load Balancer. 
+* **Intégrité des ressources** : l’état d’intégrité des ressources de votre équilibreur de charge est disponible dans la page Resource Health sous Superviser. Cette vérification automatique vous informe de la disponibilité actuelle de votre ressource Load Balancer.
 
 Cet article propose une présentation rapide de ces fonctionnalités et des méthodes pour les utiliser dans Load Balancer Standard. 
 
@@ -91,7 +91,7 @@ Pour configurer des alertes :
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>Le chemin d’accès aux données est-il opérationnel et disponible pour mon serveur frontal d’équilibrage de charge ?
 <details><summary>Développez</summary>
 
-La métrique de disponibilité du chemin d’accès aux données décrit l’intégrité de celui-ci dans la région, vers l’hôte de calcul où résident vos machines virtuelles. La métrique reflète l’intégrité de l’infrastructure Azure. Vous pouvez utiliser la métrique pour :
+La métrique de disponibilité du chemin de données décrit l’intégrité de ce dernier dans la région jusqu’à l’hôte de calcul où résident vos machines virtuelles. La métrique reflète l’intégrité de l’infrastructure Azure. Vous pouvez utiliser la métrique pour :
 - Surveiller la disponibilité externe de votre service
 - Aller plus loin et savoir si la plateforme sur laquelle votre service est déployé est intègre ou si votre système d’exploitation invité ou instance d’application est intègre.
 - Déterminez si un événement est associé à votre service ou au plan de données sous-jacent. Ne confondez pas cette métrique avec l’état de la sonde d’intégrité (« disponibilité de l’instance de serveur principal »).
@@ -110,7 +110,7 @@ La métrique est générée par une mesure intrabande active. Un service de dét
 
 Un paquet correspondant au serveur frontal et à la règle de votre déploiement est généré régulièrement. Il traverse la région depuis la source vers l’hôte où une machine virtuelle dans le pool de serveur principal se trouve. L’infrastructure de l’équilibreur de charge effectue les mêmes opérations d’équilibrage de charge et de conversion que pour tout autre trafic. Cette sonde est intrabande sur votre point de terminaison équilibré en charge. Lorsque la sonde arrive sur l’hôte de calcul sur lequel se trouve une machine virtuelle intègre du pool principal, l’hôte de calcul génère une réponse au service de détection. Votre machine virtuelle ne voit pas ce trafic.
 
-La mesure de la disponibilité du chemin d’accès échoue pour les raisons suivantes :
+La disponibilité du chemin de données fait défaut pour les raisons suivantes :
 - Il ne reste plus de machines virtuelles intègres du pool principal dans votre déploiement. 
 - Une panne s’est produite au niveau de l’infrastructure.
 
@@ -155,14 +155,14 @@ Pour obtenir des statistiques de connexion SNAT :
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Comment vérifier l’utilisation et l’allocation des ports SNAT ?
 <details>
   <summary>Développez</summary>
-La métrique d’utilisation SNAT indique le nombre de flux uniques établis entre une source Internet et une machine virtuelle principale ou un groupe de machines virtuelles identiques se trouvant derrière un équilibreur de charge et sans adresse IP publique. En la comparant à la métrique d’allocation SNAT, vous pouvez déterminer si votre service présente des problèmes d’épuisement des ressources SNAT se traduisant par un échec de flux sortant. 
+La métrique Ports SNAT utilisés assure le suivi du nombre de ports SNAT consommés pour maintenir les flux sortants. Elle indique le nombre de flux uniques établis entre une source Internet et une machine virtuelle back-end ou un groupe de machines virtuelles identiques qui se trouve derrière un équilibreur de charge et qui n’a pas d’adresse IP publique. En comparant le nombre de ports SNAT que vous utilisez à la métrique Ports SNAT alloués, vous pouvez déterminer si votre service présente des problèmes ou des risques d’épuisement SNAT se traduisant par un échec de flux sortant. 
 
 Si vos métriques indiquent un risque d'échec de [flux sortant](https://aka.ms/lboutbound), reportez-vous à l’article et prenez les mesures qui s'imposent pour l’atténuer afin de garantir l’intégrité du service.
 
 Pour afficher l’utilisation et l’allocation des ports SNAT :
 1. Définissez l’agrégation de temps du graphique sur une minute pour vous assurer que les données souhaitées s'affichent.
-1. Sélectionnez **Utilisation SNAT** et/ou **Allocation SNAT** comme type de métrique et **Moyenne** comme agrégation.
-    * Par défaut, il s’agit du nombre moyen de ports SNAT alloués ou utilisés par chaque machine virtuelle principale ou VMSS, correspondant à toutes les adresses IP publiques frontales mappées à l'équilibreur de charge, agrégées sur TCP et UDP.
+1. Sélectionnez **Ports SNAT utilisés** et/ou **Ports SNAT alloués** comme type de métrique et **Moyenne** comme agrégation
+    * Par défaut, ces métriques représentent le nombre moyen de ports SNAT alloués ou utilisés par chaque VMSS ou machine virtuelle back-end, correspondant à toutes les adresses IP publiques front-end mappées à l’équilibreur de charge, agrégées sur TCP et UDP.
     * Pour afficher le nombre total de ports SNAT utilisés ou alloués pour l’équilibreur de charge, utilisez l’agrégation de métriques **Sum**.
 1. Filtrez sur un **Type de protocole** spécifique, un ensemble d'**Adresses IP principales** et/ou des **Adresses IP frontales**.
 1. Pour surveiller l’intégrité par instance principale ou frontale, utilisez le fractionnement. 
@@ -252,13 +252,14 @@ Pour afficher l’intégrité de vos ressources Load Balancer Standard public :
 
    *Figure : Vue d’intégrité de la ressource Load Balancer*
  
-Le tableau suivant répertorie les divers états d’intégrité de ressource et leurs descriptions : 
+La description de l’état d’intégrité de ressource générique est disponible dans la [documentation RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). Les états spécifiques d’Azure Load Balancer sont listés dans le tableau ci-dessous : 
 
 | État d’intégrité des ressources | Description |
 | --- | --- |
 | Disponible | Votre ressource d’équilibreur de charge standard est intègre et disponible. |
-| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. Diagnostiquez l’intégrité en sélectionnant **Azure Monitor** > **Métriques**.<br>(L’état *Non disponible* peut également indiquer que la ressource n’est pas connectée avec votre équilibreur de charge standard.) |
-| Unknown | L’état d’intégrité des ressources de votre ressource d’équilibreur de charge standard n’a pas encore été mis à jour.<br>(L’état *Inconnu* peut également indiquer que la ressource n’est pas connectée avec votre équilibreur de charge standard.)  |
+| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. [Suivez le guide de résolution des problèmes de disponibilité du chemin de données] pour déterminer si les événements ayant un impact sur votre disponibilité sont lancés par l’utilisateur.
+| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. [Suivez le guide de résolution des problèmes de disponibilité du chemin de données] pour déterminer si les événements ayant un impact sur votre disponibilité sont lancés par l’utilisateur. |
+| Unknown | L’état d’intégrité de votre ressource d’équilibrage de charge standard n’a pas encore été mis à jour ou n’a pas encore reçu d’informations de disponibilité du chemin de données au cours des 10 dernières minutes. Cet état devrait être transitoire et passer à un état correct dès que des données seront reçues. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607456"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814720"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -72,40 +72,40 @@ Pour plus d’informations sur les compétences, accédez à la page [Compétenc
 
 Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 20 pays/régions suivant(e)s :
 
-| Pays  | (suite...)   | (suite...)  | (suite...)  |
+| Pays | (suite) |  (suite) |  (suite) |
 |---------|----------|----------|----------|
 | Australie | Belgique | Canada | Danemark |
 | Finlande  | France | Allemagne  | Inde   |
 | Italie    | Japon  |  Mexique  |  Pays-Bas  |
 |  Nouvelle-Zélande  |  Norvège  |  Pologne  | Afrique du Sud |
 |  Suède  | Suisse  |  États-Unis  | Royaume-Uni  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>S’inscrire aux services de conseil du marketplace commercial
 
-Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](become-publisher.md). 
+Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) votre entreprise dans la Place de marché. Pour obtenir une liste de contrôle complète des conditions d’inscription, consultez [Devenir éditeur sur le marketplace](become-publisher.md).
 
 ## <a name="prepare-your-publishing-artifacts"></a>Préparer vos artefacts de publication
 Avant de vous inscrire, vous pouvez commencer à collecter et à préparer le contenu pour que votre référencement décrive la valeur de vos service et solution à votre client cible. 
 
 |Configuration pour les nouveaux éditeurs  |
-|---------|
-|ID MPN     |
-|Logos de société (48 x 48, 216 x 216 pixels)     |
-|Destination du prospect     |
-||
+| - |
+| ID MPN |
+| Logos de société (48 x 48, 216 x 216 pixels) |
+| Destination du prospect |
+|
 
 |Configuration pour les nouvelles offres  |
-|---------|
-|Nom (200 caractères) et description (2000 caractères) de l’offre    |
-|Compétences     |
-|Disponibilité par pays/région     |
-|Durée de l’engagement     |
-|Secteurs, catégories et mots clés de recherche applicables     |
-|Vidéo de présentation du produit    |
-|Captures d’écran (au maximum 5, 1280 x 720 pixels)     |
-|Documentation marketing (3 maximum)     |
-||
+| - |
+| Nom (200 caractères) et description (2000 caractères) de l’offre |
+| Compétences  |
+| Disponibilité par pays/région |
+| Durée de l’engagement  |
+| Secteurs, catégories et mots clés de recherche applicables |
+| Vidéo de présentation du produit |
+| Captures d’écran (au maximum 5, 1280 x 720 pixels) |
+| Documentation marketing (3 maximum) |
+|
 
 ## <a name="the-publishing-process"></a>Processus de publication
 

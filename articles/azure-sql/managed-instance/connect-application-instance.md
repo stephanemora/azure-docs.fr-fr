@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706373"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871443"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connecter votre application à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ La connexion d’une application lorsqu’elle réside dans un autre réseau vir
 
 Il existe deux options pour connecter des réseaux virtuels :
 
-- [Peering VPN Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Peering de réseaux virtuels Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 Le peering est préférable car il utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. Le peering de réseau virtuel est limité aux réseaux d’une même région.  

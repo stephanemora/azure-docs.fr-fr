@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382710"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824727"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -36,7 +36,7 @@ Lorsque vous essayez de sauvegarder, le fait de sélectionner un compte de stock
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Pourquoi ne puis-je pas modifier le coffre pour configurer la sauvegarde pour le partage de fichiers ?
 
-Si le compte de stockage est déjà inscrit auprès d’un coffre ou si d’autres partages de fichiers dans le compte de stockage sont protégés à l’aide d’un coffre, vous n’avez pas la possibilité de le modifier, car tous les partages de fichiers dans un compte de stockage ne peuvent être protégés que par le même coffre. Si vous souhaitez modifier le coffre, vous devez [arrêter la protection de tous les partages de fichiers dans le compte de stockage](manage-afs-backup.md#stop-protection-on-a-file-share) à partir du coffre connecté, [annuler l’inscription](manage-afs-backup.md#unregister-a-storage-account) du compte de stockage, puis choisir un autre coffre pour la protection.
+Si le compte de stockage est déjà inscrit auprès d’un coffre ou si d’autres partages de fichiers dans le compte de stockage sont protégés à l’aide d’un coffre, vous n’avez pas la possibilité de le modifier. Tous les partages de fichiers dans un compte de stockage peuvent uniquement être protégés par le même coffre. Si vous souhaitez modifier le coffre, vous devez [arrêter la protection de tous les partages de fichiers dans le compte de stockage](manage-afs-backup.md#stop-protection-on-a-file-share) à partir du coffre connecté, [annuler l’inscription](manage-afs-backup.md#unregister-a-storage-account) du compte de stockage, puis choisir un autre coffre pour la protection.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Puis-je modifier le coffre dans lequel je sauvegarde mes partages de fichiers ?
 

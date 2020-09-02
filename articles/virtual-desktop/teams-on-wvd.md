@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509601"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922563"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
 >[!IMPORTANT]
->L’optimisation des médias pour Teams n’est pas prise en charge pour les environnements Microsoft 365 Secteur Public.
+>L’optimisation des médias pour Teams n’est pas prise en charge pour les environnements Microsoft 365 Government (GCC). L’optimisation des médias pour Teams n’est pas prise en charge pour GCC élevé ou DoD.
 
 >[!NOTE]
 >La fonction d’optimisation des médias de Microsoft Teams est uniquement disponible pour le client Windows Desktop sur les machines Windows 10. Elle nécessite la version 1.2.1026.0 ou ultérieure du client Windows Desktop.
@@ -32,7 +32,7 @@ Avant d'utiliser Microsoft Teams sur Windows Virtual Desktop, vous devez effectu
 - [Préparez votre réseau](/microsoftteams/prepare-network/) pour Microsoft Teams.
 - Installez le [client Windows Desktop](connect-windows-7-10.md) sur un appareil Windows 10 ou Windows 10 IoT Entreprise présentant la [configuration matérielle requise pour Microsoft Teams sur un PC Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connectez-vous à une machine virtuelle Windows 10 multisession ou Windows 10 Entreprise.
-- Installez l’application de bureau Teams sur l’hôte, à l’aide de l’installation par machine. La fonction d’optimisation des médias de Microsoft Teams requiert l’application de bureau Teams version 1.3.00.4461 ou ultérieure.
+- [Téléchargez](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) et installez l’application de bureau Teams sur l’hôte, à l’aide de l’installation par machine. La fonction d’optimisation des médias de Microsoft Teams requiert l’application de bureau Teams version 1.3.00.4461 ou ultérieure.
 
 ## <a name="install-the-teams-desktop-app"></a>Installer l’application de bureau Teams
 
@@ -94,8 +94,8 @@ Vous pouvez déployer l’application de bureau Teams via une installation par m
 
         Cela permet d’installer Microsoft Teams dans le dossier Program Files (x86) sur un système d’exploitation 64 bits, et dans le dossier Program Files sur un système d’exploitation 32 bits. À ce stade, la configuration de l’image finale (gold) est terminée. L’installation de Teams sur chaque machine est nécessaire pour les configurations non persistantes.
 
-        Deux indicateurs peuvent être définis lors de l’installation des équipes, **ALLUSER=1** et **ALLUSERS=1**. Il est important de comprendre la différence entre ces paramètres. Le paramètre **ALLUSER=1** est utilisé uniquement dans les environnements VDI pour spécifier une installation par ordinateur. Le paramètre **ALLUSERS=1** peut être utilisé dans des environnements VDI et non-VDI. Lorsque vous définissez ce paramètre, le programme d’installation de Teams au niveau de la machine s’affiche dans « Programmes et fonctionnalités » dans le Panneau de configuration, ainsi que dans « Applications et fonctionnalités » des paramètres Windows. Tous les utilisateurs disposant d’informations d’identification d’administrateur sur la machine peuvent désinstaller Teams. 
-       
+        Deux indicateurs peuvent être définis lors de l’installation des équipes, **ALLUSER=1** et **ALLUSERS=1**. Il est important de comprendre la différence entre ces paramètres. Le paramètre **ALLUSER=1** est utilisé uniquement dans les environnements VDI pour spécifier une installation par ordinateur. Le paramètre **ALLUSERS=1** peut être utilisé dans des environnements VDI et non-VDI. Lorsque vous définissez ce paramètre, le programme d’installation de Teams au niveau de la machine s’affiche dans « Programmes et fonctionnalités » dans le Panneau de configuration, ainsi que dans « Applications et fonctionnalités » des paramètres Windows. Tous les utilisateurs disposant d’informations d’identification d’administrateur sur la machine peuvent désinstaller Teams.
+
         > [!NOTE]
         > Les utilisateurs et les administrateurs ne peuvent pas désactiver le lancement automatique de Teams lors de la connexion.
 

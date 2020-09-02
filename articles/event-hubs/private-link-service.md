@@ -3,12 +3,12 @@ title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185466"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716789"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -222,7 +222,7 @@ Il existe quatre états de provisionnement :
 2. Sélectionnez le **point de terminaison privé** à approuver
 3. Sélectionnez le bouton **Approuver**.
 
-    ![Image](./media/private-link-service/approve-private-endpoint.png)
+    ![Approuver le point de terminaison privé](./media/private-link-service/approve-private-endpoint.png)
 4. Dans la page **Approuver la connexion**, ajoutez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non**, il ne se passe rien. 
 5. Vous devez voir que l’état de la connexion de point de terminaison privé dans la liste est remplacé par **Approuvé**. 
 
@@ -230,7 +230,7 @@ Il existe quatre états de provisionnement :
 
 1. Si vous voulez rejeter une connexion de point de terminaison privé, qu’il s’agisse d’une demande en attente ou d’une connexion existante, sélectionnez la connexion et cliquez sur le bouton **Rejeter**.
 
-    ![Image](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Rejeter un point de terminaison privé](./media/private-link-service/private-endpoint-reject-button.png)
 2. Dans la page **Rejeter la connexion**, entrez un commentaire (facultatif) et sélectionnez **Oui**. Si vous sélectionnez **Non**, il ne se passe rien. 
 3. Vous devez voir que l’état de la connexion de point de terminaison privé dans la liste est remplacé par **Rejeté**. 
 
@@ -242,7 +242,7 @@ Il existe quatre états de provisionnement :
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Vérifier le fonctionnement de la connexion à liaison privée
 
-Vous devez vérifier que les ressources contenues dans le sous-réseau de la ressource de point de terminaison privé se connectent à votre espace de noms Event Hubs via une adresse IP privée, et qu’elles sont intégrées à la zone DNS privée appropriée.
+Vous devez vérifier que les ressources contenues dans le réseau virtuel du point de terminaison privé se connectent à votre espace de noms Event Hubs via une adresse IP privée, et qu’elles sont intégrées à la zone DNS privée appropriée.
 
 Commencez par créer une machine virtuelle en suivant les étapes décrites dans [Créer une machine virtuelle Windows sur le portail Azure](../virtual-machines/windows/quick-create-portal.md).
 

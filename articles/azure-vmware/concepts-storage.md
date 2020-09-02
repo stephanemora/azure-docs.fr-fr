@@ -1,18 +1,18 @@
 ---
 title: Concepts – Stockage
-description: Découvrez les principales fonctionnalités de stockage dans les clouds privés de la solution VMware Azure (AVS) en préversion.
+description: Découvrez les principales fonctionnalités de stockage dans les clouds privés d’Azure VMware Solution en préversion.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604114"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752214"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Concepts de stockage pour la solution Azure VMware (AVS) en préversion
+# <a name="azure-vmware-solution-preview-storage-concepts"></a>Concepts de stockage pour Azure VMware Solution en préversion
 
-Les clouds privés AVS fournissent un stockage natif à l’échelle du cluster avec VMware vSAN. Tout le stockage local de chaque hôte dans un cluster est utilisé dans un magasin de données vSAN, et un chiffrement des données au repos est disponible et activé par défaut. Vous pouvez utiliser les ressources de Stockage Azure pour étendre les capacités de stockage de vos clouds privés.
+Les clouds privés Azure VMware Solution fournissent un stockage natif à l’échelle du cluster avec VMware vSAN. Tout le stockage local de chaque hôte dans un cluster est utilisé dans un magasin de données vSAN, et un chiffrement des données au repos est disponible et activé par défaut. Vous pouvez utiliser les ressources de Stockage Azure pour étendre les capacités de stockage de vos clouds privés.
 
 ## <a name="vsan-clusters"></a>Clusters vSAN
 
