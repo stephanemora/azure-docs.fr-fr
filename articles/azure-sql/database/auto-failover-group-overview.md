@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/28/2020
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245568"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076512"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Écouteur en lecture-écriture du groupe de basculement**
 
-  Un enregistrement DNS CNAME qui pointe vers l’URL du serveur primaire actuel. Il est généré automatiquement lorsque le groupe de basculement est créé, et permet à la charge de travail en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance SQL Managed Instance, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
+  Un enregistrement DNS CNAME qui pointe vers l’URL du serveur primaire actuel. Il est généré automatiquement lorsque le groupe de basculement est créé, et permet à la charge de travail en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance SQL Managed Instance, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.<zone_id>.database.windows.net`.
 
 - **Écouteur en lecture seule du groupe de basculement**
 
-  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il est créé automatiquement lorsque le groupe de basculement est créé et permet à la charge de travail SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance SQL Managed Instance, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.secondary.database.windows.net`.
+  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il est créé automatiquement lorsque le groupe de basculement est créé et permet à la charge de travail SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance SQL Managed Instance, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 - **Stratégie de basculement automatique**
 
@@ -257,13 +257,13 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Utilisation d’un écouteur en lecture seule pour se connecter à l’instance secondaire
 
-Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour vous connecter directement à l’instance géorépliquée secondaire, utilisez `server.secondary.zone_id.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers l’instance géorépliquée secondaire.
+Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour vous connecter directement à l’instance géorépliquée secondaire, utilisez `<fog-name>.secondary.<zone_id>.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers l’instance géorépliquée secondaire.
 
 > [!NOTE]
 > Dans certains niveaux de service, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour équilibrer les charges de travail de requêtes en lecture seule, en utilisant la capacité d’un réplica en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
 >
-> - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `<fog-name>.zone_id.database.windows.net`.
-> - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `<fog-name>.secondary.zone_id.database.windows.net`.
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `<fog-name>.<zone_id>.database.windows.net`.
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Préparation à une détérioration des performances
 

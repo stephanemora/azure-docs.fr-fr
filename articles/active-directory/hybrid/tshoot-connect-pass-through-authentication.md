@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446992"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275921"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification directe Azure AD.
 
 >[!IMPORTANT]
->Si vous êtes confronté à des problèmes de connexion utilisateur avec l’authentification directe, ne désactivez pas la fonctionnalité. En outre, ne désinstallez pas les agents d’authentification directe si vous ne disposez pas d’un compte d’administrateur général cloud comme solution de secours. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
+>Si vous êtes confronté à des problèmes de connexion utilisateur avec l’authentification directe, ne désactivez pas la fonctionnalité. En outre, ne désinstallez pas les agents d’authentification directe si vous ne disposez pas d’un compte d’administrateur général cloud comme solution de secours. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
 
 ## <a name="general-issues"></a>Problèmes d’ordre général
 
@@ -72,10 +72,10 @@ Pour confirmer qu’il s’agit du problème, commencez par vérifier que l’ag
  ``` 
 4. Lorsque vous êtes invité à entrer des informations d’identification, entrez les mêmes nom d’utilisateur et mot de passe que ceux utilisés pour vous connecter à https://login.microsoftonline.com).
 
-Si vous obtenez la même erreur de nom d’utilisateur/mot de passe, cela signifie que l’agent d’authentification directe fonctionne correctement et que le problème est que l’UPN local n’est peut-être pas routable. Pour en savoir plus, consultez [Configuration d’un ID secondaire de connexion]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Si vous obtenez la même erreur de nom d’utilisateur/mot de passe, cela signifie que l’agent d’authentification directe fonctionne correctement et que le problème est que l’UPN local n’est peut-être pas routable. Pour en savoir plus, consultez [Configuration d’un ID secondaire de connexion]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Si le serveur Azure AD Connect n’est pas joint à un domaine (condition mentionnée dans les [prérequis d’installation d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites)), le problème de nom d’utilisateur/mot de passe non valide survient.
+> Si le serveur Azure AD Connect n’est pas joint à un domaine (condition mentionnée dans les [prérequis d’installation d’Azure AD Connect](./how-to-connect-install-prerequisites.md#installation-prerequisites)), le problème de nom d’utilisateur/mot de passe non valide survient.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
@@ -98,7 +98,7 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
 
 >[!IMPORTANT]
->Les Agents d'authentification directe authentifient les utilisateurs Azure AD en vérifiant leur nom d'utilisateur et leur mot de passe par rapport à Active Directory et en appelant l'API [Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Par conséquent, si vous avez configuré le paramètre « Connexion à » d'Active Directory de manière à limiter l'accès des stations de travail, vous devez également ajouter les serveurs qui hébergent les Agents d'authentification directe à la liste des serveurs « Connexion à ». Si vous ne le faites pas, vos utilisateurs ne pourront pas se connecter à Azure AD.
+>Les Agents d'authentification directe authentifient les utilisateurs Azure AD en vérifiant leur nom d'utilisateur et leur mot de passe par rapport à Active Directory et en appelant l'API [Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Par conséquent, si vous avez configuré le paramètre « Connexion à » d'Active Directory de manière à limiter l'accès des stations de travail, vous devez également ajouter les serveurs qui hébergent les Agents d'authentification directe à la liste des serveurs « Connexion à ». Si vous ne le faites pas, vos utilisateurs ne pourront pas se connecter à Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problèmes d’installation de l’agent d’authentification
 

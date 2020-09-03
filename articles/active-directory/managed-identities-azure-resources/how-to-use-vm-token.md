@@ -3,7 +3,7 @@ title: Utiliser des identités managées sur une machine virtuelle afin d’acqu
 description: Instructions et exemples détaillés concernant l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle afin d’acquérir un jeton d’accès OAuth.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608379"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266287"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtenir un jeton à l’aide de la bibliothèque Microsoft.Azure.Services.AppAuthentication pour .NET
 
-Pour les applications et fonctions .NET, la façon la plus simple d’utiliser des identités managées pour ressources Azure consiste à se servir du package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir de Visual Studio, [d’Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) ou de l’authentification intégrée à Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication). Cette section vous montre comment prendre en main la bibliothèque dans votre code.
+Pour les applications et fonctions .NET, la façon la plus simple d’utiliser des identités managées pour ressources Azure consiste à se servir du package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir de Visual Studio, [d’Azure CLI](/cli/azure?view=azure-cli-latest) ou de l’authentification intégrée à Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md). Cette section vous montre comment prendre en main la bibliothèque dans votre code.
 
 1. Ajoutez des références aux packages NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) à votre application.
 
@@ -141,7 +141,7 @@ Pour les applications et fonctions .NET, la façon la plus simple d’utiliser d
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, voir le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) et [l’exemple .NET d’utilisation d’App Service et de Key Vault avec des identités managées pour ressources Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, voir le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md) et [l’exemple .NET d’utilisation d’App Service et de Key Vault avec des identités managées pour ressources Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obtenir un jeton par C#
 
@@ -381,7 +381,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |
-| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux d’activité dans *\<file path\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Un « Exemple de requête » est disponible à la section REST précédente. Pour obtenir la liste des services et leur ID de ressource respectif, consultez [Services Azure prenant en charge l'authentification Azure AD](services-support-msi.md).
+| Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux d’activité dans *\<file path\>* | Vérifiez que les identités managées pour ressources Azure ont été activées sur la machine virtuelle. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Un « Exemple de requête » est disponible à la section REST précédente. Pour obtenir la liste des services et leur ID de ressource respectif, consultez [Services Azure prenant en charge l'authentification Azure AD](./services-support-managed-identities.md).
 
 ## <a name="retry-guidance"></a>Conseils sur les nouvelles tentatives 
 
@@ -397,17 +397,9 @@ Pour une nouvelle tentative, nous vous recommandons la stratégie suivante :
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 
-Pour obtenir la liste des ressources qui prennent en charge Azure AD et qui ont été testées avec des identités managées pour ressources Azure et leurs ID de ressource respectifs, voir [Services Azure prenant en charge Azure AD Authentication](services-support-msi.md).
+Pour obtenir la liste des ressources qui prennent en charge Azure AD et qui ont été testées avec des identités managées pour ressources Azure et leurs ID de ressource respectifs, voir [Services Azure prenant en charge Azure AD Authentication](./services-support-managed-identities.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer les identités managées pour ressources Azure sur une machine virtuelle Azure, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

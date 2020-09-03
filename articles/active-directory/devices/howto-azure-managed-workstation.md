@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252778"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269554"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Déployer une station de travail sécurisée gérée par Azure
 
@@ -449,9 +449,9 @@ La journalisation des applications sera disponible dans votre espace de travail 
 
 ## <a name="monitoring"></a>Surveillance
 
-* Apprendre à [Détecter les menaces avec Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Examiner les incidents avec Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Configurer des réponses automatisées aux menaces dans Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Apprendre à [Détecter les menaces avec Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Examiner les incidents avec Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Configurer des réponses automatisées aux menaces dans Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Comprendre comment examiner votre [Score d’exposition](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Examiner les [Recommandations de sécurité](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Gérer les [corrections](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) de sécurité
@@ -463,4 +463,4 @@ La journalisation des applications sera disponible dans votre espace de travail 
 * En savoir plus sur [Microsoft Intune](/intune/index).
 * Comprendre [Azure AD](../index.yml).
 * Travailler avec [Microsoft Defender - Protection avancée contre les menaces](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Découvrir [Azure Sentinel](/azure/sentinel/)
+* Découvrir [Azure Sentinel](../../sentinel/index.yml)

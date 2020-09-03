@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d790c7c4c8d184999ff073e97613d663988c34e7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052927"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275944"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -48,7 +48,7 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >
 >Si vous avez activé Azure AD Connect pour la synchronisation, vous commencerez bientôt à recevoir automatiquement des notifications d'intégrité qui vous avertiront des dépréciations à venir lorsque vous exécuterez une version ancienne.
 >
->Veuillez consulter [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
+>Veuillez consulter [cet article](./how-to-upgrade-previous-version.md) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
 >
 >Pour obtenir des informations sur l’historique des versions déconseillées, consultez [Archive de l’historique des versions Azure AD Connect](reference-connect-version-history-archive.md).
 
@@ -74,7 +74,7 @@ Il s’agit d’une version du correctif de bogue. Elle ne fait l’objet d’au
 ### <a name="functional-changes"></a>Modifications fonctionnelles
 Cette version comprend une préversion publique de la fonctionnalité permettant d’exporter la configuration d’un serveur de Azure AD Connect existant dans un fichier .JSON qui peut ensuite être utilisé lors de l’installation d’un nouveau serveur de Azure AD Connect pour créer une copie du serveur d’origine.
 
-Une description détaillée de cette nouvelle fonctionnalité est disponible dans [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+Une description détaillée de cette nouvelle fonctionnalité est disponible dans [cet article](./how-to-connect-import-export-config.md)
 
 ### <a name="fixed-issues"></a>Problèmes résolus
 - Correction d’un bogue où de faux avertissement pendant la mise à niveau concernant la taille de la base de données locale sur les builds localisés.

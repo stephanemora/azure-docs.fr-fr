@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607278"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322073"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Seuils, modes et délais de paiement
 
@@ -78,7 +78,7 @@ Voici les pays et les régions dans lesquels les modes de paiement mentionnés c
 | Côte d’Ivoire | Oui | Oui | Oui | Non |
 | Croatie | Oui | Oui | Oui | Non |
 | Chypre | Oui | Oui | Oui | Oui |
-| République tchèque | Oui | Oui | Oui | Oui |
+| Tchéquie | Oui | Oui | Oui | Oui |
 | Danemark | Oui | Oui | Oui | Oui |
 | Dominique | Oui | Oui | Non | Oui |
 | République dominicaine | Oui | Oui | Oui | Oui |
@@ -123,7 +123,6 @@ Voici les pays et les régions dans lesquels les modes de paiement mentionnés c
 | Liechtenstein | Oui | Oui | Oui | Oui |
 | Lituanie | Oui | Oui | Oui | Non |
 | Luxembourg | Oui | Oui | Oui | Oui |
-| Macédoine du Nord | Non | Oui | Oui | Non |
 | Madagascar | Oui | Oui | Oui | Non |
 | Malawi | Oui | Oui | Oui | Oui |
 | Malaisie | Oui | Oui | Oui | Oui |
@@ -142,6 +141,7 @@ Voici les pays et les régions dans lesquels les modes de paiement mentionnés c
 | Nicaragua | Oui | Oui | Oui | Oui |
 | Niger | Oui | Oui | Oui | Non |
 | Nigeria | Oui | Oui | Oui | Non |
+| Macédoine du Nord | Non | Oui | Oui | Non |
 | Norvège | Oui | Oui | Oui | Oui |
 | Oman | Oui | Oui | Oui | Oui |
 | Pakistan | Oui | Oui | Oui | Non |

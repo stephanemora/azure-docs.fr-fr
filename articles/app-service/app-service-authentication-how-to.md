@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272312"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962466"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -146,7 +146,7 @@ App Service transmet des revendications d’utilisateur à votre application au 
 
 Tout code, quels que soient le langage ou l’infrastructure utilisés, peut trouver les informations qu’il recherche dans ces en-têtes. Dans le cas d’applications ASP.NET 4.6, le paramètre **ClaimsPrincipal** est automatiquement défini sur les valeurs appropriées. Toutefois, ASP.NET Core ne fournit pas d’intergiciel d’authentification qui s’intègre aux revendications d’utilisateur App Service. Pour une solution de contournement, consultez [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-Si le [magasin de jetons](overview-authentication-authorization.md#token-store) est activé pour votre application, vous pouvez également obtenir des informations supplémentaires sur l’utilisateur authentifié en appelant `/.auth/me`. Les Kits de développement logiciel (SDK) serveur de Mobile Apps offrent des méthodes d’assistance permettant de manipuler ces données. Pour plus d’informations, consultez [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), et [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Si le [magasin de jetons](overview-authentication-authorization.md#token-store) est activé pour votre application, vous pouvez également obtenir des informations supplémentaires sur l’utilisateur authentifié en appelant `/.auth/me`. Les Kits de développement logiciel (SDK) serveur de Mobile Apps offrent des méthodes d’assistance permettant de manipuler ces données. Pour plus d’informations, consultez [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity), et [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Récupérer des jetons dans le code d’application
 
@@ -489,7 +489,7 @@ Vous pouvez afficher la version actuelle de l’intergiciel (middleware) d’aut
 
 ##### <a name="from-the-azure-cli"></a>Dans Azure CLI
 
-À l’aide d’Azure CLI, affichez la version actuelle de l’intergiciel (middleware) avec la commande [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
+À l’aide d’Azure CLI, affichez la version actuelle de l’intergiciel (middleware) avec la commande [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -520,7 +520,7 @@ Vous pouvez également atteindre le point de terminaison /.auth/version sur une 
 
 #### <a name="update-the-current-runtime-version"></a>Mettre à jour la version actuelle du runtime
 
-À l’aide d’Azure CLI, vous pouvez mettre à jour le paramètre `runtimeVersion` dans l’application avec la commande [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
+À l’aide d’Azure CLI, vous pouvez mettre à jour le paramètre `runtimeVersion` dans l’application avec la commande [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -530,7 +530,7 @@ az webapp auth update --name <my_app_name> \
 
 Remplacez `<my_app_name>` par le nom de votre application. Remplacez également `<my_resource_group>` par le nom du groupe de ressources de votre application. Par ailleurs, remplacez `<version>` par une version valide du runtime 1.x ou `~1` pour la version la plus récente. Vous trouverez les notes de publication sur les différentes versions du runtime [ici] (https://github.com/Azure/app-service-announcements) pour déterminer la version sur laquelle épingler.
 
-Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](https://docs.microsoft.com/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) pour vous connecter.
+Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az-login) pour vous connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

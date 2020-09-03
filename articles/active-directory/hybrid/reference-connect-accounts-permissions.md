@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1ccffe5e6e12d828acb4ced46bf3abf36113c588
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255776"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276488"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -55,7 +55,7 @@ En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous ave
 > [!NOTE]
 > La gestion des comptes administratifs utilisés dans Azure AD Connect à partir d’une forêt administrative ESAE (également connue sous le nom de « forêt rouge ») est prise en charge.
 > Les forêts administratives dédiées permettent aux organisations d’héberger des comptes, stations de travail et groupes administratifs dans un environnement dont les contrôles de sécurité sont renforcés par rapport à ceux de l’environnement de production.
-> Pour en savoir plus sur les forêts administratives dédiées, consultez [Approche de la conception de forêt administrative ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Pour en savoir plus sur les forêts administratives dédiées, consultez [Approche de la conception de forêt administrative ESAE](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > Le rôle d'administrateur général n'est pas nécessaire après la configuration initiale, et le seul compte requis est celui qui dispose du rôle **Comptes de synchronisation d'annuaires**. Cela ne signifie pas nécessairement que vous vous contenterez de vouloir supprimer le compte doté du rôle Administrateur général. Il est préférable de remplacer le rôle par un rôle moins puissant, car la suppression totale du compte peut entraîner des problèmes si vous avez besoin de réexécuter l'Assistant. En réduisant les privilèges de ce rôle, vous aurez toujours la possibilité de les revoir à la hausse si vous êtes amené à réutiliser l’Assistant Azure AD Connect. 
@@ -147,7 +147,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |
+| Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/tutorial-enable-sspr-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](how-to-connect-device-writeback.md). |
 | Écriture différée de groupe |Vous permet de récrire **Groupes Office 365** sur une forêt avec Exchange installé.|
 
@@ -197,8 +197,8 @@ Légende :
 - Non gras - Option prise en charge
 - Compte local - Compte d’utilisateur local sur le serveur
 - Compte de domaine - Compte d’utilisateur de domaine
-- sMSA - [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA - [Compte de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA - [Compte de service géré autonome](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [Compte de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | SQL à distance</br>Custom |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ VSA est destiné à être utilisé dans les scénarios où le moteur de synchron
 Cette fonctionnalité nécessite Windows Server 2008 R2 ou version ultérieure. Si vous installez Azure AD Connect sur Windows Server 2008, l’installation bascule sur l’utilisation d’un [compte d’utilisateur](#user-account) à la place.
 
 #### <a name="group-managed-service-account"></a>Compte de service géré de groupe
-Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service administré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx).
+Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service administré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Pour utiliser cette option, sur la page [Installer les composants requis](how-to-connect-install-custom.md#install-required-components), sélectionnez **Utiliser un compte de service existant**, puis sélectionnez **Compte de service administré**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-Il est également possible d’utiliser un [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur l’ordinateur local, il n’existe aucun avantage à les utiliser à la place du compte de service virtuel par défaut.
+Il est également possible d’utiliser un [Compte de service géré autonome](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur l’ordinateur local, il n’existe aucun avantage à les utiliser à la place du compte de service virtuel par défaut.
 
 Cette fonctionnalité nécessite Windows Server 2012 ou version ultérieure. Si vous devez utiliser un ancien système d’exploitation et SQL à distance, vous devez utiliser un [compte d’utilisateur](#user-account).
 
@@ -252,7 +252,7 @@ Il existe une limite de 20 comptes de service de synchronisation dans Azure AD.
 Pour supprimer des comptes de service AD Azure inutilisés, exécutez l’applet de commande Azure AD PowerShell suivante :`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Avant de pouvoir utiliser les commandes PowerShell ci-dessus, vous devez installer le [Azure Active Directory PowerShell pour le module Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) et vous connecter à votre instance d’Azure AD à l’aide de [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0).
+>Avant de pouvoir utiliser les commandes PowerShell ci-dessus, vous devez installer le [Azure Active Directory PowerShell pour le module Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) et vous connecter à votre instance d’Azure AD à l’aide de [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0).
 
 Pour plus d’informations sur la façon de gérer ou de réinitialiser le mot de passe pour le compte de connecteur Azure AD, consultez [Manage the Azure AD Connect account](how-to-connect-azureadaccount.md) (Gérer le compte Azure AD Connect).
 

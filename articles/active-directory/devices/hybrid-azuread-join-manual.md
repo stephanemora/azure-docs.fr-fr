@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428379"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268551"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -39,7 +39,7 @@ Si vous disposez d’un environnement Active Directory local et que vous souhait
 
 Ce tutoriel part du principe que vous êtes familiarisé avec ce qui suit :
 
-* [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
+* [Présentation de la gestion des appareils dans Azure Active Directory](./overview.md)
 * [Planifier l’implémentation de la jonction Azure Active Directory hybride](hybrid-azuread-join-plan.md)
 * [Contrôler la jointure d’Azure AD hybride de vos appareils](hybrid-azuread-join-control.md)
 
@@ -94,7 +94,7 @@ Pour obtenir une vue d’ensemble des étapes requises par votre scénario, util
 
 Vos appareils utilisent un objet point de connexion de service (SCP) lors de l’inscription pour découvrir les informations de locataire Azure AD. Dans votre instance Active Directory locale, l’objet SCP des appareils hybrides joints à Azure AD doit exister dans la partition de contexte d’appellation de configuration de la forêt de l’ordinateur. Il n’existe qu’un seul contexte d’appellation de configuration par forêt. Dans une configuration Active Directory multi-forêt, le point de connexion de service doit exister dans toutes les forêts qui contiennent des ordinateurs joints à un domaine.
 
-Pour récupérer le contexte d’appellation de configuration de votre forêt, vous pouvez utiliser l’applet de commande [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx).  
+Pour récupérer le contexte d’appellation de configuration de votre forêt, vous pouvez utiliser l’applet de commande [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)).  
 
 Pour une forêt avec le nom de domaine Active Directory *fabrikam.com*, le contexte d’appellation de configuration est le suivant :
 
@@ -167,7 +167,7 @@ Dans le cas de contrôleurs de domaine exécutant Windows Server 2008 ou des ve
 
 Dans le script précédent, `$verifiedDomain = "contoso.com"` est un espace réservé. Remplacez-le par un de vos noms de domaine vérifiés dans Azure AD. Vous devez posséder le domaine pour pouvoir l’utiliser.
 
-Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 Pour obtenir la liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser le cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
@@ -326,7 +326,7 @@ La revendication `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuer
 
 Dans la revendication précédente, `<verified-domain-name>` est un espace réservé. Remplacez-le par un de vos noms de domaine vérifiés dans Azure AD. Par exemple, utilisez `Value = "http://contoso.com/adfs/services/trust/"`.
 
-Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+Pour plus d’informations sur les noms de domaine vérifiés, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
 Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
@@ -614,7 +614,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Si vous rencontrez des problèmes en réalisant une jointure Azure AD hybride pour des appareils Windows joints à un domaine, consultez :
 
-- [Dépannage des appareils à l’aide de la commande dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Dépannage des appareils à l’aide de la commande dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 

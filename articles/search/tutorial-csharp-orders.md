@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420632"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998524"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutoriel : Trier des résultats de recherche à l’aide du SDK .NET
 
@@ -462,8 +462,8 @@ Pour afficher les résultats en fonction de la distance géographique, plusieurs
 
 4. Vous devez à présent relier ces concepts. Cependant, ces extraits de code s’éloignent de l’objectif de notre tutoriel : la création d’une application basée sur une carte est laissée au lecteur à titre d’exercice. Pour aller plus loin avec cet exemple, considérez l’entrée d’un nom de vile avec un rayon, ou la localisation d’un point sur une carte et la sélection d’un rayon. Pour examiner ces options en détail, consultez les ressources suivantes :
 
-* [Documentation sur Azure Maps](https://docs.microsoft.com/azure/azure-maps/)
-* [Rechercher une adresse à l’aide du service Recherche Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Documentation sur Azure Maps](../azure-maps/index.yml)
+* [Rechercher une adresse à l’aide du service Recherche Azure Maps](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Classer des résultats en fonction d’un profil de score
 
@@ -959,7 +959,7 @@ Examinons trois exemples de profils de score et regardons comment chacun _devrai
 
 ### <a name="resources"></a>Ressources
 
-Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche cognitive Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche cognitive Azure](/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
@@ -975,4 +975,4 @@ Retenez les points importants suivants de ce projet :
 
 Vous avez terminé cette série de tutoriels C# et vous avez normalement acquis une bonne connaissance des API de Recherche cognitive Azure.
 
-Pour plus d’informations de référence et des tutoriels, parcourez [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) ou les autres tutoriels de la [Documentation de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/).
+Pour plus d’informations de référence et des tutoriels, parcourez [Microsoft Learn](/learn/browse/?products=azure) ou les autres tutoriels de la [Documentation de Recherche cognitive Azure](./index.yml).

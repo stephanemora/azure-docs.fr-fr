@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796758"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321189"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
 Lorsque vous supprimez un utilisateur, son compte reste à l’état suspendu pendant 30 jours. Pendant ces 30 jours, le compte de l’utilisateur peut être restauré, avec l’ensemble de ses propriétés. À l’issue de ce délai de 30 jours, l’utilisateur est automatiquement et définitivement supprimé.
@@ -88,6 +88,6 @@ Une fois que vous avez restauré ou supprimé vos utilisateurs, vous pouvez exé
 
 - [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)
 
-- [Ajouter des utilisateurs invités à partir d'une autre organisation](../b2b/what-is-b2b.md)
+- [Ajouter des utilisateurs invités à partir d'une autre organisation](../external-identities/what-is-b2b.md)
 
 Pour en savoir plus sur les autres tâches de gestion des utilisateurs disponibles, consultez la [documentation Gestion des utilisateurs Azure AD](../users-groups-roles/index.yml).

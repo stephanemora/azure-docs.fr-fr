@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611184"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069406"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -31,17 +31,16 @@ Pour cet article, vous créerez trois réseaux virtuels :
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Déclarer les variables
-> * Créer le réseau virtuel du hub de pare-feu
-> * Créer le réseau virtuel spoke
-> * Créer le réseau virtuel local
-> * Configurer et déployer le pare-feu
-> * Créer et connecter les passerelles VPN
-> * Appairer les réseaux virtuels hub et spoke
-> * Créer les itinéraires
-> * Créer les machines virtuelles
-> * Tester le pare-feu
+* Déclarer les variables
+* Créer le réseau virtuel du hub de pare-feu
+* Créer le réseau virtuel spoke
+* Créer le réseau virtuel local
+* Configurer et déployer le pare-feu
+* Créer et connecter les passerelles VPN
+* Appairer les réseaux virtuels hub et spoke
+* Créer les itinéraires
+* Créer les machines virtuelles
+* Tester le pare-feu
 
 Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reportez-vous à [Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l'aide du portail Azure](tutorial-hybrid-portal.md).
 

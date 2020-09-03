@@ -3,7 +3,7 @@ title: Utiliser des identités managées sur une machine virtuelle Azure pour se
 description: Instructions et exemples détaillés sur l’utilisation d’un principal du service d’identités managées pour ressources Azure pour la connexion cliente par script et l’accès aux ressources.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 058058b975116fabcbc242f46afb09dff8df08b6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480439"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266321"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Comment utiliser des identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
 
@@ -34,7 +34,7 @@ Cet article fournit des exemples de script PowerShell et CLI pour la connexion �
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dans cet article, veillez à installer la dernière version de [Azure PowerShell](/powershell/azure/install-az-ps) ou bien [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dans cet article, veillez à installer la dernière version de [Azure PowerShell](/powershell/azure/install-az-ps) ou bien [Azure CLI](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - L’exemple de script présenté dans cet article part du principe que le client de ligne de commande s’exécute sur une machine virtuelle avec des identités managées pour ressources Azure activées. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation d’identités managées pour ressources Azure sur une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md), ou l’une des variantes de cet article (en utilisant PowerShell, CLI, un modèle ou un Kit de développement logiciel (SDK) Azure). 
@@ -100,9 +100,3 @@ Si l’un des paramétrages est incorrect, il se peut que vous deviez redéploye
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour activer des identités managées pour ressources Azure sur une machine virtuelle Azure, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell](qs-configure-powershell-windows-vm.md) ou [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI](qs-configure-cli-windows-vm.md)
-
-
-
-
-
-

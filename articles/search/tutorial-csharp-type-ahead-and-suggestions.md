@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420598"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998439"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutoriel : Ajouter l’autocomplétion et les suggestions à l’aide du SDK .NET
 
@@ -145,7 +145,7 @@ Nous allons commencer par le cas le plus simple de proposition de choix à l’u
  
     ![Saisie de « pa » avec fuzzy défini sur true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Si cela vous intéresse, la [Syntaxe des requêtes Lucene dans Recherche cognitive Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) décrit la logique utilisée dans les recherches approximatives.
+    Si cela vous intéresse, la [Syntaxe des requêtes Lucene dans Recherche cognitive Azure](./query-lucene-syntax.md) décrit la logique utilisée dans les recherches approximatives.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Mettre en évidence les suggestions
 
@@ -244,7 +244,7 @@ Une autre variante, qui diffère légèrement des suggestions, est l’autocompl
 
     Notez que nous utilisons la même fonction de *suggesteur*, appelée « sg », dans la recherche avec auto-complétion, que pour les suggestions (l’auto-complétion ne porte donc que sur les noms d’hôtel).
 
-    Parmi les paramètres **AutocompleteMode** disponibles, nous utilisons **OneTermWithContext**. Pour obtenir une description des options supplémentaires, consultez [API Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
+    Parmi les paramètres **AutocompleteMode** disponibles, nous utilisons **OneTermWithContext**. Pour obtenir une description des options supplémentaires, consultez [API Autocomplete](/rest/api/searchservice/autocomplete).
 
 4. Exécutez l'application. Notez que la plage d’options affichées dans la liste déroulante est constituée de mots uniques. Essayez de taper des mots commençant par « re ». Comme vous pouvez le constater, le nombre d’options diminue à mesure que vous tapez des lettres.
 
@@ -464,5 +464,3 @@ Dans le tutoriel suivant, nous abordons une autre façon d’améliorer l’exp�
 
 > [!div class="nextstepaction"]
 > [Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche cognitive Azure](tutorial-csharp-facets.md)
-
-

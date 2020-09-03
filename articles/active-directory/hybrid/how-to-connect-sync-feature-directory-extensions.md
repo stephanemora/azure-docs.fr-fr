@@ -16,15 +16,15 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b013c4edcaceeea585494bd8924ccea08aa1d37
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019759"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277049"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
-Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](https://docs.microsoft.com/graph/extensibility-overview
+Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
 ). Vous pouvez voir les attributs disponibles à l’aide de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
 
 Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
@@ -69,7 +69,7 @@ Ces attributs sont désormais disponibles par le biais de l’API Microsoft Grap
 >[!NOTE]
 > Dans l’API Microsoft Graph, vous devez demander que les attributs soient retournés. Sélectionnez explicitement les attributs comme suit : `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
-> Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](/graph/query-parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Utiliser les attributs dans des groupes dynamiques
 

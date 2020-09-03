@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171973"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266491"
 ---
-# <a name="widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine 
+# <a name="widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Vous pouvez utiliser Azure Media Services pour configurer et demander des licences Google Widevine. Quand le lecteur tente de lire votre contenu Widevine protégé, une demande est envoyée au service de remise de licence pour obtenir une licence. Si le service de licence approuve la demande, le service émet la licence. Elle est envoyée au client et utilisée pour déchiffrer et lire le contenu spécifié.
 
 Une demande de licence Widevine se présente sous forme de message JSON.  

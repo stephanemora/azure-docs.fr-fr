@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555017"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268225"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -26,7 +26,7 @@ Cet article vous fournit les informations nécessaires pour planifier votre impl
  
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
+Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](./overview.md).
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -58,7 +58,7 @@ La jonction Azure AD fonctionne à la fois avec les environnements gérés et le
 
 ### <a name="managed-environment"></a>Environnement géré
 
-Un environnement géré peut être déployé via la [synchronisation du hachage de mot de passe](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou via l’[authentification directe](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) avec l’authentification unique fluide.
+Un environnement géré peut être déployé via la [synchronisation du hachage de mot de passe](../hybrid/how-to-connect-password-hash-synchronization.md) ou via l’[authentification directe](../hybrid/how-to-connect-pta-quick-start.md) avec l’authentification unique fluide.
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
@@ -90,7 +90,7 @@ Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce o
 
 Si vous créez des utilisateurs dans :
 
-- **Active Directory local** : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local** : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD** : aucune configuration supplémentaire n’est nécessaire.
 
 Les UPN locaux qui sont différents dans les UPN Azure AD ne sont pas pris en charge sur les appareils joints à Azure AD. Si vos utilisateurs utilisent un nom d’utilisateur principal local, vous devez prévoir d’utiliser leur nom d’utilisateur principal dans Azure AD.
@@ -162,7 +162,7 @@ Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification uniq
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy Azure AD App](/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy Azure AD App](../manage-apps/application-proxy.md) pour permettre un accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
@@ -190,7 +190,7 @@ La connexion Bureau à distance à des appareils joints à Azure AD nécessite q
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
 
-- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot** : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Inscription en bloc** : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](/intune/windows-bulk-enroll).
  
@@ -297,7 +297,7 @@ Vous pouvez utiliser cette implémentation pour [exiger des appareils gérés po
 
 > [!div class="nextstepaction"]
 > [Joindre un nouvel appareil Windows 10 à Azure AD lors d’une première exécution](azuread-joined-devices-frx.md)
-> [Joindre votre appareil professionnel au réseau de votre organisation](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Joindre votre appareil professionnel au réseau de votre organisation](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png
