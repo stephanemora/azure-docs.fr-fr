@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557528"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376993"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
@@ -36,7 +36,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 | --- | --- | --- |
 | Latence | Rapide, mais aucune limite supérieure sur la latence. | Une latence inférieure à 10 millisecondes pour les lectures et écritures au 99e centile, à toute échelle, partout dans le monde. |
 | Débit | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |
-| Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement. | [Une distribution mondiale clé en main](distribute-data-globally.md) de 1 à un nombre quelconque de régions. Prise en charge des [basculements automatiques et manuels](high-availability.md) à tout moment, partout dans le monde. Fonctionnalité multimaître permettant à n’importe toute région d’accepter des opérations d’écriture. |
+| Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. | [Une distribution mondiale clé en main](distribute-data-globally.md) de 1 à un nombre quelconque de régions. Prise en charge des [basculements automatiques et manuels](high-availability.md) à tout moment, partout dans le monde. Fonctionnalité multimaître permettant à n’importe toute région d’accepter des opérations d’écriture. |
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés par défaut, sans gestion d’index. |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
 | Cohérence | Forte au sein de la région primaire. Éventuelle au sein de la région secondaire. | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application. |

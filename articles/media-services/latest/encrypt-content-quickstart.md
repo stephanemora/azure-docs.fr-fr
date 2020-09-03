@@ -2,15 +2,17 @@
 title: Chiffrer du contenu via le portail Azure
 description: Ce guide de démarrage rapide vous montre comment configurer le chiffrement de votre contenu à l’aide d’Azure Media Services dans le portail Azure.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988774"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263635"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Démarrage rapide : Utiliser le portail pour chiffrer du contenu
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Utilisez Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à sa remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. 
  

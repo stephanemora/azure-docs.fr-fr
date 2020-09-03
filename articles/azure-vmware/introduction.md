@@ -3,12 +3,12 @@ title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution pour déployer et gérer des charges de travail VMware dans Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752132"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005052"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>Qu’est-ce qu’Azure VMware Solution (préversion) ?
 
@@ -46,7 +46,7 @@ Les mises à niveau régulières du cloud privé Azure VMware Solution et des lo
 
 ## <a name="monitoring-your-private-cloud"></a>Supervision de votre cloud privé
 
-Vous pouvez utiliser les [journaux dans Azure Monitor](../azure-monitor/overview.md) pour collecter des journaux sur vos machines virtuelles s’exécutant dans votre cloud privé Azure VMware Solution. Vous pouvez [télécharger et installer l’agent MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sur des machines virtuelles Linux et Windows s’exécutant dans vos clouds privés Azure VMware Solution, en utilisant les mêmes requêtes que celles que vous exécutez sur vos machines virtuelles locales. Vous pouvez exécuter les mêmes requêtes que celles que vous exécuteriez normalement sur vos machines virtuelles. Pour en savoir plus sur la création de requêtes, consultez le [guide pratique pour écrire des requêtes](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Vous pouvez utiliser les [journaux dans Azure Monitor](../azure-monitor/overview.md) pour collecter des journaux sur vos machines virtuelles s’exécutant dans votre cloud privé Azure VMware Solution. Vous pouvez [télécharger et installer l’agent MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) sur des machines virtuelles Linux et Windows s’exécutant dans vos clouds privés Azure VMware Solution, en utilisant les mêmes requêtes que celles que vous exécutez sur vos machines virtuelles locales. Vous pouvez exécuter les mêmes requêtes que celles que vous exécuteriez normalement sur vos machines virtuelles. Pour en savoir plus sur la création de requêtes, consultez le [guide pratique pour écrire des requêtes](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

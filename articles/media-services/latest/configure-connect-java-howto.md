@@ -3,25 +3,27 @@ title: Se connecter à l’API Azure Media Services v3 - Java
 description: Cet article explique comment se connecter à l’API Azure Media Services v3 avec Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2019
+ms.topic: quickstart
+ms.date: 08/31/2020
 ms.custom: devx-track-java
-ms.author: juliako
-ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: inhenkel
+ms.openlocfilehash: 0f099a1b807cb860aaeda95a442cfdd7fd3c2869
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319828"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297380"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API Media Services v3 - Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cet article vous montre comment vous connecter au SDK Java Azure Media Services v3 en utilisant la méthode de connexion au principal du service.
 

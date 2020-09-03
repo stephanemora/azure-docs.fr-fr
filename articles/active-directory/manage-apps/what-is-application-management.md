@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafd3d7805924d92354c3de6ded50f17598f80f6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078068"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299879"
 ---
 # <a name="what-is-application-management"></a>Qu’est-ce que la gestion des applications ?
 
@@ -93,6 +93,6 @@ Pour les applications axées sur les ressources humaines, ou d’autres applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Série de démarrages rapides sur la gestion des applications dans Azure AD](view-applications-portal.md)
+- [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)
 - [Bien démarrer avec l’intégration d’applications](plan-an-application-integration.md)
 - [Découvrir comment automatiser l’attribution d’utilisateurs](../app-provisioning/user-provisioning.md)

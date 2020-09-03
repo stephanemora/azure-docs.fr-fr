@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081585"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962687"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Démarrage rapide : Créer une base de données Azure SQL
 
 Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure, un script PowerShell ou un script Azure CLI pour créer une base de données unique dans Azure SQL Database. Vous allez ensuite interroger la base de données à l’aide de l’**éditeur de requête** dans le portail Azure.
 
-La création d’une [base de données unique](single-database-overview.md) est la méthode la plus rapide et la plus simple dans Azure SQL Database. Vous gérez une base de données unique sur un [serveur](logical-servers.md) et cette base de données se trouve dans un [groupe de ressources Azure](../../active-directory-b2c/overview.md), lui-même situé dans une région Azure spécifiée. Dans ce guide de démarrage rapide, vous créez un groupe de ressources et un serveur pour la nouvelle base de données.
+La création d’une [base de données unique](single-database-overview.md) est la méthode la plus rapide et la plus simple dans Azure SQL Database. Vous gérez une base de données unique sur un [serveur](logical-servers.md) et cette base de données se trouve dans un [groupe de ressources Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md), lui-même situé dans une région Azure spécifiée. Dans ce guide de démarrage rapide, vous créez un groupe de ressources et un serveur pour la nouvelle base de données.
 
 Vous pouvez créer une base de données unique avec le niveau de calcul *provisionné* ou *serverless*. Une base de données provisionnée se voit préallouer une quantité définie de ressources de calcul, notamment des ressources mémoire et processeur, et utilise l’un des deux [modèles d’achat](purchasing-models.md). Ce guide de démarrage rapide crée une base de données provisionnée à l’aide du modèle d’achat [vCore](service-tiers-vcore.md). Toutefois, vous pouvez également choisir un modèle [DTU](service-tiers-dtu.md).
 

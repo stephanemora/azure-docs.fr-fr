@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5141ad9c088998bbc0ea241382c47f7b74b014b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 2c9c63956144c6438dc0900fa9fdd06ce7d30f60
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815893"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322056"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI – Restreindre l’accès en importation/exportation pour des disques managés avec des liaisons privées
 
@@ -162,4 +162,4 @@ az deployment group create -g $resourceGroupName \
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Questions fréquentes (FAQ) sur les liaisons privées](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exporter/copier des instantanés managée en tant que disque dur virtuel vers un compte de stockage dans une région différente avec CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)
+- [Exporter/copier des instantanés managée en tant que disque dur virtuel vers un compte de stockage dans une région différente avec CLI](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)

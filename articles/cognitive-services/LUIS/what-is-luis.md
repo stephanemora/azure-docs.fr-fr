@@ -5,12 +5,12 @@ keywords: azure, intelligence artificielle, ia, traitement en langage naturel, t
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752153"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320050"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -64,7 +64,7 @@ Concevez votre modèle avec des catégories d’intentions utilisateur appelées
 |`When does your store open?`|StoreHoursAndLocation|ouvert|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|13h, Bob|
 
-Créez le modèle à l’aide des API de [création](https://go.microsoft.com/fwlink/?linkid=2092087), du [**portail LUIS**](https://www.luis.ai), ou des deux. Découvrez comment créer un modèle avec le [portail](get-started-portal-build-app.md) et les [bibliothèques de client des SDK](quickstart-sdk.md).
+Créez le modèle à l’aide des API de [création](https://go.microsoft.com/fwlink/?linkid=2092087), du [**portail LUIS**](https://www.luis.ai), ou des deux. Découvrez comment créer un modèle avec le [portail](get-started-portal-build-app.md) et les [bibliothèques de client des SDK](azure-sdk-quickstart.md).
 
 ## <a name="step-2-get-the-query-prediction"></a>Étape 2 : Obtenir une prédiction de requête
 
@@ -126,7 +126,7 @@ LUIS fournit des fonctionnalités tirées de l’analyse de texte pour vos resso
 
 ## <a name="learn-with-the-quickstarts"></a>Apprendre avec les guides de démarrage rapide
 
-En savoir plus sur LUIS grâce aux guides de démarrage rapide via le [portail](get-started-portal-build-app.md) et les [bibliothèques de client SDK](quickstart-sdk.md).
+En savoir plus sur LUIS grâce aux guides de démarrage rapide via le [portail](get-started-portal-build-app.md) et les [bibliothèques de client SDK](azure-sdk-quickstart.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
