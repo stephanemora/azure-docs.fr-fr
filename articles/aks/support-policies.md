@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050688"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012345"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Cet article fournit des informations sur les stratégies de support technique et
 ## <a name="service-updates-and-releases"></a>Versions et mises à jour du service
 
 * Pour des informations sur les versions, consultez les [notes de publication relatives à AKS](https://github.com/Azure/AKS/releases).
-* Pour des informations sur les fonctionnalités en préversion, consultez [AKS Preview Features and Related Projects](https://github.com/Azure/AKS/blob/master/previews.md) (Fonctionnalités d’évaluation AKS et projets associés).
+* Pour des informations sur les fonctionnalités en préversion, consultez [AKS Preview Features and Related Projects](https://awesomeopensource.com/projects/aks?categoryPage=11) (Fonctionnalités d’évaluation AKS et projets associés).
 
 ## <a name="managed-features-in-aks"></a>Fonctionnalités gérées dans AKS
 
@@ -149,7 +149,7 @@ AKS supporte uniquement les fonctionnalités stables au sein du projet Kubernete
 Dans ces deux scénarios, les fonctionnalités alpha ou bêta peuvent être déployées avant qu’elles ne soient mises à la disposition générale :
 
 * Les clients ont rencontré les équipes d’ingénierie, de support ou produit AKS et ont demandé à essayer ces nouvelles fonctionnalités.
-* Ces fonctionnalités ont été [activées par un indicateur de fonctionnalité](https://github.com/Azure/AKS/blob/master/previews.md). Les clients doivent explicitement choisir d’utiliser ces fonctionnalités.
+* Ces fonctionnalités ont été [activées par un indicateur de fonctionnalité](https://awesomeopensource.com/projects/aks?categoryPage=11). Les clients doivent explicitement choisir d’utiliser ces fonctionnalités.
 
 ## <a name="preview-features-or-feature-flags"></a>Fonctionnalités d’évaluation ou indicateurs de fonctionnalités
 

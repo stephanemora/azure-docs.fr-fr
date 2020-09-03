@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032082"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068624"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -24,7 +24,7 @@ En raison des risques accrus associés aux protocoles d’authentification héri
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-report-only.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que la stratégie s’applique comme prévu, ils peuvent l’**activer** ou échelonner le déploiement en ajoutant certains groupes et en en excluant d’autres.
+Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour bloquer les requêtes d’authentification héritées. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-insights-reporting.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que la stratégie s’applique comme prévu, ils peuvent l’**activer** ou échelonner le déploiement en ajoutant certains groupes et en en excluant d’autres.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -37,7 +37,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Sous **Applications ou actions cloud**, sélectionnez **Toutes les applications cloud**.
    1. Sélectionnez **Terminé**.
 1. Sous **Conditions** > **Applications clientes**, définissez **Configurer** sur **Oui**.
-   1. Cochez uniquement les cases **Clients Exchange ActiveSync** et **Autres clients**.
+   1. Cochez uniquement les cases **Clients Exchange ActiveSync** et **Autres clients**. Pour pouvoir déployer la stratégie d’accès conditionnel Exchange ActiveSync dans Azure, l’utilisateur doit également être administrateur général.
    1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d'accès** > **Accorder**, sélectionnez **Bloquer l’accès**.
    1. Sélectionnez **Sélectionner**.
@@ -48,7 +48,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 
-[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-insights-reporting.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
 

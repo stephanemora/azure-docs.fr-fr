@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685406"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020352"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -164,7 +164,7 @@ Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-- **Agent MMS** : Passez en revue les systèmes d’exploitation [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) et [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) pris en charge.
+- **Agent MMS** : Passez en revue les systèmes d’exploitation [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems) et [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) pris en charge.
 - **Agent des dépendances** : les systèmes d’exploitation [Windows et Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pris en charge.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualiser les dépendances pendant > heure

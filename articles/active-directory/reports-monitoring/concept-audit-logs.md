@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846972"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229920"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -34,8 +34,8 @@ Cette architecture de création de rapports est constituée des composants suiva
     - **Connexions** – le [rapport de connexions](concept-sign-ins.md) fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
     - **Journaux d’audit** : traçabilité proposée via des journaux d’activité pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. Par exemple, les journaux d’audit peuvent inclure les modifications apportées à des ressources dans Azure AD comme l’ajout ou la suppression d’utilisateurs, d’applications, de groupes, de rôles, de stratégies, etc.
 - **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](concept-user-at-risk.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
+    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
 Cet article présente une vue d’ensemble du rapport d’audit.
  
@@ -210,9 +210,9 @@ Si vous souhaitez consulter les données d’audit associées à vos application
 
 ## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
 
-Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Office 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Office 365. 
+Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Office 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Office 365. 
 
-Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 en utilisant les [API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 en utilisant les [API de gestion Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

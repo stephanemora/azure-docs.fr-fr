@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 3b193473ea20880c4efcf8747a129680008e3c9f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4d42bcf3a30b95f82ec34094afc4b6cb0842906f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325931"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267222"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Java
 
@@ -51,19 +51,19 @@ public class GetAnswer {
 
 Ce guide de démarrage rapide utilise des classes Apache pour les requêtes HTTP. Au-dessus de la classe GetAnswer, en haut de la fonction `GetAnswer.java`, ajoutez les dépendances nécessaires au projet :
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=5-13 "Add the required dependencies")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/QueryKB.java" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Ajouter les constantes nécessaires
 
 En haut de la classe `GetAnswer.java`, ajoutez les constantes nécessaires pour accéder à QnA Maker. Ces valeurs se trouvent dans la page **Publier** une fois la base de connaissances publiée.
 
-[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=26-42 "Add the required constants")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/QueryKB.java" id="constants":::
 
 ## <a name="add-a-post-request-to-send-question"></a>Ajouter une requête POST pour envoyer une question
 
 Le code suivant adresse une requête HTTPS à l’API QnA Maker afin d’envoyer la question à la base de connaissances et reçoit la réponse :
 
-[!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/QueryKB.java" id="post":::
 
 La valeur de l’en-tête `Authorization` inclut la chaîne `EndpointKey`.
 

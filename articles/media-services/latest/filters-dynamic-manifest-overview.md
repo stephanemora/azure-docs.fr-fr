@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: Découvrez comment créer des filtres à l’aide de Dynamic Packager pour filtrer et diffuser de manière sélective vos manifestes.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705200"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299029"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrer vos manifestes à l’aide de Dynamic Packager
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Lorsque vous fournissez du contenu en streaming à débit adaptatif à des appareils, il est souvent nécessaire de publier plusieurs versions d'un manifeste pour cibler des fonctionnalités d'appareil spécifiques ou la bande passante réseau disponible. Le [Packager dynamique](dynamic-packaging-overview.md) vous permet de spécifier des filtres qui peuvent filtrer des codecs, des résolutions, des vitesses de transmission et des combinaisons de pistes audio spécifiques à la volée. Ce filtrage supprime la nécessité de créer plusieurs copies. Vous devez simplement publier une nouvelle URL avec un ensemble spécifique de filtres configurés pour vos appareils cibles (iOS, Android, SmartTV ou navigateurs) et les fonctionnalités réseau (scénarios de bande passante élevée, mobiles ou de bande passante faible). Dans ce cas, les clients peuvent manipuler le streaming de votre contenu par le biais de la chaîne de requête (en spécifiant les [filtres de ressources ou les filtres de comptes](filters-concept.md) disponibles) et utiliser des filtres pour diffuser des sections spécifiques d’un flux.
 

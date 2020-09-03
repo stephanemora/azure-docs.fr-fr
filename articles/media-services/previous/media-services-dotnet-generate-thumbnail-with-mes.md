@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836443"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262258"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Vous pouvez utiliser Media Encoder Standard pour générer une ou plusieurs miniatures à partir de votre vidéo d’entrée au format de fichier d’image [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) ou [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Vous pouvez soumettre des tâches produisant uniquement des images ou vous pouvez combiner la génération de miniatures avec l’encodage. Cet article fournit quelques exemples de présélections de miniatures XML et JSON pour de tels scénarios. À la fin de l’article, vous trouverez un [exemple de code](#code_sample) qui montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET pour accomplir la tâche d’encodage.
 

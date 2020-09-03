@@ -3,12 +3,13 @@ title: Authentifier les événements de publication des clients dans des rubriqu
 description: Cet article décrit les différentes façons d’authentifier les événements de publication des clients dans des rubriques personnalisées Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e934ce0d8f5e31dc8dd7592a2e553cd278af2b10
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837395"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019111"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Authentifier les clients de publication (Azure Event Grid)
 Cet article fournit des informations sur l’authentification des clients publiant des événements dans des rubriques ou des domaines Azure Event Grid à l’aide d'une **clé d’accès** ou d’un jeton **signature d’accès partagé (SAS)** . Nous vous recommandons l’utilisation d’un jeton SAS, mais l’authentification par clé propose une programmation simple et est compatible avec de nombreux éditeurs de webhook existants.  

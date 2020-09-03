@@ -3,12 +3,12 @@ title: Gestion des extensions de machine virtuelle avec un serveur avec Azure Ar
 description: Un serveur avec Azure Arc (préversion) peut gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration de post-déploiement sur des machines virtuelles non Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213112"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018159"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestion des extensions de machine virtuelle avec un serveur avec Azure Arc (préversion)
 
@@ -89,7 +89,7 @@ Les extensions de machine virtuelle peuvent être appliquées à votre machine m
 
     ![Installer l’extension de machine virtuelle Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Pour mener à bien l’installation, il vous est demandé de fournir l’ID et la clé primaire de l’espace de travail. Si vous ne savez pas comment vous procurer ces informations, consultez [Obtenir l’ID et la clé d’espace de travail](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    Pour mener à bien l’installation, il vous est demandé de fournir l’ID et la clé primaire de l’espace de travail. Si vous ne savez pas comment vous procurer ces informations, consultez [Obtenir l’ID et la clé d’espace de travail](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. Après avoir confirmé les informations nécessaires que vous avez fournies, sélectionnez **Créer**. Dans le résumé du déploiement qui s’affiche, examinez l’état du déploiement.
 

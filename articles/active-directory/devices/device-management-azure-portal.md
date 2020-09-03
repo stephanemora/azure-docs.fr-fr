@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce09bd2a3f5f474ad5c6e6eb73865e2b2dc9fe3a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541948"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268636"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -32,7 +32,7 @@ La page **Tous les appareils** vous permet d’effectuer les opérations suivant
 - Identifier les appareils, à savoir :
    - appareils qui ont été joints ou inscrits dans Azure AD ;
    - appareils déployés à l’aide de [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) ;
-   - imprimantes utilisant l’[Impression universelle](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started).
+   - imprimantes utilisant l’[Impression universelle](/universal-print/fundamentals/universal-print-getting-started).
 - Effectuer des tâches de gestion des identités d’appareils, telles que l’activation, la désactivation, la suppression ou la gestion.
    - Les [imprimantes](/universal-print/fundamentals/) et les appareils [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) ont des options de gestion limitées dans Azure AD. Elles doivent être gérés à partir de leurs interfaces d’administration respectives.
 - Configurer les paramètres d’identité de votre appareil.
@@ -156,7 +156,7 @@ Pour que vous puissiez gérer les identités d’appareils avec le portail Azure
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Ces utilisateurs sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
-- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). 
+- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > Le paramètre **Exiger Multi-factor Auth pour joindre des appareils** s'applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.

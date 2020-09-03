@@ -3,7 +3,7 @@ title: 'Tutoriel : Utiliser une identité managée pour accéder à Azure Cosmo
 description: Un didacticiel qui vous guide tout au long du processus d’utilisation d’une identité managée et attribuée par le système sur une machine virtuelle Windows en vue d’accéder à Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583063"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263061"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 Cette section montre comment appeler Azure Resource Manager à l’aide d’un jeton d’accès pour obtenir l’identité managée attribuée par le système de machine virtuelle Windows. Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que nous avons créée précédemment. 
 
-Vous devez installer la dernière version d’[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine virtuelle Windows.
+Vous devez installer la dernière version d’[Azure CLI](/cli/azure/install-azure-cli) sur votre machine virtuelle Windows.
 
 
 
@@ -204,6 +204,4 @@ Cette commande CLI retourne des informations détaillées sur la collection :
 Dans ce tutoriel, vous avez appris à utiliser une identité managée attribuée par le système de machine virtuelle Windows pour accéder à Cosmos DB.  Pour en savoir plus sur Cosmos DB, consultez :
 
 > [!div class="nextstepaction"]
->[Présentation d’Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Présentation d’Azure Cosmos DB](../../cosmos-db/introduction.md)

@@ -1,19 +1,19 @@
 ---
-title: Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du portail
+title: 'Tutoriel : Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du portail'
 description: Ce didacticiel vous apprend à déployer et configurer un pare-feu Azure DNAT à l’aide du portail Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251485"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069270"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du Portail Azure
 
@@ -28,12 +28,11 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Configurer une règle DNAT
 > * Tester le pare-feu
 
+## <a name="prerequisites"></a>Prérequis
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
 
-- **VN-Hub** : le pare-feu est dans ce réseau virtuel.
-- **VN-Spoke** : le serveur de la charge de travail est dans ce réseau virtuel.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -45,6 +44,11 @@ Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
 6. Sélectionnez **Create** (Créer).
 
 ## <a name="set-up-the-network-environment"></a>Configurer l’environnement réseau
+
+Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
+
+- **VN-Hub** : le pare-feu est dans ce réseau virtuel.
+- **VN-Spoke** : le serveur de la charge de travail est dans ce réseau virtuel.
 
 Tout d’abord, créez les réseaux virtuels, puis appairez-les.
 

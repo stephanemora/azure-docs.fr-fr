@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797285"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322532"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 
@@ -29,7 +29,7 @@ Microsoft propose des services de support pour les problèmes techniques, de pr�
 
 Avant de créer un ticket de support, consultez les réponses et les informations contenues dans les ressources suivantes. 
 
-* Pour obtenir du contenu tel que des procédures ou des exemples de code à destination des professionnels de l’informatique et des développeurs, consultez la [documentation technique sur docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* Pour obtenir du contenu tel que des procédures ou des exemples de code à destination des professionnels de l’informatique et des développeurs, consultez la [documentation technique sur docs.microsoft.com](../index.yml).
 
 * La [Communauté technique Microsoft](https://techcommunity.microsoft.com/) est l’endroit idéal pour les informaticiens des entreprises partenaires et clientes qui souhaitent collaborer, partager et apprendre. Dans le [Centre d’informations de la Communauté technique Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center), vous trouverez des annonces, des billets de blog, des espaces d’échanges avec des experts et bien plus encore. Vous pouvez aussi [rejoindre la communauté pour nous soumettre vos idées](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
@@ -100,4 +100,4 @@ Consultez la page [Contacter Microsoft pour obtenir du support](https://portal.o
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Documentation technique sur docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Documentation technique sur docs.microsoft.com](../index.yml)

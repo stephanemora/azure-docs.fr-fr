@@ -6,13 +6,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004486"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231280"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Base de référence de la sécurité pour ASecurity Center
 
@@ -186,7 +186,7 @@ Vous pouvez également activer et intégrer dans Azure Sentinel, des données re
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : contrôle des accès et des identités](/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d'informations, consultez [Benchmark de sécurité Azure : contrôle des accès et des identités](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -330,7 +330,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 ## <a name="data-protection"></a>Protection de données
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Protection des données](/azure/security/benchmarks/security-control-data-protection).*
+*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Protection des données](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
@@ -530,7 +530,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](/azure/security/benchmarks/security-control-secure-configuration).*
+*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
@@ -684,7 +684,7 @@ En outre, activez la suppression réversible et la protection contre la purge da
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d'informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -758,7 +758,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Tests d’intrusion et exercices Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Tests d’intrusion et exercices Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 

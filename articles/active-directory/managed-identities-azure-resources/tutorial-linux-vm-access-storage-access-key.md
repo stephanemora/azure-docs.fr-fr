@@ -3,7 +3,7 @@ title: Tutoriel `:` ​​Utiliser une identité managée pour accéder au Stoc
 description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/04/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273816"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266270"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
@@ -78,7 +78,7 @@ Dans cette étape, vous autorisez votre identité managée attribuée par le sys
 
 Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que nous avons créée précédemment.
 
-Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](/windows/wsl/install-win10). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Linux, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle. 
 2. Connectez-vous à votre machine virtuelle en utilisant votre client SSH.  
@@ -127,7 +127,7 @@ Créez un exemple de fichier blob à charger dans votre conteneur de stockage d�
 echo "This is a test file." > test.txt
 ```
 
-Ensuite, authentifiez-vous à l’aide de la commande d’interface CLI `az storage` en utilisant la clé d’accès de stockage, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
+Ensuite, authentifiez-vous à l’aide de la commande d’interface CLI `az storage` en utilisant la clé d’accès de stockage, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
  
 
 ```azurecli-interactive
@@ -199,4 +199,4 @@ Réponse :
 Dans ce didacticiel, vous avez appris à utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure à l’aide d’une clé d’accès.  Pour en savoir plus sur les clés d’accès du stockage Azure, consultez :
 
 > [!div class="nextstepaction"]
->[Gérer vos clés d’accès de stockage](/azure/storage/common/storage-create-storage-account)
+>[Gérer vos clés d’accès de stockage](../../storage/common/storage-account-create.md)

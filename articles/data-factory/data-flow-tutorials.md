@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067849"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322617"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -107,8 +107,6 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Lignage des données](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Conseils d’optimisation](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Itérer des fichiers avec des paramètres](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Réduire les temps de démarrage](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +119,7 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Optimiser les temps de démarrage de flux de données](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Runtimes d’intégration Azure pour les flux de données](https://mssqldude.wordpress.com/)
+[Runtimes d’intégration Azure pour les flux de données](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scénarios de flux de données de mappage
 
@@ -131,7 +129,7 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Modèle d’adresses propres](https://youtu.be/axEYbuU3lmw)
 
-[Déduplication](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Déduplication](https://youtu.be/QOi26ETtPTw)
 
 [Fusionner des fichiers](http://youtu.be/WbDTBAyYte8)
 

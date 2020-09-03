@@ -4,15 +4,15 @@ description: Dans cet article, vous découvrez comment déployer et configurer u
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/10/2019
+ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610657"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071701"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
 
@@ -35,13 +35,13 @@ Dans le cadre de cet article, vous créez un seul réseau virtuel simplifié ave
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer un environnement réseau de test
-> * Déployer un pare-feu
-> * Créer un itinéraire par défaut
-> * Configurer une règle d’application pour autoriser l’accès à www.google.com
-> * Configurer une règle de réseau pour autoriser l’accès aux serveurs DNS externes
-> * Tester le pare-feu
+
+* Configurer un environnement réseau de test
+* Déployer un pare-feu
+* Créer un itinéraire par défaut
+* Configurer une règle d’application pour autoriser l’accès à www.google.com
+* Configurer une règle de réseau pour autoriser l’accès aux serveurs DNS externes
+* Tester le pare-feu
 
 Si vous préférez, vous pouvez suivre cette procédure en utilisant le [portail Azure](tutorial-firewall-deploy-portal.md).
 

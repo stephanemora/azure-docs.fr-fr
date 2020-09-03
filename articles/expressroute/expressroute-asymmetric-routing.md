@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute : Routage asymétrique'
 description: Cet article présente des solutions aux problèmes courants en cas de routage asymétrique dans un réseau doté de plusieurs connexions vers une même destination.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: aa3465940088d3a66f23dfd5d58a6ec3fd3053de
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74072141"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397710"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
 Cet article explique comment le trafic réseau entrant et sortant peut emprunter différentes voies lorsque plusieurs chemins d’accès sont disponibles entre la source et la destination réseau.
