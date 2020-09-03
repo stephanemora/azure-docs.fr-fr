@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1387c8525ec14b1db330252b78474bba66db8b5b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115754"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276131"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -40,7 +40,7 @@ Vérifiez que les prérequis suivants sont remplis :
    - Si votre pare-feu ou votre proxy le permet, ajoutez les connexions à la liste verte pour les URL **\*.msappproxy.net** via le port 443. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine. Cette condition préalable est applicable uniquement lorsque vous activez la fonctionnalité. Elle n'est pas requise pour les connexions d'utilisateur réelles.
 
     >[!NOTE]
-    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
+    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](./reference-connect-version-history.md) pour en savoir plus.
 
 * **Utiliser une topologie Azure AD Connect prise en charge**  : veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](plan-connect-topologies.md).
 
@@ -51,7 +51,7 @@ Vérifiez que les prérequis suivants sont remplis :
     * Synchronisation avec Azure AD via Azure AD Connect.
     * La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
     
-* **Activer l’authentification moderne** : Vous devez activer [l’authentification moderne](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) sur votre locataire pour que cette fonctionnalité fonctionne.
+* **Activer l’authentification moderne** : Vous devez activer [l’authentification moderne](/office365/enterprise/modern-auth-for-office-2013-and-2016) sur votre locataire pour que cette fonctionnalité fonctionne.
 
 * **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
@@ -187,11 +187,11 @@ Assurez-vous que la machine utilisant le système macOS est jointe à AD. Les in
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basé sur Chromium (toutes les plateformes)
 
-Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
+Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basé sur Chromium (macOS et autres plateformes non-Windows)
 
-En ce qui concerne Microsoft Edge basé sur Chromium sur macOS et les autres plateformes non-Windows, consultez la [liste de stratégies du site Microsoft Edge basé sur Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) afin d’obtenir plus d’informations sur l’ajout de l’URL Azure AD pour l’authentification intégrée à votre liste verte.
+En ce qui concerne Microsoft Edge basé sur Chromium sur macOS et les autres plateformes non-Windows, consultez la [liste de stratégies du site Microsoft Edge basé sur Chromium](/DeployEdge/microsoft-edge-policies#authserverallowlist) afin d’obtenir plus d’informations sur l’ajout de l’URL Azure AD pour l’authentification intégrée à votre liste verte.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 
@@ -211,7 +211,7 @@ L’authentification unique transparente ne fonctionne pas en mode de navigation
 
 Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que toutes les conditions suivantes sont en place :
   - L’utilisateur se connecte à un appareil d’entreprise.
-  - L'appareil est joint à votre domaine Active Directory. L’appareil _n’a pas_ besoin d’être [joint à Azure AD](../active-directory-azureadjoin-overview.md).
+  - L'appareil est joint à votre domaine Active Directory. L’appareil _n’a pas_ besoin d’être [joint à Azure AD](../devices/overview.md).
   - L’appareil dispose d’une connexion directe à votre contrôleur de domaine, soit sur le réseau câblé ou sans fil de l’entreprise, soit par le biais d’une connexion d’accès à distance, comme une connexion VPN.
   - Vous avez [déployé la fonctionnalité](#step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
 

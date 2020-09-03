@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071912"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264808"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Effectuer un encodage avancé en personnalisant les présélections MES 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Effectuer un encodage avancé en personnalisant les présélections MES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -50,7 +53,7 @@ Lors de la génération de miniatures, il est inutile de toujours spécifier la 
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Génération de miniatures
+## <a name="generate-thumbnails"></a>Génération de miniatures
 
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées dans [cette](media-services-mes-presets-overview.md) section et ajouter le code qui génère des miniatures.  
 
@@ -63,7 +66,7 @@ Pour plus d’informations sur le schéma, consultez [cette](media-services-mes-
 
 Assurez-vous d’examiner la section [Considérations](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Présélection JSON
+### <a name="json-preset"></a>Présélection JSON
 
 ```json
 {
@@ -165,7 +168,7 @@ Assurez-vous d’examiner la section [Considérations](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Présélection XML
+### <a name="xml-preset"></a>Présélection XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

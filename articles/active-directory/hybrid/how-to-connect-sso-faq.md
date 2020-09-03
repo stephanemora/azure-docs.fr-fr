@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b594bcac8ef50a3f5fbe6a2424bf5dbfe9f180cd
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589042"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278987"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
@@ -37,7 +37,7 @@ L’authentification unique transparente est une fonctionnalité gratuite et il 
 
 **Q : L'authentification unique transparente est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et dans le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?**
 
-L’authentification unique fluide est disponible pour le cloud Azure Government. Pour plus d’informations, consultez [Considérations sur les identités hybrides pour Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+L’authentification unique fluide est disponible pour le cloud Azure Government. Pour plus d’informations, consultez [Considérations sur les identités hybrides pour Azure Government](./reference-connect-government-cloud.md).
 
 **Q : Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l'authentification unique transparente ?**
 
@@ -64,9 +64,9 @@ Si vous souhaitez que d’autres applications utilisent notre expérience d’au
 
 Oui. L’authentification unique transparente prend en charge `Alternate ID` comme nom d’utilisateur dans Azure AD Connect comme indiqué [ici](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
 
-**Q : Quelle est la différence entre l'expérience d'authentification unique fournie par [Azure AD Join](../active-directory-azureadjoin-overview.md) et l'authentification unique transparente ?**
+**Q : Quelle est la différence entre l'expérience d'authentification unique fournie par [Azure AD Join](../devices/overview.md) et l'authentification unique transparente ?**
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) fournit l’authentification unique aux utilisateurs si leurs appareils sont inscrits auprès d’Azure AD. Ces appareils ne doivent pas nécessairement être joints au domaine. L’authentification unique est fournie à l’aide de *jetons d’actualisation principaux* ou *PRTs*, et non Kerberos. L’expérience utilisateur est optimale sur des appareils Windows 10. L’authentification unique s’effectue automatiquement sur le navigateur Microsoft Edge. Elle fonctionne également sur Chrome avec une extension de navigateur.
+[Azure AD Join](../devices/overview.md) fournit l’authentification unique aux utilisateurs si leurs appareils sont inscrits auprès d’Azure AD. Ces appareils ne doivent pas nécessairement être joints au domaine. L’authentification unique est fournie à l’aide de *jetons d’actualisation principaux* ou *PRTs*, et non Kerberos. L’expérience utilisateur est optimale sur des appareils Windows 10. L’authentification unique s’effectue automatiquement sur le navigateur Microsoft Edge. Elle fonctionne également sur Chrome avec une extension de navigateur.
 
 Vous pouvez utiliser Azure AD Join et l’authentification unique transparente sur votre client. Ces deux fonctionnalités sont complémentaires. Si les deux fonctionnalités sont activées, l’authentification unique à partir d’Azure AD Join est prioritaire sur l’authentification unique transparente.
 
@@ -85,7 +85,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
    **Étape 1. Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée**
 
-   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
@@ -130,7 +130,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
    Exécutez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 
-   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
@@ -145,7 +145,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
    Suivez les tâches 1 à 4 ci-dessous si vous avez désactivé l’authentification unique fluide à l’aide d’Azure AD Connect. Si vous avez désactivé l’authentification unique fluide à l’aide de PowerShell, passez directement à la tâche 5 ci-dessous.
 
-   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.

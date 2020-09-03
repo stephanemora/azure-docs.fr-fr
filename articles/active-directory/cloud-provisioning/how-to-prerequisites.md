@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373860"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226894"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -27,7 +27,7 @@ Cet article fournit des conseils sur la façon de choisir et d’utiliser l’ap
 Vous avez besoin des éléments suivants pour utiliser le provisionnement cloud Azure AD Connect :
     
 - Un compte d’administrateur d’identité hybride pour votre locataire Azure AD qui n’est pas un utilisateur invité.
-- Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.  Ce serveur doit être un serveur de niveau 0 basé sur le [modèle de niveau d’administration Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.  Ce serveur doit être un serveur de niveau 0 basé sur le [modèle de niveau d’administration Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Des configurations de pare-feu locales.
 
 >[!NOTE]
@@ -37,12 +37,12 @@ Le reste du document fournit des instructions détaillées pour ces prérequis.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Dans le Centre d’administration Azure Active Directory
 
-1. Créez un compte d’administrateur d’identité hybride « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur d’identité hybride de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
-1. Ajoutez un ou plusieurs [noms de domaine personnalisés](../active-directory-domains-add-azure-portal.md) à votre locataire Azure AD. Vos utilisateurs peuvent se connecter à l’aide de l’un de ces noms de domaine.
+1. Créez un compte d’administrateur d’identité hybride « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur d’identité hybride de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
+1. Ajoutez un ou plusieurs [noms de domaine personnalisés](../fundamentals/add-custom-domain.md) à votre locataire Azure AD. Vos utilisateurs peuvent se connecter à l’aide de l’un de ces noms de domaine.
 
 ### <a name="in-your-directory-in-active-directory"></a>Dans votre annuaire dans Azure Active Directory
 
-Exécutez l’[outil IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) afin de préparer les attributs d’annuaire pour la synchronisation.
+Exécutez l’[outil IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) afin de préparer les attributs d’annuaire pour la synchronisation.
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
@@ -96,4 +96,3 @@ Pour activer TLS 1.2, procédez comme suit.
 
 - [Présentation du provisionnement](what-is-provisioning.md)
 - [Présentation du provisionnement cloud Azure AD Connect](what-is-cloud-provisioning.md)
-

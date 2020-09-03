@@ -3,26 +3,28 @@ title: Superviser les événements Azure Media Services avec Event Grid à parti
 description: Cet article explique comment s’abonner à Event Grid dans le but de superviser les événements Azure Media Services.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, flux, diffusion, en direct, hors connexion
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 602ff0a29f3fd8717e581b6ac15d493e3ad475f7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542393"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294371"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Créer et superviser des événements Azure Media Services avec Event Grid à partir du portail
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Ce service utilise les [abonnements aux événements](../../event-grid/concepts.md#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. Les événements Media Services contiennent toutes les informations dont vous avez besoin pour répondre aux modifications de vos données. Vous pouvez identifier un événement Media Services, car la propriété eventType commence par « Microsoft.Media ». Pour plus d’informations, consultez les [schémas d’événement Media Services](media-services-event-schemas.md).
 

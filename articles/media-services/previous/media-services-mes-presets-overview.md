@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038440"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261473"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Exemples de présélections pour MES (Media Encoder Standard)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **Media Encoder Standard** définit un ensemble de présélections d’encodage système prédéfinies à utiliser lors de la création des travaux d’encodage. Il est recommandé d’utiliser les paramètres prédéfinis « Diffusion en continu adaptative » si vous souhaitez encoder une vidéo pour une diffusion en continu avec Media Services. Lorsque vous spécifiez cette présélection, Media Encoder Standard [générera automatiquement une échelle des vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md). 
 

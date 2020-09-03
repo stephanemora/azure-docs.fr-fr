@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447099"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279259"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de la réécriture d’appareil
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.locfileid: "87447099"
 
 La documentation suivante fournit des informations sur l’activation de la fonctionnalité d’écriture différée des appareils dans Azure AD Connect. L’écriture différée des appareils est utilisée dans les scénarios suivants :
 
-* Activer [Windows Hello Entreprise à l’aide d’un déploiement hybride de certificats de confiance](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Activer [Windows Hello Entreprise à l’aide d’un déploiement hybride de certificats de confiance](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Activer l’accès conditionnel basé sur les appareils pour les applications protégées ADFS (2012 R2 ou version ultérieure) (approbations de la partie de confiance)
 
-Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](../active-directory-conditional-access-azure-portal.md) et [Configuration d’un accès conditionnel en local à l’aide d’Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux applications est accordé uniquement aux appareils de confiance. Pour plus d’informations sur l’accès conditionnel, consultez [Gestion des risques avec accès conditionnel](../conditional-access/overview.md) et [Configuration d’un accès conditionnel en local à l’aide d’Azure Active Directory Device Registration](../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
@@ -83,7 +83,7 @@ L’écriture différée des appareils doit désormais fonctionner correctement.
    ![Active Directory - Liste des appareils inscrits au Centre d’administration](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Activer l’accès conditionnel
-Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../devices/overview.md)
 
 ## <a name="troubleshooting"></a>Dépannage
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La case à cocher de l'écriture différée est toujours désactivée.
@@ -126,9 +126,8 @@ Vérifiez la configuration dans Active Directory :
 ![Résoudre les problèmes, vérifier les autorisations de la configuration de l’inscription des appareils](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Informations supplémentaires
-* [Gestion des risques avec accès conditionnel](../active-directory-conditional-access-azure-portal.md)
-* [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Gestion des risques avec accès conditionnel](../conditional-access/overview.md)
+* [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../devices/overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).
-

@@ -4,12 +4,12 @@ description: L’Explorateur Azure Resource Graph dans le portail Azure prend en
 ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848658"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146434"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Raccourcis clavier pour l’Explorateur Azure Resource Graph
 
@@ -22,7 +22,6 @@ Cet article répertorie les raccourcis clavier qui fonctionnent dans la page Exp
 |Commenter/Supprimer un commentaire |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Réduire le retrait |<kbd>CTRL</kbd>+<kbd>[</kbd> |<kbd>Cmd</kbd>+<kbd>[</kbd> |
 |Augmenter le retrait |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd>+<kbd>]</kbd> |
-|Sélectionner tout |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd>+<kbd>A</kbd> |
 |Déplacer la ligne vers le bas |<kbd>ALT</kbd>+<kbd>↓</kbd> |<kbd>Option</kbd>+<kbd>↓</kbd> |
 |Déplacer la ligne vers le haut |<kbd>ALT</kbd>+<kbd>↑</kbd> |<kbd>Option</kbd>+<kbd>↑</kbd> |
 |Replace |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd> |

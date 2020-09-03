@@ -1,7 +1,7 @@
 ---
 title: Schéma de métadonnées de sortie Azure Media Services | Microsoft Docs
 description: Cet article fournit une vue d’ensemble du schéma de métadonnées de sortie d’Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: reference
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080922"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289367"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage. Par exemple, encoder un fichier MP4 en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264, créer une miniature, créer des superpositions. À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient de la vidéo, de l’audio, des miniatures et d’autres fichiers. L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier JSON de métadonnées a le format suivant : `<source_file_name>_manifest.json` (par exemple, `BigBuckBunny_manifest.json`). Vous devez rechercher tout fichier *_metadata.json et interroger la chaîne du chemin d’accès au fichier pour trouver le nom de fichier source (sans troncation).
 

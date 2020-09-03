@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a67ebbf0f83f2dc3a340f52cab7437bbfaa350e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083682"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299165"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Résoudre les problèmes courants liés à Azure Spring Cloud
 
@@ -138,7 +138,7 @@ Si l’interrogation est interrompue, vous pouvez toujours utiliser la commande 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Toutefois, notez qu’une instance de service Azure Spring Cloud ne peut déclencher qu’un seul travail de génération pour un package source à la fois. Pour plus d’informations, consultez [Déployer une application](spring-cloud-quickstart-launch-app-portal.md) et [Configurer un environnement intermédiaire dans Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+Toutefois, notez qu’une instance de service Azure Spring Cloud ne peut déclencher qu’un seul travail de génération pour un package source à la fois. Pour plus d’informations, consultez [Déployer une application](spring-cloud-quickstart.md) et [Configurer un environnement intermédiaire dans Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>Impossible d’inscrire mon application
 

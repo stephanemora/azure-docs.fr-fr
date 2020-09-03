@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423148"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279497"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -116,7 +116,7 @@ Le degré de sécurisation, qui est basé sur les contrôles du Center for Inter
 **Détail** : suivez les [recommandations de sécurité](../../security-center/security-center-recommendations.md) de Security Center en commençant par les éléments avec la priorité la plus élevée.
 
 **Bonne pratique** : intégrez des alertes de Security Center dans votre solution SIEM.   
-**Détail** : la plupart des organisations avec une solution SIEM l’utilisent comme un centre d’échanges central pour les alertes de sécurité qui nécessitent la réponse d’un analyste. Les événements traités produits par Security Center sont publiés dans le journal d’activité Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Pour connaître les instructions, consultez [Exporter les alertes et recommandations de sécurité ](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs). Si vous utilisez Azure Sentinel, consultez [Connect data from Azure Security Center](../../sentinel/connect-azure-security-center.md) (Connecter des données à partir d’Azure Security Center).
+**Détail** : la plupart des organisations avec une solution SIEM l’utilisent comme un centre d’échanges central pour les alertes de sécurité qui nécessitent la réponse d’un analyste. Les événements traités produits par Security Center sont publiés dans le journal d’activité Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Pour connaître les instructions, consultez [Exporter les alertes et recommandations de sécurité ](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs). Si vous utilisez Azure Sentinel, consultez [Connect data from Azure Security Center](../../sentinel/connect-azure-security-center.md) (Connecter des données à partir d’Azure Security Center).
 
 **Bonne pratique** : intégrez les journaux Azure à votre solution SIEM.   
 **Détail** : utilisez [Azure Monitor pour collecter et exporter des données](/azure/azure-monitor/overview#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).

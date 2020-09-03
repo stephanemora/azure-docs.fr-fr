@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608209"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230617"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l�
 
 Les rapports d’activités anormales fournissent des informations sur les détections d’événements à risque qu’Azure AD est capable de signaler.
 
-Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections des risques dans Azure Active Directory](concept-risk-events.md).  
+Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections des risques dans Azure Active Directory](../identity-protection/overview-identity-protection.md).  
 
 
 | Rapport d’activités anormales Azure AD |  Type de détection d’événement à risque Identity Protection|
@@ -136,8 +136,8 @@ Les rapports d’activités anormales Azure AD suivants ne sont pas inclus en ta
 
 Vous pouvez accéder aux rapports sur les détections d’événements à risque dans la section **Sécurité** du panneau **Azure Active Directory** du [portail Azure](https://portal.azure.com). Les détections d’événements à risque sont suivies dans les rapports suivants :   
 
-- [Utilisateurs à risque](concept-user-at-risk.md)
-- [Connexions risquées](concept-risky-sign-ins.md)
+- [Utilisateurs à risque](../identity-protection/overview-identity-protection.md)
+- [Connexions risquées](../identity-protection/overview-identity-protection.md)
 
     ![Rapports de sécurité](./media/howto-find-activity-reports/04.png "Rapports de sécurité")
 
@@ -228,4 +228,4 @@ Vous avez deux options pour conserver les données pendant plus de 30 jours. Vou
 
 * [Vue d’ensemble des journaux d’audit](concept-audit-logs.md)
 * [Vue d’ensemble des connexions](concept-sign-ins.md)
-* [Vue d’ensemble des événements à risque](concept-risk-events.md)
+* [Vue d’ensemble des événements à risque](../identity-protection/overview-identity-protection.md)

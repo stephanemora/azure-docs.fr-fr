@@ -14,18 +14,18 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74213072"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279395"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies et cloudMsExchUserHoldPolicies
 Le document de référence suivant décrit ces attributs utilisés par Exchange et la manière appropriée de modifier les règles de synchronisation par défaut.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Que sont msExchUserHoldPolicies et cloudMsExchUserHoldPolicies ?
-Il existe deux types de [conservations](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponibles pour Exchange Server : conservation pour litige et conservation inaltérable. Quand vous activez la conservation pour litige, tous les éléments de boîte aux lettres sont mis en attente.  Une conservation inaltérable sert à conserver uniquement les éléments qui répondent aux critères d’une requête de recherche que vous avez définie à l’aide de l’outil eDiscovery inaltérable.
+Il existe deux types de [conservations](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponibles pour Exchange Server : conservation pour litige et conservation inaltérable. Quand vous activez la conservation pour litige, tous les éléments de boîte aux lettres sont mis en attente.  Une conservation inaltérable sert à conserver uniquement les éléments qui répondent aux critères d’une requête de recherche que vous avez définie à l’aide de l’outil eDiscovery inaltérable.
 
 Les attributs MsExchUserHoldPolicies et cloudMsExchUserHoldPolicies autorisent les services AD et Azure AD locaux à déterminer quels utilisateurs font l’objet d’une conservation, selon qu’ils utilisent Exchange sur site ou Exchange en ligne.
 

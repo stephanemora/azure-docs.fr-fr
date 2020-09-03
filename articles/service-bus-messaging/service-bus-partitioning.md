@@ -3,12 +3,13 @@ title: Créer des rubriques et des files d’attente Azure Service Bus partition
 description: Décrit comment partitionner des files d’attente et des rubriques Service Bus à l’aide de plusieurs courtiers de messages.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064857"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007959"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 

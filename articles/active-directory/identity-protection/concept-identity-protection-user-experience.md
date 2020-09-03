@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72886712"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950202"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Expériences utilisateur avec Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Toutes les stratégies de protection des identités ont un impact sur l’expér
 
 ## <a name="multi-factor-authentication-registration"></a>Inscription à l’authentification multifacteur
 
-L’activation de la stratégie Identity Protection nécessitant l’inscription de l’authentification multifacteur et le ciblage de tous vos utilisateurs, garantira qu’ils ont la possibilité d’utiliser Azure MFA pour effectuer une mise à niveau automatique à l’avenir. La configuration de cette stratégie offre à vos utilisateurs une période de 14 jours pendant laquelle ils peuvent choisir de s’inscrire et à la fin sont forcés de s’inscrire. L’expérience pour les utilisateurs est décrite ci-dessous. Pour plus d’informations, consultez la documentation de l’utilisateur final dans l’article [Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire](../user-help/user-help-two-step-verification-overview.md).
+L’activation de la stratégie Identity Protection nécessitant l’inscription de l’authentification multifacteur et le ciblage de tous vos utilisateurs, garantira qu’ils ont la possibilité d’utiliser Azure MFA pour effectuer une mise à niveau automatique à l’avenir. La configuration de cette stratégie offre à vos utilisateurs une période de 14 jours pendant laquelle ils peuvent choisir de s’inscrire et à la fin sont forcés de s’inscrire. L’expérience pour les utilisateurs est décrite ci-dessous. Pour plus d’informations, consultez la documentation de l’utilisateur final dans l’article [Vue d’ensemble de la vérification à deux facteurs et de votre compte professionnel ou scolaire](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interruption d’inscription
 
@@ -84,4 +84,4 @@ Le personnel informatique peut suivre les instructions de la section [Déblocage
 
 - [Corriger les risques et débloquer les utilisateurs](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

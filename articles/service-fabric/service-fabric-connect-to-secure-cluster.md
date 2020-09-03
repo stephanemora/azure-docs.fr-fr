@@ -3,12 +3,13 @@ title: Se connecter en toute sécurité à un cluster Azure Service Fabric
 description: Décrit comment authentifier l’accès client à un cluster Service Fabric et comment sécuriser les communications entre les clients et un cluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 89d3598b283a91645f0db648be81c73dffde8b46
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259240"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008809"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Se connecter à un cluster sécurisé
 

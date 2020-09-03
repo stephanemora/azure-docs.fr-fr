@@ -3,7 +3,7 @@ title: 'Tutoriel : Accéder au Stockage Azure en utilisant des informations d�
 description: Didacticiel montrant comment utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266302"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260235"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure à l’aide d’informations d’identification SAP
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux, afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux, afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > La clé SAP générée dans ce tutoriel ne sera pas être limitée/liée à la machine virtuelle.  
@@ -86,7 +86,7 @@ Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode n
 
 Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que nous avons créée précédemment.
 
-Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](/windows/wsl/install-win10). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Linux, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle. 
 2. Connectez-vous à votre machine virtuelle en utilisant votre client SSH.  
@@ -152,7 +152,7 @@ Créez un exemple de fichier blob à charger dans votre conteneur de stockage d�
 echo "This is a test file." > test.txt
 ```
 
-Ensuite, authentifiez-vous à l’aide de la commande `az storage` de l’interface de ligne de commande en utilisant les informations d’identification SAP, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
+Ensuite, authentifiez-vous à l’aide de la commande `az storage` de l’interface de ligne de commande en utilisant les informations d’identification SAP, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
 
 ```azurecli-interactive
  az storage blob upload --container-name 
@@ -231,4 +231,4 @@ Réponse :
 Dans ce didacticiel, vous avez appris à utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure à l’aide des informations d’identification SAP.  Pour en savoir plus sur le Stockage Azure SAP, consultez :
 
 > [!div class="nextstepaction"]
->[Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Utilisation des signatures d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md)

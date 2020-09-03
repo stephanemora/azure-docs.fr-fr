@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358121"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279514"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Confidentialité des utilisateurs et authentification directe Azure Active Directory
 
@@ -67,7 +67,7 @@ Pour en savoir plus sur les exigences RGPD relatives à Azure AD Connect, consul
 
 ### <a name="delete-authentication-agent-event-logs"></a>Supprimer les journaux des événements de l’Agent d’authentification
 
-Ce produit peut également créer des **Journaux des événements Windows**. Pour plus d’informations, consultez [cet article](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Ce produit peut également créer des **Journaux des événements Windows**. Pour plus d’informations, consultez [cet article](/windows/win32/wes/windows-event-log).
 
 Pour afficher les journaux d’activité relatifs à l’agent d’authentification directe, ouvrez l’application **Observateur d’événements** sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Pour planifier une exécution de ce script toutes les 48 heures, effectuez les 
  
 ### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux d’activité des contrôleurs de domaine
 
-Si l’enregistrement d’audit est activé, ce produit peut générer des journaux d’activité de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](https://technet.microsoft.com/library/dd277403.aspx).
+Si l’enregistrement d’audit est activé, ce produit peut générer des journaux d’activité de sécurité pour vos contrôleurs de domaine. Pour en savoir plus sur la configuration des stratégies d’audit, consultez cet [article](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)

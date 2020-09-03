@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 69b5e8721b320e799fbdfb31ff83f2e78e513b40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047503"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259130"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importer une collection Postman avec les opérations de Live Streaming 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importer une collection Postman avec les opérations de Live Streaming
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Cet article contient une définition de la **collection Postman** contenant les requêtes HTTP groupées qui appellent les API REST Media Services de **diffusion en continu**. Pour plus d’informations sur la configuration de **Postman** afin de pouvoir l’utiliser pour appeler l’API REST Media Services, consultez le didacticiel [Configurer Postman pour les appels d’API REST Media Services](media-rest-apis-with-postman.md).
 

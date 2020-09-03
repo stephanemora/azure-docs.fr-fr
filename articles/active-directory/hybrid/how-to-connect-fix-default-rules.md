@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359753"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279939"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Résoudre les règles par défaut modifiées dans Azure AD Connect
 
@@ -89,7 +89,7 @@ Laissez le champ **Filtre d’étendue** vide. Cela signifie que la règle s’a
 
 Laissez le champ **Règles de jointure** vide. Cela signifie que cette règle utilise la condition de jointure définie dans la règle par défaut standard. Il s’agit d’une autre raison pour ne pas désactiver ou supprimer la règle par défaut standard. S’il n’existe aucune condition de jointure, l’attribut ne circulera pas. 
 
-Ajoutez les transformations appropriées pour votre attribut. Vous pouvez affecter une constante, pour qu’une valeur constante circule vers votre attribut cible. Vous pouvez utiliser un mappage direct entre l’attribut source ou cible. Ou bien, vous pouvez utiliser une expression pour l’attribut. Voici différentes [fonctions d’expression](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que vous pouvez utiliser.
+Ajoutez les transformations appropriées pour votre attribut. Vous pouvez affecter une constante, pour qu’une valeur constante circule vers votre attribut cible. Vous pouvez utiliser un mappage direct entre l’attribut source ou cible. Ou bien, vous pouvez utiliser une expression pour l’attribut. Voici différentes [fonctions d’expression](./reference-connect-sync-functions-reference.md) que vous pouvez utiliser.
 
 #### <a name="add-an-outbound-sync-rule"></a>Ajouter une règle de synchronisation sortante
 Pour lier l’attribut au répertoire cible, vous devez créer une règle sortante. Cela signifie que la source est le métaverse et la cible est le système connecté. Pour créer une règle sortante, démarrez **l’éditeur de règles de synchronisation**, réglez **Direction** sur **Sortant**, puis sélectionnez **Ajouter une nouvelle règle**. 
@@ -102,7 +102,7 @@ Comme avec la règle de trafic entrant, vous pouvez utiliser votre propre conven
 
 Laissez le **filtre d’étendue** et les **règles de jointure** vides. Renseignez la transformation comme étant constante, directe ou une expression. 
 
-Vous savez maintenant comment rendre un nouvel attribut pour un flux d’objet utilisateur à partir d’Active Directory vers Azure Active Directory. Vous pouvez utiliser ces étapes pour mapper tout attribut provenant de n’importe quel objet à la source et à la cible. Pour plus d’informations, consultez [Création de règles de synchronisation personnalisées](how-to-connect-create-custom-sync-rule.md) et [Préparer pour configurer des utilisateurs](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Vous savez maintenant comment rendre un nouvel attribut pour un flux d’objet utilisateur à partir d’Active Directory vers Azure Active Directory. Vous pouvez utiliser ces étapes pour mapper tout attribut provenant de n’importe quel objet à la source et à la cible. Pour plus d’informations, consultez [Création de règles de synchronisation personnalisées](how-to-connect-create-custom-sync-rule.md) et [Préparer pour configurer des utilisateurs](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Remplacer la valeur d’un attribut existant
 Vous souhaiterez peut-être substituer la valeur d’un attribut qui a déjà été mappée. Par exemple, si vous souhaitez toujours définir une valeur null à un attribut dans Azure AD, créez simplement une règle entrante uniquement. Faites que la valeur constante, `AuthoritativeNull`, circule vers l’attribut cible. 
@@ -194,6 +194,3 @@ Pour corriger vos règles et remettre les paramètres par défaut, supprimez la 
 - [Matériel et conditions préalables](how-to-connect-install-prerequisites.md) 
 - [Paramètres Express](how-to-connect-install-express.md)
 - [Paramètres personnalisés](how-to-connect-install-custom.md)
-
-
-

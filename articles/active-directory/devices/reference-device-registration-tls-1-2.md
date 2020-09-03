@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfbad53fd2361752824292e0ade82f3ac231916
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094156"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268755"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Appliquer le protocole TLS 1.2 pour le service d’inscription d’Azure AD
 
@@ -52,7 +52,7 @@ Toutes les machines qui jouent un rôle de proxy entre les appareils et le servi
 
 ## <a name="update-ad-fs-servers"></a>Mettre à jour les serveurs AD FS
 
-Les serveurs AD FS utilisés pour communiquer avec le service Azure AD Device Registration doivent s’assurer d’utiliser TLS 1.2. Pour plus d’informations sur la manière d’activer et de vérifier cette configuration, consultez [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
+Les serveurs AD FS utilisés pour communiquer avec le service Azure AD Device Registration doivent s’assurer d’utiliser TLS 1.2. Pour plus d’informations sur la manière d’activer et de vérifier cette configuration, consultez [Gestion des protocoles SSL/TLS et des suites de chiffrement pour AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
 
 ## <a name="client-updates"></a>Mises à jour de client
 
@@ -68,4 +68,4 @@ Les clients suivants sont connus pour ne pas prendre en charge TLS 1.2. Mettez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble de TLS/SSL (SSP Schannel)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[Vue d’ensemble de TLS/SSL (SSP Schannel)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

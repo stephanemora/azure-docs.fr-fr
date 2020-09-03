@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb5902e3bc8bbed63d7a6e074ece824e16c5609
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165156"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279412"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : Historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.  
@@ -30,7 +30,7 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 > Les agents Connect Health sont mis à jour automatiquement lorsqu’une nouvelle version est publiée. Vérifiez que les paramètres de mise à niveau automatique sont activés à partir du portail Azure.
 >
 
-Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](./reference-connect-version-history.md). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## <a name="april-2020"></a>Avril 2020
 **Mise à jour de l’agent**
@@ -225,7 +225,7 @@ Azure AD Connect Health pour la synchronisation est intégré à l’installatio
 ## <a name="november-2015"></a>Novembre 2015
 **Nouvelles fonctionnalités :**
 
-* Prise en charge du [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Prise en charge du [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -260,4 +260,4 @@ Azure AD Connect Health pour la synchronisation est intégré à l’installatio
 * Déploiement d’agent plus simple à l’aide des informations d’identification d’administrateur général Azure AD.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](whatis-hybrid-identity-health.md).
+En savoir plus sur [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](./whatis-azure-ad-connect.md).

@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037591"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299505"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gérer et superviser une application avec l’actionneur Azure Spring Boot
 
 Après avoir déployé un nouveau binaire dans votre application, vous pouvez vérifier la fonctionnalité et afficher des informations sur votre application en cours d’exécution. Cet article explique comment accéder à l’API à partir d’un point de terminaison de test fourni par Azure Spring Cloud et exposer les fonctionnalités prêtes pour la production de votre application.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous disposez d’une application Spring Boot 2.x qui peut être déployée et démarrée sur le service Azure Spring Cloud.  Consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart-launch-app-portal.md).
+Cet article suppose que vous disposez d’une application Spring Boot 2.x qui peut être déployée et démarrée sur le service Azure Spring Cloud.  Consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart.md).
 
 ## <a name="verify-app-through-test-endpoint"></a>Vérifier l’application via le point de terminaison de test
 1. Accédez au **tableau de bord de l’application** et cliquez sur votre application pour accéder à la page de présentation de l’application.

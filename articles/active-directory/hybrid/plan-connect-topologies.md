@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 062b2cac093c3049f65dd485e280776602c06e4b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509079"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279718"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -122,8 +122,8 @@ Certaines charges de travail Office 365 ont certaines restrictions quant aux to
 
 | Charge de travail | Restrictions |
 | --------- | --------- |
-| Exchange Online | Pour plus d’informations sur les topologies hybrides prises en charge par Exchange Online, consultez [Déploiements hybrides avec plusieurs forêts Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype Entreprise | Lorsque vous utilisez plusieurs forêts locales, seule la topologie de forêt de ressources de comptes est prise en charge. Pour plus d’informations, consultez la rubrique [Configuration environnementale pour Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Pour plus d’informations sur les topologies hybrides prises en charge par Exchange Online, consultez [Déploiements hybrides avec plusieurs forêts Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype Entreprise | Lorsque vous utilisez plusieurs forêts locales, seule la topologie de forêt de ressources de comptes est prise en charge. Pour plus d’informations, consultez la rubrique [Configuration environnementale pour Skype for Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
 Si vous êtes une plus grande organisation, vous devez envisager d’utiliser la fonctionnalité [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Elle vous permet de définir la région de centre de données dans laquelle se trouvent les ressources de l’utilisateur.
 

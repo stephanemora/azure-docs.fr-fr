@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358138"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279480"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Authentification directe Azure Active Directory : Préversion de la mise à niveau des agents d'authentification
 
@@ -60,7 +60,7 @@ Pour vérifier les versions de vos Agents d’authentification sur chaque serveu
 
 Avant la mise à niveau, vérifiez que les éléments suivants sont en place :
 
-1. **Créer un compte d'administrateur général réservé au cloud** : ne procédez à aucune mise à niveau avant de disposer d'un compte d'administrateur général réservé au cloud et à utiliser en cas d'urgence lorsque vos agents d'authentification directe ne fonctionnent pas correctement. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
+1. **Créer un compte d'administrateur général réservé au cloud** : ne procédez à aucune mise à niveau avant de disposer d'un compte d'administrateur général réservé au cloud et à utiliser en cas d'urgence lorsque vos agents d'authentification directe ne fonctionnent pas correctement. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
 2.  **Garantir une haute disponibilité** : si ce n'est pas déjà fait, installez un deuxième agent d'authentification autonome pour assurer la haute disponibilité des demandes de connexion, en utilisant ces [instructions ](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Mise à niveau de l’agent d’authentification sur votre serveur Azure AD Connect

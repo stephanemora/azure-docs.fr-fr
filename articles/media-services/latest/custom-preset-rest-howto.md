@@ -3,23 +3,25 @@ title: Encoder une transformation personnalisée avec Media Services v3 REST - A
 description: Cette rubrique explique comment utiliser Azure Media Services v3 pour encoder une transformation personnalisée à l’aide de REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: ''
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053320"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295629"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Comment encoder avec une transformation personnalisée - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Lors de l’encodage avec Azure Media Services, vous pouvez commencer rapidement avec l’un des préréglages intégrés recommandés et basés sur les bonnes pratiques, comme illustré dans le didacticiel [Streaming de fichiers](stream-files-tutorial-with-rest.md#create-a-transform). Vous pouvez également créer un préréglage personnalisé pour les besoins de votre scénario ou votre appareil.
 

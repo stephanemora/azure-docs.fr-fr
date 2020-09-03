@@ -11,12 +11,13 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 252c033c1a9d4d45c3d48256e65ae9ad10a93c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360059"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279293"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -38,12 +39,12 @@ Le tableau suivant récapitule les autorisations nécessaires sur les objets AD 
 | Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations de lecture et d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Réécriture du mot de passe |Autorisations de lecture et d’écriture sur les attributs documentés dans [Bien démarrer avec la gestion des mots de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |
+| Réécriture du mot de passe |Autorisations de lecture et d’écriture sur les attributs documentés dans [Bien démarrer avec la gestion des mots de passe](../authentication/tutorial-enable-sspr-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations de lecture et d’écriture sur les objets et conteneurs d’appareil documentés dans la [réécriture d’appareil](how-to-connect-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Utilisation du module PowerShell ADSyncConfig 
-Le module ADSyncConfig nécessite les [outils d’administration de serveur distant pour AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools), car il dépend des outils et du module PowerShell AD DS. Pour installer les outils d’administration de serveur distant pour AD DS, ouvrez une fenêtre Windows PowerShell avec l’option « Exécuter en tant qu’administrateur » et exécutez la commande suivante : 
+Le module ADSyncConfig nécessite les [outils d’administration de serveur distant pour AD DS](/windows-server/remote/remote-server-administration-tools), car il dépend des outils et du module PowerShell AD DS. Pour installer les outils d’administration de serveur distant pour AD DS, ouvrez une fenêtre Windows PowerShell avec l’option « Exécuter en tant qu’administrateur » et exécutez la commande suivante : 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -310,4 +311,3 @@ Cette applet de commande définit les autorisations suivantes :
 - [Installation Express](how-to-connect-install-express.md)
 - [Installation personnalisée](how-to-connect-install-custom.md)
 - [Référence ADSyncConfig](reference-connect-adsyncconfig.md)
-
