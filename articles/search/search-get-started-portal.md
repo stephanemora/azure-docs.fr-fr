@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083557"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935311"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de 
 
 Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires.
 
-L’**Explorateur de recherche** est uniquement équipé pour gérer des [demandes d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mais il accepte à la fois une syntaxe de [requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et celle de l’[analyseur complet de requêtes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans des opérations d’[API REST de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+L’**Explorateur de recherche** est uniquement équipé pour gérer des [demandes d’API REST](/rest/api/searchservice/search-documents), mais il accepte à la fois une syntaxe de [requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) et celle de l’[analyseur complet de requêtes Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans des opérations d’[API REST de recherche dans des documents](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > Les étapes suivantes font l’objet d’une démonstration à 6:08 dans la [vidéo de présentation de la Recherche cognitive Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -188,7 +188,7 @@ Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le p
 
 * Le paramètre **$filter** renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, ce sont les évaluations supérieures à 4.
 
-* La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
+* La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> « Facetter » la requête
 
@@ -207,7 +207,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 * Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
 
-* Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
@@ -240,11 +240,11 @@ Lorsque l’élément **queryType** n’est pas spécifié, l’analyseur de req
 
 La recherche partielle et la recherche par caractères génériques ont des conséquences sur les résultats de la recherche. L’analyse linguistique n’est pas effectuée sur ces formats de requête. Avant d’utiliser la recherche partielle et la recherche par caractères génériques, consultez [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis), puis recherchez la section sur les exceptions relatives à l’analyse lexicale.
 
-Pour plus d’informations sur les scénarios de requête permis par l’analyseur de requêtes complètes, consultez [Syntaxe de requête Lucene dans la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Pour plus d’informations sur les scénarios de requête permis par l’analyseur de requêtes complètes, consultez [Syntaxe de requête Lucene dans la Recherche cognitive Azure](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Essayez la recherche géospatiale
 
-La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
+La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exemple (filtres géo-coordonnés) : `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +256,7 @@ La recherche géographique est utile si votre application de recherche dispose d
 
 Ce tutoriel a fourni une brève présentation de la Recherche cognitive Azure à l’aide du portail Azure.
 
-Vous avez appris à créer un index de recherche à l’aide de l’Assistant **Importer des données**. Vous avez découvert les [indexeurs](search-indexer-overview.md), ainsi que le flux de travail de base pour la conception d’index, y compris les [modifications prises en charge pour un index publié](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Vous avez appris à créer un index de recherche à l’aide de l’Assistant **Importer des données**. Vous avez découvert les [indexeurs](search-indexer-overview.md), ainsi que le flux de travail de base pour la conception d’index, y compris les [modifications prises en charge pour un index publié](/rest/api/searchservice/update-index).
 
 À l’aide de **l’Explorateur de recherche** dans le portail Azure, vous avez découvert la syntaxe de requête par le biais d’exemples pratiques qui illustraient des fonctionnalités clés comme les filtres, la mise en surbrillance des correspondances, la recherche partielle et la recherche basée sur la géolocalisation.
 
@@ -280,4 +280,4 @@ Utilisez un Assistant du portail pour générer une application web prête à l�
 Vous souhaitez optimiser et réduire vos coûts de cloud ?
 
 > [!div class="nextstepaction"]
-> [Démarrer l’analyse des coûts avec Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Démarrer l’analyse des coûts avec Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68779849"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278647"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Présentation de l’identité hybride avec Azure Active Directory
 
@@ -36,7 +36,7 @@ Pour obtenir l’identité hybride avec Azure AD, l'une des trois méthodes d’
 
 Ces méthodes d’authentification s'accompagnent également de fonctionnalités d'[authentification unique](how-to-connect-sso.md).  L’authentification unique connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise.
 
-Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Scénarios et recommandations courants 
 
@@ -60,7 +60,7 @@ Voici quelques scénarios courants de gestion des identités hybrides et des acc
 > 
 > <sup>3</sup> Authentification unique fédérée avec AD FS.  
 >  
-> <sup>4</sup> AD FS peut être intégré à l’infrastructure de clé publique (PKI) de votre entreprise pour permettre l’authentification à l’aide de certificats. Ces certificats peuvent être des certificats logiciels déployés via des canaux d’approvisionnement approuvés tels que les certificats de gestion des périphériques mobiles (GPM), d’objet de stratégie de groupe (GPO), de carte à puce (y compris les cartes PIV/CAC) ou Hello for Business (approbation de certificat). Pour plus d’informations sur la prise en charge de l’authentification par carte à puce, consultez [ce  blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> AD FS peut être intégré à l’infrastructure de clé publique (PKI) de votre entreprise pour permettre l’authentification à l’aide de certificats. Ces certificats peuvent être des certificats logiciels déployés via des canaux d’approvisionnement approuvés tels que les certificats de gestion des périphériques mobiles (GPM), d’objet de stratégie de groupe (GPO), de carte à puce (y compris les cartes PIV/CAC) ou Hello for Business (approbation de certificat). Pour plus d’informations sur la prise en charge de l’authentification par carte à puce, consultez [ce  blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Licences requises pour Azure AD Connect
@@ -73,5 +73,4 @@ Voici quelques scénarios courants de gestion des identités hybrides et des acc
 - [Qu’est-ce que la synchronisation de hachage de mot de passe (PHS) ?](whatis-phs.md) 
 - [Qu’est-ce que l’authentification directe (PTA) ?](how-to-connect-pta.md) 
 - [Qu’est-ce que la fédération ?](whatis-fed.md) 
-- [Qu’est-ce que l’authentification unique ?](how-to-connect-sso.md) 
-
+- [Qu’est-ce que l’authentification unique ?](how-to-connect-sso.md)

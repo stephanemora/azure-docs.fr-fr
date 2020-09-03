@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76712539"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228237"
 ---
 # <a name="what-is-identity-provisioning"></a>Qu’est-ce que le provisionnement d’identités ?
 
@@ -50,7 +50,7 @@ Le scénario le plus courant correspond à un nouvel employé qui rejoint votre 
 
 ![provisionnement cloud](media/what-is-provisioning/cloud3.png)
 
-Dans Azure Active Directory (Azure AD), le terme **[provisionnement de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** désigne la création automatique des identités et rôles des utilisateurs dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Les scénarios courants incluent la configuration d’un utilisateur Azure AD dans des applications telles que [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), et bien plus encore.
+Dans Azure Active Directory (Azure AD), le terme **[provisionnement de l’application](../app-provisioning/user-provisioning.md)** désigne la création automatique des identités et rôles des utilisateurs dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Les scénarios courants incluent la configuration d’un utilisateur Azure AD dans des applications telles que [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), et bien plus encore.
 
 ## <a name="directory-provisioning"></a>Provisionnement d’annuaire
 

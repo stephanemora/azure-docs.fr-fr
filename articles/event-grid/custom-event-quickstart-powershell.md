@@ -3,12 +3,13 @@ title: 'Démarrage rapide : Envoyer des événements personnalisés à un point
 description: 'Démarrage rapide : Utilisez Azure Event Grid et PowerShell pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique. Les événements sont gérés par une application web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4dbed993b4123045ae6233466cd9ca0565465a1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115024"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075611"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec PowerShell et Event Grid
 

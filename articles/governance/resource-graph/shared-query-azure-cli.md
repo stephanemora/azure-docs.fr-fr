@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une requête partagée avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer l’extension Resource Graph pour Azure CLI et vous créez une requête partagée.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569443"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050945"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure CLI
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Pour permettre à Azure CLI d’utiliser Azure Resource Graph, vous devez ajouter l’extension. Cette extension fonctionne avec Azure CLI quel que soit l’endroit où vous l’utilisez : [bash sur Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (en version autonome et à l’intérieur du portail), [image Docker Azure CLI](https://hub.docker.com/r/microsoft/azure-cli/) ou installation locale.
 
-1. Vérifiez que la version la plus récente d’Azure CLI est installée (**2.8.0** au minimum). S’il n’est pas installé, suivez [ces instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Vérifiez que la version la plus récente d’Azure CLI est installée (**2.8.0** au minimum). S’il n’est pas installé, suivez [ces instructions](/cli/azure/install-azure-cli-windows).
 
 1. Dans l’environnement Azure CLI de votre choix, utilisez [az extension add](/cli/azure/extension#az-extension-add) pour importer l’extension Resource Graph avec la commande suivante :
 
