@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69367da8a732f383222836442406a495bf82a0db
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5af6b7d795d95b506fe0d63f68d2384141db29fc
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892590"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319472"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Créer un groupe de base et ajouter des membres avec Azure Active Directory
 Vous pouvez créer un groupe de base à l’aide du portail Azure Active Directory (Azure AD). Pour les besoins de cet article, un groupe de base est ajouté à une seule ressource par le propriétaire de la ressource (administrateur) ; il inclut les membres spécifiques (employés) qui doivent accéder à cette ressource. Pour des scénarios plus complexes, notamment la création de règles et les appartenances dynamiques, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
@@ -77,10 +77,9 @@ Vous pouvez créer un groupe de base et ajouter vos membres en même temps. Pour
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue dans le groupe
 
-Lors de la création d'un groupe Microsoft 365, que l'appartenance soit dynamique ou statique, une notification de bienvenue est envoyée à tous les utilisateurs qui sont ajoutés au groupe. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour des modifications d’appartenance potentielles. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Lors de la création d'un groupe Microsoft 365, que l'appartenance soit dynamique ou statique, une notification de bienvenue est envoyée à tous les utilisateurs qui sont ajoutés au groupe. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour des modifications d’appartenance potentielles. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Gérer l’accès aux applications SaaS en utilisant des groupes](../users-groups-roles/groups-saasapps.md)
 - [Gérer des groupes au moyen de commandes PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
-

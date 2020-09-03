@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d651a1a6ce8ef412c148f16d0aa4412df94cb0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 529c0ffa6b629dee124236e334c862c049f472ad
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799546"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318537"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients australiens et néo-zélandais dans Azure Active Directory
 
@@ -34,8 +34,8 @@ Tous les autres services Azure AD stockent les données client dans des centres
 
 ## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure Multi-Factor Authentication (MFA)
 
-MFA stocke les données d’identité client dans des centres de données dans le monde entier. Pour en savoir plus sur les informations utilisateur collectées et stockées par les serveurs Azure MFA et Azure MFA basés sur le cloud, consultez [Collecte de données utilisateur avec Microsoft Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency).
+MFA stocke les données d’identité client dans des centres de données dans le monde entier. Pour en savoir plus sur les informations utilisateur collectées et stockées par les serveurs Azure MFA et Azure MFA basés sur le cloud, consultez [Collecte de données utilisateur avec Microsoft Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les fonctions et fonctionnalités décrites ci-dessus, consultez les articles suivants :
-- [Présentation d’authentification multifacteur](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [Présentation d’authentification multifacteur](../authentication/concept-mfa-howitworks.md)

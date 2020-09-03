@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835882"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049687"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 
@@ -80,11 +80,8 @@ Cet exemple montre comment configurer des règles de groupes de sécurité rése
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
 
-1. Créez des règles sortantes de port HTTPS 443 pour les adresses IP Site Recovery qui correspondent à l’emplacement cible :
-
-   | Emplacement | Adresse IP Site Recovery | Adresse IP de surveillance Site Recovery |
-   | --- | --- | --- |
-   | USA Centre | 40.69.144.231 | 52.165.34.144 |
+1. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.CentralUS » sur le groupe de sécurité réseau qui correspond à la position cible. Celle-ci permet d’accéder à la supervision de Site Recovery.
+1. Créez une règle de sécurité HTTPS sortante (443) pour « AzureSiteRecovery » sur le groupe de sécurité réseau. Celle-ci permet d’accéder au service Site Recovery dans n’importe quelle région.
 
 #### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - USA Centre
 
@@ -100,11 +97,8 @@ Pour cet exemple, ces règles de groupe de sécurité réseau sont nécessaires 
    - **Balise d’identification de destination** : _AzureActiveDirectory_
    - **Plages de ports de destination** : _443_
 
-1. Créez des règles sortantes de port HTTPS 443 pour les adresses IP Site Recovery qui correspondent à l’emplacement source :
-
-   | Emplacement | Adresse IP Site Recovery | Adresse IP de surveillance Site Recovery |
-   | --- | --- | --- |
-   | USA Est | 13.82.88.226 | 104.45.147.24 |
+1. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.Eastus » sur le groupe de sécurité réseau qui correspond à la position source. Celle-ci permet d’accéder à la supervision de Site Recovery.
+1. Créez une règle de sécurité HTTPS sortante (443) pour « AzureSiteRecovery » sur le groupe de sécurité réseau. Celle-ci permet d’accéder au service Site Recovery dans n’importe quelle région.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problème 3 : Échec de la configuration de Site Recovery (151197)
 

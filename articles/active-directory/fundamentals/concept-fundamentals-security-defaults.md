@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873719"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320866"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -92,7 +92,7 @@ Lorsque les paramètres de sécurité par défaut sont activés dans votre locat
 > [!WARNING]
 > Avant d’activer les paramètres de sécurité par défaut, assurez-vous que vos administrateurs n’utilisent aucun protocole d’authentification plus anciens. Pour plus d’informations, voir [Comment se passer de l’authentification héritée](concept-fundamentals-block-legacy-authentication.md).
 
-- [Comment configurer une application ou un appareil multifonction pour envoyer un e-mail à l’aide d’Office 365 et de Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Comment configurer une application ou un appareil multifonction pour envoyer un e-mail à l’aide d’Office 365 et de Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protection des actions privilégiées
 
@@ -109,7 +109,7 @@ Il est important de vérifier l’identité des utilisateurs qui souhaitent acc�
 Une fois que vous avez activé les paramètres de sécurité par défaut dans votre locataire, tout utilisateurs accédant au Portail Azure, à Azure PowerShell ou à Azure CLI doit effectuer une authentification supplémentaire. Cette stratégie s’applique à tous les utilisateurs accédant à Azure Resource Manager, qu’ils soient administrateurs ou utilisateurs. 
 
 > [!NOTE]
-> L’authentification moderne est désactivée par défaut pour les locataires Exchange Online antérieurs à 2017. Pour éviter la possibilité d’une boucle de connexion lors de l’authentification par le biais de ces locataires, vous devez [activer l’authentification moderne](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> L’authentification moderne est désactivée par défaut pour les locataires Exchange Online antérieurs à 2017. Pour éviter la possibilité d’une boucle de connexion lors de l’authentification par le biais de ces locataires, vous devez [activer l’authentification moderne](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > Le compte de synchronisation Azure AD Connect est exclu des paramètres de sécurité par défaut et ne sera pas invité à s’inscrire ou à effectuer une authentification multifacteur. Les organisations ne doivent pas utiliser ce compte à d’autres fins.

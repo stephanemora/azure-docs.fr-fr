@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995307"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049262"
 ---
 # <a name="conditional-access-block-access"></a>Accès conditionnel : Bloquer l’accès
 
@@ -38,7 +38,7 @@ Les stratégies d’accès conditionnel sont des outils puissants. Nous vous rec
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vont permettre de créer des stratégies d’accès conditionnel pour bloquer l’accès à toutes les applications à l’exception d’[Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si les utilisateurs ne sont pas sur un réseau approuvé. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-report-only.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que les stratégies s’appliquent comme prévu, ils peuvent les **activer**.
+Les étapes suivantes vont permettre de créer des stratégies d’accès conditionnel pour bloquer l’accès à toutes les applications à l’exception d’[Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si les utilisateurs ne sont pas sur un réseau approuvé. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-insights-reporting.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que les stratégies s’appliquent comme prévu, ils peuvent les **activer**.
 
 La première stratégie bloque l’accès à toutes les applications à l’exception des applications Office 365 si l’emplacement n’est pas approuvé.
 
@@ -84,6 +84,6 @@ Une deuxième stratégie est créée ci-dessous pour exiger l’authentification
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 
-[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-insights-reporting.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054710"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320254"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurer « Restez connecté ? » invite pour les comptes Azure AD
 
@@ -57,7 +57,7 @@ Les détails relatifs à l’erreur de connexion sont les suivants et mis en sur
 
 Vous pouvez empêcher les utilisateurs de voir l’interruption en définissant le paramètre **afficher sur rester connecté** sur **Non** dans les paramètres de personnalisation avancés. Cela désactive l’invite KMSI pour tous les utilisateurs de votre répertoire Azure AD.
 
-Vous pouvez également utiliser les contrôles de session persistante du navigateur dans l’accès conditionnel pour empêcher les utilisateurs d’afficher l’invite KMSI. Cette option vous permet de désactiver l’invite KMSI pour un groupe sélectionné d’utilisateurs (tels que les administrateurs généraux) sans affecter le comportement de connexion pour les utilisateurs restants dans l’annuaire. Pour plus d’informations sur cette option, consultez [Fréquence de connexion de l’utilisateur](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+Vous pouvez également utiliser les contrôles de session persistante du navigateur dans l’accès conditionnel pour empêcher les utilisateurs d’afficher l’invite KMSI. Cette option vous permet de désactiver l’invite KMSI pour un groupe sélectionné d’utilisateurs (tels que les administrateurs généraux) sans affecter le comportement de connexion pour les utilisateurs restants dans l’annuaire. Pour plus d’informations sur cette option, consultez [Fréquence de connexion de l’utilisateur](../conditional-access/howto-conditional-access-session-lifetime.md). 
 
 Pour vérifier que l’invite KMSI s’affiche uniquement lorsqu’elle peut être utile à l’utilisateur, elle est intentionnellement masquée dans les scénarios suivants :
 
@@ -72,6 +72,6 @@ Pour vérifier que l’invite KMSI s’affiche uniquement lorsqu’elle peut êt
 
 En savoir plus sur les autres paramètres qui affectent le délai d’expiration de la session de connexion :
 
-* Microsoft 365 : [délai d’expiration de la session inactive](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Accès conditionnel Azure AD - [Fréquence de connexion de l’utilisateur](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Portail Azure - [Configurer le délai d’inactivité au niveau du répertoire](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 : [délai d’expiration de la session inactive](/sharepoint/sign-out-inactive-users)
+* Accès conditionnel Azure AD - [Fréquence de connexion de l’utilisateur](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Portail Azure - [Configurer le délai d’inactivité au niveau du répertoire](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

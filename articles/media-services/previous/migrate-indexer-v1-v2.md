@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 84e4e34ab7b9f0250ae7bc94248fa98cbf23cd6c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3da6dd877a94da64f85f093ae98a0b8a109ab2e1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084379"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255101"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrer depuis Media Indexer et Media Indexer 2 vers Video Indexer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Les processeurs multimédias [Azure Media Indexer](media-services-index-content.md) et [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) sont en phase de mise hors service. Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md). [Azure Media Services Video Indexer](../video-indexer/index.yml) remplace ces processeurs multimédias hérités.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716297"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049568"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -92,7 +92,7 @@ Cet exemple de jeu de stratégies permettra aux utilisateurs sélectionnés du g
 
 ### <a name="contingencies-for-user-lockout"></a>Plans d'urgence en cas de verrouillage des utilisateurs
 
-Votre organisation peut également créer des stratégies d'urgence. Pour créer des stratégies d'urgence, vous devez définir des critères de compromis entre la continuité des opérations, les coûts opérationnels, les coûts financiers et les risques liés à la sécurité. Par exemple, vous pouvez activer une stratégie d'urgence pour un sous-ensemble d'utilisateurs, d'applications ou de clients, ou à partir d'un sous-ensemble d'emplacements. En cas d'interruption, les stratégies d'urgence permettront aux administrateurs et aux utilisateurs finaux d'accéder aux applications et ressources si aucune méthode d'atténuation n'a été implémentée. Microsoft recommande d’activer les stratégies d’urgence en [mode rapport seul](../conditional-access/howto-conditional-access-report-only.md) lorsqu’elles ne sont pas utilisées, afin que les administrateurs puissent surveiller l’impact potentiel des stratégies s’il fallait les activer.
+Votre organisation peut également créer des stratégies d'urgence. Pour créer des stratégies d'urgence, vous devez définir des critères de compromis entre la continuité des opérations, les coûts opérationnels, les coûts financiers et les risques liés à la sécurité. Par exemple, vous pouvez activer une stratégie d'urgence pour un sous-ensemble d'utilisateurs, d'applications ou de clients, ou à partir d'un sous-ensemble d'emplacements. En cas d'interruption, les stratégies d'urgence permettront aux administrateurs et aux utilisateurs finaux d'accéder aux applications et ressources si aucune méthode d'atténuation n'a été implémentée. Microsoft recommande d’activer les stratégies d’urgence en [mode rapport seul](../conditional-access/howto-conditional-access-insights-reporting.md) lorsqu’elles ne sont pas utilisées, afin que les administrateurs puissent surveiller l’impact potentiel des stratégies s’il fallait les activer.
 
  Le fait de savoir à quoi vous vous exposez en cas d'interruption vous aidera à réduire les risques et constituera un élément essentiel de votre processus de planification. Pour créer votre plan d'urgence, commencez par déterminer les besoins de votre organisation :
 

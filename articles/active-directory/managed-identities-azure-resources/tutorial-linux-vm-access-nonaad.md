@@ -3,7 +3,7 @@ title: Tutoriel `:` Utiliser une identité managée pour accéder à Azure Key 
 description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité managée attribuée par le système de machine virtuelle Linux pour accéder à Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6756d66f176314ad5abd0c94f7bdf96c42a460a4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74232183"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255307"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault 
 
@@ -66,7 +66,7 @@ Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aid
  
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer la clé secrète de Key Vault  
 
-Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](/windows/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
 2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
@@ -110,8 +110,4 @@ Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utili
 Dans ce didacticiel, vous avez appris à utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault.  Pour en savoir plus sur Azure Key Vault, consultez :
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
-
-
-
-
+>[Azure Key Vault](../../key-vault/general/overview.md)

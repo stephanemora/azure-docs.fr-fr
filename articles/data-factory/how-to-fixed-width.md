@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23b812da8c84ebf055ac4eabdc4649828c139a7f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414371"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051013"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Traiter des fichiers texte de longueur fixe à l’aide de flux de données de mappage Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Vous pouvez transformer les données de fichiers texte de longueur fixe en utilisant des flux de données de mappage dans Microsoft Azure Data Factory. Dans le cadre de la tâche suivante, nous allons définir un jeu de données pour un fichier texte sans délimiteur, puis configurer des divisions de sous-chaînes en fonction de la position ordinale.
 

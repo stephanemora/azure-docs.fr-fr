@@ -3,21 +3,23 @@ title: Envoyer des données manuscrites à l’API Ink Recognizer
 titleSuffix: Azure Cognitive Services
 description: Apprenez à appeler l’API Ink Recognizer pour différentes applications.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219207"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051098"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Envoyer des données manuscrites à l’API Ink Recognizer 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Les entrées manuscrites numériques font référence aux technologies qui permettent de représenter sous forme numérique des entrées comme l’écriture manuscrite et les dessins. Ces représentations sont généralement obtenues à l’aide d’un numériseur qui capture les mouvements des appareils d’entrée, comme les stylets. Alors que les appareils permettent toujours des expériences d’écriture manuscrite numériques riches, l’intelligence artificielle et le machine learning permettent la reconnaissance de formes et de texte écrits dans n’importe quel contexte. L’API Ink Recognizer vous permet d’envoyer des traits d’encre pour obtenir des informations détaillées les concernant. 
 

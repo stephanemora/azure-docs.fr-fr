@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4025ace5c2609783a8d0f09b99d60537addb6f08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51f6b40fc4cafad16ef6f6ca92fafa7ba1378c4a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060104"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255935"
 ---
-# <a name="upload-files-into-a-media-services-account-using-net"></a>Charger des fichiers dans un compte Media Services à l’aide de .NET 
+# <a name="upload-files-into-a-media-services-account-using-net"></a>Charger des fichiers dans un compte Media Services à l’aide de .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024357"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049041"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accès conditionnel : Accès conditionnel basé sur les risques de connexion
 
@@ -66,8 +66,8 @@ Il y a deux emplacements où cette stratégie peut être affectée. Les organisa
 
 [Accès conditionnel basé sur les risques d’utilisateur](howto-conditional-access-policy-risk-user.md)
 
-[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-insights-reporting.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
 
-[Qu’est-ce que Azure Active Directory Identity Protection ?](../identity-protection/overview.md)
+[Qu’est-ce que Azure Active Directory Identity Protection ?](../identity-protection/overview-identity-protection.md)

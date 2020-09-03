@@ -3,7 +3,7 @@ title: Tutoriel `:` Utiliser une identité managée pour accéder à Azure Key 
 description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité managée attribuée par le système de machine virtuelle Windows pour accéder à Azure Key Vault.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2890eb2211ac0a105363742a0e900e52a577ed27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018772"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255823"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
 
@@ -75,7 +75,7 @@ Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aid
  
 ## <a name="access-data"></a>Accéder aux données  
 
-Cette section montre comment obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et comment l’utiliser pour récupérer un secret dans le coffre de clés. Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/).
+Cette section montre comment obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et comment l’utiliser pour récupérer un secret dans le coffre de clés. Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](/powershell/azure/).
 
 Tout d’abord, nous utilisons l’identité managée attribuée par le système de machine virtuelle pour obtenir un jeton d’accès permettant de s’authentifier auprès de Key Vault :
  
@@ -128,4 +128,4 @@ Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utili
 Dans ce didacticiel, vous avez appris à utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault.  Pour en savoir plus sur Azure Key Vault, consultez :
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-overview)
+>[Azure Key Vault](../../key-vault/general/overview.md)

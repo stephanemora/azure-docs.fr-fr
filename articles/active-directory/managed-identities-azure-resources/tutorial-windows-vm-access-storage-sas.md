@@ -3,7 +3,7 @@ title: Tutoriel`:` Utiliser une identité managée pour accéder à Stockage Azu
 description: Tutoriel montrant comment utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure en utilisant des informations d’identification SAP au lieu d’une clé d’accès au compte de stockage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ca5ec32e1f88572812b19cf08d4c6f9dc70af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa04247aca777612c05a7531dc5b36e7af40e60e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018568"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255815"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure via des informations d’identification SAP
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce tutoriel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Ce tutoriel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Une SAP de service offre la possibilité d’accorder un accès limité à des objets dans un compte de stockage, pendant une durée limitée et pour un service spécifique (en l’occurrence, le service BLOB), sans exposer de clé d’accès de compte. Vous pouvez utiliser des informations d’identification SAP comme d’habitude lors de l’exécution d’opérations de stockage, par exemple, lors de l’utilisation du SDK Stockage Azure. Ce didacticiel montre le chargement et le téléchargement d’un objet blob à l’aide de Stockage Azure PowerShell. Vous apprendrez à :
 
@@ -83,7 +83,7 @@ Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode n
 
 Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que nous avons créée précédemment.
 
-Dans cette partie, vous devez utiliser les applets de commande PowerShell d’Azure Resource Manager.  Si vous ne l’avez pas installé, [téléchargez la dernière version](https://docs.microsoft.com/powershell/azure/) avant de continuer.
+Dans cette partie, vous devez utiliser les applets de commande PowerShell d’Azure Resource Manager.  Si vous ne l’avez pas installé, [téléchargez la dernière version](/powershell/azure/) avant de continuer.
 
 1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Windows, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**.
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows. 
@@ -205,6 +205,4 @@ Name              : testblob
 Dans ce tutoriel, vous avez appris à utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure à l’aide d’informations d’identification SAP.  Pour en savoir plus sur le Stockage Azure SAP, consultez :
 
 > [!div class="nextstepaction"]
->[Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[Utilisation des signatures d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md)

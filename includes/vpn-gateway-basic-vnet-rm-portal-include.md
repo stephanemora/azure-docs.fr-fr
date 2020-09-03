@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301938"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89052484"
 ---
 Vous pouvez créer un réseau virtuel avec le modèle de déploiement Resource Manager et le portail Azure en suivant ces étapes. Pour plus d’informations sur les réseaux virtuels, consultez [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -46,7 +46,6 @@ Vous pouvez créer un réseau virtuel avec le modèle de déploiement Resource M
 
    ![Onglet Adresses IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Onglet Adresses IP")  
    - **Espace d’adressage IPv4** : Un espace d’adressage est créé automatiquement par défaut. Vous pouvez cliquer sur l’espace d’adressage pour le définir selon vos propres valeurs. Vous pouvez également ajouter des espaces d’adressage.
-   - **IPv6** : Si votre configuration nécessite un espace d’adressage IPv6, cochez la case **Ajouter un espace d’adressage IPv6** pour entrer cette information.
    - **Sous-réseau** : Si vous utilisez l’espace d’adressage par défaut, un sous-réseau par défaut est créé automatiquement. Si vous modifiez l’espace d’adressage, vous devez ajouter un sous-réseau. Sélectionnez **+ Ajouter un sous-réseau** pour ouvrir la fenêtre **Ajouter un sous-réseau**. Configurez les paramètres suivants, puis sélectionnez **Ajouter** pour ajouter les valeurs :
       - **Nom du sous-réseau** : dans cet exemple, nous avons nommé le sous-réseau « FrontEnd ».
       - **Plage d’adresses de sous-réseau** : plage d’adresses de ce sous-réseau.

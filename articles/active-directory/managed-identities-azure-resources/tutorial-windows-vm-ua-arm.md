@@ -3,7 +3,7 @@ title: Tutoriel `:` Utiliser une identité managée pour accéder à Azure Reso
 description: Ce didacticiel explique pas à pas comment utiliser une identité managée attribuée par l’utilisateur sur une machine virtuelle Windows pour accéder à Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 030f2b893cd429bfdb451d24e799689fdb8a3cf8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977850"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255696"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutoriel : Utiliser une identité managée attribuée par l’utilisateur sur une machine virtuelle Windows pour accéder à Azure Resource Manager
 
@@ -45,9 +45,9 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 - [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
+- [Créez une machine virtuelle Windows](../../virtual-machines/windows/quick-create-portal.md).
 
-- Pour effectuer les étapes de création de ressources et de gestion de rôles nécessaires dans ce tutoriel, votre compte doit bénéficier des autorisations « Propriétaire » avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](/azure/role-based-access-control/role-assignments-portal).
+- Pour effectuer les étapes de création de ressources et de gestion de rôles nécessaires dans ce tutoriel, votre compte doit bénéficier des autorisations « Propriétaire » avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
 - [Installez la dernière version du module Azure PowerShell](/powershell/azure/install-az-ps). 
 - Exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 - Installez la [dernière version de PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
@@ -163,4 +163,4 @@ La réponse contient les informations particulières du groupe de ressources, co
 Dans ce tutoriel, vous avez découvert comment créer une identité attribuée par l’utilisateur, puis l’attacher à une machine virtuelle Azure pour accéder à l’API Azure Resource Manager.  Pour en savoir plus sur Azure Resource Manager, consultez :
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

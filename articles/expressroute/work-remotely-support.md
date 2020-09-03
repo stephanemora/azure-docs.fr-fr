@@ -2,17 +2,17 @@
 title: Utilisation d’Azure ExpressRoute pour prendre en charge les utilisateurs distants
 description: Cette page décrit comment tirer parti d’Azure ExpressRoute pour permettre le travail à distance dans le contexte de l’épidémie de COVID-19.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/22/2020
-ms.author: ajitbhu
-ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: e783e80a1883f5aea7a266d3ec670ce2a898e735
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738071"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392954"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Utilisation d’Azure ExpressRoute pour créer une connectivité hybride pour prendre en charge les utilisateurs distants
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
-ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604780"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050860"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examiner la sortie Video Indexer
 
@@ -27,7 +27,7 @@ Vous pouvez également utiliser l’API en appelant l’API **Get Video Index** 
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Cet article examine la sortie Video Indexer (contenu JSON). Pour plus d’informations sur les fonctionnalités et les insights à votre disposition, consultez [Insights de Video Indexer](video-indexer-overview.md#video-insights).
+Cet article examine la sortie Video Indexer (contenu JSON). <br/>Pour plus d’informations sur les fonctionnalités et les insights à votre disposition, consultez [Insights de Video Indexer](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > Tous les jetons d’accès dans Video Indexer arrivent à expiration au bout d’une heure.

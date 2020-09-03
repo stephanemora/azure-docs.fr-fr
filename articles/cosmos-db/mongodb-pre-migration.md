@@ -5,14 +5,14 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 09/01/2020
 ms.author: lbosq
-ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263056"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318214"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
 
@@ -44,11 +44,10 @@ Le service [Azure Database Migration Service pour l’API Azure Cosmos DB pour M
 
 |**Type de migration**|**Solution**|**Considérations**|
 |---------|---------|---------|
-|Hors connexion|[Outil de migration de données](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Non adapté aux jeux de données volumineux|
-|Hors connexion|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; L’absence de points de contrôle signifie que tout problème au cours de la migration impose le redémarrage de l’ensemble du processus de migration<br/>&bull; L’absence de file d’attente de lettres mortes signifie que quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration <br/>&bull; Nécessite du code personnalisé pour augmenter le débit de lecture pour certaines sources de données|
+|En ligne|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
+|Hors connexion|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
+|Hors connexion|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; L’absence de points de contrôle signifie que tout problème au cours de la migration impose le redémarrage de l’ensemble du processus de migration<br/>&bull; L’absence de file d’attente de lettres mortes signifie que quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration <br/>&bull; Nécessite du code personnalisé pour augmenter le débit de lecture pour certaines sources de données|
 |Hors connexion|[Outils Mongo existants (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Facilité de configuration et d’intégration <br/>&bull; Nécessite une gestion personnalisée des limitations|
-|En ligne|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Service de migration complètement managé<br/>&bull; Fournit des solutions d’hébergement et de surveillance pour la tâche de migration <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
-
 
 ## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a> Estimer le débit nécessaire pour vos charges de travail
 
@@ -71,12 +70,12 @@ Cette commande génère un document JSON semblable au suivant :
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
+Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Choisir votre clé de partition
 Le partitionnement est un point clé à prendre en compte avant de migrer des données. Azure Cosmos DB utilise un partitionnement complètement managé pour augmenter la capacité d’une base de données à répondre aux exigences de stockage et de débit. Cette fonctionnalité n’a pas besoin de l’hébergement ni de la configuration des serveurs de routage.   
 
-D’une façon similaire, la fonctionnalité de partitionnement ajoute automatiquement de la capacité et rééquilibre les données en conséquence. Pour plus d’informations et pour obtenir des suggestions concernant le choix de la clé de partition appropriée pour vos données, consultez l’article [Choix d’une de clé de partition](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+D’une façon similaire, la fonctionnalité de partitionnement ajoute automatiquement de la capacité et rééquilibre les données en conséquence. Pour plus d’informations et pour obtenir des suggestions concernant le choix de la clé de partition appropriée pour vos données, consultez l’article [Choix d’une de clé de partition](partitioning-overview.md#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexer vos données
 

@@ -1,14 +1,14 @@
 ---
 title: Phases du déploiement d’un blueprint
 description: Découvrez les étapes liées à la sécurité et aux artefacts que les services Azure Blueprints suivent lors de la création d'une attribution de blueprint.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970652"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049772"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phases du déploiement d’un blueprint
 
@@ -56,8 +56,8 @@ Au terme des déploiements, Azure Blueprints révoque de l'abonnement les droits
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
-- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](./parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](./resource-locking.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
 - Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

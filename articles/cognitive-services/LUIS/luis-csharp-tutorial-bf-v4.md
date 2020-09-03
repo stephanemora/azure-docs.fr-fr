@@ -3,12 +3,13 @@ title: 'Tutoriel : Bot Language Understanding C# v4'
 description: À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est créé avec Bot Framework version 4 et le service du bot d’application web Azure.
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445897"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931265"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutoriel : Utiliser un Web App Bot activé avec Language Understanding dans C#
 

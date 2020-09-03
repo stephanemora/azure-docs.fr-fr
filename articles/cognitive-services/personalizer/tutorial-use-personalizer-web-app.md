@@ -3,12 +3,13 @@ title: Utiliser une application web – Personalizer
 description: Personnalisez une application web .NET C# à l’aide d’une boucle Personalizer pour fournir le contenu approprié à un utilisateur en fonction d’actions (avec des fonctionnalités) et de caractéristiques contextuelles.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935617"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutoriel : Ajouter Personalizer à une application web .NET
 

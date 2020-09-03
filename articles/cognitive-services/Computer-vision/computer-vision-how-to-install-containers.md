@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 819fc27d3b50245975192622ad969b53605c1acd
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545639"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378472"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 
@@ -68,14 +68,14 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
-| Lire | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Lire | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
 ### <a name="docker-pull-for-the-read-container"></a>Commande docker pull du conteneur Lire
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -283,7 +283,7 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](computer-vision-resource-container-config.md).
-* Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de Vision par ordinateur](Home.md).
+* Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de Vision par ordinateur](overview.md).
 * Pour plus d’informations sur les méthodes prises en charge par le conteneur, reportez-vous à l’[API Vision par ordinateur](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 * Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.md).
 * Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)
