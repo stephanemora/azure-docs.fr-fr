@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081049"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961871"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -127,7 +127,7 @@ Dans votre script, connectez-vous en utilisant `az login --service-principal` et
 
 ### <a name="java"></a>Java
 
-Utilisez l’API [zipdeploy/](deploy-zip.md) de Kudu pour déployer des applications JAR, et [wardeploy/](deploy-zip.md#deploy-war-file) pour des applications WAR. Si vous utilisez Jenkins, vous pouvez utiliser ces API directement lors de votre phase de déploiement. Pour plus d’informations, consultez [cet article](../jenkins/execute-cli-jenkins-pipeline.md).
+Utilisez l’API [zipdeploy/](deploy-zip.md) de Kudu pour déployer des applications JAR, et [wardeploy/](deploy-zip.md#deploy-war-file) pour des applications WAR. Si vous utilisez Jenkins, vous pouvez utiliser ces API directement lors de votre phase de déploiement. Pour plus d’informations, consultez [cet article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nœud
 
@@ -149,7 +149,7 @@ Utilisez toujours le cache local conjointement avec les [emplacements de déploi
 
 Si votre plan App Service utilise plus de 90 % de l’UC ou de la mémoire disponible, la machine virtuelle sous-jacente risque de rencontrer des problèmes lors du traitement de votre déploiement. Dans ce cas, mettez temporairement à l’échelle le nombre d’instances pour effectuer le déploiement. Une fois le déploiement terminé, vous pouvez remettre le nombre d’instances à sa valeur précédente.
 
-Pour plus d’informations sur les bonnes pratiques, consultez [Diagnostics App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) pour connaître les bonnes pratiques applicables spécifiques à votre ressource.
+Pour plus d’informations sur les bonnes pratiques, consultez [Diagnostics App Service](./overview-diagnostics.md) pour connaître les bonnes pratiques applicables spécifiques à votre ressource.
 
 - Accédez à votre application web dans le [portail Azure](https://portal.azure.com).
 - Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes** pour ouvrir Diagnostics App Service.

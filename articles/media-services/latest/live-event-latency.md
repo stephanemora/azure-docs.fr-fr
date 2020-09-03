@@ -3,24 +3,27 @@ title: Paramètres de Latence faible d’événement en direct dans Azure Media 
 description: Cette rubrique donne une vue d’ensemble des paramètres de latence faible de LiveEvent et montre comment définir une latence faible.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 04/22/2019
-ms.author: juliako
-ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 114efe668fba47e9d83741b8fa45e1f396725198
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000889"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291515"
 ---
 # <a name="live-event-low-latency-settings"></a>Paramètres de latence faible d’événement en direct
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cet article explique comment définir une faible latence sur un [événement en direct](/rest/api/media/liveevents). Il traite également des résultats généralement obtenus avec des paramètres de faible latence sur différents lecteurs. Les résultats varient en fonction de la latence réseau et du CDN.
 

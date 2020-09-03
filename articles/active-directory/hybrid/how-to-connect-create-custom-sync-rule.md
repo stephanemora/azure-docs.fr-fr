@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75300824d94ecbd77f426539ce99da6caaa2e27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f33cbb8caaf81b862198d694b0562d461de8a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359991"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279276"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>Procédure de personnalisation d’une règle de synchronisation
 
@@ -43,13 +43,13 @@ Vous pouvez utiliser l’éditeur des règles de synchronisation pour modifier o
 * Pour modifier une **règle de trafic sortant**, modifiez le filtre correspondant dans l’éditeur de règles de synchronisation.
 
 ## <a name="recommended-documents"></a>**Documents recommandés**
-* [Synchronisation Azure AD Connect : concepts techniques](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Synchronisation Azure AD Connect : comprendre l’architecture](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Synchronisation Azure AD Connect : présentation du provisionnement déclaratif](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Synchronisation Azure AD Connect : comprendre les expressions de provisionnement déclaratif](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Synchronisation Azure AD Connect : comprendre la configuration par défaut](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Synchronisation Azure AD Connect : Comprendre les utilisateurs, les groupes et les contacts](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Synchronisation Azure AD Connect : attributs de clichés instantanés](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Synchronisation Azure AD Connect : concepts techniques](./how-to-connect-sync-technical-concepts.md)
+* [Synchronisation Azure AD Connect : comprendre l’architecture](./concept-azure-ad-connect-sync-architecture.md)
+* [Synchronisation Azure AD Connect : présentation du provisionnement déclaratif](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Synchronisation Azure AD Connect : comprendre les expressions de provisionnement déclaratif](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Synchronisation Azure AD Connect : comprendre la configuration par défaut](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Synchronisation Azure AD Connect : Comprendre les utilisateurs, les groupes et les contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Synchronisation Azure AD Connect : attributs de clichés instantanés](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Synchronisation Azure AD Connect](how-to-connect-sync-whatis.md).

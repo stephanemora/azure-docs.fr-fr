@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: 98cec9fc30b4840a763358c0b3cd76659ff865d7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211883"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070341"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -52,7 +52,7 @@ Pour configurer une identité managée avec Azure CLI, vous devez utiliser la co
 
 - Utiliser [Azure Cloud Shell](../cloud-shell/overview.md) à partir du portail Azure.
 - Utiliser le service incorporé Azure Cloud Shell via le bouton « Essayer », en haut à droite de chaque bloc de code ci-dessous.
-- [Installez la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 ou ultérieure) si vous préférez utiliser une console CLI locale. 
+- [Installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli) (2.0.31 ou ultérieure) si vous préférez utiliser une console CLI locale. 
 
 Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant l’interface CLI :
 
@@ -109,7 +109,7 @@ Les étapes suivantes vous guident dans la création d’une application à laqu
 
 1. Le cas échéant, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](/powershell/azure/), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
-2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions) :
+2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions) :
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Les étapes suivantes vous guident dans la création d’une application à laqu
 
 1. Le cas échéant, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](/powershell/azure/), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
-2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions) : Le script ci-dessous utilise également `New-AzUserAssignedIdentity` qui doit être installé séparément comme pour [créer, répertorier ou supprimer une identité gérée et affectée par l’utilisateur à l’aide d’Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions) : Le script ci-dessous utilise également `New-AzUserAssignedIdentity` qui doit être installé séparément comme pour [créer, répertorier ou supprimer une identité gérée et affectée par l’utilisateur à l’aide d’Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -347,7 +347,7 @@ Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivan
 > | resource      | La ressource pour laquelle le jeton d’accès a été demandé, correspondant au paramètre de chaîne de requête `resource` de la requête.                                                                                                                               |
 > | token_type    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est FBearer. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service d’Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service d’Azure AD](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 ### <a name="rest-protocol-examples"></a>Exemples de protocole REST
 

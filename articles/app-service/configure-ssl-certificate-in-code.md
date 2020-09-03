@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811695"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962126"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Utiliser un certificat TLS/SSL dans votre code dans Azure App Service
 
@@ -24,7 +24,7 @@ Lorsque vous confiez la gestion de vos certificats TLS/SSL à App Service, vous 
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
-- [Création d’une application App Service](/azure/app-service/)
+- [Création d’une application App Service](./index.yml)
 - [Ajouter un certificat à votre application](configure-ssl-certificate.md)
 
 ## <a name="find-the-thumbprint"></a>Trouver l’empreinte
@@ -164,4 +164,4 @@ Pour savoir comment charger un certificat TLS/SSL à partir d'un fichier dans No
 * [Sécuriser un nom DNS personnalisé avec une liaison TLS/SSL dans Azure App Service](configure-ssl-bindings.md)
 * [Appliquer le protocole HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FORUM AUX QUESTIONS : App Service Certificates](./faq-configuration-and-management.md)

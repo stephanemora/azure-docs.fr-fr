@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245328"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924586"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
-Dans ce tutoriel, vous utilisez le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
+Dans ce tutoriel, vous utilisez le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](./cognitive-search-aml-skill.md) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
 
 Pour entraîner le modèle de sentiment basé sur l’aspect dans Azure Machine Learning, vous allez utiliser le [dépôt de recettes nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Le modèle sera ensuite déployé en tant que point de terminaison sur un cluster Azure Kubernetes. Aussitôt déployé, le point de terminaison est ajouté au pipeline d’enrichissement en tant que compétence Azure Machine Learning à utiliser par le service Recherche cognitive.
 
@@ -36,10 +36,10 @@ Deux jeux de données sont fournis. Si vous souhaitez effectuer l’apprentissag
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : procurez-vous un [abonnement gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Service Recherche cognitive](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Ressource Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [Espace de travail Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+* [Service Recherche cognitive](./search-get-started-arm.md)
+* [Ressource Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [compte Stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Espace de travail Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Programme d’installation
 
@@ -47,9 +47,9 @@ Deux jeux de données sont fournis. Si vous souhaitez effectuer l’apprentissag
 * Procédez à l’extraction du contenu si le téléchargement est un fichier zip. Assurez-vous que les fichiers sont en lecture-écriture.
 * Lors de la configuration des comptes et des services Azure, copiez les noms et les clés dans un fichier texte facilement accessible. Les noms et les clés sont ajoutés à la première cellule du notebook dans lequel les variables d’accès aux services Azure sont définies.
 * Si vous n’êtes pas familiarisé avec Azure Machine Learning et ses spécifications, vous pouvez consulter ces documents avant de commencer :
- * [Configurer un environnement de développement pour Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Créer et gérer des espaces de travail Azure Machine Learning dans le portail Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * Lors de la configuration de l’environnement de développement pour Azure Machine Learning, envisagez l’utilisation de l’[instance de calcul informatique](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) pour accélérer et faciliter la prise en main.
+ * [Configurer un environnement de développement pour Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Créer et gérer des espaces de travail Azure Machine Learning dans le portail Azure](../machine-learning/how-to-manage-workspace.md)
+ * Lors de la configuration de l’environnement de développement pour Azure Machine Learning, envisagez l’utilisation de l’[instance de calcul informatique](../machine-learning/how-to-configure-environment.md#compute-instance) pour accélérer et faciliter la prise en main.
 * Chargez le fichier du jeu de données sur un conteneur dans le compte de stockage. Le plus gros fichier est nécessaire si vous souhaitez effectuer l’étape d’entraînement dans le notebook. Si vous préférez ignorer l’étape d’entraînement, le plus petit fichier est recommandé.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Ouvrir le notebook et se connecter aux services Azure
@@ -68,9 +68,9 @@ La section 2 comprend six cellules qui téléchargent le fichier des incorporat
 
 La section 3 du notebook entraîne les modèles qui ont été créés à la section 2 ; enregistrez ces modèles et déployez-les comme point de terminaison dans un cluster Azure Kubernetes. Si vous n’êtes pas familiarisé avec Azure Kubernetes, nous vous recommandons vivement de consulter les articles suivants avant d’essayer de créer un cluster d’inférence :
 
-* [Présentation d’Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Concepts de base de Kubernetes pour Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Présentation d’Azure Kubernetes Service](../aks/intro-kubernetes.md)
+* [Concepts de base de Kubernetes pour Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md)
+* [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)](../aks/quotas-skus-regions.md)
 
 Les opérations de création et de déploiement du cluster d’inférence peuvent prendre jusqu’à 30 minutes. Pour tester le service web avant de passer aux dernières étapes, il est recommandé de mettre à jour votre ensemble de compétences et d’exécuter l’indexeur.
 
@@ -108,5 +108,5 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Consulter l’API web de compétence personnalisée](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api)
-> [En savoir plus sur l’ajout de compétences personnalisées au pipeline d’enrichissement](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Consulter l’API web de compétence personnalisée](./cognitive-search-custom-skill-web-api.md)
+> [En savoir plus sur l’ajout de compétences personnalisées au pipeline d’enrichissement](./cognitive-search-custom-skill-interface.md)

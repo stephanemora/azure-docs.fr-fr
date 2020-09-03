@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680037"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279599"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
 
@@ -56,7 +56,7 @@ Aucune configuration supplémentaire n’est nécessaire pour activer l’ID de 
 
 ![Domaines non vérifiés](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Pour plus d’informations, consultez les sections [Configurer un ID de connexion de remplacement](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) et [Configuration de connexion Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration).
+Pour plus d’informations, consultez les sections [Configurer un ID de connexion de remplacement](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) et [Configuration de connexion Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration).
 
 ## <a name="non-verified-upn-suffix"></a>Suffixe UPN non vérifié
 Si le suffixe d’ID de connexion de remplacement/attribut UserPrincipalName local n’est pas vérifié par le locataire Azure AD, la valeur d’attribut UserPrincipalName Azure AD est définie sur l’adresse MOERA. Azure AD calcule l’adresse MOERA à partir de l’attribut Azure AD MailNickName et du domaine initial Azure AD sous la forme &lt;MailNickName&gt;&#64;&lt;domaine initial&gt;.

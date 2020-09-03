@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85262206"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998456"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutoriel : Indexer à partir de plusieurs sources de données à l’aide du SDK .NET
 
@@ -21,7 +22,7 @@ Recherche cognitive Azure peut importer, analyser et indexer des données proven
 
 Ce tutoriel explique comment indexer des données d’hôtels provenant d’une source de données Azure Cosmos DB et les fusionner avec des détails sur les chambres d’hôtel tirés de documents Stockage Blob Azure. Le résultat est un index de recherche d’hôtel combiné contenant des types de données complexes.
 
-Ce tutoriel utilise C# et le [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search). Dans ce tutoriel, vous allez effectuer les tâches suivantes :
+Ce tutoriel utilise C# et le [SDK .NET](/dotnet/api/overview/azure/search). Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Charger des exemples de données et créer des sources de données
@@ -34,8 +35,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
-+ [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Stockage Azure](../storage/common/storage-account-create.md)
 + [Visual Studio 2019](https://visualstudio.microsoft.com/)
 + [Créer](search-create-service-portal.md) ou [rechercher un service de recherche existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -80,7 +81,7 @@ Cet exemple utilise deux petits ensembles de données qui décrivent sept hôtel
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
 
-1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) nommé **hotel-rooms** pour stocker les exemples de fichiers JSON des chambres d’hôtel. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
+1. [Créez un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md) nommé **hotel-rooms** pour stocker les exemples de fichiers JSON des chambres d’hôtel. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
 
    Créer un ![conteneur d’objets blob](media/tutorial-multiple-data-sources/blob-add-container.png "Création d’un conteneur d’objets blob")
 
@@ -171,7 +172,7 @@ Cette application console C#/.NET simple effectue les tâches suivantes :
 
 ### <a name="create-an-index"></a>Création d'un index
 
-Cet exemple de programme utilise le SDK .NET pour définir et créer un index de Recherche cognitive Azure. Il tire parti de la classe [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) pour générer une structure d’index à partir d’une classe de modèle de données C#.
+Cet exemple de programme utilise le SDK .NET pour définir et créer un index de Recherche cognitive Azure. Il tire parti de la classe [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) pour générer une structure d’index à partir d’une classe de modèle de données C#.
 
 Le modèle de données est défini par la classe Hotel, qui contient également des références aux classes Address et Room. La classe FieldBuilder explore plusieurs définitions de classe pour générer une structure de données complexes pour l’index. Des étiquettes de métadonnées sont utilisées pour définir les attributs de chaque champ, par exemple s’il peut faire l’objet d’une recherche ou d’un tri.
 
@@ -319,7 +320,7 @@ Les objets blob JSON contiennent un champ de clé nommé **`Id`** au lieu de **`
 
 Les indexeurs de stockage d’objets blob peuvent utiliser des paramètres qui identifient le mode d’analyse à utiliser. Le mode d’analyse diffère selon que les objets blob représentent un document unique ou plusieurs documents au sein du même objet blob. Dans cet exemple, comme chaque objet blob représente un document d’index unique, le code utilise le paramètre `IndexingParameters.ParseJson()`.
 
-Pour plus d’informations sur les paramètres d’analyse d’indexeur pour les objets blob JSON, consultez [Indexer des objets blob JSON](search-howto-index-json-blobs.md). Pour plus d’informations sur la spécification de ces paramètres à l’aide du SDK .NET, consultez la classe [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions).
+Pour plus d’informations sur les paramètres d’analyse d’indexeur pour les objets blob JSON, consultez [Indexer des objets blob JSON](search-howto-index-json-blobs.md). Pour plus d’informations sur la spécification de ces paramètres à l’aide du SDK .NET, consultez la classe [IndexerParametersExtension](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions).
 
 Le programme supprime les indexeurs portant le même nom avant de créer le nouveau, au cas où vous souhaiteriez exécuter cet exemple plusieurs fois.
 

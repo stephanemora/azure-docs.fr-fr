@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03b06d46cb35346580070f1739fd43128fa7a7fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463924"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950355"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Procédure : Indiquer des commentaires sur les risques dans Azure AD Identity Protection
 
@@ -60,4 +60,4 @@ Les commentaires sur les détections de risques utilisateur dans Azure AD Identi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Référence des détections de risques Azure Active Directory Identity Protection](risk-events-reference.md)
+- [Référence des détections de risques Azure Active Directory Identity Protection](./concept-identity-protection-risks.md)

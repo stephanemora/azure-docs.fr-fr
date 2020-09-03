@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: laobri
 ms.date: 07/17/2020
 ms.topic: reference
-ms.openlocfilehash: ac56e2e69cf62c8afae73e0a7616e7e7f80c0493
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d5f541dec14eebc944e4eac11dbe569b38cb277e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816318"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001618"
 ---
 # <a name="reference-retirements-of-dsvm-images"></a>Référence : Mises hors service d’images DSVM
 
@@ -50,18 +50,3 @@ Toute image DSVM approvisionnée existant dans votre abonnement continuera à fo
 >
 > Les modèles ARM qui n’ont pas été mis à jour avec les nouveaux détails de l’image DSVM ne peuvent pas être déployés après la date de mise hors service.
 
-## <a name="mitigating-upcoming-retirements"></a>Atténuation des mises hors service à venir
-
-Dans cette section, nous aborderons l’atténuation des mises hors service à venir.
-
-### <a name="upgrade-windows-2016-dsvm"></a>Mettre à niveau Windows 2016 DSVM
-
-Pour migrer un disque de données de votre machine virtuelle DSVM Windows 2016 vers une machine virtuelle DSVM Windows 2019, procédez comme suit :
-
-1. Créez une nouvelle machine virtuelle DSVM Windows 2019, en suivant les instructions indiquées [ici](./provision-vm.md#create-your-dsvm).
-1. Détachez les disques de données existants de votre image Windows 2016 en suivant [ces instructions](../../virtual-machines/windows/detach-disk.md).
-1. Attachez le disque de l’étape précédente à votre image Windows 2019 en suivant [ces instructions](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-
-### <a name="upgrade-ubuntu-1604-dsvm"></a>Mettre à niveau Ubuntu 16.04 DSVM
-
-Nous vous recommandons de procéder à la mise à niveau des Data Science VM Ubuntu 16.04 vers l’[édition 18.04 d’Ubuntu DSVM](./dsvm-ubuntu-intro.md).

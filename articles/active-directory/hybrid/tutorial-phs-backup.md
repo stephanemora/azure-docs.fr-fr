@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "64919010"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279004"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutoriel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
 
@@ -33,7 +33,7 @@ Ce tutoriel explique comment configurer la synchronisation de hachage de mot de 
 Ce tutoriel s'appuie sur le tutoriel [ : Fédérer un environnement de forêt AD unique dans le cloud](tutorial-federation.md), un prérequis avant de suivre le présent tutoriel.  Si vous n’avez pas terminé ce tutoriel, faites-le avant de suivre la procédure décrite dans ce document.
 
 >[!IMPORTANT]
->Avant de passer à PHS, vous devez créer une sauvegarde de votre environnement AD FS.  Pour cela, vous pouvez utiliser l’[outil de restauration rapide AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Avant de passer à PHS, vous devez créer une sauvegarde de votre environnement AD FS.  Pour cela, vous pouvez utiliser l’[outil de restauration rapide AD FS](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Activer PHS dans Azure AD Connect
 La première étape, maintenant que nous disposons d'un environnement Azure AD Connect utilisant la fédération, consiste à activer la synchronisation de hachage de mot de passe et à autoriser Azure AD Connect à synchroniser les hachages.

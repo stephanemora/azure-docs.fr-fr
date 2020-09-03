@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815050"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047103"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -39,7 +39,6 @@ Ces risques sont calculés hors connexion à l’aide de sources d’information
 | Détection d’événements à risque | Description |
 | --- | --- |
 | Informations d’identification divulguées | Ce type de détection d’événement à risque indique que les informations d’identification valides de l’utilisateur ont fuité. Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’utilisateurs légitimes, ils le font dans le but de les rendre publics. Ce partage se fait généralement en publiant publiquement sur le « dark web », via des sites de pastebin, ou en échangeant et vendant des informations d’identification sur le marché noir. Lorsque le service d’informations de connexion fuitées de Microsoft acquiert des informations d’identification utilisateur sur le dark web, des ou d’autres sources, ces informations sont comparées aux informations d’identification valides actuelles des utilisateurs d’Azure AD pour rechercher des correspondances valides. Pour plus d’informations sur informations de connexion divulguées, consultez [Questions courantes](#common-questions). |
-| Pulvérisation de mots de passe | Une attaque par pulvérisation de mots de passe est l’endroit où plusieurs noms d’utilisateur sont attaqués à l’aide de mots de passe communs dans une méthode de force brute unifiée pour obtenir un accès non autorisé. Cette détection des risques est déclenchée lorsqu’une attaque par pulvérisation de mots de passe a été effectuée. |
 | Azure AD Threat Intelligence | Ce type de détection d’événement à risque indique une activité utilisateur inhabituelle pour l’utilisateur donné ou qui est cohérente avec des modèles d’attaque connus selon les sources internes et externes de Microsoft Threat Intelligence. |
 
 ### <a name="sign-in-risk"></a>Risque à la connexion
@@ -57,6 +56,7 @@ Ces risques peuvent être calculés en temps réel ou hors connexion à l’aide
 | L’administrateur a confirmé que cet utilisateur est compromis | Hors connexion | Cette détection indique qu’un administrateur a sélectionné « Confirmer que l’utilisateur est compromis » dans l’interface utilisateur Utilisateurs à risque ou à l’aide de l’API riskyUsers. Pour voir quel administrateur a confirmé que cet utilisateur est compromis, consultez l’historique des risques de l’utilisateur (par le biais de l’interface utilisateur ou de l’API). |
 | Adresse IP malveillante | Hors connexion | Cette détection indique une connexion à partir d’une adresse IP malveillante. Une adresse IP est considérée comme malveillante quand elle présente un taux d’échecs élevé en raison d’informations d’identification non valides qu’elle envoie ou d’autres sources relatives à la réputation des adresses IP. |
 | Règles suspectes de manipulation de boîte de réception | Hors connexion | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Cette détection dresse le profil de votre environnement et déclenche des alertes lorsque des règles suspectes qui suppriment ou déplacent des messages ou des dossiers sont définies dans la boîte de réception d'un utilisateur. Cela peut indiquer que le compte de l’utilisateur est compromis, que les messages sont intentionnellement masqués et que la boîte aux lettres est utilisée pour distribuer le courrier indésirable ou les logiciels malveillants dans votre organisation. |
+| Pulvérisation de mots de passe | Hors connexion | Une attaque par pulvérisation de mots de passe est l’endroit où plusieurs noms d’utilisateur sont attaqués à l’aide de mots de passe communs dans une méthode de force brute unifiée pour obtenir un accès non autorisé. Cette détection des risques est déclenchée lorsqu’une attaque par pulvérisation de mots de passe a été effectuée. |
 | Voyage impossible | Hors connexion | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Cette détection identifie deux activités de l’utilisateur (dans une seule ou plusieurs sessions) provenant d’emplacements éloignés sur le plan géographique au cours d’une période plus courte que la durée nécessaire à l’utilisateur pour aller du premier emplacement au second, indiquant qu’un autre utilisateur utilise les mêmes informations d’identification. |
 
 ### <a name="other-risk-detections"></a>Autres détections de risques

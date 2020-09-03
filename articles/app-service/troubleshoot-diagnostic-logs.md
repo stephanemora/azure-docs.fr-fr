@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207529"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962177"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -46,12 +46,12 @@ Pour activer la journalisation des applications Windows dans le [portail Azure](
 
 Sélectionnez **Activé** pour **Journal des applications (Système de fichiers)** , **Journal des applications (Blob)** ou les deux. 
 
-L’option **Système de fichiers** est utilisée à des fins de débogage temporaire et se désactive elle-même après 12 heures. L’option **Blob** est destinée à la journalisation à long terme et a besoin d’un conteneur de stockage d’objets blob dans lequel écrire les journaux.  L’option **Blob** inclut également des informations supplémentaires dans les messages de journalisation, telles que l’ID de l’instance de machine virtuelle d’origine du message de journalisation (`InstanceId`), l’ID de thread (`Tid`) et un horodateur plus précis ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+L’option **Système de fichiers** est utilisée à des fins de débogage temporaire et se désactive elle-même après 12 heures. L’option **Blob** est destinée à la journalisation à long terme et a besoin d’un conteneur de stockage d’objets blob dans lequel écrire les journaux.  L’option **Blob** inclut également des informations supplémentaires dans les messages de journalisation, telles que l’ID de l’instance de machine virtuelle d’origine du message de journalisation (`InstanceId`), l’ID de thread (`Tid`) et un horodateur plus précis ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Actuellement, seuls les journaux des applications .NET peuvent être écrits dans le Stockage Blob. Les journaux des applications Java, PHP, Node.js et Python peuvent être stockés uniquement dans le système de fichiers App Service (sans modifications du code pour écrire les journaux dans un stockage externe).
 >
-> De plus, si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés d’accès mises à jour. Pour ce faire :
+> De plus, si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-account-create.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés d’accès mises à jour. Pour ce faire :
 >
 > 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
 > 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
@@ -89,7 +89,7 @@ Pour **Journalisation du serveur web**, sélectionnez **Stockage** pour stocker 
 Dans **Période de conservation (jours)** , définissez le nombre de jours pendant lesquels les journaux doivent être conservés.
 
 > [!NOTE]
-> Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
+> Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-account-create.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
 >
 > 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
 > 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
@@ -116,7 +116,7 @@ Dans votre code d’application, vous utilisez les fonctionnalités de journalis
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure).
+- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure).
 
 ## <a name="stream-logs"></a>Diffuser les journaux d’activité en continu
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>Dans le terminal local
 
-Pour diffuser les journaux dans la console locale, [installez Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et [connectez-vous à votre compte](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Une fois connecté, suivez les [instructions pour Cloud Shell](#in-cloud-shell)
+Pour diffuser les journaux dans la console locale, [installez Azure CLI](/cli/azure/install-azure-cli) et [connectez-vous à votre compte](/cli/azure/authenticate-azure-cli). Une fois connecté, suivez les [instructions pour Cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Accéder aux fichiers journaux
 

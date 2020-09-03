@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053218"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278579"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -25,7 +25,7 @@ Le lancement intermédiaire vous permet de tester de manière sélective des gro
 -  Vous utilisez des cartes à puce pour l’authentification. 
 -  Votre serveur actuel offre certaines fonctionnalités de fédération uniquement.
 
-Avant d’essayer cette fonctionnalité, nous vous suggérons de consulter notre guide sur le choix de la méthode d’authentification appropriée. Pour plus d’informations, consultez la table « Comparaison des méthodes dans [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Avant d’essayer cette fonctionnalité, nous vous suggérons de consulter notre guide sur le choix de la méthode d’authentification appropriée. Pour plus d’informations, consultez la table « Comparaison des méthodes dans [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](./choose-ad-authn.md#comparing-methods).
 
 Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure Active Directory : qu’est ce que le lancement intermédiaire ? » vidéo :
 
@@ -91,7 +91,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 Pour tester la connexion de *synchronisation de hachage de mot de passe* à l’aide du lancement intermédiaire, suivez les instructions de travail préalable de la section suivante.
 
-Pour savoir quel applet de commande PowerShell utiliser, consultez [la version préliminaire Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Pour savoir quel applet de commande PowerShell utiliser, consultez [la version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Travail préalable pour la synchronisation de hachage de mot de passe
 
@@ -225,7 +225,7 @@ Pour tester la connexion avec *l’authentification unique transparente* :
 
 1. Vérifiez que la connexion s’affiche bien dans le [rapport d’activité de connexion Azure AD](../reports-monitoring/concept-sign-ins.md) en filtrant par UserPrincipalName.
 
-   Pour suivre les connexions utilisateur qui se produisent toujours sur les services de fédération Active Directory (AD FS) pour les utilisateurs sélectionnés pour le lancement intermédiaire, suivez les instructions fournies dans [Résolution des problèmes AD FS : Événements et journalisation](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consultez la documentation du fournisseur pour savoir comment le vérifier sur les fournisseurs de fédération tiers.
+   Pour suivre les connexions utilisateur qui se produisent toujours sur les services de fédération Active Directory (AD FS) pour les utilisateurs sélectionnés pour le lancement intermédiaire, suivez les instructions fournies dans [Résolution des problèmes AD FS : Événements et journalisation](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consultez la documentation du fournisseur pour savoir comment le vérifier sur les fournisseurs de fédération tiers.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Supprimer un utilisateur du lancement intermédiaire
 
@@ -243,7 +243,7 @@ A : Non, cette fonctionnalité est conçue pour migrer progressivement de l’a
 
 **Q : Puis-je utiliser PowerShell pour effectuer un lancement intermédiaire ?**
 
-A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Version préliminaire Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

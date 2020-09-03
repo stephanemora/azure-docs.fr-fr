@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/23/2019
-ms.openlocfilehash: a1b8ddba84920d8d3b6871ab404081d3b24c72e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/01/2020
+ms.openlocfilehash: 02a2880c42d4eda42c1a96cfaafb04c85358ccb5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261968"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321274"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Options de migration de vos données locales ou cloud vers Azure Cosmos DB
 
@@ -31,41 +31,48 @@ Les facteurs suivants déterminent le choix de l’outil de migration :
 * **Durée de migration attendue** : Les migrations peuvent être configurées pour s’exécuter à un rythme lent et incrémentiel, qui consomme moins de débit ou qui peut consommer l’intégralité du débit provisionné sur le conteneur Azure Cosmos DB cible et effectuer la migration en un temps réduit.
 
 ## <a name="azure-cosmos-db-sql-api"></a>API SQL Azure Cosmos DB
+
 |**Type de migration**|**Solution**|**Considérations**|
 |---------|---------|---------|
-|Hors connexion|[Outil de migration de données](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Non adapté aux jeux de données volumineux|
-|Hors connexion|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; Absence de points de contrôle – Si un problème se produit au cours de la migration, vous devez redémarrer l’ensemble du processus de migration<br/>&bull; Absence de file d’attente de lettres mortes – Quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration.|
-|Hors connexion|[Connecteur Spark Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; Nécessite une configuration Spark personnalisée <br/>&bull; Spark est sensible aux incohérences de schéma et cela peut être un problème lors de la migration |
-|Hors connexion|[Outil personnalisé avec la bibliothèque d’exécuteur en bloc Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull; Fournit des fonctionnalités de points de contrôle et de lettres mortes qui renforcent la résilience de la migration <br/>&bull; Adapté aux jeux de données très volumineux (plus de 10 To)  <br/>&bull; Nécessite l’installation personnalisée de cet outil exécuté en tant qu’App Service |
-|En ligne|[Fonctions Cosmos DB + API ChangeFeed](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull; Facilité de configuration <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Ne capture pas les suppressions à partir du conteneur source |
+|Hors connexion|[Outil de migration de données](import-data.md)|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Non adapté aux jeux de données volumineux|
+|Hors connexion|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; Absence de points de contrôle – Si un problème se produit au cours de la migration, vous devez redémarrer l’ensemble du processus de migration<br/>&bull; Absence de file d’attente de lettres mortes – Quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration.|
+|Hors connexion|[Connecteur Spark Azure Cosmos DB](spark-connector.md)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; Nécessite une configuration Spark personnalisée <br/>&bull; Spark est sensible aux incohérences de schéma et cela peut être un problème lors de la migration |
+|Hors connexion|[Outil personnalisé avec la bibliothèque d’exécuteur en bloc Cosmos DB](migrate-cosmosdb-data.md)|&bull; Fournit des fonctionnalités de points de contrôle et de lettres mortes qui renforcent la résilience de la migration <br/>&bull; Adapté aux jeux de données très volumineux (plus de 10 To)  <br/>&bull; Nécessite l’installation personnalisée de cet outil exécuté en tant qu’App Service |
+|En ligne|[Fonctions Cosmos DB + API ChangeFeed](change-feed-functions.md)|&bull; Facilité de configuration <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Ne capture pas les suppressions à partir du conteneur source |
 |En ligne|[Service de migration personnalisé utilisant ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull; Assure le suivi de la progression <br/>&bull; Fonctionne uniquement si la source est un conteneur Azure Cosmos DB <br/>&bull; Fonctionne également pour les jeux de données plus volumineux <br/>&bull; Exige de l’utilisateur qu’il configure un App Service pour héberger le processeur de flux de modification <br/>&bull; Ne capture pas les suppressions à partir du conteneur source|
-|En ligne|[Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull; Fonctionne avec un vaste éventail de sources comme Oracle, DB2, SQL Server <br/>&bull; Facilite la génération de pipelines ETL et fournit un tableau de bord pour la surveillance <br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
+|En ligne|[Striim](cosmosdb-sql-api-migrate-data-striim.md)|&bull; Fonctionne avec un vaste éventail de sources comme Oracle, DB2, SQL Server <br/>&bull; Facilite la génération de pipelines ETL et fournit un tableau de bord pour la surveillance <br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>API Mongo d’Azure Cosmos DB
+
 |**Type de migration**|**Solution**|**Considérations**|
 |---------|---------|---------|
-|Hors connexion|[Outil de migration de données](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Non adapté aux jeux de données volumineux|
-|Hors connexion|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; L’absence de points de contrôle signifie que tout problème au cours de la migration impose le redémarrage de l’ensemble du processus de migration<br/>&bull; L’absence de file d’attente de lettres mortes signifie que quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration <br/>&bull; Nécessite du code personnalisé pour augmenter le débit de lecture pour certaines sources de données|
+|En ligne|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
+|Hors connexion|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
+|Hors connexion|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).|&bull; Facile à configurer et prise en charge de plusieurs sources <br/>&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux <br/>&bull; L’absence de points de contrôle signifie que tout problème au cours de la migration impose le redémarrage de l’ensemble du processus de migration<br/>&bull; L’absence de file d’attente de lettres mortes signifie que quelques fichiers erronés peuvent arrêter l’ensemble du processus de migration <br/>&bull; Nécessite du code personnalisé pour augmenter le débit de lecture pour certaines sources de données|
 |Hors connexion|[Outils Mongo existants (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Facilité de configuration et d’intégration <br/>&bull; Nécessite une gestion personnalisée des limitations|
-|En ligne|[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull; Utilise la bibliothèque d’exécuteurs en bloc Azure Cosmos DB <br/>&bull; Adapté aux jeux de données volumineux et chargé de la réplication des modifications dynamiques <br/>&bull; Fonctionne uniquement avec d’autres sources MongoDB|
+
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>API Cassandra Azure Cosmos DB
+
 |**Type de migration**|**Solution**|**Considérations**|
 |---------|---------|---------|
-|Hors connexion|[Commande cqlsh COPY](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-cqlsh-copy-command)|&bull; Facilité de configuration <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Fonctionne uniquement lorsque la source est une table Cassandra|
-|Hors connexion|[Copier la table avec Spark](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-spark) |&bull; Peut tirer profit des fonctionnalités Spark pour paralléliser la transformation et l’ingestion <br/>&bull; Nécessite une configuration avec une stratégie personnalisée de nouvelles tentatives pour gérer les limitations|
-|En ligne|[Striim (à partir d’Oracle DB/Apache Cassandra)](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-cassandra-api-migrate-data-striim)|&bull; Fonctionne avec un vaste éventail de sources comme Oracle, DB2, SQL Server <br/>&bull; Facilite la génération de pipelines ETL et fournit un tableau de bord pour la surveillance <br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
-|En ligne|[ (à partir d’Oracle DB/Apache Cassandra)](https://docs.microsoft.com/azure/cosmos-db/oracle-migrate-cosmos-db-blitzz)|<br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
+|Hors connexion|[Commande cqlsh COPY](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|&bull; Facilité de configuration <br/>&bull; Non adapté aux jeux de données volumineux <br/>&bull; Fonctionne uniquement lorsque la source est une table Cassandra|
+|Hors connexion|[Copier la table avec Spark](cassandra-import-data.md#migrate-data-using-spark) |&bull; Peut tirer profit des fonctionnalités Spark pour paralléliser la transformation et l’ingestion <br/>&bull; Nécessite une configuration avec une stratégie personnalisée de nouvelles tentatives pour gérer les limitations|
+|En ligne|[Striim (à partir d’Oracle DB/Apache Cassandra)](cosmosdb-cassandra-api-migrate-data-striim.md)|&bull; Fonctionne avec un vaste éventail de sources comme Oracle, DB2, SQL Server <br/>&bull; Facilite la génération de pipelines ETL et fournit un tableau de bord pour la surveillance <br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
+|En ligne|[ (à partir d’Oracle DB/Apache Cassandra)](oracle-migrate-cosmos-db-blitzz.md)|<br/>&bull; Prend en charge des jeux de données plus volumineux <br/>&bull; Comme il s’agit d’un outil tiers, il doit être acheté sur la place de marché et installé dans l’environnement de l’utilisateur|
 
 ## <a name="other-apis"></a>Autres API
+
 Pour les API autres que l’API SQL, l’API Mongo et l’API Cassandra, différents outils sont pris en charge par les écosystèmes existants de chaque API. 
 
 **API de table** 
-* [Outil de migration de données](https://docs.microsoft.com/azure/cosmos-db/table-import#data-migration-tool)
-* [AZCopy](https://docs.microsoft.com/azure/cosmos-db/table-import#migrate-data-by-using-azcopy)
+
+* [Outil de migration de données](table-import.md#data-migration-tool)
+* [AZCopy](table-import.md#migrate-data-by-using-azcopy)
 
 **API Gremlin**
-* [Bibliothèque d’exécuteurs en bloc Graph](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-graph-dotnet)
+
+* [Bibliothèque d’exécuteurs en bloc Graph](bulk-executor-graph-dotnet.md)
 * [Gremlin Spark](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 
 
 ## <a name="next-steps"></a>Étapes suivantes

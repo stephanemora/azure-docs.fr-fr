@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925343"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269571"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -26,13 +26,13 @@ ms.locfileid: "87925343"
 - jointure Azure AD hybride ;
 - inscription Azure AD.
 
-En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos utilisateurs par le biais de l’authentification unique (SSO) sur vos ressources cloud et locales. Dans le même temps, vous pouvez sécuriser l’accès à ces ressources avec [l’accès conditionnel](../active-directory-conditional-access-azure-portal.md).
+En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos utilisateurs par le biais de l’authentification unique (SSO) sur vos ressources cloud et locales. Dans le même temps, vous pouvez sécuriser l’accès à ces ressources avec [l’accès conditionnel](../conditional-access/overview.md).
 
 Si vous disposez d’un environnement Active Directory (AD) local et que vous souhaitez lier vos ordinateurs joints au domaine AD à Azure AD, vous pouvez y parvenir en effectuant une jonction Azure AD Hybride. Cet article présente les étapes à suivre pour implémenter une jointure Azure AD hybride dans un environnement. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](../device-management-introduction.md).
+Cet article suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](./overview.md).
 
 > [!NOTE]
 > La version de contrôleur de domaine minimale requise pour une jonction Azure AD Hybride Windows 10 est Windows Server 2008 R2.
@@ -100,7 +100,7 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 > Bien que Windows 10 supprime automatiquement l’état inscrit auprès d’Azure AD localement, l’objet de l’appareil dans Azure AD n’est pas supprimé immédiatement s’il est géré par Intune. Vous pouvez valider la suppression de l’état inscrit auprès d’Azure AD en exécutant « dsregcmd /status » et considérer l’appareil comme n’étant plus inscrit auprès d’Azure AD.
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
-- Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. 
 
@@ -118,12 +118,12 @@ La jointure Azure AD Hybride fonctionne avec les environnements managés et féd
 
 ### <a name="managed-environment"></a>Environnement géré
 
-Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](/azure/active-directory/hybrid/how-to-connect-sso).
+Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](../hybrid/whatis-phs.md) ou de l’[authentification directe (PTA)](../hybrid/how-to-connect-pta.md) avec l’[authentification unique fluide](../hybrid/how-to-connect-sso.md).
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
 > [!NOTE]
-> [L’authentification Cloud à l’aide du déploiement intermédiaire](/azure/active-directory/hybrid/how-to-connect-staged-rollout) est prise en charge uniquement lors du démarrage de la mise à jour de Windows 10 1903
+> [L’authentification Cloud à l’aide du déploiement intermédiaire](../hybrid/how-to-connect-staged-rollout.md) est prise en charge uniquement lors du démarrage de la mise à jour de Windows 10 1903
 
 ### <a name="federated-environment"></a>Environnement fédéré
 
@@ -152,9 +152,9 @@ Selon le scénario correspondant à votre infrastructure d’identité, consulte
 
 ## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Vérifier la prise en charge d’un UPN utilisateur AD local pour la jonction Azure AD Hybride
 
-Parfois, vos UPN utilisateur AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](/azure/security/fundamentals/choose-ad-authn), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
+Parfois, vos UPN utilisateur AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](../hybrid/choose-ad-authn.md), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
 
-- UPN des utilisateurs routables : un UPN routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.org est le domaine principal dans l’AD local appartenant à Contoso et [vérifié dans Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- UPN des utilisateurs routables : un UPN routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.org est le domaine principal dans l’AD local appartenant à Contoso et [vérifié dans Azure AD](../fundamentals/add-custom-domain.md)
 - UPN des utilisateurs non routables : un UPN non routable ne dispose pas d’un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.local est le domaine principal dans l’AD local, mais n’est pas un domaine vérifiable sur Internet et n’est utilisé qu’à l’intérieur du réseau de Contoso.
 
 > [!NOTE]
