@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536921"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069321"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -47,6 +47,8 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Tester le pare-feu
 
 Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](deploy-ps.md).
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -92,7 +94,7 @@ Ce réseau virtuel contient trois sous-réseaux.
 5. Pour **Plage d’adresses du sous-réseau**, entrez **10.0.2.0/24**.
 6. Sélectionnez **Ajouter**.
 7. Sélectionnez **Vérifier + créer**.
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 

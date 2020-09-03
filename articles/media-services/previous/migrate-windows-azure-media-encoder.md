@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: e75e3f3eecf6c34050aeaa7fe387fffb0de58a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a4a5f2f448cc5e954cf21f9785f788925d5a461e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513199"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263941"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrer de Windows Azure Media Encoder vers Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Cet article décrit les étapes de la migration du processeur multimédia WAME (Windows Azure Media Encoder) hérité, qui est en phase de mise hors service, vers le processeur multimédia Media Encoder Standard. Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
 

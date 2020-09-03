@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 2796a2be5c779124db4dd7f1137ebbff4094705d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5b0b383cba45646a1e5a8f980b3a097767f9979
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056699"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262598"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestion des ressources Media Services sur plusieurs comptes de stockage  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Vous pouvez associer plusieurs comptes de stockage à un même compte Media Services. L’option d’association de plusieurs comptes de stockage à un compte Media Services offre les avantages suivants :
 

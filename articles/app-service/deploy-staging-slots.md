@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236741"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962160"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
 
 6. Sélectionnez l’URL de l’application dans la page des ressources de l’emplacement. L’emplacement de déploiement est une application en production et il a son propre nom d’hôte. Pour limiter l’accès public à l’emplacement de déploiement, consultez [Restrictions d’adresse IP avec Azure App Service](app-service-ip-restrictions.md).
 
-Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](app-service-deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent.
+Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](./deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ Lorsque vous échangez deux emplacements (en général, vous passez d’un empla
 
 1. Si le [cache local](overview-local-cache.md) est activé, déclenchez son initialisation en envoyant une requête HTTP à la racine de l’application (« / »), sur chaque instance de l’emplacement source. Attendez que chaque instance retourne une réponse HTTP. L’initialisation du cache local provoque un autre redémarrage sur chaque instance.
 
-1. Si l’[échange automatique](#Auto-Swap) est activé avec l’[initialisation personnalisée](#Warm-up), déclenchez l’[initialisation de l’application](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) en envoyant une requête HTTP à la racine de l’application (« / ») sur chaque instance de l’emplacement source.
+1. Si l’[échange automatique](#Auto-Swap) est activé avec l’[initialisation personnalisée](#Warm-up), déclenchez l’[initialisation de l’application](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) en envoyant une requête HTTP à la racine de l’application (« / ») sur chaque instance de l’emplacement source.
 
     Si `applicationInitialization` n’est pas spécifié, déclenchez une requête HTTP à la racine de l’application de l’emplacement source sur chaque instance. 
     
@@ -222,7 +222,7 @@ Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux
 
 ## <a name="monitor-a-swap"></a>Superviser un échange
 
-Si l’exécution de l’[opération d’échange](#AboutConfiguration) prend beaucoup de temps, vous pouvez obtenir des informations au sujet de cette opération dans le [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Si l’exécution de l’[opération d’échange](#AboutConfiguration) prend beaucoup de temps, vous pouvez obtenir des informations au sujet de cette opération dans le [journal d’activité](../azure-monitor/platform/platform-logs-overview.md).
 
 Sur le portail, dans la page des ressources de votre application, sélectionnez **Journal d’activité** dans le volet de gauche.
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatiser avec des modèles Resource Manager
 
-Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles Resource Manager, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
+Les [modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles Resource Manager, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
 
 - `buildVersion` : propriété de type chaîne qui représente la version actuelle de l’application déployée dans l’emplacement. Par exemple : « v1 », « 1.0.0.1 » ou « 2019-09-20T11:53:25.2887393-07:00 ».
 - `targetBuildVersion` : propriété de type chaîne spécifiant la valeur `buildVersion` que l’emplacement doit avoir. Si la valeur targetBuildVersion n’est pas la valeur `buildVersion` actuelle, cela déclenche l’opération d’échange en recherchant l’emplacement qui a la valeur `buildVersion` spécifiée.

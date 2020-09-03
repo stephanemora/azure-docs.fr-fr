@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b1ff8a54037392ac01402056ada0f3040dbd123
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719493"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068930"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Activer Multi-Factor Authentication par utilisateur pour sécuriser les événements de connexion
 
@@ -40,7 +41,7 @@ Il n’est pas recommandé de changer d’état d’utilisateur, sauf si vos lic
 
 L’état d’un utilisateur indique si un administrateur l’a inscrit dans Azure Multi-Factor Authentication par utilisateur. Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présenter les trois états suivants :
 
-| State | Description | Authentification héritée affectée | Applications du navigateur affectées | Authentification moderne affectée |
+| État | Description | Authentification héritée affectée | Applications du navigateur affectées | Authentification moderne affectée |
 |:---:| --- |:---:|:--:|:--:|
 | Désactivé | État par défaut d’un utilisateur non inscrit dans Azure Multi-Factor Authentication par utilisateur. | Non | Non | Non |
 | activé | L’utilisateur est inscrit dans Azure Multi-Factor Authentication par utilisateur, mais peut toujours utiliser son mot de passe pour une authentification héritée. Si l’utilisateur n’a pas encore inscrit de méthode d’authentification multifacteur, il reçoit une invite à s’y inscrire la prochaine fois qu’il se connecte à l’aide de l’authentification moderne (par exemple, via un navigateur web). | Non. L’authentification héritée continue de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Après expiration de la session, l’inscription à Azure Multi-Factor Authentication est nécessaire.| Oui. Après expiration du jeton d’accès, l’inscription à Azure Multi-Factor Authentication est nécessaire. |

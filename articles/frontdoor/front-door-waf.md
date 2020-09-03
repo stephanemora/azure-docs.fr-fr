@@ -3,20 +3,20 @@ title: Mettre à l’échelle et protéger rapidement une application web à l�
 description: Cet article vous aide à comprendre comment utiliser le pare-feu d’applications web avec votre service Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 7d2978b34d4c1e6cf85c65be2e9c3292ec704be4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743539"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398883"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Mettez à l’échelle et protégez rapidement une application web à l’aide d’Azure Front Door et du pare-feu d’applications web Azure (WAF)
 

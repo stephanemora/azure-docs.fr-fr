@@ -12,12 +12,12 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853584"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068724"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -58,7 +58,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `verified_secondary_email` | Obtenu à partir du SecondaryAuthoritativeEmail de l’utilisateur   | JWT        |           |        |
 | `vnet`                     | Informations sur le spécificateur de réseau virtuel. | JWT        |           |      |
 | `fwd`                      | Adresse IP.| JWT    |   | Ajoute l’adresse IPv4 d’origine du client demandeur (quand il se trouve sur un réseau virtuel). |
-| `ctry`                     | Pays/Région de l’utilisateur | JWT |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur du champ est un code de pays/région à deux lettres standard, tel que FR, JP, SZ, etc. |
+| `ctry`                     | Pays/Région de l’utilisateur | JWT, SAML |  | Azure AD retourne la revendication facultative `ctry` si elle est présente. La valeur du champ est un code de pays/région à deux lettres standard, tel que FR, JP, SZ, etc. |
 | `tenant_ctry`              | Pays du locataire de ressource | JWT | | Identique à `ctry` sauf si défini au niveau du locataire par un administrateur.  Doit également être une valeur standard à deux lettres. |
 | `xms_pdl`             | Emplacement de données par défaut   | JWT | | Pour les locataires multigéographiques, l’emplacement de données par défaut est le code à trois lettres indiquant la région géographique où se trouve l’utilisateur. Pour plus d’informations, voir la [documentation Azure AD Connect sur l’emplacement par défaut des données](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Par exemple : `APC` pour l’Asie-Pacifique. |
 | `xms_pl`                   | Langue par défaut de l’utilisateur  | JWT ||La langue par défaut de l’utilisateur, si celle-ci a été définie. Dans les scénarios d’accès invité, provient du locataire de base. Au format langue-pays (« fr-fr »). |

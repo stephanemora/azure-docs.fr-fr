@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831877"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962041"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
 
-L’environnement ASE (App Service Environment) est un déploiement du service Azure App Service qui s’exécute dans votre réseau virtuel Azure (VNet). Il peut être déployé avec un point de terminaison d’application accessible par Internet ou un point de terminaison d’application qui se trouve dans votre réseau virtuel. Si vous déployez l’environnement ASE avec un point de terminaison accessible par Internet, ce déploiement est appelé ASE externe. Si vous déployez l’environnement ASE avec un point de terminaison de votre réseau virtuel, ce déploiement est appelé ASE ILB. Vous pouvez en savoir plus sur l’environnement ASE ILB dans le document [Créer et utiliser un équilibreur de charge interne avec un environnement App Service](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+L’environnement ASE (App Service Environment) est un déploiement du service Azure App Service qui s’exécute dans votre réseau virtuel Azure (VNet). Il peut être déployé avec un point de terminaison d’application accessible par Internet ou un point de terminaison d’application qui se trouve dans votre réseau virtuel. Si vous déployez l’environnement ASE avec un point de terminaison accessible par Internet, ce déploiement est appelé ASE externe. Si vous déployez l’environnement ASE avec un point de terminaison de votre réseau virtuel, ce déploiement est appelé ASE ILB. Vous pouvez en savoir plus sur l’environnement ASE ILB dans le document [Créer et utiliser un équilibreur de charge interne avec un environnement App Service](./create-ilb-ase.md).
 
 L’environnement ASE est un système monolocataire. De ce fait, il y a des fonctionnalités qui sont disponibles uniquement avec un environnement ASE et qui ne le sont pas dans le service App Service multilocataire. 
 

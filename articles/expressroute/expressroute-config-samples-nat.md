@@ -2,17 +2,17 @@
 title: "Azure ExpressRoute : Exemples de configuration de routeur – Traduction d'adresses réseau"
 description: Cette page fournit des exemples de configuration pour les routeurs Cisco et Juniper.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 3393c661240ae5619597256a6691ae43608d622b
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.author: duau
+ms.openlocfilehash: 4b57dec32a3a008cadf68c19ea52353a23fb2cd3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856709"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397492"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
 

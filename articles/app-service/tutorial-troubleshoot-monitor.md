@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082065"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959015"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutoriel : Résoudre les problèmes d’une application App Service avec Azure Monitor
 
@@ -18,9 +18,9 @@ ms.locfileid: "88082065"
 > L’intégration d’Azure Monitor à App Service est proposée en [préversion](https://aka.ms/appsvcblog-azmon).
 >
 
-Ce tutoriel montre comment résoudre les problèmes liés à une application [App Service](overview.md) à l'aide d'[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). L’exemple d’application inclut le code destiné à saturer la mémoire et à générer des erreurs HTTP 500. Il vous permet ainsi de diagnostiquer et de résoudre le problème à l’aide d’Azure Monitor. Quand vous aurez terminé, vous disposerez d’un exemple d’application s’exécutant dans App Service sur Linux intégré à [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Ce tutoriel montre comment résoudre les problèmes liés à une application [App Service](overview.md) à l'aide d'[Azure Monitor](../azure-monitor/overview.md). L’exemple d’application inclut le code destiné à saturer la mémoire et à générer des erreurs HTTP 500. Il vous permet ainsi de diagnostiquer et de résoudre le problème à l’aide d’Azure Monitor. Quand vous aurez terminé, vous disposerez d’un exemple d’application s’exécutant dans App Service sur Linux intégré à [Azure Monitor](../azure-monitor/overview.md).
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) optimise la disponibilité et les performances de vos applications et services en fournissant une solution complète pour collecter, analyser et utiliser la télémétrie de vos environnements cloud et locaux.
+[Azure Monitor](../azure-monitor/overview.md) optimise la disponibilité et les performances de vos applications et services en fournissant une solution complète pour collecter, analyser et utiliser la télémétrie de vos environnements cloud et locaux.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -38,7 +38,7 @@ Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 Pour suivre ce didacticiel, vous aurez besoin des éléments suivants :
 
 - [Abonnement Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Créer un paramètre de diagnostic
 
-Les paramètres de diagnostic permettent de collecter des métriques pour certains services Azure dans les journaux Azure Monitor afin de les analyser avec d’autres données de surveillance à l’aide de requêtes de journal. Pour ce tutoriel, vous devez activer les journaux de serveur web et de sorties/d’erreurs standard. Pour obtenir la liste complète des types de journaux avec leurs descriptions, consultez [Types de journaux pris en charge](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types).
+Les paramètres de diagnostic permettent de collecter des métriques pour certains services Azure dans les journaux Azure Monitor afin de les analyser avec d’autres données de surveillance à l’aide de requêtes de journal. Pour ce tutoriel, vous devez activer les journaux de serveur web et de sorties/d’erreurs standard. Pour obtenir la liste complète des types de journaux avec leurs descriptions, consultez [Types de journaux pris en charge](./troubleshoot-diagnostic-logs.md#supported-log-types).
 
 Exécutez les commandes suivantes pour créer des paramètres de diagnostic pour AppServiceConsoleLogs (sorties/erreurs standard) et AppServiceHTTPLogs (journaux de serveur web). Remplacez _\<app-name>_ et _\<workspace-name>_ par vos valeurs. 
 
 > [!NOTE]
-> Les deux premières commandes, `resourceID` et `workspaceID`, sont des variables à utiliser dans la commande `az monitor diagnostic-settings create`. Pour plus d’informations sur cette commande, consultez [Créer des paramètres de diagnostic à l’aide d’Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli).
+> Les deux premières commandes, `resourceID` et `workspaceID`, sont des variables à utiliser dans la commande `az monitor diagnostic-settings create`. Pour plus d’informations sur cette commande, consultez [Créer des paramètres de diagnostic à l’aide d’Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli).
 >
 
 ```bash
@@ -129,7 +129,7 @@ Dans le portail Azure, sélectionnez votre espace de travail Log Analytics.
 
 ### <a name="log-queries"></a>Requêtes dans les journaux
 
-Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Vous utilisez des requêtes de journal pour identifier les journaux dans AppServiceHTTPLogs et AppServiceConsoleLogs. Pour plus d’informations sur les requêtes de journal, consultez la [vue d’ensemble des requêtes de journal](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Vous utilisez des requêtes de journal pour identifier les journaux dans AppServiceHTTPLogs et AppServiceConsoleLogs. Pour plus d’informations sur les requêtes de journal, consultez la [vue d’ensemble des requêtes de journal](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualiser AppServiceHTTPLogs en utilisant une requête de journal
 

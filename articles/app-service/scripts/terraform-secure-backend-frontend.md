@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065435"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962228"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Créer deux applications web connectées en toute sécurité avec un point de terminaison privé et une intégration au réseau virtuel
 
-Cet article présente un exemple d’utilisation d’un [point de terminaison privé](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) et d’une [intégration au réseau virtuel](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) régional pour connecter deux applications web (frontale et principale) en toute sécurité en procédant comme suit :
+Cet article présente un exemple d’utilisation d’un [point de terminaison privé](../networking/private-endpoint.md) et d’une [intégration au réseau virtuel](../web-sites-integrate-with-vnet.md) régional pour connecter deux applications web (frontale et principale) en toute sécurité en procédant comme suit :
 - Déployer un réseau virtuel.
 - Créer le premier sous-réseau pour l’intégration.
 - Créer le deuxième sous-réseau pour le point de terminaison privé. Vous devez définir un paramètre spécifique pour désactiver les stratégies réseau.
 - Déployer un plan App Service de type PremiumV2, référence (SKU) minimale requise pour la fonctionnalité de point de terminaison privé.
-- Créer l’application web frontale avec des paramètres d’application spécifiques pour utiliser la zone DNS privée. [En savoir plus](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
+- Créer l’application web frontale avec des paramètres d’application spécifiques pour utiliser la zone DNS privée. [En savoir plus](../web-sites-integrate-with-vnet.md#azure-dns-private-zones).
 - Connecter l’application web frontale au sous-réseau d’intégration.
 - Créer l’application web principale.
 - Créer la zone DNS privée avec le nom de la zone de liaison privée pour l’application web privatelink.azurewebsites.net.
@@ -31,7 +31,7 @@ Cet article présente un exemple d’utilisation d’un [point de terminaison pr
 
 ## <a name="how-to-use-terraform-in-azure"></a>Comment utiliser Terraform dans Azure
 
-Pour savoir comment utiliser Terraform avec Azure, consultez la [documentation d’Azure](https://docs.microsoft.com/azure/developer/terraform/).
+Pour savoir comment utiliser Terraform avec Azure, consultez la [documentation d’Azure](/azure/developer/terraform/).
 
 ## <a name="the-complete-terraform-file"></a>Fichier Terraform complet
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>Étapes suivantes
 
 
-> [En savoir plus sur l’utilisation de Terraform dans Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [En savoir plus sur l’utilisation de Terraform dans Azure](/azure/developer/terraform/)
