@@ -70,23 +70,23 @@
             - name: Machine virtuelle à partir d’un chargement de VHD
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: Attacher un disque de système d’exploitation
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: Machine virtuelle à partir d’un instantané
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: Gérer le stockage
           items:
             - name: Créer un disque managé à partir d’un VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: Créer un disque managé à partir d’un instantané
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Copier un disque managé
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exporter un instantané en tant que VHD vers un compte de stockage
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exporter le VHD d’un disque managé vers un compte de stockage
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: Créer un instantané à partir d’un VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: Copier un instantané
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Sécuriser
@@ -118,15 +118,15 @@
         - name: Gérer le stockage
           items:
             - name: Créer un disque managé à partir d’un VHD
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: Créer un disque managé à partir d’un instantané
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: Copier le disque managé
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exporter un instantané en tant que VHD vers un compte de stockage
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exporter le VHD d’un disque managé vers un compte de stockage
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: Copier l’instantané
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Réseau
@@ -172,7 +172,7 @@
         - name: Tailles de machine virtuelle
           href: ../sizes.md
         - name: Machines virtuelles de 2e génération
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Usage général
           items:
             - name: Vue d’ensemble
@@ -621,7 +621,7 @@
     - name: Gérer les machines virtuelles
       items:
         - name: Utilisation de machines virtuelles
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Tâches PowerShell courantes
           href: ps-common-ref.md
         - name: Modifier la taille d’une machine virtuelle

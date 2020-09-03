@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Présentation de Cognitive Services
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Documentation sur les nouveautés Cognitive Services
       href: whats-new-docs.md
     - name: Cognitive Services et machine learning
@@ -82,7 +82,7 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: "Recette\_: Art Explorer"
           href: ./big-data/recipes/art-explorer.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'

@@ -470,13 +470,13 @@
     - name: Provisionnement automatique des utilisateurs (SCIM)
       items:
         - name: "Qu’est-ce que le provisionnement utilisateur automatique\_?"
-          href: ../app-provisioning/user-provisioning.md
+          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Développer et intégrer un point de terminaison SCIM
-          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Scénarios courants de provisionnement
-          href: ../app-provisioning/scim-graph-scenarios.md
+          href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatiser la configuration avec MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Articles d’aide sur le portail Azure
       items:
         - name: Valeurs par défaut de la durée de vie des jetons pour une application personnalisée

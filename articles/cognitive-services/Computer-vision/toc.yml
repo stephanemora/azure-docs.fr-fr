@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Qu’est-ce que le service Vision par ordinateur ?
-      href: Home.md
+      href: overview.md
     - name: Nouveautés
       href: whats-new.md
 - name: Démarrages rapides

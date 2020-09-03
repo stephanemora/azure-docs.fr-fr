@@ -15,7 +15,7 @@
     - name: Création et signature d’une stratégie d’attestation
       href: author-sign-policy.md
     - name: Exemples de code d’attestation SGX
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemples
   items:
     - name: Stratégie d’attestation

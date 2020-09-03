@@ -90,6 +90,8 @@
       href: application-gateway-web-app-overview.md
     - name: Prise en charge de WebSocket
       href: application-gateway-websocket.md
+    - name: Compréhension de la tarification
+      href: understanding-pricing.md
     - name: Questions fréquentes (FAQ)
       href: application-gateway-faq.md
 - name: Guides pratiques
