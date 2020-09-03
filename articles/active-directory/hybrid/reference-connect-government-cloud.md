@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080179"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276182"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considérations relatives à l’identité hybride pour l’Azure Government Cloud
 
@@ -25,7 +25,7 @@ Cet article contient des considérations relatives à l’intégration d’un en
 > [!NOTE]
 > Pour intégrer un environnement Microsoft Azure Active Directory (Azure AD) local avec l’Azure Government Cloud, vous devez effectuer une mise à niveau vers la dernière version d’[Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Pour obtenir la liste complète des points de terminaison du ministère de la défense du gouvernement des États-Unis, reportez-vous à la [documentation](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+Pour obtenir la liste complète des points de terminaison du ministère de la défense du gouvernement des États-Unis, reportez-vous à la [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>Authentification directe Azure AD
 

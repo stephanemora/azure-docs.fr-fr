@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608923"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231161"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -40,7 +40,7 @@ Vous pouvez analyser les utilisateurs signalés comme présentant un risque par 
 - Demander à l’utilisateur de réinitialiser son mot de passe la prochaine fois qu’il se connecte
 - Supprimer le risque de l’utilisateur sans aucune action de correction.
 
-Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs associés à un indicateur de risque](concept-user-at-risk.md).
+Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs associés à un indicateur de risque](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Abonnement Azure AD de clients Office 365
 
@@ -91,5 +91,5 @@ De plus, vous devez :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Utilisateurs associés à un indicateur de risque](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Utilisateurs associés à un indicateur de risque](../identity-protection/overview-identity-protection.md)

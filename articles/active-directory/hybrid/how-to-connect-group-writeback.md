@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 1e49516647a4783fb27bf1be1cee60a3274fc040
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385141"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279845"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Écriture différée de groupe dans Azure AD Connect
 
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Pour plus d’informations sur la configuration des groupes Office 365, consultez [Configurer des groupes Microsoft 365 dans un déploiement Exchange hybride local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+Pour plus d’informations sur la configuration des groupes Office 365, consultez [Configurer des groupes Microsoft 365 dans un déploiement Exchange hybride local](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Désactiver l’écriture différée de groupe
 Pour désactiver l’écriture différée de groupe, effectuez les étapes suivantes : 

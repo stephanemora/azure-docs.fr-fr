@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313674"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011733"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser une machine virtuelle Linux dans Azure
 
@@ -192,4 +192,4 @@ Dans ce tutoriel, vous avez configuré et visualisé le niveau de performance de
 Passez au didacticiel suivant pour découvrir plus d’informations sur Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Gérer la sécurité des machines virtuelles](../../security/fundamentals/overview.md)
+> [Gérer la sécurité des machines virtuelles](tutorial-azure-security.md)

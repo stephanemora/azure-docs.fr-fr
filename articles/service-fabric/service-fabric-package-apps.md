@@ -3,12 +3,13 @@ title: Packager une application Azure Service Fabric
 description: Découvrez la mise en package d’une application Azure Service Fabric et sa préparation au déploiement sur un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260967"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012396"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 

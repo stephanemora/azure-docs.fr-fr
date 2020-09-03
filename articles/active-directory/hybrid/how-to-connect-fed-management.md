@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72339d9ce492446d05f23b63ac2d0a1c2d62f766
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830925"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276777"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -85,7 +85,7 @@ La configuration d’un ID de connexion de substitution pour AD FS comprend deux
     Pour corriger la configuration en cas de bases de connaissances manquantes, installez la mise à jour [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) requise, puis réparez l’approbation à l’aide de [Réparer l’approbation AAD et AD FS](#repairthetrust).
 
 > [!NOTE]
-> Pour plus d’informations sur ID de substitution et les étapes de configuration manuelle, lisez [Configuration d’un ID de connexion de substitution](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> Pour plus d’informations sur ID de substitution et les étapes de configuration manuelle, lisez [Configuration d’un ID de connexion de substitution](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Ajout d’un serveur AD FS 
 
@@ -174,7 +174,7 @@ Il est facile d’ajouter un domaine à fédérer avec Azure AD à l’aide d’
 
    ![Domaine Azure AD](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    Après avoir choisi le domaine, l’Assistant présente des informations utiles concernant les autres actions qu’il va effectuer et l’impact de la configuration. Dans certains cas, si vous sélectionnez un domaine qui n’est pas encore vérifié dans Azure AD, l’Assistant affiche des informations pour vous aider à vérifier le domaine. Pour plus d’informations, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
+    Après avoir choisi le domaine, l’Assistant présente des informations utiles concernant les autres actions qu’il va effectuer et l’impact de la configuration. Dans certains cas, si vous sélectionnez un domaine qui n’est pas encore vérifié dans Azure AD, l’Assistant affiche des informations pour vous aider à vérifier le domaine. Pour plus d’informations, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](../fundamentals/add-custom-domain.md) .
 
 5. Cliquez sur **Suivant**. La page **Prêt à configurer** affiche la liste des actions qui seront effectuées par Azure AD Connect. Cliquez sur **Installer** pour terminer la configuration.
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modification des règles de revendication AD FS 
-AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 Les sections suivantes décrivent comment écrire des règles personnalisées pour certains scénarios se rapportant à la fédération des services Azure AD et AD FS.
 

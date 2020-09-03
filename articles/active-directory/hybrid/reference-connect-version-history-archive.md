@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a62694790505dcf8355b3011387d9bdfd036b6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8fc18ff248ce7f522539a92ef1b2226a29689be8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057014"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275978"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect : Archive de l’historique des versions
 
@@ -166,7 +166,7 @@ La mise à niveau d’Azure AD Connect échoue si la disponibilité SQL Always O
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
-- L’intégration de Ping Federate dans Azure AD Connect est maintenant en disponibilité générale. [En savoir plus sur la façon de fédérer Azure AD avec Ping Federate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- L’intégration de Ping Federate dans Azure AD Connect est maintenant en disponibilité générale. [En savoir plus sur la façon de fédérer Azure AD avec Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
 - Azure AD Connect crée maintenant la sauvegarde de l’approbation Azure AD dans AD FS chaque fois qu’une mise à jour est effectuée et la stocke dans un fichier distinct pour la restaurer facilement, si nécessaire. [En savoir plus sur les nouvelles fonctionnalités et la gestion de l’approbation Azure AD dans Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - De nouveaux outils de dépannage permettent de résoudre le problème de changement de l’adresse e-mail principale, et celui du masquage de compte à partir de la liste d’adresses globale
 - Azure AD Connect a été mis à jour pour inclure la toute dernière version de SQL Server 2012 Native Client
@@ -402,7 +402,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Pour voir si cette vulnérabilité a été exploitée afin de compromettre votre configuration Azure AD Connect, vous devez vérifier la date de la dernière réinitialisation du mot de passe du compte de service.  Si l’horodatage est inattendu, vous devez étudier de manière plus approfondie les circonstances de cet événement de réinitialisation de mot de passe par le biais du journal des événements.
 
-Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](https://technet.microsoft.com/library/security/4056318).
+Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](/security-updates/securityadvisories/2017/4056318).
 
 ## <a name="116490"></a>1.1.649.0
 État : 27 octobre 2017
@@ -443,7 +443,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 
 * Résolution d’un problème qui provoquait l’échec de la mise à niveau d’Azure AD Connect avec l’erreur *Impossible de mettre à niveau le service de synchronisation*. En outre, le service de synchronisation ne peut plus démarrer et affiche l’erreur d’événement*Le service n’a pas pu démarrer, car la version de la base de données est plus récente que celle des binaires installés*. Ce problème se produit lorsque l’administrateur qui effectue la mise à niveau ne dispose pas de privilèges sysadmin pour le serveur SQL qui est utilisé par Azure AD Connect. Avec ce correctif, Azure AD Connect nécessite uniquement que l’administrateur dispose de privilèges db_owner pour la base de données ADSync pendant la mise à niveau.
 
-* Résolution d’un problème avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’option [Authentification unique transparente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Après la mise à niveau d’Azure AD Connect, l’authentification unique transparente apparaît à tort comme étant désactivée dans l’Assistant Azure AD Connect, alors qu’elle est toujours activée et entièrement fonctionnelle. Avec ce correctif, cette fonctionnalité apparaît désormais comme étant activée dans l’Assistant.
+* Résolution d’un problème avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’option [Authentification unique transparente](./how-to-connect-sso.md). Après la mise à niveau d’Azure AD Connect, l’authentification unique transparente apparaît à tort comme étant désactivée dans l’Assistant Azure AD Connect, alors qu’elle est toujours activée et entièrement fonctionnelle. Avec ce correctif, cette fonctionnalité apparaît désormais comme étant activée dans l’Assistant.
 
 * Résolution d’un problème lié à l’affichage du message *Configurer l’ancre source* dans la page *Prêt à configurer* de l’Assistant Azure AD Connect, même lorsqu’aucune modification liée à l’ancre source n’avait été apportée.
 
@@ -457,7 +457,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 
 ### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
 > [!NOTE]
-> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le [planificateur intégré](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le [planificateur intégré](./how-to-connect-sync-feature-scheduler.md).
 #### <a name="fixed-issues"></a>Problèmes résolus
 * Lorsque l’Assistant Azure AD Connect créait le compte de connecteur AD pour la synchronisation des modifications apportées dans l’instance locale d’Active Directory, il n’attribuait pas l’autorisation au compte pour lire les objets PublicFolder. Ce problème concernait l’installation Express et l’installation personnalisée. Ce problème a été résolu.
 
@@ -470,7 +470,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 
 ### <a name="ad-fs-management"></a>Gestion AD FS
 #### <a name="fixed-issue"></a>Problème résolu
-* Résolution d’un problème lié à l’utilisation de la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Ce problème affectait les clients ayant sélectionné *Fédération avec AD FS* comme méthode d’authentification utilisateur. Lorsque vous exécutiez la tâche *Configurer l’ancre source* dans l’Assistant, Azure AD Connect se mettait à utiliser *ms-DS-ConsistencyGuid en tant qu’attribut de source pour immutableId. Avec ce correctif, Azure AD Connect tente désormais de mettre à jour les règles de revendication pour ImmutableId dans AD FS. Auparavant, cette étape échouait, car Azure AD Connect ne disposait pas des informations d’identification administrateur nécessaires pour configurer AD FS. Avec ce correctif, Azure AD Connect invite désormais l’utilisateur à entrer les informations d’identification d’administrateur pour AD FS lorsque vous exécutez la tâche *Configurer l’ancre source*.
+* Résolution d’un problème lié à l’utilisation de la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Ce problème affectait les clients ayant sélectionné *Fédération avec AD FS* comme méthode d’authentification utilisateur. Lorsque vous exécutiez la tâche *Configurer l’ancre source* dans l’Assistant, Azure AD Connect se mettait à utiliser *ms-DS-ConsistencyGuid en tant qu’attribut de source pour immutableId. Avec ce correctif, Azure AD Connect tente désormais de mettre à jour les règles de revendication pour ImmutableId dans AD FS. Auparavant, cette étape échouait, car Azure AD Connect ne disposait pas des informations d’identification administrateur nécessaires pour configurer AD FS. Avec ce correctif, Azure AD Connect invite désormais l’utilisateur à entrer les informations d’identification d’administrateur pour AD FS lorsque vous exécutez la tâche *Configurer l’ancre source*.
 
 
 
@@ -485,7 +485,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 * Il existe un problème connu avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’[authentification unique transparente](how-to-connect-sso.md). Après la mise à niveau d’Azure AD Connect, la fonctionnalité apparaît comme étant désactivée dans l’Assistant, même si elle reste activée. Un correctif pour ce problème sera fourni dans une version ultérieure. Vous pouvez résoudre ce problème d’affichage manuellement en activant l’authentification unique transparente dans l’Assistant.
 
 #### <a name="fixed-issues"></a>Problèmes résolus
-* Correction d’un problème qui empêchait Azure AD Connect de mettre à jour les règles de revendications dans les services AD FS locaux tout en activant la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Le problème se produit si vous essayez d’activer la fonctionnalité pour un déploiement Azure AD Connect existant pour lequel les services AD FS sont configurés en tant que méthode de connexion. Le problème se produit parce que l’Assistant ne demande pas les informations d’identification AD FS avant d’essayer de mettre à jour les règles de revendications dans AD FS.
+* Correction d’un problème qui empêchait Azure AD Connect de mettre à jour les règles de revendications dans les services AD FS locaux tout en activant la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Le problème se produit si vous essayez d’activer la fonctionnalité pour un déploiement Azure AD Connect existant pour lequel les services AD FS sont configurés en tant que méthode de connexion. Le problème se produit parce que l’Assistant ne demande pas les informations d’identification AD FS avant d’essayer de mettre à jour les règles de revendications dans AD FS.
 * Correction d’un problème qui provoque l’échec de l’installation d’Azure AD Connect si l’authentification NTLM est désactivée dans la forêt AD locale. Ce problème est dû au fait que l’Assistant Azure AD Connect ne fournit pas les informations d’identification complètes lors de la création des contextes de sécurité nécessaires pour l’authentification Kerberos. Cela provoque l’échec de l’authentification Kerberos et l’utilisation de l’authentification NTLM par l’Assistant Azure AD Connect.
 
 ### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
@@ -631,16 +631,16 @@ Le problème qui se pose est le suivant : l’option **Synchroniser tous les do
 
 #### <a name="fixed-issues"></a>Problèmes résolus
 
-* Correction d’un problème lié à la réécriture du mot de passe, qui permet à un administrateur Azure Active Directory de réinitialiser le mot de passe d’un compte d’utilisateur privilégié Active Directory local. Le problème se produit lorsqu’Azure AD Connect se voit accorder l’autorisation de réinitialiser le mot de passe à la place du compte privilégié. Le problème est résolu dans cette version d’Azure AD Connect, car l’administrateur d’Azure AD n’est plus autorisé à réinitialiser le mot de passe d’un compte d’utilisateur privilégié AD local, sauf s’il est le propriétaire de ce compte. Pour en savoir plus, voir [Avis de sécurité Microsoft 4033453](https://technet.microsoft.com/library/security/4033453).
+* Correction d’un problème lié à la réécriture du mot de passe, qui permet à un administrateur Azure Active Directory de réinitialiser le mot de passe d’un compte d’utilisateur privilégié Active Directory local. Le problème se produit lorsqu’Azure AD Connect se voit accorder l’autorisation de réinitialiser le mot de passe à la place du compte privilégié. Le problème est résolu dans cette version d’Azure AD Connect, car l’administrateur d’Azure AD n’est plus autorisé à réinitialiser le mot de passe d’un compte d’utilisateur privilégié AD local, sauf s’il est le propriétaire de ce compte. Pour en savoir plus, voir [Avis de sécurité Microsoft 4033453](/security-updates/SecurityAdvisories/2017/4033453).
 
-* Correction d’un problème lié à la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor), où Azure AD Connect ne réécrivait pas dans l’attribut ms-DS-ConsistencyGuid AD local. Le problème se produit lorsqu’il y a plusieurs forêts AD locales ajoutées à Azure AD Connect et que *l’option Les identités utilisateurs existent sur plusieurs annuaires* est sélectionnée. Lorsqu’une configuration de ce type est utilisée, les règles de synchronisation résultantes ne remplissent pas l’attribut sourceAnchorBinary dans le métaverse. L’attribut sourceAnchorBinary est utilisé en tant qu’attribut source pour l’attribut ms-DS-ConsistencyGuid. Par conséquent, l’écriture différée vers l’attribut ms-DSConsistencyGuid n’a pas lieu. Afin de résoudre le problème, les règles de synchronisation suivantes ont été mises à jour pour faire en sorte que l’attribut sourceAnchorBinary du métaverse soit toujours rempli :
+* Correction d’un problème lié à la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor), où Azure AD Connect ne réécrivait pas dans l’attribut ms-DS-ConsistencyGuid AD local. Le problème se produit lorsqu’il y a plusieurs forêts AD locales ajoutées à Azure AD Connect et que *l’option Les identités utilisateurs existent sur plusieurs annuaires* est sélectionnée. Lorsqu’une configuration de ce type est utilisée, les règles de synchronisation résultantes ne remplissent pas l’attribut sourceAnchorBinary dans le métaverse. L’attribut sourceAnchorBinary est utilisé en tant qu’attribut source pour l’attribut ms-DS-ConsistencyGuid. Par conséquent, l’écriture différée vers l’attribut ms-DSConsistencyGuid n’a pas lieu. Afin de résoudre le problème, les règles de synchronisation suivantes ont été mises à jour pour faire en sorte que l’attribut sourceAnchorBinary du métaverse soit toujours rempli :
   * In from AD - InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* Auparavant, même si la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) était désactivée, la règle de synchronisation « Out to AD – User ImmutableId » était encore ajoutée à Azure AD Connect. L’effet est sans gravité et n’entraîne pas la réécriture de l’attribut ms-DS-ConsistencyGuid. Pour éviter toute confusion, nous avons ajouté une logique pour vous assurer que la règle de synchronisation n’est ajoutée que lorsque la fonctionnalité est activée.
+* Auparavant, même si la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) était désactivée, la règle de synchronisation « Out to AD – User ImmutableId » était encore ajoutée à Azure AD Connect. L’effet est sans gravité et n’entraîne pas la réécriture de l’attribut ms-DS-ConsistencyGuid. Pour éviter toute confusion, nous avons ajouté une logique pour vous assurer que la règle de synchronisation n’est ajoutée que lorsque la fonctionnalité est activée.
 
 * Correction d’un problème qui provoquait l’échec de la synchronisation du hachage de mot de passe avec l’événement d’erreur 611. Ce problème se produit après qu’un ou plusieurs contrôleurs de domaine ont été supprimés de l’instance AD locale. À la fin de chaque cycle de synchronisation de mot de passe, le cookie de synchronisation émis par l’instance AD locale contient les ID d’appel des contrôleurs de domaine supprimés, avec 0 comme valeur USN (numéro de séquence de mise à jour). Le Gestionnaire de synchronisation des mots de passe ne parvient pas à conserver le cookie de synchronisation contenant la valeur USN de 0 et échoue avec l’événement d’erreur 611. Lors du prochain cycle de synchronisation, le Gestionnaire de synchronisation des mots de passe réutilise le dernier cookie de synchronisation persistant qui ne contient aucune valeur USN égale à 0. Cela entraîne la resynchronisation des mêmes modifications apportées aux mots de passe. Grâce à ce correctif, le Gestionnaire de synchronisation des mots de passe conserve correctement le cookie de synchronisation.
 
@@ -648,12 +648,12 @@ Le problème qui se pose est le suivant : l’option **Synchroniser tous les do
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
-* Auparavant, la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) n’était disponible que pour les nouveaux déploiements. Désormais, elle est disponible pour les déploiements existants. Plus précisément :
+* Auparavant, la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) n’était disponible que pour les nouveaux déploiements. Désormais, elle est disponible pour les déploiements existants. Plus précisément :
   * Pour accéder à cette fonctionnalité, démarrez l’assistant Azure AD Connect, puis choisissez l’option *Mettre à jour sourceAnchor*.
   * Cette option n’est visible que pour les déploiements existants qui utilisent objectGuid comme attribut sourceAnchor.
   * Quand vous configurez l’option, l’assistant vérifie l’état de l’attribut ms-DS-ConsistencyGuid dans votre annuaire Active Directory local. Si l’attribut n’est configuré sur aucun objet utilisateur dans l’annuaire, l’assistant utilise ms-DS-ConsistencyGuid en tant qu’attribut Ancre source. Si l’attribut est configuré sur un ou plusieurs objets utilisateur dans l’annuaire, l’assistant détermine que l’attribut est utilisé par d’autres applications, qu’il n’est pas approprié en tant qu’attribut sourceAnchor et n’autorise pas le processus de modification de sourceAnchor à se poursuivre. Si vous êtes certain qu’attribut n’est pas utilisé par des applications existantes, contactez le Support technique pour plus d’informations sur la manière de supprimer l’erreur.
 
-* Pour l’attribut **userCertificate** sur les objets périphériques, Azure AD Connect recherche désormais des valeurs de certificats requises pour [connecter des appareils joints au domaine à Azure AD pour Windows 10 ](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) et exclut le reste avant de se synchroniser avec Azure AD. La règle de synchronisation prête à l’emploi « Out to AAD - Device Join SOAInAD » a été mise à jour pour permettre ce comportement.
+* Pour l’attribut **userCertificate** sur les objets périphériques, Azure AD Connect recherche désormais des valeurs de certificats requises pour [connecter des appareils joints au domaine à Azure AD pour Windows 10 ](../devices/hybrid-azuread-join-plan.md) et exclut le reste avant de se synchroniser avec Azure AD. La règle de synchronisation prête à l’emploi « Out to AAD - Device Join SOAInAD » a été mise à jour pour permettre ce comportement.
 
 * Azure AD Connect prend désormais en charge l’écriture différée de l’attribut **cloudPublicDelegates** d’Exchange Online vers un attribut AD local **publicDelegates**. Cela permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange locales des utilisateurs. Une nouvelle règle de synchronisation prête à l’emploi « Out to AD - User Exchange hybride PublicDelegates writeback » a été ajoutée pour prendre en charge cette fonctionnalité. Cette règle n’est ajoutée à Azure AD Connect que lorsque la fonctionnalité Exchange hybride est activée.
 
@@ -844,7 +844,7 @@ Synchronisation d’Azure AD Connect
 * Sur votre locataire Azure AD, une configuration de service indique si la fonctionnalité de synchronisation de mot de passe est activée pour votre locataire. Auparavant, les problèmes de configuration du service par Azure AD Connect étaient courants lorsque vous disposiez d’un serveur intermédiaire actif. À présent, Azure AD Connect tente d’assurer la cohérence entre la configuration de service et votre serveur Azure AD Connect actif uniquement.
 * L’Assistant Azure AD Connect détecte désormais si AD local n’a pas activé la Corbeille AD et envoie un avertissement.
 * Auparavant, l’exportation vers Azure AD expirait et échouait si la taille combinée des objets du lot dépassait le seuil donné. À présent, le service de synchronisation tente de renvoyer les objets dans des lots distincts et plus petits en cas de problème.
-* L’application Gestion des clés du service de synchronisation a été supprimée du menu Démarrer de Windows. La gestion de la clé de chiffrement sera toujours prise en charge par l’interface de ligne de commande à l’aide de miiskmu.exe. Pour plus d’informations sur la gestion de la clé de chiffrement, reportez-vous à l’article [Abandon de la clé de chiffrement Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
+* L’application Gestion des clés du service de synchronisation a été supprimée du menu Démarrer de Windows. La gestion de la clé de chiffrement sera toujours prise en charge par l’interface de ligne de commande à l’aide de miiskmu.exe. Pour plus d’informations sur la gestion de la clé de chiffrement, reportez-vous à l’article [Abandon de la clé de chiffrement Azure AD Connect Sync](./how-to-connect-sync-change-serviceacct-pass.md#abandoning-the-adsync-service-account-encryption-key).
 * Auparavant, si vous modifiiez le mot de passe du compte de service Azure AD Connect Sync, le service de synchronisation n’était pas en mesure de démarrer correctement. Vous deviez alors abandonner la clé de chiffrement et réinitialiser le mot de passe du compte de service Azure AD Connect Sync. Ce processus n’est plus nécessaire.
 
 Desktop SSO
@@ -1072,7 +1072,7 @@ Publication : Novembre 2015
 
 **Nouveau scénario pris en charge :**
 
-* Prise en charge de plusieurs organisations Exchange locales Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
+* Prise en charge de plusieurs organisations Exchange locales Pour plus d’informations, consultez la rubrique [Déploiements hybrides à forêts Active Directory multiples](/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Problèmes résolus :**
 

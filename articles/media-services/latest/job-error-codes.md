@@ -1,7 +1,7 @@
 ---
 title: Codes d’erreur (d’encodage et d’analyse) de travaux Azure Media Services | Microsoft Docs
 description: Cet article est lié à la rubrique de référence sur les codes d’erreur de travaux et fournit des liens utiles vers des rubriques connexes.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -10,17 +10,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/28/2019
-ms.author: juliako
-ms.openlocfilehash: ec057d86ea39afb7eabd4e8227646eaec11c5655
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: error-reference
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023005"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289560"
 ---
 # <a name="media-services-job-error-codes"></a>Codes d’erreur de travaux de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cette rubrique est liée à un document de référence REST pour la description détaillée des messages et codes d’erreur de [travaux](transforms-jobs-concept.md).
 

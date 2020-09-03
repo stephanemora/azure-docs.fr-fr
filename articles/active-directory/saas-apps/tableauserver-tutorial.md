@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.openlocfilehash: a074b3f0accf0e0cf800f6b06ce8466e984f8693
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cb052f4ce962b1757f47f64e3f26fa5db2a731fa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tableau Server
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     b. Cochez la case **Enable SAML Authentication for the server** (Activer l’authentification SAML pour le serveur).
 
-    c. Tableau Server return URL (URL de retour Tableau Server) : URL à laquelle accèdent les utilisateurs Tableau Server, telle que <http://tableau_server>. L’utilisation de `http://localhost` n’est pas recommandée. L’utilisation d’une URL avec une barre oblique finale (par exemple, `http://tableau_server/`) n’est pas prise en charge. Copiez l’**URL de retour de Tableau Server** et collez-la dans la zone de texte **URL de connexion** située dans la section **Configuration SAML de base** dans le portail Azure
+    c. Tableau Server return URL (URL de retour Tableau Server) : URL à laquelle accèdent les utilisateurs Tableau Server, telle que `http://tableau_server`. L’utilisation de `http://localhost` n’est pas recommandée. L’utilisation d’une URL avec une barre oblique finale (par exemple, `http://tableau_server/`) n’est pas prise en charge. Copiez l’**URL de retour de Tableau Server** et collez-la dans la zone de texte **URL de connexion** située dans la section **Configuration SAML de base** dans le portail Azure
 
     d. SAML entity ID (ID d’entité SAML) : l’ID d’entité identifie de façon unique votre installation Tableau Server auprès du fournisseur d’identité. Vous pouvez à nouveau entrer l’URL Tableau Server ici, si vous le souhaitez, mais ce n’est pas obligatoire. Copiez l’**ID d’entité SAML** et collez-la dans la zone de texte **Identificateur** située dans la section **Configuration SAML de base** dans le portail Azure
 

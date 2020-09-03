@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1279ef9b8767ba05f329678429dff40f9bfed640
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355894"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280111"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -246,5 +246,5 @@ Pour corriger ce problème, effectuez les étapes suivantes :
 >Vous pouvez réaffecter le rôle administratif à l’objet utilisateur existant une fois la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD effectuée.
 
 ## <a name="related-links"></a>Liens connexes
-* [Recherche d’objets Active Directory dans le centre d’administration Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
-* [Comment faire pour interroger Azure Active Directory pour un objet à l’aide d’Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Recherche d’objets Active Directory dans le centre d’administration Active Directory](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [Comment faire pour interroger Azure Active Directory pour un objet à l’aide d’Azure Active Directory PowerShell](/previous-versions/azure/jj151815(v=azure.100))

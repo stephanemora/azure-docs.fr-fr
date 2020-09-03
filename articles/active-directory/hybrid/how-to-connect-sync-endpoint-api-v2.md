@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce7041cd74a6bfd3ac736d3ae774324122ed737b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357577"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277066"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API du point de terminaison v2 pour la synchronisation Azure AD Connect (préversion publique) 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
@@ -33,7 +33,7 @@ Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connec
 Pour utiliser le nouveau point de terminaison v2, vous devez utiliser [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure et suivre les étapes de déploiement fournies ci-dessous pour activer le point de terminaison v2 pour votre serveur Azure AD Connect.   
 
 >[!NOTE]
->Actuellement, cette version préliminaire publique est uniquement disponible dans le cloud global Azure et n’est pas disponible sur les [clouds nationaux](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Actuellement, cette version préliminaire publique est uniquement disponible dans le cloud global Azure et n’est pas disponible sur les [clouds nationaux](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Limitations de la version préliminaire publique  
 Bien que cette version ait subi des tests intensifs, vous pouvez toujours rencontrer des problèmes. L’un des objectifs de cette version préliminaire publique est de trouver et de résoudre ces problèmes.  
@@ -44,7 +44,7 @@ Bien que cette version ait subi des tests intensifs, vous pouvez toujours rencon
 ## <a name="deployment-guidance"></a>Conseils pour le déploiement 
 Vous devez déployer la [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure pour utiliser le point de terminaison v2. Utilisez le lien fourni pour le téléchargement. 
 
-Il est recommandé de suivre la méthode de [migration Swing](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) pour déployer le nouveau point de terminaison dans votre environnement. Cela fournira un plan d’urgence clair en cas de nécessité d’une restauration importante. L’exemple suivant illustre la façon dont une migration Swing peut être utilisée dans ce scénario. Pour plus d’informations sur la méthode de déploiement de migration Swing, reportez-vous au lien fourni. 
+Il est recommandé de suivre la méthode de [migration Swing](./how-to-upgrade-previous-version.md#swing-migration) pour déployer le nouveau point de terminaison dans votre environnement. Cela fournira un plan d’urgence clair en cas de nécessité d’une restauration importante. L’exemple suivant illustre la façon dont une migration Swing peut être utilisée dans ce scénario. Pour plus d’informations sur la méthode de déploiement de migration Swing, reportez-vous au lien fourni. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migration Swing pour le déploiement du point de terminaison v2
 Les étapes suivantes vous guideront tout au long du déploiement du point de terminaison v2 à l’aide de la méthode Swing.

@@ -9,18 +9,20 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 08/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 27082499263af6eedd7d9d628b7b1746a9177672
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606838"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291600"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Actifs multimédias dans Azure Media Service v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Dans Azure Media Services, l’[actif multimédia](/rest/api/media/assets) est un concept clé. C’est là que vous entrez du contenu multimédia (par exemple par le biais d’un chargement ou d’une ingestion en direct), où vous générez du contenu multimédia (à partir d’une sortie de travail) et à partir duquel vous publiez du contenu multimédia (pour le streaming). 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689042"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266780"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -62,7 +62,7 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 - L’utilisateur désactive l’appareil à partir du portail Mes applications. 
 - Un administrateur (ou un utilisateur) supprime ou désactive l’appareil dans le portail Azure ou à l’aide de PowerShell.
 - Valable uniquement pour les appareils hybrides joints à Azure AD : Un administrateur supprime l’unité d’organisation Appareils de l’étendue de synchronisation, ce qui entraîne la suppression des appareils dans Azure AD.
-- Mise à niveau d’Azure AD connecté à la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Mise à niveau d’Azure AD connecté à la version 1.4.xx.x. [Comprendre Azure AD Connect 1.4.xx.x et la disparition des appareils](../hybrid/reference-connect-device-disappearance.md).
 
 
 Pour savoir comment remédier à cela, lisez la section ci-dessous.
@@ -312,7 +312,7 @@ Les modifications d’UPN sont prises en charge avec la mise à jour Windows 10
 **R :** Procédez comme suit :
 
 1.    [Créez une stratégie de conformité](/intune/compliance-policy-create-mac-os)
-1.    [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Définissez une stratégie d’accès conditionnel pour les appareils macOS](../conditional-access/overview.md) 
 
 **Remarques :**
 
