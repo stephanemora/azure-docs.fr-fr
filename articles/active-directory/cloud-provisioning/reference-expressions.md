@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201851"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226571"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez le provisionnement cloud, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. 
@@ -253,7 +253,7 @@ Si l’attribut accountName n’est pas présent, renvoie une erreur sur l’obj
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
    | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
-   | **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour les formats pris en charge, consultez [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Obligatoire |String |Format de la date de sortie. |
 
 ---

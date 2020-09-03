@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611311"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268772"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory
 
@@ -28,8 +28,8 @@ Pour les autres clients Windows, consultez l’article [Dépanner des appareils 
 Cet article suppose que vous avez [configuré des appareils hybrides joints à Azure Active Directory](hybrid-azuread-join-plan.md) de façon à prendre en charge les scénarios suivants :
 
 - Accès conditionnel basé sur les appareils
-- [Itinérance d’entreprise des paramètres](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello Entreprise](../active-directory-azureadjoin-passport-deployment.md)
+- [Itinérance d’entreprise des paramètres](./enterprise-state-roaming-overview.md)
+- [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Ce document fournit des conseils de dépannage pour résoudre les problèmes potentiels.
 

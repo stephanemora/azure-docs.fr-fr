@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211915"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961667"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ::: zone pivot="platform-windows"  
 
-Définissez la version cible de .NET Framework dans le fichier projet de votre projet ASP.NET Core. Pour plus d’informations, consultez [Sélectionner la version .NET Core à utiliser](https://docs.microsoft.com/dotnet/core/versions/selection) dans la documentation .NET Core.
+Définissez la version cible de .NET Framework dans le fichier projet de votre projet ASP.NET Core. Pour plus d’informations, consultez [Sélectionner la version .NET Core à utiliser](/dotnet/core/versions/selection) dans la documentation .NET Core.
 
 ::: zone-end
 
@@ -128,7 +128,7 @@ namespace SomeNamespace
 Si vous configurez un paramètre d’application portant le même nom dans App Service et dans *appsettings.json*, la valeur d’App Service est prioritaire sur la valeur de *appsettings.json*. La valeur de locale de *appsettings.json* vous permet de déboguer l’application localement, tandis que la valeur d’App Service vous permet d’exécuter l’application dans le produit avec les paramètres de production. Les chaînes de connexion fonctionnent de la même façon. De cette façon, vous pouvez conserver les secrets de votre application en dehors de votre référentiel de code et accéder aux valeurs appropriées sans modifier votre code.
 
 > [!NOTE]
-> Notez que l’accès aux [données de configuration hiérarchiques](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) dans *appsettings.json* se fait à l’aide du délimiteur `:` qui est standard pour .NET Core. Pour remplacer un paramètre de configuration hiérarchique spécifique dans App Service, définissez le nom du paramètre d’application avec le même format délimité dans la clé. Vous pouvez exécuter l’exemple suivant dans le service [Cloud Shell](https://shell.azure.com) :
+> Notez que l’accès aux [données de configuration hiérarchiques](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) dans *appsettings.json* se fait à l’aide du délimiteur `:` qui est standard pour .NET Core. Pour remplacer un paramètre de configuration hiérarchique spécifique dans App Service, définissez le nom du paramètre d’application avec le même format délimité dans la clé. Vous pouvez exécuter l’exemple suivant dans le service [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -144,7 +144,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
 
-ASP.NET Core fournit un [module fournisseur d’informations intégré pour App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). Dans *Program.cs* pour votre projet, ajoutez le fournisseur à votre application à l’aide de la méthode d’extension `ConfigureLogging`, comme indiqué dans l’exemple suivant :
+ASP.NET Core fournit un [module fournisseur d’informations intégré pour App Service](/aspnet/core/fundamentals/logging/#azure-app-service). Dans *Program.cs* pour votre projet, ajoutez le fournisseur à votre application à l’aide de la méthode d’extension `ConfigureLogging`, comme indiqué dans l’exemple suivant :
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -159,11 +159,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-Vous pouvez ensuite configurer et générer des journaux avec le [modèle .NET Core standard](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Vous pouvez ensuite configurer et générer des journaux avec le [modèle .NET Core standard](/aspnet/core/fundamentals/logging).
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-Pour plus d’informations sur la résolution des problèmes des applications ASP.NET Core dans App Service, consultez [Résolution des problèmes ASP.NET Core sur Azure App Service et IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
+Pour plus d’informations sur la résolution des problèmes des applications ASP.NET Core dans App Service, consultez [Résolution des problèmes ASP.NET Core sur Azure App Service et IIS](/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="get-detailed-exceptions-page"></a>Accéder à la page d’exceptions détaillées
 
@@ -177,9 +177,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit savoir si les demandes utilisateur sont chiffrées ou non, configurez l’intergiciel Forwarded Headers dans *Startup.cs* :
 
-- Configurez l’intergiciel avec [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer les en-têtes `X-Forwarded-For` et `X-Forwarded-Proto` dans `Startup.ConfigureServices`.
+- Configurez l’intergiciel avec [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer les en-têtes `X-Forwarded-For` et `X-Forwarded-Proto` dans `Startup.ConfigureServices`.
 - Ajoutez des plages d’adresses IP privées aux réseaux connus afin que l’intergiciel puisse approuver l’équilibreur de charge d’App Service.
-- Appelez la méthode [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) dans `Startup.Configure` avant d’appeler les autres intergiciels.
+- Appelez la méthode [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) dans `Startup.Configure` avant d’appeler les autres intergiciels.
 
 Assemblez les trois éléments ; le code ressemble à l’exemple suivant :
 
@@ -208,7 +208,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour l’utilisation de serveurs proxy et d’équilibreurs de charge](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour l’utilisation de serveurs proxy et d’équilibreurs de charge](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
 
@@ -231,4 +231,3 @@ Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour 
 > [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

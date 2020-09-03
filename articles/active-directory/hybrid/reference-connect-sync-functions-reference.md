@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550186"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279769"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -660,7 +660,7 @@ La fonction FormatDateTime sert à mettre en forme une valeur DateTime en chaîn
 * format : chaîne représentant le format à convertir.
 
 **Remarques :**  
-Vous trouverez ici les valeurs possibles pour le format : [Formats de date et heure pour la fonction FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Vous trouverez ici les valeurs possibles pour le format : [Formats de date et heure pour la fonction FORMAT](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemple :**  
 

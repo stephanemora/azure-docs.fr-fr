@@ -3,20 +3,20 @@ title: Back-ends et pools de back-ends dans Azure Front Door | Microsoft Docs
 description: Cet article décrit les serveurs principaux et pools principaux dans la configuration de Front Door.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293471"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399920"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-ends et pools de back-ends dans Azure Front Door
 Cet article décrit des concepts sur la façon de mapper votre déploiement d’application en utilisant Azure Front Door. Il explique également les différents termes utilisés pour la configuration de Front Door relatifs aux back-ends d’application.

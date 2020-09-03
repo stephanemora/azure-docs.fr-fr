@@ -11,17 +11,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 06/12/2019
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765010"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291413"
 ---
 # <a name="live-transcription-preview"></a>Transcription en direct (préversion)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services diffuse de la vidéo, de l’audio et du texte dans différents protocoles. Lorsque vous publiez votre stream en direct en MPEG-DASH ou HLS/CMAF, notre service diffuse le texte transcrit en IMSC1.1 compatible TTML avec la vidéo et le son. La diffusion est empaquetée sous forme de fragments MPEG-4 Partie 30 (ISO/CEI 14496-30). Si vous utilisez la diffusion via HLS/TS, le texte est diffusé sous forme de VTT segmenté.
 

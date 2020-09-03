@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042858"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269027"
 ---
 # <a name="encoding-error-codes"></a>Codes d’erreur d’encodage
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Le tableau suivant répertorie les codes d’erreur susceptibles d’être renvoyés à la suite d’une erreur d’exécution d’une tâche de codage.  Pour obtenir les détails de l’erreur dans votre code .NET, utilisez la classe [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Pour obtenir les détails de l’erreur dans votre code REST, utilisez l’API REST [ErrorDetail](/rest/api/media/operations/errordetail) .
 
