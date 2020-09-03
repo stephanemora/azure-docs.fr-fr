@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608090"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231008"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Résoudre les erreurs relatives à l’API de création de rapports Azure Active Directory
 
@@ -50,5 +50,5 @@ Pour vérifier que votre application est exécutée avec le bon ensemble d’aut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utiliser la documentation de référence de l’API d’audit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-[Utiliser la documentation de référence de l’API de rapport sur les activités de connexion](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Utiliser la documentation de référence de l’API d’audit](/graph/api/resources/directoryaudit?view=graph-rest-beta)
+[Utiliser la documentation de référence de l’API de rapport sur les activités de connexion](/graph/api/resources/signin?view=graph-rest-beta)

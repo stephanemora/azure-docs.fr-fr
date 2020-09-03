@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: eaae6d90799c11d2475105a30f830db8dfae7fcf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860400"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949896"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifier des appareils IoT Plug-and-Play
 
@@ -43,7 +43,7 @@ Pour répondre aux exigences de certification, votre appareil doit :
 - Décrire les interactions de l’appareil avec un modèle [DTDL v2](https://aka.ms/dtdl).
 - Publier le modèle et toutes les interfaces requises dans le [référentiel de modèles public IoT Azure](https://devicemodels.azureiotsolutions.com/)
 - Envoyer l’ID de modèle lors de l’[inscription DPS](concepts-developer-guide.md#dps-payload) dans la charge utile de configuration DPS.
-- Annoncer l’ID de modèle lors de la [connexion MQTT](/concepts-developer-guide.md#model-id-announcement).
+- Annoncer l’ID de modèle lors de la [connexion MQTT](concepts-developer-guide.md#model-id-announcement).
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Tester avec la CLI de l’extension Azure IoT
 

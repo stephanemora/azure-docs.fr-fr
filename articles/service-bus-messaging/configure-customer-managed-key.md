@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Service Bus
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067237"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400583"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l’aide de clés gérées par Microsoft. 
@@ -82,12 +82,12 @@ Après avoir activé une clé gérée par le client, vous devez l’associer à 
     > 
     >   * Si [la géorécupération d’urgence](service-bus-geo-dr.md) est déjà activée pour l’espace de noms Service Bus et que vous cherchez à activer la clé gérée par le client, alors : 
     >     * Brisez l’appairage.
-    >     * [Configurez la stratégie d’accès](../key-vault/general/managed-identity.md) de l’identité managée pour les espaces de noms principal et secondaire sur le coffre de clés.
+    >     * [Configurez la stratégie d’accès](../key-vault/general/assign-access-policy-portal.md) de l’identité managée pour les espaces de noms principal et secondaire sur le coffre de clés.
     >     * Configurez le chiffrement sur l’espace de noms principal.
     >     * Appairez à nouveau les espaces de noms principal et secondaire.
     > 
     >   * Si vous envisagez d’activer la géorécupération d’urgence sur un espace de noms Service Bus où la clé gérée par le client est déjà configurée, alors :
-    >     * [Configurez la stratégie d’accès](../key-vault/general/managed-identity.md) de l’identité managée pour l’espace de noms secondaire sur le coffre de clés.
+    >     * [Configurez la stratégie d’accès](../key-vault/general/assign-access-policy-portal.md) de l’identité managée pour l’espace de noms secondaire sur le coffre de clés.
     >     * Appairez les espaces de noms principal et secondaire.
 
 

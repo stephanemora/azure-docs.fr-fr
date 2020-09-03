@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e01954e0f2f311a7229a69cb18f881e0491b80d3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082785"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961718"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -122,7 +122,7 @@ Vous devez fournir l’URL de registre complète, y compris `http://` ou `https:
 
 **Quel est le format du nom d’image dans l’option de registre privé ?**
 
-Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par exemple, myacr.azurecr.io/dotnet:latest). Les noms d’image qui utilisent un port personnalisé [ne peuvent pas être entrés par le biais du portail](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Pour définir `docker-custom-image-name`, utilisez [l’outil en ligne de commande `az`](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par exemple, myacr.azurecr.io/dotnet:latest). Les noms d’image qui utilisent un port personnalisé [ne peuvent pas être entrés par le biais du portail](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Pour définir `docker-custom-image-name`, utilisez [l’outil en ligne de commande `az`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Je veux exposer plusieurs ports sur l’image de mon conteneur personnalisé.**
 
@@ -130,7 +130,7 @@ Nous ne prenons pas en charge l’exposition de plusieurs ports.
 
 **Puis-je apporter mon propre système de stockage ?**
 
-Oui, le mode [Bring Your Own Storage](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) est disponible en préversion.
+Oui, le mode [Bring Your Own Storage](./configure-connect-to-azure-storage.md) est disponible en préversion.
 
 **Pourquoi est-il impossible de parcourir le système de fichiers de mon conteneur personnalisé à partir du site SCM ?**
 

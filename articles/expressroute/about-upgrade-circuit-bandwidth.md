@@ -2,17 +2,17 @@
 title: À propos de la mise à niveau de la bande passante du circuit | Azure ExpressRoute
 description: Dans cet article, découvrez les bonnes pratiques de mise à niveau de la bande passante d’un circuit ExpressRoute
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537035"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397948"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>À propos de la mise à niveau de la bande passante d’un circuit ExpressRoute
 

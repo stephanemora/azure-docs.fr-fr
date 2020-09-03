@@ -5,16 +5,16 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 20c220bcb44a1a47e308f57d1466aee2773111a4
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985680"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962908"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurer une application App Service supprimée à l’aide de PowerShell
 
-Si vous avez supprimé accidentellement votre application dans Azure App Service, vous pouvez la restaurer à l’aide des commandes du [module PowerShell Az](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Si vous avez supprimé accidentellement votre application dans Azure App Service, vous pouvez la restaurer à l’aide des commandes du [module PowerShell Az](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
 > - Les applications supprimées sont purgées du système 30 jours après la suppression initiale. Une fois qu’une application a été supprimée définitivement, il n’est plus possible de la récupérer.
@@ -76,4 +76,4 @@ Par défaut, `Restore-AzDeletedWebApp` restaure à la fois la configuration de v
 > Si l’application a été hébergée sur un environnement ASE, puis supprimée de celui-ci, elle ne peut être restaurée que si l’environnement ASE correspondant existe toujours.
 >
 
-La référence complète de la cmdlet se trouve ici : [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+La référence complète de la cmdlet se trouve ici : [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

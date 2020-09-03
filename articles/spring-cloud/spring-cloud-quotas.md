@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d47311385848f96a12a50c1dcf8b8284869c71d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089462"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260354"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quotas et plans de service pour Azure Spring Cloud
 
@@ -27,9 +27,6 @@ Mémoire | 2 Go par instance de service | 8 Go par instance de service
 Instances du service Azure Spring Cloud par région et par abonnement | 10 | 10
 Nombre total d’instances d’application par instance du service Azure Spring Cloud | 25 | 500
 Volumes persistants | 1 Go/application x 10 applications | 50 Go/application x 10 applications
-
-
-Pendant la période de préversion, Azure Spring Cloud n’offre qu’un seul niveau de service. Quand vous atteignez une limite, vous recevez une erreur 400 qui indique : « Le quota dépasse la limite pour l’abonnement *votre abonnement* dans la région *région où votre service Cloud Azure Spring est créé*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: f547f60bf6c67b757f2e12f06f1e39100c3e76cb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e2959403d2e5db38d03013e798fe299d56837227
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077150"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962109"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
 
@@ -33,7 +33,7 @@ Le fichier [WAR](https://wikipedia.org/wiki/WAR_(file_format)) est déployé sur
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de cet article, [créez une application App Service](/azure/app-service/) ou utilisez une application créée pour un autre didacticiel.
+Pour effectuer les étapes de cet article, [créez une application App Service](./index.yml) ou utilisez une application créée pour un autre didacticiel.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208639"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962007"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -815,7 +815,7 @@ Si vous souhaitez vérifier qu’une seule instance d’une fonction s’exécut
 
 ## <a name="filters"></a>Filtres
 
-Les filtres de fonctions (préversion) vous offrent un moyen de personnaliser le pipeline d’exécution de tâches web avec votre propre logique. Ces filtres sont similaires aux [filtres ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). Vous pouvez les implémenter en tant qu’attributs déclaratifs appliqués à vos fonctions ou classes. Pour plus d’informations, consultez [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (Filtres de fonctions).
+Les filtres de fonctions (préversion) vous offrent un moyen de personnaliser le pipeline d’exécution de tâches web avec votre propre logique. Ces filtres sont similaires aux [filtres ASP.NET Core](/aspnet/core/mvc/controllers/filters). Vous pouvez les implémenter en tant qu’attributs déclaratifs appliqués à vos fonctions ou classes. Pour plus d’informations, consultez [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters) (Filtres de fonctions).
 
 ## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
 

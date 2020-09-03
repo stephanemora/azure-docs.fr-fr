@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271720"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393817"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 
@@ -98,7 +98,7 @@ L'éditeur peut également charger sa feuille de calcul de tarification sur un e
 
 ## <a name="new-core-sizes-added-on-722019"></a>Nouvelles tailles de cœurs ajoutées le 02/07/2019
 
-Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs concernent les tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels.  Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
+Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs concernent les tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels. Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
 
 ## <a name="regions"></a>Régions
 
@@ -121,7 +121,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | CR         | Costa Rica           | CRC               |
 | HR         | Croatie              | HRK               |
 | CY         | Chypre               | EUR               |
-| CZ         | République tchèque       | CZK               |
+| CZ         | Tchéquie       | CZK               |
 | DK         | Danemark              | DKK               |
 | DO         | République dominicaine   | USD               |
 | EC         | Équateur              | USD               |
@@ -151,7 +151,6 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituanie            | EUR               |
 | LU         | Luxembourg           | EUR               |
-| MK         | Macédoine du Nord      | MKD               |
 | MY         | Malaisie             | MYR               |
 | MT         | Malte                | EUR               |
 | MX         | Mexique               | MXN               |
@@ -160,6 +159,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | NL         | Pays-Bas          | EUR               |
 | NZ         | Nouvelle-Zélande          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | Macédoine du Nord      | MKD               |
 | Non         | Norvège               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

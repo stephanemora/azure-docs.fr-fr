@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0d8d9f598da41b2bd39369e063200f5445ba740a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554704"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950406"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Activer la journalisation dans les pipelines du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -78,5 +78,5 @@ Une fois l’exécution du pipeline terminée, vous pouvez voir l’erreur *Mean
 
 Dans cet article, vous avez appris à utiliser des journaux dans le concepteur. Pour connaître les étapes suivantes, consultez les articles connexes :
 
-* Découvrez comment dépanner des pipelines de concepteur en consultant [Déboguer et dépanner des pipelines ML](how-to-debug-pipelines.md#azure-machine-learning-designer-preview).
+* Découvrez comment dépanner des pipelines de concepteur en consultant [Déboguer et dépanner des pipelines ML](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
 * Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour journaliser des métriques dans l’expérience de création du Kit de développement logiciel (SDK). pour plus d’informations en consultant [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-track-experiments.md).

@@ -17,17 +17,18 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794937"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231127"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Applets de commande Azure AD PowerShell pour la création de rapports
 
 > [!NOTE] 
-> Ces applets de commande PowerShell ne fonctionnent actuellement qu’avec le module en [préversion Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Notez que le module en préversion n’est pas proposé pour une utilisation en production. 
+> Ces applets de commande PowerShell ne fonctionnent actuellement qu’avec le module en [préversion Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Notez que le module en préversion n’est pas proposé pour une utilisation en production. 
 
 Pour installer la préversion publique, utilisez ceci : 
 
@@ -35,7 +36,7 @@ Pour installer la préversion publique, utilisez ceci :
 Install-module AzureADPreview
 ```
 
-Pour plus d’informations sur la façon de se connecter à Azure AD à l’aide de PowerShell, consultez l’article [Azure AD PowerShell pour Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Pour plus d’informations sur la façon de se connecter à Azure AD à l’aide de PowerShell, consultez l’article [Azure AD PowerShell pour Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Avec les rapports Azure Active Directory (Azure AD), vous pouvez afficher des informations sur les activités concernant toutes les opérations d’écriture dans votre direction (journaux d’audit) et les données d’authentification (journaux de connexion). Bien que les informations soient disponibles à l’aide de MS API Graph, vous pouvez maintenant récupérer les mêmes données à l’aide des cmdlets PowerShell Azure AD pour la création de rapports.
 

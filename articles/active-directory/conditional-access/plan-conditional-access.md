@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339726"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049925"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -242,7 +242,7 @@ Il peut ne pas être aisé de prévoir le nombre et les noms des utilisateurs co
 
 [Le mode rapport seul](concept-conditional-access-report-only.md) permet aux administrateurs d’évaluer l’impact des stratégies d’accès conditionnel avant de les activer dans leur environnement.
 
-Apprenez à [Configurer le mode rapport seul sur une stratégie d’accès conditionnel](howto-conditional-access-report-only.md).
+Apprenez à [Configurer le mode rapport seul sur une stratégie d’accès conditionnel](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planifier une interruption
 
@@ -313,7 +313,7 @@ Les cas d’utilisation courants pour lesquels exiger l’accès MFA :
 
 * [Par les administrateurs](howto-conditional-access-policy-admin-mfa.md)
 
-* [À des applications spécifiques](app-based-mfa.md)
+* [À des applications spécifiques](../authentication/tutorial-enable-azure-mfa.md)
 
 * [Pour tous les utilisateurs](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -384,18 +384,18 @@ Le plan de test est important pour comparer les résultats attendus et les résu
 | - | - | - |
 | [Exiger l’authentification multifacteur en dehors du bureau](untrusted-networks.md)| L’utilisateur autorisé se connecte à l’application quand il est dans un emplacement approuvé / au bureau| L’utilisateur n’est pas invité à utiliser l’authentification multifacteur |
 | [Exiger l’authentification multifacteur en dehors du bureau](untrusted-networks.md)| L’utilisateur autorisé se connecte à l’application quand il n’est pas dans un emplacement approuvé / au bureau| L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter |
-| [Exiger l’authentification multifacteur (pour les administrateurs)](howto-baseline-protect-administrators.md)| L’administrateur général se connecte à l’application| L’administrateur est invité à utiliser l’authentification multifacteur |
-| [Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| L’utilisateur se connecte à l’application à l’aide d’un navigateur non approuvé| L’administrateur est invité à utiliser l’authentification multifacteur |
+| [Exiger l’authentification multifacteur (pour les administrateurs)](../fundamentals/concept-fundamentals-security-defaults.md)| L’administrateur général se connecte à l’application| L’administrateur est invité à utiliser l’authentification multifacteur |
+| [Connexions risquées](../identity-protection/howto-identity-protection-configure-risk-policies.md)| L’utilisateur se connecte à l’application à l’aide d’un navigateur non approuvé| L’administrateur est invité à utiliser l’authentification multifacteur |
 | [Gestion des appareils](require-managed-devices.md)| L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé| Accès accordé |
 | [Gestion des appareils](require-managed-devices.md)| L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé| Accès bloqué |
-| [Changement de mot de passe pour les utilisateurs à risque](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)| L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie |
+| [Changement de mot de passe pour les utilisateurs à risque](../identity-protection/howto-identity-protection-configure-risk-policies.md)| L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)| L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie |
 
 
 ### <a name="configure-the-test-policy"></a>Configurer la stratégie de test
 
 Dans le [portail Azure](https://portal.azure.com/), vous configurez des stratégies d’accès conditionnel sous Azure Active Directory > Sécurité > Accès conditionnel.
 
-Si vous souhaitez en savoir plus sur la façon de créer des stratégies d’accès conditionnel, consultez cet exemple : [Stratégie d’accès conditionnel pour demander l’authentification MFA lorsqu’un utilisateur se connecte au portail Azure](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Ce guide de démarrage rapide vous permet de :
+Si vous souhaitez en savoir plus sur la façon de créer des stratégies d’accès conditionnel, consultez cet exemple : [Stratégie d’accès conditionnel pour demander l’authentification MFA lorsqu’un utilisateur se connecte au portail Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Ce guide de démarrage rapide vous permet de :
 
 * Vous familiariser avec l’interface utilisateur
 
@@ -442,7 +442,7 @@ Si vous devez restaurer les stratégies que vous venez d’implémenter, utilise
 > [!NOTE]
 >  Cette option doit être utilisée avec parcimonie, uniquement si l’utilisateur est approuvé. L’utilisateur doit être rajouté dans la stratégie ou le groupe dès que possible.
 
-* **Supprimer la stratégie.** Si la stratégie n’est plus nécessaire, [supprimez](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json)-la.
+* **Supprimer la stratégie.** Si la stratégie n’est plus nécessaire, [supprimez](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)-la.
 
 ## <a name="manage-access-to-cloud-apps"></a>Gérer l’accès aux applications cloud
 
@@ -501,4 +501,4 @@ Dès que vous avez collecté les informations, consultez les ressources suivante
 
 [En savoir plus sur Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gérer des stratégies d’accès conditionnel avec API Graph de Microsoft](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gérer des stratégies d’accès conditionnel avec API Graph de Microsoft](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

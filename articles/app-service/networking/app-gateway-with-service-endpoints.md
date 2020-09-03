@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080930"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958931"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
 Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur App Service Environment, consultez [Documentation sur App Service Environment](https://docs.microsoft.com/azure/app-service/environment).
+Pour plus d’informations sur App Service Environment, consultez [Documentation sur App Service Environment](/azure/app-service/environment).
 
 Pour renforcer la sécurité de votre application web, vous trouverez des informations relatives au pare-feu d’applications web sur Application Gateway dans la [documentation du pare-feu d’applications web Azure](../../web-application-firewall/ag/ag-overview.md).

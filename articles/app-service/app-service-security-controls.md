@@ -5,12 +5,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b0c336d9d9c463a7ed7acf42eaf292ecce4f1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93e5123e5b61c9013177f7f3c908578b68da52d6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831146"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962925"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Contrôles de sécurité pour Azure App Service
 
@@ -49,7 +49,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure App Service
 | Chiffrement côté serveur au repos : Clés managées par Microsoft | Oui | Le contenu des fichiers du site web est stocké dans le Stockage Azure, qui chiffre automatiquement le contenu au repos. <br><br>Les secrets fournis par le client sont chiffrées au repos. Les secrets sont chiffrés au repos lorsqu’ils sont stockés dans les bases de données de configuration d’App Service.<br><br>Les disques joints localement peuvent optionnellement être utilisés comme stockage temporaire par les sites web (D:\local et %TMP%). Les disques joints localement ne sont pas chiffrés au repos. | [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md)
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui | Les clients peuvent choisir de stocker les secrets d’application dans Key Vault et de les récupérer au moment de l’exécution. | [Utiliser des références Key Vault pour App Service et Azure Functions (préversion)](app-service-key-vault-references.md)
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
-| Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Les clients peuvent configurer les sites web pour exiger et utiliser le HTTPS pour le trafic entrant.  | [Guide pratique pour limiter une instance d’Azure App Service au HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (billet de blog)
+| Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Les clients peuvent configurer les sites web pour exiger et utiliser le HTTPS pour le trafic entrant.  | [Guide pratique pour limiter une instance d’Azure App Service au HTTPS](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (billet de blog)
 | Appels d’API chiffrés| Oui | Les appels de gestion pour configurer App Service se font via des appels [Azure Resource Manager](../azure-resource-manager/index.yml) par le biais du protocole HTTPS. |
 
 ## <a name="configuration-management"></a>Gestion des configurations

@@ -3,20 +3,20 @@ title: Azure Front Door – Redirection d’URL | Microsoft Docs
 description: Cet article vous aide à comprendre comment Azure Front Door prend en charge la redirection d’URL pour les itinéraires, si configurée.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295471"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399036"
 ---
 # <a name="url-redirect"></a>Redirection d’URL
 Vous pouvez utiliser Azure Front Door pour rediriger le trafic. Vous pouvez rediriger le trafic à plusieurs niveaux (protocole, nom d’hôte, chemin d’accès, chaîne de requête), et toutes les fonctionnalités peuvent être configurées pour des microservices individuels, car la redirection est basée sur le chemin d’accès. Cela simplifie la configuration de l’application, optimise l’utilisation des ressources et prend en charge de nouveaux scénarios de redirection, notamment la redirection globale et basée sur le chemin d’accès.
