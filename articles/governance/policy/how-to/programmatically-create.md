@@ -3,12 +3,12 @@ title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548309"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047052"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -235,7 +235,7 @@ L’ID de définition de stratégie pour la définition de stratégie que vous a
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Pour plus d’informations sur la façon dont vous pouvez gérer les stratégies de ressources avec Azure CLI, consultez [Stratégies de ressources Azure CLI](/cli/azure/policy?view=azure-cli-latest).
+Pour plus d’informations sur la façon dont vous pouvez gérer les stratégies de ressources avec Azure CLI, consultez [Stratégies de ressources Azure CLI](/cli/azure/policy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -243,6 +243,6 @@ Pour plus d’informations sur les commandes et les requêtes de cet article, co
 
 - [Ressources API REST Azure](/rest/api/resources/)
 - [Modules Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Commandes de stratégie Azure CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Commandes de stratégie Azure CLI](/cli/azure/policy)
 - [Informations de référence sur l’API REST du fournisseur de ressources Azure Policy Insights](/rest/api/policy-insights)
 - [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

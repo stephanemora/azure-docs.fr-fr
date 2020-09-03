@@ -2,17 +2,17 @@
 title: À propos d’Azure ExpressRoute FastPath
 description: Découvrir Azure ExpressRoute FastPath pour envoyer le trafic en ignorant la passerelle réseau
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: bf600d835e177ce51870ed2a8894adcd667e3901
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282849"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398050"
 ---
 # <a name="about-expressroute-fastpath"></a>À propos d’ExpressRoute FastPath
 

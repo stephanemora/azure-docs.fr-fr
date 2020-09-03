@@ -4,16 +4,16 @@ description: Découvrez comment obtenir des événements de ressources par le bi
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649070"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962296"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Récupérer des événements de ressource dans Azure App Service
 
-Azure App Service fournit des outils intégrés pour surveiller l’état et l’intégrité de vos ressources. Les événements de ressource vous aident à comprendre les modifications apportées aux ressources de votre application web sous-jacente et à agir en fonction des besoins. Voici quelques exemples d’événements : mise à l’échelle des instances, mises à jour des paramètres d’application, redémarrage de l’application web et bien plus encore. Dans cet article, vous allez apprendre à afficher les [journaux d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) et à activer [Event Grid](https://docs.microsoft.com/azure/event-grid/) pour surveiller les événements de ressources liés à votre application web App Service.
+Azure App Service fournit des outils intégrés pour surveiller l’état et l’intégrité de vos ressources. Les événements de ressource vous aident à comprendre les modifications apportées aux ressources de votre application web sous-jacente et à agir en fonction des besoins. Voici quelques exemples d’événements : mise à l’échelle des instances, mises à jour des paramètres d’application, redémarrage de l’application web et bien plus encore. Dans cet article, vous allez apprendre à afficher les [journaux d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) et à activer [Event Grid](../event-grid/index.yml) pour surveiller les événements de ressources liés à votre application web App Service.
 
 > [!NOTE]
 > L’intégration d’App Service à Event Grid est dans la **version préliminaire**. [Pour plus d’informations, lisez l’annonce](https://aka.ms/app-service-event-grid-announcement).
@@ -33,15 +33,15 @@ Les journaux d’activité Azure pour obtenir des détails App Service tels que�
 
 Les journaux d’activité Azure peuvent être interrogés à l’aide du Portail Azure, de PowerShell, de l’API REST ou de l’interface CLI. Vous pouvez envoyer les journaux à un compte de stockage, Event Hub et Log Analytics. Vous pouvez également les analyser dans Power BI ou créer des alertes pour rester à jour sur les événements de ressource.
 
-[Affichez et récupérez les événements du journal d’activité Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+[Affichez et récupérez les événements du journal d’activité Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Acheminer les journaux d’activité vers Event Grid
 
-Tandis que les journaux d’activité sont basés sur l’utilisateur, il existe un nouveau [Event Grid](https://docs.microsoft.com/azure/event-grid/) intégration avec App Service (version préliminaire) qui journalise les actions utilisateur et les événements automatisés. Avec Event Grid, vous pouvez configurer un gestionnaire pour réagir auxdits événements. Par exemple, utilisez la grille d’événement pour déclencher instantanément une fonction sans serveur afin d’exécuter une analyse d’image chaque fois qu’une nouvelle photo est ajoutée à un conteneur de stockage d’objets blob.
+Tandis que les journaux d’activité sont basés sur l’utilisateur, il existe un nouveau [Event Grid](../event-grid/index.yml) intégration avec App Service (version préliminaire) qui journalise les actions utilisateur et les événements automatisés. Avec Event Grid, vous pouvez configurer un gestionnaire pour réagir auxdits événements. Par exemple, utilisez la grille d’événement pour déclencher instantanément une fonction sans serveur afin d’exécuter une analyse d’image chaque fois qu’une nouvelle photo est ajoutée à un conteneur de stockage d’objets blob.
 
 Vous pouvez également utiliser Event Grid avec Logic Apps pour traiter des données en tout lieu sans écrire de code. La grille d’événement connecte des sources de données et des gestionnaires d’événements. Par exemple, utilisez la grille d’événement pour déclencher instantanément une fonction sans serveur afin d’exécuter une analyse d’image chaque fois qu’une nouvelle photo est ajoutée à un conteneur de stockage d’objets blob.
 
-[Affichez les propriétés et le schéma pour les événements Azure App Service.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
+[Affichez les propriétés et le schéma pour les événements Azure App Service.](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

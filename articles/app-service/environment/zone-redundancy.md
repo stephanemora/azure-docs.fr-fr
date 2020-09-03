@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094256"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961565"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Prise en charge des zones de disponibilité pour les environnements App Service
 
@@ -77,7 +77,7 @@ L’exemple d’extrait de modèle ARM ci-dessous montre la nouvelle propriété
     ]
 ```
 
-Pour que votre zone d’applications soit redondante, vous devez déployer deux ASE ILB zonaux. Les deux ASE ILB zonaux doivent se trouver dans des zones de disponibilité distinctes. Vous devez ensuite déployer vos applications dans chacun des ASE ILB. Une fois vos applications créées, vous devez configurer une solution d’équilibrage de charge. La solution recommandée consiste à déployer une [passerelle applicative avec redondance interzone](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) en amont de l’ASE ILB zonal. 
+Pour que votre zone d’applications soit redondante, vous devez déployer deux ASE ILB zonaux. Les deux ASE ILB zonaux doivent se trouver dans des zones de disponibilité distinctes. Vous devez ensuite déployer vos applications dans chacun des ASE ILB. Une fois vos applications créées, vous devez configurer une solution d’équilibrage de charge. La solution recommandée consiste à déployer une [passerelle applicative avec redondance interzone](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) en amont de l’ASE ILB zonal. 
 
 ## <a name="in-region-data-residency"></a>Résidence des données dans la région ##
 
@@ -90,5 +90,3 @@ Les clients peuvent valider qu’un App Service Environment est correctement con
 1. Dans l’[Explorateur de ressources](https://resources.azure.com), accédez à la ressource ARM pour App Service Environment.  Les ASE sont répertoriés sous *providers/Microsoft.Web/hostingEnvironments*.
 2. Si une propriété *zones* existe dans la vue de la syntaxe JSON ARM et qu’elle contient un tableau JSON à valeur unique avec la valeur « 1 », « 2 » ou « 3 », l’ASE est déployé par zone et les données client restent dans la même région.
 2. Si aucune propriété *zones* n’est présente ou si la propriété n’a pas de valeur de zone valide comme indiqué précédemment, l’ASE n’est pas déployé de manière zonale et les données client ne sont pas exclusivement stockées dans la même région.
-
-

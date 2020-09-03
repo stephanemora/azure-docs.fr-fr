@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211979"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958709"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
 ## <a name="overview"></a>Vue d’ensemble
-Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](https://docs.microsoft.com/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
+Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
 
 Vous apprendrez ce qui suit :
 
@@ -680,7 +680,7 @@ Pour plus d’informations sur l’analyse des journaux d’activité de serveur
   Un outil pour afficher les données des journaux d’activité de serveur Web (fichiers *.log* ).
 * [Résolution des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Une introduction à l’outil LogParser que vous pouvez utiliser pour analyser les journaux d’activité de serveur Web.
-* [Billets du blog de Robert McMurray sur l’utilisation de LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Billets du blog de Robert McMurray sur l’utilisation de LogParser](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [Code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analyse des journaux d’activité de suivi des demandes ayant échoué

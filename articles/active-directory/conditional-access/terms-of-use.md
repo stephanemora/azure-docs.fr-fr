@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184344"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948910"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -50,7 +50,7 @@ Les conditions d’utilisation d’Azure AD vous permettent d’effectuer les o
 - Lister qui a accepté ou refusé vos conditions d’utilisation
 - Aider à faire face à la réglementation sur la confidentialité.
 - Consulter le journal des conditions d’utilisation pour en vérifier la conformité et procéder à un audit
-- Créer et gérer des conditions d’utilisation avec des [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (actuellement en préversion)
+- Créer et gérer des conditions d’utilisation avec des [API Microsoft Graph](/graph/api/resources/agreement?view=graph-rest-beta) (actuellement en préversion)
 
 ## <a name="prerequisites"></a>Prérequis
 

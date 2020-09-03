@@ -3,20 +3,20 @@ title: Azure Front Door – Mise en cache | Microsoft Docs
 description: Cet article explique comment Azure Front Door supervise l’intégrité de vos back-ends.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 1cb24e4a959e7d32a3c3b5b69a39938df4efddfa
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056956"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399869"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
 Le document suivant explique comment spécifier le comportement d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne ; de ce fait, au même titre que l’accélération de site dynamique et l’équilibrage de charge, il prend en charge les comportements de mise en cache comme n’importe quel réseau CDN.

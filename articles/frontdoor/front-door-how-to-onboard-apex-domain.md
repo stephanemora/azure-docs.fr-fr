@@ -2,17 +2,17 @@
 title: Intégrer un domaine racine ou apex à un Front Door existant – Portail Azure
 description: Découvrez comment intégrer un domaine racine ou apex à un Front Door existant à l’aide du portail Azure.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743590"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399576"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Intégrer un domaine racine ou apex à votre Front Door
 Azure Front Door utilise des enregistrements CNAME pour valider la propriété du domaine en vue de l’intégration de domaines personnalisés. En outre, Front Door n’expose pas l’adresse IP de serveur frontal associée à votre profil Front Door. Vous ne pouvez donc pas mapper votre domaine apex à une adresse IP si l’objectif est de l’intégrer à Azure Front Door.

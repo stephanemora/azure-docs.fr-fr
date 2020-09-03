@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799109"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047477"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Utiliser des données à l’aide de l’Explorateur Stockage Azure
 
@@ -95,7 +95,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 * Cliquez avec le bouton droit sur un compte ou une base de données Azure Cosmos DB, vous pouvez choisir **Ouvrir dans le portail** et gérer la ressource dans le navigateur sur le portail Azure.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Ouvrir dans le portail":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Ouvrir dans le portail":::
 
 * Vous pouvez également ajouter un compte, une base de données ou une collection Azure Cosmos DB à l’**Accès rapide**.
 * **Rechercher à partir d’ici** vous permet d’effectuer une recherche par mot clé dans le chemin sélectionné.
@@ -106,25 +106,25 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 #### <a name="create-a-database"></a>Création d'une base de données
 
--   Cliquez avec le bouton droit sur le compte Azure Cosmos DB, choisissez **Créer une base de données**, entrez le nom de la base de données, puis appuyez sur **Entrée** pour terminer.
+- Cliquez avec le bouton droit sur le compte Azure Cosmos DB, choisissez **Créer une base de données**, entrez le nom de la base de données, puis appuyez sur **Entrée** pour terminer.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Création d’une base de données dans votre compte Azure Cosmos":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Création d’une base de données dans votre compte Azure Cosmos":::
 
 #### <a name="delete-a-database"></a>Supprimer une base de données
 
 - Cliquez avec le bouton droit sur la base de données, sélectionnez **Supprimer la base de données**, puis **Oui** dans la fenêtre contextuelle. Le nœud de base de données est supprimé et le compte Azure Cosmos DB s’actualise automatiquement.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Suppression de la première base de données":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Suppression de la première base de données":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Suppression de la seconde base de données":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Suppression de la seconde base de données":::
 
 #### <a name="create-a-collection"></a>Création d'une collection
 
 1. Cliquez avec le bouton droit sur votre base de données, choisissez **Créer une collection**, puis fournissez les informations suivantes de type **ID de collection**, **Capacité de stockage**, etc. Cliquez sur **OK** pour terminer.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Création de la première collection dans la base de données":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Création de la première collection dans la base de données":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Création de la seconde collection dans la base de données":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Création de la seconde collection dans la base de données":::
 
 2. Sélectionnez **Illimité** pour être en mesure de spécifier la clé de partition, puis sélectionnez **OK** pour terminer.
 
@@ -146,7 +146,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 - Pour créer un document, ouvrez **Documents** dans la fenêtre de gauche, sélectionnez **Nouveau document**, modifiez le contenu dans le volet droit, puis sélectionnez **Enregistrer**. Vous pouvez également mettre à jour un document existant, puis sélectionner **Enregistrer**. Les changements peuvent être ignorés en cliquant sur **Ignorer**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Créer un document":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Créer un document":::
 
 #### <a name="delete-a-document"></a>Supprimer un document
 
@@ -156,7 +156,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 - Modifiez le filtre de document en entrant une [requête SQL](how-to-sql-query.md), puis sélectionnez **Appliquer**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Requête de documents spécifiques":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Requête de documents spécifiques":::
 
 ### <a name="graph-management"></a>Gestion des graphiques
 
@@ -165,7 +165,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 1. Pour créer un sommet, ouvrez **Graphe** dans la fenêtre de gauche, sélectionnez **Nouveau sommet**, modifiez le contenu, puis sélectionnez **OK**.
 2. Pour modifier un sommet existant, sélectionnez l’icône de crayon dans le volet droit.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modification du sommet d’un graphe":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modification du sommet d’un graphe":::
 
 #### <a name="delete-a-graph"></a>Supprimer un graphique
 
@@ -175,7 +175,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 - Modifiez le filtre de graphe en entrant une [requête Gremlin](gremlin-support.md), puis sélectionnez **Appliquer un filtre**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Exécution d’une requête de graphe":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Exécution d’une requête de graphe":::
 
 ### <a name="table-management"></a>Gestion des tables
 
@@ -184,33 +184,34 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 1. Pour créer une table, ouvrez **Entités** dans la fenêtre de gauche, sélectionnez **Ajouter**, modifiez le contenu de la boîte de dialogue **Ajouter une entité**, ajoutez une propriété en cliquant sur le bouton **Ajouter une propriété**, puis sélectionnez **Insérer**.
 2. Pour modifier une table, sélectionnez **Modifier**, modifiez le contenu, puis sélectionnez **Mettre à jour**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Créer et modifier une table":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Créer et modifier une table":::
 
 #### <a name="import-and-export-table"></a>Importer et exporter une table
 
 1. Pour importer, sélectionnez le bouton **Importer** et choisissez une table existante.
 2. Pour exporter, sélectionnez le bouton **Exporter** et choisissez une destination.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importation ou exportation d’une table":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importation ou exportation d’une table":::
 
 #### <a name="delete-entities"></a>Supprimer des entités
 
 - Sélectionnez les entités et sélectionnez le bouton **Supprimer**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Suppression d’une table":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Suppression d’une table":::
 
 #### <a name="query-table"></a>Interroger une table
 
 - Cliquez sur le bouton **Requête**, entrez la condition de requête, puis sélectionnez le bouton **Exécuter la requête**. Fermez le volet Requête en cliquant sur le bouton **Fermer la requête**.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Exécution d’une requête de données dans la table":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Exécution d’une requête de données dans la table":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gérer les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur
 
 * Pour créer une procédure stockée, dans l’arborescence de gauche, cliquez avec le bouton droit sur **Procédure stockée**, choisissez **Créer une procédure stockée**, entrez un nom à gauche, tapez les scripts de procédure stockée dans la fenêtre de droite, puis sélectionnez **Créer**.
 * Vous pouvez également modifier des procédures stockées existantes, en double-cliquant dessus, en effectuant la mise à jour, puis en cliquant sur **Mettre à jour** pour enregistrer, ou sélectionnez **Ignorer** pour annuler la modification.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Création et suppression de procédures stockées":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Création et suppression de procédures stockées":::
+
 * Les opérations pour les **déclencheurs** et les **fonctions définies par l’utilisateur** sont similaires à celles des **procédures stockées**.
 
 ## <a name="troubleshooting"></a>Dépannage

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846307"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948400"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -115,7 +115,7 @@ Outre les applications Microsoft, les administrateurs peuvent ajouter aux strat�
 
 - Des applications publiées via le [proxy d’application Azure AD](../manage-apps/what-is-application-proxy.md)
 - [Des applications ajoutées à partir de la galerie](../manage-apps/add-application-portal.md)
-- [Des applications personnalisées qui ne se trouvent pas dans la galerie](../manage-apps/add-non-gallery-app.md)
+- [Des applications personnalisées qui ne se trouvent pas dans la galerie](../manage-apps/view-applications-portal.md)
 - [Des applications héritées qui sont publiées par le biais de réseaux et de contrôleurs de livraison d’applications](../manage-apps/secure-hybrid-access.md)
 - Des applications qui utilisent [l’authentification unique par mot de passe](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

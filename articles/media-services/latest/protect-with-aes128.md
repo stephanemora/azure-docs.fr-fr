@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: Découvrez comment chiffrer des vidéos avec le chiffrement AES 128 bits et comment utiliser le service de distribution de clés dans Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/09/2020
-ms.author: juliako
-ms.openlocfilehash: 45bb8637d37c9c3789a962c9f5ac42227d547637
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022818"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289322"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutoriel : Chiffrer la vidéo avec AES-128 et utiliser le service de distribution de clés
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Bien que ce didacticiel utilise des exemples [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](/rest/api/media/liveevents), [l’interface de ligne de commande](/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.

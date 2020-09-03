@@ -4,18 +4,18 @@ description: Découvrez comment Azure App Service met à jour le système d’ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961514"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
 Cet article vous explique comment obtenir certaines informations de version concernant le système d’exploitation ou les logiciels dans [App Service](overview.md). 
 
-App Service est une plateforme en tant que service (PaaS), ce qui signifie que le système d’exploitation et la pile d’applications sont gérés automatiquement par Azure ; vous ne gérez que votre application et ses données. Vous pouvez obtenir plus de contrôle sur le système d’exploitation et la pile d’applications dans [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/). Dans cette optique, il est néanmoins utile pour vous, en tant qu’utilisateur App Service, d’obtenir plus d’informations, telles que :
+App Service est une plateforme en tant que service (PaaS), ce qui signifie que le système d’exploitation et la pile d’applications sont gérés automatiquement par Azure ; vous ne gérez que votre application et ses données. Vous pouvez obtenir plus de contrôle sur le système d’exploitation et la pile d’applications dans [Machines virtuelles Azure](../virtual-machines/index.yml). Dans cette optique, il est néanmoins utile pour vous, en tant qu’utilisateur App Service, d’obtenir plus d’informations, telles que :
 
 -   Comment et quand sont appliquées les mises à jour du système d’exploitation ?
 -   Comment est appliqué un correctif à App Service pour le protéger contre les vulnérabilités importantes (notamment le risque zero-day) ?
@@ -25,7 +25,7 @@ Pour des raisons de sécurité, certains détails sur les informations de sécur
 
 ## <a name="how-and-when-are-os-updates-applied"></a>Comment et quand sont appliquées les mises à jour du système d’exploitation ?
 
-Azure gère l’application de correctifs au système d’exploitation à deux niveaux : les serveurs physiques et les machines virtuelles invitées qui exécutent les ressources App Service. Ces deux niveaux sont mis à jour tous les mois, conformément à la planification mensuelle [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx). Ces mises à jour sont appliquées automatiquement, d’une façon qui garantit le contrat de niveau de service (SLA) Azure. 
+Azure gère l’application de correctifs au système d’exploitation à deux niveaux : les serveurs physiques et les machines virtuelles invitées qui exécutent les ressources App Service. Ces deux niveaux sont mis à jour tous les mois, conformément à la planification mensuelle [Patch Tuesday](/security-updates/). Ces mises à jour sont appliquées automatiquement, d’une façon qui garantit le contrat de niveau de service (SLA) Azure. 
 
 Pour plus d’informations sur la façon dont les mises à jour sont appliquées, consultez [*****Demystifying the magic behind App Service OS updates****](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
@@ -55,7 +55,7 @@ Les mises à jour correctives pour la version .NET, PHP, Java SDK ou Tomcat/Jett
 
 ### <a name="new-major-and-minor-versions"></a>Nouvelles versions majeures et mineures
 
-Lorsqu’une nouvelle version majeure ou mineure est ajoutée, elle est installée côte à côte avec les versions existantes. Vous pouvez manuellement mettre à niveau votre application avec la nouvelle version. Si vous avez configuré la version du runtime dans un fichier de configuration (tel que `web.config` et `package.json`), vous devez effectuer la mise à niveau avec la même méthode. Si vous avez utilisé un paramètre App Service pour configurer votre version du runtime, vous pouvez le modifier dans le [portail Azure](https://portal.azure.com) ou en exécutant une commande d[’interface CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans le [Cloud Shell](../cloud-shell/overview.md), comme indiqué dans les exemples suivants :
+Lorsqu’une nouvelle version majeure ou mineure est ajoutée, elle est installée côte à côte avec les versions existantes. Vous pouvez manuellement mettre à niveau votre application avec la nouvelle version. Si vous avez configuré la version du runtime dans un fichier de configuration (tel que `web.config` et `package.json`), vous devez effectuer la mise à niveau avec la même méthode. Si vous avez utilisé un paramètre App Service pour configurer votre version du runtime, vous pouvez le modifier dans le [portail Azure](https://portal.azure.com) ou en exécutant une commande d[’interface CLI Azure](/cli/azure/get-started-with-azure-cli) dans le [Cloud Shell](../cloud-shell/overview.md), comme indiqué dans les exemples suivants :
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -86,7 +86,7 @@ Le tableau suivant indique comment afficher les versions de Windows et du runtim
 | Version de Java | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `java -version` |  
 
 > [!NOTE]  
-> L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), est verrouillé.
+> L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB](/security-updates/SecurityBulletins/securitybulletins), est verrouillé.
 >
 >
 

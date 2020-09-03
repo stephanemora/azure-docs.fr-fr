@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: f9ad39b88ad2212ea2cdceb40e61fbc0a2d1a764
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320491"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022494"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
 
@@ -26,10 +26,6 @@ Azure Monitor pour machines virtuelles prend en charge les systèmes d’exploit
 - Machines virtuelles hébergées dans un autre environnement cloud
   
 
-
->[!NOTE]
->Nous avons récemment fait l’[annonce des changements](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) que nous apportons à la fonctionnalité Intégrité suite aux commentaires que nous avons reçus de la part de nos clients ayant utilisé la préversion publique. En raison des multiples changements prévus, nous avons choisi de ne plus fournir la fonctionnalité Intégrité aux nouveaux clients. Les clients existants pourront continuer à utiliser la fonctionnalité Intégrité. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la disponibilité générale](vminsights-ga-release-faq.md).  
 
 
 Azure Monitor pour machines virtuelles stocke ses données dans les journaux Azure Monitor, ce qui lui permet d’offrir de puissantes fonctions d’agrégation et de filtrage et d’analyser l’évolution des tendances des données. Vous pouvez afficher directement ces données sur une seule machine virtuelle, ou bien utiliser Azure Monitor pour bénéficier d’une vue agrégée de plusieurs machines virtuelles.

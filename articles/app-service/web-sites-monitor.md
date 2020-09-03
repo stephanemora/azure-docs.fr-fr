@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079669"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959789"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -152,14 +152,14 @@ Pour rechercher des quotas, sélectionnez **Paramètres** > **Quotas**. Sur le g
 
 Cliquez sur l’un de ces graphiques pour accéder à l’affichage des métriques dans lequel vous pouvez créer des graphiques personnalisés, interroger différentes métriques et bien plus encore. 
 
-Pour plus d’informations sur les métriques, consultez [Superviser les métriques des services](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Pour plus d’informations sur les métriques, consultez [Superviser les métriques des services](../azure-monitor/platform/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertes et mise à l’échelle automatique
-Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour plus d’informations, consultez [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour plus d’informations, consultez [Réception de notifications d’alerte](../azure-monitor/platform/alerts-classic-portal.md).
 
 Les applications App Service hébergées dans les plans App Service De base ou de niveau supérieur prennent en charge la mise à l’échelle automatique. La mise à l’échelle automatique vous permet de configurer des règles qui supervisent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances, ce qui permet de fournir des ressources supplémentaires si nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent quand l’application est surprovisionnée.
 
-Pour plus d’informations sur la mise à l’échelle automatique, consultez [Guide pratique pour mettre à l’échelle](../monitoring-and-diagnostics/insights-how-to-scale.md) et [Bonnes pratiques pour la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Pour plus d’informations sur la mise à l’échelle automatique, consultez [Guide pratique pour mettre à l’échelle](../azure-monitor/platform/autoscale-get-started.md) et [Bonnes pratiques pour la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

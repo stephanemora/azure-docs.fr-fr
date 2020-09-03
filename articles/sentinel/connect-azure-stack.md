@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8114a5e6db7b82b846d221471f41dbdf418ddd9d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588516"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001992"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Connecter des machines virtuelles Azure Stack à Azure Sentinel
 
@@ -49,7 +49,7 @@ Ajoutez l’extension de machine virtuelle **Azure Monitor, Update and Configura
 1. Dans la fenêtre **Installer l’extension** d’Azure Stack, collez-les dans les champs indiqués, puis cliquez sur **OK**.
 1. Une fois l’installation de l’extension terminée, son état s’affiche en tant qu’**Approvisionnement réussi**. Il peut s’écouler une heure avant que la machine virtuelle n’apparaisse dans le portail Azure Sentinel.
 
-Pour plus d’informations sur l’installation et la configuration de l’agent pour Windows, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Pour plus d’informations sur l’installation et la configuration de l’agent pour Windows, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Pour plus d’informations sur la résolution des problèmes lié à l’agent Linux, consultez [Résoudre les problèmes liés à l’agent Linux Azure Log Analytics](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

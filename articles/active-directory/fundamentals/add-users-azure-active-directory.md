@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797098"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321087"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 
@@ -60,7 +60,7 @@ L’utilisateur est créé et ajouté à votre organisation Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Ajouter un nouvel utilisateur invité
 
-Vous pouvez également inviter un nouvel utilisateur invité à collaborer avec votre organisation en sélectionnant **Inviter un utilisateur** sur la page **Nouvel utilisateur**. Si les paramètres de collaboration externe de votre organisation sont configurés de telle sorte que vous êtes autorisé à inviter des invités, l'utilisateur recevra par e-mail une invitation qu'il devra accepter pour entamer la collaboration. Pour plus d'informations sur l'invitation d’utilisateurs en vue d’une collaboration B2B, voir [Inviter des utilisateurs B2B à Azure Active Directory](../b2b/add-users-administrator.md)
+Vous pouvez également inviter un nouvel utilisateur invité à collaborer avec votre organisation en sélectionnant **Inviter un utilisateur** sur la page **Nouvel utilisateur**. Si les paramètres de collaboration externe de votre organisation sont configurés de telle sorte que vous êtes autorisé à inviter des invités, l'utilisateur recevra par e-mail une invitation qu'il devra accepter pour entamer la collaboration. Pour plus d'informations sur l'invitation d’utilisateurs en vue d’une collaboration B2B, voir [Inviter des utilisateurs B2B à Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>Ajouter un utilisateur consommateur
 
@@ -105,4 +105,4 @@ Une fois que vous avez ajouté vos utilisateurs, vous pouvez exécuter les proc�
 
 - [Travailler avec des utilisateurs et groupes dynamiques](../users-groups-roles/groups-create-rule.md)
 
-Ou vous pouvez effectuer d’autres tâches de gestion des utilisateurs, comme [ajouter des utilisateurs invités depuis un autre répertoire](../b2b/what-is-b2b.md) ou [restaurer un utilisateur supprimé](active-directory-users-restore.md). Pour en savoir plus sur les autres actions disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
+Ou vous pouvez effectuer d’autres tâches de gestion des utilisateurs, comme [ajouter des utilisateurs invités depuis un autre répertoire](../external-identities/what-is-b2b.md) ou [restaurer un utilisateur supprimé](active-directory-users-restore.md). Pour en savoir plus sur les autres actions disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).

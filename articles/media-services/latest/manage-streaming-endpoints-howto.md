@@ -3,7 +3,7 @@ title: Gérer les points de terminaison de streaming avec Azure Media Services 
 description: Cet article montre comment gérer les points de terminaison de streaming avec Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 8d3835d78ec55f120f6b9439aea9c29434e6bd47
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500553"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289475"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gérer les points de terminaison de streaming avec Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Une fois votre compte Media Services créé, un [point de terminaison de streaming](streaming-endpoint-concept.md) **par défaut** est ajouté à votre compte dans l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l'[empaquetage dynamique](dynamic-packaging-overview.md) et du [chiffrement dynamique](content-protection-overview.md), le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l'état **En cours d'exécution**.
 

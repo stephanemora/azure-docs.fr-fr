@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275426"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948451"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
-Avec l’[accès conditionnel Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Cet article vous fournit des informations sur :
+Avec l’[accès conditionnel Azure Active Directory (Azure AD)](./overview.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Cet article vous fournit des informations sur :
 
 - ce que vous devez savoir ; 
 - ce que vous devez éviter lors de la configuration des stratégies d’accès conditionnel. 
 
-Cet article part du principe que vous connaissez les concepts et la terminologie décrits dans [Présentation de l’accès conditionnel dans Azure Active Directory](../active-directory-conditional-access-azure-portal.md)
+Cet article part du principe que vous connaissez les concepts et la terminologie décrits dans [Présentation de l’accès conditionnel dans Azure Active Directory](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>Qu’est-ce qui est nécessaire pour faire fonctionner une stratégie ?
 
@@ -154,5 +154,5 @@ Pour plus d’informations, consultez [Migrer les stratégies classiques dans le
 
 Si vous voulez savoir :
 
-- Pour en savoir plus sur la configuration d’une stratégie d’accès conditionnel, consultez [Exiger une authentification MFA pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+- Pour en savoir plus sur la configuration d’une stratégie d’accès conditionnel, consultez [Exiger une authentification MFA pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 - Pour en savoir plus sur la planification de vos stratégies d’accès conditionnel, consultez [Guide pratique pour planifier votre déploiement de l’accès conditionnel dans Azure Active Directory](plan-conditional-access.md).

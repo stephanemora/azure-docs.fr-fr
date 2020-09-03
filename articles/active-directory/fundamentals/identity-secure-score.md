@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77523104"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320645"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
@@ -104,7 +104,7 @@ Pour consulter votre historique de score, rendez-vous dans le [Centre de sécuri
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Quel est le lien entre les degrés de sécurisation Identity Secure Score et Office 365 Secure Score ?
 
-Le [score sécurisé Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) comporte cinq catégories distinctes de contrôle et de score :
+Le [score sécurisé Microsoft](/office365/securitycompliance/microsoft-secure-score) comporte cinq catégories distinctes de contrôle et de score :
 
 - Identité
 - Données
@@ -116,4 +116,4 @@ Le degré de sécurisation Identity Secure Score représente la partie identité
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur le score sécurisé Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[En savoir plus sur le score sécurisé Microsoft](/office365/securitycompliance/microsoft-secure-score)

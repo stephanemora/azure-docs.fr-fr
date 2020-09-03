@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130430"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950389"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 
@@ -29,7 +29,7 @@ Cet article vous offre une vue d’ensemble des deux e-mails de notification.
 
 ## <a name="users-at-risk-detected-email"></a>E-mail Utilisateurs à risque détectés
 
-En cas de détection d’un compte à risque, Azure AD Identity Protection génère une alerte par e-mail dont l’objet est **Utilisateurs à risque détecté**. Cet e-mail inclut un lien vers le rapport **[Utilisateurs associés à un indicateur de risque](../reports-monitoring/concept-user-at-risk.md)** . En guise de bonne pratique, vous devez examiner immédiatement les utilisateurs à risque.
+En cas de détection d’un compte à risque, Azure AD Identity Protection génère une alerte par e-mail dont l’objet est **Utilisateurs à risque détecté**. Cet e-mail inclut un lien vers le rapport **[Utilisateurs associés à un indicateur de risque](./overview-identity-protection.md)** . En guise de bonne pratique, vous devez examiner immédiatement les utilisateurs à risque.
 
 La configuration de cette alerte vous permet de spécifier à quel niveau de risque de l’utilisateur vous souhaitez que l’alerte soit générée. L’e-mail est généré lorsque le niveau de risque de l’utilisateur atteint le seuil que vous avez spécifié. Ainsi, si vous définissez une stratégie afin que le système envoie des alertes en cas de risque moyen pour l’utilisateur et si le score de risque de l’utilisateur de John atteint ce niveau de risque en raison d’une connexion en temps réel, vous recevrez un e-mail Utilisateurs à risque détectés. Si l’utilisateur fait l’objet de détections de risque ultérieures qui font que le calcul du niveau de risque de l’utilisateur correspond (ou est supérieur) au niveau de risque spécifié, vous recevrez d’autres e-mails Utilisateurs à risque détectés lorsque le score de risque de l’utilisateur sera recalculé. Par exemple, si un utilisateur passe à un risque moyen le 1er janvier, vous recevrez une notification par e-mail si vos paramètres sont réglés de manière à vous alerter en cas de risque moyen. Si ce même utilisateur fait ensuite l’objet d’une autre détection de risque le 5 janvier qui est également d’un risque moyen et que le score de risque de l’utilisateur est recalculé et reste moyen, vous recevrez une autre notification par e-mail. 
 
@@ -70,4 +70,4 @@ Configurez le courrier de synthèse hebdomadaire dans le **portail Azure** sous 
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

@@ -4,24 +4,26 @@ titleSuffix: Azure Media Services
 description: Cet article explique comment utiliser le décalage temporel et les sorties en direct pour enregistrer des livestreams et créer une lecture à la demande.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000990"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289509"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Utiliser le décalage temporel et des sorties en direct pour créer une lecture vidéo à la demande
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Dans Azure Media Services, un objet [Sortie en direct](/rest/api/media/liveoutputs) fonctionne comme un magnétoscope numérique qui capture et enregistre votre stream en direct dans un élément multimédia dans votre compte Media Services. Le contenu enregistré est conservé dans le conteneur défini par la ressource [Élément multimédia](/rest/api/media/assets) (le conteneur est dans le compte de stockage Azure associé à votre compte). La sortie en direct vous permet également de contrôler certaines propriétés du stream en direct sortant, notamment la quantité du flux conservée dans l’enregistrement archive (par exemple, la capacité du magnétoscope numérique cloud) et quand les destinataires sont autorisés à démarrer la lecture du stream en direct. L’archive sur le disque est une archive circulaire de type « fenêtre » qui stocke uniquement la quantité de contenu spécifiée dans la propriété **archiveWindowLength** de la sortie en direct. Le contenu qui dépasse cette fenêtre d’archive est automatiquement supprimé du conteneur de stockage et n’est pas récupérable. La valeur archiveWindowLength représente un intervalle de temps ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. La valeur est comprise entre 1 minute minimum et 25 heures maximum.
 

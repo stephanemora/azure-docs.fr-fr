@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905225"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293504"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -179,6 +179,8 @@ Voici les filtres d’itinéraire pris en charge. Utilisez les détails de la co
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gérer les points de terminaison et les itinéraires avec l’interface de ligne de commande
 
 Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide de l’interface de commande d’Azure Digital Twins. Pour plus d’informations sur l’utilisation de l’interface CLI et sur les commandes disponibles, consultez le [*Tutoriel : utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

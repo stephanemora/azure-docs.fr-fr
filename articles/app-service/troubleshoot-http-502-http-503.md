@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170798"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958324"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Corriger les erreurs HTTP « 502 Passerelle incorrecte » et « 503 Service indisponible » sur Azure App Service
 Les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » sont courantes dans les applications hébergées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous permet de résoudre ces erreurs.
@@ -42,7 +42,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observer et contrôler le comportement de l'application
 #### <a name="track-service-health"></a>Suivi de l’état du service
-Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Surveiller votre application
 Cette option vous permet de savoir si votre application rencontre des problèmes. Dans le panneau de votre application, cliquez sur la vignette **Demandes et erreurs**. Le panneau **Mesure** affiche toutes les mesures que vous pouvez ajouter.
@@ -60,7 +60,7 @@ Voici quelques-unes des mesures disponibles pour surveiller votre application :
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Surveiller les applications dans Azure App Service](web-sites-monitor.md)
-* [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Réception de notifications d’alerte](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -108,5 +108,4 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage
 
  ![redémarrer l’application pour résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible »](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Vous pouvez également gérer votre application à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
-
+Vous pouvez également gérer votre application à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../azure-resource-manager/management/manage-resources-powershell.md).
