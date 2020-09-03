@@ -3,25 +3,27 @@ title: Se connecter à l’API Azure Media Services v3 - .NET
 description: Cet article explique comment se connecter à l’API Azure Media Services v3 avec .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2019
-ms.author: juliako
-ms.custom: has-adal-ref
-ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001313"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297397"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API Media Services v3 - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cet article explique comment se connecter au kit de développement logiciel (SDK) Node.js Azure Media Services v3 .NET suivant la méthode de connexion au principal du service.
 

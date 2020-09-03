@@ -1,0 +1,22 @@
+---
+title: Fichier include
+description: Fichier include
+services: machine-learning
+author: sdgilley
+ms.service: machine-learning
+ms.author: sgilley
+manager: cgronlund
+ms.custom: include file
+ms.topic: include
+ms.date: 08/24/2020
+ms.openlocfilehash: d8ee7b61897a9718d7078fc16eddc177fefbff43
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147224"
+---
+ Les clusters de calcul Azure Machine Learning prennent également en charge les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour authentifier l'accès aux ressources Azure sans inclure d'informations d'identification dans votre code. Il existe deux types d’identités administrées :
+
+* Une **identité managée attribuée par le système** est activée directement sur le cluster de calcul Azure Machine Learning. Le cycle de vie d'une identité attribuée par le système est directement lié au cluster de calcul. Si le cluster de calcul est supprimé, Azure efface automatiquement les informations d'identification et l'identité dans Azure AD.
+* Une **identité managée attribuée par l'utilisateur** est une ressource Azure autonome fournie via le service Azure Managed Identity. Vous pouvez attribuer une identité managée attribuée par l'utilisateur à plusieurs ressources et la conserver aussi longtemps que vous le souhaitez.

@@ -3,22 +3,25 @@ title: Créer un localisateur de streaming et générer des URL - Azure Media Se
 description: Cet article montre comment créer un localisateur de streaming et générer des URL.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 916defd652ff9f4b3f372c609055d2a974126916
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295714"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Créer un localisateur de streaming et générer des URL
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Dans Azure Media Services, pour générer une URL de streaming, vous devez d’abord créer un [localisateur de streaming](streaming-locators-concept.md). Ensuite, vous concaténez le nom d’hôte du [point de terminaison de streaming](/rest/api/media/streamingendpoints) et le chemin du **localisateur de streaming**. Dans cet exemple, le **point de terminaison de streaming** *par défaut* est utilisé. Quand vous créez pour la première fois un compte Media Services, ce **point de terminaison de streaming** *par défaut* est à l’état Arrêté. Vous devez donc appeler **Start** pour démarrer le streaming.
 

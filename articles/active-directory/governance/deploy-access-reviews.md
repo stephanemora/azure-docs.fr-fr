@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853020"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011342"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -182,7 +182,7 @@ Les cibles classiques à réviser sont les suivantes :
 
 * [Appartenance](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) à un groupe (synchronisée avec Azure AD ou créée dans Azure AD ou Office 365, y compris Microsoft Teams).
 
-* [Package d’accès](/entitlement-management-overview.md) qui regroupe les ressources (groupes, applications et sites) en un seul package pour gérer l’accès.
+* [Package d’accès](/azure/active-directory/governance/entitlement-management-overview) qui regroupe les ressources (groupes, applications et sites) en un seul package pour gérer l’accès.
 
 * [Rôles Azure AD et rôles Ressource Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) tels que définis dans Privileged Identity Management.
 
@@ -241,10 +241,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 **Exemple de plan de révision d’accès**
 
-| Composant| Valeur |
+| Composant| Value |
 | - | - |
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
-| **Fréquence de révision**| Mensuelle |
+| **Fréquence de révision**| Chaque mois |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
 | **Notification**| E-mail envoyé 24 heures avant la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |
@@ -422,7 +422,7 @@ Pour réduire le risque d’un accès obsolète, les administrateurs peuvent act
 | Articles sur les procédures| Description |
 | - | - |
 | [Créer des révisions d’accès](entitlement-management-access-reviews-create.md)| Activation des révisions du package d’accès. |
-| [Effectuer des révisions d’accès](/entitlement-management-access-reviews-review-access.md)| Réalisation de révisions d’accès pour d’autres utilisateurs affectés à un package d’accès. |
+| [Effectuer des révisions d’accès](entitlement-management-access-reviews-review-access.md)| Réalisation de révisions d’accès pour d’autres utilisateurs affectés à un package d’accès. |
 | [Réviser soi-même un package d’accès attribué](entitlement-management-access-reviews-self-review.md)| Auto-révision d’un package d’accès attribué. |
 
 

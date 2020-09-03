@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6fe6079ca4cdf76757088cbdc00dd1af3c2225ea
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6badcedba7fa1e1b605fc5553e5c6eed52c4203b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642365"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182069"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -253,7 +253,7 @@ public class HttpTrigger
 
 Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
-### <a name="customizing-configuration-sources"></a>Personnalisation des sources de configuration
+## <a name="customizing-configuration-sources"></a>Personnalisation des sources de configuration
 
 > [!NOTE]
 > La personnalisation de la source de configuration est disponible à partir des versions d’hôte 2.0.14192.0 et 3.0.14191.0 d’Azure Functions.
@@ -280,7 +280,8 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }

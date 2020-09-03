@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796950"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297465"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -381,6 +381,8 @@ Pour obtenir un exemple de suppression simultanée de tous les jumeaux numériqu
 ## <a name="manage-twins-with-cli"></a>Gérer des jumeaux avec l’interface CLI
 
 Les jumeaux peuvent également être gérés à l’aide de l’interface CLI Azure Digital Twins. Les commandes se trouvent dans [*Guide pratique : Utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

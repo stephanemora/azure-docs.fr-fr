@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170764"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958250"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -43,7 +43,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observer et contrôler le comportement de l'application
 #### <a name="track-service-health"></a>Suivi de l’état du service
-Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publie chaque interruption du service et chaque dégradation des performances. Vous pouvez assurer le suivi de l’état du service sur le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez la rubrique [Suivi de l’état du service](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Surveiller votre application
 Cette option vous permet de savoir si votre application rencontre des problèmes. Dans le panneau de votre application, cliquez sur la vignette **Demandes et erreurs**. Le panneau **Mesure** affiche toutes les mesures que vous pouvez ajouter.
@@ -61,7 +61,7 @@ Voici quelques-unes des mesures disponibles pour surveiller votre application :
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Surveiller les applications dans Azure App Service](web-sites-monitor.md)
-* [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Réception de notifications d’alerte](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Surveillance de l'état d'un point de terminaison Web
 Si vous exécutez votre application sur le niveau de tarification **Standard**, App Service vous permet de surveiller les deux points de terminaison à partir de trois régions géographiques.
@@ -161,4 +161,4 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes ponctuel
 
  ![redémarrer une application pour résoudre les problèmes de performances](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Vous pouvez également gérer votre application à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
+Vous pouvez également gérer votre application à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../azure-resource-manager/management/manage-resources-powershell.md).

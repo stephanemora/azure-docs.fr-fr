@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a8e1d43138e0b7481ebb89d747fa26df9470a09f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c403398f7320cefa16a4a570645a6d7d750acc7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037133"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297499"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Système d’exploitation de base et Java pour les applications de microservices Spring
 Voici quelques principes pour la maintenance de l’intégrité d’un système d’exploitation de base et Java pour les applications de microservices Spring.
@@ -52,5 +52,5 @@ Les systèmes Azul recherchent continuellement les modifications apportées aux 
 > ![Déploiement par défaut](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## <a name="next-steps"></a>Étapes suivantes
-* [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart-launch-app-portal.md).
+* [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart.md).
 * [Prise en charge à long terme de Java pour Azure et Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

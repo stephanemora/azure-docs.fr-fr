@@ -2,17 +2,17 @@
 title: Connectivité interréseau Azure
 description: Cette page décrit un scénario d'application relatif à la connectivité interréseau et une solution basée sur des fonctionnalités réseau Azure.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: rambala
-ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f13e3c03c0cfd747c7819d95a5fb98560db861c4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124951"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398067"
 ---
 # <a name="cross-network-connectivity"></a>Connectivité interréseau
 

@@ -3,20 +3,20 @@ title: Azure Front Door - Architecture de routage | Microsoft Docs
 description: Cet article vous aide à comprendre l’architecture globale de Front Door.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.author: duau
+ms.openlocfilehash: b36852e27f6aa3a909dd645c19a12c55e082b761
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879290"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399325"
 ---
 # <a name="routing-architecture-overview"></a>Vue d’ensemble de l’architecture de routage
 

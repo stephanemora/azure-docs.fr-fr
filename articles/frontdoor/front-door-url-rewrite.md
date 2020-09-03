@@ -3,20 +3,20 @@ title: Azure Front Door – Réécriture d’URL | Microsoft Docs
 description: Cet article explique comment Azure Front Door effectue la réécriture d’URL pour vos itinéraires, si cette option est configurée.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471470"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398935"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Réécriture d’URL (chemin de transfert personnalisé)
 Azure Front Door prend en charge la **réécriture d’URL**. Vous pouvez ainsi configurer un chemin de transfert personnalisé facultatif à utiliser lors de la construction d’une requête à transférer au backend. Par défaut, si aucun chemin de transfert personnalisé n’est fourni, Front Door copie le chemin d’URL entrant dans l’URL utilisée dans la requête transférée. L’en-tête d’hôte utilisé dans la requête transférée est tel que configuré pour le backend sélectionné. Pour découvrir ce qu’il fait et comment vous pouvez le configurer, consultez [En-tête d’hôte backend](front-door-backend-pool.md#hostheader).

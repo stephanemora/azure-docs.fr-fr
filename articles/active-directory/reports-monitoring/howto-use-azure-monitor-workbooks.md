@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608948"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226979"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -42,13 +42,13 @@ Vous voulez...
 
 - Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
 
-- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
 
 
 
 Cet article :
 
-- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) et
+- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) et
 
 - explique comment utiliser les classeurs Azure Monitor pour comprendre l’impact de vos stratégies d’accès conditionnel, pour résoudre les échecs de connexion et pour identifier les authentifications héritées.
  
@@ -58,11 +58,11 @@ Cet article :
 
 Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des éléments suivants :
 
-- Un locataire Azure Active Directory avec une licence Premium (P1 ou P2). Découvrez comment [obtenir une licence premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un locataire Azure Active Directory avec une licence Premium (P1 ou P2). Découvrez comment [obtenir une licence premium](../fundamentals/active-directory-get-started-premium.md).
 
-- Un [espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- Un [espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Accéder](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
+- [Accéder](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
 - Rôles suivants dans Azure Active Directory (si vous accédez à Log Analytics via le portail Azure Active Directory)
     - Administrateur de sécurité
     - Lecteur de sécurité
@@ -70,7 +70,7 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
     - Administrateur général
 
 ## <a name="roles"></a>Rôles
-Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
+Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
 -   Administrateur général
 -   Administrateur de sécurité
 -   Lecteur de sécurité
@@ -302,4 +302,4 @@ Pour vous aider à résoudre les problèmes de connexion, Azure Monitor vous fou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).

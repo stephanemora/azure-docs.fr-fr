@@ -4,23 +4,23 @@ description: Découvrez comment monter un système de fichiers virtuel sur un po
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921628"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145482"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
 Azure Batch prend désormais en charge le montage de stockage cloud ou d’un système de fichiers externe sur les nœuds de calcul Windows ou Linux dans vos pools Batch. Lorsqu’un nœud de calcul rejoint un pool, le système de fichiers virtuel est monté et traité comme un lecteur local sur ce nœud. Vous pouvez monter des systèmes de fichiers tels qu’Azure Files, le stockage blob Azure, NFS (Network File System), avec un [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), ou CIFS (Common Internet File System).
 
-Dans cet article, vous allez apprendre à monter un système de fichiers virtuel sur un pool de nœuds de calcul à l’aide de la [Bibliothèque de gestion Batch pour .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+Dans cet article, vous allez apprendre à monter un système de fichiers virtuel sur un pool de nœuds de calcul à l’aide de la [Bibliothèque de gestion Batch pour .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > Le montage d’un système de fichiers virtuel est pris en charge sur les pools Batch créés le ou après le 19/8/2019. Les pools Batch créés avant le 19/8/2019 ne prennent pas en charge cette fonctionnalité.
 > 
-> Les API servant à monter des systèmes de fichiers sur un nœud de calcul font partie de la bibliothèque [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Les API servant à monter des systèmes de fichiers sur un nœud de calcul font partie de la bibliothèque [Batch .NET](/dotnet/api/microsoft.azure.batch).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Avantages du montage sur un pool
 

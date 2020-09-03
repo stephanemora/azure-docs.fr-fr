@@ -8,18 +8,19 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705892"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002860"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutoriel : Contenu recherchable généré par l’IA issu d’objets blob Azure avec le SDK .NET
 
 Si vous avez du texte non structuré ou des images dans Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu utile pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. Dans ce tutoriel C#, appliquez la reconnaissance optique de caractères (OCR) sur des images et effectuez un traitement en langage naturel pour créer de nouveaux champs que vous pouvez exploiter dans les requêtes, les facettes et les filtres.
 
-Ce tutoriel utilise C# et le [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) pour effectuer les tâches suivantes :
+Ce tutoriel utilise C# et le [SDK .NET](/dotnet/api/overview/azure/search) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Commencez avec des fichiers d’application et des images dans Stockage Blob Azure.
@@ -127,7 +128,7 @@ Commencez par ouvrir Visual Studio et créer un nouveau projet d’application c
 
 ### <a name="install-nuget-packages"></a>Installer les packages NuGet
 
-Le [SDK .NET de la Recherche cognitive Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search) se compose de quelques bibliothèques clientes qui vous permettent de gérer vos index, sources de données, indexeurs et compétences, ainsi que de charger et gérer des documents et d’exécuter des requêtes, sans avoir à gérer les détails de HTTP et de JSON. Ces bibliothèques clientes sont distribuées sous la forme de packages NuGet.
+Le [SDK .NET de la Recherche cognitive Azure](/dotnet/api/overview/azure/search) se compose de quelques bibliothèques clientes qui vous permettent de gérer vos index, sources de données, indexeurs et compétences, ainsi que de charger et gérer des documents et d’exécuter des requêtes, sans avoir à gérer les détails de HTTP et de JSON. Ces bibliothèques clientes sont distribuées sous la forme de packages NuGet.
 
 Pour ce projet, installez la version 9 ou ultérieure du package NuGet `Microsoft.Azure.Search`.
 
@@ -680,7 +681,7 @@ Ajoutez l’instruction using suivante pour résoudre la référence ambigüe.
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Pour en savoir plus sur la définition d’un index, consultez [Créer un index (API REST de la Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Pour en savoir plus sur la définition d’un index, consultez [Créer un index (API REST de la Recherche cognitive Azure)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Étape 4 : Créer et exécuter un indexeur
 
@@ -905,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Répétez ces étapes pour les champs supplémentaires : content, languageCode, keyPhrases et organizations dans cet exercice. Vous pouvez retourner plusieurs champs via la propriété [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) en utilisant une liste délimitée par des virgules.
+Répétez ces étapes pour les champs supplémentaires : content, languageCode, keyPhrases et organizations dans cet exercice. Vous pouvez retourner plusieurs champs via la propriété [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) en utilisant une liste délimitée par des virgules.
 
 <a name="reset"></a>
 

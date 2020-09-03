@@ -3,12 +3,12 @@ title: Configurer un labo de piratage éthique avec Azure Lab Services | Micros
 description: Découvrez comment configurer un labo à l’aide d’Azure Lab Services pour enseigner le piratage éthique.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443993"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297584"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurer un labo pour enseigner le piratage éthique 
 Cet article explique comment organiser un cours autour de l’analyse forensique du piratage éthique. Des tests d’intrusion, une pratique utilisée par la communauté de piratage éthique, sont effectués quand quelqu’un tente d’accéder au système ou au réseau pour détecter les vulnérabilités qu’un attaquant malveillant pourrait exploiter. 
@@ -74,7 +74,7 @@ L’image Rapid7 Metasploit est une image intentionnellement configurée avec d
 1. Sélectionnez le bouton **Download Metasploitable Now** (Télécharger Metasploitable).
 1. Une fois le fichier zip téléchargé, extrayez-le et notez son emplacement.
 1. Convertissez le fichier vmdk extrait en fichier vhdx afin de pouvoir l’utiliser avec Hyper-V. Pour cela, ouvrez PowerShell avec des privilèges d’administrateur, puis accédez au dossier où se trouve le fichier vmdk et suivez ces instructions :
-    1. Téléchargez [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497), puis exécutez le fichier mvmc_setup.msi lorsque vous y êtes invité.
+    1. Téléchargez [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi), puis exécutez le fichier mvmc_setup.msi lorsque vous y êtes invité.
     1. Importez le module PowerShell.  L’emplacement d’installation par défaut du module est C:\Program Files\Microsoft Virtual Machine Converter\
 
         ```powershell

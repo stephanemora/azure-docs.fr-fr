@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226945"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Résolution des problèmes de provisionnement cloud
 
@@ -120,7 +120,7 @@ Vous pouvez recevoir un message d’erreur lorsque vous installez l’agent de p
 
 Ce problème est généralement dû à l’incapacité de l’agent à exécuter les scripts d’inscription PowerShell en raison des stratégies d’exécution PowerShell locales.
 
-Pour résoudre ce problème, modifiez les stratégies d’exécution PowerShell sur le serveur. Les stratégies de la machine et de l’utilisateur doivent être définies sur *Undefined* ou *RemoteSigned*. Si elles sont définies sur *Unrestricted*, vous verrez ce message d’erreur. Pour plus d’informations, consultez [Stratégies d’exécution PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Pour résoudre ce problème, modifiez les stratégies d’exécution PowerShell sur le serveur. Les stratégies de la machine et de l’utilisateur doivent être définies sur *Undefined* ou *RemoteSigned*. Si elles sont définies sur *Unrestricted*, vous verrez ce message d’erreur. Pour plus d’informations, consultez [Stratégies d’exécution PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Fichiers journaux
 
@@ -195,7 +195,7 @@ En sélectionnant l’état, vous pouvez voir des informations supplémentaires 
 
   ![Redémarrer le provisionnement](media/how-to-troubleshoot/quarantine3.png)
 
-- Utilisez Microsoft Graph pour [redémarrer le travail de provisionnement](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Vous bénéficiez d’un contrôle total sur ce que vous redémarrez. Vous pouvez choisir d’effacer les éléments suivants :
+- Utilisez Microsoft Graph pour [redémarrer le travail de provisionnement](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Vous bénéficiez d’un contrôle total sur ce que vous redémarrez. Vous pouvez choisir d’effacer les éléments suivants :
   - Les escrows, afin de redémarrer le compteur des escrows dont l’augmentation amène à la mise en quarantaine
   - La mise en quarantaine, afin de retirer l’application de la quarantaine
   - Les filigranes 
@@ -208,6 +208,3 @@ En sélectionnant l’état, vous pouvez voir des informations supplémentaires 
 
 - [Présentation du provisionnement](what-is-provisioning.md)
 - [Présentation du provisionnement cloud Azure AD Connect](what-is-cloud-provisioning.md)
-
-
-

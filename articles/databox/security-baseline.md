@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497322"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225602"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de référence de sécurité Azure pour Azure Data Box
 
@@ -216,11 +216,11 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
-**Conseils** : conservez un inventaire des comptes d’utilisateur qui ont un accès administratif à votre Azure Data Box. Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle (RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités managées dans Active Directory. Vous pouvez contrôler qui peut accéder à votre commande lors de la création de celle-ci pour la première fois. Configurez des rôles Azure d’étendues différentes pour contrôler l’accès à la commande Data Box. Un rôle Azure détermine le type d’accès accordé : lecture-écriture, lecture seule, lecture-écriture sur une partie des opérations.
+**Conseils** : conservez un inventaire des comptes d’utilisateur qui ont un accès administratif à votre Azure Data Box. Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités managées dans Active Directory. Vous pouvez contrôler qui peut accéder à votre commande lors de la création de celle-ci pour la première fois. Configurez des rôles Azure d’étendues différentes pour contrôler l’accès à la commande Data Box. Un rôle Azure détermine le type d’accès accordé : lecture-écriture, lecture seule, lecture-écriture sur une partie des opérations.
 
 * [Comprendre les rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Comment configurer RBAC pour les classeurs](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Comment configurer Azure RBAC pour les classeurs](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Comprendre comment configurer le contrôle d’accès sur la commande](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -230,7 +230,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Conseils** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
+**Aide** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -427,7 +427,7 @@ Lors du chargement des données dans Azure, l’appliance Data Box et le service
 
 **Responsabilité** : Non applicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
 **Conseils** : Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box. Vous pouvez également définir des rôles Lecteur Data Box et Contributeur Data Box au niveau de la ressource.
 

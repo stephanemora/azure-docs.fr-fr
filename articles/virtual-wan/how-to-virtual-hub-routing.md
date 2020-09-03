@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513058"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145924"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Guide pratique pour configurer le routage de hub virtuel
 
 Un hub virtuel peut contenir plusieurs passerelles, comme une passerelle VPN site à site, une passerelle ExpressRoute, une passerelle point à site ou un pare-feu Azure. Les fonctionnalités de routage du hub virtuel sont fournies par un routeur qui gère tout le routage, notamment le routage de transit, entre les passerelles à l’aide du protocole BGP (Border Gateway Protocol). Ce routeur fournit également une connectivité de transit entre les réseaux virtuels qui se connectent à un hub virtuel, et peut prendre en charge un débit agrégé de 50 Gbits/s. Ces fonctionnalités de routage s’appliquent aux clients Virtual WAN Standard.
 
 Pour plus d’informations, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Certaines de ces fonctionnalités peuvent toujours être en cours de déploiement. La fin du déploiement est prévue d’ici le 17 août.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Créer une table de routage
 

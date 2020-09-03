@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220718"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958726"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -22,7 +22,7 @@ Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Serv
 
 Pour suivre ce tutoriel :
 
-* [Créez une application App Service](/azure/app-service/), ou utilisez une application créée pour un autre didacticiel.
+* [Créez une application App Service](./index.yml), ou utilisez une application créée pour un autre didacticiel.
 * [Supprimez la limite de dépense de votre abonnement](../cost-management-billing/manage/spending-limit.md#remove). Vous ne pouvez pas acheter des domaines App Service avec des crédits d'abonnement gratuits.
 
 ## <a name="prepare-the-app"></a>Préparer l’application

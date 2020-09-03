@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032881"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948196"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
-L’[accès conditionnel](../active-directory-conditional-access-azure-portal.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’**outil de simulation d’accès conditionnel**.
+L’[accès conditionnel](./overview.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser l’**outil de simulation d’accès conditionnel**.
 
 Cet article explique comment vous pouvez utiliser cet outil pour tester vos stratégies d’accès conditionnel.
 
@@ -105,4 +105,4 @@ Sur la liste des stratégies qui s’appliquent à votre utilisateur, vous pouve
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous trouverez plus d’informations sur l’application de la stratégie d’accès conditionnel à l’aide du mode rapport seul des stratégies dans [Insights et rapports sur l’accès conditionnel](howto-conditional-access-insights-reporting.md).
-- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md). 
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md).
