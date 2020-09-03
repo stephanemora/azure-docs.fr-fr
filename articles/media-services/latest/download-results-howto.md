@@ -8,17 +8,20 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b3decdd4a2855382b27cb426d7fb030b46a2458c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607254"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298026"
 ---
 # <a name="download-the-results-of-a-job"></a>Télécharger les résultats d’un travail
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Dans Azure Media Services, lors du traitement de vos vidéos (par exemple l’encodage ou l’analyse), vous devez créer un [actif multimédia](assets-concept.md) de sortie où stocker le résultat de votre [travail](transforms-jobs-concept.md). Vous pouvez ensuite télécharger ces résultats dans un dossier local à l’aide des API de stockage et Media Services. 
 

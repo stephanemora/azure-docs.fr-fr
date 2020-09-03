@@ -6,17 +6,19 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 04/16/2020
-ms.topic: article
+ms.date: 08/31/2020
+ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030663"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295357"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux vérifiés
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Dans Azure Media Services, un [Événement en temps réel](/rest/api/media/liveevents) (canal) représente un pipeline de traitement du contenu de streaming en direct. L’Événement en temps réel reçoit les flux d’entrée en direct de l’une des deux manières suivantes.
 

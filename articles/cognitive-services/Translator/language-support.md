@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782326"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300219"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -155,6 +155,7 @@ Translator détecte les langues suivantes pour la traduction et la translittéra
 |Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coréen |`ko`   |
+|Kurde (central)  |`ku-Arab`  |
 |Letton|   `lv`    |
 |Lituanien|    `lt`    |
 |Malais| `ms`        |
@@ -283,10 +284,12 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 
 | Langage    | Code langue |
 |:----------- |:-------------:|
+|Afrikaans| `af`|
 | Arabe       | `ar`          |
 | Bangla      | `bn`          |
 | Bosniaque (latin)      | `bs`          |
 | Bulgare      | `bg`          |
+|Catalan|   `ca`    |
 | Chinois (simplifié)      | `zh-Hans`          |
 |Chinois traditionnel|   `zh-Hant`   |
 | Croate      | `hr`          |
@@ -295,6 +298,8 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Néerlandais      | `nl`          |
 | Anglais    | `en`     |
 | Estonien      | `et`          |
+|Fidjien|    `fj`    |
+|Filipino|  `fil`   |
 | Finnois      | `fi`          |
 | Français      | `fr`          |
 | Allemand      | `de`          |
@@ -308,12 +313,14 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Irlandais | `ga`  |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
+|Kannada|`kn`|
 | Kiswahili|    `sw`    |
 | Coréen      | `ko`          |
 | Letton      | `lv`          |
 | Lituanien      | `lt`          |
 | Malgache| `mg`    |
 | Malais|    `ms`        |
+|Maltais|   `mt`    |
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norvégien      | `nb`          |
@@ -329,7 +336,9 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Slovène      | `sl`          |
 | Espagnol      | `es`          |
 | Suédois      | `sv`          |
+|Tahitien|  `ty`    |
 | Thaï      | `th`          |
+|Tonga|    `to`    |
 | Turc      | `tr`          |
 | Ukrainien      | `uk`          |
 | Ourdou| `ur`    |

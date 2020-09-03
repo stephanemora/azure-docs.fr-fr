@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003879"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Dépannage d’Azure Digital Twins : Mesures
 
@@ -24,7 +24,7 @@ Les métriques sont activées par défaut. Vous pouvez afficher les métriques A
 
 1. Créez une instance Azure Digital Twins. Vous trouverez des instructions sur la configuration d’une instance Azure Digital Twins dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-scripted.md).
 
-2. Recherchez votre instance Azure Digital Twins dans le [portail Azure](https:/portal.azure.com) (vous pouvez ouvrir la page correspondante en tapant son nom dans la barre de recherche du portail). 
+2. Recherchez votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez ouvrir la page correspondante en tapant son nom dans la barre de recherche du portail). 
 
     Dans le menu de l’instance, sélectionnez **Métriques**.
    

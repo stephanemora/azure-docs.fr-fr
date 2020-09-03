@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213578"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962891"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -44,7 +44,7 @@ De la même façon, d'autres piles de langage récupèrent les paramètres de l'
 Une fois stockés, les paramètres d’application sont toujours chiffrés (chiffrement au repos).
 
 > [!NOTE]
-> Les paramètres d’application peuvent également être résolus à partir de [Key Vault](/azure/key-vault/) à l’aide des [références Key Vault](app-service-key-vault-references.md).
+> Les paramètres d’application peuvent également être résolus à partir de [Key Vault](../key-vault/index.yml) à l’aide des [références Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Afficher les valeurs masquées
 
@@ -115,7 +115,7 @@ Par exemple, une chaîne de connexion MySql nommée *connectionstring1* est acc
 Une fois stockées, les chaînes de connexion sont toujours chiffrées (chiffrement au repos).
 
 > [!NOTE]
-> Les chaînes de connexion peuvent également être résolues à partir de [Key Vault](/azure/key-vault/) à l’aide des [références Key Vault](app-service-key-vault-references.md).
+> Les chaînes de connexion peuvent également être résolues à partir de [Key Vault](../key-vault/index.yml) à l’aide des [références Key Vault](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Afficher les valeurs masquées
 

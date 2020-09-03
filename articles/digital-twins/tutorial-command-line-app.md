@@ -1,5 +1,5 @@
 ---
-title: Explorer les bases avec un exemple d’application cliente
+title: 'Tutoriel : Explorer les bases avec un exemple d’application cliente'
 titleSuffix: Azure Digital Twins
 description: Tutoriel permettant d’explorer les kits SDK Azure Digital Twins à l’aide d’un exemple d’application en ligne de commande.
 author: baanders
@@ -7,23 +7,24 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986269"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022511"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorer Azure Digital Twins avec un exemple d’application cliente
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente
 
 Ce tutoriel présente un exemple d’application qui implémente une application cliente en ligne de commande, pour interagir avec une instance Azure Digital Twins. L’application cliente est semblable à celle écrite dans [*Tutoriel : Coder une application cliente*](tutorial-code.md).
 
 Vous pouvez utiliser cet exemple pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également examiner le code de l’exemple pour en savoir plus sur les API Azure Digital Twins et vous exercer à implémenter vos propres commandes en modifiant l’exemple de projet comme bon vous semble.
 
 Dans ce tutoriel, vous allez :
-1. Configurer une instance Azure Digital Twins.
-2. Configurer l’exemple d’application en ligne de commande pour interagir avec l’instance.
-3. Utiliser l’application en ligne de commande pour explorer Azure Digital Twins, notamment les **modèles**, les **jumeaux numériques**, les **relations** et les **requêtes**.
+> [!div class="checklist"]
+> * Configurer une instance Azure Digital Twins.
+> * Configurer l’exemple d’application en ligne de commande pour interagir avec l’instance.
+> * Utiliser l’application en ligne de commande pour explorer Azure Digital Twins, notamment les **modèles**, les **jumeaux numériques**, les **relations** et les **requêtes**.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -288,24 +289,7 @@ L’une des principales fonctionnalités d’Azure Digital Twins est la capacit�
 Le projet de ce tutoriel forme la base du tutoriel suivant, intitulé [*Tutoriel : Connecter une solution de bout en bout*](tutorial-end-to-end.md). Si vous envisagez de continuer avec le tutoriel suivant, vous pouvez conserver les ressources configurées ici pour continuer à utiliser cette instance Azure Digital Twins et l’exemple d’application configurée.
 * Dans ce cas, vous pouvez utiliser les commandes `DeleteAllTwins` et `DeleteAllModels` de l’exemple d’application pour effacer respectivement les jumeaux et les modèles de votre instance. Vous repartirez alors sur de nouvelles bases pour le tutoriel suivant.
 
-Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer.
-
-Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Cela supprime le groupe de ressources et l’instance Azure Digital Twins.
-
-> [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. 
-
-Ouvrez Azure Cloud Shell et exécutez la commande suivante pour supprimer le groupe de ressources et tout ce qu’il contient.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Ensuite, supprimez l’inscription d’application Azure Active Directory que vous avez créée pour votre application cliente à l’aide de cette commande :
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Pour finir, supprimez le dossier d’exemple de projet que vous avez téléchargé sur votre ordinateur local.
 
@@ -314,12 +298,5 @@ Pour finir, supprimez le dossier d’exemple de projet que vous avez télécharg
 Dans ce tutoriel, vous avez commencé à utiliser Azure Digital Twins en configurant une instance et une application cliente pour interagir avec l’instance. Vous avez utilisé l’application cliente pour explorer Azure Digital Twins, et vous avez créé des modèles, des jumeaux numériques et des relations. Vous avez également exécuté des requêtes sur la solution, pour vous faire une idée des types de questions auxquelles Azure Digital Twins peut répondre sur un environnement.
 
 Passez au tutoriel suivant pour utiliser l’exemple d’application en ligne de commande conjointement avec d’autres services Azure afin de bénéficier d’un scénario de bout en bout piloté par les données :
-
 > [!div class="nextstepaction"]
 > [*Tutoriel : Connecter une solution de bout en bout*](tutorial-end-to-end.md)
-
-Ou bien commencez par examiner la documentation de concept pour en savoir plus sur les éléments avec lesquels vous avez travaillé dans le tutoriel :
-* [*Concepts : Modèles personnalisés*](concepts-models.md)
-
-Vous pouvez également approfondir vos connaissances sur les processus de ce tutoriel en suivant les guides pratiques :
-* [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)

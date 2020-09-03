@@ -3,25 +3,27 @@ title: Utiliser l’interface CLI pour créer des filtres avec Azure Media Servi
 description: Cet article montre comment utiliser l’interface CLI pour créer des filtres avec Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ceff9eba0363ea2784c48e026807c53447f1e32
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023209"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296899"
 ---
-# <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI 
+# <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’actif multimédia par défaut ne permet peut-être pas au client d’interagir avec le contenu comme il le voudrait. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
