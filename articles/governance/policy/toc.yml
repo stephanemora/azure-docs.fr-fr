@@ -93,6 +93,9 @@
     - name: Évaluer l’impact d’une nouvelle stratégie
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Stratégies recommandées
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Conformité réglementaire
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md

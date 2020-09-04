@@ -130,6 +130,7 @@
         - name: Automatiser les réponses aux alertes
           href: workflow-automation.md
         - name: Exporter les alertes
+          displayName: continuous
           href: continuous-export.md
     - name: Utiliser des recommandations de sécurité pour améliorer la sécurité
       items:
@@ -150,6 +151,7 @@
         - name: Automatiser les réponses aux recommandations
           href: workflow-automation.md
         - name: Exporter les recommandations
+          displayName: continuous
           href: continuous-export.md
     - name: Gérer vos ressources avec un inventaire d’actifs
       href: asset-inventory.md
