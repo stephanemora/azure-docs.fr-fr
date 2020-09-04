@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ada202a8683b64144f2adacc759b9461472e4a31
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262566"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378880"
 landingContent:
 - title: À propos d’Azure Key Vault
   linkLists:
@@ -54,14 +54,20 @@ landingContent:
       url: security-recommendations.md
     - text: Base de référence de la sécurité
       url: security-baseline.md
+  - linkListType: how-to-guide
+    links:
+    - text: S’authentifier auprès de Key Vault
+      url: authentication.md
+    - text: Affecter une stratégie d’accès (CLI)
+      url: assign-access-policy-CLI.md
+    - text: Affecter une stratégie d’accès (PowerShell)
+      url: assign-access-policy-powershell.md
+    - text: Affecter une stratégie d’accès (portail)
+      url: assign-access-policy-portal.md
   - linkListType: tutorial
     links:
     - text: Utiliser une liaison privée
       url: private-link-service.md
-    - text: Utiliser une identité managée
-      url: managed-identity.md
-    - text: Utiliser une stratégie d’accès
-      url: group-permissions-for-apps.md
 - title: Bibliothèques clientes
   linkLists:
   - linkListType: reference

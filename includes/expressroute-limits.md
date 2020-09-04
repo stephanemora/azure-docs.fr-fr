@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 146a257a9b8f31e79283d71ede1e1c5c0355765c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334752"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147780"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -24,8 +24,10 @@ ms.locfileid: "80334752"
 | Nombre maximal d'itinéraires publiés depuis le peering privé Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 |
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec ExpressRoute Standard |200 |
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec le module complémentaire ExpressRoute Premium |200 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans le même emplacement de peering |4 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering |4 |
+| Nombre maximal de circuits ExpressRoute liés à une passerelle de performances standard/ErGw1AZ |4 | 
+| Nombre maximal de circuits ExpressRoute liés à une passerelle hautes performances/ErGw2AZ |8 | 
+| Nombre maximal de circuits ExpressRoute liés à une passerelle ultra-hautes performances/ErGw3AZ |16 | 
+| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering (toutes références SKU) |4 |
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau [Nombre de réseaux virtuels par circuit ExpressRoute](#vnetpercircuit).  |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute

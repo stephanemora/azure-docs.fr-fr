@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Bienvenue sur la place de marché commerciale
-summary: Découvrez la place de marché commerciale, place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
+summary: Découvrez la Place de marché commerciale, une place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
 metadata:
   title: Bienvenue sur la place de marché commerciale
-  description: Découvrez la place de marché commerciale, place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
+  description: Découvrez la Place de marché commerciale, une place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
   ms.date: 04/02/2020
-  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  ms.openlocfilehash: 9a61e3796fdd228ffee52d8bf7611946c873460a
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87287860"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378098"
 landingContent:
 - title: Utilisation de la place de marché commerciale
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Créer une nouvelle offre SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: ./create-new-saas-offer.md
     - text: Meilleures pratiques marketing
       url: ./gtm-marketing-best-practices.md
     - text: Fournisseurs de solutions cloud
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Offres SaaS
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: create-new-saas-offer.md
     - text: Offres de machines virtuelles
       url: ./marketplace-virtual-machines.md
     - text: Offres d’application Azure

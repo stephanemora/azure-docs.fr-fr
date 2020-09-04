@@ -82,6 +82,8 @@
       items:
         - name: Ingérer la télémétrie depuis IoT Hub
           href: how-to-ingest-iot-hub-data.md
+        - name: Gérer automatiquement les appareils avec DPS
+          href: how-to-provision-using-device-provisioning-service.md
         - name: Intégrer à Logic Apps
           href: how-to-integrate-logic-apps.md
     - name: Connecter une sortie
@@ -183,7 +185,9 @@
         - name: Validateur DTDL (exemple)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Exemple d’intégration DPS et IoT Hub
-          href: 'https://github.com/Azure-Samples/digital-twins-iothub-integration'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
+        - name: Swaggers personnalisés Azure Digital Twins
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
     - name: Outils Azure
       items:
         - name: Azure Cloud Shell

@@ -39,6 +39,10 @@
       href: application-management-fundamentals.md
     - name: Scénarios courants de gestion d’applications
       href: common-scenarios.md
+    - name: Affichage des applications de votre locataire
+      href: application-types.md
+    - name: Attribution d’utilisateurs aux applications
+      href: ways-users-get-assigned-to-applications.md
     - name: Planification d’une intégration d’applications cloud
       items:
         - name: Bien démarrer avec l’intégration d’applications
@@ -114,7 +118,7 @@
           href: grant-admin-consent.md
         - name: Configurer le workflow du consentement administrateur (préversion)
           href: configure-admin-consent-workflow.md
-        - name: Affecter un utilisateur ou un groupe à une application
+        - name: Gérer les affectations d’utilisateurs aux applications
           href: assign-user-or-group-access-portal.md
         - name: Vérifier les autorisations accordées aux applications
           href: manage-application-permissions.md
@@ -124,8 +128,6 @@
           href: access-panel-manage-self-service-access.md
         - name: Méthodes de suppression d’un accès utilisateur à une application
           href: methods-for-removing-user-access.md
-        - name: Supprimer l’accès à l’utilisateur ou au groupe
-          href: remove-user-or-group-access-portal.md
         - name: Masquer l’application pour un utilisateur
           href: hide-application-from-user-portal.md
         - name: "Comment désactiver les inscriptions des utilisateurs\_?"
@@ -203,11 +205,7 @@
     - name: Dépanner
       items:
         - name: Résoudre les problèmes d’ajout d’applications
-          items:
-            - name: Problèmes courants - applications de la galerie
-              href: adding-gallery-app-common-problems.md
-            - name: Problèmes courants - applications hors galerie
-              href: adding-non-gallery-app-common-problems.md
+          href: troubleshoot-adding-apps.md
         - name: Résoudre les problèmes de connexion utilisateur
           items:
             - name: Invite de consentement inattendue
@@ -234,12 +232,6 @@
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Problèmes courants de configuration de l’authentification fédérée - applications hors galerie
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Résoudre les problèmes d’affectation et de liste d’applications
-          items:
-            - name: Gérer la liste des applications pour votre locataire
-              href: application-types.md
-            - name: Utilisateur attribué inattendu
-              href: ways-users-get-assigned-to-applications.md
         - name: Résoudre les problèmes des applications locales
           items:
             - name: Résolution des problèmes de proxy d’application

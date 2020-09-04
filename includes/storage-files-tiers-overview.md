@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7fd91e898c12a13e35ae8b9055ebb5a57de2a051
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520518"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272175"
 ---
 Azure Files offre quatre niveaux de stockage, premium, optimisé pour les transactions, chaud et froid, pour vous permettre de personnaliser vos partages en fonction des performances et du budget demandés par votre scénario :
 
@@ -30,9 +30,31 @@ Les partages de fichiers chauds et froids sont actuellement disponibles dans les
 - Australie Centre 2
 - Australie Est
 - Australie Sud-Est
+- Brésil Sud
+- Est du Canada
+- Centre du Canada
 - France Centre
 - France Sud
-- Corée Centre
-- Corée Sud
+- Allemagne Nord (public)
+- Allemagne Centre-Ouest (public)
+- Inde Centre
+- Sud de l’Inde
+- Inde Ouest
+- Japon Est
+- OuJapon Est
+- Centre de la Corée
+- Corée du Sud
+- Norvège Est
+- Norvège Ouest
+- Afrique du Sud Nord
+- Afrique du Sud Ouest
+- Suisse Nord
+- Suisse Ouest
+- Émirats arabes unis Centre
+- Émirats arabes unis Nord
+- Sud du Royaume-Uni
+- Ouest du Royaume-Uni
+- Centre-Nord des États-Unis
+- États-Unis - partie centrale méridionale
 
 Pour déployer un partage de fichiers chaud ou froid, consultez [Créer un partage de fichiers chaud ou froid](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

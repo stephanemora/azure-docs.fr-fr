@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760558"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89325210"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -33,7 +33,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]
 * [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configurer chaque couche application dans des groupes à haute disponibilité séparés]
+* [Configuration de chaque couche application dans des groupes à haute disponibilité séparés](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Combiner un équilibreur de charge avec des zones de disponibilité ou des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Dans certaines circonstances, deux machines virtuelles dans le même AvailabilitySet peuvent partager le même FaultDomain. Pour confirmer cela, accédez à votre groupe à haute disponibilité et vérifiez la colonne **Domaine d'erreur**
-> Cela peut être dû à la séquence suivante lors du déploiement des machines virtuelles :
-> - Déployer la première machine virtuelle
-> - Arrêtez/libérez la première machine virtuelle
-> - Déployez la deuxième machine virtuelle Dans ces circonstances, le disque du système d’exploitation de la deuxième machine virtuelle peut être créé sur le même domaine d’erreur que la première, et la deuxième machine virtuelle atterrira également sur le même FaultDomain. 
-> Pour éviter ce problème, il est recommandé de ne pas arrêter ou libérer la machine virtuelle entre ses déploiements.
+> Dans certains cas, deux machines virtuelles d’un même groupe à haute disponibilité peuvent partager un domaine d’erreur. Vous pouvez vérifier si un domaine d’erreur est partagé en accédant à votre groupe à haute disponibilité et en regardant la colonne **Domaine d’erreur**. Vous pouvez avoir obtenu le partage d’un domaine d’erreur si vous avez effectué cette série d’étapes lors du déploiement des machines virtuelles :
+> 1. Déploiement de la première machine virtuelle
+> 1. Arrêt ou libération de la première machine virtuelle
+> 1. Déploiement de la deuxième machine virtuelle
+>
+> Dans ces circonstances, le disque du système d’exploitation de la deuxième machine virtuelle peut être créé dans le même domaine d’erreur que la première machine virtuelle, de sorte que les deux machines virtuelles se retrouvent dans le même domaine d’erreur. Pour éviter ce problème, il est recommandé de ne pas arrêter ni libérer les machines virtuelles entre deux déploiements.
 
 Si vous prévoyez d’utiliser des machines virtuelles avec des disques non managés, suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

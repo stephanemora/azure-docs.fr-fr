@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 949118214851c3eceffd8c1d638a4093bdf7f366
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748739"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303923"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "88748739"
 | Longueur de clé de la balise |512 |
 | Longueur de valeur de la balise |256 |
 
-<sup>1</sup>À compter de juin 2020, les déploiements sont automatiquement supprimés de l’historique quand vous vous approchez de la limite. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources déployées. Pour plus d’informations, consultez [Suppressions automatiques de l’historique de déploiement](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
+<sup>1</sup> Quand vous vous approchez de la limite, les déploiements sont automatiquement supprimés de l’historique. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources déployées. Pour plus d’informations, consultez [Suppressions automatiques de l’historique de déploiement](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Limites de modèle
 

@@ -17,12 +17,16 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Transaction dans la Place de marché commerciale
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+            - name: Plans et tarifs
+              href: plans-pricing.md
             - name: Offres privées
               href: ./private-offers.md
             - name: Contrat standard
               href: ./standard-contract.md
             - name: Attribution de l’utilisation de client partenaire Azure
               href: ./azure-partner-customer-usage-attribution.md
+            - name: Pays et régions pris en charge
+              href: ./sell-from-countries.md
         - name: Guides de publication par type d’offre
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -32,8 +36,6 @@
               href: ./marketplace-solution-templates.md
             - name: Applications managées des applications Azure
               href: ./marketplace-managed-apps.md
-            - name: Applications SaaS
-              href: ./marketplace-saas-applications-technical-publishing-guide.md
             - name: Containers
               href: ./marketplace-containers.md
             - name: "Modules IoT\_Edge"
@@ -165,10 +167,8 @@
               href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: Offres SaaS
           items:
-            - name: Check-list pour la création d’une offre SaaS
-              href: ./partner-center-portal/offer-creation-checklist.md
-            - name: Créer une offre SaaS
-              href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Planifier une offre SaaS
+              href: plan-saas-offer.md
             - name: Authentification Azure AD pour SaaS
               items:
                 - name: Vue d’ensemble d’Azure AD et SaaS
@@ -177,6 +177,26 @@
                   href: ./azure-ad-transactable-saas-landing-page.md
                 - name: Page de destination pour les offres gratuites ou d’essai
                   href: ./azure-ad-free-or-trial-landing-page.md
+            - name: Facturation à l’usage SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
+            - name: Créer et publier une offre SaaS
+              items:
+                - name: Créer une offre SaaS
+                  href: create-new-saas-offer.md
+                - name: Configurer les propriétés de l’offre SaaS
+                  href: create-new-saas-offer-properties.md
+                - name: Configurer l’annonce d’une offre SaaS
+                  href: create-new-saas-offer-listing.md
+                - name: Ajouter un public pour la préversion
+                  href: create-new-saas-offer-preview.md
+                - name: Ajouter des détails techniques
+                  href: create-new-saas-offer-technical.md
+                - name: Créer des plans
+                  href: create-new-saas-offer-plans.md
+                - name: Tester et publier une offre SaaS
+                  href: test-publish-saas-offer.md
+            - name: Commercialiser votre offre SaaS
+              href: create-new-saas-offer-marketing.md
             - name: API de traitement SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -188,8 +208,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: API de traitement SaaS - Questions fréquentes (FAQ)
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Facturation à l’usage SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
         - name: Vue d’ensemble de la gestion des prospects
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
@@ -207,8 +225,6 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Service de mesure de la Place de marché
           items:
-            - name: Service de détection d’anomalie
-              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Stratégies d’authentification
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: API de service de mesure de la Place de marché
@@ -234,7 +250,7 @@
       href: review-publish-offer.md
     - name: Mettre à jour les offres existantes
       href: ./partner-center-portal/update-existing-offer.md
-    - name: Activer les avantages
+    - name: Activer les récompenses de la Place de marché
       href: ./partner-center-portal/marketplace-rewards.md
     - name: Analytique de l’Espace partenaires
       items:
@@ -304,3 +320,7 @@
           href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Options de support
       href: ./partner-center-portal/support.md
+    - name: Ressources
+      items:
+        - name: Balises HTML prises en charge
+          href: supported-html-tags.md

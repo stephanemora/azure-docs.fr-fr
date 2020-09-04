@@ -4,8 +4,6 @@
   items:
     - name: "Qu’est-ce qu’Azure Front Door\_?"
       href: front-door-overview.md
-    - name: Nouveautés d’Azure Front Door
-      href: front-door-whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:
