@@ -107,10 +107,10 @@
           href: howto-run-a-job.md
     - name: Transformer
       items:
-        - name: Exporter des données vers des destinations dans Azure (hérité)
-          href: howto-export-data.md
         - name: Exporter des données vers des destinations cloud (préversion)
-          href: howto-use-data-export.md
+          href: howto-export-data.md
+        - name: Exporter des données vers des destinations cloud (hérité)
+          href: howto-export-data-legacy.md
         - name: Créer des webhooks sur des règles
           href: howto-create-webhooks.md
         - name: Utiliser des workflows pour l’intégration aux autres services

@@ -59,6 +59,8 @@
               href: ./marketplace-criteria-content-validation.md
             - name: Fournisseurs de solutions cloud
               href: ./cloud-solution-providers.md
+            - name: Guide d’intégration du programme Connect
+              href: ./cloud-partner-portal/business-applications-isv-program.md
         - name: Vos avantages sur la Place de marché
           href: ./gtm-your-marketplace-benefits.md
           items:

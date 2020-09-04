@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Utiliser des disques Azure Ultra (préversion)
           href: use-ultra-disks.md
+        - name: Pilotes de stockage CSI
+          items:
+            - name: Activer les pilotes de stockage CSI (préversion)
+              href: csi-storage-drivers.md
+            - name: Pilotes Azure Disk CSI (préversion)
+              href: azure-disk-csi.md
+            - name: Pilotes Azure Files CSI (préversion)
+              href: azure-files-csi.md
     - name: Configurer la mise en réseau
       items:
         - name: Créer ou utiliser un réseau virtuel existant
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Activer l’intégration d’Azure Active Directory
           items:
-            - name: AAD géré par AKS
+            - name: Azure AD managé par AKS
               href: managed-aad.md
-            - name: Intégration AAD (hérité)
+            - name: "Intégration Azure\_AD (hérité)"
               href: azure-ad-integration-cli.md
         - name: Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)
           href: manage-azure-rbac.md
