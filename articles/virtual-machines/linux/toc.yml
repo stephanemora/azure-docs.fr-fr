@@ -307,14 +307,6 @@
           href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Quotas de processeurs virtuels
           href: quotas.md
-        - name: Instances réservées
-          items:
-            - name: Prépayer pour des machines virtuelles
-              href: prepay-reserved-vm-instances.md
-            - name: "Que sont les réservations Azure\_?"
-              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
-            - name: Flexibilité de taille d'instance des machines virtuelles
-              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Scores de test d’évaluation
           href: compute-benchmark-scores.md
     - name: Distributions approuvées

@@ -117,6 +117,9 @@
               href: concepts-data-encryption-postgresql.md
             - name: Chiffrement double d’infrastructure
               href: concepts-infrastructure-double-encryption.md
+            - name: Contrôles de sécurité par Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Base de référence de la sécurité pour Azure Security Benchmark
               href: security-baseline.md
         - name: Continuité de l’activité

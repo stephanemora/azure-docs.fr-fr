@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Utilisation de certificats avec Batch
           href: batch-certificates.md
-    - name: Utilisation de packages d’application
-      href: batch-application-packages.md
     - name: Copier des fichiers et des applications dans les nœuds d’un pool
       items:
         - name: Copie d’applications et de données dans des nœuds de pool

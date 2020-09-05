@@ -94,6 +94,6 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog Azure sur la sécurité, la confidentialité et la conformité'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'

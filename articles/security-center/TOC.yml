@@ -229,7 +229,7 @@
     - name: Feuille de route de préparation
       href: security-center-readiness-roadmap.md
     - name: 'Blog Azure sur la sécurité, la confidentialité et la conformité'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Azure Security Center sur Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Vidéos
