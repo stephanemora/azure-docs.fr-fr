@@ -206,6 +206,10 @@
       items:
         - name: Résoudre les problèmes d’ajout d’applications
           href: troubleshoot-adding-apps.md
+        - name: Résoudre les problèmes d’authentification unique par mot de passe
+          href: troubleshoot-password-based-sso.md
+        - name: Résoudre les erreurs d’authentification unique basée sur SAML
+          href: troubleshoot-saml-based-sso.md
         - name: Résoudre les problèmes de connexion utilisateur
           items:
             - name: Invite de consentement inattendue
@@ -224,14 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problème avec l’application personnalisée
               href: application-sign-in-problem-custom-dev.md
-        - name: Résoudre les problèmes d’authentification unique
-          items:
-            - name: Résoudre les problèmes d’authentification unique par mot de passe
-              href: troubleshoot-password-based-sso.md
-            - name: Problèmes courants de configuration d’authentification fédérée - applications de galerie
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: Problèmes courants de configuration de l’authentification fédérée - applications hors galerie
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
         - name: Résoudre les problèmes des applications locales
           items:
             - name: Résolution des problèmes de proxy d’application
