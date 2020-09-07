@@ -10,16 +10,17 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541417"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378013"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
-La meilleure façon de s’authentifier auprès des services Azure consiste à utiliser une [identité managée](../general/managed-identity.md). Il existe toutefois des scénarios dans lesquels cette approche est inappropriée. Dans ces cas-là, des clés d’accès ou des secrets sont utilisés. Vous devez permuter régulièrement les clés d’accès ou les secrets.
+La meilleure façon de s’authentifier auprès des services Azure consiste à utiliser une [identité managée](../general/authentication.md). Il existe toutefois des scénarios dans lesquels cette approche est inappropriée. Dans ces cas-là, des clés d’accès ou des secrets sont utilisés. Vous devez permuter régulièrement les clés d’accès ou les secrets.
 
 Ce tutoriel montre comment automatiser la rotation régulière des secrets pour les bases de données et les services qui utilisent un seul jeu d’informations d’authentification. Plus précisément, ce tutoriel permute les mots de passe SQL Server stockés dans Azure Key Vault à l’aide d’une fonction déclenchée par une notification Azure Event Grid :
 
@@ -112,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Pour plus d’informations sur la création d’une application de fonction et sur l’utilisation d’une identité managée pour accéder à Key Vault, consultez [Créer une application de fonction à partir du portail Azure](../../azure-functions/functions-create-function-app-portal.md) et [Fournir une authentification Key Vault avec une identité managée](../general/managed-identity.md).
+Pour plus d’informations sur la création d’une application de fonction et sur le recours à une identité managée pour accéder à Key Vault, consultez [Création d’une application de fonction à partir du Portail Azure](/azure/azure-functions/functions-create-function-app-portal), [Guide pratique pour utiliser une identité managée pour App Service et Azure Functions](/azure/app-service/overview-managed-identity) et [Attribution d’une stratégie d'accès Key Vault à l’aide du Portail Azure](../general/assign-access-policy-portal.md).
 
 ### <a name="rotation-function"></a>Fonction de permutation
 Déployée dans l’étape précédente, la fonction utilise un événement pour déclencher la permutation d’un secret en mettant à jour Key Vault et la base de données SQL. 

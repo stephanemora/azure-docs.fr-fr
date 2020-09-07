@@ -1,15 +1,15 @@
 ---
 title: Intégration continue avec Azure Pipelines
 description: Découvrez comment générer, tester et déployer des modèles Azure Resource Manager en continu.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118917"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892675"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -175,8 +175,8 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
     * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources, par exemple **USA Centre**.
     * **Emplacement du modèle** : sélectionnez **Artefact lié**, ce qui signifie que la tâche recherche le fichier de modèle directement à partir du dépôt connecté.
     * **Modèle** : entrez **CreateWebApp/azuredeploy.json**. Si vous avez changé le nom du dossier et le nom du fichier, vous devez modifier cette valeur.
-    * **Paramètres du modèle** : laissez ce champ vide. Vous allez spécifier les valeurs de paramètre dans **Remplacer les paramètres du modèle.
-    * **overrideParameters** : entrez **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Remplacez le nom du projet et l’URL du modèle lié. L’URL du modèle lié correspond à ce que vous avez écrit à la fin de [Création d’un dépôt GitHub](#create-a-github-repository).
+    * **Paramètres du modèle** : laissez ce champ vide. Vous allez spécifier la valeur des paramètres dans **Remplacer les paramètres du modèle**.
+    * **Remplacer les paramètres du modèle** : entrez **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Remplacez le nom du projet et l’URL du modèle lié. L’URL du modèle lié correspond à ce que vous avez écrit à la fin de [Création d’un dépôt GitHub](#create-a-github-repository). Elle commence par **https://raw.githubusercontent.com** .
     * **Mode de déploiement** : sélectionnez **Incrémentiel**.
     * **Nom du déploiement** : entrez **DeployPipelineTemplate**. Sélectionnez **Avancé** pour pouvoir voir **Nom du déploiement**.
 

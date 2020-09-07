@@ -1,5 +1,5 @@
 ---
-title: Connecter une solution de bout en bout
+title: 'Tutoriel : Connecter une solution de bout en bout'
 titleSuffix: Azure Digital Twins
 description: Tutoriel montrant comment créer une solution Azure Digital Twins de bout en bout basée sur des données d’appareil.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827321"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401773"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Créer une solution de bout en bout
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
 Pour configurer une solution de bout en bout complète basée sur les données réelles de votre environnement, vous pouvez connecter votre instance Azure Digital Twins à d’autres services Azure pour la gestion des appareils et des données.
 
 Ce tutoriel présente les procédures suivantes :
-* Configurer une instance Azure Digital Twins
-* Découvrir l’exemple de scénario d’un bâtiment et instancier les composants pré-écrits
-* Utiliser une application [Azure Functions](../azure-functions/functions-overview.md) pour router les données de télémétrie simulées depuis un appareil [IoT Hub](../iot-hub/about-iot-hub.md) vers les propriétés de jumeaux numériques
-* Propager les modifications par le biais du **graphe de jumeaux**, en traitant les notifications de jumeaux numériques avec Azure Functions, les points de terminaison et les routes
+> [!div class="checklist"]
+> * Configurer une instance Azure Digital Twins
+> * Découvrir l’exemple de scénario d’un bâtiment et instancier les composants pré-écrits
+> * Utiliser une application [Azure Functions](../azure-functions/functions-overview.md) pour router les données de télémétrie simulées depuis un appareil [IoT Hub](../iot-hub/about-iot-hub.md) vers les propriétés de jumeaux numériques
+> * Propager les modifications par le biais du **graphe de jumeaux**, en traitant les notifications de jumeaux numériques avec Azure Functions, les points de terminaison et les routes
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -365,6 +366,8 @@ Enregistrez les noms que vous avez donnés à votre rubrique Event Grid et à vo
 
 Vous allez à présent créer une route Azure Digital Twins qui envoie les événements au point de terminaison Azure Digital Twins que vous venez de créer.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -433,7 +436,7 @@ Voici une révision du scénario que vous avez créé au cours de ce tutoriel.
 
 Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer. 
 
-Dans Azure Cloud Shell, vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Sont ainsi supprimés le groupe de ressources ; l’instance Azure Digital Twins ; le hub IoT et l’inscription de l’appareil hub ; la rubrique Event Grid et les abonnements associés ; et les deux applications Azure Functions, y compris les ressources associées telles que le stockage.
+Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Sont ainsi supprimés le groupe de ressources ; l’instance Azure Digital Twins ; le hub IoT et l’inscription de l’appareil hub ; la rubrique Event Grid et les abonnements associés ; l’application Azure Functions, y compris les deux fonctions et les ressources associées (par exemple, le stockage).
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. 
@@ -448,14 +451,13 @@ Ensuite, supprimez l’inscription d’application Azure AD que vous avez créé
 az ad app delete --id <your-application-ID>
 ```
 
-Pour finir, supprimez de votre ordinateur local le dossier d’exemple de projet que vous avez téléchargé.
+Pour finir, supprimez le dossier d’exemple de projet que vous avez téléchargé sur votre ordinateur local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez créé un scénario de bout en bout qui montre comment exploiter Azure Digital Twins à l’aide de données d’appareil réelles.
 
 Vous pouvez à présent commencer à consulter la documentation de concept pour en savoir plus sur les éléments avec lesquels vous avez travaillé dans le tutoriel :
-* [*Concepts : Modèles personnalisés*](concepts-models.md)
 
-Ou bien approfondissez vos connaissances des processus de ce tutoriel en suivant les articles de procédures :
-* [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Concepts : Modèles personnalisés*](concepts-models.md)

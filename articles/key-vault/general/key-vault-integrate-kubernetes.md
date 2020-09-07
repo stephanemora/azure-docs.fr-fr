@@ -1,19 +1,22 @@
 ---
 title: Intégrer Azure Key Vault à Kubernetes
 description: Dans ce tutoriel, vous allez accéder à des secrets dans votre coffre de clés Azure et les récupérer en utilisant le pilote CSI (Container Storage Interface) du magasin des secrets pour les monter dans des pods Kubernetes.
-author: rkarlin
-ms.author: rkarlin
+author: ShaneBala-keyvault
+ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 06/04/2020
-ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 08/25/2020
+ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685882"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869182"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutoriel : Configurer et exécuter le fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets sur Kubernetes
+
+> [!IMPORTANT]
+> Le pilote CSI constitue un projet open source qui n’est pas pris charge par le support technique Azure. Signalez tous les commentaires et problèmes liés à l’intégration Key Vault du pilote CSI sur le lien GitHub situé en bas de la page. Cet outil est fourni pour permettre aux utilisateurs d’effectuer une auto-installation dans des clusters et recueillir les commentaires de notre communauté.
 
 Dans ce tutoriel, vous allez accéder à des secrets dans votre coffre de clés Azure et les récupérer en utilisant le pilote CSI (Container Storage Interface) du magasin des secrets pour monter ces secrets dans des pods Kubernetes.
 

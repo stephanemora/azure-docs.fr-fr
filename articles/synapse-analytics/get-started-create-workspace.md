@@ -8,39 +8,17 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: b4d48dcc8f09ae8e2ec3bb198f8864de1c945682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093540"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255016"
 ---
 # <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
 
 Dans ce tutoriel, vous allez découvrir comment créer un espace de travail Synapse, un pool SQL et un pool Apache Spark. 
-
-## <a name="prepare-a-storage-account"></a>Préparer un compte de stockage
-
-1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Créez un compte de stockage avec les paramètres suivants :
-
-    |Onglet|Paramètre | Valeur suggérée | Description |
-    |---|---|---|---|
-    |Concepts de base|**Nom du compte de stockage**| Choisissez n’importe quel nom.| Dans ce document, nous allons utiliser **contosolake**.|
-    |Concepts de base|**Type de compte**| **StorageV2** ||
-    |Concepts de base|**Lieu**|Choisissez un emplacement.| Nous vous conseillons de choisir votre espace de travail Azure Synapse Analytics et votre compte Azure Data Lake Storage Gen2 dans la même région.|
-    |Avancé|**Data Lake Storage Gen2**|**Activé**| Azure Synapse fonctionne seulement avec les comptes de stockage pour lesquels ce paramètre est activé.|
-    |||||
-
-1. Après avoir créé le compte de stockage, sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche. Attribuez ensuite les rôles suivants ou vérifiez qu’ils sont déjà attribués :
-    * Attribuez-vous le rôle **Propriétaire**.
-    * Attribuez-vous le rôle **Propriétaire des données Blob du stockage**.
-1. Dans le volet de gauche, sélectionnez **Conteneurs** et créez un conteneur.
-1. Attribuez au conteneur un nom de votre choix. Dans ce document, nous appellerons le conteneur **users**.
-1. Acceptez le paramètre par défaut **Niveau d’accès public**, puis sélectionnez **Créer**.
-
-À l’étape suivante, vous configurerez votre espace de travail Azure Synapse pour utiliser ce compte de stockage comme compte de stockage « principal » et le conteneur pour stocker les données de l’espace de travail. L’espace de travail stocke les données dans des tables Apache Spark. Il stocke les journaux des applications Spark dans un dossier appelé **/synapse/workspacename**.
 
 ## <a name="create-a-synapse-workspace"></a>Créer un espace de travail Synapse
 
@@ -53,20 +31,14 @@ Dans ce tutoriel, vous allez découvrir comment créer un espace de travail Syna
     |Concepts de base|**Nom de l’espace de travail**|Vous pouvez lui donner le nom que vous voulez.| Dans ce document, nous l’appellerons **myworkspace**.|
     |Concepts de base|**Région**|Choisissez la même région que le compte de stockage.|
 
-1. Sous **sélectionnez Data Lake Storage Gen 2**, sélectionnez le compte et le conteneur que vous avez créés précédemment.
+1. Un compte ADLS Gen2 est nécessaire pour créer un espace de travail. Le choix le plus simple consiste à en créer un. Si vous souhaitez en réutiliser un, vous devrez effectuer une configuration supplémentaire. 
+1. OPTION 1 Création d’un nouveau compte ADLS Gen2 : 
+    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Créer** et nommez-le **contosolake**.
+    1. Sous **Sélectionnez Data Lake Storage Gen2**, cliquez sur **Système de fichiers** et nommez-le **users**.
+1. OPTION 2 Consultez les instructions **Préparation d’un compte de stockage** qui se trouvent à la fin de ce document.
+1. Votre espace de travail Azure Synapse utilisera ce compte de stockage comme compte de stockage « principal » et le conteneur pour stocker les données de l’espace de travail. L’espace de travail stocke les données dans des tables Apache Spark. Il stocke les journaux des applications Spark dans un dossier appelé **/synapse/workspacename**.
 1. Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
 
-## <a name="verify-access-to-the-storage-account"></a>Vérifier l’accès au compte de stockage
-
-Les identités managées pour votre espace de travail Azure Synapse ont peut-être déjà accès au compte de stockage. Vérifiez ce point en effectuant ces étapes :
-
-1. Ouvrez le [Portail Azure](https://portal.azure.com) et le compte de stockage principal choisi pour votre espace de travail.
-1. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .
-1. Attribuez les rôles suivants ou vérifiez qu’ils sont déjà attribués. Nous utilisons le même nom pour l’identité de l’espace de travail et le nom de l’espace de travail.
-    * Pour le rôle **Contributeur aux données Blob du stockage** sur le compte de stockage, affectez **myworkspace** comme identité de l’espace de travail.
-    * Attribuez le nom **myworkspace** à l’espace de travail.
-
-1. Sélectionnez **Enregistrer**.
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio
 
@@ -121,6 +93,38 @@ Contrairement aux autres types de pools, la facturation du pool SQL à la demand
 
 * Le pool SQL à la demande possède ses propres bases de données SQL à la demande qui existent indépendamment de tout pool SQL à la demande.
 * Un espace de travail a toujours un seul pool SQL à la demande nommé **SQL à la demande**.
+
+## <a name="prepare-a-storage-account"></a>Préparer un compte de stockage
+
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Créez un compte de stockage avec les paramètres suivants :
+
+    |Onglet|Paramètre | Valeur suggérée | Description |
+    |---|---|---|---|
+    |Concepts de base|**Nom du compte de stockage**| Choisissez n’importe quel nom.| Dans ce document, nous allons utiliser **contosolake**.|
+    |Concepts de base|**Type de compte**| **StorageV2** ||
+    |Concepts de base|**Lieu**|Choisissez un emplacement.| Nous vous conseillons de choisir votre espace de travail Azure Synapse Analytics et votre compte Azure Data Lake Storage Gen2 dans la même région.|
+    |Avancé|**Data Lake Storage Gen2**|**Activé**| Azure Synapse fonctionne seulement avec les comptes de stockage pour lesquels ce paramètre est activé.|
+    |||||
+
+1. Après avoir créé le compte de stockage, sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche. Attribuez ensuite les rôles suivants ou vérifiez qu’ils sont déjà attribués :
+    * Attribuez-vous le rôle **Propriétaire**.
+    * Attribuez-vous le rôle **Propriétaire des données Blob du stockage**.
+1. Dans le volet de gauche, sélectionnez **Conteneurs** et créez un conteneur.
+1. Attribuez au conteneur un nom de votre choix. Dans ce document, nous appellerons le conteneur **users**.
+1. Acceptez le paramètre par défaut **Niveau d’accès public**, puis sélectionnez **Créer**.
+
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configuration de l’accès au compte de stockage à partir de votre espace de travail
+
+Les identités managées pour votre espace de travail Azure Synapse ont peut-être déjà accès au compte de stockage. Vérifiez ce point en effectuant ces étapes :
+
+1. Ouvrez le [Portail Azure](https://portal.azure.com) et le compte de stockage principal choisi pour votre espace de travail.
+1. Dans le volet de gauche, sélectionnez **Contrôle d’accès (IAM)** .
+1. Attribuez les rôles suivants ou vérifiez qu’ils sont déjà attribués. Nous utilisons le même nom pour l’identité de l’espace de travail et le nom de l’espace de travail.
+    * Pour le rôle **Contributeur aux données Blob du stockage** sur le compte de stockage, affectez **myworkspace** comme identité de l’espace de travail.
+    * Attribuez le nom **myworkspace** à l’espace de travail.
+
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

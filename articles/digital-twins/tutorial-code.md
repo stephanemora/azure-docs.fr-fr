@@ -1,5 +1,5 @@
 ---
-title: Coder une application cliente
+title: 'Tutoriel : Coder une application cliente'
 titleSuffix: Azure Digital Twins
 description: Tutoriel expliquant comment écrire le code minimal d’une application cliente à l’aide du kit SDK (C#) .NET.
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723467"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923702"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Codage avec les API Azure Digital Twins
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
 Il arrive souvent aux développeurs qui travaillent avec Azure Digital Twins de devoir écrire une application cliente pour interagir avec leur instance du service Azure Digital Twins. Ce tutoriel destiné aux développeurs fournit une introduction à la programmation par rapport au service Azure Digital Twins à l’aide de la [bibliothèque de client Azure IoT Digital Twins pour .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Il décrit étape par étape comment écrire une application console cliente C# à partir de rien.
+
+> [!div class="checklist"]
+> * Configurer le projet
+> * Démarrer avec le code de projet   
+> * Exemple de code complet
+> * Nettoyer les ressources
+> * Étapes suivantes
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,7 +55,7 @@ Ensuite, ajoutez deux dépendances nécessaires à l’utilisation d’Azure Dig
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 La première dépendance est la [bibliothèque de client Azure IoT Digital Twins pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). La deuxième dépendance fournit des outils pour faciliter l’authentification auprès d’Azure.
@@ -419,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -532,24 +538,7 @@ namespace minimal
  
 L’instance utilisée dans ce tutoriel peut être réutilisée dans le tutoriel suivant, intitulé [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Si vous envisagez de passer au tutoriel suivant, vous pouvez conserver l’instance Azure Digital Twins que vous avez configurée ici.
  
-Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer.
-
-Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Cela supprime le groupe de ressources et l’instance Azure Digital Twins.
-
-> [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. 
-
-Ouvrez Azure Cloud Shell et exécutez la commande suivante pour supprimer le groupe de ressources et tout ce qu’il contient.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Ensuite, supprimez l’inscription d’application Azure Active Directory que vous avez créée pour votre application cliente à l’aide de cette commande :
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Pour finir, supprimez le dossier de projet que vous avez créé sur votre ordinateur local.
 
@@ -561,7 +550,3 @@ Passez au tutoriel suivant pour découvrir les opérations que vous pouvez effec
 
 > [!div class="nextstepaction"]
 > [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md)
-
-Vous pouvez également étendre le code que vous avez écrit dans ce tutoriel en apprenant à effectuer d’autres opérations de gestion dans les articles de procédures, ou consulter la documentation du concept pour en savoir plus sur les éléments que vous avez utilisés dans le tutoriel.
-* [*Guide pratique : Gérer des modèles personnalisés*](how-to-manage-model.md)
-* [*Concepts : Modèles personnalisés*](concepts-models.md)

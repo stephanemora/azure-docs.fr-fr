@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021883"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290308"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutoriel : Créer un analyseur personnalisé pour les numéros de téléphone
 
@@ -21,7 +21,7 @@ Les [analyseurs](search-analyzers.md) sont un composant clé de toute solution d
 
 Dans certains cas, comme dans celui d’un champ de texte libre, il suffit de sélectionner l’[analyseur de langage](index-add-language-analyzers.md) approprié pour améliorer les résultats de la recherche. Toutefois, dans d’autres scénarios comme la recherche de numéros de téléphone, d’URL ou d’e-mails, il peut être nécessaire de faire appel à des analyseurs personnalisés.
 
-Ce tutoriel utilise Postman et les [API REST](https://docs.microsoft.com/rest/api/searchservice/) de Recherche cognitive Azure pour :
+Ce tutoriel utilise Postman et les [API REST](/rest/api/searchservice/) de Recherche cognitive Azure pour :
 
 > [!div class="checklist"]
 > * Expliquer le fonctionnement des analyseurs
@@ -225,7 +225,7 @@ Si vous trouvez que ces résultats prêtent à confusion, vous n’êtes pas le 
 
 ## <a name="4---debug-search-results"></a>4 - Déboguer les résultats de la recherche
 
-Pour comprendre les résultats de la recherche, nous devons d’abord comprendre le fonctionnement des analyseurs. Nous pourrons ensuite tester l’analyseur par défaut à l’aide de l’[API d’analyse de texte](https://docs.microsoft.com/rest/api/searchservice/test-analyzer), puis créer un analyseur qui répond à nos besoins.
+Pour comprendre les résultats de la recherche, nous devons d’abord comprendre le fonctionnement des analyseurs. Nous pourrons ensuite tester l’analyseur par défaut à l’aide de l’[API d’analyse de texte](/rest/api/searchservice/test-analyzer), puis créer un analyseur qui répond à nos besoins.
 
 ### <a name="how-analyzers-work"></a>Fonctionnement des analyseurs
 
@@ -239,7 +239,7 @@ Un analyseur comprend trois composants :
 
 Le diagramme ci-dessous vous montre comment ces trois composants fonctionnent ensemble pour générer des jetons à partir d’une phrase :
 
-  ![Diagramme du processus d’un analyseur](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagramme du processus Analyseur de segmentation d’une phrase en unités lexicales](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Ces jetons sont ensuite stockés dans un index inversé qui autorise des recherches rapides en texte intégral.  Pour cela, un index inversé mappe tous les termes uniques extraits durant l’analyse lexicale aux documents dans lesquels ils apparaissent. Le diagramme ci-dessous vous montre un exemple :
 
@@ -251,7 +251,7 @@ Toute la recherche se résume à rechercher les termes stockés dans l’index i
 1. L’index inversé est ensuite analysé à la recherche de documents contenant des termes correspondants.
 1. Enfin, les documents récupérés sont classés par l’[algorithme de similarité](index-ranking-similarity.md).
 
-  ![Diagramme du processus d’un analyseur](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagramme du processus Analyseur de classement de la similarité](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Si les termes de la requête ne correspondent pas aux termes de votre index inversé, aucun résultat n’est retourné. Pour en savoir plus sur le fonctionnement des requêtes, consultez cet article sur la [recherche en texte intégral](search-lucene-query-architecture.md).
 
@@ -260,7 +260,7 @@ Si les termes de la requête ne correspondent pas aux termes de votre index inve
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Analyseur de test utilisant l’API d’analyse de texte
 
-Recherche cognitive Azure fournit une [API d’analyse de texte](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) qui vous permet de tester les analyseurs pour comprendre comment ils traitent le texte.
+Recherche cognitive Azure fournit une [API d’analyse de texte](/rest/api/searchservice/test-analyzer) qui vous permet de tester les analyseurs pour comprendre comment ils traitent le texte.
 
 Pour appeler l’API d’analyse de texte, utilisez la requête suivante :
 

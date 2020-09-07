@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318825"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812935"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Exemples de pipelines et de jeux de données pour le concepteur Azure Machine Learning (préversion)
 
@@ -55,9 +55,9 @@ Voici comment utiliser un exemple de concepteur :
 
 1. Une fois l’exécution du pipeline terminée, vous pouvez passer en revue le pipeline et examiner la sortie de chaque module pour en savoir plus. Utilisez les étapes suivantes pour consulter les sorties des modules :
 
-   1. Sélectionnez un module dans le canevas.
+   1. Cliquez avec le bouton droit sur le module dans le canevas dont vous souhaitez afficher la sortie.
+   1. Sélectionnez **Visualiser**.
 
-   1. Dans le volet de détails des modules à droite du canevas, sélectionnez **Sorties + journaux**. Sélectionnez l’icône de graphique ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats de chaque module. 
 
    Utilisez les exemples comme points de départ pour quelques-uns des scénarios de Machine Learning les plus courants.
 

@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de stratégie
 description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
-ms.date: 06/10/2020
+ms.date: 07/20/2020
 ms.topic: sample
-ms.openlocfilehash: 7528a22ad09db1e06aabf84ad946ef7af36a8430
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b4f76c42eb23ce368875dfb91f2f7b9e7ee1bd50
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736779"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481560"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
@@ -39,6 +39,7 @@ Voici les éléments intégrés de la [conformité réglementaire](../concepts/r
 
 - [Benchmark de sécurité Azure](./azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 

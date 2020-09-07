@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687397"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294405"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Résoudre les problèmes d’accès au portail Azure EA
 
@@ -32,7 +32,7 @@ Vous utilisez le portail Azure EA pour accorder l’accès aux utilisateurs ave
 - Compte professionnel ou scolaire inter-locataires - Pour les organisations qui ont configuré Active Directory avec la fédération dans le cloud et qui auront des comptes sur plusieurs locataires.
 - Compte mixte - Vous permet d’ajouter des utilisateurs avec un compte Microsoft et/ou avec un compte professionnel ou scolaire.
 
-Le premier compte professionnel ou scolaire ajouté à l’inscription détermine le domaine _par défaut_ ou _principal_. Pour ajouter un compte professionnel ou scolaire avec un autre locataire, vous devez modifier le niveau d’authentification sous l’inscription en spécifiant l’authentification inter-locataires.
+Le premier compte professionnel ou scolaire ajouté à l’inscription détermine le domaine _par défaut_. Pour ajouter un compte professionnel ou scolaire avec un autre locataire, vous devez modifier le niveau d’authentification sous l’inscription en spécifiant l’authentification inter-locataires.
 
 Pour mettre à jour le niveau d’authentification :
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: d6e4b77c6eba976de052295e4a0001924ad90644
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290325"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapper un domaine personnalisé existant à Azure Spring Cloud
 DNS (Domain Name Service) est une technique de stockage des noms de nœuds réseau à l’échelle d’un réseau. Ce tutoriel mappe un domaine, tel que www.contoso.com, à l’aide d’un enregistrement CNAME. Il sécurise le domaine personnalisé avec un certificat et montre comment mettre en œuvre le protocole TLS (Transport Layer Security), également connu sous le nom de protocole SSL (Secure Sockets Layer). 
@@ -20,7 +20,7 @@ DNS (Domain Name Service) est une technique de stockage des noms de nœuds rése
 Les certificats chiffrent le trafic web. Ces certificats TLS/SSL peuvent être stockés dans Azure Key Vault. 
 
 ## <a name="prerequisites"></a>Prérequis
-* Une application déployée dans Azure Spring Cloud (consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart-launch-app-portal.md) ou utilisez une application existante).
+* Une application déployée dans Azure Spring Cloud (consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart.md) ou utilisez une application existante).
 * Un nom de domaine avec un accès au registre DNS pour le fournisseur de domaine, par exemple GoDaddy.
 * Un certificat privé (autrement dit, votre certificat auto-signé) d’un fournisseur tiers. Le certificat doit correspondre au domaine.
 * Une instance déployée d’[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
@@ -145,7 +145,7 @@ Dans le tableau du domaine personnalisé, sélectionnez **Ajouter une liaison SS
 1. Sélectionnez votre **Certificat** ou importez-le.
 1. Cliquez sur **Enregistrer**.
 
-    ![Ajouter une liaison SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Ajout d’une liaison SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 Ou bien, vous pouvez utiliser Azure CLI pour **ajouter une liaison SSL** :
 ```
@@ -154,14 +154,14 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 Une fois la liaison SSL ajoutée, le domaine passe à un état sécurisé : **Intègre**. 
 
-![Ajouter une liaison SSL](./media/custom-dns-tutorial/secured-domain-state.png)
+![Ajout d’une liaison SSL 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## <a name="enforce-https"></a>Appliquer le protocole HTTPS
 Par défaut, n’importe qui peut accéder à votre application en HTTP, mais vous pouvez rediriger toutes les requêtes HTTP vers le port HTTPS.
 
 Dans la page de votre application, dans le volet de navigation gauche, sélectionnez **Domaine personnalisé**. Ensuite, définissez **HTTPS uniquement** sur *Vrai*.
 
-![Ajouter une liaison SSL](./media/custom-dns-tutorial/enforce-http.png)
+![Ajout d’une liaison SSL 3](./media/custom-dns-tutorial/enforce-http.png)
 
 Ou bien, vous pouvez utiliser Azure CLI pour appliquer le protocole HTTPS :
 ```

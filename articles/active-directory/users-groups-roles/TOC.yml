@@ -52,6 +52,8 @@
           href: users-sharing-accounts.md
         - name: Affecter des utilisateurs aux rôles d’administrateur
           href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: Améliorations de la gestion des utilisateurs
+          href: users-search-enhanced.md
         - name: Supprimer des utilisateurs en bloc
           href: users-bulk-delete.md
         - name: Restaurer un utilisateur supprimé.

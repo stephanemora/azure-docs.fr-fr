@@ -3,18 +3,18 @@ title: Gérer le coût et l’utilisation d’AWS dans Azure Cost Management
 description: Cet article explique comment utiliser les fonctionnalités d’analyse des budgets et des coûts dans Cost Management pour gérer le coût et votre utilisation d’AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685015"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266182"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
@@ -36,17 +36,18 @@ Les sections suivantes décrivent comment utiliser les portées pour afficher ch
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Afficher les comptes AWS liés sous un groupe d’administration
 
-L’affichage des coûts à l’aide de la portée de groupe d’administration est la seule méthode possible pour afficher les coûts agrégées en provenance de différents abonnements et comptes liés. L’utilisation d’un groupe d’administration fournit une vue du cloud.
+Le seul moyen de voir les coûts agrégés provenant de différents abonnements Azure et comptes liés AWS consiste à afficher les coûts avec l’étendue du groupe d’administration, qui permet d’obtenir une vue multicloud des coûts d’Azure et AWS.
 
 Dans Analyse du coût, ouvrez le sélecteur de portée, puis sélectionnez le groupe d’administration qui contient vos comptes AWS liés. Voici une capture d’écran d’exemple dans le portail Microsoft Azure :
 
-![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes liés sous un groupe d’administration" :::
 
 Voici un exemple indiquant le coût de groupe d’administration dans Analyse du coût, classé par fournisseur (Azure et AWS).
 
-![Exemple illustrant les coûts d’Azure et d’AWS pour un trimestre dans Analyse du coût](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemple illustrant les coûts d’Azure et d’AWS pour un trimestre dans Analyse du coût" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> Les groupes d’administration ne sont actuellement pas pris en charge pour les clients disposant d’un Contrat client Microsoft (MCA). Ces clients peuvent créer le connecteur et visualiser leurs données AWS. Cependant, ils ne peuvent pas voir conjointement leurs coûts Azure et leurs coûts AWS dans un groupe d’administration.
 
 ### <a name="view-aws-linked-account-costs"></a>Afficher les coûts d’un compte AWS lié
 
@@ -54,21 +55,17 @@ Pour afficher les coûts d’un compte AWS lié, ouvrez le sélecteur de portée
 
 Voici un exemple qui présente la sélection d’une portée d’un compte AWS lié.
 
-![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemple de vue Sélectionnez une étendue montrant des comptes liés AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Afficher les coûts d’un compte AWS consolidé
 
 Pour afficher les coûts d’un compte AWS consolidé, ouvrez le sélecteur de portée, puis sélectionnez le compte AWS consolidé. Voici un exemple qui présente la sélection d’une portée d’un compte AWS consolidés.
 
-![Exemple de la vue Sélectionner la portée](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemple de vue Sélectionnez une étendue avec des comptes consolidés" :::
 
 Cette portée présente une vue agrégée de tous les comptes AWS liés associés au compte AWS consolidé. Voici un exemple illustrant les coûts d’un compte AWS consolidé, classés par nom de service.
 
-![Exemple illustrant les coûts d’un compte AWS consolidé dans Analyse du coût](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemple illustrant les coûts d’un compte AWS consolidé dans Analyse du coût" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensions disponibles pour le filtrage et regroupement
 
@@ -89,7 +86,7 @@ Le tableau suivant décrit les dimensions disponibles pour le regroupement et le
 | Niveau de service |   |   |   |
 | Identifiant d’abonnement | élémentdeligne/IDCompteUtilisation | Compte consolidé et groupe d’administration |   |
 | Nom d’abonnement | N/A | Compte consolidé et groupe d’administration | Les noms des comptes sont collectés à l’aide de l’API Organisation AWS. |
-| Tag | BalisesRessources/\* | Tous | Le préfixe _utilisateur:_ est supprimé des balises définies par l’utilisateur pour autoriser les balises dans le cloud. Le préfixe _aws :_ est n’est pas supprimé. |
+| Tag | resourceTags | Tous | Le préfixe _utilisateur:_ est supprimé des balises définies par l’utilisateur pour autoriser les balises dans le cloud. Le préfixe _aws :_ est n’est pas supprimé. |
 | ID de compte de facturation | facture/IDComptePayeur | Groupe d’administration |   |
 | Nom du compte de facturation | N/A | Groupe d’administration | Les noms des comptes sont collectés à l’aide de l’API Organisation AWS. |
 | Fournisseur | N/A | Groupe d’administration | AWS ou Azure. |
@@ -98,7 +95,7 @@ Le tableau suivant décrit les dimensions disponibles pour le regroupement et le
 
 Utilisez des budgets pour gérer les coûts de manière proactive et responsabiliser les équipes au sein de votre organisation. Les budgets sont définis sur les portées des comptes AWS consolidés et liés. Voici un exemple de budgets d’un compte AWS consolidé affiché dans Cost Management :
 
-![Exemple présentant des budgets pour un compte AWS consolidé](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemple présentant des budgets pour un compte AWS consolidé" :::
 
 ## <a name="aws-data-collection-process"></a>Processus de collecte de données AWS
 
@@ -110,15 +107,15 @@ Lorsque vous avez configuré le connecteur AWS, les processus de collecte et de 
 
 ## <a name="aws-integration-pricing"></a>Tarification de l’intégration d’AWS
 
-Chaque connecteur AWS obtient 90 jours d’essai gratuits. Pendant la préversion, aucun frais ne s’applique.
+Chaque connecteur AWS obtient 90 jours d’essai gratuits.
 
 Le prix catalogue est de 1 % des coûts mensuels d’AWS. Chaque mois, vous êtes facturé en fonction de vos coûts facturés le mois précédent.
 
-L’accès aux API d’AWS peut entraîner des coûts supplémentaires.
+L’accès aux API d’AWS peut occasionner des coûts supplémentaires sur AWS.
 
 ## <a name="aws-integration-limitations"></a>Limitations de l’intégration d’AWS
 
-- Cost Management ne prend pas en charge les rapports de coût qui contiennent plusieurs types de devise. Un message d’erreur s’affiche si vous sélectionnez une portée qui a plusieurs devises.
+- Les budgets de Cost Management ne prennent pas en charge les groupes d’administration comportant plusieurs devises, qui ne comportent pas d’évaluation du budget. Un message d’erreur s’affiche si vous sélectionnez un groupe d’administration multidevise lorsque vous créez un budget.
 - Les connecteurs cloud ne prennent pas en charge AWS GovCloud (US), AWS Gov ou AWS China.
 - Cost Management affiche uniquement les _coûts d’utilisation_ d’AWS. Les impôts/taxes, remboursements, réassurances, crédits et autres types de frais ne sont pas pris en charge pour le moment.
 

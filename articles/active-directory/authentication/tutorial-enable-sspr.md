@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718847"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399971"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -37,7 +37,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD actif avec au moins un abonnement Azure AD Premium P1 ou une licence d’évaluation activée.
+* Un locataire Azure AD actif sur lequel au moins une licence Azure AD Free ou une licence d’évaluation est activée. Dans le niveau G, SSPR ne fonctionne que pour les utilisateurs cloud dans Azure AD.
+    * Dans les tutoriels suivants de cette série, une licence Azure AD Premium P1 ou une licence d’évaluation est requise pour la réécriture locale du mot de passe.
     * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*Administrateur général*.
 * Un utilisateur non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*. Dans ce tutoriel, vous testez l’expérience SSPR de l’utilisateur final à l’aide de ce compte.

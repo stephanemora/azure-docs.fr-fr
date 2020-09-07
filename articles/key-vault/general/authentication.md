@@ -3,190 +3,126 @@ title: S’authentifier auprès d’Azure Key Vault
 description: Apprendre à s’authentifier auprès d’Azure Key Vault
 author: ShaneBala-keyvault
 ms.author: sudbalas
-ms.date: 06/08/2020
+ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930857"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378970"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
-## <a name="overview"></a>Vue d’ensemble
+Azure Key Vault offre la possibilité de stocker des secrets et de contrôler leur distribution dans un référentiel cloud centralisé et sécurisé, ce qui évite d’avoir à stocker des informations d’identification dans les applications. Il suffit aux applications de s’authentifier auprès de Key Vault à l’exécution pour accéder à ces secrets.
 
-Azure Key Vault est une solution de gestion de secrets qui vous permet de centraliser le stockage des secrets d’applications et de contrôler leur distribution. Azure Key Vault élimine la nécessité de stocker les informations d’identification dans les applications. Votre application peut s’authentifier auprès du coffre de clés pour récupérer les informations d’identification nécessaires. Ce document aborde les principes de base de l’authentification auprès d’un coffre de clés.
+## <a name="app-identity-and-service-principals"></a>Identité de l’application et principaux de service
 
-Ce document vous aide à comprendre le fonctionnement de l’authentification de coffre de clés. Ce document explique le déroulement de l’authentification, vous montre comment accorder un accès à votre coffre de clés et contient un tutoriel pour récupérer un secret stocké dans le coffre de clés à partir d’un exemple d’application Python.
+L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
 
-Ce document aborde les points suivants :
+Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un service ou une application demandant l’accès aux ressources Azure. Azure affecte un **ID d’objet** unique à chaque principal de sécurité.
 
-* Concepts clés
-* Inscription d’un principal de sécurité
-* Compréhension du déroulement de l’authentification Key Vault
-* Accorder un accès à Key Vault à un principal de service
-* Tutoriel (Python)
+* Un principal de sécurité **utilisateur** identifie une personne disposant d’un profil dans Azure Active Directory.
 
-## <a name="key-concepts"></a>Concepts clés
+* Un principal de sécurité **groupe** identifie un ensemble d’utilisateurs créés dans Azure Active Directory. Tous les rôles et autorisations attribués au groupe sont accordés à tous les utilisateurs du groupe.
 
-### <a name="azure-active-directory-concepts"></a>Concepts Azure Active Directory
+* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client**, lui sert de nom d’utilisateur. La **clé secrète client** du principal de service fonctionne comme un mot de passe.
 
-* Azure Active Directory (AAD) – Azure Active Directory (Azure AD) est le service de gestion des accès et des identités basé sur le cloud de Microsoft. Il permet à vos employés de se connecter et d’accéder aux ressources
+Pour les applications, il existe deux façons d’obtenir un principal de service :
 
-* Définition de rôle – Une définition de rôle est une collection d’autorisations.  AAD possède des rôles standard (Propriétaire, Contributeur ou Lecteur) qui contiennent des niveaux d’autorisations permettant d’effectuer des opérations de lecture, d’écriture et de suppression sur une ressource Azure. Les rôles peuvent aussi être des définitions personnalisées créées par des utilisateurs disposant d’autorisations granulaires spécifiques.
+* Méthode recommandée : activez une **identité managée** affectée par le système pour l’application.
 
-* Inscription d’application – Quand vous inscrivez une application Azure AD, deux objets sont créés dans votre locataire Azure AD : un objet application et un objet principal de service. Considérez l’objet application comme la représentation globale de votre application pour une utilisation dans tous les locataires et le principal de service comme la représentation locale pour une utilisation dans un locataire spécifique.
+    Avec l’identité managée, Azure gère en interne le principal de service de l’application et authentifie automatiquement l’application auprès d’autres services Azure. L’identité managée est disponible pour les applications déployées sur un large éventail de services.
 
-### <a name="security-principal-concepts"></a>Concepts du principal de sécurité
+    Pour plus d’informations, consultez [Vue d’ensemble de l’identité managée](/azure/active-directory/managed-identities-azure-resources/overview). Consultez également [Services Azure qui prennent en charge l’identité managée](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), qui comporte des liens vers des articles expliquant comment activer l’identité managée pour des services spécifiques (par exemple, App Service, Azure Functions ou Machines Virtuelles).
 
-* Principal de sécurité – Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée qui demande un accès à des ressources Azure.
+* Si vous ne pouvez pas utiliser l’identité managée, **inscrivez** l’application auprès de votre locataire Azure AD (cf. [Démarrage rapide : Inscription d’une application avec la Plateforme d’identités Azure](/azure/active-directory/develop/quickstart-register-app)). L’inscription a également pour effet de créer un deuxième objet d’application qui identifie l’application sur tous les locataires.
 
-* Utilisateur : personne disposant d’un profil dans Azure Active Directory.
+## <a name="authorize-a-service-principal-to-access-key-vault"></a>Attribution à un principal de service de l’autorisation d’accéder à Key Vault
 
-* Groupe : ensemble d’utilisateurs créés dans Azure Active Directory. Lorsque vous attribuez un rôle à un groupe, vous l’attribuez également à tous les utilisateurs de ce groupe.
+Key Vault fonctionne avec deux niveaux d’autorisation distincts :
 
-* Principal de service : identité de sécurité utilisée par des applications ou des services permettant d’accéder aux ressources Azure spécifiques. Vous pouvez le considérer comme une identité d’utilisateur (nom d’utilisateur/mot de passe ou certificat) pour une application.
+- Les **stratégies d’accès** contrôlent si un utilisateur, un groupe ou un principal de service est autorisé à accéder aux secrets, aux clés et aux certificats *au sein* d’une ressource Key Vault existante (opérations parfois appelées « plan de données »). Ces stratégies sont généralement accordées à des utilisateurs, groupes et applications.
 
-* Identité managée – Identité dans Azure Active Directory qui est gérée automatiquement par Azure.
+    Pour affecter des stratégies d’accès, consultez les articles suivants :
 
-* ID d’objet (ID client) – Identificateur unique généré par Azure AD qui est lié à un principal de service pendant son provisionnement initial.
+    - [Azure portal](assign-access-policy-portal.md)
+    - [Azure CLI](assign-access-policy-cli.md)
+    - [Azure PowerShell](assign-access-policy-portal.md)
 
-## <a name="security-principal-registration"></a>Inscription d’un principal de sécurité
+- Les **autorisations de rôle** contrôlent si un utilisateur, un groupe ou un principal de service est autorisé à créer, à supprimer et, plus généralement, à gérer une ressource Key Vault (opérations parfois appelées « plan de gestion »). Ces rôles sont la plupart du temps accordés uniquement aux administrateurs.
+ 
+    Pour affecter et gérer les rôles, consultez les articles suivants :
 
-1. L’administrateur inscrit un utilisateur ou une application (principal de service) dans Azure Active Directory.
+    - [Azure portal](/azure/role-based-access-control/role-assignments-portal)
+    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
-2. L’administrateur crée un coffre de clés Azure et configure des stratégies d’accès (ACL).
+    Key Vault prend actuellement en charge le rôle [Contributeur](/azure/role-based-access-control/built-in-roles#key-vault-contributor), qui autorise les opérations de gestion sur les ressources Key Vault. D’autres rôles sont actuellement en préversion. Vous pouvez également créer des rôles personnalisés (cf. [Rôles personnalisés Azure](/azure/role-based-access-control/custom-roles)).
 
-3. (Facultatif) L’administrateur configure le pare-feu Azure Key Vault.
-
-![IMAGE](../media/authentication-1.png)
-
-## <a name="understand-the-key-vault-authentication-flow"></a>Comprendre le déroulement de l’authentification Key Vault
-
-1. Un principal de service effectue un appel pour s’authentifier auprès d’AAD, ce qui peut se produire de différentes façons :
-    * Un utilisateur peut se connecter au portail Azure avec un nom d’utilisateur et un mot de passe.
-    * Une application utilise un ID client et présente une clé secrète client ou un certificat client à AAD.
-    * Une ressource Azure telle qu’une machine virtuelle dispose d’une identité MSI qui lui a été affectée et contacte le point de terminaison REST IMDS pour obtenir un jeton d’accès.
-
-2. Si l’authentification à AAD réussit, le principal de service se voit accorder un jeton OAuth.
-3. Le principal de service adresse un appel à Key Vault.
-4. Le pare-feu Azure Key Vault détermine si l’appel doit être autorisé.
-    * Scénario 1 : le pare-feu Key Vault est désactivé, le point de terminaison public (URI) du coffre de clés est accessible depuis l’Internet public. L’appel est autorisé.
-    * Scénario 2 : l’appelant est un service approuvé par Azure Key Vault. Certains services Azure peuvent contourner le pare-feu Key Vault si l’option est sélectionnée. [Liste des services approuvés par Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
-    * Scénario 3 : l’appelant est listé dans le pare-feu Azure Key Vault par adresse IP, réseau virtuel ou point de terminaison de service.
-    * Scénario 4 : l’appelant peut accéder à Azure Key Vault via une connexion de liaison privée configurée.
-    * Scénario 5 : l’appelant n’est pas autorisé et une réponse d’interdiction est retournée.
-5. Key Vault adresse un appel à AAD pour valider le jeton d’accès du principal de service.
-6. Key Vault vérifie si le principal de service dispose d’autorisations de stratégie d’accès suffisantes pour effectuer l’opération demandée (en l’occurrence, une opération d’obtention de secret).
-7. Key Vault communique le secret au principal de service.
-
-![IMAGE](../media/authentication-2.png)
-
-## <a name="grant-a-service-principal-access-to-key-vault"></a>Accorder un accès à Key Vault à un principal de service
-
-1. Créez un principal de service si vous n’en possédez pas déjà un. [Créer un principal de service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-2. Ajoutez une attribution de rôle à votre principal de service dans les paramètres de gestion des identités et des accès (IAM) d’Azure Key Vault. Vous pouvez ajouter les rôles préattribués Propriétaire, Contributeur ou Lecteur. Vous pouvez aussi créer des rôles personnalisés pour votre principal de service. Vous devez suivre le principe du moindre privilège et accorder uniquement l’accès minimal nécessaire à votre principal de service. 
-3.  Configurez le pare-feu Key Vault. Vous pouvez laisser le pare-feu Key Vault désactivé et accorder l’accès depuis l’Internet public (moins sécurisé, plus facile à configurer). Vous pouvez aussi limiter l’accès à des plages d’adresses IP, des points de terminaison de service, des réseaux virtuels ou des points de terminaison privés spécifiques (plus sécurisé).
-4.  Ajoutez une stratégie d’accès pour votre principal de service ; il s’agit de la liste des opérations que votre principal de service peut effectuer sur le coffre de clés. Vous devez utiliser le principe du moindre privilège et limiter les opérations que peut effectuer le principal de service. Cependant, si vous ne fournissez pas d’autorisations suffisantes, votre principal de service se verra refuser l’accès.
-
-## <a name="tutorial"></a>Tutoriel
-
-Dans ce tutoriel, vous allez découvrir comment configurer un principal de service de telle sorte qu’il s’authentifie auprès d’un coffre de clés et récupère un secret. 
-
-### <a name="part-1--create-a-service-principal-in-the-azure-portal"></a>Première partie :  Créer un principal de service sur le portail Azure
-
-1. Connectez-vous au portail Azure.
-1. Recherchez Azure Active Directory.
-1. Cliquez sur l’onglet « Inscriptions des applications ».
-1. Cliquez sur « + Nouvelle inscription ».
-1. Créez un nom pour le principal de service.
-1. Sélectionnez Inscrire.
-
-À ce stade, vous avez inscrit un principal de service. Vous pouvez le vérifier en sélectionnant « Inscriptions des applications ». Un GUID d’ID client est maintenant attribué à votre principal de service ; il s’agit en quelque sorte du « nom d’utilisateur » de votre principal de service. À présent, vous devez créer le « mot de passe » de votre principal de service ; vous pouvez utiliser une clé secrète client ou un certificat client. Notez que l’authentification avec une clé secrète client n’est pas sécurisée et que vous ne devez l’employer qu’à des fins de test. Ce tutoriel vous montre comment utiliser un certificat client.
-
-### <a name="part-2-create-a-client-certificate-for-your-service-principal"></a>Deuxième partie : Créer un certificat client pour le principal de service
-
-1. Créer un certificat
-
-    * Option 1 : Créez un certificat en utilisant [OpenSSL](https://www.openssl.org/) (à des fins de test uniquement ; n’utilisez pas de certificats autosignés en production)
-    * Option n°2 : Créez un certificat à l’aide de Key Vault. [Créer un certificat dans Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
-
-1. Télécharger le certificat au format PEM/PFX
-1. Connectez-vous au portail Azure et accédez à Azure Active Directory.
-1. Cliquez sur « Inscriptions des applications ».
-1. Sélectionnez le principal de service que vous avez créé dans la première partie.
-1. Cliquez sur l’onglet « Certificats et secrets » de votre principal de service.
-1. Chargez le certificat à l’aide du bouton « Charger le certificat ».
-
-### <a name="part-3-configure-an-azure-key-vault"></a>Troisième partie : Configurer un coffre de clés Azure
-
-1. Créez un coffre de clés Azure ([lien](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault)).
-
-2. Configurez des autorisations de gestion des identités et des accès (IAM) Key Vault.
-    1. Accédez à votre coffre de clés.
-    1. Sélectionnez l’onglet « Contrôle d’accès (IAM) ».
-    1. Cliquez sur Ajouter une attribution de rôle.
-    1. Sélectionnez le rôle « Contributeur » dans la liste déroulante.
-    1. Entrez le nom ou l’ID client du principal de service que vous avez créé.
-    1. Cliquez sur « Afficher les attributions de rôles » pour vérifier que votre principal de service est listé.
-
-3. Configurez des autorisations de stratégie d’accès de coffre de clés.
-    1. Accédez à votre coffre de clés.
-    1. Sélectionnez l’onglet « Stratégies d’accès » sous « Paramètres ».
-    1. Sélectionnez le lien « Ajouter une stratégie d’accès ».
-    1. Sous la liste déroulante Autorisations du secret, cochez les autorisations « Obtenir » et « Lister ».
-    1. Sélectionnez votre principal de service par nom ou ID client.
-    1. Sélectionnez « Ajouter ».
-    1. Sélectionnez « Enregistrer ».
-
-4. Créez un secret dans votre coffre de clés.
-    1. Accédez à votre coffre de clés.
-    1. Cliquez sur l’onglet « Secrets » en dessous de Paramètres.
-    1. Cliquez sur « + Générer/Importer ».
-    1. Créez un nom pour le secret (dans cet exemple, nous le nommerons « test »).
-    1. Créez une valeur pour le secret (nous définirons ici la valeur « password123 »).
-
-Désormais, quand vous exécuterez le code sur votre ordinateur local, vous pourrez vous authentifier auprès du coffre de clés en obtenant un jeton d’accès en présentant l’ID client et un chemin d’accès au certificat.
-
-### <a name="part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python"></a>Partie 4 : Récupérer le secret à partir de votre coffre de clés Azure dans une application (Python)
-
-Utilisez l’exemple de code suivant pour tester si votre application peut récupérer un secret à partir de votre coffre de clés en utilisant le principal de service que vous avez configuré. 
-
-```python
-from azure.keyvault.secrets import SecretClient
-from azure.identity import CertificateCredential
+    Pour des informations générales sur les rôles, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC) ?](/azure/role-based-access-control/overview).
 
 
-tenant_id = ""                                             ##ENTER AZURE TENANT ID
-vault_url = "https://{VAULT NAME}.vault.azure.net/"        ##ENTER THE URL OF YOUR KEY VAULT
-client_id = ""                                             ##ENTER CLIENT ID OF SERVICE PRINCIPAL
-cert_path = r"C:\Users\{USERNAME}\{PATH}\{CERT_NAME}.pem"  ##ENTER PATH TO CERTIFICATE
+> [!IMPORTANT]
+> Pour une sécurité optimale, suivez toujours le principe des privilèges minimum : accordez uniquement les stratégies d’accès et les rôles les plus spécifiques nécessaires. 
+    
+## <a name="configure-the-key-vault-firewall"></a>Configuration du pare-feu Key Vault
 
-def main():
+Par défaut, Key Vault autorise l’accès aux ressources par le biais d’adresses IP publiques. Pour une sécurité optimale, vous pouvez aussi limiter l’accès à des plages d’adresses IP, des points de terminaison de service, des réseaux virtuels ou des points de terminaison privés spécifiques.
 
-    #AUTHENTICATION TO AAD USING CLIENT ID AND CLIENT CERTIFICATE
-    token = CertificateCredential(tenant_id= tenant_id, client_id=client_id, certificate_path=cert_path)
+Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](/azure/key-vault/general/access-behind-firewall).
 
-    #AUTHENTICATION TO KEY VAULT PRESENTING AAD TOKEN
-    client = SecretClient(vault_url=vault_url, credential=token)
 
-    #CALL TO KEY VAULT TO GET SECRET
-    secret = client.get_secret('{SECRET_NAME}')            ##ENTER NAME OF SECRET IN KEY VAULT
+## <a name="the-key-vault-authentication-flow"></a>Flux d’authentification Key Vault
 
-    #GET PLAINTEXT OF SECRET
-    print(secret.value)
+1. Un principal de service demande à s’authentifier auprès d’Azure AD, par exemple :
+    * Un utilisateur se connecte au Portail Azure avec un nom d’utilisateur et un mot de passe.
+    * Une application appelle une API REST Azure, en présentant un ID client et une clé secrète ou un certificat client.
+    * Une ressource Azure, comme une machine virtuelle avec identité managée, contacte le point de terminaison REST [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) pour obtenir un jeton d’accès.
 
-#CALL MAIN()
-if __name__ == "__main__":
-    main()
-```
+1. Si l’authentification auprès d’Azure AD réussit, un jeton OAuth est accordé au principal de service.
 
-![IMAGE](../media/authentication-3.png)
+1. Le principal de service effectue un appel à l’API REST Key Vault par le biais du point de terminaison (URI) de Key Vault.
 
+1. Le pare-feu Key Vault vérifie les critères suivants. Si un critère est respecté, l’appel est autorisé. Dans le cas contraire, l’appel est bloqué et une réponse Interdit est retournée.
+
+    * Le pare-feu Key Vault est désactivé et le point de terminaison public de Key Vault est accessible sur l’Internet public.
+    * L’appelant est un [service approuvé Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), ce qui lui permet de contourner le pare-feu.
+    * L’appelant est listé dans le pare-feu par adresse IP, réseau virtuel ou point de terminaison de service.
+    * L’appelant peut accéder à Key Vault au moyen d’une connexion de liaison privée configurée.    
+
+1. Si le pare-feu autorise l’appel, Key Vault appelle Azure AD pour valider le jeton d’accès du principal de service.
+
+1. Key Vault vérifie si le principal de service dispose de la stratégie d’accès nécessaire pour l’opération demandée. Si ce n’est pas le cas, Key Vault retourne une réponse Interdit.
+
+1. Key Vault effectue l’opération demandée et retourne le résultat.
+
+Le diagramme suivant illustre le processus pour une application qui appelle une API Key Vault « Obtenir le secret » :
+
+![Flux d’authentification Azure Key Vault](../media/authentication/authentication-flow.png)
+
+## <a name="code-examples"></a>Exemples de code
+
+Le tableau suivant contient des liens vers différents articles qui montrent comment utiliser Key Vault dans le code d’application à l’aide des bibliothèques Azure SDK du langage en question. D’autres interfaces, comme Azure CLI et le Portail Azure, sont incluses pour des raisons pratiques.
+
+| Secrets Key Vault | Clés Key Vault | Certificats Key Vault |
+|  --- | --- | --- |
+| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
+| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
+| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| | | |
+| [Azure portal](/azure/key-vault/secrets/quick-create-portal) | [Azure portal](/azure/key-vault/keys/quick-create-portal) | [Azure portal](/azure/key-vault/certificates/quick-create-portal) |
+| [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
+| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
+| [Modèle ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. Découvrez comment résoudre les erreurs d’authentification de coffre de clés. [Guide de résolution des problèmes liés à Key Vault](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)
+- [Résolution des problèmes de stratégie d’accès à Key Vault](troubleshooting-access-issues.md)
+- [Codes d'erreur de l'API REST Key Vault](rest-error-codes.md)
+- [Guide du développeur Key Vault](developers-guide.md)
+- [Présentation du contrôle d’accès en fonction du rôle (RBAC) Azure](/azure/role-based-access-control/overview)

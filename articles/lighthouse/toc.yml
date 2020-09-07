@@ -47,6 +47,9 @@
     - name: Voir et gérer les clients
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Lier votre ID de partenaire
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: Supprimer l’accès à une délégation
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
