@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8132358dcd0ad9d87dc6687afd2adef1942f3b67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 5e27aaebc015f47e0fcdb5da81770d49b86ad000
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823902"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934325"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire des données de cartes de visite à l’aide de l’API REST Form Recognizer avec Python
 
@@ -38,33 +38,35 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 
 ## <a name="analyze-a-business-card"></a>Analyser une carte de visite
 
-Pour commencer à analyser une carte de visite, appelez l’API **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** (Analyser la carte de visite) en utilisant le script Python ci-dessous. Avant d’exécuter le script, apportez les modifications suivantes :
+Pour commencer à analyser une carte de visite, appelez l’API **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** (Analyser la carte de visite) en utilisant le script Python ci-dessous. Avant d’exécuter le script, apportez les modifications suivantes :
 
-1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
-1. Remplacez `<path to your business card>` par le chemin de votre document de formulaire local.
+1. Remplacez `<endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
+1. Remplacez `<path to your business card>` par le chemin local de votre image ou PDF de carte de visite.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
+1. Remplacez `<file type>` par « image/jpeg », « image/png », « application/pdf » ou « image/tiff ».
 
     ```python
-    ########### Python Form Recognizer Async Business cards #############
+    ########### Python Form Recognizer Async Business Cards #############
 
     import json
     import time
     from requests import get, post
     
     # Endpoint URL
-    endpoint = r"<Endpoint>"
+    endpoint = r"<endpoint>"
     apim_key = "<subscription key>"
     post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
+    content_type = "<file type>"
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': content_type,
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     
     params = {
-        "includeTextDetails": True
+        "includeTextDetails": True  # True to output all recognized text
     }
     
     with open(source, "rb") as f:
@@ -86,15 +88,15 @@ Pour commencer à analyser une carte de visite, appelez l’API **[Analyze Busin
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python form-recognizer-businesscards.py`.
 
-Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location** que le script affiche sur la console. Cet en-tête contient un ID d’opération que vous pouvez utiliser pour interroger l’état de l’opération asynchrone et obtenir les résultats. Dans l’exemple de valeur suivant, la chaîne après `operations/` est l’ID d’opération.
+Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location** que le script affiche sur la console. L’en-tête contient un ID de résultat que vous pouvez utiliser pour interroger l’état de l’opération durable et obtenir les résultats. Dans l’exemple de valeur suivant, la chaîne après `operations/` est l’ID de résultat.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Obtenir les résultats de la carte de visite
 
-Après avoir appelé l’API **Analyze Business Card** (Analyser la carte de visite), appelez l’API **[Get Analyze Business Card Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** (Obtenir le résultat de l’analyse de la carte de visite) pour obtenir l’état de l’opération et les données extraites. Ajoutez le code suivant au bas de votre script Python. Ce code utilise la valeur de l’ID d’opération dans un nouvel appel d’API. Ce script appelle l’API à intervalles réguliers jusqu’à ce que les résultats soient disponibles. Nous recommandons un intervalle d’au moins une seconde.
+Après avoir appelé l’API **Analyze Business Card** (Analyser la carte de visite), appelez l’API **[Get Analyze Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** (Obtenir le résultat de l’analyse de la carte de visite) pour obtenir l’état de l’opération et les données extraites. Ajoutez le code suivant au bas de votre script Python. Ce code utilise la valeur de l’ID de résultat dans un nouvel appel d’API. Ce script appelle l’API à intervalles réguliers jusqu’à ce que les résultats soient disponibles. Nous recommandons un intervalle d’au moins une seconde.
 
 ```python
 n_tries = 10
@@ -129,7 +131,7 @@ while n_try < n_tries:
 ### <a name="examine-the-response"></a>Examiner la réponse
 ![Carte de visite de la société Contoso](../media/business-card-english.jpg)
 
-Cet exemple illustre la sortie JSON retournée par Form Recognizer. Cet exemple a été tronqué pour une meilleure lisibilité de l’exemple.
+Cet exemple illustre la sortie JSON retournée par Form Recognizer. Elle a été tronquée dans un souci de lisibilité.
 
 ```json
 {
@@ -243,7 +245,7 @@ Cet exemple illustre la sortie JSON retournée par Form Recognizer. Cet exemple 
 }
 ```
 
-Le script imprime les réponses dans la console tant que l’opération **Analyze Business Card** n’est pas terminée. Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le nom de la société, le prénom, le nom, le numéro de téléphone, etc.
+Le script imprime les réponses dans la console tant que l’opération **Analyze Business Card** n’est pas terminée. Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des informations de contact utiles comme le nom de la société, le prénom, le nom, le numéro de téléphone, etc.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -251,4 +253,4 @@ Le script imprime les réponses dans la console tant que l’opération **Analyz
 Dans ce démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec Python pour extraire le contenu d’une carte de visite. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
 
 > [!div class="nextstepaction"]
-> [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)
+> [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

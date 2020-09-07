@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420326"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299199"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -74,6 +74,10 @@ Par défaut, Basic Load Balancer est ouvert sur Internet. En outre, Load Balance
 Pour plus d’informations sur la tarification de Load Balancer Standard, consultez [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 La référence SKU De base de Load Balancer est proposée gratuitement.
 Consultez [Contrat SLA pour Load Balancer](https://aka.ms/lbsla). Basic Load Balancer n’a pas de contrat SLA.
+
+## <a name="whats-new"></a>Nouveautés
+
+Abonnez-vous au flux RSS et découvrez les dernières mises à jour des fonctionnalités Azure Load Balancer dans la page [Mises à jour Azure](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour passer de la version De base à la version Standard de Load Balancer, consultez [Mettre à niveau la version De base de Load Balancer](upgrade-basic-standard.md).

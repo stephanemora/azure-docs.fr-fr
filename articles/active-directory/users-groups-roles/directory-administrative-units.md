@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795896"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376381"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestion des unités administratives dans Azure Active Directory (préversion)
 
@@ -27,7 +27,7 @@ Cet article décrit les unités administratives dans Azure Active Directory (Azu
 
 Les unités administratives vous permettent d’accorder des autorisations d’administrateur limitées à un service, une région ou un autre segment de votre organisation que vous définissez. Vous pouvez utiliser des unités administratives pour déléguer des autorisations à des administrateurs régionaux ou définir une stratégie à un niveau précis. Par exemple, un administrateur de comptes d’utilisateur peut mettre à jour des informations de profil, réinitialiser des mots de passe et attribuer des licences aux utilisateurs uniquement dans son unité administrative.
 
- Par exemple, la délégation du rôle [administrateur du support technique](directory-assign-admin-roles.md#helpdesk-administrator) à des spécialistes du support d’une région peut ainsi être limité à la gestion des seuls utilisateurs de la région pour laquelle ils assurent le support.
+Par exemple, la délégation du rôle [administrateur du support technique](directory-assign-admin-roles.md#helpdesk-administrator) à des spécialistes du support d’une région peut ainsi être limité à la gestion des seuls utilisateurs de la région pour laquelle ils assurent le support.
 
 ## <a name="deployment-scenario"></a>Scénario de déploiement
 
@@ -54,7 +54,7 @@ Dans cette préversion, vous pouvez créer et gérer des unités administratives
 
 Les unités administratives peuvent être utilisées pour regrouper logiquement des ressources Azure AD. Par exemple, pour une organisation dont le service informatique est réparti dans le monde entier, il peut être judicieux de créer des unités administratives qui définissent ces limites géographiques. Dans un autre scénario où une organisation multinationale a différentes « sous-organisations » qui sont semi-autonomes dans leur fonctionnement, chaque sous-organisation peut être représentée par une unité administrative.
 
-Les critères de création des unités administratives dépendront des exigences spécifiques de l’organisation. Les unités administratives sont une façon courante de définir la structure des services M365. Nous vous recommandons de préparer vos unités administratives en ayant à l’esprit leur utilisation sur les services M365. Vous pouvez tirer le meilleur parti des unités administratives quand vous pouvez associer des ressources communes à M365 sous une unité administrative.
+Les critères de création des unités administratives dépendront des exigences spécifiques de l’organisation. Les unités administratives sont une façon courante de définir la structure des services Microsoft 365. Nous vous recommandons de préparer vos unités administratives en pensant à leur utilisation dans les services Microsoft 365. Vous pouvez tirer le meilleur parti des unités administratives quand vous pouvez associer des ressources communes à Microsoft 365 sous une unité administrative.
 
 Vous pouvez vous attendre à ce que la création d’unités administratives au sein de l’organisation passe par les étapes suivantes :
 
@@ -64,7 +64,7 @@ Vous pouvez vous attendre à ce que la création d’unités administratives au 
 
 ## <a name="currently-supported-scenarios"></a>Scénarios actuellement pris en charge
 
-Les administrateurs généraux ou les administrateurs de rôles privilégiés peuvent utiliser le portail Azure AD pour créer des unités administratives, ajouter des utilisateurs comme membres d’unités administratives, puis attribuer au personnel informatique des rôles d’administrateur limités à une unité. Les administrateurs limités à l’unité administrative peuvent ensuite utiliser le portail Office 365 pour la gestion de base des utilisateurs de leur unité administrative.
+Les administrateurs généraux ou les administrateurs de rôles privilégiés peuvent utiliser le portail Azure AD pour créer des unités administratives, ajouter des utilisateurs comme membres d’unités administratives, puis attribuer au personnel informatique des rôles d’administrateur limités à une unité. Les administrateurs limités à l’unité administrative peuvent ensuite utiliser le centre d’administration Microsoft 365 pour la gestion de base des utilisateurs de leur unité administrative.
 
 En outre, des groupes peuvent être ajoutés en tant que membres d’une unité administrative et un administrateur de groupe limité à l’unité administrative peut les gérer avec PowerShell, Microsoft Graph et le portail Azure AD.
 
@@ -99,7 +99,7 @@ Gestion limitée à une unité administrative des licences de groupe   |    Pris
 >
 > Les administrateurs limités à une unité administrative ne peuvent pas gérer les règles d’appartenance aux groupes dynamiques.
 
-Les unités administratives appliquent l’étendue seulement aux autorisations de gestion. Ils n’empêchent pas les membres ou les administrateurs d’utiliser leurs [autorisations utilisateur par défaut](../fundamentals/users-default-permissions.md) pour parcourir d’autres utilisateurs, groupes ou ressources en dehors de l’unité administrative. Dans le portail Office 365, les utilisateurs en dehors des unités administratives d’un administrateur limité sont filtrés, mais vous pouvez parcourir d’autres utilisateurs dans le portail Azure AD, PowerShell et d’autres services Microsoft.
+Les unités administratives appliquent l’étendue seulement aux autorisations de gestion. Ils n’empêchent pas les membres ou les administrateurs d’utiliser leurs [autorisations utilisateur par défaut](../fundamentals/users-default-permissions.md) pour parcourir d’autres utilisateurs, groupes ou ressources en dehors de l’unité administrative. Dans le centre d’administration Microsoft 365, les utilisateurs en dehors des unités administratives d’un administrateur limité sont filtrés, mais vous pouvez parcourir d’autres utilisateurs dans le portail Azure AD, PowerShell et d’autres services Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

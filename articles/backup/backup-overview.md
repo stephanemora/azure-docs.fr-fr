@@ -4,12 +4,12 @@ description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la f
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611226"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017887"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
@@ -34,7 +34,7 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Sauvegarde locale de déchargement** : Le service Sauvegarde Azure offre une solution simple pour la sauvegarde de vos ressources locales dans le cloud. Obtenez une sauvegarde à court terme et à long terme sans avoir besoin de déployer des solutions de sauvegarde locale complexes.
 - **Sauvegarder des machines virtuelles Azure IaaS** : Le service Sauvegarde Azure fournit des sauvegardes indépendantes et isolées pour éviter une destruction accidentelle des données d’origine. Les sauvegardes sont stockées dans un coffre Recovery Services avec gestion intégrée des points de récupération. La configuration et la scalabilité sont simples : les sauvegardes sont optimisées, et vous pouvez facilement effectuer des restaurations en fonction des besoins.
 - **Mettre à l’échelle facilement** : Sauvegarde Azure utilise la puissance sous-jacente et la mise à l’échelle illimitée du cloud Azure pour offrir une haute disponibilité, sans tâche supplémentaire de maintenance ou de supervision.
-- **Obtenir un transfert de données illimitées** : Le service Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes transférées, et ne génère pas de frais pour les données transférées.
+- **Obtenir un transfert de données illimitées** : Le service Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes que vous transférez, et ne génère pas de frais pour les données transférées.
   - Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
   - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md)
 - **Sécuriser les données** : Le service Sauvegarde Azure fournit des solutions pour sécuriser les données [en transit](backup-azure-security-feature.md) et [au repos](backup-azure-security-feature-cloud.md).

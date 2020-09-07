@@ -1,18 +1,18 @@
 ---
 title: 'Didacticiel : configurer les rôles Azure Analysis Services | Microsoft Docs'
-description: Découvrez comment configurer des rôles d’utilisateur et d’administrateur Azure Analysis Services à l’aide du Portail Azure ou de SQL Server Management Studio.
+description: Dans ce tutoriel, découvrez comment configurer des rôles d’utilisateur et d’administrateur Azure Analysis Services à l’aide du Portail Azure ou de SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016387"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229359"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
@@ -63,7 +63,7 @@ Pour les tâches restantes, vous utilisez SSMS pour vous connecter à votre serv
 
 3. Dans l’**Explorateur d’objets**, développez pour afficher les objets de serveur. Faites un clic droit pour afficher les propriétés de serveur.
    
-    ![Se connecter dans SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Explorateur d'objets dans SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Ajouter un compte d’utilisateur au rôle d’administrateur du serveur
 

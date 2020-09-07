@@ -4,41 +4,32 @@ description: Découvrez les nouveautés et les mises à jour récentes du servic
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85556922"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927168"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
+
+## <a name="update-august-2020"></a>Mise à jour (août 2020)
+
+- Amélioration de l’expérience d’intégration quand une clé de projet Azure Migrate est générée à partir du portail, puis utilisée pour effectuer l’inscription de l’appliance.
+- Option permettant de télécharger des fichiers OVA/VHD ou les scripts d’installation à partir du portail pour configurer les appliances VMware et Hyper-V respectivement.
+- Mise à jour du Gestionnaire de configuration d’appliance pour une expérience utilisateur améliorée.
+- Prise en charge de plusieurs informations d’identification pour la découverte des machines virtuelles Hyper-V.
+- Amélioration des fonctionnalités de recherche, de tri et de filtre pour les informations d’identification et sources de découverte ajoutées.
+- Options CSV d’entrée d’un seul élément, d’entrée de plusieurs éléments et d’importation afin que l’utilisateur puisse ajouter des sources de découverte pour des serveurs physiques et des hôtes/clusters Hyper-V.
+- Amélioration de la gestion des erreurs avec les mises à jour d’état des opérations de validation et de découverte pour chaque source ajoutée dans la table. 
 
 ## <a name="update-june-2020"></a>Mise à jour (juin 2020)
 
 - Les évaluations pour la migration de machines virtuelles VMware locales vers [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) sont désormais prises en charge. [En savoir plus](how-to-create-azure-vmware-solution-assessment.md)
 - Prise en charge de plusieurs informations d’identification sur l’appliance pour la découverte des serveurs physiques.
 - Prise en charge pour autoriser la connexion Azure à partir de l’appliance pour le locataire où la restriction du locataire a été configurée.
-- Nouvelles versions d’appliance Azure Migrate, comme indiqué ci-dessous.
-
-### <a name="azure-public-cloud"></a>Cloud public Azure
-
-**Scénario** | **Télécharger** | **SHA256**
---- | --- | ---
-Hyper-V (8,93 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
-VMware (10,9 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
-Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
-
-
-### <a name="azure-government"></a>Azure Government
-
-**Scénario** | **Télécharger** | **SHA256**
---- | --- | ---
-Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
-VMware (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
-Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
-
 
 
 ## <a name="update-april-2020"></a>Mise à jour (avril 2020)

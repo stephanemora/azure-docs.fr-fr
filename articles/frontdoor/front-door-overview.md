@@ -3,21 +3,21 @@ title: Azure Front Door | Microsoft Docs
 description: Cet article fournit une vue d’ensemble d’Azure Front Door. Déterminez s’il représente un choix adapté à l’équilibrage de charge du trafic utilisateur pour votre application.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322293"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378183"
 ---
 # <a name="what-is-azure-front-door"></a>Qu’est-ce qu’Azure Front Door ?
 Azure Front Door vous permet de définir, gérer et superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement global rapide à des fins de haute disponibilité. Avec Front Door, vous pouvez transformer vos applications globales (multirégion) d’entreprise et grand public en applications, API et contenus qui seront modernes, personnalisés, robustes et hautes performances pour toucher une audience mondiale avec Azure.
@@ -81,6 +81,10 @@ Le protocole HTTP/2 permet une communication en duplex intégral entre les backe
 ## <a name="pricing"></a>Tarifs
 
 Pour obtenir des informations sur les prix, consultez [Prix de Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## <a name="whats-new"></a>Nouveautés
+
+Abonnez-vous au flux RSS et découvrez les dernières mises à jour des fonctionnalités Azure Load Balancer dans la page [Mises à jour Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

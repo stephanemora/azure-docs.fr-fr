@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551517"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017514"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Google Cloud (G Suite) Connector
 
@@ -225,15 +225,18 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
     b. Dans le champ **URL de la page de connexion** de Google Cloud (G Suite) Connector, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    c. Dans le champ **URL de la page de déconnexion** de Google Cloud (G Suite) Connector, collez l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    c. Dans le champ **URL de la page de déconnexion** de Google Cloud (G Suite) Connector, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    d. Dans le champ **Modifier l’URL du mot de passe** de Google Cloud (G Suite) Connector, collez la valeur de **Modifier l’URL du mot de passe** que vous avez copiée du portail Azure.
+    > [!NOTE]
+    > Google cloud (G Suite) est basé sur le protocole de déconnexion SAML. Ainsi, dans le champ **URL de la page de déconnexion**, nous devons utiliser l’URL de déconnexion SAML, c’est-à-dire l’URL de connexion comme valeur de la même façon.
 
-    e. Dans Google Cloud (G Suite) Connector, chargez le certificat que vous avez téléchargé du portail Azure pour l’utiliser comme **Certificat de vérification**.
+    d. Dans Google Cloud (G Suite) Connector, chargez le certificat que vous avez téléchargé du portail Azure pour l’utiliser comme **Certificat de vérification**.   
 
-    f. Cochez/décochez la case **Utiliser un émetteur spécifique de domaine** conformément à la note mentionnée dans la section **Configuration SAML de base** ci-dessus dans Azure AD.
+    e. Cochez/décochez la case **Utiliser un émetteur spécifique de domaine** conformément à la note mentionnée dans la section **Configuration SAML de base** ci-dessus dans Azure AD.
 
-    g. Cliquez sur **Enregistrer les modifications**.
+    f. Dans le champ **Modifier l’URL du mot de passe** de Google Cloud (G Suite) Connector, collez la valeur de **Modifier l’URL du mot de passe** que vous avez copiée du portail Azure.
+
+    g. Cliquez sur **Enregistrer**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Créer un utilisateur de test Google Cloud (G Suite) Connector
 

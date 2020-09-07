@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
-ms.custom: include file, devx-track-javascript
-ms.date: 07/30/2020
-ms.openlocfilehash: ba7885859adc1d9899c66917204306c8a0d0092f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: cog-serv-seo-aug-2020
+ms.date: 08/27/2020
+ms.openlocfilehash: 03680a2a6b4792a2bf522eff1462e29439e0f61b
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246529"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055378"
 ---
 [Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
@@ -21,23 +21,15 @@ ms.locfileid: "88246529"
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * Version actuelle de [Node.js](https://nodejs.org) et NPM.
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="créez une ressource Personalizer"  target="_blank">créer une ressource Personalizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Personalizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
-## <a name="using-this-quickstart"></a>Utilisation de ce guide de démarrage rapide
-
-
-Plusieurs étapes sont nécessaires pour utiliser ce guide de démarrage rapide :
-
-* Dans le portail Azure, créer une ressource Personalizer
-* Sur le portail Azure, pour la ressource Personalizer, dans la page **Configuration**, définissez la fréquence de mise à jour des modèles sur un intervalle très court.
-* Dans un éditeur de code, créer un fichier de code et le modifier
-* À partir de la ligne de commande ou du terminal, installer le SDK
-* À partir de la ligne de commande ou du terminal, exécuter le fichier de code
-
-[!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
+## <a name="setting-up"></a>Configuration
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
-## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
+### <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 
 Dans une fenêtre de console (telle que cmd, PowerShell ou bash), créez un répertoire pour votre application et accédez-y.
 
@@ -51,7 +43,25 @@ Exécutez la commande `npm init -y` pour créer un fichier `package.json`.
 npm init -y
 ```
 
-## <a name="install-the-nodejs-library-for-personalizer"></a>Installer la bibliothèque Node.js pour Personalizer
+Créez une application Node.js dans l’éditeur ou IDE de votre choix, nommée `sample.js`, puis créez des variables pour le point de terminaison et la clé d’abonnement de votre ressource. 
+
+[!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
+```javascript
+const uuidv1 = require('uuid/v1');
+const Personalizer = require('@azure/cognitiveservices-personalizer');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const readline = require('readline-sync');
+
+// The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
+const serviceKey = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>";
+
+// The endpoint specific to your personalization service instance; 
+// e.g. https://<your-resource-name>.cognitiveservices.azure.com
+const baseUri = "https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com";
+```
+
+### <a name="install-the-nodejs-library-for-personalizer"></a>Installer la bibliothèque Node.js pour Personalizer
 
 Installez la bibliothèque de client Personalizer pour Node.js avec la commande suivante :
 
@@ -79,39 +89,111 @@ Dans le cadre de ce guide de démarrage rapide, il n’est pas important de dét
 
 Ces extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque de client Personalizer pour Node.js :
 
-* [Créer un client Personalizer](#create-a-personalizer-client)
+* [Créer un client Personalizer](#authenticate-the-client)
 * [API Rank](#request-the-best-action)
 * [API Reward](#send-a-reward)
 
-## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
+## <a name="authenticate-the-client"></a>Authentifier le client
 
-Créez une application Node.js dans votre éditeur ou IDE favori et nommez-la `sample.js`.
+Instanciez `PersonalizerClient` avec votre `serviceKey` et votre `baseUri` que vous avez créés précédemment.
 
-## <a name="add-the-dependencies"></a>Ajouter les dépendances
+```javascript
+const credentials = new CognitiveServicesCredentials(serviceKey);
 
-Ouvrez le fichier **sample.js** dans votre éditeur ou votre IDE favori. Ajoutez les `requires` suivants pour ajouter les packages NPM :
-
-[!code-javascript[Add module dependencies](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=Dependencies)]
-
-## <a name="add-personalizer-resource-information"></a>Ajouter des informations sur la ressource Personalizer
-
-Modifiez les variables de clé et de point de terminaison en haut du fichier de code selon la clé et le point de terminaison Azure de votre ressource. 
-
-[!code-javascript[Add Personalizer resource information](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=AuthorizationVariables)]
-
-## <a name="create-a-personalizer-client"></a>Créer un client Personalizer
-
-Ensuite, créez une méthode pour retourner un client Personalizer. Le paramètre de la méthode est `PERSONALIZER_RESOURCE_ENDPOINT` et l’ApiKey est `PERSONALIZER_RESOURCE_KEY`.
-
-[!code-javascript[Create a Personalizer client](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=Client)]
+// Initialize Personalization client.
+const personalizerClient = new Personalizer.PersonalizerClient(credentials, baseUri);
+```
 
 ## <a name="get-content-choices-represented-as-actions"></a>Représenter les choix de contenu sous forme d’actions
 
 Les actions représentent les choix de contenu parmi lesquels Personalizer doit sélectionner l’élément de contenu le mieux adapté. Ajoutez les méthodes suivantes à la classe Program pour représenter l’ensemble d’actions et leurs caractéristiques.
 
-[!code-javascript[Create user features](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=createUserFeatureTimeOfDay)]
+```javascript
+function getContextFeaturesList() {
+  const timeOfDayFeatures = ['morning', 'afternoon', 'evening', 'night'];
+  const tasteFeatures = ['salty', 'sweet'];
 
-[!code-javascript[Create actions](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=getActions)]
+  let answer = readline.question("\nWhat time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n");
+  let selection = parseInt(answer);
+  const timeOfDay = selection >= 1 && selection <= 4 ? timeOfDayFeatures[selection - 1] : timeOfDayFeatures[0];
+
+  answer = readline.question("\nWhat type of food would you prefer (enter number)? 1. salty 2. sweet\n");
+  selection = parseInt(answer);
+  const taste = selection >= 1 && selection <= 2 ? tasteFeatures[selection - 1] : tasteFeatures[0];
+
+  console.log("Selected features:\n");
+  console.log("Time of day: " + timeOfDay + "\n");
+  console.log("Taste: " + taste + "\n");
+
+  return [
+    {
+      "time": timeOfDay
+    },
+    {
+      "taste": taste
+    }
+  ];
+}
+```
+
+```javascript
+function getActionsList() {
+  return [
+    {
+      "id": "pasta",
+      "features": [
+        {
+          "taste": "salty",
+          "spiceLevel": "medium"
+        },
+        {
+          "nutritionLevel": 5,
+          "cuisine": "italian"
+        }
+      ]
+    },
+    {
+      "id": "ice cream",
+      "features": [
+        {
+          "taste": "sweet",
+          "spiceLevel": "none"
+        },
+        {
+          "nutritionalLevel": 2
+        }
+      ]
+    },
+    {
+      "id": "juice",
+      "features": [
+        {
+          "taste": "sweet",
+          "spiceLevel": "none"
+        },
+        {
+          "nutritionLevel": 5
+        },
+        {
+          "drink": true
+        }
+      ]
+    },
+    {
+      "id": "salad",
+      "features": [
+        {
+          "taste": "salty",
+          "spiceLevel": "low"
+        },
+        {
+          "nutritionLevel": 8
+        }
+      ]
+    }
+  ];
+}
+```
 
 ## <a name="create-the-learning-loop"></a>Créer la boucle d’apprentissage
 
@@ -119,7 +201,53 @@ La boucle d’apprentissage Personalizer est un cycle d’appels aux API [Rank](
 
 Le code ci-après applique, en boucle, le cycle suivant : il demande à l’utilisateur d’indiquer ses préférences à partir de la ligne de commande, il envoie ces informations à Personalizer en vue de sélectionner le contenu le mieux adapté, il présente la sélection au client qui peut faire son choix dans la liste, puis il envoie une récompense à Personalizer, en indiquant l’efficacité du service concernant le choix du contenu.
 
-[!code-javascript[Create the learning loop](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=mainLoop)]
+```javascript
+let runLoop = true;
+
+do {
+
+  let rankRequest = {}
+
+  // Generate an ID to associate with the request.
+  rankRequest.eventId = uuidv1();
+
+  // Get context information from the user.
+  rankRequest.contextFeatures = getContextFeaturesList();
+
+  // Get the actions list to choose from personalization with their features.
+  rankRequest.actions = getActionsList();
+
+  // Exclude an action for personalization ranking. This action will be held at its current position.
+  rankRequest.excludedActions = getExcludedActionsList();
+
+  rankRequest.deferActivation = false;
+
+  // Rank the actions
+  const rankResponse = await personalizerClient.rank(rankRequest);
+
+  console.log("\nPersonalization service thinks you would like to have:\n")
+  console.log(rankResponse.rewardActionId);
+
+  // Display top choice to user, user agrees or disagrees with top choice
+  const reward = getReward();
+
+  console.log("\nPersonalization service ranked the actions with the probabilities as below:\n");
+  for (let i = 0; i < rankResponse.ranking.length; i++) {
+    console.log(JSON.stringify(rankResponse.ranking[i]) + "\n");
+  }
+
+  // Send the reward for the action based on user response.
+
+  const rewardRequest = {
+    value: reward
+  }
+
+  await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
+
+  runLoop = continueLoop();
+
+} while (runLoop);
+```
 
 Dans les sections suivantes, examinez de plus près les appels de classement et de récompense.
 
@@ -134,16 +262,40 @@ Pour traiter la requête Rank, le programme demande les préférences de l’uti
 
 Ce guide de démarrage rapide utilise des caractéristiques de contexte simples basées sur l’heure de la journée et les préférences alimentaires de l’utilisateur. Dans les systèmes de production, il peut être important de déterminer et d’[évaluer](../concept-feature-evaluation.md) les [actions et caractéristiques](../concepts-features.md).
 
-[!code-javascript[The Personalizer learning loop ranks the request.](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=rank)]
+```javascript
+let rankRequest = {}
+
+// Generate an ID to associate with the request.
+rankRequest.eventId = uuidv1();
+
+// Get context information from the user.
+rankRequest.contextFeatures = getContextFeaturesList();
+
+// Get the actions list to choose from personalization with their features.
+rankRequest.actions = getActionsList();
+
+// Exclude an action for personalization ranking. This action will be held at its current position.
+rankRequest.excludedActions = getExcludedActionsList();
+
+rankRequest.deferActivation = false;
+
+// Rank the actions
+const rankResponse = await personalizerClient.rank(rankRequest);
+```
 
 ## <a name="send-a-reward"></a>Envoyer une récompense
-
 
 Pour obtenir le score de récompense à envoyer dans la requête Reward, le programme récupère la sélection de l’utilisateur à partir de la ligne de commande, attribue une valeur numérique à la sélection, puis envoie à l’API Reward l’ID d’événement unique et le score de récompense sous la forme d’une valeur numérique.
 
 Dans le cadre de ce guide de démarrage rapide, un simple numéro est attribué en tant que score de récompense : 0 ou 1. Dans les systèmes de production, il peut être important de déterminer ce qui doit être envoyé à l’appel [Reward](../concept-rewards.md) (et à quel moment) selon vos besoins.
 
-[!code-javascript[The Personalizer learning loop sends a reward.](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=reward)]
+```javascript
+const rewardRequest = {
+  value: reward
+}
+
+await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
+```
 
 ## <a name="run-the-program"></a>Exécuter le programme
 

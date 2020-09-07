@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658366"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269639"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Démarrage rapide : Partager des données avec Azure Data Share dans le portail Azure
 
@@ -47,7 +47,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 
-## <a name="create-a-data-share"></a>Créer un partage Data Share
+## <a name="create-a-share"></a>Créer un partage
 
 1. Accédez à la page de présentation de votre partage Data Share.
 
@@ -57,15 +57,15 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Sélectionnez **Create** (Créer).
 
-1. Indiquez les détails relatifs à votre partage Data Share. Spécifiez un nom, un type de partage, une description du contenu du partage et des conditions d’utilisation (facultatif). 
+1. Renseignez les détails de votre partage. Spécifiez un nom, un type de partage, une description du contenu du partage et des conditions d’utilisation (facultatif). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Entrer les détails de partage") 
 
 1. Sélectionnez **Continuer**.
 
-1. Pour ajouter des jeux de données à votre partage Data Share, sélectionnez **Add Datasets** (Ajouter des jeux de données). 
+1. Pour ajouter des jeux de données à votre partage, sélectionnez **Add Datasets** (Ajouter des jeux de données). 
 
-   ![Groupes de données](./media/datasets.png "Groupes de données")
+   ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
 1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure SQL Data Warehouse, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
 

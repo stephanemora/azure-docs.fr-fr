@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b31f22f9a3909df308fdcfa994833887828f2539
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f1f044eb3af35019eaf010e118bc4a5814269e9e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876357"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378546"
 ---
 # <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente des secrets Azure Key Vault pour Python
 
@@ -27,7 +27,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Simplifier et automatiser les tâches associées aux certificats TLS/SSL
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
-[Documentation de référence de l’API](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Index package Python)](https://pypi.org/project/azure-keyvault/)
+[Documentation de référence de l’API](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Index package Python)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -73,7 +73,7 @@ pip install azure.identity
 
 La bibliothèque de client Azure Key Vault pour Python vous permet de gérer les clés et les ressources associées, par exemple les certificats et les secrets. Les exemples de code ci-dessous vous montrent comment créer un client et définir, récupérer et supprimer un secret.
 
-L’application console complète est disponible à l’adresse https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Vous trouverez sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets/samples) l’exemple d’application illustrant des opérations similaires à celles présentées dans cet article ainsi que d’autres fonctionnalités Key Vault.
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -99,7 +99,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-secret"></a>Enregistrer un secret
 
-Une fois votre application authentifiée, vous pouvez placer un secret dans votre coffre de clés en utilisant la méthode client.SetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Ceci nécessite un nom pour le secret : dans cet exemple, nous allons utiliser « mySecret ».  
+Maintenant que votre application est authentifiée, vous pouvez placer un secret dans votre coffre de clés avec la [méthode client.set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-), ce qui demande un nom pour le secret (dans cet exemple, nous utilisons « mySecret »).  
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -113,7 +113,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### <a name="retrieve-a-secret"></a>Récupérer un secret
 
-Vous pouvez désormais récupérer la valeur définie avec la [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Vous pouvez maintenant récupérer la valeur définie précédemment avec la [méthode get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-).
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -123,10 +123,10 @@ Votre secret est désormais enregistré en tant que `retrieved_secret.value`.
 
 ### <a name="delete-a-secret"></a>supprimer un secret
 
-Enfin, nous allons supprimer le secret de votre coffre de clés avec [la méthode client.DeleteSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Enfin, supprimez le secret de votre coffre de clés avec la [méthode begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-).
 
 ```python
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 ```
 
 Vous pouvez vérifier que le secret a été effacé à l’aide de la commande [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
@@ -183,15 +183,15 @@ retrieved_secret = client.get_secret(secretName)
 print(f"Your secret is '{retrieved_secret.value}'.")
 print(f"Deleting your secret from {keyVaultName} ...")
 
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 
 print(" done.")
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un coffre de clés, enregistré un secret et récupéré ce secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés, stocké un secret et récupéré ce secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
-- Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
-- Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)
+- [Vue d’ensemble Azure Key Vault](../general/overview.md)
+- [Guide du développeur Azure Key Vault](../general/developers-guide.md)
+- [Bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)

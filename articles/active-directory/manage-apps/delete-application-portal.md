@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808233"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300117"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)
 
@@ -30,6 +30,7 @@ Pour supprimer une application de votre locataire Azure AD, vous avez besoin des
 - Facultatif : effectuer [Voir vos applications](view-applications-portal.md).
 - Facultatif : effectuer [Ajouter une application](add-application-portal.md).
 - Facultatif : effectuer [Configurer une application](add-application-portal-configure.md).
+- Facultatif : suivre [Affecter des utilisateurs à une application](add-application-portal-assign-users.md).
 - Facultatif : effectuer [Configurer l’authentification unique](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]

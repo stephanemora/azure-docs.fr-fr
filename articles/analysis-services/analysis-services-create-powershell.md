@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer des services Azure Analysis Services avec PowerShell Azure Analysis Services | Microsoft Docs'
-description: Découvrir comment se connecter à un serveur Azure Analysis Services à l’aide de PowerShell
+description: Ce guide de démarrage rapide explique comment créer un serveur Azure Analysis Services à l’aide de PowerShell.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions
-ms.openlocfilehash: 375d72c8de0aa16d2c10da701fb9670a9c87b79f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015457"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229325"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Démarrage rapide : créer un serveur - PowerShell
 
@@ -73,6 +73,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 Dans ce démarrage rapide, vous avez appris à créer un serveur dans votre abonnement Azure à l’aide de PowerShell. Maintenant que vous avez serveur, vous pouvez le sécuriser en configurant un pare-feu de serveur (facultatif). Vous pouvez également ajouter un modèle de données d’exemple de base à votre serveur directement à partir du portail. Un exemple de modèle permet d’en savoir plus sur la configuration des rôles de base de données de modèle et le test des connexions client. Pour en savoir plus, passez au tutoriel sur l’ajout d’un exemple de modèle.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : configurer un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [Tutoriel : ajouter un exemple de modèle à votre serveur](analysis-services-create-sample-model.md)
+> [Démarrage rapide : Configurer un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)      

@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84710131"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077991"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutoriel : Hébergez votre domaine dans Azure DNS
 
 Vous pouvez utiliser Azure DNS pour héberger vos domaines DNS et gérer vos enregistrements DNS. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS à l’aide des mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 
-Par exemple, supposons que vous achetez le domaine contoso.net à partir d’un registre de noms de domaine et que vous créez une zone avec le nom contoso.net dans Azure DNS. En tant que propriétaire du domaine, votre registre vous permet de configurer les enregistrements de serveur de noms (NS) pour votre domaine. Le registre stocke ces enregistrements NS dans la zone parent .net. Les utilisateurs internet du monde entier sont ensuite redirigés vers votre domaine dans la zone Azure DNS lorsqu’ils tentent de résoudre des enregistrements DNS dans contoso.net.
+Par exemple, supposons que vous achetez le domaine contoso.net à partir d’un registre de noms de domaine et que vous créez une zone avec le nom contoso.net dans Azure DNS. En tant que propriétaire du domaine, votre registre vous permet de configurer les enregistrements de serveur de noms (NS) pour votre domaine. Le registre stocke ces enregistrements NS dans la zone parent .NET. Les utilisateurs internet du monde entier sont ensuite redirigés vers votre domaine dans la zone Azure DNS lorsqu’ils tentent de résoudre des enregistrements DNS dans contoso.net.
 
 
 Dans ce tutoriel, vous allez apprendre à :
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour le test, vous devez disposer d’un nom de domaine disponible que vous pouvez héberger dans Azure DNS. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
-L’exemple de domaine utilisé pour ce tutoriel est contoso.net, mais utilisez votre propre nom de domaine.
+Dans cet exemple, nous allons faire référence au domaine parent en tant que **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
@@ -45,14 +45,19 @@ L’exemple de domaine utilisé pour ce tutoriel est contoso.net, mais utilisez 
    ![Zone DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. Sélectionnez **Créer une zone DNS**.
-1. Sur la page **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
+1. Sur la page **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** : par exemple, **contoso.net**
+      > [!NOTE] 
+      > Si la nouvelle zone que vous créez est une zone enfant (par exemple, zone parent = contoso.net, zone enfant = child.contoso.net), consultez notre [tutoriel Création d’une nouvelle zone DNS enfant](./tutorial-public-dns-zones-child.md)
 
-   | **Paramètre** | **Valeur** | **Détails** |
-   |---|---|---|
-   |**Nom**|[votre nom de domaine] |Le nom de domaine que vous avez acheté. Ce didacticiel utilise contoso.net comme exemple.|
-   |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la zone.|
-   |**Groupe de ressources**|**Créer :** contosoRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné.<br>L’emplacement du groupe de ressources n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.|
-   |**Lieu**|USA Est||
+    | **Paramètre** | **Valeur** | **Détails** |
+    |--|--|--|
+    | **Détails du projet :**  |  |  |
+    | **Groupe de ressources**    | ContosoRG | Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. L’emplacement du groupe de ressources n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché. |
+    | **Détails de l’instance :** |  |  |
+    | **Enfant de zone**        | laissez la case non activée | Dans la mesure où cette zone n’est **pas** une [zone enfant](./tutorial-public-dns-zones-child.md) vous devez la laisser désactiver |
+    | **Nom**              | contoso.net | Champ pour le nom de votre zone parent      |
+    | **Lieu**          | USA Est | Ce champ est basé sur l’emplacement sélectionné dans le cadre de la création du groupe de ressources.  |
+    
 
 ## <a name="retrieve-name-servers"></a>Récupérer les serveurs de noms
 

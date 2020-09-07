@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121236"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299301"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -258,15 +258,15 @@ Suivez les étapes ci-dessous pour créer un abonnement aux événements d’ent
 
 5. Répétez les étapes 1 à 4 pour le point de terminaison créé à la section précédente pour l’application logique Exit. À l’étape 3, veillez à choisir le type d’événement `Geofence Exited`.
 
-## <a name="use-search-geofence-get-api"></a>Utiliser l’API Get Search Geofence
+## <a name="use-spatial-geofence-get-api"></a>Utiliser l’API Get Spatial Geofence
 
-À présent, nous allons utiliser l’[API Get Search Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) pour envoyer des notifications par e-mail au chef d’exploitation quand un équipement entre dans les limites géographiques ou en sort.
+À présent, nous allons utiliser l’[API Get Spatial Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) pour envoyer des notifications par e-mail au gestionnaire des opérations quand un équipement entre dans les limites géographiques ou en sort.
 
 Chaque équipement a un `deviceId`. Dans ce tutoriel, nous allons suivre un seul équipement dont l’ID unique est `device_1`.
 
 À des fins de clarté, le schéma ci-dessous montre les cinq localisations de l’équipement au fil du temps en commençant par la localisation *Start*, située en dehors des limites géographiques. Dans le cadre de ce tutoriel, la localisation *Start* n’est pas définie, car nous n’interrogerons pas l’appareil à cet emplacement.
 
-Quand nous interrogeons l’[API Get Search Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) avec une localisation d’équipement indiquant la première entrée dans la limite géographique (ou la première sortie), la grille d’événement appelle le point de terminaison d’application logique approprié pour envoyer une notification par e-mail au chef d’exploitation.
+Quand nous interrogeons l’[API Get Spatial Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) avec une localisation d’équipement indiquant la première entrée dans la limite géographique (ou la première sortie), Event Grid appelle le point de terminaison d’application logique approprié pour envoyer une notification par e-mail à Operations Manager.
 
 Les sections suivantes présentent les requêtes HTTP de l’API GET Geofencing effectuées avec chacune des cinq coordonnées de localisation de l’équipement.
 

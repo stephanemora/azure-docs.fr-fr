@@ -2,23 +2,23 @@
 title: 'Démarrage rapide : Créer un profil pour la haute disponibilité des applications – Azure CLI – Azure Traffic Manager'
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491185"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178078"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Démarrage rapide : Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications web avec Azure CLI
 
@@ -117,7 +117,7 @@ Ajoutez les deux applications web en tant que points de terminaison Traffic Mana
 
 Quand le point de terminaison principal n’est pas disponible, le trafic est automatiquement routé vers le point de terminaison de basculement.
 
-Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeurope>** par les noms d’application créés pour chaque région dans la section précédente, remplacez **<appspname_eastus>** et **<appspname_westeurope>** par le nom utilisé pour créer les plans App Service dans la section précédente, et remplacez **<profile_name>** par le nom de profil utilisé dans la section précédente. 
+Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeurope>** par les noms d’application créés pour chaque région dans la section précédente. Remplacez ensuite **<profile_name>** par le nom du profil utilisé dans la section précédente. 
 
 **Point de terminaison USA Est**
 
@@ -130,7 +130,7 @@ az webapp show \
 
 ```
 
-Prenez note de l’ID affiché dans la sortie, et utilisez la commande suivante pour ajouter le point de terminaison :
+Prenez note de l’ID affiché dans la sortie et utilisez la commande suivante pour ajouter le point de terminaison :
 
 ```azurecli-interactive
 
@@ -155,7 +155,7 @@ az webapp show \
 
 ```
 
-Prenez note de l’ID affiché dans la sortie, et utilisez la commande suivante pour ajouter le point de terminaison :
+Prenez note de l’ID affiché dans la sortie et utilisez la commande suivante pour ajouter le point de terminaison :
 
 ```azurecli-interactive
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 Dans cette section, vous allez vérifier le nom de domaine de votre profil Traffic Manager. Vous allez aussi configurer le point de terminaison principal pour le rendre indisponible. Enfin, vous allez pouvoir constater que l’application est toujours disponible. Cela est dû au fait que Traffic Manager envoie le trafic au point de terminaison de basculement.
 
-Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeurope>** par les noms d’application créés pour chaque région dans la section précédente, remplacez **<appspname_eastus>** et **<appspname_westeurope>** par le nom utilisé pour créer les plans App Service dans la section précédente, et remplacez **<profile_name>** par le nom de profil utilisé dans la section précédente.
+Dans l’exemple suivant, remplacez **<app1name_eastus>** et **<app2name_westeurope>** par les noms d’application créés pour chaque région dans la section précédente. Remplacez ensuite **<profile_name>** par le nom du profil utilisé dans la section précédente.
 
 ### <a name="determine-the-dns-name"></a>Déterminer le nom DNS
 

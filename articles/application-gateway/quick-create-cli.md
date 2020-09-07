@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Diriger le trafic web à l’aide d’une interface de ligne de commande (CLI)'
 titleSuffix: Azure Application Gateway
-description: Découvrez comment utiliser Azure CLI pour créer une passerelle Azure Application Gateway qui dirige le trafic web vers les machines virtuelles d’un pool de back-ends.
+description: Dans ce guide de démarrage rapide, découvrez comment utiliser Azure CLI pour créer une passerelle d’application Azure qui dirige le trafic web vers les machines virtuelles d’un pool de back-ends.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499124"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961735"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure CLI
 
@@ -24,12 +24,14 @@ La passerelle d’application dirige le trafic web des applications vers des res
 
 Vous pouvez également suivre ce guide de démarrage rapide en utilisant [Azure PowerShell](quick-create-powershell.md) ou le [portail Azure](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure CLI version 2.0.4 ou ultérieure](/cli/azure/install-azure-cli) (si vous exécutez Azure CLI localement).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 

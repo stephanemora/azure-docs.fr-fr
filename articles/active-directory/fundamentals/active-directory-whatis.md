@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262956"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321104"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) est le service de gestion de l’accès et de
 
 - Ressources internes telles que les applications situées sur votre réseau d’entreprise et intranet ainsi que les applications cloud développées par votre propre organisation. Pour plus d’informations sur la création d’un locataire pour votre organisation, consultez [Démarrage rapide : Créer un locataire dans Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Pour connaître la différence entre Azure AD et Active Directory Domain Services, consultez [Comparer Active Directory et Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Vous pouvez également utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Office 365.
+Pour connaître la différence entre Azure AD et Active Directory Domain Services, consultez [Comparer Active Directory et Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Vous pouvez également utiliser les différentes affiches de la [série Microsoft Cloud pour architectes d’entreprise](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) afin de mieux comprendre les services d’identité de base dans Azure, Azure AD et Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Qui utilise Azure AD ?
 
@@ -68,7 +68,7 @@ Après avoir choisi votre licence Azure AD, vous avez accès à une partie ou �
 |Gestion des applications|Gérez vos applications cloud et locales avec le proxy d’application, l’authentification unique, le portail Mes applications (également appelé panneau d’accès) et les applications SaaS (software as a service). Pour plus d’informations, consultez [Guide pratique pour offrir un accès à distance sécurisé aux applications locales](../manage-apps/application-proxy.md) et la [documentation sur la gestion des applications](../manage-apps/index.yml).|
 |Authentification|Gérez la réinitialisation de mot de passe libre-service Azure Active Directory, l’authentification multifacteur, la liste de mots de passe interdits et le verrouillage intelligent. Pour plus d’informations, consultez la [documentation sur Azure AD Authentication](../authentication/index.yml).|
 |Azure Active Directory pour les développeurs|Créez des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres API Microsoft ou des API personnalisées. Pour plus d’informations, consultez [Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)](../develop/index.yml).|
-|Entreprise-entreprise (B2B)|Gérez vos utilisateurs invités et partenaires externes tout en conservant le contrôle de vos données d’entreprise. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2B](../b2b/index.yml).|
+|Entreprise-entreprise (B2B)|Gérez vos utilisateurs invités et partenaires externes tout en conservant le contrôle de vos données d’entreprise. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2B](../external-identities/index.yml).|
 |Entreprise-client (B2C)|Personnalisez et contrôlez la façon dont les utilisateurs s’inscrivent, se connectent et gèrent leurs profils quand ils utilisent vos applications. Pour plus d’informations, consultez la [documentation sur Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Accès conditionnel|Gérez l’accès à vos applications cloud. Pour plus d’informations, consultez la [documentation sur l’accès conditionnel dans Azure AD](../conditional-access/index.yml).|
 |Gestion des appareils|Gérez la façon dont vos appareils cloud ou locaux accèdent à vos données d’entreprise. Pour plus d’informations, consultez la [documentation sur la gestion des appareils Azure AD](../devices/index.yml).|
@@ -92,7 +92,7 @@ Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de p
 |Compte Azure AD| Identité créée par le biais d’Azure AD ou d’un autre service cloud Microsoft comme Office 365. Les identités sont stockées dans Azure AD et sont accessibles à tout abonnement à un service cloud de votre organisation. Ce compte est parfois appelé un compte professionnel ou scolaire.|
 |Administrateur de comptes|Ce rôle d’administrateur d’abonnement classique est théoriquement le propriétaire du compte de facturation d’un abonnement. Ce rôle a accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions) et vous permet de gérer tous les abonnements d’un compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrateur de services|Ce rôle d’administrateur d’abonnement classique vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle a un droit d’accès équivalent à celui d’un utilisateur qui se voit attribuer le rôle Propriétaire au niveau de l’étendue de l’abonnement. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle » (RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle Azure » (Azure RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs. Remarque : ce rôle d’administrateur est appelé Administrateur général dans le portail Azure, mais il a pour nom **Administrateur d’entreprise** dans l’API Microsoft Graph et Azure AD PowerShell. Pour plus d’informations sur les différents rôles d’administrateur, consultez [Autorisations de rôle d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Abonnement Azure| Permet de payer les services cloud Azure. Vous pouvez avoir plusieurs abonnements, lesquels sont liés à une carte de crédit.|
 |Client Azure| Instance dédiée et approuvée d’Azure AD qui est automatiquement créée quand votre organisation souscrit un abonnement à un service cloud Microsoft tel que Microsoft Azure, Microsoft Intune ou Office 365. Un locataire Azure représente une seule organisation.|

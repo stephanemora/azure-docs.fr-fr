@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405532"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300049"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
@@ -443,7 +443,7 @@ Les stratégies de sécurité de navigateur, comme le partage des ressources cro
 > [!NOTE]
 > Dans une application web de production, vous devez effectuer la requête côté serveur malgré tout. Dans le cas contraire, votre clé d’abonnement d’API Recherche Bing doit être incluse dans la page web, où elle est accessible à toute personne qui consulte la source. Vous êtes facturé pour toutes les utilisations associées à votre clé d’abonnement d’API, y compris les requêtes effectuées par des tiers non autorisés. Il est donc important de ne pas exposer votre clé.
 
-À des fins de développement, vous pouvez effectuer la requête par le biais d’un proxy CORS. La réponse émanant de ce type de proxy a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+À des fins de développement, vous pouvez effectuer la requête par le biais d’un proxy CORS. La réponse émanant de ce type de proxy a un en-tête `Access-Control-Expose-Headers` qui filtre les en-têtes de réponse et les rend disponibles pour JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser notre exemple d’application à accéder à l’en-tête d’ID client. Exécutez cette commande :
 

@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un bloc-notes Apache Spark pour Azure Synapse Analytics'
-description: Ce guide de démarrage rapide montre comment utiliser les outils web pour créer un pool Apache Spark (préversion) dans Azure Synapse Analytics et exécuter une requête Spark SQL.
+title: 'Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web'
+description: Ce guide de démarrage rapide montre comment utiliser les outils web pour créer un pool Apache Spark dans Azure Synapse Analytics et exécuter une requête Spark SQL.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496245"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049806"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web
 

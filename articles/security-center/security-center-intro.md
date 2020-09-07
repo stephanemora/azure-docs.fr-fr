@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529350"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177848"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -63,39 +63,36 @@ Azure Security Center vous permet de renforcer votre posture de sécurité. Cela
 
 Garantir la sécurité de vos charges de travail est une règle de base en matière de sécurité, et cela commence par la mise en place de stratégies de sécurité personnalisées. Étant donné que toutes les stratégies dans Security Center reposent sur des contrôles Azure Policy, vous obtenez l’éventail complet et la flexibilité totale offerts par une **solution de stratégie de niveau international**. Dans Security Center, vous pouvez définir vos stratégies de façon qu’elles s’exécutent sur des groupes d’administration, dans l’ensemble des abonnements et même pour un locataire.
 
-![Tableau de bord de Security Center](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Page Gestion des stratégies":::
 
 Security Center vous aide à **identifier les abonnements Shadow IT**. En examinant les abonnements étiquetés **non couverts** de votre tableau de bord, vous pouvez savoir immédiatement quels sont les abonnements nouvellement créés et vous assurer qu’ils sont couverts par vos stratégies, en plus d’être protégés par Azure Security Center.
 
-![Tableau de bord de stratégie Security Center](media/security-center-intro/sc-policy-dashboard.png)
-
-Les capacités de surveillance avancées dans Security Center vous permettent également de **suivre et gérer la conformité et la gouvernance au fil du temps**. La **conformité globale** vous offre une mesure exprimant la quantité d’abonnements conformes aux stratégies associées à votre charge de travail. 
-
-![Stratégie Security Center dans le temps](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Tableau de bord de stratégie Security Center":::
 
 ### <a name="continuous-assessments"></a>Évaluations continues
 
 Security Center détecte en continu les nouvelles ressources déployées dans vos charges de travail en permanence et évalue si elles sont configurées conformément aux meilleures pratiques de sécurité. Si ce n’est pas le cas, elles sont marquées d’un drapeau et vous obtenez une liste de recommandations classées par ordre de priorité sur les éléments à corriger pour protéger vos machines.
 
+Pour vous aider à comprendre l’importance de chaque recommandation pour votre posture de sécurité globale, Security Center regroupe les recommandations en contrôles de sécurité et ajoute une valeur de **degré de sécurisation** à chaque contrôle. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Degré de sécurisation de Security Center":::
+
+### <a name="network-map"></a>Mappage réseau
+
 L’un des outils les plus puissants fournis par Security Center pour surveiller en continu l’état de votre réseau est le **mappage réseau**. Le mappage vous permet de visualiser la topologie de vos charges de travail, afin que vous puissiez vérifier que chaque nœud est bien configuré. Vous pouvez voir de quelle façon vos nœuds sont connectés, ce qui vous permet de bloquer les connexions indésirables qui pourraient simplifier l’accès d’un attaquant à votre réseau.
 
-![Mappage réseau Security Center](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappage réseau Security Center":::
 
-Security Center fait un pas de plus dans la simplification de l’atténuation de vos alertes de sécurité en ajoutant un **score de sécurité**. Les scores de sécurité sont désormais associés à chaque recommandation que vous recevez pour vous aider à comprendre l’importance de chacune d’elles vis-à-vis de votre situation de sécurité globale. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
-
-![Score de sécurité Security Center](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimiser et améliorer la sécurité en configurant les contrôles recommandés
 
 La valeur même d’Azure Security Center repose dans ses recommandations. Elles sont adaptées aux problèmes de sécurité particuliers trouvés sur vos charges de travail, et Security Center effectue les tâches d’un administrateur de sécurité pour vous en recherchant vos vulnérabilités et en vous spécifiant des instructions pour les supprimer.
 
-![Recommandations Security Center](media/security-center-intro/sc-recommendations.png)
-
 De cette façon, Security Center vous permet non seulement de définir des stratégies de sécurité, mais aussi d’appliquer des normes de configuration sécurisées sur vos ressources.
 
 Les recommandations vous aident à réduire la surface d’attaque de chacune de vos ressources. Cela inclut les machines virtuelles Azure, les serveurs autres qu’Azure et les services PaaS Azure comme les comptes Stockage et SQL, entre autres, où chaque type de ressource est évalué différemment et a ses propres normes.
 
-![Exemple de recommandation Security Center](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemple de recommandation Security Center":::
 
 ## <a name="protect-against-threats"></a>Vous protéger contre les menaces
 
@@ -103,9 +100,7 @@ La protection contre les menaces de Security Center vous permet de détecter et 
 
 La protection contre les menaces Security Center inclut l’analyse de la chaîne de frappe de fusion, qui corrèle automatiquement les alertes dans votre environnement en fonction de l’analyse de la chaîne cybercriminelle, pour vous aider à mieux comprendre l’intégralité de l’histoire d’une campagne d’attaque, là où elle a commencé et le type d’impact sur vos ressources.
 
-
-
-![Recommandation d’attaque Security Center](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertes de sécurité":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Intégration à Microsoft Defender Advanced Threat Protection
 
@@ -120,8 +115,6 @@ Security Center vous permet de détecter les menaces sur les services PaaS Azure
 ### <a name="block-brute-force-attacks"></a>Bloquer les attaques par force brute
 
 Security Center vous permet de limiter l’exposition aux attaques par force brute. En réduisant l’accès aux ports de la machine virtuelle, à l’aide de l’accès à la machine virtuelle juste-à-temps, vous pouvez renforcer votre réseau en empêchant les accès inutiles. Vous pouvez définir des stratégies d’accès sécurisées sur les ports sélectionnés, juste pour les utilisateurs autorisés, les adresses IP ou les plages d’adresses IP sources autorisées et pour une durée limitée.
-
-![Force brute Security Center](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>Protéger les services de données
 

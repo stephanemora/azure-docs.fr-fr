@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585013"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300287"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
@@ -53,13 +53,11 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
 Une *clé Sentinel* est une clé spéciale qui sert à signaler que la configuration a changé. Votre application supervise la clé Sentinel pour détecter les changements. Quand un changement est détecté, toutes les valeurs de configuration sont actualisées. Par rapport à l’approche qui consiste à rechercher les changements dans toutes les clés, celle-ci permet de limiter le nombre global de demandes que votre application adresse à App Configuration.
 
 1. Sur le portail Azure, sélectionnez **Explorateur de configuration > Créer > Clé-valeur**.
-
 1. Pour **Clé**, entrez *TestApp:Settings:Sentinel*. Pour **Valeur**, entrez 1. Laissez **Étiquette** et **Type de contenu** vides.
-
 1. Sélectionnez **Appliquer**.
 
-    > [!NOTE]
-    > Si vous n’utilisez pas une clé Sentinel, vous devez inscrire manuellement chaque clé que vous souhaitez surveiller.
+> [!NOTE]
+> Si vous n’utilisez pas une clé Sentinel, vous devez inscrire manuellement chaque clé que vous souhaitez surveiller.
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
@@ -162,9 +160,8 @@ Une *clé Sentinel* est une clé spéciale qui sert à signaler que la configura
     }
     ```
     ---
-
-    > [!TIP]
-    > Pour en savoir plus sur le modèle d’options pour la lecture des valeurs de configuration, consultez  [Modèles d’options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Pour en savoir plus sur le modèle d’options pour la lecture des valeurs de configuration, consultez  [Modèles d’options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Mettez à jour la méthode `Configure`, en ajoutant l’intergiciel (middleware) `UseAzureAppConfiguration` afin de permettre la mise à jour des paramètres de configuration inscrits pour être actualisés pendant que l’application web ASP.NET Core continue de recevoir des requêtes.
 
@@ -316,15 +313,15 @@ Une *clé Sentinel* est une clé spéciale qui sert à signaler que la configura
 
 1. Pour générer l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Une fois la génération correctement terminée, exécutez la commande suivante pour exécuter l’application web localement :
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Ouvrez une fenêtre de navigateur, puis accédez à l’URL figurant dans la sortie de `dotnet run`.
 

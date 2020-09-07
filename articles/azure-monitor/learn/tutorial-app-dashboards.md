@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829677"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856013"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -40,6 +40,9 @@ Pour suivre ce tutoriel :
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Créer un tableau de bord
+> [!WARNING]
+> Si vous déplacez vos ressources Application Insights vers un autre groupe de ressources ou un autre abonnement, vous devrez mettre à jour manuellement le tableau de bord en supprimant les vignettes anciennes et en épinglant de nouvelles vignettes à partir des mêmes ressources Application Insights au nouvel emplacement. 
+
 Un tableau de bord unique peut contenir des ressources de plusieurs applications, groupes de ressources et abonnements.  Démarrez le didacticiel en créant un tableau de bord pour votre application.  
 
 1. Dans le volet du tableau de bord, sélectionnez **Nouveau tableau de bord**.

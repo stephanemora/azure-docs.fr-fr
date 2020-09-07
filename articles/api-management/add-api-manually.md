@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203265"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295259"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -45,7 +45,7 @@ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion d
 À ce stade, vous ne disposez d’aucune opération dans Gestion des API qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas par l’intermédiaire de Gestion des API, vous obtenez une erreur **404**.
 
 >[!NOTE] 
-> Par défaut, lorsque vous ajoutez une API, même si elle est connectée à un service de serveur principal, APIM n’exposera pas d’opérations tant que vous ne les mettez pas sur liste verte. Pour mettre une opération de votre service de serveur principal sur liste verte, créez une opération APIM qui correspond à l’opération de serveur principal.
+> Par défaut, lorsque vous ajoutez une API, même si elle est connectée à un service de serveur principal, APIM n’exposera pas d’opérations tant que vous ne les aurez pas autorisées. Pour autoriser une opération de votre service de serveur principal, créez une opération APIM qui correspond à l’opération de serveur principal.
 
 ## <a name="add-and-test-an-operation"></a>Ajouter et tester une opération
 

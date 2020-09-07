@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686603"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997572"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -24,6 +24,9 @@ Cet article présente les étapes principales utilisées pour transférer des ab
 Les partenaires CSP de facturation directe certifiés [Fournisseur de services managés Azure Expert (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) peuvent demander le transfert d’abonnements Azure pour leurs clients ayant contracté un contrat Entreprise direct (EA). Les transferts d’abonnements sont autorisés uniquement pour les clients qui ont accepté un contrat client Microsoft (MCA) et acheté un plan Azure.
 
 Lorsque la demande est approuvée, le CSP peut alors fournir une facture combinée à ses clients. Pour en savoir plus sur le transfert d’abonnements par les CSP, consultez [Obtenir la propriété de facturation des abonnements Azure pour votre compte MPA](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> Après le transfert d’un abonnement Contrat Entreprise à un partenaire CSP, toute augmentation du quota précédemment appliquée à l’abonnement Contrat Entreprise sera rétablie à sa valeur par défaut. Si un quota supplémentaire est nécessaire après le transfert de l’abonnement, demandez à votre fournisseur CSP de soumettre une demande d’[augmentation de quota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Autres transferts d’abonnements à un partenaire CSP
 

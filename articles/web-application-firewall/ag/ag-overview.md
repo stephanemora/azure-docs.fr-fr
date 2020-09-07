@@ -1,21 +1,21 @@
 ---
-title: Présentation du pare-feu d’applications web Azure
+title: Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: Cet article fournit une vue d’ensemble du pare-feu d’applications web (WAF) sur Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142853"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226996"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
 Le pare-feu d’applications web Azure (WAF) sur Azure Application Gateway fournit une protection centralisée de vos applications web contre des vulnérabilités et exploitations courantes. Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. L’injection de code SQL et l’exécution de scripts de site à site font partie des attaques les plus courantes.
 
@@ -158,7 +158,7 @@ Microsoft Azure Sentinel est une solution native cloud et évolutive de type SIE
 Avec le classeur des événements de pare-feu WAF Azure intégré, vous pouvez avoir une vue d’ensemble des événements de sécurité sur votre pare-feu d’applications web. Ceci inclut les événements, les règles de correspondance et les règles bloquées ainsi que tout le reste de ce qui est consigné dans les journaux du pare-feu. Pour plus d’informations, consultez la section Journalisation ci-dessous. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Classeur d’événements du pare-feu Azure WAF](../media/ag-overview/sentinel.png)
 
 #### <a name="logging"></a>Journalisation
 
@@ -206,10 +206,12 @@ Le pare-feu d’applications web d’Application Gateway fournit des rapports d�
 
 Les modèles de tarification sont différents pour les références (SKU) WAF_v1 et WAF_v2. Pour en savoir plus, lisez la page [Tarification d’Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
+## <a name="whats-new"></a>Nouveautés
+
+Pour découvrir les nouveautés du pare-feu d’applications web Azure, consultez [Mises à jour Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez par [Créer une règle WAF](create-waf-policy-ag.md)
 - Découvrez plus d’informations sur les [règles managées de WAF](application-gateway-crs-rulegroups-rules.md)
 - Découvrez plus d’informations sur les [règles personnalisées](custom-waf-rules-overview.md)
 - Découvrez le [Pare-feu d’applications web sur Azure Front Door](../afds/afds-overview.md)
-

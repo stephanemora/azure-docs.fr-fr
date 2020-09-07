@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: d669874040b04af089b4d57333869fe34066720e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6dbdebb1a9fc31e225349cc7fca8366e8b8ed004
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841994"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378545"
 ---
-Le moyen le plus simple d’authentifier une application cloud consiste à utiliser une identité managée. Pour plus d’informations, consultez [Utiliser une identité managée App Service pour accéder à Azure Key Vault](/azure/key-vault/general/managed-identity). 
+Le moyen le plus simple d’authentifier une application cloud consiste à utiliser une identité managée. Pour plus d’informations, consultez [S’authentifier auprès de Key Vault](/azure/key-vault/general/authentication).
 
 Cependant, pour des raisons de simplicité, ce guide de démarrage rapide crée une application pour poste de travail, qui nécessite l’utilisation d’un principal de service et d’une stratégie de contrôle d’accès. Votre principal de service nécessite un nom unique au format « http://&lt;nom_unique_mon_principal_de_service&gt; ».
 

@@ -4,15 +4,15 @@ description: Recherchez des exemples de modèles Azure Resource Manager pour cer
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517703"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891043"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Modèles Azure Resource Manager pour App Service
 
@@ -44,6 +44,7 @@ Pour découvrir la syntaxe JSON et les propriétés des ressources App Services,
 | [Application avec une base de données dans Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Déploie une application App Service et une base de données dans Azure SQL Database au niveau de service De base. |
 | [Application avec une connexion au stockage d’objets blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Déploie une application App Service avec une chaîne de connexion du stockage d’objets blob Azure. Vous pouvez ensuite utiliser le stockage d’objets blob à partir de l’application. |
 | [Application avec un cache Azure pour Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Déploie une application App Service avec un cache Azure pour Redis. |
+| [Application connectée à une application web principale](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Déploie deux applications web (front-end et back-end) connectées en toute sécurité avec l’injection de réseaux virtuels et le point de terminaison privé. |
 |**Environnement App Service**| **Description** |
 | [Créer un environnement App Service Environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Crée un environnement App Service Environment v2 dans votre réseau virtuel. |
 | [Créer un environnement App Service Environment v2 avec une adresse ILB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Crée un environnement App Service Environment v2 dans votre réseau virtuel avec une adresse d’équilibreur de charge interne privé. |

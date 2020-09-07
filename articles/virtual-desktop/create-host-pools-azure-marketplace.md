@@ -3,15 +3,15 @@ title: Pool d’hôtes Windows Virtual Desktop Portail Azure - Azure
 description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide du portail Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755481"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322583"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
@@ -47,6 +47,8 @@ Si vous n’avez pas encore d’abonnement Azure, veillez à [créer un compte](
 Pour commencer à créer votre nouveau pool d’hôtes
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com/).
+   
+   >![NOTE] Si vous vous connectez au portail US Gov, accédez à [https://portal.azure.us/](https://portal.azure.us/) à la place.
 
 2. Entrez **Windows Virtual Desktop** dans la barre de recherche, puis recherchez et sélectionnez **Windows Virtual Desktop** sous Services.
 
@@ -72,7 +74,7 @@ Pour commencer à créer votre nouveau pool d’hôtes
       > [!div class="mx-imgBorder"]
       > ![Capture d’écran du menu déroulant du champ Type d’affectation. L’utilisateur a sélectionné Automatique.](media/assignment-type-field.png)
 
-9. Si vous choisissez **Groupé**, entrez les informations suivantes :
+9.  Si vous choisissez **Groupé**, entrez les informations suivantes :
 
      - Pour **Limite de session maximale**, entrez le nombre maximal d’utilisateurs dont vous souhaitez équilibrer la charge sur un seul hôte de session.
      - Pour **Algorithme d’équilibrage de charge**, choisissez l’équilibrage de charge en profondeur d’abord ou en largeur d’abord, en fonction de votre modèle d’utilisation.
@@ -129,9 +131,11 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
 7. Choisissez le type de disques de système d’exploitation que vous souhaitez que vos machines virtuelles utilisent : SSD Standard, SSD Premium ou HDD Standard.
 
-8. Sous Réseau et sécurité, sélectionnez le **réseau virtuel** et le **sous-réseau** où vous souhaitez placer les machines virtuelles que vous créez. Vérifiez que le réseau virtuel peut se connecter au contrôleur de domaine, car vous devrez joindre les machines virtuelles qui se trouvent sur le réseau virtuel au domaine. Ensuite, indiquez si vous souhaitez utiliser une adresse IP publique pour les machines virtuelles. Nous vous recommandons de sélectionner **Non**, car une adresse IP privée est plus sécurisée.
+8. Sous Réseau et sécurité, sélectionnez le **réseau virtuel** et le **sous-réseau** où vous souhaitez placer les machines virtuelles que vous créez. Vérifiez que le réseau virtuel peut se connecter au contrôleur de domaine, car vous devrez joindre les machines virtuelles qui se trouvent sur le réseau virtuel au domaine. Les serveurs DNS du réseau virtuel que vous avez sélectionné doivent être configurés pour utiliser l’adresse IP du contrôleur de domaine.
 
-9. Sélectionnez le type de groupe de sécurité souhaité : **De base**, **Avancé** ou **Aucun**.
+9. Ensuite, indiquez si vous souhaitez utiliser une adresse IP publique pour les machines virtuelles. Nous vous recommandons de sélectionner **Non**, car une adresse IP privée est plus sécurisée.
+
+10. Sélectionnez le type de groupe de sécurité souhaité : **De base**, **Avancé** ou **Aucun**.
 
     Si vous sélectionnez **De base**, vous devez choisir si vous souhaitez que des ports entrants soient ouverts. Si vous sélectionnez **Oui**, choisissez dans la liste les ports standard sur lesquels autoriser les connexions entrantes.
 
@@ -143,11 +147,13 @@ Pour configurer votre machine virtuelle durant le processus de création du pool
 
     Si vous choisissez **Avancé**, sélectionnez un groupe de sécurité réseau existant que vous avez déjà configuré.
 
-10. Après cela, indiquez si vous souhaitez que les machines virtuelles soient jointes à un domaine et une unité d’organisation spécifiques. Si vous choisissez **Oui**, spécifiez le domaine à joindre. Vous pouvez éventuellement ajouter une unité d’organisation spécifique à laquelle doivent appartenir les machines virtuelles. Si vous choisissez **Non**, les machines virtuelles sont jointes au domaine correspondant au suffixe de l’**UPN de jonction de domaine AD**.
+11. Après cela, indiquez si vous souhaitez que les machines virtuelles soient jointes à un domaine et une unité d’organisation spécifiques. Si vous choisissez **Oui**, spécifiez le domaine à joindre. Vous pouvez éventuellement ajouter une unité d’organisation spécifique à laquelle doivent appartenir les machines virtuelles. Si vous choisissez **Non**, les machines virtuelles sont jointes au domaine correspondant au suffixe de l’**UPN de jonction de domaine AD**.
 
-11. Sous Compte d’administrateur, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné.
+  - Lorsque vous spécifiez une unité d’organisation, veillez à utiliser le chemin complet (nom unique) sans guillemets.
 
-12. Sélectionnez **Suivant : Espace de travail >** .
+12. Sous Compte d’administrateur, entrez les informations d’identification de l’administrateur de domaine Active Directory du réseau virtuel que vous avez sélectionné. L’authentification multifacteur (MFA) ne peut pas être activée sur ce compte. Lors de la jointure à un domaine Azure Active Directory Domain Services (Azure AD DS), le compte doit faire partie du groupe d’administrateurs Azure AD DC et le mot de passe du compte doit fonctionner dans Azure AD DS.
+
+13. Sélectionnez **Suivant : Espace de travail >** .
 
 Nous sommes maintenant prêts à commencer la phase suivante de la configuration de votre pool d’hôtes : l’inscription de votre groupe d’applications auprès d’un espace de travail.
 

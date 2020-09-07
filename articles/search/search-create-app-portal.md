@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496750"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292535"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de démonstration dans le portail (Recherche cognitive Azure)
 
@@ -61,7 +61,7 @@ L’Assistant fournit une disposition de base pour l’affichage des résultats 
 
 1. Dans Description, choisissez un champ qui fournit des détails pouvant faciliter la décision de cliquer ou non pour accéder à ce document particulier.
 
-   ![Page source de données de l’exemple de données](media/search-create-app-portal/configure-results.png)
+   ![configurer les résultats pour les exemples de données](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Ajouter une barre latérale
 
@@ -111,4 +111,4 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 L’application par défaut est pratique pour une première exploration et les petites tâches, tandis que l’examen préalable des API vous aidera à comprendre les concepts et le workflow à un niveau plus approfondi :
 
 > [!div class="nextstepaction"]
-> [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Création d’un index à l’aide du Kit de développement logiciel .NET](./search-get-started-dotnet.md)

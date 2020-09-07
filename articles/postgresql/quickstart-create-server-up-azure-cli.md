@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496574"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300015"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser une commande Azure CLI, az postgres up (préversion), pour créer une base de données Azure pour PostgreSQL (serveur unique)
 
@@ -75,7 +75,7 @@ admin-password | Générée par le système | Mot de passe de l’utilisateur Ad
 
 Une fois que votre serveur est créé, il présente les paramètres suivants :
 
-- Une règle de pare-feu appelée « devbox » est créée. Azure CLI tente de détecter l’adresse IP de la machine à partir de laquelle la commande `az postgres up` est exécutée et ajoute cette adresse IP à la liste verte.
+- Une règle de pare-feu appelée « devbox » est créée. Azure CLI tente de détecter l’adresse IP de la machine à partir de laquelle la commande `az postgres up` est exécutée et autorise cette adresse IP.
 - « Autoriser l’accès aux services Azure » est défini sur ACTIVÉ. Ce paramètre configure le pare-feu du serveur pour qu’il accepte les connexions de toutes les ressources Azure, y compris celles qui ne font pas partie de votre abonnement.
 - Une base de données nommée « sampledb » est créée
 - Un utilisateur nommé « root » est créé avec des privilèges « sampledb »

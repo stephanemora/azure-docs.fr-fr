@@ -4,14 +4,14 @@ description: 'Tutoriel : Découvrez comment utiliser l’outil de migration de 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118761"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255985"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutoriel : Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 
@@ -40,6 +40,9 @@ Avant de suivre les instructions de cet article, veillez à effectuer les étape
 * **Augmenter le débit :** la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit sur le portail Azure, consultez les [niveaux de performances](performance-levels.md) et les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/cosmos-db/) dans Azure Cosmos DB.
 
 * **Créer des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos collections à partir du portail Azure. Pour migrer vers un compte Azure Cosmos DB qui a un débit de niveau base de données, fournissez une clé de partition au moment de créer les conteneurs Azure Cosmos DB.
+
+> [!IMPORTANT]
+> Pour s’assurer que l’outil de migration des données utilise Transport Layer Security (TLS) 1.2 lors de la connexion à vos comptes Azure Cosmos, utilisez .NET Framework version 4.7, ou suivez les instructions données dans [cet article](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Vue d’ensemble
 

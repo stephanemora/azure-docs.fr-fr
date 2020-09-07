@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546302"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec XaitPorter, effectuez
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-6. Fournissez **l’adresse IP** ou **l’URL des métadonnées de fédération de l’application** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
+6. Fournissez **l’adresse IP** ou **l’URL des métadonnées de fédération de l’application** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste approuvée de leur côté. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurer l’authentification unique XaitPorter
 
@@ -213,4 +213,3 @@ Quand vous cliquez sur la vignette XaitPorter dans le volet d’accès, vous dev
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

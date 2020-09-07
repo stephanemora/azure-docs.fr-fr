@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757606"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017445"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Sauvegarder une machine virtuelle dans Azure
 
@@ -39,7 +39,7 @@ Un coffre Recovery Services est un conteneur logique qui stocke les données de 
 
     ![Activer la sauvegarde de machine virtuelle dans le portail Azure](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Par défaut, le coffre est défini pour le stockage géo-redondant. Pour mieux protéger vos données, ce niveau de redondance de stockage garantit que vos données de sauvegarde sont répliquées dans une région Azure secondaire, située à des centaines de kilomètres de la région principale.
+    Par défaut, le coffre est défini pour le stockage géo-redondant. Pour mieux protéger vos données, ce niveau de redondance de stockage garantit que vos données de sauvegarde sont répliquées dans une région Azure secondaire située à des centaines de kilomètres de la région primaire.
 
     Vous créez et utilisez des stratégies pour définir l’exécution d’un travail de sauvegarde et la durée de stockage des points de récupération. La stratégie de protection par défaut exécute un travail de sauvegarde chaque jour, et conserve les points de récupération pendant 30 jours. Vous pouvez utiliser ces valeurs de stratégie par défaut pour protéger rapidement votre machine virtuelle.
 

@@ -2,15 +2,15 @@
 title: Créer et déployer une spec de modèle
 description: Découvrez comment créer une spec de modèle à partir d’un modèle ARM. Ensuite, déployez la spec de modèle vers un groupe de ressources dans votre abonnement.
 author: tfitzmac
-ms.date: 08/06/2020
+ms.date: 08/31/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8fe9ec46050ad831430239b960a7f528af7f4dc2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924323"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227727"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Démarrage rapide : Créer et déployer une spec de modèle (préversion)
 
@@ -23,13 +23,13 @@ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://a
 > [!NOTE]
 > La fonctionnalité Specs de modèle est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire sur la liste d’attente](https://aka.ms/templateSpecOnboarding).
 >
-> Après réception de l’approbation de la liste d’attente, vous recevez des instructions pour l’installation du module PowerShell en préversion.
+> Après réception de l’approbation de la liste d’attente, vous recevez des instructions pour l’installation du module PowerShell en préversion et du module CLI en préversion.
 
 ## <a name="create-template-spec"></a>Créer une spec de modèle
 
-La spec de modèle est un nouveau type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
+La spec de modèle est un nouveau type de ressource nommé **Microsoft.Resources/templateSpecs**. Pour créer votre spec de modèle, vous pouvez utiliser Azure PowerShell, Azure CLI ou un modèle ARM. Quelle que soit l’option, vous avez besoin d’un modèle ARM empaqueté la spec de modèle.
 
-Avec PowerShell, le modèle ARM est transmis en tant que paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
+Avec PowerShell et CLI, le modèle ARM est transmis en tant que paramètre à la commande. Avec un modèle ARM, le modèle à empaqueter dans la spec de modèle est incorporé dans la définition de celle-ci.
 
 Ces deux options sont présentées ci-dessous.
 
@@ -37,144 +37,169 @@ Ces deux options sont présentées ci-dessous.
 
 1. Lorsque vous créez une spec de modèle avec PowerShell, vous pouvez transmettre un modèle local. Copiez le modèle suivant et enregistrez-le localement dans un fichier nommé **azuredeploy.json**. Ce démarrage rapide part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
 
-   :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
 
 1. Créez un groupe de ressources pour contenir la spec de modèle.
 
-   ```azurepowershell
-   New-AzResourceGroup `
-     -Name templateSpecRG `
-     -Location westus2
-   ```
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name templateSpecRG `
+      -Location westus2
+    ```
 
 1. Ensuite, créez la spec de modèle dans ce groupe de ressources. Attribuez le nom **storageSpec** à la nouvelle spec de modèle.
 
-   ```powershell
-   New-AzTemplateSpec `
-     -ResourceGroupName templateSpecRG `
-     -Name storageSpec `
-     -Version "1.0" `
-     -Location westus2 `
-     -TemplateJsonFile "c:\Templates\azuredeploy.json"
-   ```
+    ```azurepowershell
+    New-AzTemplateSpec `
+      -Name storageSpec `
+      -Version "1.0" `
+      -ResourceGroupName templateSpecRG `
+      -Location westus2 `
+      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+    ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+1. Quand vous créez une spec de modèle avec CLI, vous pouvez transmettre un modèle local. Copiez le modèle suivant et enregistrez-le localement dans un fichier nommé **azuredeploy.json**. Ce démarrage rapide part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+1. Créez un groupe de ressources pour contenir la spec de modèle.
+
+    ```azurecli
+    az group create \
+      --name templateSpecRG \
+      --location westus2
+    ```
+
+1. Ensuite, créez la spec de modèle dans ce groupe de ressources. Attribuez le nom **storageSpec** à la nouvelle spec de modèle.
+
+    ```azurecli
+    az ts create \
+      --name storageSpec \
+      --version "1.0" \
+      --resource-group templateSpecRG \
+      --location "westus2" \
+      --template-file "c:\Templates\azuredeploy.json"
+    ```
 
 # <a name="arm-template"></a>[Modèle ARM](#tab/azure-resource-manager)
 
 1. Lorsque vous utilisez un modèle ARM pour créer la spec de modèle, le modèle est incorporé dans la définition de la ressource. Copiez le modèle suivant et enregistrez-le localement sous **azuredeploy.json**. Ce démarrage rapide part du principe que vous avez enregistré dans le chemin d’accès **c:\Templates\azuredeploy.json**, mais vous pouvez utiliser n’importe quel chemin.
 
-   > [!NOTE]
-   > Dans le modèle incorporé, tous les crochets gauches (ouvrants) doivent être échappés à l’aide d’un deuxième crochet gauche. Utilisez `[[` au lieu de `[`.
+    > [!NOTE]
+    > Dans le modèle incorporé, tous les crochets gauches (ouvrants) doivent être échappés à l’aide d’un deuxième crochet gauche. Utilisez `[[` au lieu de `[`.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "functions": [],
-       "variables": {},
-       "resources": [
-           {
-               "type": "Microsoft.Resources/templateSpecs",
-               "apiVersion": "2019-06-01-preview",
-               "name": "storageSpec",
-               "location": "westus2",
-               "properties": {
-                   "displayName": "Storage template spec"
-               },
-               "tags": {},
-               "resources": [
-                   {
-                       "type": "versions",
-                       "apiVersion": "2019-06-01-preview",
-                       "name": "1.0",
-                       "location": "westus2",
-                       "dependsOn": [ "storageSpec" ],
-                       "properties": {
-                           "template": {
-                               "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                               "contentVersion": "1.0.0.0",
-                               "parameters": {
-                                   "storageAccountType": {
-                                       "type": "string",
-                                       "defaultValue": "Standard_LRS",
-                                       "allowedValues": [
-                                           "Standard_LRS",
-                                           "Standard_GRS",
-                                           "Standard_ZRS",
-                                           "Premium_LRS"
-                                       ],
-                                       "metadata": {
-                                           "description": "Storage Account type"
-                                       }
-                                   },
-                                   "location": {
-                                       "type": "string",
-                                       "defaultValue": "[[resourceGroup().location]",
-                                       "metadata": {
-                                           "description": "Location for all resources."
-                                       }
-                                   }
-                               },
-                               "variables": {
-                                   "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
-                               },
-                               "resources": [
-                                   {
-                                       "type": "Microsoft.Storage/storageAccounts",
-                                       "apiVersion": "2019-04-01",
-                                       "name": "[[variables('storageAccountName')]",
-                                       "location": "[[parameters('location')]",
-                                       "sku": {
-                                           "name": "[[parameters('storageAccountType')]"
-                                       },
-                                       "kind": "StorageV2",
-                                       "properties": {}
-                                   }
-                               ],
-                               "outputs": {
-                                   "storageAccountName": {
-                                       "type": "string",
-                                       "value": "[[variables('storageAccountName')]"
-                                   }
-                               }
-                           }
-                       },
-                       "tags": {}
-                   }
-               ]
-           }
-       ],
-       "outputs": {}
-   }
-   ```
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.Resources/templateSpecs",
+          "apiVersion": "2019-06-01-preview",
+          "name": "storageSpec",
+          "location": "westus2",
+          "properties": {
+            "displayName": "Storage template spec"
+          },
+          "tags": {},
+          "resources": [
+            {
+              "type": "versions",
+              "apiVersion": "2019-06-01-preview",
+              "name": "1.0",
+              "location": "westus2",
+              "dependsOn": [ "storageSpec" ],
+              "properties": {
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "parameters": {
+                    "storageAccountType": {
+                      "type": "string",
+                      "defaultValue": "Standard_LRS",
+                      "allowedValues": [
+                        "Standard_LRS",
+                        "Standard_GRS",
+                        "Standard_ZRS",
+                        "Premium_LRS"
+                      ],
+                      "metadata": {
+                        "description": "Storage Account type"
+                      }
+                    },
+                    "location": {
+                      "type": "string",
+                      "defaultValue": "[[resourceGroup().location]",
+                      "metadata": {
+                        "description": "Location for all resources."
+                      }
+                    }
+                  },
+                  "variables": {
+                    "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
+                  },
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[[variables('storageAccountName')]",
+                      "location": "[[parameters('location')]",
+                      "sku": {
+                        "name": "[[parameters('storageAccountType')]"
+                      },
+                      "kind": "StorageV2",
+                      "properties": {}
+                    }
+                  ],
+                  "outputs": {
+                    "storageAccountName": {
+                      "type": "string",
+                      "value": "[[variables('storageAccountName')]"
+                    }
+                  }
+                }
+              },
+              "tags": {}
+            }
+          ]
+        }
+      ],
+      "outputs": {}
+    }
+    ```
 
 1. Utilisez Azure CLI ou PowerShell pour créer un groupe de ressources.
 
-   ```azurecli
-   az group create \
-     --name templateSpecRG \
-     --location westus2
-   ```
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name templateSpecRG `
+      -Location westus2
+    ```
 
-   ```azurepowershell
-   New-AzResourceGroup `
-     -Name templateSpecRG `
-     -Location westus2
-   ```
+    ```azurecli
+    az group create \
+      --name templateSpecRG \
+      --location westus2
+    ```
 
 1. Déployez votre modèle avec Azure CLI ou PowerShell.
 
-   ```azurecli
-   az deployment group create \
-     --name templateSpecRG \
-     --template-file "c:\Templates\azuredeploy.json"
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -ResourceGroupName templateSpecRG `
+      -TemplateFile "c:\Templates\azuredeploy.json"
+    ```
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -ResourceGroupName templateSpecRG `
-     -TemplateFile "c:\Templates\azuredeploy.json"
-   ```
+    ```azurecli
+    az deployment group create \
+      --name templateSpecRG \
+      --template-file "c:\Templates\azuredeploy.json"
+    ```
 
 ---
 
@@ -186,92 +211,128 @@ Vous pouvez maintenant déployer la spec de modèle. Le déploiement de la spec 
 
 1. Créez un groupe de ressources pour accueillir le nouveau compte de stockage.
 
-   ```azurepowershell
-   New-AzResourceGroup `
-     -Name storageRG `
-     -Location westus2
-   ```
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name storageRG `
+      -Location westus2
+    ```
 
 1. Obtenez l’ID de ressource de la spec de modèle.
 
-   ```azurepowershell
-   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
-   ```
+    ```azurepowershell
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    ```
 
 1. Déployez la spec de modèle.
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG
+    ```
 
 1. Vous fournissez les paramètres exactement comme vous le feriez pour un modèle ARM. Redéployez la spec de modèle avec un paramètre pour le type de compte de stockage.
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG `
-     -StorageAccountType Standard_GRS
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG `
+      -storageAccountType Standard_GRS
+    ```
+
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
+
+1. Créez un groupe de ressources pour accueillir le nouveau compte de stockage.
+
+    ```azurecli
+    az group create \
+      --name storageRG \
+      --location westus2
+    ```
+
+1. Obtenez l’ID de ressource de la spec de modèle.
+
+    ```azurecli
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    ```
+
+    > [!NOTE]
+    > Il existe un problème connu lié à l’obtention de l’ID de la spec de modèle et à son attribution à une variable dans Windows PowerShell.
+
+1. Déployez la spec de modèle.
+
+    ```azurecli
+    az deployment group create \
+      --resource-group storageRG \
+      --template-spec $id
+    ```
+
+1. Vous fournissez les paramètres exactement comme vous le feriez pour un modèle ARM. Redéployez la spec de modèle avec un paramètre pour le type de compte de stockage.
+
+    ```azurecli
+    az deployment group create \
+      --resource-group storageRG \
+      --template-spec $id \
+      --parameters storageAccountType='Standard_GRS'
+    ```
 
 # <a name="arm-template"></a>[Modèle ARM](#tab/azure-resource-manager)
 
 1. Copiez le modèle suivant et enregistrez-le localement dans un fichier nommé **storage.json**.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "functions": [],
-       "variables": {},
-       "resources": [
-           {
-               "type": "Microsoft.Resources/deployments",
-               "apiVersion": "2020-06-01",
-               "name": "demo",
-               "properties": {
-                   "templateLink": {
-                       "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
-                   },
-                   "parameters": {
-                   },
-                   "mode": "Incremental"
-               }
-           }
-       ],
-       "outputs": {}
-   }
-   ```
+    ```json
+       {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.Resources/deployments",
+          "apiVersion": "2020-06-01",
+          "name": "demo",
+          "properties": {
+            "templateLink": {
+              "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+            },
+            "parameters": {
+            },
+            "mode": "Incremental"
+          }
+        }
+      ],
+      "outputs": {}
+    }
+    ```
 
 1. Utilisez Azure CLI ou PowerShell pour créer un groupe de ressources pour le compte de stockage.
 
-   ```azurecli
-   az group create \
-     --name storageRG \
-     --location westus2
-   ```
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name storageRG `
+      -Location westus2
+    ```
 
-   ```azurepowershell
-   New-AzResourceGroup `
-     -Name storageRG `
-     -Location westus2
-   ```
+    ```azurecli
+    az group create \
+      --name storageRG \
+      --location westus2
+    ```
 
 1. Déployez votre modèle avec Azure CLI ou PowerShell.
 
-   ```azurecli
-   az deployment group create \
-     --name storageRG \
-     --template-file "c:\Templates\storage.json"
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -ResourceGroupName storageRG `
+      -TemplateFile "c:\Templates\storage.json"
+    ```
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -ResourceGroupName storageRG `
-     -TemplateFile "c:\Templates\storage.json"
-   ```
+    ```azurecli
+    az deployment group create \
+      --name storageRG \
+      --template-file "c:\Templates\storage.json"
+    ```
 
 ---
 

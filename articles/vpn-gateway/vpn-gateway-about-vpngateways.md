@@ -6,20 +6,19 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855610"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015388"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
 Une passerelle VPN est un type spécifique de passerelle de réseau virtuel qui est utilisé pour envoyer du trafic chiffré entre un réseau virtuel Azure et un emplacement sur site via l’Internet public. Vous pouvez également utiliser des passerelles VPN pour envoyer du trafic chiffré entre les réseaux virtuels Azure sur le réseau Microsoft. Chaque réseau virtuel ne peut posséder qu’une seule passerelle VPN. Toutefois, vous pouvez créer plusieurs connexions à la même passerelle VPN. Lorsque vous créez plusieurs connexions à la même passerelle VPN, tous les tunnels VPN partagent la bande passante de passerelle disponible.
-
-Des passerelles VPN peuvent être déployées dans des zones de disponibilité Azure. Cela apporte de la résilience, de l’extensibilité et une plus grande disponibilité aux passerelles de réseau virtuel. Le déploiement de passerelles dans les zones de disponibilité Azure sépare les passerelles physiquement et logiquement au sein d’une région, tout en protégeant votre connectivité de réseau local à Azure à partir d’échecs au niveau de la zone. Consultez [À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>Qu’est-ce qu’une passerelle de réseau virtuel ?
 
@@ -33,9 +32,15 @@ La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 mi
 
 Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont configurées avec des paramètres spécifiques. La plupart des ressources peuvent être configurées séparément, mais certaines d’entre elles doivent être configurées dans un certain ordre.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>Conception : Diagrammes de topologie de connexion
+### <a name="design"></a><a name="diagrams"></a>Conception
 
 Il est important de savoir qu’il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Vous devez déterminer la configuration qui correspond le mieux à vos besoins. Par exemple, les instructions et exigences de configuration sont différentes entre les connexions point à site, site à site et ExpressRoute/site à site coexistantes. Pour plus d’informations sur la conception et pour voir des diagrammes de topologie de connexion, consultez [Conception](design.md).
+
+### <a name="planning-table"></a><a name="planningtable"></a>Tableau de planification
+
+Le tableau suivant peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>Paramètres
 
@@ -44,12 +49,6 @@ Les paramètres que vous avez choisis pour chaque ressource sont essentiels à l
 ### <a name="deployment-tools"></a><a name="tools"></a>Outils de déploiement
 
 Vous pouvez commencer par créer et configurer des ressources à l’aide de l’un des outils de configuration, comme le portail Azure. Vous pouvez décider de passer à un autre outil, tel que PowerShell, pour configurer des ressources supplémentaires ou pour modifier les ressources existantes, le cas échéant. Il n’est pour le moment pas possible de configurer toutes les ressources et tous les paramètres des ressources dans le portail Azure. Les instructions fournies dans les articles dédiés à chaque topologie de connexion indiquent si un outil de configuration spécifique est requis.
-
-### <a name="planning-table"></a><a name="planningtable"></a>Tableau de planification
-
-Le tableau suivant peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de passerelle
 
@@ -61,6 +60,10 @@ Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez la réfé
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability-zones"></a><a name="availability"></a> Zones de disponibilité
+
+Des passerelles VPN peuvent être déployées dans des zones de disponibilité Azure. Cela apporte de la résilience, de l’extensibilité et une plus grande disponibilité aux passerelles de réseau virtuel. Le déploiement de passerelles dans les zones de disponibilité Azure sépare les passerelles physiquement et logiquement au sein d’une région, tout en protégeant votre connectivité de réseau local à Azure à partir d’échecs au niveau de la zone. Consultez [À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a><a name="pricing"></a>Tarifs
 

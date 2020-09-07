@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141855"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000955"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -82,26 +82,7 @@ Cette section a été déplacée vers un article distinct pour une meilleure dé
 
 ## <a name="data-limits"></a>Limites de données
 
-Tous les points de terminaison de l’API Analyse de texte acceptent des données en texte brut. La limite actuelle est de 5 120 caractères par document. Si vous avez besoin d’analyser des documents plus volumineux, vous pouvez les morceler en blocs plus petits.
-
-| Limite | Valeur |
-|------------------------|---------------|
-| Taille maximale de document | 5 120 caractères, tels que mesurés par [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Taille maximale d’une demande | 1 Mo |
-| Nombre maximal de documents par demande | Jusqu’à 1 000 documents ([varie pour chaque fonctionnalité](concepts/data-limits.md)) |
-
-Votre limite de débit varie selon votre niveau tarifaire.
-
-| Niveau          | Demandes par seconde | Requêtes par minute |
-|---------------|---------------------|---------------------|
-| S / Multiservice | 1 000                | 1 000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1 000                | 1 000                |
-
-Les requêtes sont mesurées séparément pour chaque fonctionnalité de Text Analytics. Par exemple, vous pouvez envoyer le nombre maximal de requêtes pour votre niveau tarifaire pour chaque fonctionnalité en même temps.      
+Tous les points de terminaison de l’API Analyse de texte acceptent des données en texte brut. Pour plus d’informations, consultez l’article [Limites de données](concepts/data-limits.md).
 
 ## <a name="unicode-encoding"></a>Codage Unicode
 

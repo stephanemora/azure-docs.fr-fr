@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 8bd41034d6d4cfa444ae4c0711fd46cb2924d009
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554073"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - Admin UI
 
@@ -43,6 +43,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * Palo Alto Networks - Admin UI prend en charge l’authentification unique initiée par le **fournisseur de services**.
 * Palo Alto Networks - Admin UI prend en charge l’attribution d’utilisateurs **Juste-à-temps**.
+* Après avoir configuré Palo Alto Networks – IU d’administrateur, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Ajout de Palo Alto Networks - Admin UI depuis la galerie
 
@@ -55,8 +56,7 @@ Pour configurer l’intégration de Palo Alto Networks - Admin UI à Azure AD, v
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Palo Alto Networks - Admin UI** dans la zone de recherche.
 1. Sélectionnez **Palo Alto Networks - Admin UI** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Palo Alto Networks - Admin UI pour un utilisateur de test nommé **B.Simon**.
 Pour que l’authentification unique fonctionne, une relation doit être établie entre un utilisateur Azure AD et l’utilisateur Palo Alto Networks - Admin UI associé.
 
@@ -116,6 +116,9 @@ Pour configurer l’authentification unique Azure AD avec Palo Alto Networks - A
     | username | user.userprincipalname |
     | adminrole | customadmin |
     | | |
+
+    > [!NOTE]
+    > La valeur _adminrole_ doit être la même que le nom de rôle configuré dans **Palo Alto Networks**, comme mentionné à l’étape 9. 
 
     > [!NOTE]
     > Pour plus d'informations sur les attributs, consultez les articles suivants :
@@ -272,5 +275,3 @@ Quand vous cliquez sur la vignette Palo Alto Networks - Admin UI dans le panneau
 - [Essayer Palo Alto Networks - Admin UI avec Azure AD](https://aad.portal.azure.com/)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Palo Alto Networks - Admin UI avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

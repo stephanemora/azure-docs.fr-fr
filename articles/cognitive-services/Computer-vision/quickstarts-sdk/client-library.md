@@ -1,32 +1,37 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Vision par ordinateur | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Vision par ordinateur'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide de démarrage rapide pour connecter vos applications à l’API Vision par ordinateur d’Azure Cognitive Services.
+description: Découvrez comment utiliser le service Vision par ordinateur Azure dans votre application par le biais d’une bibliothèque de client native dans le langage de votre choix.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom:
+- devx-track-python
+- devx-track-javascript
+- devx-track-csharp
+- cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 699f2c3b16346a88bdd5828c32dc64225a712e05
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+keywords: vision par ordinateur, service vision par ordinateur
+ms.openlocfilehash: 87ff6a03f45fe61b44712166966a1fe3851ffb41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321844"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Vision par ordinateur
 
-Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. L’API Vision par ordinateur vous donne accès à des algorithmes avancés pour le traitement d’images et le retour d’informations.
+Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur. Le service Vision par ordinateur vous fournit des algorithmes IA pour le traitement d’images et le retour d’informations sur leurs caractéristiques visuelles. Suivez les étapes suivantes pour installer un package sur votre application et tester l’exemple de code sur différentes tâches de base.
 
 Utilisez la bibliothèque de client Vision par ordinateur pour :
 
 * Analyser une image pour identifier les étiquettes, la description textuelle, les visages, le contenu pour adultes, etc.
-* Reconnaître du texte imprimé et manuscrit avec l’API de lecture par lots
+* Lire du texte imprimé et manuscrit avec l’API Lire.
 
 ::: zone pivot="programming-language-csharp"
 

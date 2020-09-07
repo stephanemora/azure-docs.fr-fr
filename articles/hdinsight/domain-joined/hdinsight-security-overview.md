@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292977"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -59,7 +59,7 @@ Pour accéder aux journaux d’audit Apache Ranger et Ambari, et aux journaux d�
 
 La protection des données est essentielle pour se conformer aux exigences de l’organisation en matière de conformité et de sécurité. Parallèlement à la restriction de l’accès aux données des employés non autorisés, vous devez procéder à leur chiffrement.
 
-Stockage Azure et Data Lake Storage Gen1/Gen2 prennent en charge de façon transparente côté serveur le [chiffrement des données](../../storage/common/storage-service-encryption.md) au repos. Les clusters HDInsight sécurisés fonctionnent sans problème avec le chiffrement des données côté serveur au repos.
+HDInsight prend en charge le chiffrement des données au repos avec les clés gérées par la plateforme et les [clés gérées par le client](../disk-encryption.md). Le chiffrement des données en transit est géré avec TLS et IPSec. Pour plus d’informations, consultez [Chiffrement en transit pour Azure HDInsight](encryption-in-transit.md).
 
 ### <a name="compliance"></a>Conformité
 
@@ -79,7 +79,7 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 |  | Activer la propriété [« Transfert sécurisé requis »](../../storage/common/storage-require-secure-transfer.md) sur le compte de stockage | Customer |
 |  | Configurer des [pare-feu Stockage Azure](../../storage/common/storage-network-security.md) et des réseaux virtuels | Customer |
 |  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
-|  | Vérifier que le [chiffrement TLS](../../storage/common/storage-security-tls.md) est activé pour les données en transit | Customer |
+|  | Assurez-vous que la fonctionnalité [Chiffrement en transit](./encryption-in-transit.md) est activée afin d’utiliser TLS et IPSec pour les communications à l’intérieur du cluster. | Customer |
 |  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Customer |
 |  | Contrôler l’accès à vos données par le support Azure à l’aide de [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
 | Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer l’authentification](apache-domain-joined-configure-using-azure-adds.md) | Customer |

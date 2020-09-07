@@ -9,18 +9,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650109"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145890"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
 Dans cet article, vous allez découvrir Azure Machine Learning, un environnement basé sur le cloud que vous pouvez utiliser pour entraîner, déployer, automatiser, gérer et suivre des modèles ML. 
 
-Azure Machine Learning peut être utilisé pour tout type de machine learning, du machine learning classique à l’apprentissage profond, supervisé et non supervisé. Que vous préfériez écrire du code Python ou R, ou des options zéro code/peu de code, comme le [concepteur](tutorial-designer-automobile-price-train-score.md), vous pouvez générer, entraîner et suivre des modèles de machine learning et d’apprentissage profond d’une grande précision dans un espace de travail Azure Machine Learning. 
+Azure Machine Learning peut être utilisé pour tout type de machine learning, du machine learning classique à l’apprentissage profond, supervisé et non supervisé. Que vous préfériez écrire du code Python ou R avec le SDK ou utiliser des options sans code/peu de code dans le [studio](#build-ml-models-in-the-studio), vous pouvez créer, entraîner et gérer des modèles Machine Learning et Deep Learning dans un espace de travail Azure Machine Learning. 
 
 Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. 
 
@@ -63,27 +63,31 @@ Vous pouvez même utiliser [MLflow pour suivre des métriques et déployer des m
 
 Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
 
-Les nombreuses [cibles de calcul](how-to-set-up-training-targets.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
+Les nombreuses [cibles de calcul](how-to-create-attach-compute-sdk.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
 
 Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle](tutorial-auto-train-models.md) à l’aide du SDK.
 
-## <a name="build-ml-models-with-no-code-tools"></a>Générer des modèles ML avec des outils sans code
+## <a name="build-ml-models-in-the-studio"></a>Créer des modèles ML dans le studio
 
-Pour un entraînement et un déploiement sans code ou avec peu de code, essayez :
+Le [studio Azure Machine Learning](https://www.ml.azure.com) est un portail web dans Azure Machine Learning qui propose des options sans code ou avec peu de code pour entraîner et déployer des modèles ainsi que pour gérer les ressources. Le studio est intégré au SDK Azure Machine Learning pour une expérience simplifiée. Pour plus d’informations, consultez [Qu’est-ce que le studio Azure Machine Learning ?](overview-what-is-machine-learning-studio.md)
 
 + **Concepteur Azure Machine Learning (préversion)**
 
-  Utilisez le concepteur pour préparer des données, entraîner, tester, déployer, gérer et suivre des modèles de Machine Learning sans écrire de code. Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle. Essayez le [didacticiel du concepteur](tutorial-designer-automobile-price-train-score.md).
+  Utilisez le [concepteur](concept-designer.md) pour entraîner et déployer des modèles Machine Learning sans écrire de code. Essayez le [tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md) pour commencer. 
 
-  Vous trouverez plus d’informations dans l’[article sur la vue d’ensemble du concepteur Azure Machine Learning](concept-designer.md). 
+  ![GIF animé de l’interface de type glisser-déposer du concepteur Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Exemple de concepteur Azure Machine Learning](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **Suivre les expériences**
 
-+ **IU de Machine Learning automatisé**
+  Découvrez comment [suivre et visualiser les expériences de science des données](tutorial-first-experiment-automated-ml.md) dans le studio. 
 
-  Découvrez comment créer des [expériences de ML automatisé](tutorial-first-experiment-automated-ml.md) dans l’interface facile à utiliser. 
+    ![Détails de l’exécution dans le studio Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Volet de navigation d’Azure Machine Learning Studio](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **Et bien plus encore...**
+
+  Visitez le studio Azure Machine Learning sur [ml.azure.com](https://www.ml.azure.com). 
+
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps : Déployer et gestion du cycle de vie
 Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).

@@ -3,17 +3,17 @@ title: Configurer l’intégration de AWS avec Azure Cost Management
 description: Cet article vous guide tout au long de la configuration de l'intégration des rapports de coûts et d'utilisation AWS avec Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 639d63df060a680e8c135a9be054ac412d1ca8dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684998"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266076"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
@@ -71,7 +71,6 @@ Utilisez l'Assistant Créer un rôle :
 5. Dans **ID de compte**, entrez **432263259397**.
 6. Dans **Options**, sélectionnez **Require external ID (Best practice when a third party will assume this role)** (Nécessite un ID externe (il est recommandé qu’un tiers occupe ce rôle)).
 7. Dans **ID externe**, entrez l’ID externe, qui est un code secret partagé entre le rôle AWS et Azure Cost Management. Le même ID externe est également utilisé sur la page **Nouveau connecteur** dans Cost Management. Microsoft vous recommande d’utiliser une stratégie de code secret sécurisé lors de la saisie de l’ID externe.
-
     > [!NOTE]
     > Ne modifiez pas la sélection pour **Exiger une authentification multifacteur**. Elle doit rester désactivée.
 8. Sélectionnez **Suivant : Autorisations**.
@@ -148,23 +147,23 @@ L’élément JSON de la stratégie doit ressembler à l’exemple suivant. Remp
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Configurer un nouveau connecteur AWS dans Azure
+## <a name="set-up-a-new-connector-for-aws-in-azure"></a>Configurer un nouveau connecteur pour AWS dans Azure
 
 Utilisez les informations suivantes pour créer un connecteur AWS et démarrer la surveillance de vos coûts AWS :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à **Gestion des coûts + facturation** > **Gestion des coûts**.
-3. Sous **Paramètres**, sélectionnez **Connecteurs cloud (préversion)** .  
-    ![Exemple montrant le paramètre Connecteurs Cloud (préversion)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Sélectionnez **+Ajouter** en haut de la page pour créer un connecteur.
-5. Sur la page **Créer un connecteur AWS**, dans **Nom d’affichage**, entrez un nom pour votre connecteur.  
-    ![Exemple de page pour la création d’un connecteur AWS](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. Vous pouvez également sélectionner le groupe d'administration par défaut. Il stockera tous les comptes liés découverts. Vous pouvez configurer ce paramètre ultérieurement.
-7. Dans la section **Facturation**, sélectionnez **Facturer automatiquement le 1 % au niveau de la disponibilité générale** si vous souhaitez garantir un fonctionnement continu lorsque la préversion arrive à expiration. Si vous sélectionnez l’option automatique, vous devez sélectionner un abonnement de facturation.
-8. Pour **Role ARN** (Rôle ARN), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
-9. Pour **External ID** (ID externe), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
-10. Pour **Nom du rapport**, entrez le nom que vous avez créé dans AWS.
-11. Sélectionnez **Suivant**, puis **Créer**.
+3. Sous **Paramètres**, sélectionnez **Connecteurs pour AWS**.  
+4. Sélectionnez **+Ajouter** en haut de la page pour créer un connecteur.  
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exemple montrant le paramètre Connecteurs pour AWS" :::
+1. Dans la page **Créer un connecteur**, dans **Nom d’affichage**, entrez un nom pour votre connecteur.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exemple de page pour la création d’un connecteur AWS" :::
+1. Vous pouvez également sélectionner le groupe d'administration par défaut. Il stockera tous les comptes liés découverts. Vous pouvez configurer ce paramètre ultérieurement.
+1. Dans la section **Facturation**, définissez **Renouvellement automatiquement** sur **Oui** si vous voulez garantir un fonctionnement continu. Si vous sélectionnez l’option automatique, vous devez sélectionner un abonnement de facturation.
+1. Pour **Role ARN** (Rôle ARN), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
+1. Pour **External ID** (ID externe), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
+1. Pour **Nom du rapport**, entrez le nom que vous avez créé dans AWS.
+1. Sélectionnez **Suivant**, puis **Créer**.
 
 Il faudra peut-être quelques heures avant qu’apparaissent les nouvelles étendues AWS, le compte AWS consolidé, les comptes AWS liés et leurs données de coûts.
 
@@ -178,16 +177,19 @@ Attribuez des autorisations de connecteur aux utilisateurs si la découverte n'a
 - Vérifiez que les nouvelles étendues sont ajoutées à votre sélecteur d’étendue. Sélectionnez **Actualiser** pour afficher les données les plus récentes.
 - Sur la page **Connecteurs cloud**, sélectionnez votre connecteur, puis choisissez **Accéder au compte de facturation** pour attribuer le compte lié à des groupes d’administration.
 
-## <a name="manage-cloud-connectors"></a>Gérer les connecteurs cloud
+> [!NOTE]
+> Les groupes d’administration ne sont actuellement pas pris en charge pour les clients avec un Contrat client Microsoft (MCA). Les clients MCA peuvent créer le connecteur et visualiser leurs données AWS. Cependant, les clients MCA ne peuvent pas voir leurs coûts Azure et leurs coûts AWS ensemble dans un groupe d’administration.
 
-Lorsque vous sélectionnez un connecteur sur la page **Connecteurs cloud**, vous pouvez :
+## <a name="manage-aws-connectors"></a>Gérer les connecteurs AWS
+
+Quand vous sélectionnez un connecteur dans la page **Connecteurs pour AWS**, vous pouvez :
 
 - Sélectionner **Accéder au compte de facturation** pour afficher les informations relatives au compte AWS consolidé.
 - Sélectionner **Contrôle d'accès** pour gérer l'attribution de rôle pour le connecteur.
 - Sélectionner **Modifier** pour mettre à jour le connecteur. Vous ne pouvez pas modifier le numéro de compte AWS car il apparaît dans le rôle ARN. Mais vous pouvez créer un connecteur.
 - Sélectionnez **Vérifier** pour réexécuter le test de vérification afin de vous assurer que Cost Management peut collecter des données en utilisant les paramètres du connecteur.
 
-![Exemple de liste de connecteurs AWS créés](./media/aws-integration-setup-configure/list-aws-connectors.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Exemple de détails du connecteur AWS" :::
 
 ## <a name="set-up-azure-management-groups"></a>Configurer de groupes d’administration Azure
 
@@ -197,9 +199,9 @@ Si vous voulez séparer les coûts, vous pouvez créer un groupe d’administrat
 
 ## <a name="set-up-an-aws-consolidated-account"></a>Configurer un compte AWS consolidé
 
-Le compte AWS consolidé combine la facturation et le paiement pour plusieurs comptes AWS. Il sert également de compte AWS lié.
+Le compte AWS consolidé combine la facturation et le paiement pour plusieurs comptes AWS. Il sert également de compte AWS lié. Vous pouvez visualiser les détails de votre compte consolidé AWS en utilisant le lien figurant dans la page du connecteur AWS. 
 
-![Exemple de détail d'un compte AWS consolidé](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Exemple de détail d'un compte AWS consolidé" :::
 
 À partir de cette page, vous pouvez :
 
@@ -221,7 +223,7 @@ les ressources AWS sont créées et gérées dans le compte AWS lié. Un compte 
 - Sélectionner **Mettre à jour** pour mettre à jour l'association d’un compte AWS lié avec un groupe d'administration.
 - Sélectionner **Contrôle d'accès** afin de définir une attribution de rôle pour l’étendue.
 
-![Exemple de page de compte AWS lié](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Exemple de page de compte AWS lié" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Autorisations d'un compte AWS lié
 

@@ -4,12 +4,12 @@ description: Découvrez comment effectuer des restaurations au niveau du fichier
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: e74fd14c0f33c8633165029a18582b80810184a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8adb114685379112aee20ab600d37bc25ce700e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003506"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007619"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
 
@@ -23,7 +23,7 @@ Azure Backup crée des points de récupération stockés dans des coffres de ré
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite que vous exécutiez Azure CLI version 2.0.18 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -77,7 +77,7 @@ Si vous supprimez ou modifiez accidentellement un fichier, vous pouvez restaurer
 
 Pour restaurer vos fichiers, Sauvegarde Azure fournit un script à exécuter sur votre machine virtuelle, qui se connecte à votre point de récupération comme un lecteur local. Vous pouvez parcourir ce lecteur local, restaurer des fichiers sur la machine virtuelle, puis déconnecter le point de récupération. Sauvegarde Azure continue de sauvegarder vos données en fonction de la stratégie affectée à la planification et à la rétention.
 
-1. Pour répertorier les points de récupération de votre machine virtuelle, utilisez [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Dans cet exemple, nous sélectionnons le point de récupération le plus récent pour la machine virtuelle nommée *myVM* et qui est protégée dans *myRecoveryServicesVault*:
+1. Pour répertorier les points de récupération de votre machine virtuelle, utilisez [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Dans cet exemple, nous sélectionnons le point de récupération le plus récent pour la machine virtuelle nommée *myVM* et qui est protégée dans *myRecoveryServicesVault* :
 
     ```azurecli-interactive
     az backup recoverypoint list \

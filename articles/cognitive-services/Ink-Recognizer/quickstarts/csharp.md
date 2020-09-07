@@ -1,23 +1,26 @@
 ---
 title: 'Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#'
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide montre comment utiliser l’API Ink Recognizer pour commencer la reconnaissance des traits d’encre numérique.
+description: Ce guide de démarrage rapide montre comment utiliser l’API Ink Recognizer et C# pour commencer la reconnaissance des traits d’encre numérique.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: f61566c3d5efa7f973141253353fde7e4893bc6e
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986072"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051591"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Utilisez ce guide de démarrage rapide pour commencer à envoyer des traits d’encre numérique à l’API Ink Recognizer. Cette application C# envoie une requête d’API contenant des données de trait d’encre au format JSON, puis obtient la réponse.
 

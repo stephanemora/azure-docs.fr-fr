@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 86ce2b95cce82bd6d6877f83c3bc0b0496804c83
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d0d1ed2b082abe5930f358a2551a967dd158aa41
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875334"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376585"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour Python
 
@@ -68,7 +68,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Créer un principal du service
 
-Le moyen le plus simple d’authentifier une application .NET cloud consiste à utiliser une identité managée. Pour plus d’informations, consultez [Utiliser une identité managée App Service pour accéder à Azure Key Vault](../general/managed-identity.md).
+Le moyen le plus simple d’authentifier une application cloud consiste à utiliser une identité managée. Pour plus d’informations, consultez [S’authentifier auprès de Key Vault](../general/authentication.md).
 
 Cependant, pour des raisons de simplicité, ce guide de démarrage rapide crée une application pour poste de travail, qui nécessite l’utilisation d’un principal de service et d’une stratégie de contrôle d’accès. Votre principal de service nécessite un nom unique au format « http://&lt;nom_unique_mon_principal_de_service&gt; ».
 
@@ -239,6 +239,6 @@ print(" done.")
 
 Dans ce guide de démarrage rapide, vous avez créé un coffre de clés, stocké un certificat et récupéré ce certificat. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
-- Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
-- Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)
+- [Vue d’ensemble Azure Key Vault](../general/overview.md)
+- [Guide du développeur Azure Key Vault](../general/developers-guide.md)
+- [Bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)

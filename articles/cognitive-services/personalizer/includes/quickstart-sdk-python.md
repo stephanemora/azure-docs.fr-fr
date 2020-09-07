@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
-ms.custom: include file
-ms.date: 07/30/2020
-ms.openlocfilehash: aab4a59a35b098589adb462f2f0d6385802a9875
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: cog-serv-seo-aug-2020
+ms.date: 08/25/2020
+ms.openlocfilehash: 18fa74562b50ac832c7512351065bf8fedeba74f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246345"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055375"
 ---
 [Documentation de référence](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
@@ -21,28 +21,37 @@ ms.locfileid: "88246345"
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="créez une ressource Personalizer"  target="_blank">créer une ressource Personalizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Personalizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
-## <a name="using-this-quickstart"></a>Utilisation de ce guide de démarrage rapide
-
-
-Plusieurs étapes sont nécessaires pour utiliser ce guide de démarrage rapide :
-
-* Dans le portail Azure, créer une ressource Personalizer
-* Sur le portail Azure, pour la ressource Personalizer, dans la page **Configuration**, définissez la fréquence de mise à jour des modèles sur un intervalle très court.
-* Dans un éditeur de code, créer un fichier de code et le modifier
-* À partir de la ligne de commande ou du terminal, installer le SDK
-* À partir de la ligne de commande ou du terminal, exécuter le fichier de code
-
-[!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
+## <a name="setting-up"></a>Configuration
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
-## <a name="install-the-python-library-for-personalizer"></a>Installer la bibliothèque Python pour Personalizer
+### <a name="install-the-client-library"></a>Installer la bibliothèque de client
 
-Installez la bibliothèque de client Personalizer pour Python avec la commande suivante :
+Après avoir installé Python, vous pouvez installer la bibliothèque de client avec :
 
 ```console
 pip install azure-cognitiveservices-personalizer
+```
+
+### <a name="create-a-new-python-application"></a>Créer une application Python
+
+Créez un fichier Python et des variables pour le point de terminaison et la clé d’abonnement de votre ressource.
+
+[!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
+```python
+from azure.cognitiveservices.personalizer import PersonalizerClient
+from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
+from msrest.authentication import CognitiveServicesCredentials
+
+import datetime, json, os, time, uuid
+
+key = "<paste-your-personalizer-key-here>"
+endpoint = "<paste-your-personalizer-endpoint-here>"
 ```
 
 ## <a name="object-model"></a>Modèle objet
@@ -59,41 +68,64 @@ Dans le cadre de ce guide de démarrage rapide, il n’est pas important de dét
 
 Ces extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque de client Personalizer pour Python :
 
-* [Créer un client Personalizer](#create-a-personalizer-client)
+* [Authentifier le client](#authenticate-the-client)
 * [API Rank](#request-the-best-action)
 * [API Reward](#send-a-reward)
 
-## <a name="create-a-new-python-application"></a>Créer une application Python
+## <a name="authenticate-the-client"></a>Authentifier le client
 
-Créez une application Python dans votre éditeur ou IDE favori et nommez-la `sample.py`.
+Instanciez le `PersonalizerClient` avec votre `key` et votre `endpoint` que vous avez créés précédemment.
 
-## <a name="add-the-dependencies"></a>Ajouter les dépendances
-
-À partir du répertoire de projet, ouvrez le fichier **sample.py** dans votre éditeur ou votre IDE favori. Ajoutez ce qui suit :
-
-[!code-python[Add module dependencies](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=Dependencies)]
-
-## <a name="add-personalizer-resource-information"></a>Ajouter des informations sur la ressource Personalizer
-
-Modifiez les variables de clé et de point de terminaison en haut du fichier de code selon la clé et le point de terminaison Azure de votre ressource. 
-
-[!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=AuthorizationVariables)]
-
-## <a name="create-a-personalizer-client"></a>Créer un client Personalizer
-
-Ensuite, créez une méthode pour retourner un client Personalizer. Le paramètre de la méthode est `PERSONALIZER_RESOURCE_ENDPOINT` et l’ApiKey est `PERSONALIZER_RESOURCE_KEY`.
-
-[!code-python[Create the Personalizer client](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=Client)]
+```python
+# Instantiate a Personalizer client
+client = PersonalizerClient(endpoint, CognitiveServicesCredentials(key))
+```
 
 ## <a name="get-content-choices-represented-as-actions"></a>Représenter les choix de contenu sous forme d’actions
 
 Les actions représentent les choix de contenu parmi lesquels Personalizer doit sélectionner l’élément de contenu le mieux adapté. Ajoutez les méthodes suivantes à la classe Program pour représenter l’ensemble d’actions et leurs caractéristiques.
 
-[!code-python[Present time out day preference to the user](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=getActions)]
+```python
+def get_actions():
+    action1 = RankableAction(id='pasta', features=[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
+    action2 = RankableAction(id='ice cream', features=[{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
+    action3 = RankableAction(id='juice', features=[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
+    action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
+    return [action1, action2, action3, action4]
+```
 
-[!code-python[Present time out day preference to the user](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=createUserFeatureTimeOfDay)]
+```python
+def get_user_timeofday():
+    res={}
+    time_features = ["morning", "afternoon", "evening", "night"]
+    time = input("What time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n")
+    try:
+        ptime = int(time)
+        if(ptime<=0 or ptime>len(time_features)):
+            raise IndexError
+        res['time_of_day'] = time_features[ptime-1]
+    except (ValueError, IndexError):
+        print("Entered value is invalid. Setting feature value to", time_features[0] + ".")
+        res['time_of_day'] = time_features[0]
+    return res
+```
 
-[!code-python[Present food taste preference to the user](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=createUserFeatureTastePreference)]
+```python
+def get_user_preference():
+    res = {}
+    taste_features = ['salty','sweet']
+    pref = input("What type of food would you prefer? Enter number 1.salty 2.sweet\n")
+    
+    try:
+        ppref = int(pref)
+        if(ppref<=0 or ppref>len(taste_features)):
+            raise IndexError
+        res['taste_preference'] = taste_features[ppref-1]
+    except (ValueError, IndexError):
+        print("Entered value is invalid. Setting feature value to", taste_features[0]+ ".")
+        res['taste_preference'] = taste_features[0]
+    return res
+```
 
 ## <a name="create-the-learning-loop"></a>Créer la boucle d’apprentissage
 
@@ -101,7 +133,41 @@ La boucle d’apprentissage Personalizer est un cycle d’appels aux API [Rank](
 
 Le code ci-après applique, en boucle, le cycle suivant : il demande à l’utilisateur d’indiquer ses préférences à partir de la ligne de commande, il envoie ces informations à Personalizer en vue de sélectionner le contenu le mieux adapté, il présente la sélection au client qui peut faire son choix dans la liste, puis il envoie une récompense à Personalizer, en indiquant l’efficacité du service concernant le choix du contenu.
 
-[!code-python[The Personalizer learning loop ranks the request.](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=mainLoop&highlight=9,10,29)]
+```python
+keep_going = True
+while keep_going:
+
+    eventid = str(uuid.uuid4())
+
+    context = [get_user_preference(), get_user_timeofday()]
+    actions = get_actions()
+
+    rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
+    response = client.rank(rank_request=rank_request)
+    
+    print("Personalizer service ranked the actions with the probabilities listed below:")
+    
+    rankedList = response.ranking
+    for ranked in rankedList:
+        print(ranked.id, ':',ranked.probability)
+
+    print("Personalizer thinks you would like to have", response.reward_action_id+".")
+    answer = input("Is this correct?(y/n)\n")[0]
+
+    reward_val = "0.0"
+    if(answer.lower()=='y'):
+        reward_val = "1.0"
+    elif(answer.lower()=='n'):
+        reward_val = "0.0"
+    else:
+        print("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.")
+
+    client.events.reward(event_id=eventid, value=reward_val)
+
+    br = input("Press Q to exit, any other key to continue: ")
+    if(br.lower()=='q'):
+        keep_going = False
+```
 
 Ajoutez les méthodes suivantes, qui [obtiennent les choix de contenu](#get-content-choices-represented-as-actions) avant d’exécuter le fichier de code :
 
@@ -111,21 +177,32 @@ Ajoutez les méthodes suivantes, qui [obtiennent les choix de contenu](#get-cont
 
 ## <a name="request-the-best-action"></a>Demander l’action la mieux adaptée
 
-
 Pour traiter la requête Rank, le programme demande les préférences de l’utilisateur afin de créer un `currentContent` avec les choix de contenu. Le processus peut créer du contenu à exclure des actions (`excludeActions`). Pour recevoir la réponse, la requête Rank a besoin des actions et de leurs caractéristiques, des caractéristiques currentContext, des excludeActions et d’un ID d’événement unique.
 
 Ce guide de démarrage rapide utilise des caractéristiques de contexte simples basées sur l’heure de la journée et les préférences alimentaires de l’utilisateur. Dans les systèmes de production, il peut être important de déterminer et d’[évaluer](../concept-feature-evaluation.md) les [actions et caractéristiques](../concepts-features.md).
 
-[!code-python[The Personalizer learning loop ranks the request.](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=rank)]
+```python
+rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
+response = client.rank(rank_request=rank_request)
+```
 
 ## <a name="send-a-reward"></a>Envoyer une récompense
-
 
 Pour obtenir le score de récompense à envoyer dans la requête Reward, le programme récupère la sélection de l’utilisateur à partir de la ligne de commande, attribue une valeur numérique à la sélection, puis envoie à l’API Reward l’ID d’événement unique et le score de récompense sous la forme d’une valeur numérique.
 
 Dans le cadre de ce guide de démarrage rapide, un simple numéro est attribué en tant que score de récompense : 0 ou 1. Dans les systèmes de production, il peut être important de déterminer ce qui doit être envoyé à l’appel [Reward](../concept-rewards.md) (et à quel moment) selon vos besoins.
 
-[!code-python[The Personalizer learning loop sends a reward.](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=reward&highlight=9)]
+```python
+reward_val = "0.0"
+if(answer.lower()=='y'):
+    reward_val = "1.0"
+elif(answer.lower()=='n'):
+    reward_val = "0.0"
+else:
+    print("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.")
+
+client.events.reward(event_id=eventid, value=reward_val)
+```
 
 ## <a name="run-the-program"></a>Exécuter le programme
 

@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un pare-feu Azure avec Zones de disponibilité - Modèle Resource Manager'
-description: 'Déployez Pare-feu Azure à l’aide d’un modèle. Le réseau virtuel a un réseau virtuel avec trois sous-réseaux. Deux machines virtuelles Windows Server sont déployées : un serveur de rebond et un serveur.'
+description: 'Dans ce guide de démarrage rapide, vous déployez un pare-feu Azure à l’aide d’un modèle. Le réseau virtuel a un réseau virtuel avec trois sous-réseaux. Deux machines virtuelles Windows Server sont déployées : un serveur de rebond et un serveur.'
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705127"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071718"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle ARM
 

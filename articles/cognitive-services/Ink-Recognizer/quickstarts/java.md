@@ -1,24 +1,26 @@
 ---
 title: 'Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et Java'
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’API Ink Recognizer pour commencer la reconnaissance des traits d’encre numérique dans ce guide de démarrage rapide.
+description: Utilisez l’API Ink Recognizer et Java pour commencer la reconnaissance des traits d’encre numérique dans ce guide de démarrage rapide.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371547"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051574"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et Java
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Utilisez ce guide de démarrage rapide pour commencer à appliquer l’API Ink Recognizer aux traits d’encre numérique. Cette application Java envoie une requête d’API contenant des données de trait d’encre au format JSON, puis obtient la réponse.
 

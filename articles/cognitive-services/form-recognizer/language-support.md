@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723909"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918432"
 ---
 # <a name="language-support-for-form-recognizer"></a>Prise en charge linguistique pour Form Recognizer
 
@@ -26,11 +26,11 @@ Cet article liste les langues prises en charge par le service Form Recognizer (p
 |:-----|:----:|:-----:|:---:|:---:|
 |Chinois (simplifié) | `zh-Hans`| | ✔ |
 |Néerlandais | `nl` | |✔ |
-|Anglais | `en` |✔ |
+|Anglais (imprimé et manuscrit) | `en` |✔ |
 |Français | `fr` | |✔ |
 |Allemand | `de` | |✔ |
 |Italien | `it` | |✔ |
 |Portugais | `pt` | |✔ |
 |Espagnol | `es` | |✔ |
 
-* Form Recognizer v2.1 (préversion publique) prend en charge ces langues pour les opérations `Analyze Layout` et `Train Custom Model` (_Effectuer l’entraînement avec des étiquettes_ et _Effectuer l’entraînement sans étiquettes_). `Analyze Receipt` et `Analyze Business Card` sont pris en charge en anglais uniquement.
+* La préversion publique de Form Recognizer v2.1 prend en charge ces langues pour la disposition et la personnalisation. Les reçus prédéfinis et les cartes de visite prédéfinies sont pris en charge uniquement en anglais.

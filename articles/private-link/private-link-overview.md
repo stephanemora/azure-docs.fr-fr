@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2959507b8b9275ee2b7a9ebd8159e0014e932c0
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639695"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181661"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -62,7 +62,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 |Azure Relay | Toutes les régions publiques      |  | PRÉVERSION <br/> [En savoir plus](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Toutes les régions publiques<br/> Toutes les régions administratives       |  | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | Toutes les régions publiques      | Prise en charge avec les fonctions PremiumV2 Windows et Linux et Élastique Premium  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | USA Est, USA Ouest 2      |  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | USA EST, USA CENTRE SUD, USA OUEST 2      |  | PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | Toutes les régions publiques |  | PRÉVERSION | |
 | Azure IoT Hub | Toutes les régions publiques    |  | GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | USA Est, USA Ouest 2, USA Centre Sud      |  | PRÉVERSION   <br/> [En savoir plus](https://aka.ms/asrs/privatelink)   |

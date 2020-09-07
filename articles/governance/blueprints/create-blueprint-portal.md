@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un blueprint dans le portail'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts via le portail Azure.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045210"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051520"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
@@ -61,7 +61,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**.
 
-   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
+   1. Enlevez le focus de la fonction **Rechercher** pour appliquer le filtre. Sélectionnez **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 

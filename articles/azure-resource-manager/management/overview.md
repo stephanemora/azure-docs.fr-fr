@@ -2,13 +2,14 @@
 title: Présentation d’Azure Resource Manager
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
-ms.date: 04/21/2020
-ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/01/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087025"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293946"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
@@ -68,25 +69,33 @@ Vous pouvez déployer des modèles sur des locataires, des groupes d’administr
 
 Lorsque vous définissez votre groupe de ressources, vous devez prendre en compte certains facteurs importants :
 
-* Toutes les ressources de votre groupe doivent partager le même cycle de vie. Les opérations de déploiement, de mise à jour et de suppression porteront sur toutes les ressources du groupe. Si l’une des ressources, comme un serveur, doit exister dans un autre cycle de déploiement, elle doit se trouver à un autre groupe de ressources.
+* Toutes les ressources de votre groupe de ressources doivent partager le même cycle de vie. Les opérations de déploiement, de mise à jour et de suppression porteront sur toutes les ressources du groupe. Si l’une des ressources, comme un serveur, doit exister dans un autre cycle de déploiement, elle doit se trouver à un autre groupe de ressources.
 
 * Chaque ressource ne peut exister que dans un seul groupe de ressources.
-
-* Certaines ressources peuvent exister en dehors d’un groupe de ressources. Ces ressources sont déployées dans l’[abonnement](../templates/deploy-to-subscription.md), le [groupe d’administration](../templates/deploy-to-management-group.md) ou le [locataire](../templates/deploy-to-tenant.md). Seuls des types de ressources spécifiques sont pris en charge dans ces étendues.
 
 * Vous pouvez à tout moment ajouter ou supprimer une ressource au niveau d’un groupe de ressources.
 
 * Vous pouvez déplacer une ressource d’un groupe de ressources vers un autre groupe. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](move-resource-group-and-subscription.md).
 
-* Un groupe de ressources peut contenir des ressources figurant dans différentes régions.
+* Les ressources d’un groupe de ressources peuvent se trouver dans des régions autres que celle du groupe de ressources.
 
-* Un groupe de ressources peut être utilisé pour définir l’étendue du contrôle d’accès des actions administratives.
+* Lorsque vous créez un groupe de ressources, vous devez indiquer un emplacement pour ce groupe. Vous vous demandez peut-être « Pourquoi un groupe de ressources a-t-il besoin un emplacement ? Et, si les ressources peuvent avoir des emplacements différents de celui du groupe de ressources, pourquoi l’emplacement du groupe de ressources a-t-il une importance ? ». Le groupe de ressources stocke des métadonnées sur les ressources. Lorsque vous spécifiez un emplacement pour le groupe de ressources, vous indiquez où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
 
-* Une ressource peut interagir avec celles d’autres groupes de ressources. Cette interaction est courante quand les deux ressources sont liées, mais qu’elles ne partagent pas le même cycle de vie (par exemple, des applications web connectées à une base de données).
+   Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour plus d’informations sur la conception d’applications fiables, consultez [Concevoir des applications Azure fiables](/azure/architecture/checklist/resiliency-per-service).
 
-Lorsque vous créez un groupe de ressources, vous devez indiquer un emplacement pour ce groupe. Vous vous demandez peut-être « Pourquoi un groupe de ressources a-t-il besoin un emplacement ? Et, si les ressources peuvent avoir des emplacements différents de celui du groupe de ressources, pourquoi l’emplacement du groupe de ressources a-t-il une importance ? ». Le groupe de ressources stocke des métadonnées sur les ressources. Lorsque vous spécifiez un emplacement pour le groupe de ressources, vous indiquez où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
+* Un groupe de ressources peut être utilisé pour définir l’étendue du contrôle d’accès des actions administratives. Pour gérer un groupe de ressources, vous pouvez affecter des [stratégies Azure](../../governance/policy/overview.md), des [rôles RBAC](../../role-based-access-control/role-assignments-portal.md) ou des [verrous de ressources](lock-resources.md).
 
-Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour plus d’informations sur la conception d’applications fiables, consultez [Concevoir des applications Azure fiables](/azure/architecture/checklist/resiliency-per-service).
+* Vous pouvez [appliquer des étiquettes](tag-resources.md) à un groupe de ressources. Les ressources présentes dans le groupe de ressources n’héritent pas de ces étiquettes.
+
+* Une ressource peut se connecter à des ressources se trouvant dans d’autres groupes de ressources. Ce scénario est courant quand les deux ressources sont liées mais qu’elles ne partagent pas le même cycle de vie. Par exemple, vous pouvez avoir une application web qui se connecte à une base de données se trouvant dans un groupe de ressources différent.
+
+* Quand vous supprimez un groupe de ressources, toutes les ressources présentes dans ce groupe sont également supprimées. Pour obtenir des informations sur la façon dont Azure Resource Manager orchestre ces suppressions, consultez [Suppression d’un groupe de ressources et de ressources Azure Resource Manager](delete-resource-group.md).
+
+* Vous pouvez déployer jusqu’à 800 instances d’un type de ressource dans chaque groupe de ressources. Certains types de ressources sont [exemptés de la limite de 800 instances](resources-without-resource-group-limit.md).
+
+* Certaines ressources peuvent exister en dehors d’un groupe de ressources. Ces ressources sont déployées dans l’[abonnement](../templates/deploy-to-subscription.md), le [groupe d’administration](../templates/deploy-to-management-group.md) ou le [locataire](../templates/deploy-to-tenant.md). Seuls des types de ressources spécifiques sont pris en charge dans ces étendues.
+
+* Pour créer un groupe de ressources, vous pouvez utiliser le [portail](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) ou un [modèle Azure Resource Manager (ARM)](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Résilience d’Azure Resource Manager
 

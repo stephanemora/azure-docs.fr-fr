@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252570"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013943"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT
 
@@ -30,6 +30,8 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Consultez le hub en cours d’exécution dans l’emplacement secondaire.
 > * Effectuer une restauration automatique pour ramener les opérations d’IoT hub à l’emplacement principal. 
 > * Confirmer que le hub s’exécute correctement dans l’emplacement approprié.
+
+Pour plus d’informations sur le basculement manuel et le basculement initié par Microsoft avec IoT Hub, consultez [de récupération d’urgence inter-région](iot-hub-ha-dr.md#cross-region-dr).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -83,7 +85,7 @@ Notez qu’il existe une limite de deux basculements et deux restaurations par j
 
    La quantité de temps nécessaire pour effectuer le basculement manuel est proportionnelle au nombre d’appareils qui sont inscrits pour votre hub. Par exemple, si vous avez 100 000 appareils,cela peut prendre 15 minutes, mais si vous avez cinq millions d’appareils, cela peut prendre une heure ou plus.
 
-   ![Capture d’écran montrant le volet de basculement manuel](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Capture d’écran montrant le volet de confirmation](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    Pendant l’exécution du processus de basculement manuel, une bannière s’affiche pour vous indiquer qu’un basculement manuel est en cours. 
 

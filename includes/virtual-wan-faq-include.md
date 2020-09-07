@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604697"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304103"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -249,9 +249,12 @@ Quand un circuit ExpressRoute est connecté à un hub virtuel, les routeurs de p
 
 Le comportement actuel consiste à préférer le chemin du circuit ExpressRoute à la connectivité de hub à hub pour la connectivité de réseau virtuel à réseau virtuel. Toutefois, cela n’est pas recommandé dans une configuration de réseau WAN virtuel. L’équipe Virtual WAN travaille sur un correctif pour activer la préférence pour la connectivité de hub à hub par rapport au chemin ExpressRoute. La recommandation est de faire en sorte que plusieurs circuits ExpressRoute (différents fournisseurs) se connectent à un seul hub et utilisent la connectivité de hub à hub fournie par Virtual WAN pour les flux de trafic inter-régionaux.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Des hubs peuvent-ils être créés dans différents groupes de ressources dans Virtual WAN ?
+Oui. Cette option est actuellement disponible avec PowerShell uniquement. Le portail Virtual WAN impose que les hubs soient dans le même groupe de ressources que la ressource Virtual WAN proprement dite.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
 
-IPv6 n’est pas pris en charge dans le hub Virtual WAN et ses passerelles. Si vous disposez d’un réseau virtuel qui prend en charge IPv6 et que vous voulez le connecter à Virtual WAN, ce scénario n’est pas pris en charge actuellement.
+IPv6 n’est pas pris en charge dans le hub Virtual WAN et ses passerelles. Si vous disposez d’un réseau virtuel qui prend en charge IPv4 et IPv6, et que vous voulez le connecter à Virtual WAN, ce scénario n’est pas pris en charge actuellement. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Quelle est la version d’API recommandée pour une utilisation par les scripts qui automatisent différentes fonctionnalités de Virtual WAN ?
 

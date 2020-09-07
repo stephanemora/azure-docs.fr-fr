@@ -5,16 +5,16 @@ description: Découvrez ce qui a changé dans la nouvelle version d’Azure Digi
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826821"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181423"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>En quoi la nouvelle version d’Azure Digital Twins est-elle différente de la version précédente (2018) ?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Qu’est-ce que la nouvelle version Azure Digital Twins ? En quoi est-elle différente de la version précédente (2018) ?
 
 La première préversion publique d’Azure Digital Twins a été publiée en octobre 2018. Alors que les principaux concepts de cette version précédente ont été transférés dans le nouveau service en préversion publique, la plupart des interfaces et détails d’implémentation ont été modifiés et le service a ainsi gagné en flexibilité et en accessibilité. Ces modifications ont été motivées par les commentaires envoyés par les clients.
 
@@ -44,5 +44,4 @@ Pour obtenir la liste des limites Azure Digital Twins pendant cette préversion 
 
 Apprenez à utiliser Azure Digital Twins en suivant le premier tutoriel :
 
-> [!div class="nextstepaction"]
-> [*Tutoriel : Coder une application cliente*](tutorial-code.md)
+[*Tutoriel : Coder une application cliente*](tutorial-code.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893911"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055462"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
@@ -26,6 +26,10 @@ Le guide de démarrage rapide contient les étapes importantes qui suivent :
 1. Charger des modèles prédéfinis et des données de graphe pour construire l’exemple de scénario
 1. Explorer le graphe de scénario créé
 1. Apporter des modifications au graphe
+
+L’exemple de graphe avec lequel vous allez travailler représente un bâtiment comprenant deux étages et deux pièces. Le graphe ressemblera à ceci :
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vue d’un graphe constitué de quatre nœuds circulaires reliés par des flèches. Un cercle nommé « Floor1 » est relié par une flèche nommée « contains » à un cercle intitulé « Room1 » ; un cercle nommé « Floor0 » est relié par une flèche nommée « contains » à un cercle intitulé « Room0 ». « Floor1 » et « Floor0 » ne sont pas reliés entre eux.":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -98,7 +102,7 @@ Cliquez sur le bouton *Se connecter* situé en haut de la fenêtre pour configur
 Entrez les informations importantes que vous avez collectées précédemment dans la section [Prérequis](#prerequisites) :
 * ID d’application (client)
 * ID de l’annuaire (locataire)
-* URL ADT, au format *https://<instance host name>*
+* URL ADT, au format *https://{nom d’hôte de l’instance}*
 
 >[!NOTE]
 > Vous pouvez modifier ces informations à tout moment en sélectionnant cette même icône afin de vous connecter. Les valeurs que vous avez passées auront été conservées.
@@ -170,7 +174,7 @@ Dans la section *Vue du graphe*, cliquez sur l’icône *Importer le graphe*.
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Dans la section Vue du graphe, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Dans le sélecteur de fichiers, revenez au dossier *client/examples*, puis choisissez la feuille de calcul _**buildingScenario.xlsx**_. Ce fichier contient une description de l’exemple de graphe. Appuyez sur OK.
+Dans le sélecteur de fichiers, accédez au dossier *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* et choisissez la feuille de calcul _**buildingScenario.xlsx**_. Ce fichier contient une description de l’exemple de graphe. Appuyez sur OK.
 
 Après quelques secondes, ADT Explorer ouvre la vue *Importer* dans laquelle vous voyez un aperçu du graphe qui va être chargé.
 

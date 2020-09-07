@@ -1,18 +1,18 @@
 ---
 title: Tutoriel - Créer et modifier un circuit avec ExpressRoute
-description: Dans ce tutoriel, découvrez comment créer, provisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute.
+description: Dans ce tutoriel, vous découvrez comment créer, provisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/20/2018
-ms.author: cherylmc
-ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 09/01/2020
+ms.author: duau
+ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74813158"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322135"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutoriel : Création et modification d’un circuit ExpressRoute
 
@@ -25,7 +25,15 @@ ms.locfileid: "74813158"
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
 
-Cet article vous explique comment créer un circuit ExpressRoute à l’aide du Portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état d’un circuit, le mettre à jour, le supprimer ou le déprovisionner.
+Ce tutoriel vous montre comment créer un circuit ExpressRoute à l’aide du Portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état d’un circuit, le mettre à jour, le supprimer ou le déprovisionner.
+
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Création d’un circuit ExpressRoute
+> * Obtenir l'état actuel d’un circuit
+> * Modifier un circuit
+> * Déprovisionner et supprimer un circuit
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -47,38 +55,51 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 Vous pouvez créer un circuit ExpressRoute en sélectionnant l'option permettant de créer une ressource. 
 
-1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. Sélectionnez **Réseaux** > **ExpressRoute**, comme illustré dans l’image suivante :
+1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**. Sélectionnez **Réseaux** > **ExpressRoute**, comme illustré dans l’image suivante :
 
-   ![Création d’un circuit ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Création d’un circuit ExpressRoute":::
 
-2. Après avoir cliqué sur **ExpressRoute**, vous voyez s’afficher la page **Créer un circuit ExpressRoute**. Lorsque vous entrez les valeurs dans cette page, veillez à spécifier le niveau de référence (SKU) approprié (Standard ou Premium) et le modèle de facturation des données (Illimitées ou Limitées).
+2. Après avoir cliqué sur **ExpressRoute**, vous voyez s’afficher la page **Créer ExpressRoute**. Indiquez le **groupe de ressources**, la **région** et le **nom** du circuit. Cliquez ensuite sur **Suivant : Configuration >** .
 
-   ![Configurer le niveau de référence (SKU) et la limitation des données](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configurer le groupe de ressources et la région":::
 
-   * **niveau** détermine si ExpressRoute standard ou un module complémentaire ExpressRoute Premium est activé. Vous pouvez spécifier **Standard** pour obtenir la référence (SKU) standard ou **Premium** pour le module complémentaire Premium.
-   * **Limitation des données** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
+3. Lorsque vous entrez les valeurs dans cette page, veillez à spécifier le niveau de référence (SKU) approprié (Local, Standard ou Premium) et le modèle de facturation des données (Illimitées ou Limitées).
 
-     > [!IMPORTANT]
-     > En revanche, vous ne pouvez pas modifier le type de **Illimité** à **Limité**.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configurer le circuit":::
+    
+    * **Type de port** détermine si vous vous connectez à un fournisseur de services ou directement au réseau global de Microsoft dans un emplacement de peering.
+    * **Créer ou importer à partir d’un classique** détermine si un nouveau circuit est en cours de création ou si vous migrez un circuit classique vers ARM.
+    * Le **fournisseur** est le service Internet à partir duquel vous allez demander votre service.
+    * L’**Emplacement de peering** est l’emplacement physique où vous effectuez le peering auprès de Microsoft.
 
-   * L’**Emplacement de peering** est l’emplacement physique où vous effectuez le peering auprès de Microsoft.
+    > [!IMPORTANT]
+    > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.
 
-     > [!IMPORTANT]
-     > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.
+    * La **référence SKU** détermine si un module complémentaire ExpressRoute local, ExpressRoute standard ou ExpressRoute premium est activé. Vous pouvez spécifier **Local** pour obtenir la référence SKU locale, **Standard** pour obtenir la référence SKU standard ou **Premium** pour le module complémentaire Premium.
+    * Le **modèle de facturation** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
+
+    > [!IMPORTANT]
+    > En revanche, vous ne pouvez pas modifier le type de **Illimité** à **Limité**.
+
+    * **Autoriser les opérations classiques** permet de lier des réseaux virtuels classiques au circuit.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. Afficher les circuits et les propriétés
 
 **Afficher tous les circuits**
 
-Vous pouvez afficher tous les circuits que vous avez créés en sélectionnant **Toutes les ressources** dans le menu de gauche.
+Vous pouvez afficher tous les circuits que vous avez créés en sélectionnant **Tous les services > Mise en réseau > circuit ExpressRoute** dans le menu de gauche.
 
-![Afficher les circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menu du circuit ExpressRoute":::
+
+Tous les circuits Expressroute créés dans l’abonnement s’affichent ici.
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Liste du circuit ExpressRoute":::
 
 **Afficher les propriétés**
 
-Vous pouvez afficher les propriétés du circuit en sélectionnant celui-ci. Dans la page **Vue d’ensemble** de votre circuit, la clé de service s’affiche dans le champ du même nom. Vous devez copier la clé de service pour votre circuit, puis la transmettre au fournisseur de services pour terminer le processus d’approvisionnement. La clé de service du circuit est spécifique de votre circuit.
+Vous pouvez afficher les propriétés du circuit en sélectionnant celui-ci. Dans la page **Vue d’ensemble** de votre circuit, la clé de service s’affiche dans le champ du même nom. Faites référence à la clé de service de votre circuit, puis transmettez-la au fournisseur de services pour terminer le processus d’approvisionnement. La clé de service est spécifique à votre circuit.
 
-![Afficher les propriétés](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Afficher les propriétés":::
 
 ### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Envoyer la clé de service à votre fournisseur de connectivité pour l’approvisionnement
 
@@ -86,26 +107,26 @@ Dans cette page, **Statut du fournisseur** fournit des informations sur l’éta
 
 Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
-État du fournisseur : non approvisionné<BR>
-État du circuit : activé
+État du fournisseur : **Non approvisionné**<BR>
+État du circuit : **Activé**
 
-![Lancer le processus d’approvisionnement](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Lancer le processus d’approvisionnement":::
 
 Le circuit passe à l’état suivant quand le fournisseur de connectivité est sur le point de l’activer pour vous :
 
-État du fournisseur : Approvisionnement<BR>
-État du circuit : activé
+État du fournisseur : **Approvisionnement**<BR>
+État du circuit : **Activé**
 
 Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
-État du fournisseur : approvisionné<BR>
-État du circuit : activé
+État du fournisseur : **Approvisionné**<BR>
+État du circuit : **Activé**
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Vérifier régulièrement le statut et l’état de la clé du circuit
 
 Vous pouvez afficher les propriétés du circuit qui vous intéressent en le sélectionnant. Vérifiez le **Statut du fournisseur** et vérifiez qu’il est passé à **Approvisionné** avant de continuer.
 
-![Statut du circuit et du fournisseur](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Statut du circuit et du fournisseur":::
 
 ### <a name="6-create-your-routing-configuration"></a>6. Créer votre configuration de routage
 
@@ -137,7 +158,7 @@ Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 * Modifiez le plan de mesure de *Données limitées* en *Données illimitées*.
 
   > [!IMPORTANT]
-  > La modification du plan de limitation de Données illimitées à Données limitées n’est pas prise en charge.
+  > La modification du plan de limitation de **Données illimitées** à **Données limitées** n’est pas prise en charge.
 
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
   > [!IMPORTANT]
@@ -149,15 +170,19 @@ Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
 Pour modifier un circuit ExpressRoute, cliquez sur **Configuration**.
 
-![Modifier le circuit](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modifier le circuit":::
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 
-Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer** . Notez les informations suivantes :
+Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est **En cours d’approvisionnement** ou **Approvisionné**, vous devez vous mettre en relation avec votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
 
-* Vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
-* Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est **En cours d’approvisionnement** ou **Approvisionné**, vous devez vous mettre en relation avec votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
-* Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur **Non approvisionné**), vous pouvez supprimer le circuit. Cette opération arrête la facturation du circuit.
+> [!NOTE]
+>* Vous devez dissocier *tous les réseaux virtuels* du circuit ExpressRoute avant le déprovisionnement. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
+>* Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur **Non approvisionné**), vous pouvez supprimer le circuit. Cette opération arrête la facturation du circuit.
+
+Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer**. 
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Supprimer le circuit":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

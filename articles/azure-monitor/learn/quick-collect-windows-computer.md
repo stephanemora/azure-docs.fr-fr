@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 726caa0c4a7bbd6b8d0c17ffdfade5f9cc3c2a34
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324316"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020369"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Collecter des données à partir d’un ordinateur Windows dans un environnement hybride avec Azure Monitor
 
 [Azure Monitor](../overview.md) est capable de collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels de votre environnement dans un espace de travail Log Analytics pour ensuite procéder à une analyse et à une mise en corrélation détaillées. L’installation de l’[agent Log Analytics](../platform/log-analytics-agent.md) permet à Azure Monitor de collecter des données à partir d’un centre de données ou d’un autre environnement cloud. Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples. Pour obtenir des informations sur les machines virtuelles Windows Azure, consultez [Collecter des données sur les machines virtuelles Azure](./quick-collect-azurevm.md).  
 
-Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation Windows pris en charge](../platform/log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](../platform/log-analytics-agent.md#network-requirements).
+Pour comprendre la configuration prise en charge, consultez [Systèmes d’exploitation pris en charge](../platform/agents-overview.md#supported-operating-systems) et [Configuration du pare-feu réseau](../platform/log-analytics-agent.md#network-requirements).
  
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
