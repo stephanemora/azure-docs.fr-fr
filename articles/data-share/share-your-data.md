@@ -1,17 +1,17 @@
 ---
 title: 'Tutoriel : Partager en dehors de votre organisation - Azure Data Share'
 description: Tutoriel - Partager des données avec des clients et des partenaires via Azure Data Share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/28/2020
+ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511971"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259062"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
 
@@ -73,7 +73,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
-1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
+1. Sélectionnez le bouton du menu en haut à gauche du portail, puis **Créer une ressource** (+).
 
 1. Recherchez *Data Share*.
 
@@ -83,17 +83,17 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Nom | *datashareacount* | Spécifiez un nom pour votre compte de partage de données. |
     | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour votre compte de partage de données.|
-    | Resource group | *test-resource-group* | Utilisez un groupe de ressources existant ou créez-en un. |
-    | Emplacement | *USA Est 2* | Sélectionnez une région pour votre compte de partage de données.
+    | Groupe de ressources | *test-resource-group* | Utilisez un groupe de ressources existant ou créez-en un. |
+    | Emplacement | *USA Est 2* | Sélectionnez une région pour votre compte de partage de données.
+    | Nom | *datashareaccount* | Spécifiez un nom pour votre compte de partage de données. |
     | | |
 
-1. Sélectionnez **Créer** pour provisionner votre compte de partage de données. En règle générale, le provisionnement d’un nouveau compte de partage de données prend environ 2 minutes au maximum. 
+1. Sélectionnez **Vérifier + créer** puis **Créer** pour provisionner votre compte de partage de données. En règle générale, le provisionnement d’un nouveau compte de partage de données prend environ 2 minutes au maximum. 
 
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
 
-## <a name="create-a-data-share"></a>Créer un partage Data Share
+## <a name="create-a-share"></a>Créer un partage
 
 1. Accédez à la page de présentation de votre partage Data Share.
 
@@ -103,15 +103,15 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Sélectionnez **Create** (Créer).   
 
-1. Indiquez les détails relatifs à votre partage Data Share. Spécifiez un nom, un type de partage, une description du contenu du partage et des conditions d’utilisation (facultatif). 
+1. Renseignez les détails de votre partage. Spécifiez un nom, un type de partage, une description du contenu du partage et des conditions d’utilisation (facultatif). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Entrer les détails de partage") 
 
-1. Sélectionnez **Continue** (Continuer)
+1. Sélectionnez **Continuer**.
 
-1. Pour ajouter des jeux de données à votre partage Data Share, sélectionnez **Add Datasets** (Ajouter des jeux de données). 
+1. Pour ajouter des jeux de données à votre partage, sélectionnez **Add Datasets** (Ajouter des jeux de données). 
 
-    ![Groupes de données](./media/datasets.png "Groupes de données")
+    ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
 1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure SQL Data Warehouse, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
 
@@ -125,7 +125,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
     ![AddRecipients](./media/add-recipient.png "Ajouter des destinataires") 
 
-1. Sélectionnez **Continue** (Continuer)
+1. Sélectionnez **Continuer**.
 
 1. Si vous avez sélectionné le type de partage d’instantané, vous pouvez configurer la planification d’instantanés pour fournir des mises à jour de vos données à votre consommateur de données. 
 
@@ -133,9 +133,9 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Sélectionnez une heure de début et un intervalle de périodicité. 
 
-1. Sélectionnez **Continue** (Continuer)
+1. Sélectionnez **Continuer**.
 
-1. Sous l’onglet Review + Create (Revoir + Créer), passez en revue le contenu du package, les paramètres, les destinataires ainsi que les paramètres de synchronisation. Sélectionnez **Créer**
+1. Sous l’onglet Review + Create (Revoir + Créer), passez en revue le contenu du package, les paramètres, les destinataires ainsi que les paramètres de synchronisation. Sélectionnez **Create** (Créer).
 
 Votre partage Azure Data Share est désormais créé. Le destinataire de votre partage Data Share est maintenant prêt à accepter votre invitation. 
 

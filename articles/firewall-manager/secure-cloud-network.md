@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420819"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079113"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure Firewall Manager
 
@@ -32,6 +32,10 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Déployer les serveurs
 > * Créer une stratégie de pare-feu et sécuriser votre hub
 > * Tester le pare-feu
+
+## <a name="prerequisites"></a>Prérequis
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Créer une architecture hub and spoke
 
@@ -270,6 +274,10 @@ Testez à présent la règle de réseau.
 
 Maintenant que vous avez vérifié que la règle de réseau du pare-feu fonctionne :
 * Vous pouvez connecter un bureau à distance à un serveur situé dans un autre réseau virtuel.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Lorsque vous avez terminé de tester vos ressources de pare-feu, supprimez le groupe de ressources **fw-manager** afin de supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

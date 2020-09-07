@@ -4,12 +4,12 @@ description: Découvrez comment restaurer un disque et créer une machine virtue
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141344"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890667"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurer une machine virtuelle avec Azure CLI
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurer un disque de machine virtuelle
 
 > [!IMPORTANT]
-> Nous vous recommandons vivement d’utiliser AZ CLI version 2.0.74 ou ultérieure pour bénéficier de tous les avantages d’une restauration rapide, notamment la restauration de disque managé. Il est préférable que l’utilisateur utilise toujours la version la plus récente.
+> Nous vous recommandons vivement d’utiliser AZ CLI version 2.0.74 ou ultérieure pour bénéficier de tous les avantages d’une restauration rapide, notamment la restauration de disque managé. Il est préférable de toujours utiliser la version la plus récente.
 
 ### <a name="managed-disk-restore"></a>Restauration de disque managé
 
@@ -88,7 +88,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
     ```
 
     > [!WARNING]
-    > Si target-resource-group n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Les clients bénéficient de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre target-resource-group mais plutôt le paramètre restore-as-unmanaged-disk, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
+    > Si **target-resource-group** n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk**, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,11 +101,11 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
     --restore-as-unmanaged-disk
     ```
 
-Cette opération restaure les disques managés en disques non managés dans le compte de stockage donné, et ne bénéficie pas de la fonctionnalité de restauration « instantanée ». Dans les versions ultérieures de l’interface CLI, la fourniture du paramètre target-resource-group ou du paramètre « restore-as-unmanaged-disk » sera obligatoire.
+Cette opération restaure les disques managés en disques non managés dans le compte de stockage donné, et ne bénéficie pas de la fonctionnalité de restauration « instantanée ». Dans les versions ultérieures de l’interface CLI, la fourniture du paramètre **target-resource-group** ou du paramètre **restore-as-unmanaged-disk** sera obligatoire.
 
 ### <a name="unmanaged-disks-restore"></a>Restauration de disques non managés
 
-Si la machine virtuelle sauvegardée contient des disques non managés et si l’objectif est de restaurer des disques à partir du point de récupération, vous devez d’abord spécifier un compte Stockage Azure. Ce compte sert à stocker la configuration de la machine virtuelle et le modèle de déploiement qui peut par la suite être utilisé pour déployer la machine virtuelle à partir des disques restaurés. Par défaut, les disques non managés sont restaurés dans leur compte de stockage d’origine. Si l’utilisateur souhaite restaurer tous les disques non managés à un seul emplacement, le compte de stockage donné peut également être utilisé comme emplacement intermédiaire pour ces disques.
+Si la machine virtuelle sauvegardée contient des disques non managés et si l’objectif est de restaurer des disques à partir du point de récupération, vous devez d’abord spécifier un compte Stockage Azure. Ce compte sert à stocker la configuration de la machine virtuelle et le modèle de déploiement qui peut par la suite être utilisé pour déployer la machine virtuelle à partir des disques restaurés. Par défaut, les disques non managés sont restaurés dans leur compte de stockage d’origine. Si vous souhaitez restaurer tous les disques non managés à un seul emplacement, le compte de stockage donné peut également être utilisé comme emplacement intermédiaire pour ces disques.
 
 À travers des étapes supplémentaires, le disque restauré est utilisé pour créer une machine virtuelle.
 

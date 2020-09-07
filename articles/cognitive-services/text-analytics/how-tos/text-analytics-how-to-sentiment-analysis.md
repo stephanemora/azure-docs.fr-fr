@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/18/2020
+ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141243"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933016"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -40,7 +40,7 @@ Analyse des sentiments prend en charge une large palette de langues, et plus de 
 
 Analyse des sentiments v3 applique des étiquettes de sentiment au texte, qui sont retournées au niveau de la phrase et du document avec un score de confiance pour chacune d’elles. 
 
-Les étiquettes sont `positive`, `negative` et `neutral`. Au niveau du document, l’étiquette de sentiment `mixed` peut aussi être retournée. Le sentiment du document est déterminé comme suit :
+Les étiquettes sont *positive* (positif), *negative* (négatif) et *neutral* (neutre). Au niveau du document, l’étiquette de sentiment *mixed* (mixte) peut aussi être retournée. Le sentiment du document est déterminé comme suit :
 
 | Sentiment des phrases                                                                            | Étiquette de document retournée |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Les étiquettes sont `positive`, `negative` et `neutral`. Au niveau du document,
 | Le document contient au moins une phrase `negative` et au moins une phrase `positive`.    | `mixed`                 |
 | Toutes les phrases du document sont de type `neutral`.                                                  | `neutral`               |
 
-Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1.
+Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Pour chaque document ou chaque phrase, les scores prédits associés aux étiquettes (positif, négatif et neutre) donnent la somme de 1.
 
 ### <a name="opinion-mining"></a>Exploration des opinions
 

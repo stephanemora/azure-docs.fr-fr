@@ -4,12 +4,12 @@ description: Décrit comment évaluer des machines virtuelles Hyper-V locales po
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: eae7e2d371ed8156debe9ae24cf0744bd6273943
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86114242"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950270"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -75,15 +75,23 @@ Azure Migrate Server Assessment utilise une appliance Azure Migrate légère. L�
 
 Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment, configurez-la pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
+### <a name="generate-the-azure-migrate-project-key"></a>Générer la clé de projet Azure Migrate
+
+1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
+2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec Hyper-V**.
+3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l'appliance Azure Migrate que vous allez configurer pour la détection de machines virtuelles Hyper-V. Il doit s'agir d'un nom alphanumérique de 14 caractères maximum.
+1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Détecter des machines pendant la création des ressources.
+1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
+1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
+
 ### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
 
-Téléchargez le modèle de disque dur virtuel compressé pour l’appliance.
+Dans **2 : Télécharger l'appliance Azure Migrate**, sélectionnez le fichier .VHD et cliquez sur **Télécharger**. 
 
-1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur **Découvrir**.
-2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , cliquez sur **Oui, avec Hyper-V**.
-3. Cliquez sur **Télécharger** pour télécharger le fichier de disque dur virtuel.
+   ![Sélections relatives à Détecter des machines](./media/tutorial-assess-hyper-v/servers-discover.png)
 
-    ![Télécharger la machine virtuelle](./media/tutorial-assess-hyper-v/download-appliance-hyperv.png)
+
+   ![Sélections pour la génération de la clé](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
 
 ### <a name="verify-security"></a>Vérifier la sécurité
@@ -102,13 +110,13 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
         **Scénario** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,93 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (10,4 Go) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Pour Azure Government :
 
         **Scénario*** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+        Hyper-V (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140424) |  8025f315e41c01ebdb4ffb1de87982ae6cc4ea7c4cce612612c7e90a44e79b44
 
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
@@ -151,25 +159,27 @@ Configurez l’appliance pour la première fois.
 3. Ouvrez un navigateur sur une machine qui peut se connecter à la machine virtuelle, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
 
    Vous pouvez aussi ouvrir l’application à partir du Bureau de l’appliance en cliquant sur le raccourci de l’application.
+1. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
 1. Dans l’application web > **Configurer les prérequis**, procédez comme suit :
-    - **Licence** : Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - **Connectivité** : L’application vérifie que la machine virtuelle a accès à Internet. Si la machine virtuelle utilise un proxy :
-      - Cliquez sur **Paramètres du proxy** et spécifiez l’adresse du proxy et le port d’écoute, sous la forme http://ProxyIPAddress ou http://ProxyFQDN.
+      - Cliquez sur **Configurer le proxy**, puis spécifiez l'adresse du proxy (sous la forme http://ProxyIPAddress ou http://ProxyFQDN) ) et le port d'écoute.
       - Spécifiez les informations d’identification si le proxy nécessite une authentification.
       - Seuls les proxys HTTP sont pris en charge.
+      - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte des machines virtuelles fonctionne correctement.
-    - **Installer les mises à jour** : Azure Migrate Server Assessment vérifie que les dernières mises à jour sont installées sur l’appliance.
+    - **Installer les mises à jour** : Azure Migrate Server Assessment vérifie que les dernières mises à jour sont installées sur l'appliance. Au terme de la vérification, vous pouvez cliquer sur **Afficher les services de l'appliance** pour voir l'état et les versions des composants exécutés sur l'appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
-    - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
-    - La connexion avec un code PIN n’est pas prise en charge.
-3. Une fois la connexion réussie, revenez à l’application web.
-4. Sélectionnez l’abonnement où le projet Azure Migrate a été créé. Sélectionnez ensuite le projet.
-5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
-6. Cliquez sur **S'inscrire**.
+1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Évaluation de serveur > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Cliquez sur **Connexion**. Une invite de connexion Azure s’ouvre dans un nouvel onglet du navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
+1. Sous le nouvel onglet, connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure.
+   
+   La connexion avec un code PIN n’est pas prise en charge.
+3. Une fois la connexion établie, revenez à l’application web. 
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-hyper-v.md#prepare-azure) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
+
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Déléguer des informations d’identification pour les disques durs virtuels sur SMB
@@ -201,16 +211,27 @@ Vous pouvez également effectuer cette opération dans l’éditeur d’objets d
 
 Connectez-vous de l’appliance à des hôtes ou des clusters Hyper-V, et démarrez la découverte des machines virtuelles.
 
-1. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte que l’appliance doit utiliser pour découvrir les machines virtuelles. Spécifiez un nom convivial pour les informations d’identification, puis cliquez sur **Enregistrer les détails**.
-2. Cliquez sur **Ajouter un hôte**, puis spécifiez les détails de l’hôte/du cluster Hyper-V.
-3. Cliquez sur **Valider**. Après la validation, le nombre de machines virtuelles qui peuvent être découvertes sur chaque hôte/cluster s’affiche.
-    - Si la validation échoue pour un hôte, examinez l’erreur en pointant sur l’icône dans la colonne **État**. Corrigez les problèmes et recommencez la validation.
-    - Pour supprimer des hôtes ou des clusters, sélectionnez > **Supprimer**.
+1. À l’**Étape 1 : Fournir les informations d'identification de l'hôte Hyper-V**, cliquez sur **Ajouter les informations d'identification** afin de spécifier un nom convivial pour les informations d'identification, puis ajoutez un **Nom d'utilisateur** et un **Mot de passe** pour l'hôte/le cluster Hyper-V que l'appliance utilisera afin de détecter les machines virtuelles. Cliquez sur **Save**(Enregistrer).
+1. Si vous souhaitez ajouter plusieurs informations d'identification à la fois, cliquez sur **Ajouter** pour enregistrer et ajouter d'autres informations d'identification. Plusieurs informations d'identification peuvent être prises en charge pour la détection de machines virtuelles Hyper-V.
+1. À l’**Étape 2 : Fournir les détails de l'hôte/du cluster Hyper-V**, cliquez sur **Ajouter une source de détection** afin de spécifier l'**adresse IP/nom de domaine complet** de l'hôte/du cluster Hyper-V ainsi que le nom convivial des informations d'identification à utiliser pour la connexion à l'hôte/au cluster.
+1. Vous pouvez soit **Ajouter un seul élément**  à la fois, soit **Ajouter plusieurs éléments**  en une seule fois. Une option permet également de connaître les détails de l'hôte/du cluster Hyper-V via **Importer CSV**.
+
+    ![Sélections relatives à l'ajout d'une source de détection](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+
+    - Si vous choisissez **Ajouter un seul élément**, vous devez spécifier un nom convivial pour les informations d'identification ainsi que l'**adresse IP/nom de domaine complet** de l'hôte/du cluster Hyper-V, puis cliquer sur **Enregistrer**.
+    - Si vous choisissez **Ajouter plusieurs éléments** _(sélectionné par défaut)_ , vous pouvez ajouter plusieurs enregistrements à la fois en spécifiant l'**adresse IP/nom de domaine complet** de l'hôte/du cluster Hyper-V avec le nom convivial des informations d'identification dans la zone de texte. **Vérifiez** les enregistrements ajoutés et cliquez sur **Enregistrer**.
+    - Si vous choisissez **Importer CSV**, vous pouvez télécharger un fichier de modèle CSV, puis renseigner le fichier avec l'**adresse IP/nom de domaine complet** de l'hôte/du cluster Hyper-V ainsi qu'un nom convivial pour les informations d'identification. Importez ensuite le fichier dans l'appliance, **vérifiez** les enregistrements dans le fichier, puis cliquez sur **Enregistrer**.
+
+1. Dès que vous cliquerez sur Enregistrer, l'appliance essaiera de valider la connexion aux hôtes/clusters Hyper-V ajoutés et affichera l'**État de validation** dans le tableau pour chaque hôte/cluster.
+    - Pour les hôtes/clusters validés avec succès, vous pouvez afficher plus de détails en cliquant sur leur adresse IP/nom de domaine complet.
+    - Si la validation d'un hôte échoue, examinez l'erreur en cliquant sur **Échec de validation** dans la colonne État du tableau. Réglez le problème et recommencez la validation.
+    - Pour supprimer des hôtes ou des clusters, cliquez sur **Supprimer**.
     - Vous ne pouvez pas supprimer un hôte spécifique d’un cluster. Vous pouvez supprimer seulement la totalité du cluster.
     - Vous pouvez ajouter un cluster, même s’il existe des problèmes avec des hôtes spécifiques dans le cluster.
-4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
+1. Vous pouvez **revalider** la connectivité aux hôtes/clusters à tout moment avant de lancer la détection.
+1. Cliquez sur **Démarrer la détection** pour lancer la détection des machines virtuelles à partir des hôtes/clusters validés. Une fois la détection lancée, vous pouvez vérifier son état pour chaque hôte/cluster du tableau.
 
-Ceci démarre la découverte. Il faut environ 1,5 minutes par hôte pour que les métadonnées des serveurs détectés apparaissent dans le portail Azure.
+Ceci démarre la découverte. Il faut environ 2 minutes par hôte pour que les métadonnées des serveurs détectés apparaissent sur le portail Azure.
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
 

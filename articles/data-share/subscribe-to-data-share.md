@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258628"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268891"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -38,7 +38,7 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 * Autorisation d’écrire dans le compte de stockage, qui est présent dans *Microsoft.Storage/storageAccounts/write*. Cette autorisation existe dans le rôle Contributeur. 
 * Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle Propriétaire.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Recevoir des données dans une source SQL :
+### <a name="receive-data-into-a-sql-based-target"></a>Recevoir des données dans une cible basée sur SQL :
 
 * Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur. 
 * Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à la base de données Azure SQL ou à l’entrepôt de données Azure SQL. Pour ce faire, procédez comme suit : 
@@ -78,7 +78,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    Pour ouvrir l’invitation directement à partir du portail Azure, recherchez **Invitations Azure Data Share** dans le portail Azure. Vous accédez à la liste des invitations Data Share.
 
-   ![Invitations](./media/invitations.png "Liste des invitations") 
+   ![Liste des invitations](./media/invitations.png "Liste des invitations") 
 
 1. Sélectionnez le partage que vous souhaitez voir. 
 

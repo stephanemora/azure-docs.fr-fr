@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment gérer les bases de
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007296"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Gérer des bases de données SAP HANA sur une machine virtuelle Azure à l’aide d’Azure CLI
 
@@ -119,7 +119,7 @@ Vous pouvez arrêter la protection d’une base de données SAP HANA de deux man
 
 Si vous choisissez de conserver les points de récupération, gardez à l’esprit les considérations suivantes :
 
-* Tous les points de récupération resteront intacts, toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
+* Tous les points de récupération resteront intacts et toutes les opérations de nettoyage s’arrêteront à l’arrêt de la protection avec données conservées.
 * Vous serez facturé pour l’instance protégée et le stockage utilisé.
 * Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes échouent.
 

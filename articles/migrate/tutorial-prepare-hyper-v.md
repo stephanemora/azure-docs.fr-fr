@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des machi
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109618"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928919"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Préparer l’évaluation et la migration de machines virtuelles Hyper-V vers Azure
 
@@ -38,6 +38,7 @@ Le tableau récapitule les tâches que vous devez effectuer dans Azure. Des inst
 **Créer un projet Azure Migrate** | Un projet Azure Migrate fournit un emplacement central pratique pour orchestrer et gérer les évaluations et les migrations à l’aide des outils Azure Migrate, des outils Microsoft et des outils tiers. | Votre compte Azure doit avoir des autorisations de Contributeur ou de Propriétaire dans le groupe de ressources où le projet réside.
 **Inscrire l’appliance** | Azure Migrate utilise une appliance Azure Migrate légère pour détecter et évaluer les machines virtuelles Hyper-V. [Plus d’informations](migrate-appliance-architecture.md#appliance-registration) | Pour inscrire l’appliance, votre compte Azure doit avoir des autorisations de Contributeur ou de Propriétaire sur l’abonnement Azure.
 **Créer une application Azure AD** | Lors de l’inscription de l’appliance, Azure Migrate crée une application Azure AD (Azure Active Directory). Celle-ci permet la communication entre les agents s’exécutant sur l’appliance et Azure Migrate. | Votre compte Azure doit être autorisé à créer des applications Azure AD.
+**Créer un coffre de clés** | Le coffre Key Vault est créé dans le cadre de l’inscription de l’appliance et est utilisé pour la gestion du certificat téléchargé sur l’appliance lors de sa configuration.| Pour permettre à Azure Migrate de créer le coffre Key Vault, votre compte Azure requiert les autorisations Contributeur sur le groupe de ressources dans lequel réside le projet Azure Migrate.
 **Créer une machine virtuelle** | Vous devez avoir les autorisations nécessaires pour créer une machine virtuelle dans le groupe de ressources et le réseau virtuel, et pour écrire sur un disque managé Azure. | Votre compte Azure doit avoir le rôle Contributeur de machines virtuelles.
 
 
@@ -81,6 +82,7 @@ L’administrateur général/locataire peut accorder des autorisations comme sui
 #### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications
 
 L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+
 
 ### <a name="assign-azure-account-permissions"></a>Affecter des autorisations de compte Azure
 

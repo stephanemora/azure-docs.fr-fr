@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des machi
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109573"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927304"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
@@ -36,8 +36,8 @@ Le tableau récapitule les tâches que vous devez effectuer dans Azure. Les inst
 --- | --- | ---
 **Créer un projet Azure Migrate** | Un projet Azure Migrate fournit un emplacement central pratique pour orchestrer et gérer les évaluations et les migrations à l’aide des outils Azure Migrate, des outils Microsoft et des outils tiers. | Votre compte Azure doit avoir des autorisations de Contributeur ou de Propriétaire dans le groupe de ressources où le projet réside.
 **Inscrire l’appliance** | Azure Migrate utilise une appliance Azure Migrate légère pour détecter les machines virtuelles, les évaluer avec l’outil Évaluation de serveur et les migrer en utilisant la migration sans agent de l’outil Migration de serveur. [En savoir plus](migrate-appliance-architecture.md#appliance-registration) sur l’inscription. | Pour inscrire l’appliance, votre compte Azure doit avoir des autorisations de Contributeur ou de Propriétaire sur l’abonnement Azure.
-**Créer des applications Azure AD** | Lors de l’inscription d’une appliance, Azure Migrate crée des applications Azure AD (Azure Active Directory). <br/><br/> - La première application est utilisée pour la communication entre les agents exécutés sur l’appliance et Azure Migrate. <br/><br/> - La deuxième application est exclusivement utilisée pour accéder au coffre de clés créé dans l’abonnement de l’utilisateur pour la migration de machines virtuelles VMware sans agent.   | Votre compte Azure doit être autorisé à créer des applications Azure AD.
-**Créer un coffre de clés** | Pour migrer des machines virtuelles VMware avec la méthode de migration sans agent, Azure Migrate crée un coffre Key Vault pour gérer les clés d’accès au compte de réplication dans votre abonnement. | Pour permettre à Azure Migrate de créer le coffre Key Vault, vous devez définir des autorisations (Propriétaire ou Contributeur et Administrateur de l’accès utilisateur) sur le groupe de ressources où réside le projet Azure Migrate.
+**Créer des applications Azure AD** | Lors de l’inscription d’une appliance, Azure Migrate crée deux applications Azure Active Directory (Azure AD). <br/><br/> - La première application est utilisée pour la communication entre les agents exécutés sur l’appliance et Azure Migrate. <br/><br/> - La deuxième application est exclusivement utilisée pour accéder au coffre de clés créé dans l’abonnement de l’utilisateur pour la migration de machines virtuelles VMware sans agent.   | Votre compte Azure a besoin de ces [autorisations](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) pour créer des applications Azure AD.
+**Créer un coffre de clés** | - Le premier coffre Key Vault est créé dans le cadre de l’inscription de l’appliance et est utilisé pour la gestion du certificat téléchargé sur l’appliance lors de sa configuration. <br/><br/> \- Pour migrer des machines virtuelles VMware avec la méthode de migration sans agent, Azure Migrate crée un autre coffre Key Vault pour gérer les clés d’accès au compte de réplication dans votre abonnement.| Pour permettre à Azure Migrate de créer le coffre Key Vault, vous devez définir des autorisations (Propriétaire ou Contributeur et Administrateur de l’accès utilisateur) sur le groupe de ressources où réside le projet Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet

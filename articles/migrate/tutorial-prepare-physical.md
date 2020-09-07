@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des serve
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420785"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927372"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -40,6 +40,7 @@ Configurez Azure pour qu’il fonctionne avec Azure Migrate.
 **Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour créer un projet. 
 **Inscrire des fournisseurs de ressources (évaluation uniquement)** | Azure Migrate utilise une appliance Azure Migrate légère pour découvrir et évaluer les machines à l’aide d’Azure Migrate : Évaluation du serveur.<br/><br/> Lors de l’inscription d’appliances, les fournisseurs de ressources sont inscrits auprès de l’abonnement choisi dans l’appliance. [Plus d’informations](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.
 **Créer une application Azure AD (évaluation uniquement)** | Lors de l’inscription de l’appliance, Azure Migrate crée une application Azure AD (Azure Active Directory). Celle-ci est utilisée pour la communication entre les agents s’exécutant sur l’appliance et leurs services respectifs s’exécutant sur Azure. [Plus d’informations](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Vous devez disposer d’autorisations pour créer des applications Azure AD (disponibles dans le rôle Développeur d’applications).
+**Créer un coffre de clés** | Le coffre Key Vault est créé dans le cadre de l’inscription de l’appliance et est utilisé pour la gestion du certificat téléchargé sur l’appliance lors de sa configuration.<br/><br/>Pour permettre à Azure Migrate de créer le coffre Key Vault, votre compte Azure requiert les autorisations Contributeur sur le groupe de ressources dans lequel réside le projet Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet 

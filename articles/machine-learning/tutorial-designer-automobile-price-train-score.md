@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290293"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812982"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Un certain nombre d’exemples de jeux de données que vous pouvez expérimenter
 
 Vous pouvez visualiser les données pour comprendre le jeu de données que vous allez utiliser.
 
-1. Sélectionnez le module **Automobile price data (Raw)** .
-
-1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux**.
-
-1. Sélectionnez l’icône de graphique pour visualiser les données.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texte de remplacement ici.":::
+1. Cliquez avec le bouton droit sur **Données sur le prix des véhicules automobiles (brutes)** , puis sélectionnez **Visualiser**.
 
 1. Cliquez sur différentes colonnes dans la fenêtre de données pour visualiser des informations les concernant.
 
@@ -291,9 +285,7 @@ Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer 
 
 Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécution du pipeline. Tout d’abord, examinez les prédictions générées par le modèle de régression.
 
-1. Sélectionnez le module **Score Model** pour afficher sa sortie.
-
-1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Cliquez avec le bouton droit sur le module **Score Model** (Noter le modèle) et sélectionnez **Visualiser** pour afficher sa sortie.
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
@@ -303,9 +295,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
 Utilisez **Evaluate Model** pour voir ce que donne le modèle entraîné sur le jeu de données de test.
 
-1. Sélectionnez le module **Evaluate Model** pour afficher sa sortie.
-
-1. Dans le volet de détails du module à droite du canevas, sélectionnez **Sorties + journaux** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Cliquez avec le bouton droit sur le module **Evaluate Model** (Évaluer le modèle) et sélectionnez **Visualiser** pour afficher sa sortie.
 
 Les statistiques suivantes s’affichent pour votre modèle :
 
