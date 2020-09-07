@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fou
 ms.topic: tutorial
 ms.date: 07/24/2020
 titleSuffix: Azure
-ms.openlocfilehash: 2268300f711a939ed808d1f39bbde1653e8832c8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212334"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950253"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
 
@@ -53,7 +53,7 @@ Ce didacticiel présente les procédures suivantes :
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>À propos de l’extension IA OpenVINO™ Model Server d’Intel
 La distribution Intel® du [kit de ressources OpenVINO™](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (inférence visuelle ouverte et optimisation de réseau neuronal) est un kit logiciel gratuit qui permet aux développeurs et aux scientifiques des données d’accélérer les charges de travail de vision par ordinateur, de rationaliser l’inférence et les déploiements de deep learning, et de bénéficier d’exécutions simples et hétérogènes sur toutes les plateformes Intel®, de la périphérie au cloud. Elle comprend le kit de ressources de déploiement deep learning d’Intel® avec optimiseur de modèle et moteur d’inférence, ainsi que le référentiel [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) qui comprend plus de 40 modèles pré-entraînés et optimisés.
 
-Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à l’[extension IA OpenVINO™ Model Server d’Intel](https://aka.ms/lva-intel-ovms), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. Ce module de serveur d’inférence contient OpenVINO™ Model Server (OVMS), un serveur d’inférence tirant parti du kit de ressources OpenVINO™, hautement optimisé pour les charges de travail de vision par ordinateur et développé pour les architectures Intel. Une extension a été ajoutée à OVMS pour faciliter l’échange de trames vidéo et de résultats d’inférence entre le serveur inférence et le module Live Video Analytics sur IoT Edge, ce qui vous permet d’exécuter n’importe quel modèle OpenVINO pris en charge (vous pouvez personnaliser le module de serveur d’inférence en modifiant le code disponible [ici](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Vous pouvez de plus choisir parmi la large gamme de mécanismes d’accélération fournis par le matériel Intel, notamment les processeurs (Atom, Core, Xeon), FPGA et VPU.
+Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à l’[extension IA OpenVINO™ Model Server d’Intel](https://aka.ms/lva-intel-ovms), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. Ce module de serveur d’inférence contient OpenVINO™ Model Server (OVMS), un serveur d’inférence tirant parti du kit de ressources OpenVINO™, hautement optimisé pour les charges de travail de vision par ordinateur et développé pour les architectures Intel®. Une extension a été ajoutée à OVMS pour faciliter l’échange de trames vidéo et de résultats d’inférence entre le serveur inférence et le module Live Video Analytics sur IoT Edge, ce qui vous permet d’exécuter n’importe quel modèle de boîte à outils OpenVINO™ pris en charge (vous pouvez personnaliser le module de serveur d’inférence en modifiant le [code](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Vous pouvez de plus choisir parmi la large gamme de mécanismes d’accélération fournis par le matériel Intel®. notamment les processeurs (Atom, Core, Xeon), FPGA et VPU.
 
 Dans la version initiale de ce serveur d’inférence, vous avez accès aux [modèles](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models) suivants :
 

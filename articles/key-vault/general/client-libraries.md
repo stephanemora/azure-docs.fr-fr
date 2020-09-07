@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9cc8c1e9406f6b92a445cd52a4ad26e71d83ef5a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 34321ac9baf3d3cb43dace33b574cb582c2d72a0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263782"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378948"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Bibliothèques de client pour Azure Key Vault
 
@@ -34,4 +34,4 @@ Chaque SDK a des bibliothèques de client distinctes pour les secrets, les clés
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consulter le [Guide du développeur Azure Key Vault](developers-guide.md)
-- En savoir plus sur l’[identité managée pour Azure Key Vault](managed-identity.md)
+- En savoir plus sur [l’authentification auprès du coffre de clés](authentication.md)
