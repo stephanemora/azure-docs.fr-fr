@@ -29,6 +29,8 @@
           href: quickstart-service-python.md
 - name: Tutoriels
   items:
+    - name: Connecter un appareil multicomposant (C)
+      href: tutorial-multiple-components-c.md
     - name: Connecter un appareil multicomposant (C#)
       href: tutorial-multiple-components-csharp.md
     - name: Connecter un appareil multicomposant (Java)
