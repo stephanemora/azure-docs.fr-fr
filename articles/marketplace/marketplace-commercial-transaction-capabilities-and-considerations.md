@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 1b0600b164186097bc41a7e4d655e32bb2d0acbd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704958"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318775"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -144,6 +144,8 @@ Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et ver
 |Microsoft vous verse 80 % des revenus générés par les licences <br> \* Microsoft paie 90 % de vos coûts de licence pour les applications SaaS qualifiées   |   80 $/mois <br> \* 90 $/mois    |
 |Microsoft conserve 20 % des revenus générés par les licences <br> \* Microsoft conserve 10 % de vos coûts de licence pour les applications SaaS qualifiées  |  20 $/mois <br> \* 10 $     |
 
+### <a name="reduced-service-fee"></a>Frais de service réduits
+
 Pour certaines offres publiées sur notre marketplace commercial, Microsoft réduit les frais de service du marketplace de 20 % (cf. [Contrat d’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Les frais de service réduits du marketplace s’appliquent aux offres SaaS de co-vente Azure IP incitatives, aux machines virtuelles, aux applications managées et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Tarification, paiement, facturation et collecte côté client
@@ -183,6 +185,7 @@ Cette section décrit la configuration requise pour les différents types d’of
 
 - Un compte Microsoft et des informations financières sont requis pour l’offre de publication Transaction, quel que soit son modèle de tarification.
 - Les informations financières obligatoires comprennent un compte de paiement et un profil fiscal.
+- L’éditeur doit résider dans un [pays ou une région pris en charge](sell-from-countries.md).
 
 Pour plus d’informations sur la configuration de ces comptes, consultez [Gestion de votre compte de la place de marché commerciale dans l’Espace partenaires](partner-center-portal/manage-account.md).
 

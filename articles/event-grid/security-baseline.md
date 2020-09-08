@@ -6,13 +6,13 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7c331fcbb013243cbd724d0c9337ce80fa1bedbd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752689"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394378"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Base de référence de sécurité Azure pour Event Grid
 
@@ -58,7 +58,7 @@ le trafic.
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
-**Aide** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -804,7 +804,9 @@ Utilisez les identités managées conjointement avec Azure Key Vault afin de sim
 
 - [Créer un coffre de clés](/azure/key-vault/quick-create-portal)
 
-- [Fournir une authentification Key Vault avec une identité managée](/azure/key-vault/managed-identity)
+- [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
+
+- [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center** : Oui
 

@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031283"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320968"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -97,9 +97,9 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 
 1. Ouvrez le modèle Resource Manager.
 
-1. Ajoutez une nouvelle ressource dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
+1. Ajoutez une nouvelle ressource de type [Microsoft. Resources/Deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
-1. Entrez la valeur GUID après le préfixe `pid-` (par exemple, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Entrez la valeur du GUID derrière le préfixe `pid-`, en tant que nom de la ressource. Par exemple, si le GUID est eb7927c8-dd66-43e1-b0cf-c346a422063, le nom de la ressource est _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Recherchez d’éventuelles erreurs dans le modèle.
 
@@ -112,11 +112,11 @@ Pour ajouter un identificateur global unique (GUID), vous devez apporter une mod
 Pour activer les ressources de suivi pour votre modèle, vous devez ajouter la ressource supplémentaire suivante dans la section des ressources. Veillez à modifier l’exemple de code ci-dessous avec vos propres entrées lorsque vous l’ajoutez au fichier modèle principal.
 Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Pour Python, utilisez l’attribut **config**. Vous pouvez uniquement ajouter l�
 
 > [!NOTE]
 > Ajoutez l’attribut à chaque client. Il n’existe aucune configuration statique globale. Vous pouvez baliser une fabrique de clients pour vous assurer que chaque client effectue un suivi. Pour plus d’informations, consultez cet [exemple de fabrique de clients sur GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### <a name="example-the-net-sdk"></a>Exemple : Le kit de développement logiciel (SDK) .NET
+
+Pour .NET, veillez à définir l’agent utilisateur. La bibliothèque [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) peut être utilisée pour définir l’agent utilisateur avec le code suivant (exemple en C#) :
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Baliser un déploiement à l’aide d’Azure PowerShell
 
@@ -339,7 +353,7 @@ Vous pouvez créer une offre de machine virtuelle dans la place de marché à l�
 
 **La mise à jour de la propriété *contentVersion* du modèle principal a échoué ?**
 
-Un bogue peut parfois survenir lorsque le modèle est déployé à l’aide d’un élément TemplateLink issu d’un autre modèle qui s’attend à une version plus ancienne de contentVersion pour une raison quelconque. La solution de contournement consiste à utiliser la propriété de métadonnées :
+Il s’agit probablement d’un bogue quand le modèle est déployé à l’aide d’un élément TemplateLink issu d’un autre modèle, qui attend une version plus ancienne de contentVersion pour une raison quelconque. La solution de contournement consiste à utiliser la propriété de métadonnées :
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

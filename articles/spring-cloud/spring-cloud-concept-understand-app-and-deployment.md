@@ -7,18 +7,20 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 81e1925810f374da6f02bf6c3a013b00b5bb9a2c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263809"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297533"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Comprendre l’application et le déploiement dans Azure Spring Cloud
 
-**L’application** et **le déploiement** sont les deux concepts clés du modèle de ressources Azure Spring Cloud. Dans Azure Spring Cloud, une *application* est l’abstraction d’une application métier ou d’un microservice.  Une version de code ou de binaire déployée comme *application* s’exécute dans un *déploiement*.
+**L’application** et **le déploiement** sont les deux concepts clés du modèle de ressources Azure Spring Cloud. Dans Azure Spring Cloud, une *application* est l’abstraction d’une application métier ou d’un microservice.  Une version de code ou de binaire déployée comme *application* s’exécute dans un *déploiement*.  Les applications s’exécutent dans *une instance du service Azure Spring Cloud* ou simplement dans un *instance de service*, comme indiqué ci-dessous.
 
  ![Applications et déploiements](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+
+Vous pouvez avoir plusieurs instances de service au sein d’un seul abonnement Azure, mais le service Azure Spring Cloud est la plus facile à utiliser lorsque toutes les applications qui composent une application métier ou un microservice résident dans une instance de service unique.
 
 Le niveau Standard d’Azure Spring Cloud permet à une application de disposer d’un déploiement de production et d’un déploiement intermédiaire, ce qui vous permet d’effectuer facilement un déploiement bleu/vert.
 

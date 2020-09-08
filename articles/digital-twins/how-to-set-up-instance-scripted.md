@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587971"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298281"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -55,9 +55,16 @@ Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud 
     * Pour l’instance : un nom de *groupe de ressources*. Vous pouvez utiliser un groupe de ressources existant ou entrer un nouveau nom pour en créer un.
     * Pour l’instance : un *nom* de votre instance Azure Digital Twins. Le nom de la nouvelle instance doit être unique dans la région pour votre abonnement (ce qui signifie que si votre abonnement a une autre instance Azure Digital Twins dans cette région, qui utilise déjà le nom que vous choisissez, vous devrez choisir un autre nom).
     * Pour l’inscription de l’application : un *nom d’affichage d’application Azure AD* à associer à l’inscription. Cette inscription d’application est l’emplacement où vous configurez les autorisations d’accès aux [API d’Azure Digital Twins](how-to-use-apis-sdks.md). Plus tard, l’application cliente s’authentifie auprès de l’inscription de l’application et les autorisations d’accès configurées sont alors accordées aux API.
-    * Pour l’inscription de l’application : une *URL de réponse de l’application Azure AD* pour l’application Azure AD. Vous pouvez utiliser `http://localhost`.
+    * Pour l’inscription de l’application : une *URL de réponse de l’application Azure AD* pour l’application Azure AD. Utiliser `http://localhost`. Le script configure un URI de *Client public/natif (mobile et bureau)* pour l’application.
 
 Le script créera une instance Azure Digital Twins, attribuera à votre utilisateur Azure le rôle de *propriétaire Azure Digital Twins (préversion)* sur l’instance et configurera une inscription d’application Azure AD que votre application cliente utilisera.
+
+>[!NOTE]
+>Il existe actuellement un **problème connu** avec l’installation par script, qui a pour effet que certains utilisateurs (en particulier, des utilisateurs de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnel) peuvent découvrir que l’**attribution de rôle au _Propriétaire d’Azure Digital Twins (préversion)_ n’a pas été créée**.
+>
+>Vous pourrez vérifier l’attribution de rôle à l’aide de la section [*Vérifier l’attribution du rôle utilisateur*](#verify-user-role-assignment) plus loin dans cet article et, si nécessaire, configurer manuellement l’attribution de rôle à l’aide du [portail Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou de [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Pour plus de détails sur ce problème, consultez [*Résolution des problèmes : Problèmes connus dans Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Voici un extrait du journal de sortie du script :
 
@@ -127,5 +134,9 @@ Tout d’abord, vérifiez que les paramètres des autorisations Azure Digital Tw
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :
+Testez les appels d’API REST individuels sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
+
+Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :
 * [*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)

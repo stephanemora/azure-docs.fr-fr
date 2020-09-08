@@ -9,16 +9,16 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/15/2020
+ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6ce142f196da9207dd26b1917190ebdcba50fe74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527967"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002995"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure (PowerShell et Azure CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Vous avez besoin des autorisations de compte suivantes pour configurer le groupe
 - Un compte d’utilisateur de domaine existant qui dispose d’une autorisation de **création d’objet ordinateur** dans le domaine. Par exemple, un compte d’administrateur de domaine dispose généralement d’une autorisation suffisante (par exemple : account@domain.com). _Ce compte doit également faire partie du groupe administrateur local sur chaque machine virtuelle pour créer le cluster._
 - Le compte d’utilisateur du domaine qui contrôle SQL Server. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Étape 1 : Créer un compte de stockage en tant que témoin de cloud
+## <a name="create-a-storage-account-as-a-cloud-witness"></a>Créer un compte de stockage en tant que témoin de cloud
 Le cluster a besoin d’un compte de stockage configuré en tant que témoin de cloud. Vous pouvez utiliser un compte de stockage existant ou en créer un. Si vous voulez utiliser un compte de stockage existant, passez à la section suivante. 
 
 L’extrait de code suivant crée le compte de stockage : 
@@ -77,11 +77,10 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
     -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
     -AccessTier Hot -EnableHttpsTrafficOnly
 ```
+
 ---
 
-
-
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>Étape 2 : Définir les métadonnées de cluster de basculement Windows
+## <a name="define-windows-failover-cluster-metadata"></a>Définir les métadonnées de cluster de basculement Windows
 
 Le groupe de commandes [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) d’Azure CLI gère les métadonnées du service Cluster de basculement Windows Server (WSFC) qui héberge le groupe de disponibilité. Les métadonnées de cluster englobent le domaine Active Directory, les comptes de cluster, les comptes de stockage à utiliser en tant que témoin de cloud et la version de SQL Server. Utilisez [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) pour définir les métadonnées de WSFC de sorte qu’à la première machine virtuelle SQL Server ajoutée, le cluster soit créé comme défini. 
 
@@ -126,7 +125,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ---
 
-## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Étape 3 : Ajouter des machines virtuelles SQL Server au cluster
+## <a name="add-vms-to-the-cluster"></a>Ajouter des machines virtuelles au cluster
 
 Ajouter la première machine virtuelle SQL Server au cluster permet de créer le cluster. La commande [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) crée le cluster avec le nom précédemment attribué, installe le rôle de cluster sur les machines virtuelles SQL Server et les ajoute au cluster. Les utilisations suivantes de la commande `az sql vm add-to-group` ajoutent des machines virtuelles SQL Server supplémentaires au cluster nouvellement créé. 
 
@@ -185,14 +184,14 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 ---
 
-## <a name="step-4-create-the-availability-group"></a>Étape 4 : Créez le groupe de disponibilité
+## <a name="create-availability-group"></a>Créer un groupe de disponibilité
 
 Créez manuellement le groupe de disponibilité comme vous le feriez normalement, en utilisant [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > Ne créez *pas* d’écouteur pour l’instant, car cette opération sera effectuée via Azure CLI dans les sections suivantes.  
 
-## <a name="step-5-create-the-internal-load-balancer"></a>Étape 5 : Créer l’équilibreur de charge interne
+## <a name="create-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
 L’écouteur de groupe de disponibilité Always On a besoin d’une instance interne d’Azure Load Balancer. L’équilibreur de charge interne fournit une adresse IP « flottante » pour l’écouteur de groupe de disponibilité afin d’accélérer les opérations de basculement et de reconnexion. Si les machines virtuelles SQL Server d’un groupe de disponibilité font partie du même groupe à haute disponibilité, vous pouvez utiliser un équilibreur de charge de base. Dans le cas contraire, vous devez utiliser un équilibreur de charge standard.  
 
@@ -228,7 +227,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 >[!IMPORTANT]
 > La ressource d’adresse IP publique de chaque machine virtuelle SQL Server doit avoir une référence SKU standard compatible avec l’équilibreur de charge standard. Pour déterminer la référence SKU de la ressource d’adresse IP publique de votre machine virtuelle, accédez à **Groupe de ressources**, sélectionnez votre ressources **Adresse IP publique** pour la machine virtuelle SQL Server souhaitée, puis recherchez la valeur sous **Référence SKU** dans le volet **Vue d’ensemble**.  
 
-## <a name="step-6-create-the-availability-group-listener"></a>Étape 6 : Créer l'écouteur de groupe de disponibilité
+## <a name="create-listener"></a>Créer un écouteur
 
 Après avoir créé manuellement le groupe de disponibilité, vous pouvez créer l’écouteur à l’aide de la commande [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
@@ -283,7 +282,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 
 ---
 
-## <a name="modify-the-number-of-replicas-in-an-availability-group"></a>Modifier le nombre de réplicas dans un groupe de disponibilité
+## <a name="modify-number-of-replicas"></a>Modifier le nombre de réplicas 
 Le déploiement d’un groupe de disponibilité sur des machines virtuelles SQL Server hébergées dans Azure ajoute une couche de complexité supplémentaire. Le fournisseur de ressources et le groupe de machines virtuelles gèrent désormais les ressources. De ce fait, quand vous ajoutez ou supprimez des réplicas dans le groupe de disponibilité, il est nécessaire d’effectuer une étape supplémentaire de mise à jour des métadonnées de l’écouteur avec des informations sur les machines virtuelles SQL Server. Quand vous modifiez le nombre de réplicas dans le groupe de disponibilité, vous devez aussi utiliser la commande [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) pour mettre à jour l’écouteur avec les métadonnées des machines virtuelles SQL Server. 
 
 
@@ -408,7 +407,7 @@ Pour supprimer un réplica du groupe de disponibilité :
 
 ---
 
-## <a name="remove-the-availability-group-listener"></a>Supprimer l’écouteur de groupe de disponibilité
+## <a name="remove-listener"></a>Supprimer un écouteur
 Si, par la suite, vous avez besoin de supprimer l’écouteur de groupe de disponibilité configuré avec Azure CLI, vous devez passer par le fournisseur de ressources de machine virtuelle SQL. Comme l’écouteur est inscrit par l’intermédiaire du fournisseur de ressources de machine virtuelle SQL, le supprimer via SQL Server Management Studio ne suffit pas. 
 
 La meilleure méthode consiste à le supprimer par l’intermédiaire du fournisseur de ressources de machine virtuelle SQL en utilisant l’extrait de code suivant dans Azure CLI. Cela a pour effet de supprimer les métadonnées de l’écouteur de groupe de disponibilité au niveau du fournisseur de ressources de machine virtuelle SQL. De même, l’écouteur de groupe de disponibilité est supprimé physiquement du groupe de disponibilité. 
@@ -431,6 +430,65 @@ az sql vm group ag-listener delete --group-name <cluster name> --name <listener 
 
 Remove-AzAvailabilityGroupListener -Name <Listener> `
    -ResourceGroupName <Resource Group Name> -SqlVMGroupName <cluster name>
+```
+
+---
+
+## <a name="remove-cluster"></a>Supprimer un cluster
+
+Supprimez tous les nœuds du cluster pour le détruire, puis supprimez les métadonnées de cluster du fournisseur de ressources de machine virtuelle SQL. Pour ce faire, vous pouvez utiliser Azure CLI ou PowerShell. 
+
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Commencez par supprimer toutes les machines virtuelles SQL Server du cluster : 
+
+```azurecli-interactive
+# Remove the VM from the cluster metadata
+# example: az sql vm remove-from-group --name SQLVM2 --resource-group SQLVM-RG
+
+az sql vm remove-from-group --name <VM1 name>  --resource-group <resource group name>
+az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group name>
+```
+
+S’il s’agit des seules machines virtuelles du cluster, le cluster sera détruit. S’il existe dans le cluster d’autres machines que les machines virtuelles SQL Server supprimées, ces autres machines virtuelles ne seront pas supprimées et le cluster ne sera pas détruit. 
+
+Ensuite, supprimez les métadonnées relatives au cluster du fournisseur de ressources de machine virtuelle SQL : 
+
+```azurecli-interactive
+# Remove the cluster from the SQL VM RP metadata
+# example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
+
+az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+```
+
+
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Tout d’abord, supprimez toutes les machines virtuelles SQL Server du cluster. Cette opération supprime physiquement les nœuds du cluster et détruit le cluster : 
+
+```powershell-interactive
+# Remove the SQL VM from the cluster
+# example: $sqlvm = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG
+#  $sqlvm. SqlVirtualMachineGroup = ""
+#  Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+
+$sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
+   $sqlvm. SqlVirtualMachineGroup = ""
+   
+   Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+```
+
+S’il s’agit des seules machines virtuelles du cluster, le cluster sera détruit. S’il existe dans le cluster d’autres machines que les machines virtuelles SQL Server supprimées, ces autres machines virtuelles ne seront pas supprimées et le cluster ne sera pas détruit. 
+
+Ensuite, supprimez les métadonnées relatives au cluster du fournisseur de ressources de machine virtuelle SQL : 
+
+```powershell-interactive
+# Remove the cluster metadata
+# example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
+
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
 ```
 
 ---

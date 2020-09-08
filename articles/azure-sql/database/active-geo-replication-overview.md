@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448751"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018363"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -178,7 +178,8 @@ Le client qui procède aux modifications doit disposer d'un accès réseau au se
 
 ### <a name="on-the-master-of-the-secondary-server"></a>Sur le maître du serveur secondaire
 
-1. Ajoutez l'adresse IP à la liste verte du client qui procède aux modifications. Il doit s'agir de la même adresse IP que pour le serveur principal.
+1. Ajoutez l’adresse IP du client à la liste autorisée sous les règles de pare-feu pour le serveur secondaire. Vérifiez que l’adresse IP du client ajoutée sur le serveur principal est exactement la même que celle qui a été ajoutée au serveur secondaire. Il s’agit d’une étape obligatoire à effectuer avant d’exécuter la commande ALTER DATABASE ADD SECONDARY pour lancer la géo-réplication.
+
 1. Créez le même ID de connexion que sur le serveur principal, en utilisant les mêmes nom d'utilisateur/mot de passe et le même SID :
 
    ```sql

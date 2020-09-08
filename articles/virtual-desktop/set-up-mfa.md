@@ -3,15 +3,15 @@ title: Configurer Azure Multi-Factor Authentication pour Windows Virtual Desktop
 description: Comment configurer Azure Multi-Factor Authentication pour une sécurité accrue dans Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009458"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017773"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Activer Azure Multi-Factor Authentication pour Windows Virtual Desktop
 
@@ -47,29 +47,36 @@ Voici comment créer une stratégie d’accès conditionnel qui exige l’authen
 6. Sous **Inclure**, sélectionnez **Sélectionner des utilisateurs et des groupes** > **Utilisateurs et groupes** > choisissez le groupe créé lors de la phase [Prérequis](#prerequisites).
 7. Sélectionnez **Terminé**.
 8. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Sélectionner les applications**.
-9. Sélectionnez l’un des groupes d’applications suivants en fonction de la version de Windows Virtual Desktop que vous utilisez.
-   - Si vous utilisez Windows Virtual Desktop (classique), choisissez ces deux applications :
+9. Sélectionnez l’une des applications suivantes en fonction de la version de Windows Virtual Desktop que vous utilisez.
+   - Si vous utilisez Windows Virtual Desktop (classique), choisissez l’application suivante :
        - **Windows Virtual Desktop** (ID de l’application 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Client Windows Virtual Desktop** (ID de l’application fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Si vous utilisez Windows Virtual Desktop, choisissez plutôt ces deux applications :
+   - Si vous utilisez Windows Virtual Desktop, choisissez plutôt l’application suivante :
        -  **Windows Virtual Desktop** (ID de l’application 9cdead84-a844-4324-93f2-b2e6bb768d07)
-       -  **Client Windows Virtual Desktop** (ID de l’application a85cf173-4192-42f8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Les applications du client Windows Virtual Desktop sont utilisées pour le client web. Toutefois, ne sélectionnez pas l’application appelée Windows Virtual Desktop – Fournisseur Azure Resource Manager (50e95039-b200-4007-bc97-8d5790743a63). Cette application, qui ne sert qu’à récupérer le flux utilisateur, ne doit pas comporter d’authentification MFA.
+   > Ne sélectionnez pas l’application nommée Windows Virtual Desktop – Fournisseur Azure Resource Manager (50e95039-b200-4007-bc97-8d5790743a63). Cette application, qui ne sert qu’à récupérer le flux utilisateur, ne doit pas comporter d’authentification MFA.
 
-1. Une fois que vous avez sélectionné votre application, choisissez **Sélectionner**, puis sélectionnez **Terminé**.
+10. Accédez à **Conditions** > **Applications clientes**, puis spécifiez où vous souhaitez appliquer la stratégie :
+    
+    - Sélectionnez **Navigateur** si vous souhaitez que la stratégie s’applique au client web.
+    - Sélectionnez **Applications mobiles et clients de bureau** si vous souhaitez appliquer la stratégie à d’autres clients.
+    - Activez les deux cases à cocher si vous souhaitez appliquer la stratégie à tous les clients.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page des applications clientes. L’utilisateur a activé la case à cocher Applications mobiles et clients de bureau.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Capture d’écran de la page Applications ou actions cloud. Les applications Windows Virtual Desktop et Client Windows Virtual Desktop sont mises en surbrillance en rouge.](media/cloud-apps-enterprise.png)
+11. Une fois que vous avez sélectionné votre application, choisissez **Sélectionner**, puis sélectionnez **Terminé**.
 
-   >[!NOTE]
-   >Pour rechercher l'ID de l’application que vous souhaitez sélectionner, accédez à **Applications d’entreprise**, puis sélectionnez **Applications Microsoft** dans le menu déroulant correspondant au type d’application.
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la page Applications ou actions cloud. Les applications Windows Virtual Desktop et Client Windows Virtual Desktop sont mises en surbrillance en rouge.](media/cloud-apps-enterprise.png)
 
-10. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l’accès**, **Exiger une authentification multifacteur**, puis **Sélectionner**.
-11. Sous **Contrôles d’accès** > **Session**, sélectionnez **Fréquence de connexion**, définissez la valeur **1** et l’unité **Heures**, puis sélectionnez **Sélectionner**.
-12. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
-13. Sélectionnez **Créer** pour activer votre stratégie.
+    >[!NOTE]
+    >Pour rechercher l'ID de l’application que vous souhaitez sélectionner, accédez à **Applications d’entreprise**, puis sélectionnez **Applications Microsoft** dans le menu déroulant correspondant au type d’application.
+
+12. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l’accès**, **Exiger une authentification multifacteur**, puis **Sélectionner**.
+13. Sous **Contrôles d’accès** > **Session**, sélectionnez **Fréquence de connexion**, définissez la valeur **1** et l’unité **Heures**, puis sélectionnez **Sélectionner**.
+14. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+15. Sélectionnez **Créer** pour activer votre stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

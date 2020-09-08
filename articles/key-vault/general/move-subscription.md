@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782717"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394735"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -59,8 +59,6 @@ Accédez à la page Azure Policy dans le Portail Azure et vérifiez que les attr
 
 ## <a name="procedure"></a>Procédure
 
-Si vous 
-
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Déplacer Key Vault vers un nouvel abonnement au sein du même locataire
 
 1. Connectez-vous au portail Azure.
@@ -99,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Maintenant que votre coffre est associé à l’ID de locataire approprié et que les anciennes entrées de stratégie d’accès sont supprimées, définissez les nouvelles entrées de stratégie d’accès avec l’applet de commande Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) ou la commande d’interface de ligne de commande Azure [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy).
 
-Si vous utilisez une identité managée pour les ressources Azure, vous devez également la mettre à jour vers le nouveau locataire Azure AD. Pour plus d’informations sur les identités managées, consultez [Fournir une authentification Key Vault avec une identité managée](managed-identity.md).
+Si vous utilisez une identité managée pour les ressources Azure, vous devez également la mettre à jour vers le nouveau locataire Azure Active Directory. Pour plus d’informations sur les identités managées, consultez [Vue d’ensemble des identités managées](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Si vous utilisez MSI, vous devrez également mettre à jour l’identité MSI, car l’ancienne identité ne sera plus dans le locataire AAD correct. Consultez les documents suivants qui vous aideront à résoudre ce problème. 
+Si vous utilisez une identité managée, vous devrez également mettre à jour l’identité, car l’ancienne identité ne se trouvera plus dans le bon locataire Azure Active Directory. Consultez les documents suivants qui vous aideront à résoudre ce problème. 
 
 * [Mise à jour des identités de service managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Transférer un abonnement vers un nouveau répertoire](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

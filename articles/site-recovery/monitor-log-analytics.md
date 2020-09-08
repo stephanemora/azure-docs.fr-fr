@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495061"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006939"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -62,9 +62,9 @@ Vous pouvez capturer les informations relatives au taux d’évolution des donn�
 1. Accédez à l’espace de travail Log Analytics et cliquez sur **Paramètres avancés**.
 2. Cliquez sur la page **Sources connectées**, puis sélectionnez **Serveurs Windows**.
 3. Téléchargez l’agent Windows (64 bits) sur le serveur de processus. 
-4. [Obtenir l’ID et la clé de l’espace de travail](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Obtenir l’ID et la clé de l’espace de travail](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Configurer l’Agent de façon à utiliser TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Terminez l’installation de l’agent](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) en fournissant l’ID et la clé de l’espace de travail obtenu.
+6. [Terminez l’installation de l’agent](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) en fournissant l’ID et la clé de l’espace de travail obtenu.
 7. Une fois l’installation terminée, accédez à l’espace de travail Log Analytics, puis cliquez sur **Paramètres avancés**. Accédez à la page **Données**, puis cliquez sur **Compteur de performances Windows**. 
 8. Cliquez sur **« + »** pour ajouter les deux compteurs suivants avec un intervalle d’échantillonnage de 300 secondes :
 

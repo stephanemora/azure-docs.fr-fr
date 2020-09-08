@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dce3c484a16918931df80d5201fad090b2c0cb2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922631"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948638"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymes dans Recherche cognitive Azure
 
@@ -92,6 +92,21 @@ Un mappage explicite est indiqué par une flèche « => ». Lorsqu’elle spé
 
 ```
 Washington, Wash., WA => WA
+```
+
+Si vous devez définir des synonymes qui contiennent des virgules, vous pouvez échapper celles-ci à l’aide d’une barre oblique inverse, comme dans l’exemple suivant :
+
+```
+WA\, USA, WA, Washington
+```
+
+Étant donné que la barre oblique inverse est elle-même un caractère spécial dans d’autres langages tels que JSON et C#, vous devrez probablement effectuer un double échappement. Par exemple, le code JSON envoyé à l’API REST pour la carte de synonymes ci-dessus ressemble à ceci :
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Répertorier les cartes de synonymes de votre service.

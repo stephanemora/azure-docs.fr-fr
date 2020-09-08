@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926805"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179536"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
 
@@ -172,7 +172,9 @@ Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres 
 | ***Paramètres supplémentaires*** |  | |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option `recursive` est définie sur *true* et que le récepteur est un magasin basé sur un fichier, aucun dossier ou sous-dossier vide n’est copié ou créé au niveau du récepteur. <br>Les valeurs autorisées sont *true* (par défaut) et *false*.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut *Dernière modification*. <br>Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format *2018-12-01T05:00:00Z*. <br> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
-| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
+| enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
+| partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin racine de la partition est le sous-chemin avant le premier caractère générique.<br/><br/>Par exemple, en supposant que vous configurez le chemin dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
+| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non                                            |
 | ***Paramètres DistCp*** |  | |
 | distcpSettings | Groupe de propriétés à utiliser lorsque vous utilisez DistCp HDFS. | Non |
 | resourceManagerEndpoint | Point de terminaison YARN (Yet Another Resource Negotiator) | Oui, en cas d’utilisation de DistCp |
@@ -433,7 +435,7 @@ Pour plus d’informations sur les propriétés des activités Lookup, consultez
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous recommandons d’utiliser le nouveau modèle abordé précédemment, car l’interface utilisateur de création de Azure Data Factory a basculé vers la génération du nouveau modèle.
+>Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Nous vous recommandons d’utiliser le nouveau modèle abordé précédemment, car l’interface utilisateur de création Azure Data Factory a basculé vers la génération du nouveau modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
@@ -490,7 +492,7 @@ Pour plus d’informations sur les propriétés des activités Lookup, consultez
 | resourceManagerEndpoint | Point de terminaison de YARN Resource Manager | Oui, en cas d’utilisation de DistCp |
 | tempScriptPath | Chemin d’accès du dossier utilisé pour stocker le script de commande DistCp temporaire. Le fichier de script est généré par Data Factory et supprimé une fois le travail de copie terminé. | Oui, en cas d’utilisation de DistCp |
 | distcpOptions | Options supplémentaires fournies à la commande DistCp. | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non |
 
 **Exemple : Source HDFS dans une activité de copie avec DistCp**
 
@@ -506,4 +508,4 @@ Pour plus d’informations sur les propriétés des activités Lookup, consultez
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

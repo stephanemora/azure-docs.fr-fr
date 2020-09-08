@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de sauv
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757249"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012600"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer un coffre Azure Recovery Services à l’aide de l’API REST
 

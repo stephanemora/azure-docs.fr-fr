@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: d789d74f79fa691a2d5b374530450d966e0c40ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047255"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020454"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personnaliser un modèle de langage avec le site web Video Indexer
 
@@ -133,7 +133,9 @@ Video Indexer prend en charge la personnalisation automatique de modèles de lan
 
     ![Personnaliser un modèle de langage - Modifier une transcription - Video Indexer](./media/customize-language-model/edits.png)
 
-    Video Indexer capture toutes les lignes que vous corrigez dans la transcription de votre vidéo et les ajoute automatiquement à un fichier texte appelé « From transcript edits ». Ces modifications servent à réentraîner le modèle de langage spécifique utilisé pour indexer cette vidéo.
+    Video Indexer capture toutes les lignes que vous corrigez dans la transcription de votre vidéo et les ajoute automatiquement à un fichier texte appelé « From transcript edits ». Ces modifications servent à réentraîner le modèle de langage spécifique utilisé pour indexer cette vidéo. 
+    
+    Les modifications apportées à la chronologie du [widget](video-indexer-embed-widgets.md) sont également incluses.
     
     Si vous n’avez pas spécifié de modèle de langage lors de l’indexation de cette vidéo, toutes les modifications apportées à cette vidéo seront stockées dans un modèle de langage par défaut appelé « Account adaptations » (Adaptations de compte) dans le langage détecté dans la vidéo.
     

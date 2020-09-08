@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2bb8b98bfb936421c0522d4637a288d20a708b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795403"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269673"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.locfileid: "88795403"
 
 ## <a name="limit-use-of-global-administrator"></a>Limiter l’utilisation de l’administrateur général
 
-Les utilisateurs qui sont affectés au rôle d’administrateur d’entreprise peuvent lire et modifier chaque paramètre d’administration de votre organisation Azure AD. Par défaut, la personne qui s’inscrit à un abonnement Azure se voit attribuer le rôle d’administrateur d’entreprise pour l’organisation Azure AD. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques pour votre entreprise, nous vous recommandons d’attribuer ce rôle à un nombre restreint de personnes de votre organisation.
+Les utilisateurs qui sont affectés au rôle d’administrateur d’entreprise peuvent lire et modifier chaque paramètre d’administration de votre organisation Azure AD. Par défaut, quand un utilisateur s’inscrit à un service cloud Microsoft, un locataire Azure AD est créé, et l’utilisateur est promu membre du rôle Administrateur général. Lorsque vous ajoutez un abonnement à un locataire existant, le rôle Administrateur général ne vous est pas attribué. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques pour votre entreprise, nous vous recommandons d’attribuer ce rôle à un nombre restreint de personnes de votre organisation.
 
 Nous vous recommandons d'attribuer ce rôle à moins de cinq personnes au sein de votre organisation. Si plus de cinq personnes disposent du rôle d'administrateur général au sein de votre organisation, voici quelques façons de réduire l'utilisation de ce rôle.
 
@@ -56,19 +56,12 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, des inscriptions d’application et des paramètres de proxy d’application. Notez que les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
-Les administrateurs d’applications peuvent gérer les informations d’identification de l’application, ce qui leur permet d’emprunter l’identité de l’application. Ainsi, les utilisateurs affectés à ce rôle peuvent gérer les informations d’identification uniquement des applications qui ne sont affectées à aucun rôle Azure AD ou de celles affectées uniquement aux rôles d’administration suivants :
-
-* Administrateur d’application
-* Développeur d’applications
-* Administrateur d'applications cloud
-* Lecteurs de répertoires
-
-Si une application est assignée à un autre rôle qui n’est pas mentionné ci-dessus, l’administrateur de l’application ne peut pas gérer les informations d’identification de cette application.
-
 Ce rôle permet également de _donner son consentement_ pour des autorisations déléguées et des autorisations d’application, à l’exception des autorisations sur l'API Microsoft Graph.
 
 > [!IMPORTANT]
 > Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple les applications Microsoft ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
+>
+>Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à une ressource, telle que la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions en empruntant l’identité de l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications lui donne la possibilité d’emprunter l’identité d’une application.
 
 ### <a name="application-developer"></a>[Développeur d’applications](#application-developer-permissions)
 
@@ -125,15 +118,11 @@ Effectue les achats, gère les abonnements, gère les tickets de support et supe
 
 ### <a name="cloud-application-administrator"></a>[Administrateur d’application cloud](#cloud-application-administrator-permissions)
 
-Les utilisateurs dans ce rôle ont les mêmes autorisations que celles du rôle Administrateur d’application, sans la possibilité de gérer le proxy d’application. Ce rôle permet de créer et de gérer tous les aspects des applications d’entreprise et des inscriptions d’applications. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour l'API Microsoft Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+Les utilisateurs dans ce rôle ont les mêmes autorisations que celles du rôle Administrateur d’application, sans la possibilité de gérer le proxy d’application. Ce rôle permet de créer et de gérer tous les aspects des applications d’entreprise et des inscriptions d’applications. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
-Les administrateurs d’applications cloud peuvent gérer les informations d’identification de l’application, ce qui leur permet d’emprunter l’identité de l’application. Ainsi, les utilisateurs affectés à ce rôle peuvent gérer les informations d’identification uniquement des applications qui ne sont affectées à aucun rôle Azure AD ou de celles affectées uniquement aux rôles d’administration suivants :
+> [!IMPORTANT]
+> Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à une ressource, telle que la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions en empruntant l’identité de l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications cloud lui donne la possibilité d’emprunter l’identité d’une application.
 
-* Développeur d’applications
-* Administrateur d'applications cloud
-* Lecteurs de répertoires
-
-Si une application est assignée à un autre rôle qui n’est pas mentionné ci-dessus, l’administrateur de l’application cloud ne peut pas gérer les informations d’identification de cette application.
 
 ### <a name="cloud-device-administrator"></a>[Administrateur d’appareil cloud](#cloud-device-administrator-permissions)
 
@@ -1991,6 +1980,6 @@ Jonction d’appareils d’espace de travail | Déprécié | [Documentation sur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’affectation d’un utilisateur en tant qu’administrateur d’un abonnement Azure, consultez [Gérer les accès à l’aide des rôles Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Pour plus d’informations sur l’affectation d’un utilisateur en tant qu’administrateur d’un abonnement Azure, consultez [Ajouter ou supprimer des attributions de rôle Azure (RBAC Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, consultez [Présentation des différents rôles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Pour plus d’informations sur la relation entre les abonnements et un locataire Azure AD ou pour obtenir des instructions sur l’association ou l’ajout d’un abonnement, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

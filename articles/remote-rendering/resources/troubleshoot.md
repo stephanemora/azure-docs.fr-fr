@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509278"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014589"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -34,6 +34,14 @@ Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloque
 Vérifiez que votre GPU prend en charge le décodage vidéo matériel. Consultez [PC de développement](../overview/system-requirements.md#development-pc).
 
 Si vous travaillez sur un ordinateur portable avec deux GPU, il est possible que le GPU que vous utilisez par défaut n’offre pas de fonctionnalité de décodage vidéo matériel. Si c’est le cas, essayez de forcer votre application à utiliser l’autre GPU. Cela est souvent possible dans les paramètres du pilote GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>La récupération de l’état de la session/conversion échoue
+
+Une fréquence trop élevée d’envoi de commandes d’API REST entraîne une limitation du serveur, et finit par retourner un échec. Le code d’état http dans le cas de limitation est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
+
+Notez que cette limite affecte non seulement les appels d’API REST effectués directement, mais aussi leurs équivalents C#/C++, tels que `Session.GetPropertiesAsync`, `Session.RenewAsync` ou `Frontend.GetAssetConversionStatusAsync`.
+
+Si vous rencontrez une limitation côté serveur, modifiez le code pour effectuer les appels moins fréquemment. Le serveur réinitialisant l’état de limitation à chaque minutes, vous pouvez sans problème réexécuter le code au bout d’une minute.
 
 ## <a name="h265-codec-not-available"></a>Codec H265 non disponible
 

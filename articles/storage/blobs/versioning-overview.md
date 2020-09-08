@@ -1,25 +1,25 @@
 ---
-title: Contrôle de version des objets blob (préversion)
+title: Contrôle de version des objets blob
 titleSuffix: Azure Storage
-description: Le contrôle de version du stockage d’objets blob (préversion) conserve automatiquement les versions antérieures d’un objet et les identifie avec des horodateurs. Vous pouvez restaurer les versions antérieures d’un objet blob pour récupérer vos données si celles-ci sont modifiées ou supprimées par erreur.
+description: Le contrôle de version du stockage d’objets blob conserve automatiquement des versions antérieures d’un objet, et les identifie à l’aide d’horodateurs. Vous pouvez restaurer les versions antérieures d’un objet blob pour récupérer vos données si celles-ci sont modifiées ou supprimées par erreur.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056531"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297662"
 ---
-# <a name="blob-versioning-preview"></a>Contrôle de version des objets blob (préversion)
+# <a name="blob-versioning"></a>Contrôle de version des objets blob
 
-Vous pouvez activer le contrôle de version du stockage d’objets blob (version préliminaire) pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
+Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
 
 Le contrôle de version des objets blob est activé sur le compte de stockage et s’applique à tous les objets blob du compte de stockage. Une fois que vous avez activé le contrôle de version des objets blob pour un compte de stockage, le stockage Azure gère automatiquement les versions de chaque objet blob dans le compte de stockage.
 
@@ -30,6 +30,8 @@ Pour savoir comment activer le contrôle de version des objets blob, consultez [
 > [!IMPORTANT]
 > Le contrôle de version des objets blob ne peut pas vous aider à récupérer après la suppression accidentelle d’un compte ou d’un conteneur de stockage. Pour empêcher toute suppression accidentelle du compte de stockage, configurez un verrou **CannotDelete** verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## <a name="how-blob-versioning-works"></a>Fonctionnement du contrôle de version des objets blob
 
 La version capture l’état de l’objet blob à un moment donné. Lorsque le contrôle de version des objets blob est activé sur un compte de stockage, le stockage Azure crée automatiquement une nouvelle version de l’objet blob chaque fois que cet objet blob est modifié ou supprimé.
@@ -39,6 +41,10 @@ Lorsque vous créez un objet blob et que le contrôle de version est activé, le
 Lorsque vous supprimez un objet blob pour lequel le contrôle de version est activé, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa suppression. La version actuelle de l’objet blob est ensuite supprimée, mais les versions de l’objet blob sont conservées, afin qu’il soit possible de le recréer si nécessaire. 
 
 Les versions d’objets blob sont immuables. Vous ne pouvez pas modifier le contenu ou les métadonnées d’une version existante de l’objet blob.
+
+Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
+
+La version 2019-10-10 et les versions ultérieures de l’API REST de stockage Azure prennent en charge le contrôle de version des objets blob.
 
 ### <a name="version-id"></a>ID de version
 
@@ -60,7 +66,7 @@ Par souci de simplicité, les diagrammes présentés dans cet article affichent 
 
 Le diagramme suivant montre comment les opérations d’écriture affectent les versions d’objets blob. Lorsqu’un objet blob est créé, il s’agit de la version actuelle. Lorsque ce même objet blob est modifié, une nouvelle version est créée pour enregistrer l’état précédent de l’objet blob, et l’objet blob mis à jour devient la version actuelle.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
 
 > [!NOTE]
 > Un objet blob qui a été créé avant l’activation du contrôle de version pour le compte de stockage n’a pas d’ID de version. Lorsque cet objet blob est modifié, il devient la version actuelle et une version est créée pour enregistrer l’état de l’objet blob avant sa mise à jour. La version se voit attribuer un ID de version qui correspond à son heure de création.
@@ -73,11 +79,11 @@ L’opération [Delete Blob](/rest/api/storageservices/delete-blob) sans ID de v
 
 Le diagramme suivant montre l’effet d’une opération de suppression sur un objet blob avec contrôle de version :
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant la suppression d’un objet blob avec contrôle de version":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant la suppression d’un objet blob avec contrôle de version.":::
 
 L’écriture de nouvelles données dans l’objet blob crée une nouvelle version de cet objet blob. Les versions existantes ne sont pas affectées, comme indiqué dans le diagramme suivant.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant la recréation d’un objet blob avec contrôle de version après suppression":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant la recréation d’un objet blob avec contrôle de version après suppression.":::
 
 ### <a name="blob-types"></a>Types d’objet blob
 
@@ -106,7 +112,7 @@ Pour automatiser le processus de déplacement d’objets blob de blocs vers le n
 
 ## <a name="enable-or-disable-blob-versioning"></a>Activer/désactiver le contrôle de version des objets blob
 
-Pour savoir comment activer ou désactiver le contrôle de version des objets blob, consultez [Procédure d’activation ou de désactivation du contrôle de version des objets blob](versioning-enable.md).
+Pour savoir comment activer le contrôle de version des objets blob, consultez [Activer et gérer le contrôle de version des objets blob](versioning-enable.md).
 
 La désactivation du contrôle de version des objets blob ne supprime pas les objets blob, les versions ou les instantanés existants. Lorsque vous désactivez le contrôle de version des objets blob, toutes les versions existantes restent accessibles dans votre compte de stockage. Aucune nouvelle version n’est créée par la suite.
 
@@ -116,7 +122,7 @@ Vous pouvez lire ou supprimer des versions à l’aide de l’ID de version une 
 
 Le diagramme suivant montre comment la modification d’un objet blob après la désactivation du contrôle de version crée un objet blob dont la version n’est pas contrôlée. Toutes les versions existantes associées à l’objet blob sont conservées.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramme montrant l’objet blob de base modifié après la désactivation du contrôle de version":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagramme montrant l’objet blob de base modifié après la désactivation du contrôle de version.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Contrôle de version des objets blob et suppression réversible
 
@@ -132,7 +138,7 @@ Pour supprimer une version précédente d’un objet blob, supprimez-le explicit
 
 Le diagramme suivant montre ce qui se passe lorsque vous supprimez un objet blob ou une version d’un objet blob.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramme montrant la suppression d’une version avec suppression réversible activée":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramme montrant la suppression d’une version avec suppression réversible activée.":::
 
 Si le contrôle de version et la suppression réversible sont activés sur le compte de stockage, aucun instantané supprimé de manière réversible n’est créé lors de la modification ou de la suppression d’un objet blob ou d’une version d’objet blob.
 
@@ -144,7 +150,7 @@ La restauration de versions supprimées de manière réversible avec l’opérat
 
 Le diagramme suivant montre comment restaurer des versions d’objets blob supprimés de manière réversible avec l’opération **Undelete Blob** et comment restaurer la version actuelle de l’objet blob avec l’opération **Copy Blob**.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramme montrant comment restaurer des versions supprimées de manière réversible":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagramme montrant comment restaurer des versions supprimées de manière réversible.":::
 
 Une fois la période de rétention de la suppression réversible terminée, toutes les versions des objets blob supprimés de manière réversible sont définitivement supprimées.
 
@@ -163,7 +169,7 @@ Lorsque vous créez un instantané d’un objet blob avec contrôle de version, 
 
 Le diagramme suivant montre ce qui se passe lorsque vous créez un instantané d’un objet blob avec contrôle de version. Dans le diagramme, les versions des objets blob et des instantanés avec l’ID de version 2 et 3 contiennent les mêmes données.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramme montrant des instantanés d’un objet blob avec contrôle de version":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramme montrant des captures instantanées d’un objet blob avec contrôle de version.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autoriser des opérations sur des versions d’objets blob
 
@@ -194,134 +200,99 @@ Le tableau suivant présente l’autorisation requise sur une SAP pour supprimer
 |----------------|----------------|------------------------|
 | DELETE         | x              | Supprimez une version d’objet blob. |
 
-## <a name="about-the-preview"></a>À propos de la préversion
-
-Le contrôle de version des objets blob est disponible en préversion dans les régions suivantes :
-
-- USA Est 2
-- USA Centre
-- Europe Nord
-- Europe Ouest
-- France Centre
-- Est du Canada
-- Centre du Canada
-
-> [!IMPORTANT]
-> La préversion du contrôle de version des blobs est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
-
-La version 2019-10-10 et les versions ultérieures de l’API REST de stockage Azure prennent en charge le contrôle de version des objets blob.
-
-### <a name="storage-account-support"></a>Prise en charge du compte de stockage
-
-Le contrôle de version des objets blob est disponible pour les types de comptes de stockage suivants :
-
-- Comptes de stockage universel v2
-- Comptes de stockage d’objets blob de blocs
-- Comptes de stockage d’objets blob
-
-Si votre compte de stockage est un compte v1 à usage général, utilisez le Portail Azure pour effectuer une mise à niveau vers un compte v2 à usage général. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
-
-Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
-
-### <a name="register-for-the-preview"></a>S’inscrire pour la préversion
-
-Pour vous inscrire à la préversion du contrôle de version des objets blob, utilisez PowerShell ou Azure CLI pour envoyer une demande d’inscription de la fonctionnalité avec votre abonnement. Une fois votre demande requête approuvée, vous pouvez activer le contrôle de version des objets blob sur tout compte de stockage général version 2, compte de stockage d’objets blob ou compte de stockage d’objets blob de blocs Premium.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Pour vous inscrire à l’aide de PowerShell, appelez la commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az-feature-register).
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Vérifier l’état de votre inscription
-
-Pour vérifier l’état de votre inscription, utilisez PowerShell ou Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Pour vérifier l’état de votre inscription à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
 L’activation du contrôle de version des objets blob peut entraîner des frais de stockage de données supplémentaires pour votre compte. Lors de la conception de votre application, il est important de savoir comment ces frais peuvent s’accumuler pour pouvoir réduire les coûts.
 
-Les versions d’objets blob, comme celles des instantanés d’objets blob, sont facturées au même tarif que les données actives. Si une version partage des blocs ou des pages avec son objet blob de base, vous payez uniquement pour les blocs ou pages supplémentaires qui ne sont pas partagés par cette version et l’objet blob de base.
+Les versions d’objets blob, comme celles des instantanés d’objets blob, sont facturées au même tarif que les données actives. La façon dont les versions sont facturées varie selon que vous avez défini explicitement le niveau pour l’objet blob de base ou pour l’une de ses versions (ou captures instantanées). Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+
+Si vous n’avez pas modifié le niveau d’un objet blob ou d’une version, vous êtes facturé pour des blocs de données uniques sur cet objet blob, ses versions et ses éventuelles captures instantanées. Pour plus d’informations, consultez [Facturation quand le niveau d’objet blob n’a pas été défini explicitement](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Si vous avez modifié le niveau d’un objet blob ou d’une version, vous êtes facturé pour l’intégralité de l’objet, que l’objet blob et sa version se retrouvent ou non dans le même niveau. Pour plus d’informations, consultez [Facturation quand le niveau de l’objet blob a été défini explicitement](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > L’activation du contrôle de version sur des données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors des opérations de listes. Vous pouvez limiter ces problèmes en stockant les données fréquemment remplacées dans un compte de stockage distinct avec contrôle de version désactivé.
 
-### <a name="important-billing-considerations"></a>Considérations importantes relatives à la facturation
+Pour plus d’informations sur les détails de facturation des captures instantanées d’objets blob, consultez [Captures instantanées d’objets blob](snapshots-overview.md).
 
-Tenez compte des points suivants lorsque vous activez le contrôle de version des objets blob :
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Facturation quand le niveau de l’objet blob n’a pas été défini explicitement
 
-- Des frais s’appliquent à votre compte de stockage pour des pages ou des blocs uniques, qu’ils soient dans l’objet blob ou dans une version précédente de l’objet blob. Aucuns frais supplémentaires ne sont imputés à votre compte pour les versions associées à un objet blob tant que vous n’avez pas mis à jour l’objet blob sur lequel ils sont basés. Une fois que vous avez mis à jour l’objet blob, il diffère de ses versions précédentes. Dans ce cas, vous êtes facturé pour les blocs ou pages uniques de chaque objet blob ou version.
-- Quand vous remplacez un bloc au sein d’un objet blob de bloc, ce bloc est ensuite facturé comme un bloc unique. Cela est vrai même si le bloc a le même ID de bloc et les mêmes données que dans la version. Une fois le bloc revalidé, il diffère de son homologue dans toutes les versions et vous serez facturé pour ses données. Il en va de même pour une page dans un objet blob de pages qui est mise à jour avec des données identiques.
-- Le stockage d’objets blob ne dispose d’aucun moyen pour déterminer si deux blocs contiennent des données identiques. Chaque bloc qui est téléchargé et validé est traité comme étant unique, même s’il a les mêmes données et le même ID de bloc. Les blocs uniques générant des frais supplémentaires, la mise à jour d’un objet blob lorsque le contrôle de version est activé se traduit par des blocs uniques supplémentaires et donc une augmentation des coûts.
-- Lorsque le contrôle de version d’objet blob est activé, concevez les opérations de mise à jour des objets blob de blocs de façon à ce qu’elles mettent à jour le plus petit nombre de blocs possible. Les opérations d’écriture qui permettent un contrôle plus précis des blocs sont [Put Block](/rest/api/storageservices/put-block) et [Put Block List](/rest/api/storageservices/put-block-list). L’opération [Put Blob](/rest/api/storageservices/put-blob), en revanche, remplace la totalité du contenu d’un objet blob et peut entraîner des frais supplémentaires.
+Si vous n’avez pas défini explicitement le niveau d’objet blob pour un objet blob de base ou l’une de ses versions, vous êtes facturé pour les blocs ou pages uniques de l’objet blob, ses versions et ses éventuelles captures instantanées. Les données partagées dans un objet blob et ses versions ne sont facturées qu’une seule fois. Lors de la mise à jour d’un objet blob, les données dans l’objet blob de base divergent des données stockées dans ses versions, et les données uniques sont facturées par bloc ou page.
 
-### <a name="versioning-billing-scenarios"></a>Scénarios de facturation avec contrôle de version
+Quand vous remplacez un bloc au sein d’un objet blob de bloc, ce bloc est ensuite facturé comme un bloc unique. Cela est vrai même si le bloc a le même ID et les mêmes données que dans la version précédentes. Une fois le bloc revalidé, il diffère de son homologue dans la version précédente et vous êtes facturé pour ses données. Il en va de même pour une page dans un objet blob de pages qui est mise à jour avec des données identiques.
 
-Les scénarios suivants illustrent l’accumulation des coûts pour un objet blob de blocs et ses versions.
+Le stockage d’objets blob ne dispose d’aucun moyen pour déterminer si deux blocs contiennent des données identiques. Chaque bloc qui est téléchargé et validé est traité comme étant unique, même s’il a les mêmes données et le même ID de bloc. Les blocs uniques accumulant les frais, il est important de garder à l’esprit que la mise à jour d’un objet blob lorsque le contrôle de version est activé générera des blocs uniques supplémentaires, et donc une augmentation des frais.
+
+Lorsque le contrôle de version d’objet blob est activé, appelez des opérations de mise à jour des objets blob de blocs de façon à ce qu’elles mettent à jour le plus petit nombre possible de blocs. Les opérations d’écriture qui permettent un contrôle plus précis des blocs sont [Put Block](/rest/api/storageservices/put-block) et [Put Block List](/rest/api/storageservices/put-block-list). L’opération [Put Blob](/rest/api/storageservices/put-blob), en revanche, remplace la totalité du contenu d’un objet blob et peut entraîner des frais supplémentaires.
+
+Les scénarios suivants montrent comment les frais s’accumulent pour un objet blob de blocs et ses versions lorsque le niveau d’objet blob n’a pas été défini explicitement.
 
 #### <a name="scenario-1"></a>Scénario 1
 
 Dans le scénario 1, l’objet blob a une version antérieure. L’objet blob de base n’a pas été mis à jour depuis la création de la version, les frais sont donc calculés uniquement pour les blocs uniques 1, 2 et 3.
 
-![Ressources Azure Storage](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagramme 1 montrant la facturation des blocs uniques dans l’objet blob de base et la version précédente.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scénario 2
 
 Dans le scénario 2, un bloc (le bloc 3 dans le diagramme) de l’objet blob a été mis à jour. Même si le bloc mis à jour contient les mêmes données et le même ID, il est différent du bloc 3 de la version précédente. Par conséquent, des frais pour quatre blocs sont facturés au compte.
 
-![Ressources Azure Storage](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagramme 2 montrant la facturation des blocs uniques dans l’objet blob de base et la version précédente.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scénario 3
 
 Dans le scénario 3, l’objet blob a été mis à jour, mais pas la version. Le bloc 3 a été remplacé par le bloc 4 dans l’objet blob de base, mais la version précédente reflète toujours le bloc 3. Par conséquent, des frais pour quatre blocs sont facturés au compte.
 
-![Ressources Azure Storage](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagramme 3 montrant la facturation des blocs uniques dans l’objet blob de base et la version précédente.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scénario 4
 
-Dans le scénario 4, l'objet blob de base a été complètement mis à jour et ne contient aucun de ses blocs d'origine. Par conséquent, le compte est facturé pour les huit blocs uniques : quatre dans l’objet blob de base et quatre dans la version précédente. Ce scénario peut se produire si vous écrivez dans un objet blob avec l’opération Put Blob, car elle remplace tout le contenu de l’objet blob de base.
+Dans le scénario 4, l'objet blob de base a été complètement mis à jour et ne contient aucun de ses blocs d'origine. Par conséquent, le compte est facturé pour les huit blocs uniques : quatre dans l’objet blob de base et quatre dans la version précédente. Ce scénario peut se produire si vous écrivez dans un objet blob avec l’opération [Put Blob](/rest/api/storageservices/put-blob), car elle remplace tout le contenu de l’objet blob de base.
 
-![Ressources Azure Storage](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagramme 4 montrant la facturation des blocs uniques dans l’objet blob de base et la version précédente.](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Facturation quand le niveau de l’objet blob a été défini explicitement
+
+Si vous avez défini explicitement le niveau d’objet blob pour un objet blob ou une version (ou une capture instantanée), vous êtes facturé pour la longueur totale du contenu de l’objet dans le nouveau niveau, qu’il partage ou non des blocs avec un objet dans le niveau d’origine. Vous êtes également facturé pour la longueur totale du contenu de la version la plus ancienne dans le niveau d’origine. Les autres versions ou captures instantanées précédentes qui restent dans le niveau d’origine sont facturées pour les blocs uniques qu’elles peuvent partager, comme décrit dans [Facturation quand le niveau de l’objet blob n’a pas été défini explicitement](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Déplacement d’un objet blob vers un nouveau niveau
+
+Le tableau suivant décrit le comportement de facturation d’un objet blob ou d’une version lors de leur déplacement vers un nouveau niveau.
+
+| Quand le niveau d’objet blob est défini explicitement sur… | Vous êtes facturé pour... |
+|-|-|
+| Un objet blob de base avec une version précédente | L’objet blob de base dans le nouveau niveau et la version la plus ancienne dans le niveau d’origine, ainsi que tous les blocs uniques dans d’autres versions.<sup>1</sup> |
+| Un objet blob de base avec une version précédente et une capture instantanée | L’objet blob de base dans le nouveau niveau, la version la plus ancienne dans le niveau d’origine et la capture instantanée la plus ancienne dans le niveau d’origine, ainsi que tous les blocs uniques dans d’autres versions ou captures instantanées<sup>1</sup>. |
+| Une version précédente | La version dans le nouveau niveau et l’objet blob de base dans le niveau d’origine, ainsi que tous les blocs uniques dans d’autres versions.<sup>1</sup> |
+
+<sup>1</sup>s’il existe d’autres versions ou captures instantanées précédentes qui n’ont pas été déplacées à partir de leur niveau d’origine, ces versions ou captures instantanées sont facturées en fonction du nombre de blocs uniques qu’elles contiennent, comme décrit dans [Facturation quand le niveau de l’objet blob n’a pas été défini explicitement](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Le diagramme suivant illustre la façon dont les objets sont facturés quand un objet blob avec contrôle de version est déplacé vers un autre niveau.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagramme montrant comment les objets sont facturés quand un objet blob avec contrôle version est explicitement hiérarchisé.":::
+
+La définition explicite du niveau pour un objet blob, une version ou une capture instantanée ne peut pas être annulée. Si vous déplacez un objet blob vers un nouveau niveau, puis le replacez à son niveau d’origine, vous êtes facturé pour la longueur totale du contenu de l’objet, même s’il partage des blocs avec d’autres objets dans le niveau d’origine.
+
+Les opérations qui définissent explicitement le niveau d’un objet blob, d’une version ou d’une capture instantanée sont les suivantes :
+
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
+- [Placer l’objet blob](/rest/api/storageservices/put-blob) avec le niveau spécifié
+- [Placer la liste de blocs](/rest/api/storageservices/put-block-list) avec le niveau spécifié
+- [Copier l’objet blob](/rest/api/storageservices/copy-blob) avec le niveau spécifié
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Suppression d’un objet blob quand la suppression réversible est activée
+
+Lorsque la suppression réversible d’objet blob est activée, si vous supprimez ou remplacez un objet blob de base dont le niveau est explicitement défini, toutes les versions précédentes de l’objet blob supprimé de manière réversible sont facturées pour la longueur totale du contenu. Pour plus d’informations sur la manière dont le contrôle de version d’objet blob et de la suppression réversible fonctionnent ensemble, consultez [Contrôle de version des objets blob et suppression réversible](#blob-versioning-and-soft-delete).
+
+Le tableau suivant décrit le comportement de facturation d’un objet blob supprimé de manière réversible, selon que le contrôle de version est activé ou désactivé. Quand le contrôle de version est activé, une version est créée lors de la suppression d’un objet blob de manière réversible. Quand le contrôle de version est désactivé, la suppression réversible d’un objet blob crée une capture instantanée de suppression réversible.
+
+| Quand vous remplacez un objet blob de base par son niveau explicitement défini… | Vous êtes facturé pour... |
+|-|-|
+| Si la suppression réversible et le contrôle de version d’objet blob sont tous deux activés | Toutes les versions existantes pour la longueur totale du contenu, quel que soit le niveau. |
+| Si la suppression réversible d’objet blob est activée alors que le contrôle de version est désactivé | Tous les captures instantanées de suppression réversible existantes pour la longueur totale du contenu, quel que soit le niveau. |
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Activer le contrôle de version des objets blob](versioning-enable.md)
+- [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)
 - [Création d’un instantané d’objet blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Suppression réversible pour Azure Storage Blob](storage-blob-soft-delete.md)

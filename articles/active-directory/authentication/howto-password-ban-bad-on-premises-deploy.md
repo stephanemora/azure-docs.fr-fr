@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718949"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003539"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -50,6 +50,8 @@ Il est également possible que la validation de mot de passe plus fort affecte l
 
 Une fois que la fonctionnalité a été exécutée en mode audit pendant une période raisonnable, vous pouvez basculer la configuration de *Audit* à *Appliquer* pour exiger des mots de passe plus sécurisés. Durant cette période, il est recommandé d’exercer une surveillance supplémentaire.
 
+Il est important de noter que la protection par mot de passe Azure AD ne peut valider des mots de passe que lors d’opérations de modification ou de définition de mot de passe. Les mots de passe acceptés et stockés dans Active Directory avant le déploiement de la protection par mot de passe Azure AD ne seront jamais validés et continueront à fonctionner en l’état. Au fil du temps, tous les utilisateurs et comptes finiront par utiliser des mots de passe validés par la protection par mot de passe Azure AD à mesure que leurs mots de passe existants viendront normalement à expiration. Les comptes configurés avec l’option « Le mot de passe n’expire jamais » ne sont pas concernés.
+
 ### <a name="multiple-forest-considerations"></a>Considérations relatives aux forêts multiples
 
 Il n’y a aucune exigence supplémentaire pour déployer la protection par mot de passe Azure AD dans plusieurs forêts.
@@ -74,7 +76,7 @@ La conception du logiciel de l’agent DC de protection par mot de passe Azure A
 
 Une fréquence de mise à jour raisonnable pour les stratégies de mot de passe dans un déploiement à grande échelle se compte généralement en jours, pas en heures, ni moins. Par conséquent, des pannes brèves de serveurs proxy n’ont pas d’impact important sur la protection par mot de passe Azure AD.
 
-## <a name="deployment-requirements"></a>Composants requis pour le déploiement
+## <a name="deployment-requirements"></a>Conditions requises pour le déploiement
 
 Pour plus d’informations sur les licences, voir [Exigences en termes de licence pour la protection par mot de passe Azure AD](concept-password-ban-bad.md#license-requirements).
 

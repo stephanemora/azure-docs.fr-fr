@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 73037ac3725ad1e7e9dd84597936c47406244630
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918109"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949879"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versions d’API dans la Recherche cognitive Azure
 
@@ -24,7 +24,24 @@ En règle générale, l’équipe de Recherche cognitive Azure publie de nouvell
 La même règle s’applique pour les mises à jour du Kit de développement logiciel (SDK). Le SDK de Recherche cognitive Azure suit les règles de [gestion sémantique de version](https://semver.org/), ce qui signifie que sa version comprend trois parties : majeure, mineure et numéro de version (par exemple, 1.1.0). Une nouvelle version majeure du Kit de développement logiciel (SDK) est publiée uniquement en cas de modifications qui interrompent la compatibilité descendante. Les mises à jour de fonctionnalités sans rupture incrémentent la version mineure. Pour corriger les bogues, nous augmentons uniquement le numéro de version.
 
 > [!Important]
-> Les Kits de développement logiciel (SDK) Azure pour .NET, Java, Python et JavaScript déploient de nouvelles bibliothèques de client pour Recherche cognitive Azure. Actuellement, aucune des bibliothèques des Kits de développement logiciel (SDK) Azure ne prend entièrement en charge les API REST de recherche (2020-06-30) ou les API REST de gestion (2020-03-13) les plus récentes, mais cela changera au fil du temps. Vous pouvez consulter régulièrement cette page ou la rubrique [Nouveautés](whats-new.md) pour connaître les annonces sur les améliorations fonctionnelles. 
+> Les Kits de développement logiciel (SDK) Azure pour .NET, Java, Python et JavaScript déploient de nouvelles bibliothèques de client pour Recherche cognitive Azure. Actuellement, aucune des bibliothèques des Kits de développement logiciel (SDK) Azure ne prend entièrement en charge les API REST de recherche (2020-06-30) ou les API REST de gestion (2020-03-13) les plus récentes, mais cela changera au fil du temps. Vous pouvez consulter régulièrement cette page ou la rubrique [Nouveautés](whats-new.md) pour connaître les annonces sur les améliorations fonctionnelles.
+
+<a name="unsupported-versions"></a>
+
+## <a name="unsupported-versions"></a>Versions non prises en charge
+
+Mettez à niveau les solutions de recherche existantes vers la dernière version de l’API REST avant le 15 octobre 2020. À compter de cette date, les versions suivantes de l’API REST Recherche cognitive Azure seront retirées et ne seront plus prises en charge :
+
++ **2015-02-28**
++ **2015-02-28-Preview**
++ **2014-07-31-Preview ;**
++ **2014-10-20-Preview.**
+
+Les versions du kit SDK .NET Recherche cognitive Azure antérieures à la version [**3.0.0-rc**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) seront également retirées, car elles ciblent l’une de ces versions de l’API REST. 
+
+Après cette date, les applications utilisant l’API REST déconseillée ou les versions du Kit de développement logiciel (SDK) ne fonctionneront plus et nécessiteront une mise à niveau. Comme pour toute modification de ce type, nous donnons un préavis de 12 mois pour vous laisser le temps de vous adapter.
+
+Pour continuer à utiliser le service Recherche cognitive Azure, migrez le code existant ciblant [l’API REST](search-api-migration.md) vers l’[API REST version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) ou vers un Kit de développement logiciel (SDK) plus récent avant le 15 octobre 2020.  Si vous avez des questions sur la mise à jour vers la dernière version, envoyez un courrier à azuresearch_contact@microsoft.com pour le 15 mai 2020 afin d’être certain de disposer de suffisamment de temps pour mettre à jour votre code.
 
 ## <a name="rest-apis"></a>API REST
 
@@ -40,16 +57,16 @@ Créez et gérez du contenu sur un service de recherche.
 |-------------------------|--------|------------------------------|
 | [Recherche 30-06-2020](/rest/api/searchservice/index)| Stable | Version stable la plus récente des API REST de recherche, avec des progrès dans le scoring de la pertinence et la disponibilité générale de la base de connaissances.|
 | [Recherche 30-06-2020 - Préversion](/rest/api/searchservice/index-preview)| PRÉVERSION | Préversion associée à la version stable. Comprend plusieurs [fonctionnalités d’évaluation](search-api-preview.md). |
-| Recherche 2019-05-06 | Stable | Ajoute des [types complexes](search-howto-complex-data-types.md). |
+| Recherche 2019-05-06 | Stable  | Ajoute des [types complexes](search-howto-complex-data-types.md). |
 | Recherche 2019-05-06-Preview | PRÉVERSION | Préversion associée à la version stable. |
-| Recherche 11-11-2017 | Stable  | Ajoute des ensembles de compétences et l’[enrichissement par IA](cognitive-search-concept-intro.md). |
+| Recherche 11-11-2017 | Stable | Ajoute des ensembles de compétences et l’[enrichissement par IA](cognitive-search-concept-intro.md). |
 | Recherche 11-11-2017 - Préversion | PRÉVERSION | Préversion associée à la version stable. |
 | Recherche 01-09-2016 |Stable | Ajoute des [indexeurs](search-indexer-overview.md). |
 | Recherche 01-09-2016 - Préversion | PRÉVERSION | Préversion associée à la version stable.|
-| Recherche 28-02-2015 | Stable  | Première version en disponibilité générale.  |
-| Recherche 28-02-2015 - Préversion | PRÉVERSION | Préversion associée à la version stable. |
-| Recherche 20-10-2014 - Préversion | PRÉVERSION | Deuxième préversion publique. |
-| Recherche 31-07-2014 - Préversion | PRÉVERSION | Première préversion publique. |
+| Recherche 28-02-2015 | Non prise en charge après le 10/10/2020   | Première version en disponibilité générale.  |
+| Recherche 28-02-2015 - Préversion | Non prise en charge après le 10/10/2020  | Préversion associée à la version stable. |
+| Recherche 20-10-2014 - Préversion | Non prise en charge après le 10/10/2020 | Deuxième préversion publique. |
+| Recherche 31-07-2014 - Préversion | Non prise en charge après le 10/10/2020  | Première préversion publique. |
 
 ### <a name="management-rest-apis"></a>API REST de gestion
 
@@ -64,8 +81,7 @@ Créez et configurez un service de recherche et gérez les clés API.
 
 ## <a name="azure-sdk-for-net"></a>Kit SDK Azure pour .NET
 
-L’historique des versions du package est disponible sur NuGet.org. Ce tableau fournit des liens vers chaque page de package.
-
+Le tableau suivant fournit des liens vers des versions plus récentes du Kit de développement logiciel (SDK). 
 
 | Version du SDK | Statut | Description |
 |-------------|--------|------------------------------|
@@ -73,6 +89,8 @@ L’historique des versions du package est disponible sur NuGet.org. Ce tableau 
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Publiée en mai 2019. Cible l’API REST de recherche api-version=2019-05-06.|
 | [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | PRÉVERSION | Publiée en avril 2019. Cible l’API REST de recherche api-version=2019-05-06-Preview.|
 | [Microsoft.Azure.Management.Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Cible l’API REST de gestion de versions 19-08-2015.  |
+
+Pour plus d’informations sur les versions antérieures de Microsoft.Azure.Search, accédez à la [page du package NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search/) de toute mise en production, faites défiler la page jusqu’à **Historique des versions**, puis développez la section pour afficher la liste complète des mises en production.
 
 ## <a name="azure-sdk-for-java"></a>Kit SDK Azure pour Java
 

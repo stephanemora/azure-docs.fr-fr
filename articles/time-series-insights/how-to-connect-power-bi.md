@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: b9d91921fc375a1209e8fa8df6e3c6ff56e55be0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046714"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230974"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualiser des données à partir d’Azure Time Series Insights dans Power BI
 
@@ -52,20 +52,20 @@ Pour connecter votre environnement Azure Time Series Insights à Power BI, effec
 
 Pour commencer :
 
-1. Ouvrez l’Explorateur Azure Time Series Insights Gen2 et organisez vos données.
+1. Ouvrez l’Explorateur Azure Time Series Insights et organisez vos données.
 1. Une fois que vous avez créé un affichage dont vous êtes satisfait, accédez au menu déroulant **Plus d’actions**, puis sélectionnez **Se connecter à Power BI**.
 
-    [![Exportation avec l’Explorateur Azure Time Series Insights Gen2](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Exportation de l’Explorateur Azure Time Series Insights](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Définissez vos paramètres à l’intérieur de cet onglet :
 
    1. Spécifiez une période relative à afficher. Si vous êtes satisfait de votre affichage existant, laissez-le en tant que **Période existante**.
-   
-   1. Choisissez entre **Agrégées** et **Événements bruts**. 
-   
+
+   1. Choisissez entre **Agrégées** et **Événements bruts**.
+
        > [!NOTE]
-       > Vous pouvez toujours agréger vos données ultérieurement dans Power BI, mais vous ne pouvez pas rétablir les données brutes après l’agrégation. 
-       
+       > Vous pouvez toujours agréger vos données ultérieurement dans Power BI, mais vous ne pouvez pas rétablir les données brutes après l’agrégation.
+
        > [!NOTE]
        > Il existe une limite de nombre d’événements de 250 000 pour les données de niveau Événement brut.
 
@@ -89,7 +89,7 @@ Pour commencer :
     [![Connecter Power BI à Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     Vous pouvez également accéder à l’onglet **Azure** et sélectionner **Azure Time Series Insights (bêta)** , puis **Connecter**.
-    
+
 1. Une boîte de dialogue de message s’affiche et vous demande l’autorisation de se connecter à des ressources tierces. Sélectionnez **Continuer**.
 
     [![Choisir ou créer une requête personnalisée](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
@@ -112,17 +112,17 @@ Maintenant que vous avez importé les données dans Power BI, il est temps de cr
 
     [![Sélectionner l’affichage Rapport](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.  Dans la colonne **Visualisations**, sélectionnez le visuel de votre choix. Par exemple, sélectionnez **Graphique en courbes**. Cela permet d’ajouter un graphique en courbes vide à votre canevas.
+1. Dans la colonne **Visualisations**, sélectionnez le visuel de votre choix. Par exemple, sélectionnez **Graphique en courbes**. Cela permet d’ajouter un graphique en courbes vide à votre canevas.
 
-1.  Dans la liste **Champs**, sélectionnez **_Timestamp**, puis faites-le glisser vers le champ **Axe** pour afficher les éléments le long de l’axe X. Veillez à basculer sur **_Timestamp** pour la valeur de l’**axe** (la valeur par défaut est **Hiérarchie de date**).
+1. Dans la liste **Champs**, sélectionnez **_Timestamp**, puis faites-le glisser vers le champ **Axe** pour afficher les éléments le long de l’axe X. Veillez à basculer sur **_Timestamp** pour la valeur de l’**axe** (la valeur par défaut est **Hiérarchie de date**).
 
     [![Sélectionner l’affichage Rapport](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
-1.  À nouveau, dans la liste **Champs**, sélectionnez **TimeSeriesId**, puis faites-le glisser vers le champ **Valeurs** pour afficher les éléments le long de l’axe Y.
+1. À nouveau, dans la liste **Champs**, sélectionnez **TimeSeriesId**, puis faites-le glisser vers le champ **Valeurs** pour afficher les éléments le long de l’axe Y.
 
     [![Créer un graphique en courbes](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Pour ajouter un autre graphique à votre canevas, sélectionnez n’importe où sur le canevas à l’extérieur du graphique en courbes, puis répétez ce processus.
+1. Pour ajouter un autre graphique à votre canevas, sélectionnez n’importe où sur le canevas à l’extérieur du graphique en courbes, puis répétez ce processus.
 
     [![Créer des graphiques supplémentaires à partager](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 

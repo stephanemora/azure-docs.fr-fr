@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816063"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322447"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Déterminer la raison pour laquelle les données de vos appareils ne s’affichent pas dans Azure IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 Pour surveiller les données de télémétrie que votre appareil envoie, utilisez la commande suivante :
 
 ```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Si l’appareil s’est correctement connecté à IoT Central, une sortie similaire à la suivante s’affiche :
@@ -82,7 +82,7 @@ Filtering on device: device-001
 Pour surveiller les mises à jour de propriétés que votre appareil échange avec IoT Central, utilisez la commande d’aperçu suivante :
 
 ```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Si l’appareil envoie correctement les mises à jour de propriétés, une sortie similaire à la suivante s’affiche :
@@ -95,8 +95,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-### <a name="interpreting-terminal-output"></a>Interprétation de la sortie du terminal
-
 Si des données s’affichent dans votre terminal, cela signifie que les données parviennent à votre application IoT Central.
 
 Si aucune donnée ne s’affichent après quelques minutes, essayez d’appuyer sur la touche `Enter` ou `return` de votre clavier, si la sortie est bloquée.
@@ -108,7 +106,7 @@ Si les données ne s’affichent toujours pas dans votre terminal, il est probab
 Si vos données ne s’affichent pas sur le moniteur, vérifiez l’état d’approvisionnement de votre appareil en exécutant la commande suivante :
 
 ```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 La sortie suivante montre un exemple d’appareil dont la connexion est bloquée :
@@ -178,16 +176,14 @@ Pour détecter les catégories dans lesquelles se manifeste votre problème, ex�
 - Pour valider la télémétrie, utilisez la commande d’aperçu :
 
     ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Pour valider les mises à jour de propriétés, utilisez la commande d’aperçu :
 
     ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
-
-- Si vous préférez utiliser une interface utilisateur graphique, utilisez la vue **Données brutes** IoT Central pour voir si un objet n’est pas modélisé. La vue **Données brutes** ne détecte pas si l’appareil envoie un JSON incorrect.
 
 Vous pouvez être invité à installer la bibliothèque `uamqp` la première fois que vous exécutez une commande `validate`.
 
@@ -205,9 +201,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Capture d’écran de la vue Données brutes":::
+Si vous préférez utiliser une interface utilisateur graphique, utilisez la vue **Données brutes** IoT Central pour voir si un objet n’est pas modélisé. La vue **Données brutes** ne détecte pas si l’appareil envoie un JSON incorrect.
 
-### <a name="interpreting-terminal-output"></a>Interprétation de la sortie du terminal
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Capture d’écran de la vue Données brutes":::
 
 Après avoir détecté le problème, vous serez peut-être amené à mettre à jour le microprogramme de l’appareil ou à créer un nouveau modèle d’appareil qui modélise les données précédemment non modélisées.
 
@@ -215,9 +211,6 @@ Si vous choisissez de créer un nouveau modèle qui modélise correctement les d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne parvenez pas à résoudre le problème à l’aide de ce guide, ouvrez un ticket de support. Les clients Azure peuvent créer et gérer des demandes de support dans le portail Azure.
-
-- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Portail Azure pour le gouvernement des États-Unis](https://portal.azure.us/)
+Si vous avez besoin d’aide supplémentaire, vous avez la possibilité de contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/community/). Vous pouvez également soumettre un [ticket de support Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Pour plus d’informations, consultez [Options d’aide et de support Azure IoT](../../iot-fundamentals/iot-support-help.md).

@@ -5,22 +5,26 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/31/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919673"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179349"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication
 
 Azure AD (Azure Active Directory) utilise plusieurs paramètres qui déterminent la fréquence à laquelle les utilisateurs doivent se réauthentifier. Cette réauthentification peut se faire avec un premier facteur de type mot de passe, FIDO ou Microsoft Authenticator sans mot de passe, ou en utilisant l’authentification multifacteur (MFA). Vous pouvez configurer ces paramètres de réauthentification en fonction des exigences de votre environnement et de l’expérience utilisateur que vous souhaitez offrir.
+
+La configuration par défaut d’Azure AD pour la fréquence de connexion utilisateur est une fenêtre dynamique de 90 jours. Demander aux utilisateurs d’entrer des informations d’identification semble souvent être une chose à faire, mais cela peut avoir l’effet inverse. Si les utilisateurs sont formés pour entrer leurs informations d’identification sans les penser, ils peuvent les fournir involontairement à une invite d’informations d’identification malveillante.
+
+Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter. Cependant, toute violation des stratégies informatiques révoque la session. Certains exemples incluent une modification de mot de passe, un appareil non conforme ou une opération de désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
 Cet article explique en détail les configurations recommandées ainsi que la manière dont les différents paramètres fonctionnent et interagissent les uns avec les autres.
 
@@ -35,6 +39,7 @@ Pour offrir à vos utilisateurs le meilleur compromis entre sécurité et simpli
 * Si vous avez des licences Applications Office 365 ou Azure AD Free :
     * Activez l’authentification unique (SSO) entre les applications en utilisant des [appareils managés](../devices/overview.md) ou l’[authentification unique transparente](../hybrid/how-to-connect-sso.md).
     * Gardez l’option *Rester connecté* activée et recommandez à vos utilisateurs de l’accepter.
+* Pour les scénarios d’appareils mobiles, assurez-vous que vos utilisateurs utilisent l’application Microsoft Authenticator. Cette application est utilisée en tant que répartiteur pour d’autres applications Azure AD fédérées, et réduit les invites d’authentification sur l’appareil.
 
 Les études que nous avons menées montrent que ces paramètres conviennent pour la plupart des locataires. Certaines combinaisons de ces paramètres, telles que *Mémoriser Multi-Factor Authentication* associé à *Rester connecté*, peuvent rendre les invites d’authentification des utilisateurs trop fréquentes. Les invites de réauthentification continuelles impactent la productivité des utilisateurs et risquent de les rendre plus vulnérables aux attaques.
 
@@ -71,11 +76,11 @@ Pour plus d’informations sur la configuration de l’option permettant aux uti
 
 ### <a name="remember-multi-factor-authentication"></a>Mémoriser Multi-Factor Authentication  
 
-Ce paramètre vous permet de configurer des valeurs comprises entre 1 et 60 jours, et définit un cookie persistant dans le navigateur quand un utilisateur sélectionne l’option **Ne plus me le demander pendant X jours** au moment de la connexion.
+Ce paramètre vous permet de configurer des valeurs comprises entre 1 et 365 jours, et définit un cookie persistant dans le navigateur quand un utilisateur sélectionne l’option **Ne plus me le demander pendant X jours** au moment de la connexion.
 
 ![Capture d’écran d’un exemple d’invite pour accepter une demande de connexion](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-Ce paramètre réduit le nombre d’authentifications dans les applications web, mais il l’augmente dans les clients d’authentification modernes, tels que les clients Office. Normalement, ces clients envoient une invite uniquement après la réinitialisation du mot de passe ou après 90 jours d’inactivité. Toutefois, la valeur maximale du paramètre *Mémoriser Multi-Factor Authentication* est de 60 jours. Quand ce paramètre est combiné avec le paramètre **Rester connecté** ou des stratégies d’accès conditionnel, les invites d’authentification peuvent devenir plus fréquentes.
+Ce paramètre réduit le nombre d’authentifications dans les applications web, mais il l’augmente dans les clients d’authentification modernes, tels que les clients Office. Normalement, ces clients envoient une invite uniquement après la réinitialisation du mot de passe ou après 90 jours d’inactivité. Toutefois, la définition de cette valeur sur une valeur inférieure à 90 jours raccourcit les invites MFA par défaut pour les clients Office, et augmente la fréquence de réauthentification. Quand ce paramètre est combiné avec le paramètre **Rester connecté** ou des stratégies d’accès conditionnel, les invites d’authentification peuvent devenir plus fréquentes.
 
 Si vous utilisez *Mémoriser Multi-Factor Authentication* et que vous avez des licences Azure AD Premium 1, prévoyez de migrer ces paramètres vers un accès conditionnel pour la fréquence de connexion. Sinon, choisissez l’option *Rester connecté ?* à la place.
 

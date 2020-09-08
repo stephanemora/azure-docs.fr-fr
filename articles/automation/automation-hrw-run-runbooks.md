@@ -3,14 +3,14 @@ title: Exécuter des runbooks Azure Automation sur un Runbook Worker hybride
 description: Cet article explique comment exécuter des runbooks sur des machines de votre fournisseur cloud ou de votre centre de données local avec un Runbook Worker hybride.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186212"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959567"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Exécuter des runbooks sur un Runbook Worker hybride
 
@@ -304,6 +304,14 @@ Quand vous démarrez un runbook à l’aide de PowerShell, utilisez le paramètr
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## <a name="logging"></a>Journalisation
+
+Pour aider à résoudre les problèmes liés à votre runbooks s’exécutant sur un Runbook Worker hybride, les journaux sont stockés localement dans l’emplacement suivant :
+
+* Sur Windows dans le chemin d’accès `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` pour une journalisation détaillée du processus de runtime du travail. Les événements d’état de travail de runbook de haut niveau sont écrits dans le journal des événements **Application and Services Logs\Microsoft-Automation\Operations**.
+
+* Sur Linux, les journaux du Worker hybride de l’utilisateur se trouvent dans le chemin d’accès `/home/nxautomation/run/worker.log`, et les journaux du Runbook Worker système dans le chemin d’accès `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

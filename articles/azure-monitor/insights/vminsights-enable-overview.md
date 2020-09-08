@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824764"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998405"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
@@ -78,86 +78,25 @@ Si vous n’avez pas d’espace de travail Log Analytics, vous pouvez en créer 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux qu’Azure Monitor pour machines virtuelles prend en charge. Plus loin dans cette section, figure une liste complète détaillant les versions principales et mineures de système d’exploitation et de noyau Linux prises en charge.
+Azure Monitor pour machines virtuelles prend en charge tout système d’exploitation prenant en charge l’agent Log Analytics et l’agent Dependency. Pour une liste complète, consultez [Vue d’ensemble des agents Azure Monitor](../platform/agents-overview.md#supported-operating-systems).
 
-|Version du SE |Performances |Cartes |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18.04, 16.04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
+Consultez la liste suivante de considérations sur la prise en charge par Linux de l’agent Dependency qui prend en charge Azure Monitor pour machines virtuelles :
 
-<sup>1</sup> La fonctionnalité Performances d’Azure Monitor pour machines virtuelles est disponible uniquement à partir d’Azure Monitor. Elle n’est pas directement accessible à partir du volet gauche de la machine virtuelle Azure.
+- Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
+- Les versions non standard du noyau, par exemple Physical Address Extension (PAE) et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version *2.6.16.21-0.8-xen* n’est pas pris en charge.
+- Les noyaux personnalisés, y compris les recompilations de noyaux standard, ne sont pas pris en charge.
+- Pour les distributions Debian autres que la version 9.4, la fonctionnalité de mappage n’est pas prise en charge et la fonctionnalité Performances n’est disponible qu’à partir du menu Azure Monitor. Elle n’est pas directement accessible à partir du volet gauche de la machine virtuelle Azure.
+- Le noyau CentOSPlus est pris en charge.
+- Le noyau Linux doit être corrigé pour la vulnérabilité Spectre. Pour plus d’informations, consultez le fournisseur de votre distribution Linux.
 
->[!NOTE]
->Dans le système d’exploitation Linux :
-> - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
-> - Les versions non standard du noyau, par exemple Physical Address Extension (PAE) et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version *2.6.16.21-0.8-xen* n’est pas pris en charge.
-> - Les noyaux personnalisés, y compris les recompilations de noyaux standard, ne sont pas pris en charge.
-> - Le noyau CentOSPlus est pris en charge.
-> - Le noyau Linux doit être corrigé pour la vulnérabilité Spectre. Pour plus d’informations, consultez le fournisseur de votre distribution Linux.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Version du SE | Version du noyau |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Version du SE | Version du noyau |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| Version du SE | Version du noyau |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Serveur Ubuntu
-
-| Version du SE | Version du noyau |
-|:--|:--|
-| 18,04 | 5.3.0-1020<br>5.0 (inclut un noyau optimisé pour Azure)<br>4.18 *<br>4.15* |
-| 16.04.3 | 4.15.* |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Version du SE | Version du noyau |
-|:--|:--|
-|12 SP4 | 4.12.* (inclut un noyau optimisé pour Azure) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### <a name="debian"></a>Debian 
-
-| Version du SE | Version du noyau |
-|:--|:--|
-| 9 | 4,9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Machines Azure Arc prises en charge
 Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Arc dans les régions où le service d’extension Arc est disponible. Vous devez exécuter la version 0.9 ou une version supérieure de l’agent Arc.
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
-| Agents Windows | Oui | Outre l’agent [Log Analytics pour Windows](../platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Windows | Oui | Outre l’agent [Log Analytics pour Windows](../platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](../platform/agents-overview.md#supported-operating-systems). |
 | Agents Linux | Oui | Outre l’agent [Log Analytics pour Linux](../platform/log-analytics-agent.md), les agents Linux ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Groupe d’administration Microsoft System Center Operations Manager | Non | |
 

@@ -1,6 +1,6 @@
 ---
 title: Révoquer les accès utilisateur lors d’une urgence dans Azure Active Directory | Microsoft Docs
-description: Ajouter des utilisateurs en bloc dans le centre d’administration Azure AD dans Azure Active Directory
+description: Comment révoquer tous les accès d’un utilisateur dans Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798412"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147131"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Les jetons d’accès et les jetons d’actualisation sont fréquemment utilisé
 
 Azure AD réévalue ensuite ses stratégies d’autorisation. Si l’utilisateur est toujours autorisé, Azure AD émet un nouveau jeton d’accès et un nouveau jeton d’actualisation.
 
-Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) aux applications Office 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
+Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) aux applications Office 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
 
 ## <a name="session-tokens-cookies"></a>Jetons de session (cookies)
 

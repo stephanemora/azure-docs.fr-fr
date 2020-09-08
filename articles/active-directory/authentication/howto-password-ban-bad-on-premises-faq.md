@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717776"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003471"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la protection par mot de passe Azure AD en local
 
@@ -48,6 +48,14 @@ Une définition de mot de passe (parfois appelée une réinitialisation de mot d
 
 Le comportement de la stratégie de validation de mot de passe est toujours identique, qu’il s’agisse d’une modification de mot de passe ou d’une définition de mot de passe. Le service d’agent du contrôleur de domaine pour la protection par mot de passe Azure AD consigne différents événements afin de vous informer en cas de modification ou de définition de mot de passe.  Voir [Supervision et journalisation dans la protection par mot de passe Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
+**Q : La protection par mots de passe Azure AD valide-t-elle les mots de passe existants après installation ?**
+
+Non. La protection par mot de passe Azure AD peut uniquement appliquer une stratégie de mot de passe à des mots de passe en texte clair pendant une opération de définition ou de modification de mot de passe. Une fois qu’Active Directory a accepté un mot de passe, seuls des hachages spécifiques du protocole d’authentification de ce mot de passe sont conservés. Le mot de passe en texte clair n’étant jamais conservé, la protection par mot de passe Azure AD ne peut pas valider des mots de passe existants.
+
+Après le déploiement initial de la protection par mot de passe Azure AD, l’ensemble des utilisateurs et des comptes commencent à utiliser un mot de passe validé par la protection par mot de passe Azure AD, car leurs mots de passe existants expirent normalement au fil du temps. Si nécessaire, vous pouvez accélérer ce processus en raison d’une expiration manuelle ponctuelle des mots de passe de comptes d’utilisateur.
+
+Les comptes configurés avec l’option « Le mot de passe n’expire jamais » ne sont jamais obligés de modifier leur mot de passe, sauf en cas d’expiration manuelle.
+
 **Q : Pourquoi des événements de mot de passe rejetés sont-ils consignés en double lorsque je tente de définir un mot de passe faible à l’aide du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory ?**
 
 Le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory essaie d’abord de définir le nouveau mot de passe à l’aide du protocole Kerberos. En cas d’échec, le composant logiciel enfichable fera une seconde tentative de définition du mot de passe à l’aide d’un protocole hérité (SAM RPC). Les protocoles spécifiques utilisés ne sont pas importants. Si le nouveau mot de passe est considéré comme faible par la Protection de mots de passe Azure AD, le comportement de ce logiciel enfichable engendre la journalisation de deux ensembles d’événements de rejet de réinitialisation de mot de passe.
@@ -68,7 +76,7 @@ Non pris en charge. La protection par mot de passe Azure AD est une fonctionnali
 
 Non pris en charge. La stratégie ne peut être administrée que par le biais du portail Azure AD. Consultez également la question précédente.
 
-**Q : Pourquoi la technologie DFSR est-elle nécessaire pour la réplication sysvol ?**
+**Q : Pourquoi la technologie DFSR est-elle nécessaire pour la réplication sysvol ?**
 
 La technologie FRS (prédécesseur de la technologie DFSR) présente de nombreux problèmes connus et n’est pas du tout prise en charge par les versions plus récentes de Windows Server Active Directory. Aucun essai de la protection par mot de passe Azure AD ne sera effectué sur les domaines configurés en FRS.
 
@@ -80,7 +88,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 Si votre domaine n’utilise pas encore DFSR, vous DEVEZ le faire migrer pour l’utiliser avant d’installer la protection par mot de passe Azure Active Directory. Pour plus d’informations, consultez le lien suivant :
 
-[Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Guide de migration de la réplication SYSVOL : Réplication FRS vers DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > Le logiciel de l’agent DC de protection par mot de passe Azure AD s’installe actuellement sur des contrôleurs de domaine dans des domaines qui utilisent encore FRS pour la réplication sysvol, mais ce logiciel ne fonctionne pas correctement dans cet environnement. Des effets secondaires supplémentaires peuvent entraîner l’échec de la réplication des fichiers individuels, et le succès apparent des procédures de restauration sysvol qui ne parviennent pas à répliquer tous les fichiers en mode silencieux. Vous devez faire migrer votre domaine pour utiliser DFSR dès que possible, à la fois pour les avantages inhérents à DFSR et pour débloquer le déploiement de la protection par mot de passe Azure AD. Les versions ultérieures du logiciel seront automatiquement désactivées lors de l’exécution dans un domaine qui utilise encore FRS.
@@ -89,11 +97,11 @@ Si votre domaine n’utilise pas encore DFSR, vous DEVEZ le faire migrer pour l�
 
 L’utilisation d’un espace précis varie en fonction de facteurs, par exemple la surcharge de chiffrement, le nombre et la longueur des jetons interdits dans la liste globale interdite de Microsoft et dans la liste personnalisée par locataire. Le contenu de ces listes est susceptible d’évoluer à l’avenir. Ainsi, la prévision pour cette fonctionnalité d’au moins cinq (5) mégaoctets d’espace sur le partage sysvol du domaine est une appréciation raisonnable.
 
-**Q : Pourquoi un redémarrage est-il nécessaire pour installer ou mettre à niveau le logiciel de l’agent contrôleur de domaine ?**
+**Q : Pourquoi un redémarrage est-il nécessaire pour installer ou mettre à niveau le logiciel de l’agent contrôleur de domaine ?**
 
 Cette exigence est due à un comportement de base de Windows.
 
-**Q : Existe-t-il un moyen de configurer un agent contrôleur de domaine pour utiliser un serveur proxy spécifique ?**
+**Q : Existe-t-il un moyen de configurer un agent contrôleur de domaine pour utiliser un serveur proxy spécifique ?**
 
 Non. Le serveur proxy étant sans état, n’importe quel serveur proxy en particulier est utilisé.
 

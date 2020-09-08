@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 2588ca87e2dc2209fbaa5eae411fe5895d5f5669
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889649"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011188"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -27,7 +27,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{containerName}` et `{protectedItemName}` sont tels qu’ils ont été créés [ici](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` correspond à « Azure ».
 
-L’URI *GET* contient tous les paramètres obligatoires. Il n’est pas nécessaire d’ajouter un corps de demande supplémentaire.
+L’URI *GET* contient tous les paramètres obligatoires. Il n’est pas nécessaire d’ajouter un corps de demande.
 
 ### <a name="responses"></a>Réponses
 

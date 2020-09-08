@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854111"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230826"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Paramètres globaux dans Azure Data Factory
 
@@ -43,11 +43,26 @@ Les paramètres globaux peuvent être utilisés dans n’importe quelle [express
 
 ## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Paramètres globaux dans CI/CD
 
-Les paramètres globaux comportent un processus CI/CD associé à d’autres entités dans Azure Data Factory. Lorsque vous publiez une fabrique ou exportez un modèle ARM avec des paramètres globaux, un dossier appelé *globalParameters* est créé avec un fichier appelé *your-factory-name_GlobalParameters.json*. Ce fichier est un objet JSON qui contient chaque type et valeur de paramètre global dans la fabrique publiée.
+Il existe deux façons d’intégrer des paramètres globaux dans votre solution d’intégration et de déploiement continus :
+
+* Inclure des paramètres globaux dans le modèle ARM
+* Déployer des paramètres globaux via un script PowerShell
+
+Pour la plupart des cas d’utilisation, il est recommandé d’inclure des paramètres globaux dans le modèle ARM. Celui-ci s’intègre en mode natif avec la solution décrite dans [la documentation CI/CD](continuous-integration-deployment.md). Les paramètres globaux seront ajoutés par défaut en tant que paramètres de modèle ARM, car ils changent souvent d’un environnement à l’autre. Vous pouvez activer l’inclusion de paramètres globaux dans le modèle ARM à partir du hub de gestion.
+
+![Inclure dans le modèle ARM](media/author-global-parameters/include-arm-template.png)
+
+L’ajout de paramètres globaux au modèle ARM a pour effet d’ajouter un paramètre de niveau fabrique qui peut remplacer d’autres paramètres de niveau fabrique tels qu’une clé gérée par le client ou une configuration Git dans d’autres environnements. Si ces paramètres sont activés dans un environnement avec privilèges élevés tel que UAT ou PROD, il est préférable de déployer des paramètres globaux via un script PowerShell dans les étapes décrites ci-dessous.
+
+### <a name="deploying-using-powershell"></a>Déploiement à l’aide de PowerShell
+
+Les étapes suivantes décrivent comment déployer des paramètres globaux via PowerShell. Cela est utile lorsque votre fabrique cible a un paramètre de niveau fabrique tel qu’une clé gérée par le client.
+
+Lorsque vous publiez une fabrique ou exportez un modèle ARM avec des paramètres globaux, un dossier appelé *globalParameters* est créé avec un fichier appelé *your-factory-name_GlobalParameters.json*. Ce fichier est un objet JSON qui contient chaque type et valeur de paramètre global dans la fabrique publiée.
 
 ![Publication de paramètres globaux](media/author-global-parameters/global-parameters-adf-publish.png)
 
-Si vous effectuez un déploiement dans un nouvel environnement comme TEST ou PROD, il est recommandé de créer une copie de ce fichier de paramètres globaux et de remplacer les valeurs appropriées spécifiques à l’environnement. Lors de la republication, le fichier de paramètres globaux d’origine est remplacé, mais la copie de l’autre environnement restera intacte.
+Si vous effectuez un déploiement dans un nouvel environnement tel que TEST ou PROD, il est recommandé de créer une copie de ce fichier de paramètres globaux et de remplacer les valeurs appropriées spécifiques de l’environnement. Lors de la republication, le fichier de paramètres globaux d’origine est remplacé, mais la copie de l’autre environnement restera intacte.
 
 Par exemple, si vous possédez une fabrique nommée « ADF-DEV » et un paramètre global de type chaîne nommé 'environment' avec la valeur 'dev', un fichier nommé *ADF-DEV_GlobalParameters.json* est généré lors de la republication. Si vous déployez sur une fabrique de test nommée 'ADF_TEST', créez une copie du fichier JSON (par exemple, ADF-TEST_GlobalParameters.json) et remplacez les valeurs de paramètre par les valeurs spécifiques à l’environnement. Le paramètre 'environment' peut maintenant avoir la valeur 'test'. 
 

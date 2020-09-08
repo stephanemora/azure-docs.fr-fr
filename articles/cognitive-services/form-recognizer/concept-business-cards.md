@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799279"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004899"
 ---
 # <a name="business-card-concepts"></a>Concepts relatifs aux cartes de visite
 
-Azure Form Recognizer peut analyser et extraire des paires clé-valeur à partir de cartes de visite à l’aide de l’un de ses modèles prédéfinis. L’API Carte de visite associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1. 
+Azure Form Recognizer peut analyser et extraire des informations de contact à partir de cartes de visite à l’aide de l’un de ses modèles prédéfinis. L’API Carte de visite associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1. 
 
 ## <a name="what-does-the-business-card-api-do"></a>Quelle est la fonction de l’API Carte de visite ?
 
@@ -27,11 +27,12 @@ L’API Carte de visite extrait les champs clés des cartes de visite et les ret
 
 ![Image détaillée de Contoso à partir de la sortie JSON + FOTT](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Champs extraits : 
+### <a name="fields-extracted"></a>Champs extraits :
+
 * Noms des contacts 
-* Prénom 
-* Nom 
-* Noms des sociétés 
+  * Prénoms
+  * Noms de famille
+* Noms de société 
 * Departments 
 * Fonctions 
 * E-mails 
@@ -43,7 +44,7 @@ L’API Carte de visite extrait les champs clés des cartes de visite et les ret
   * Téléphones professionnels 
   * Autres téléphones 
 
-L’API Carte de visite retourne également tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.  
+L’API Carte de visite peut également retourner tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.  
 
 ### <a name="input-requirements"></a>Spécifications relatives aux entrées 
 
@@ -51,7 +52,7 @@ L’API Carte de visite retourne également tout le texte reconnu de la carte de
 
 ## <a name="the-analyze-business-card-operation"></a>Opération d’analyse de carte de visite
 
-L’[analyse de carte de visite](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) prend une image ou un fichier PDF d’une carte de visite comme entrée et extrait les valeurs d’intérêt et de texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’opération d’[analyse de carte de visite](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) prend une image ou un fichier PDF de carte de visite comme entrée et extrait les valeurs présentant un intérêt. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
@@ -63,18 +64,15 @@ La seconde étape consiste à appeler l’opération d’[obtention du résultat
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
-|status | string | notStarted : L’opération d’analyse n’a pas commencé. |
-| |  | running : L’opération d’analyse est en cours. |
-| |  | failed : L’opération d’analyse a échoué. |
-| |  | succeeded : L’opération d’analyse a réussi. |
+|status | string | notStarted : L’opération d’analyse n’a pas commencé.<br /><br />running : L’opération d’analyse est en cours.<br /><br />failed : L’opération d’analyse a échoué.<br /><br />succeeded : L’opération d’analyse a réussi.|
 
-Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON inclut les résultats de compréhension de carte de visite et de reconnaissance de texte. Le résultat de compréhension de carte de visite est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
+Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut les résultats de la compréhension de carte de visite et de la reconnaissance de texte facultative, si nécessaire. Le résultat de compréhension de carte de visite est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
 
 ![Exemple de sortie de carte de visite](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Exemple de sortir JSON
 
-Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud documentResults contient les valeurs spécifiques à la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le prénom, le nom, le nom de la société, etc.
+Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud documentResults contient les valeurs spécifiques à la carte de visite découvertes par le modèle. C’est là que vous trouverez des informations de contact utiles comme le prénom, le nom, le nom de la société, etc.
 
 ```json
 {
@@ -394,5 +392,4 @@ L’API Carte de visite optimise également la [fonctionnalité de traitement de
 - Suivre le guide de démarrage rapide pour commencer [Guide de démarrage rapide Python de l’API des cartes de visite](./quickstarts/python-business-cards.md)
 - Découvrir l’[API REST Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - En savoir plus sur [Form Recognizer](overview.md)
-
 

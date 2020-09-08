@@ -4,22 +4,22 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892624"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000377"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
 > [!NOTE]
 > Suite aux commentaires des utilisateurs, nous avons renommé la **Pile de sauvegarde de machine virtuelle V2** **Restauration instantanée** pour éviter toute confusion avec les fonctionnalités Azure Stack.
-> Tous les utilisateurs de Sauvegarde Azure ont été mis à niveau pour bénéficier de la **restauration instantanée**.
+> Tous les utilisateurs de Sauvegarde Azure ont été mis à niveau la **Restauration instantanée**.
 
 Le nouveau modèle pour la restauration instantanée fournit les améliorations de fonctionnalités suivantes :
 
-* Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
+* Possibilité d’utiliser des captures instantanées prises dans le cadre d’une tâche de sauvegarde, qui peuvent être récupérées sans attendre la fin du transfert de données vers le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention des instantanés par défaut peut être définie sur n’importe quelle valeur comprise entre 1 et 5 jours.
 * Prend en charge des disques d’une taille maximale de 32 To. Le redimensionnement des disques n'est pas recommandé par le service Sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques HDD Standard et SSD Premium.
@@ -37,7 +37,7 @@ Un point de récupération est considéré comme créé seulement après l’ex�
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : stockage et coffre](./media/backup-azure-vms/instant-rp-flow.png)
 
-Par défaut, les instantanés sont conservés pendant 2 jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre.
+Par défaut, les instantanés sont conservés pendant 2 jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données à partir du coffre.
 
 ## <a name="feature-considerations"></a>Considérations sur la fonctionnalité
 
@@ -108,9 +108,9 @@ Si le type de récupération est « instantané et coffre », la restauration 
 
 Le nouveau modèle n’autorise la suppression du point de restauration (niveau 2) que si la capture instantanée (niveau 1) est supprimée. Nous vous recommandons de planifier une période de rétention du point de restauration (niveau 2) supérieure à la période de rétention des instantanés.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi mon instantané existe-t-il même après la période de conservation définie dans la stratégie de sauvegarde ?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi ma capture instantanée existe-t-elle toujours, même après la période de conservation définie dans la stratégie de sauvegarde ?
 
-Si le point de récupération a une capture instantanée et qu’il s’agit du dernier point de récupération disponible, celle-ci est conservée jusqu’à la prochaine sauvegarde réussie. Ceci est conforme à la stratégie de « garbage collection » (GC) actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.
+Si le point de récupération dispose d’une capture instantanée et qu’il s’agit du dernier point de récupération disponible, la capture instantanée est conservée jusqu’à la prochaine sauvegarde réussie. Cela est conforme à la stratégie « garbage collection » (GC) désignée. Cette stratégie impose qu’au moins le dernier point de récupération soit toujours présent, en cas d’échec de toutes les sauvegardes suivantes en raison d’un problème de machine virtuelle. Dans des scénarios normaux, les points de récupération sont nettoyés au plus tard 24 heures après leur expiration.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Je n’ai pas besoin de la fonctionnalité de restauration instantanée. Peut-elle être désactivée ?
 

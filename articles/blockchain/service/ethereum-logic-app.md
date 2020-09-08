@@ -1,23 +1,24 @@
 ---
 title: Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps - Azure Blockchain Service
 description: Utilisez le connecteur Ethereum Blockchain avec Azure Logic Apps pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077041"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230532"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 
-Utilisez le [connecteur Ethereum Blockchain](/connectors/blockchainethereum/) avec [Azure Logic Apps](../../logic-apps/index.yml) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
+Utilisez le [connecteur Ethereum Blockchain](/connectors/blockchainethereum/) avec [Azure Logic Apps](../../logic-apps/index.yml) pour déclencher des fonctions de contrat intelligent et répondre à des événements de contrat intelligent. Cet article explique comment vous utiliser le connecteur Ethereum Blockchain pour envoyer des informations de blockchain à un autre service ou appeler une fonction de blockchain. Par exemple, supposons que vous souhaitiez créer un microservice basé sur REST qui retourne des informations à partir d’un registre blockchain. À l’aide d’une application logique, vous pouvez accepter les requêtes HTTP qui interrogent les informations stockées dans un registre blockchain.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuez le guide de démarrage rapide prérequis facultatif intitulé [Démarrage rapide : Utiliser Visual Studio Code pour se connecter à un réseau du consortium Azure Blockchain Service](connect-vscode.md). Le guide de démarrage rapide vous dirige tout au long de l’installation de l’[Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) et de la configuration de votre environnement de développement blockchain.
+- Effectuez le guide de démarrage rapide prérequis facultatif intitulé [Démarrage rapide : Utiliser Visual Studio Code pour se connecter à un réseau du consortium Azure Blockchain Service](connect-vscode.md). Le guide de démarrage rapide vous dirige tout au long de l’installation de l’[Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) et de la configuration de votre environnement de développement blockchain.
+- Si vous débutez avec Azure Logic Apps, songez à consulter les modules Microsoft Learn [Présentation d’Azure Logic Apps](/learn/modules/intro-to-logic-apps/) et [Appeler une API à partir d’un flux de travail Logic Apps à l’aide d’un connecteur personnalisé](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 
@@ -33,7 +34,7 @@ Azure Logic Apps vous aide à planifier et à automatiser les processus et workf
 
 Chaque application logique doit démarrer avec un déclencheur, qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique qui démarre et exécute votre flux de travail.
 
-Le connecteur Ethereum Blockchain a un déclencheur et plusieurs actions. Le déclencheur ou l’action que vous utilisez dépend de votre scénario.
+Le connecteur Ethereum Blockchain a un déclencheur et plusieurs actions. Le déclencheur ou l’action que vous utilisez dépend de votre scénario. Suivez la section de cet article qui correspond le mieux à votre scénario.
 
 Si votre workflow :
 
@@ -128,7 +129,7 @@ Par exemple, les étapes suivantes génèrent une application logique de microse
 
     ![Vue du concepteur avec l’étape Connexions sélectionnée](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. Vous pouvez maintenant utiliser votre application logique. Pour tester le microservice basé sur REST, émettez une requête HTTP POST à l’URL de requête de l’application logique. Copiez le contenu de l’**URL HTTP POST** à partir de l’étape **When a HTTP request is received** (Quand une requête HTTP est reçue).
+1. Vous pouvez maintenant utiliser votre application logique. Pour tester le microservice basé sur REST, émettez une requête HTTP POST à l’URL de requête de l’application logique. Copiez le contenu de **URL HTTP POST** de l’étape **Quand une requête HTTP est reçue**.
 
     ![Volet du Concepteur Logic Apps avec l’URL HTTP POST](./media/ethereum-logic-app/post-url.png)
 
