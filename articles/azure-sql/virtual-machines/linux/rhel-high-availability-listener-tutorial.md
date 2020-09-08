@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343759"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485788"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Avoir suivi le [Tutoriel : Configurer des groupes de disponibilité pour SQL S
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Créer l’équilibrage de charge dans le portail Azure
 
-Les instructions suivantes vous guident tout au long des étapes 1 à 4 de la section [Créer et configurer l’équilibreur de charge sur le portail Azure](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) de l’article [Équilibreur de charge – Portail Azure](../windows/availability-group-load-balancer-portal-configure.md).
+Les instructions suivantes vous guident tout au long des étapes 1 à 4 de la section [Créer et configurer l’équilibreur de charge sur le portail Azure](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) de l’article [Équilibreur de charge – Portail Azure](../windows/availability-group-load-balancer-portal-configure.md).
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
 

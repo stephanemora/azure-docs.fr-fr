@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour la Messagerie Azure Service Bus
 description: Répertorie les contrôles de conformité réglementaire d’Azure Policy pour la Messagerie Azure Service Bus. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f0c06c5fca9972bc302587a6ed5710ff14bb695e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 736f83820e0d5ee856dd0f3b92d426e9baaadb88
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093634"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489361"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Contrôles de conformité réglementaire d’Azure Policy pour la Messagerie Azure Service Bus
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998439"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462018"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutoriel : Ajouter l’autocomplétion et les suggestions à l’aide du SDK .NET
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Ce tutoriel fait partie d’une série et repose sur le projet de pagination créé dans le [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
-Vous pouvez également télécharger et exécuter la solution pour ce tutoriel spécifique : [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Vous pouvez également télécharger et exécuter la solution pour ce tutoriel spécifique : [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Ajouter des suggestions
 

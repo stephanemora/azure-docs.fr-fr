@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 975952a0a084286bdbc19ce02c1192d076cf3600
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001397"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458380"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
 
@@ -240,4 +240,4 @@ Pour plus d’informations sur l’utilisation du Stockage Microsoft Azure avec
 
 Pour plus d’informations sur l’API REST Blob, consultez [API REST du service BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Pour obtenir les dernières informations sur Stockage Microsoft Azure, consultez le [Blog de l’équipe Stockage Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/).
+Pour obtenir les dernières informations sur Stockage Microsoft Azure, consultez le [Blog de l’équipe Stockage Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

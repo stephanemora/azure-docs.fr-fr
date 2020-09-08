@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: b0b1914755ff0435318ab970aa6dc6e5e039d581
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855680"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458057"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les espaces de travail Log Analytics dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des espace de travail Log Analytics dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -21,8 +21,9 @@ Cet article contient des exemples de [modèles Azure Resource Manager](../../azu
 
 ## <a name="template-references"></a>Références du modèle
 
-- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces) 
-- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces/datasources)
+- [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces
+) 
+- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 L’exemple suivant crée un espace de travail Log Analytics vide.

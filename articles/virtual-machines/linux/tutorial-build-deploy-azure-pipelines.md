@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433058"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462171"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -84,9 +84,10 @@ Suivez les étapes supplémentaires décrites ci-dessous, selon la pile d’exé
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Pour déployer des applications Java Spring Boot et Spring Cloud, créez une machine virtuelle Linux dans Azure à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804), qui fournit un runtime OpenJDK entièrement pris en charge.
-- Pour déployer des servlets Java sur un serveur Tomcat, créez une machine virtuelle Linux avec Java 8 à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure, puis [configurez Tomcat 9.x comme un service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Pour déployer une application Java EE, utilisez un modèle Azure afin de créer une [machine virtuelle Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), une [machine virtuelle Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou une [machine virtuelle Linux +Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804). 
+- Pour déployer des applications Java Spring Boot et Spring Cloud, créez une machine virtuelle Linux dans Azure à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004), qui fournit un runtime OpenJDK entièrement pris en charge.
+- Pour déployer des servlets Java sur un serveur Tomcat, créez une machine virtuelle Linux avec Java 8 à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) Azure, puis [configurez Tomcat 9.x comme un service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Pour déployer une application Java EE, utilisez un modèle Azure afin de créer une [machine virtuelle Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), une [machine virtuelle Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou une [machine virtuelle Linux +Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004). 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 

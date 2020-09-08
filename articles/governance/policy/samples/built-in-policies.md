@@ -1,15 +1,15 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7982627197a7524093ab56828b24528ebd903c67
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a664c740649135c7586c77da43eacfd0a73e34a9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298407"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487715"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
@@ -112,10 +112,6 @@ Le nom de chaque définition intégrée est un lien vers la définition de strat
 ## <a name="logic-apps"></a>Logic Apps
 
 [!INCLUDE [azure-policy-reference-policies-logic-apps](../../../../includes/policy/reference/bycat/policies-logic-apps.md)]
-
-## <a name="machine-learning"></a>Machine Learning
-
-[!INCLUDE [azure-policy-reference-policies-machine-learning](../../../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
 ## <a name="managed-application"></a>Application managée
 
