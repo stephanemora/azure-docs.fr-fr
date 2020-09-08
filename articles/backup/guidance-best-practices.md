@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825577"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000360"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -119,7 +119,7 @@ Respectez les consignes suivantes lorsque vous créez une stratégie de sauvegar
   * Si la conservation est réduite, ils sont marqués de sorte à être nettoyés lors de la prochaine tâche de nettoyage, puis supprimés.
   * Les dernières règles de rétention s’appliquent à tous les points de rétention (sauf les points de rétention à la demande). Par conséquent, si la période de rétention est étendue (par exemple, à 100 jours), lorsque la sauvegarde est effectuée, puis réduite (par exemple, de 100 jours à 7 jours), toutes les données de sauvegarde sont conservées en fonction de la dernière période de rétention spécifiée (c’est-à-dire 7 jours).
 
-* Azure Backup vous offre la possibilité de *arrêter la protection et la gestion de vos sauvegardes*:
+* Le service Sauvegarde Azure vous offre la possibilité d’*arrêter la protection et la gestion de vos sauvegardes* :
   * *Arrêter la protection et conserver les données de sauvegarde*. Si vous mettez hors service ou désinstallez votre source de données (machine virtuelle, application), mais que vous devez conserver les données à des fins d’audit ou de conformité, vous pouvez utiliser cette option pour arrêter toutes les futures tâches de sauvegarde de la protection de votre source de données et conserver les points de récupération qui ont été sauvegardés. Vous pouvez ensuite restaurer ou reprendre la protection de la machine virtuelle.
   * *Arrêter la protection et supprimer les données de sauvegarde*. Cette option empêche toutes les futures tâches de sauvegarde de protéger votre machine virtuelle et supprime tous les points de récupération. Vous ne pourrez pas restaurer la machine virtuelle, ni utiliser l’option Reprendre la sauvegarde.
 
@@ -212,9 +212,9 @@ Les fonctionnalités du service sauvegarde Azure offrent la flexibilité nécess
 
 * Sauvegarde sélective des disques : L'exclusion de disque (fonction de prévisualisation) offre un choix efficace et rentable pour sauvegarder sélectivement des données critiques. Vous avez des données critiques à sauvegarder sur un seul disque et vous ne voulez pas sauvegarder les autres disques attachés à une machine virtuelle. Cela est également utile lorsque vous avez plusieurs solutions de sauvegarde. Par exemple, lorsque vous sauvegardez vos bases de données ou vos données avec une solution de sauvegarde de charge de travail (base de données SQL Server dans la sauvegarde de machine virtuelle Azure) et que vous souhaitez utiliser la sauvegarde au niveau de la machine virtuelle Azure pour les disques sélectionnés.
 
-* La solution Sauvegarde Azure prend des instantanés des machines virtuelles Azure et les stocke avec les disques afin de stimuler la création de points de récupération et d'accélérer les opérations de restauration. On parle de restauration instantanée. Par défaut, les instantanés de restauration instantanée sont conservés pendant deux jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant cette période. [En savoir plus ici](backup-instant-restore-capability.md#configure-snapshot-retention).
+* La solution Sauvegarde Azure prend des instantanés des machines virtuelles Azure et les stocke avec les disques afin de stimuler la création de points de récupération et d'accélérer les opérations de restauration. On parle de restauration instantanée. Par défaut, les instantanés de restauration instantanée sont conservés pendant deux jours. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données à partir du coffre. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant cette période. [En savoir plus ici](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* Le type de réplication de stockage pour les coffres Sauvegarde Azure par défaut est défini sur Géoredondant (GRS). Cette option ne peut pas être modifiée après la protection des éléments. Le stockage géo-redondant (GRS) fournit un niveau de durabilité des données plus élevé que le stockage localement redondant (LRS), permet à un abonnement d’utiliser la restauration inter-régions. Il entraîne des coûts supplémentaires. Passez en revue les compromis entre les coûts réduits et la durabilité des données qui convient le mieux à votre scénario. [En savoir plus ici](backup-create-rs-vault.md#set-storage-redundancy)
+* Le type de réplication de stockage pour les coffres Sauvegarde Azure par défaut est défini sur Géoredondant (GRS). Cette option ne peut pas être modifiée après la protection des éléments. Le stockage géo-redondant (GRS) fournit un niveau de durabilité des données plus élevé que le stockage localement redondant (LRS), permet à un abonnement d’utiliser la restauration inter-régions. Il entraîne des coûts supplémentaires. Passez en revue les compromis entre les coûts réduits et la durabilité des données, puis décidez ce qui convient le mieux pour votre scénario. [En savoir plus ici](backup-create-rs-vault.md#set-storage-redundancy)
 
 * Si vous protégez à la fois la charge de travail qui s’exécute à l’intérieur d’une machine virtuelle et la machine virtuelle elle-même, vérifiez si cette protection double est nécessaire.
 

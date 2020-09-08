@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974885"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299258"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 
@@ -51,7 +51,7 @@ Lorsqu’un appareil est initialement provisionné par le biais du provisionneme
 
 Une fois qu’un nouveau certificat feuille a été déployé sur l’appareil, ce dernier ne peut plus se connecter à l’IoT Hub, car il utilise un nouveau certificat pour se connecter. L’IoT Hub reconnaît uniquement l’appareil doté de l’ancien certificat. La tentative de connexion de l’appareil se traduira alors par une erreur de connexion « non autorisée ». Pour résoudre cette erreur, vous devez mettre à jour l’entrée d’inscription de l’appareil de manière à prendre en compte le nouveau certificat feuille de l’appareil. Le service de provisionnement peut alors mettre à jour les informations du registre d’appareils IoT Hub en fonction des besoins lorsque l’appareil est reprovisionné. 
 
-Il peut exister une exception à cet échec de connexion, dans le cas où vous avez créé un [groupe d’inscription](concepts-service.md#enrollment-group) pour votre appareil dans le service de provisionnement. Dans ce cas, si vous ne renouvelez pas le certificat racine ni les certificats intermédiaires dans la chaîne d’approbation de certificats de l’appareil, ce dernier sera reconnu si le nouveau certificat fait partie de la chaîne d’approbation définie dans le groupe d’inscription. Si cette situation survient suite à une violation de la sécurité, vous devez au moins mettre en liste rouge les certificats d’appareil du groupe qui sont considérés comme compromis. Pour plus d’informations, consultez la section [Mettre sur liste rouge des appareils spécifiques dans un groupe d’inscriptions](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Il peut exister une exception à cet échec de connexion, dans le cas où vous avez créé un [groupe d’inscription](concepts-service.md#enrollment-group) pour votre appareil dans le service de provisionnement. Dans ce cas, si vous ne renouvelez pas le certificat racine ni les certificats intermédiaires dans la chaîne d’approbation de certificats de l’appareil, ce dernier sera reconnu si le nouveau certificat fait partie de la chaîne d’approbation définie dans le groupe d’inscription. Si cette situation survient suite à une violation de la sécurité, vous devez au moins bloquer les certificats d’appareil spécifique dans le groupe, qui sont considérés comme compromis. Pour plus d’informations, consultez [Bloquer des appareils spécifiques dans un groupe d’inscriptions](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
 
 La mise à jour des entrées d’inscription pour les certificats renouvelés s’effectue sur la page **Gérer les inscriptions**. Pour accéder à cette page, procédez comme suit :
 
@@ -197,9 +197,9 @@ Une autre méthode permet à l’ancien certificat et au nouveau certificat d’
 Une fois le reprovisionnement effectué, les appareils seront en mesure de se connecter à l’IoT Hub à l’aide de leurs nouveaux certificats.
 
 
-## <a name="blacklist-certificates"></a>Mettre des certificats sur liste rouge
+## <a name="disallow-certificates"></a>Bloquer des certificats
 
-En cas de violation de la sécurité, vous devrez peut-être mettre un certificat d’appareil sur liste rouge. Pour effectuer cette opération, désactivez l’entrée d’inscription du certificat ou de l’appareil cibles. Pour plus d’informations, consultez la section relative à la mise sur liste rouge des appareils dans la procédure [Gérer la désinscription](how-to-revoke-device-access-portal.md).
+En cas de violation de la sécurité, vous devrez peut-être bloquer un certificat d’appareil. Pour effectuer cette opération, désactivez l’entrée d’inscription du certificat ou de l’appareil cibles. Pour plus d’informations, consultez la section relative au blocage des appareils dans l’article [Gérer la désinscription](how-to-revoke-device-access-portal.md).
 
 Une fois qu’un certificat est inclus dans une entrée d’inscription désactivée, toute tentative d’inscription auprès d’un IoT Hub à l’aide de ce certificat échouera, même si le certificat est activé dans une autre entrée d’inscription.
  
@@ -211,13 +211,3 @@ Une fois qu’un certificat est inclus dans une entrée d’inscription désacti
 - Pour plus d’informations sur les certificats X.509 dans le service Device Provisioning, consultez le concept [Sécurité](concepts-security.md). 
 - Pour savoir comment effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec le service Azure IoT Hub Device Provisioning, consultez la procédure [Configurer des certificats d’autorité de certification vérifiés](how-to-verify-certificates.md).
 - Pour savoir comment utiliser le portail pour créer un groupe d’inscription, consultez [Gérer les inscriptions d’appareils avec le portail Azure](how-to-manage-enrollments.md).
-
-
-
-
-
-
-
-
-
-

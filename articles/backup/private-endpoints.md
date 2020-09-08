@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890890"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179230"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -239,7 +239,7 @@ Pour cela, vous devez créer des entrées pour chaque FQDN (nom de domaine compl
 Après l’approbation des points de terminaison privés créés pour le coffre de votre réseau virtuel, vous pouvez commencer à les utiliser pour effectuer vos sauvegardes et restaurations.
 
 >[!IMPORTANT]
->Avant de continuer, vérifiez que vous avez effectué toutes les étapes précédentes de ce document. Voici une liste des de ces étapes :
+>Avant de continuer, vérifiez que vous avez suivi toutes les étapes précédentes de ce document. Voici une liste des de ces étapes :
 >
 >1. Créer un (nouveau) coffre Recovery Services
 >1. Activer le coffre pour utiliser l’identité managée affectée par le système

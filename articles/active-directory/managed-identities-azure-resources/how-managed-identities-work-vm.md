@@ -3,7 +3,7 @@ title: Fonctionnement des identités managées pour les ressources Azure avec de
 description: Description de la façon dont les identités managées pour les ressources Azure fonctionnent avec des machines virtuelles Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b61fd2f9bc36743754a43b05629a798f0305d4e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609207"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178669"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Fonctionnement des identités managées pour les ressources Azure avec des machines virtuelles Azure
 
@@ -55,7 +55,7 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
 
 3. Azure Resource Manager configure l’identité sur la machine virtuelle en mettant à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du principal de service.
 
-4. Maintenant que la machine virtuelle possède une identité, utilisez les informations du Principal de service pour accorder aux ressources Azure l’accès à la machine virtuelle. Pour appeler Azure Resource Manager, utilisez le contrôle d’accès en fonction du rôle (RBAC) dans Azure AD pour attribuer le rôle approprié au principal de service de la machine virtuelle. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
+4. Maintenant que la machine virtuelle possède une identité, utilisez les informations du Principal de service pour accorder aux ressources Azure l’accès à la machine virtuelle. Pour appeler Azure Resource Manager, utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour attribuer le rôle approprié au principal de service de la machine virtuelle. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
 
 5. Votre code en cours d’exécution sur la machine virtuelle peut demander un jeton à partir du point de terminaison d’Azure Instance Metadata Service, accessible uniquement à partir de la machine virtuelle : `http://169.254.169.254/metadata/identity/oauth2/token`
     - Le paramètre de ressource spécifie le service vers lequel le jeton est envoyé. Pour vous authentifier à Azure Resource Manager, utilisez `resource=https://management.azure.com/`.
@@ -73,7 +73,7 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
 
 3. Azure Resource Manager reçoit une requête pour configurer l’identité managée affectée par l’utilisateur sur une machine virtuelle, et mettre à jour le point de terminaison d’identité Azure Instance Metadata Service avec l’ID client et le certificat du principal de service de l’identité managée affectée par l’utilisateur.
 
-4. Maintenant que l’identité managée attribuée par l’utilisateur a été créée, utilisez les informations du Principal de service pour lui accorder l’accès aux ressources Azure. Pour appeler Azure Resource Manager, utilisez RBAC dans Azure AD pour attribuer le rôle approprié au principal de service de l’Identité attribuée par l’utilisateur. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
+4. Maintenant que l’identité managée attribuée par l’utilisateur a été créée, utilisez les informations du Principal de service pour lui accorder l’accès aux ressources Azure. Pour appeler Azure Resource Manager, utilisez RBAC Azure pour attribuer le rôle approprié au principal de service de l’identité attribuée par l’utilisateur. Pour appeler Key Vault, accordez à votre code un accès au secret spécifique ou à la clé dans Key Vault.
 
    > [!Note]
    > Vous pouvez également effectuer cette étape avant l’étape 3.

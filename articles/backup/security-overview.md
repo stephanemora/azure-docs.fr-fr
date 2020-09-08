@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890465"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012549"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -36,7 +36,7 @@ Dans Sauvegarde Azure, qui inclut la sauvegarde de machine virtuelle et la sauve
 
 La sauvegarde de machines virtuelles Azure nécessite un déplacement de données du disque de votre machine virtuelle vers le coffre de Recovery Services. Toutefois, toutes les opérations de communication et de transfert de données requises se produisent uniquement sur le réseau principal Azure sans nécessité d’accéder à votre réseau virtuel. Par conséquent, la sauvegarde de machines virtuelles Azure placées dans des réseaux sécurisés ne vous oblige pas à autoriser l’accès à des adresses IP ou à des noms de domaine complets.
 
-## <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour stockage Azure
+## <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
 Vous pouvez désormais utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour sauvegarder en toute sécurité les données des serveurs de votre réseau virtuel vers votre coffre Recovery Services. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre coffre. Vous n’avez donc pas besoin d’exposer vos réseaux virtuels à des adresses IP publiques. Les points de terminaison privés permettent de sauvegarder et de restaurer vos bases de données SQL et SAP HANA actives à l’intérieur de vos machines virtuelles Azure. Ils sont également utilisables pour vos serveurs locaux à l’aide de l’agent MARS.
 

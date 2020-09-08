@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0feeec3b5b87e415f25f4cb75e53d9001b022445
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877573"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319251"
 ---
 # <a name="configure-speech-service-containers"></a>Configurer des conteneurs Speech
 
-Les conteneurs Speech permettent aux clients de créer une architecture d’application Speech optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie. Les quatre conteneurs Speech que nous prenons en charge sont la **reconnaissance vocale**, la **reconnaissance vocale personnalisée**, la **synthèse vocale** et la **synthèse vocale personnalisée**.
+Les conteneurs Speech permettent aux clients de créer une architecture d’application Speech optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie. Les cinq conteneurs Speech que nous prenons en charge sont désormais la **reconnaissance vocale**, la **reconnaissance vocale personnalisée**, la **synthèse vocale**, la **synthèse vocale neuronale** et la **synthèse vocale personnalisée**.
 
 L’environnement d’exécution de conteneur **Speech** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation.
 
@@ -104,7 +104,7 @@ Le paramètre de montage de volume est constitué de trois champs de couleur `:`
 Cette commande monte le répertoire _C:\Input_ de l’ordinateur hôte sur le répertoire _/usr/local/Models_ des conteneurs.
 
 > [!IMPORTANT]
-> Les paramètres de montage de volume s’appliquent uniquement aux conteneurs de **reconnaissance vocale personnalisée** et de **synthèse vocale personnalisée**. Les conteneurs de **reconnaissance vocale** et de **synthèse vocale** standard n’utilisent pas de montages de volume.
+> Les paramètres de montage de volume s’appliquent uniquement aux conteneurs de **reconnaissance vocale personnalisée** et de **synthèse vocale personnalisée**. Les conteneurs de **reconnaissance vocale**, de **synthèse vocale neuronale** et de **synthèse vocale** n’utilisent pas de montages de volume.
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 
@@ -224,6 +224,29 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## <a name="neural-text-to-speech"></a>[Synthèse vocale neuronale](#tab/ntts)
+
+### <a name="basic-example-for-neural-text-to-speech"></a>Exemple de base pour la synthèse vocale neuronale
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-neural-text-to-speech"></a>Exemple de journalisation pour la synthèse vocale neurale
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

@@ -1,6 +1,6 @@
 ---
-title: Créer une capture instantanée d’un disque dur virtuel dans Azure
-description: Découvrez comment créer une copie d’une machine virtuelle Azure pour l’utiliser comme sauvegarde ou pour la résolution de problèmes.
+title: Créer une capture instantanée d’un disque dur virtuel à l’aide du portail ou de PowerShell
+description: Découvrez comment créer une copie d’une machine virtuelle Azure pour l’utiliser comme sauvegarde ou à des fins de résolution de problèmes à l’aide du portail ou de PowerShell.
 author: roygara
 manager: twooley
 ms.service: virtual-machines-windows
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074126"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322311"
 ---
-# <a name="create-a-snapshot"></a>Créer un instantané
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Créer une capture instantanée à l’aide du portail ou de PowerShell
 
 Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD). Vous pouvez prendre une capture instantanée d’un disque dur virtuel de système d’exploitation ou de données que vous utiliserez comme sauvegarde ou pour résoudre les problèmes de la machine virtuelle.
 

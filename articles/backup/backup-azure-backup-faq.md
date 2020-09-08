@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892760"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017734"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -56,7 +56,7 @@ Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 
 - La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
-- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou System Center DPM.
+- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure (MABS) ou System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 

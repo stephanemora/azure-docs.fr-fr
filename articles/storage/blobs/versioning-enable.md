@@ -1,28 +1,29 @@
 ---
-title: Activer et gérer le contrôle de version des objets blob (préversion)
+title: Activer et gérer le contrôle de version des objets blob
 titleSuffix: Azure Storage
-description: Découvrez comment activer le contrôle de version des blobs (préversion) dans le portail Azure ou à l’aide d’un modèle Resource Manager.
+description: Découvrez comment activer le contrôle de version des objets blob dans le Portail Azure ou à l’aide d’un modèle Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067271"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230668"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Activer et gérer le contrôle de version des objets blob (préversion)
+# <a name="enable-and-manage-blob-versioning"></a>Activer et gérer le contrôle de version des objets blob
 
-Vous pouvez activer le contrôle de version du stockage d’objets blob (version préliminaire) pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
+Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
 
-Cet article explique comment activer ou désactiver le contrôle de version des blobs pour le compte de stockage à l’aide du portail Azure ou d’un modèle de Resource Manager.
+Cet article explique comment activer ou désactiver le contrôle de version des blobs pour le compte de stockage à l’aide du portail Azure ou d’un modèle de Resource Manager. Pour en savoir plus sur le contrôle de version des blobs, consultez [Contrôle de version des objets blob](versioning-overview.md).
 
-Vous devez vous inscrire à la préversion avant d’activer le contrôle de version des blobs. Pour en savoir plus sur le contrôle de version des blobs, notamment sur la façon de s’inscrire à la préversion, consultez [Contrôle de version des blobs (préversion)](versioning-overview.md).
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Activer la gestion des versions des objets blob
 
@@ -72,7 +73,7 @@ Pour plus d’informations sur le déploiement de ressources à l’aide de mod�
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modifier un objet blob pour déclencher une nouvelle version
 
-L’exemple de code suivant montre comment déclencher la création d’une nouvelle version avec la bibliothèque de client Stockage Microsoft Azure pour .NET, version [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) ou ultérieure. Avant d’exécuter cet exemple, assurez-vous que vous avez activé le contrôle de version pour votre compte de stockage.
+L’exemple de code suivant montre comment déclencher la création d’une nouvelle version avec la bibliothèque cliente Stockage Microsoft Azure pour .NET version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) ou ultérieure. Avant d’exécuter cet exemple, assurez-vous que vous avez activé le contrôle de version pour votre compte de stockage.
 
 L’exemple crée un objet blob de blocs, puis met à jour les métadonnées de cet objet. La mise à jour des métadonnées de l’objet blob déclenche la création d’une nouvelle version. L’exemple récupère la version initiale et la version actuelle, et indique que seule la version actuelle contient les métadonnées.
 
@@ -158,5 +159,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)
 - [Suppression réversible pour les objets blob de Stockage Azure](soft-delete-overview.md)

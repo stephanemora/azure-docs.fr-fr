@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045329"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322549"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Création d’images généralisées sans agent d’approvisionnement
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Ce service système fait trois choses pour l’approvisionnement de base :
 
 1. Préparez les rapports pour Azure (pour indiquer qu’ils ont été correctement exécutés).
-1. Renomme la machine virtuelle basée sur le nom de la machine virtuelle fournie par l'utilisateur en tirant ces données de l'IMDS.
+1. Renomme la machine virtuelle en fonction du nom de machine virtuelle fourni par l’utilisateur en extrayant ces données à partir d’[Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Remarque** IMDS fournit également d’autres [métadonnées d’instance](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), telles que des clés publiques SSH, pour vous permettre de définir davantage le nom d’hôte.
 1. Se désactive pour s’exécuter uniquement au premier démarrage et non pas lors des redémarrages suivants.
 
 Avec l’unité sur le système de fichiers, exécutez la commande suivante pour l’activer :
