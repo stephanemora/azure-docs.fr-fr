@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles VMware à l’aide d’Azure Migrate Server Assessment.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9c9b1f7687d1ab1af36ac603501ecbaa7affd9b6
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3d975b35ff5db9bf77ed33e040eb49b6b15f3cf9
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387028"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277780"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -33,13 +33,14 @@ Si vous souhaitez migrer des machines virtuelles VMware vers Azure, passez en re
 
 **VMware** | **Détails**
 --- | ---
-**vCenter Server** | Les machines que vous souhaitez découvrir et évaluer doivent être managées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7.
+**vCenter Server** | Les machines que vous souhaitez découvrir et évaluer doivent être managées par vCenter Server version 5.5, 6.0, 6.5, 6.7 ou 7.0.<br/><br/> La découverte des machines virtuelles VMware en fournissant les détails de l’hôte ESXi dans l’appliance n’est pas prise en charge actuellement.
 **autorisations** | Server Assessment a besoin d’un compte vCenter Server en lecture seule pour la découverte et l’évaluation.<br/><br/> Si vous souhaitez procéder à la découverte d’application ou à la visualisation des dépendances, le compte doit disposer de privilèges pour **Machines virtuelles** > **Opérations d’invité**.
 
 ## <a name="vm-requirements"></a>Configuration requise pour les machines virtuelles
 **VMware** | **Détails**
 --- | ---
 **Machines virtuelles VMware** | Tous les systèmes d’exploitation peuvent être évalués dans une optique de migration. 
+**Stockage** | Les disques attachés à des contrôleurs SCSI, IDE et SATA sont pris en charge.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Conditions requises de l’appliance Azure Migrate

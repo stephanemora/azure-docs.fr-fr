@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c4f3ccce03f91b0567980d55b59bfb15d6985bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607123"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299743"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -35,12 +35,12 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Standard|
 |Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
 |Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
@@ -59,12 +59,12 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Standard|
 |Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
 |Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|

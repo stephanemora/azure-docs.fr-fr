@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd50e649257ba8849f49cd3aae85e3228b9eb94c
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 50706e1b525a3e3a39701ef2135d44c02c35077e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612212"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181134"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -94,7 +94,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction qui interroge une table du journal Azure Functions :
+`IQueryable` est pris en charge uniquement dans le [runtime Functions v1](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction qui interroge une table du journal Azure Functions :
 
 ```csharp
 using Microsoft.Azure.WebJobs;

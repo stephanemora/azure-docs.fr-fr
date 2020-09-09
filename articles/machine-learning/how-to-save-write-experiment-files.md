@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319573"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144034"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous découvrez où enregistrer les fichiers d’entrée et où écrire les fichiers de sortie de vos expériences pour empêcher les erreurs de limites de stockage et la latence des expériences.
 
-Quand des exécutions d’entraînement sont lancées sur une [cible de calcul](how-to-set-up-training-targets.md), elles sont isolées des environnements extérieurs. L’objectif de cette conception est de garantir la reproductibilité et la portabilité des expériences. Si vous exécutez deux fois le même script sur la même cible de calcul ou sur une autre cible, vous obtenez les mêmes résultats. Grâce à cette conception, vous pouvez traiter les cibles de calcul comme des ressources de calcul sans état, chacune d’entre elles n’ayant aucune affinité avec les travaux exécutés une fois qu’ils sont terminés.
+Quand des exécutions d’entraînement sont lancées sur une [cible de calcul](concept-compute-target.md), elles sont isolées des environnements extérieurs. L’objectif de cette conception est de garantir la reproductibilité et la portabilité des expériences. Si vous exécutez deux fois le même script sur la même cible de calcul ou sur une autre cible, vous obtenez les mêmes résultats. Grâce à cette conception, vous pouvez traiter les cibles de calcul comme des ressources de calcul sans état, chacune d’entre elles n’ayant aucune affinité avec les travaux exécutés une fois qu’ils sont terminés.
 
 ## <a name="where-to-save-input-files"></a>Emplacement où enregistrer les fichiers d’entrée
 
@@ -79,4 +79,4 @@ Si vous n’avez pas besoin d’un magasin de données, écrivez les fichiers da
 
 * Apprenez-en davantage sur l’[accès aux données à partir de vos magasins de données](how-to-access-data.md).
 
-* Apprenez-en davantage sur la [façon de configurer des cibles d’entraînement](how-to-set-up-training-targets.md).
+* En savoir plus sur la création de cibles de calcul avec le [Kit de développement logiciel (SDK) Python](how-to-create-attach-compute-sdk.md) ou en utilisant [Studio](how-to-create-attach-compute-studio.md).

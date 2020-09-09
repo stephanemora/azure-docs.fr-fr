@@ -1,15 +1,15 @@
 ---
 title: Tableau de prise en charge de sauvegarde SAP HANA
-description: Dans cet article,découvrez les scénarios et limitations pris en charge lorsque vous utilisez Sauvegarde Azure pour sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure.
+description: Dans cet article,découvrez les scénarios pris en charge et les limitations lorsque vous utilisez Sauvegarde Azure pour sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5b0d1b603e8a9c06e210083863e0ca6bfbee2399
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826461"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022324"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 

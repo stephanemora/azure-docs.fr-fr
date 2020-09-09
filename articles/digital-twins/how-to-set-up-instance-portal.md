@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234985"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280024"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -107,7 +107,7 @@ Commencez par accéder à [Azure Active Directory](https://portal.azure.com/#bla
 Dans la page *Inscrire une application* qui suit, renseignez les valeurs demandées :
 * **Name** : Nom d’affichage d’application Azure AD à associer à l’inscription.
 * **Types de comptes pris en charge** : Select *Comptes dans cet annuaire organisationnel uniquement (Annuaire par défaut uniquement – Locataire unique)*
-* **URI de redirection** : *URL de réponse de l’application Azure AD* pour l’application Azure AD. Vous pouvez utiliser `http://localhost`.
+* **URI de redirection** : *URL de réponse de l’application Azure AD* pour l’application Azure AD. Ajoutez un URI *Client public/natif (mobile et bureau)* pour `http://localhost`.
 
 Lorsque vous avez terminé, cliquez sur le bouton *S’inscrire*.
 
@@ -162,5 +162,9 @@ Prenez note de *l’ID d’application (client)* et de *l’ID de répertoire (l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :
+Testez les appels individuels de l’API REST sur votre instance à l’aide des commandes CLI d’Azure Digital Twins : 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
+
+Vous pouvez également découvrir comment connecter votre application cliente à votre instance en écrivant le code d’authentification de l’application cliente :
 * [*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)

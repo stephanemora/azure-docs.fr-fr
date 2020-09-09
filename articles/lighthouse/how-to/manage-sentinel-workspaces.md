@@ -1,14 +1,14 @@
 ---
 title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511250"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050809"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -29,7 +29,7 @@ Ce modèle centralisé de déploiement présente les avantages suivants :
 
 - La propriété des données est conservée par chaque locataire géré.
 - Il prend en charge des exigences de stockage des données dans les limites géographiques.
-- Il garantit l’isolation des données, car les données de plusieurs clients ne sont pas stockées dans le même espace de travail. 
+- Il garantit l’isolation des données, car les données de plusieurs clients ne sont pas stockées dans le même espace de travail.
 - Il empêche l’exfiltration des données des locataires managés, garantissant ainsi la conformité des données.
 - Les coûts associés sont facturés à chaque locataire géré, plutôt qu’au locataire gérant.
 - Les données de toutes les sources de données et de tous les connecteurs de données intégrés à Azure Sentinel (comme les journaux d’activité Azure AD, les journaux Office 365 ou les alertes de Protection Microsoft contre les menaces) sont conservées dans chaque locataire client.
@@ -71,13 +71,21 @@ Vous pouvez également déployer des classeurs directement dans un locataire ind
 
 ## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Exécuter des requêtes d’analytique des journaux d’activité et de chasse dans des espaces de travail Azure Sentinel
 
-Vous pouvez créer et enregistrer des requêtes d’analytique des journaux d’activité pour la détection des menaces de manière centralisée dans le locataire gérant, y compris des [requêtes de chasse](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Ces requêtes peuvent ensuite être exécutées sur l’ensemble des espaces de travail Azure Sentinel de vos clients à l’aide de l’opérateur Union et de l’expression de langage d’espace de travail (). Pour plus d’informations, consultez l’article [Interroger plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Créez et enregistrez des requêtes d’analytique des journaux d’activité pour la détection des menaces de manière centralisée dans le locataire gérant, y compris des [requêtes de chasse](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Ces requêtes peuvent ensuite être exécutées sur l’ensemble des espaces de travail Azure Sentinel de vos clients à l’aide de l’opérateur Union et de l’expression de langage d’espace de travail (). Pour plus d’informations, consultez l’article [Interroger plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Utiliser l’automatisation pour la gestion inter-espaces de travail
 
 Vous pouvez utiliser l’automatisation pour gérer plusieurs espaces de travail Azure Sentinel et configurer des [requêtes de chasse](../../sentinel/hunting.md), des playbooks et des classeurs. Pour plus d’informations, consultez l’article [Gestion inter-espaces de travail à l’aide de l’automatisation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
 Notez que certaines fonctionnalités ne sont [actuellement pas prises en charge sur plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+
+## <a name="manage-security-of-office-365-environments"></a>Gérer la sécurité des environnements Office 365
+
+Utilisez Azure Lighthouse conjointement avec Azure Sentinel pour gérer la sécurité des environnements Office 365 entre les locataires. Tout d’abord, [les connecteurs de données Office 365 doivent être activés dans le client géré](../../sentinel/connect-office-365.md) afin que les informations sur les activités des utilisateurs et des administrateurs dans Exchange et SharePoint (y compris OneDrive) puissent être ingérées dans un espace de travail Azure Sentinel au sein du locataire géré. Cela comprend des détails sur des actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe et les opérations de boîtes aux lettres, ainsi que des informations sur les utilisateurs qui ont effectué les actions. Les [alertes DLP Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) sont également prises en charge dans le cadre du connecteur Office 365 intégré.
+
+Vous pouvez activer le [connecteur Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) pour diffuser en continu des alertes et des journaux Cloud Discovery dans Azure Sentinel. Cela vous permet de bénéficier d’une visibilité accrue sur vos applications et de fonctionnalités d’analytique sophistiquées pour identifier et combattre les cybermenaces et de contrôler le déplacement des données. Les journaux d’activité pour MCAS peuvent être [utilisés à l’aide du format CEF (Common Event format)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+Après avoir configuré les connecteurs de données Office 365, vous pouvez utiliser des capacités d’Azure Sentinel entre locataires, telles que l’affichage et l’analyse des données dans les classeurs, l’utilisation de requêtes pour créer des alertes personnalisées et la configuration de playbooks pour répondre aux menaces.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

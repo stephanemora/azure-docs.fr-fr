@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 674baaaec4e11c5e4e750ccd14bbe5762dcbc09a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892862"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181067"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
 
@@ -272,7 +272,7 @@ En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vo
 Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé. Vous pouvez le faire aussi bien pour les espaces de travail existants que nouveaux. Lors de la mise à jour d’un espace de travail existant, renseignez les paramètres du modèle avec les informations concernant cet espace.
 
 > [!IMPORTANT]
-> L’utilisation d’Azure Private Link pour créer un point de terminaison privé pour l’espace de travail Azure Machine Learning est actuellement en préversion publique. Cette fonctionnalité n’est disponible que dans les régions **USA Est** et **USA Ouest 2**. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’utilisation d’Azure Private Link pour créer un point de terminaison privé pour l’espace de travail Azure Machine Learning est actuellement en préversion publique. Cette fonctionnalité n’est disponible que dans les régions **USA Est**, **USA Centre Sud** et **USA Ouest 2**. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

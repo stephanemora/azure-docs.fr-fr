@@ -3,14 +3,14 @@ title: Transférer des données de travaux Azure Automation aux journaux d’act
 description: Cet article explique comment envoyer l’état d’un travail, ainsi que les flux de travaux d’un runbook, aux journaux Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/22/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004747"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397426"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 
@@ -22,37 +22,57 @@ Azure Automation peut envoyer un état de tâche du Runbook et des flux de tâch
 * Mettre en corrélation des travaux sur différents comptes Automation.
 * Utiliser des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites-and-deployment-considerations"></a>Conditions préalables et considérations relatives au déploiement
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à envoyer vos journaux d’activité Automation à des journaux Azure Monitor, vous devez disposer des éléments suivants :
 
 * La version la plus récente d’[Azure PowerShell](/powershell/azure/).
-* Un espace de travail Log Analytics. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../azure-monitor/overview.md).
+
+* Un espace de travail Log Analytics et son ID de ressource. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../azure-monitor/overview.md).
+
 * L’ID de ressource de votre compte Azure Automation.
 
-Utilisez la commande suivante pour rechercher l’ID de ressource de votre compte Azure Automation :
+## <a name="how-to-find-resource-ids"></a>Comment trouver les ID de ressource
 
-```powershell-interactive
-# Find the ResourceId for the Automation account
-Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
-```
+1. Utilisez la commande suivante pour rechercher l’ID de ressource de votre compte Azure Automation :
 
-Pour rechercher l’ID de ressource de votre espace de travail Log Analytics, exécutez la commande PowerShell suivante :
+    ```powershell-interactive
+    # Find the ResourceId for the Automation account
+    Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+    ```
 
-```powershell-interactive
-# Find the ResourceId for the Log Analytics workspace
-Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-```
+2. Copiez la valeur de **ResourceID**.
+
+3. Utilisez la commande suivante pour rechercher l’ID de ressource de votre espace de travail Log Analytics :
+
+    ```powershell-interactive
+    # Find the ResourceId for the Log Analytics workspace
+    Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+    ```
+
+4. Copiez la valeur de **ResourceID**.
+
+Pour retourner les résultats d’un groupe de ressources spécifique, incluez le paramètre `-ResourceGroupName`. Pour plus d’informations, voir [Get-AzResource](/powershell/module/az.resources/get-azresource).
 
 Si vous avez plusieurs comptes ou espaces de travail Automation dans la sortie des commandes précédentes, vous pouvez trouver le nom et d’autres propriétés associées qui font partie de l’ID de ressource complet de votre compte Automation en procédant de la façon suivante :
 
-1. Sur le portail Azure, sélectionnez votre compte Automation dans la page **Comptes Automation**. 
-2. Dans la page du compte Automation sélectionné, sous **Paramètres du compte**, sélectionnez **Propriétés**.  
-3. Dans la page **Propriétés**, notez les détails indiqués ci-dessous.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sur le portail Azure, sélectionnez votre compte Automation dans la page **Comptes Automation**.
+1. Dans la page du compte Automation sélectionné, sous **Paramètres du compte**, sélectionnez **Propriétés**.
+1. Dans la page **Propriétés**, notez les détails indiqués ci-dessous.
 
     ![Propriétés du compte Automation](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+
+## <a name="configure-diagnostic-settings"></a>Configurer les paramètres de diagnostic
+
+Les paramètres de diagnostic d’Automation prennent en charge le transfert des journaux de plateforme et des données de métriques suivants :
+
+* JobLogs
+* JobStreams
+* DSCNodeStatus
+* Métriques : Nombre total de travaux, Nombre total d’exécutions de déploiement de mises à jour de machines, Nombre total d’exécutions de déploiement de mises à jour
+
+Pour commencer à envoyer vos journaux Automation aux journaux d’activité d’Azure Monitor, consultez [Créer des paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) pour comprendre la fonction et les méthodes disponibles pour configurer les paramètres de diagnostic afin d’envoyer les journaux de la plateforme.
 
 ## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
 
@@ -102,38 +122,9 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | ResourceProvider | Fournisseur de ressources. La valeur est MICROSOFT.AUTOMATION. |
 | ResourceType | Type de ressource. La valeur est AUTOMATIONACCOUNTS. |
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurer l’intégration aux journaux d’Azure Monitor
-
-1. Sur votre ordinateur, démarrez Windows PowerShell à partir de l’écran **Démarrer**.
-2. Exécutez les commandes PowerShell suivantes, et remplacez la valeur de `$automationAccountId` et de `$workspaceId` par celles de la section précédente.
-
-   ```powershell-interactive
-   $workspaceId = "resource ID of the log analytics workspace"
-   $automationAccountId = "resource ID of your Automation account"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-Une fois ce script exécuté, il peut s’écouler une heure avant que les enregistrements soient visibles dans les journaux Azure Monitor suivant l’écriture des nouveaux `JobLogs` ou `JobStreams`.
-
-Pour afficher les journaux d’activité, exécutez la requête suivante dans la recherche de journal d’activité de Log Analytics : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### <a name="verify-configuration"></a>Vérifier la configuration
-
-Pour vous assurer que votre compte Automation envoie des journaux d’activité à votre espace de travail Log Analytics, vérifiez que les diagnostics sont correctement configurés sur le compte Automation à l’aide de la commande PowerShell suivante.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-Dans la sortie, assurez-vous que :
-
-* Sous `Logs`, la valeur de `Enabled` est True.
-* `WorkspaceId` est défini sur la valeur `ResourceId` pour votre espace de travail Log Analytics.
-
 ## <a name="view-automation-logs-in-azure-monitor-logs"></a>Afficher les journaux Automation dans les journaux Azure Monitor
 
-Après avoir commencé à envoyer des journaux d’activité de travaux Automation dans des journaux Azure Monitor, nous allons voir comment les utiliser dans les journaux Azure Monitor.
+Après avoir commencé à envoyer vos flux de travail journaux Automation aux journaux d’activité d’Azure Monitor, nous allons voir comment les utiliser dans les journaux d’activité d’Azure Monitor.
 
 Pour afficher les journaux d’activité, exécutez la requête suivante :`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -163,26 +154,41 @@ En plus des alertes concernant les échecs, vous pouvez déterminer lorsqu’une
 
 ### <a name="view-job-streams-for-a-job"></a>Afficher les flux de travail pour un travail
 
-Lorsque vous déboguez un travail, vous pouvez également examiner les flux de travaux. La requête ci-dessous montre tous les flux pour un seul travail avec le GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 :
+Lorsque vous déboguez un travail, vous pouvez également examiner les flux de travaux. La requête ci-dessous montre tous les flux pour un seul travail avec le GUID `2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0` :
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
+| sort by TimeGenerated asc
+| project ResultDescription
+```
 
 ### <a name="view-historical-job-status"></a>Afficher l’état de travail historique
 
 Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le temps. Vous pouvez utiliser cette requête pour rechercher l’état de vos travaux au fil du temps.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
-
-## <a name="remove-diagnostic-settings"></a>Supprimer les paramètres de diagnostic
-
-Pour supprimer les paramètres de diagnostic du compte Automation, exécutez la commande suivante :
-
-```powershell-interactive
-$automationAccountId = "[resource ID of your Automation account]"
-
-Remove-AzDiagnosticSetting -ResourceId $automationAccountId
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started"
+| summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)
 ```
+
+![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
+
+### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrer la sortie de l’état du travail convertie en objet JSON
+
+Récemment, nous avons modifié le comportement relatif à la façon dont les données du journal Automation sont écrites dans la table `AzureDiagnostics` du service Log Analytics, où elles ne décomposent plus les propriétés JSON en champs distincts. Si vous avez configuré votre runbook pour qu’il formate des objets dans le flux de sortie au format JSON en tant que colonnes distinctes, vous devez reconfigurer vos requêtes pour analyser ce champ dans un objet JSON afin d’accéder à ces propriétés. Pour ce faire, utilisez [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) pour accéder à un élément JSON spécifique dans un chemin d’accès connu.
+
+Par exemple, un runbook formate la propriété *ResultDescription* dans le flux de sortie au format JSON avec plusieurs champs. Pour rechercher les travaux qui sont à l’état d’échec, comme spécifié dans un champ appelé **État**, utilisez cet exemple de requête pour rechercher la propriété *ResultDescription* dont l’état est **Échec** :
+
+```kusto
+AzureDiagnostics
+| where Category == 'JobStreams'
+| extend jsonResourceDescription = parse_json(ResultDescription)
+| where jsonResourceDescription.Status == 'Failed'
+```
+
+![Format JSON du flux de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831020"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400056"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scénario : Isolation personnalisée pour réseaux virtuels
 
@@ -29,7 +29,7 @@ Pour déterminer le nombre de tables de routage nécessaires, vous pouvez créer
 | **Réseaux virtuels rouges**  |   &#8594;|              |       X       |       X      |
 | **Branches**   |   &#8594;|     X        |       X       |       X      |
 
-Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique.
+Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, en-têtes de lignes dans le tableau) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans le tableau) pour un flux de trafic spécifique, où un « X » signifie que la connectivité est fournie par Virtual WAN.
 
 Le nombre de modèles de ligne différents sera le nombre de tables de routage dont nous aurons besoin dans ce scénario. Ici, trois tables de routage de routage sont appelées **RT_BLUE** et **RT_RED** pour les réseaux virtuels, et **Par défaut** pour les branches. N’oubliez pas que les branches doivent toujours être associées à la table de routage Par défaut.
 

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes de sa
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824268"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376279"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
@@ -66,20 +66,20 @@ Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide de Power
 
 Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide du Gestionnaire de serveur, effectuez les étapes suivantes :
 
-1. Dans le **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et des fonctionnalités**. **L’Assistant Ajout de rôles et de fonctionnalités** s’affiche.
+1. Dans **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et fonctionnalités**. **L’Assistant Ajout de rôles et de fonctionnalités** s’affiche.
 
     ![tableau de bord](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Sélectionnez **Type d’installation**, puis cliquez sur **Suivant**.
+2. Sélectionnez **Type d’installation**, puis **Suivant**.
 
     ![Type d’installation](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Sélectionnez un serveur dans le pool de serveurs, puis cliquez sur **Suivant**. Dans l’onglet Rôles de serveurs, laissez la sélection par défaut, puis cliquez sur **Suivant**.
-4. Sélectionnez **Sauvegarde Windows Server** dans l’onglet **Fonctionnalités**, puis cliquez sur **Suivant**.
+3. Sélectionnez un serveur dans le pool de serveurs, puis sélectionnez **Suivant**. Dans l’onglet Rôles de serveurs, laissez la sélection par défaut, puis sélectionnez **Suivant**.
+4. Sélectionnez **Sauvegarde Windows Server** dans l’onglet **Fonctionnalités**, puis sélectionnez **Suivant**.
 
     ![Fenêtre Sélectionner les fonctionnalités](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. Dans l’onglet **Confirmation**, cliquez sur **Installer** pour démarrer le processus d’installation.
+5. Dans l’onglet **Confirmation**, sélectionnez **Installer** pour démarrer le processus d’installation.
 6. L’onglet **Résultats** affiche la fonctionnalité Sauvegarde Windows Server qui a été installée sur Windows Server.
 
     ![Résultats de l’installation](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -137,7 +137,7 @@ Si le travail échoue, cela indique un problème lié à la Sauvegarde Windows S
 
 | Symptôme | Résolution
 | -- | --
-| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde en cours. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partition EFI verrouillée
 

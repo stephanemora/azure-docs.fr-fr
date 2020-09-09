@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 08/28/2020
+ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903559"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079674"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -20,7 +20,7 @@ Les unités de streaming représentent les ressources de calcul allouées pour e
 
 Pour obtenir un traitement de streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
 
-La métrique de pourcentage d’utilisation des unités de streaming, comprise entre 0 % et 100 %, décrit la consommation de mémoire de votre charge de travail. Pour un travail de streaming avec un encombrement minimal, la métrique se situe généralement entre 10 et 20 %. Si le pourcentage d’utilisation des unités de streaming est faible et que des événements d’entrée sont retardés, il est probable que votre charge de travail nécessite davantage de ressources de calcul, ce qui vous oblige à augmenter le nombre d’unités de streaming. Il est préférable de conserver une métrique inférieure à 80 % pour prendre en compte les pics d’activité occasionnels. Microsoft recommande de définir une alerte sur 80 % de la métrique d’utilisation de l’unité de stockage pour empêcher l’insuffisance des ressources. Pour plus d’informations, consultez [Didacticiel : Configurer des alertes pour les travaux Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrique de pourcentage d’utilisation des unités de streaming, comprise entre 0 % et 100 %, décrit la consommation de mémoire de votre charge de travail. Pour un travail de streaming avec un encombrement minimal, la métrique se situe généralement entre 10 et 20 %. Si le pourcentage d’utilisation des unités de streaming est élevé (supérieur à 80 %) ou si les événements d’entrée sont mis en backlog (même avec un faible pourcentage d’utilisation des unités de streaming, car il n’affiche pas l’utilisation du processeur), il est probable que votre charge de travail nécessite davantage de ressources de calcul, ce qui vous oblige à augmenter le nombre d’unités de streaming. Il est préférable de conserver une métrique inférieure à 80 % pour prendre en compte les pics d’activité occasionnels. Microsoft recommande de définir une alerte sur 80 % de la métrique d’utilisation de l’unité de stockage pour empêcher l’insuffisance des ressources. Pour plus d’informations, consultez [Didacticiel : Configurer des alertes pour les travaux Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurer des unités de streaming Stream Analytics
 1. Connectez-vous au [portail Azure](https://portal.azure.com/)

@@ -1,14 +1,14 @@
 ---
 title: Mettre à jour une affectation à partir du portail
 description: Découvrez le mécanisme de mise à jour d’une attribution de blueprint existante dans Azure Blueprints à partir du portail Azure.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969462"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051421"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -24,12 +24,11 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche.
 
-1. Dans la liste des blueprints, cliquez sur l’affectation de blueprint. Cliquez ensuite sur le bouton **Mettre à jour l’affectation** OU cliquez avec le bouton droit sur l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
+1. Dans la liste des blueprints, sélectionnez l’affectation de blueprint. Utilisez ensuite sur le bouton **Mettre à jour l’affectation** OU cliquez avec le bouton droit sur l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Mettre à jour une affectation de blueprint existante" border="false":::
 
-1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’affectation d’origine.
-   Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Cliquez sur **Affecter** une fois que vous terminé les modifications.
+1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’attribution d’origine. Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Sélectionnez **Attribuer** une fois que vous terminé les modifications.
 
 1. Dans la page de détails de l’affectation mise à jour, examinez le nouvel état. Dans cet exemple, nous avons ajouté **Verrouillage** à l’affectation.
 

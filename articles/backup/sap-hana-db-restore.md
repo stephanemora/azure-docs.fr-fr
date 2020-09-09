@@ -3,12 +3,12 @@ title: Restaurer les bases de données SAP HANA sur des machines virtuelles Azur
 description: Dans cet article, découvrez comment restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763284"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375310"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -28,7 +28,7 @@ Sauvegarde Azure peut restaurer des bases de données SAP HANA s’exécutant su
 
 Avant de restaurer une base de données, notez les points suivants :
 
-* Vous pouvez restaurer la base de données uniquement sur une instance de SAP HANA qui se trouve dans la même région.
+* Vous pouvez restaurer la base de données uniquement sur une instance SAP HANA qui se trouve dans la même région.
 
 * L’instance cible doit être inscrite auprès du même coffre que la source.
 
@@ -36,17 +36,17 @@ Avant de restaurer une base de données, notez les points suivants :
 
 * Pour que l’instance de SAP HANA cible soit prête pour la restauration, vérifiez son état **Préparation de la sauvegarde** :
 
-  1. Ouvrez le coffre dans lequel l’instance de SAP HANA cible est inscrite.
+  1. Ouvrez le coffre dans lequel l’instance SAP HANA cible est inscrite.
 
   1. Dans le tableau de bord du coffre, sous **Démarrage**, choisissez **Sauvegarde**.
 
       ![Sauvegarde dans le tableau de bord du coffre](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. Dans **Sauvegarde**, sous **Que souhaitez-vous sauvegarder ?** , choisissez **SAP HANA dans les machines virtuelles Azure**.
+  1. Dans **Sauvegarde**, sous **Que souhaitez-vous sauvegarder ?** , choisissez **SAP HANA dans la machine virtuelle Azure**.
 
       ![Choisir SAP HANA dans les machines virtuelles Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Sous **Découvrir les bases de données dans les machines virtuelles**, cliquez sur **Afficher les détails**.
+  1. Sous **Découvrir les bases de données dans les machines virtuelles**, sélectionnez **Afficher les détails**.
 
       ![Afficher les détails](media/sap-hana-db-restore/view-details.png)
 

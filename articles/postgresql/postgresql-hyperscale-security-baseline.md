@@ -6,13 +6,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: debbc47204aca2fbea1307bd4b692921725e5fd0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563906"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231297"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL - Hyperscale
 
@@ -347,13 +347,13 @@ Dans certains cas, les applications tierces ont besoin d’un fichier de certifi
 
 **Responsabilité** : Partagé
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler l’accès au plan de contrôle Hyperscale (Citus) (par exemple, le Portail Azure). RBAC n’affecte pas les autorisations utilisateur dans la base de données.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès au plan de contrôle Hyperscale (Citus) [par exemple, Portail Azure]. Azure RBAC ne modifie pas les autorisations utilisateur dans la base de données.
 
 Pour modifier les privilèges des utilisateurs au niveau de la base de données, utilisez des commandes PostgreSQL standard à l’aide d’un outil comme PgAdmin ou psql.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 - [Guide pratique pour configurer l’accès utilisateur avec SQL pour Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell - créer une image à partir d’une capture instantanée ou d’un disque dur virtuel dans une Shared Image Gallery
-description: Découvrez comment créer une image à partir d’une capture instantanée ou d’un disque dur virtuel dans une Shared Image Gallery à l’aide de PowerShell.
+title: PowerShell – créer une image à partir d’une capture instantanée ou d’un disque managé dans Shared Image Gallery
+description: Découvrez comment créer une image à partir d’une capture instantanée ou d’un disque managé dans Shared Image Gallery à l’aide de PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494715"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300253"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Créez une image à partir d’un disque dur virtuel ou d’une capture instantanée dans une Shared Image Gallery à l’aide de PowerShell
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Créez une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide de PowerShell
 
-Si vous souhaitez migrer une capture instantanée ou un VHD existants dans une Shared Image Gallery, vous pouvez créer une image Shared Image Gallery directement à partir du VHD ou de la capture instantanée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer le VHD ou la capture instantanée source. Vous pouvez également créer une image à partir d’un disque dur virtuel ou d’une capture instantanée dans une Shared Image Gallery à l’aide d’[Azure CLI](image-version-snapshot-cli.md).
+Si vous souhaitez migrer une capture instantanée ou un disque managé existants dans Shared Image Gallery, vous pouvez créer une image Shared Image Gallery directement à partir du disque managé ou de la capture instantanée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer la capture instantanée ou le disque managé source. Vous pouvez également créer une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide d’[Azure CLI](image-version-snapshot-cli.md).
 
 Les images d’une galerie d’images comportent deux composants, que nous allons créer dans cet exemple :
 - Une **définition d’image** transporte des informations sur l’image et ses conditions d’utilisation. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, spécialisée ou généralisée, et comprennent les notes de publication et la mémoire maximale et minimale requise. Il s’agit d’une définition de type d’image. 
@@ -27,14 +27,14 @@ Les images d’une galerie d’images comportent deux composants, que nous allon
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre l’exemple de cet article, vous devez avoir une capture instantanée ou un VHD. 
+Pour suivre l’exemple de cet article, vous devez avoir une capture instantanée ou un disque managé. 
 
 Si vous voulez inclure un disque de données, la taille du disque de données ne peut pas être supérieure à 1 To.
 
 Dans cet article, remplacez les noms de ressources si nécessaire.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>Obtenir la capture instantanée ou le disque dur virtuel
+## <a name="get-the-snapshot-or-managed-disk"></a>Obtenir la capture instantanée ou le disque managé
 
 Pour voir la liste des captures instantanées disponibles dans un groupe de ressources, utilisez la liste [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-Vous pouvez également utiliser un disque dur virtuel au lieu d’une capture instantanée. Pour obtenir un disque dur virtuel, utilisez [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+Vous pouvez également utiliser un disque managé au lieu d’une capture instantanée. Pour obtenir un disque managé, utilisez [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Puis, récupérez le disque dur virtuel et affectez-le à la variable `$source`.
+Puis, récupérez le disque managé et attribuez-le à la variable `$source`.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,7 +88,7 @@ $gallery = Get-AzGallery `
 
 Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur l’image. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. 
 
-Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le VHD sont issus d’une machine virtuelle en cours d’utilisation et n’ont pas été généralisés. Si le disque dur virtuel ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
+Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le disque managé sont issus d’une machine virtuelle en cours d’utilisation et qui n’a pas été généralisée. Si le disque managé ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
 
 Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./windows/shared-image-galleries.md#image-definitions).
 
@@ -118,7 +118,7 @@ Créez une version d’image à partir de la capture instantanée à l’aide de
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-Si vous souhaitez que votre image contienne un disque de données, en plus du disque du système d’exploitation, ajoutez le paramètre `-DataDiskImage` et définissez-le sur l’ID de la capture instantanée du disque de données ou du VHD.
+Si vous souhaitez que votre image contienne un disque de données, en plus du disque du système d’exploitation, ajoutez le paramètre `-DataDiskImage` et définissez-le sur l’ID du disque managé ou de la capture instantanée du disque de données.
 
 Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* en tant que cible pour la réplication.
 

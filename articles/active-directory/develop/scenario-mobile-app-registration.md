@@ -1,7 +1,7 @@
 ---
 title: Inscrire des applications mobiles appelant des API web | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment créer une application mobile qui appelle des API web (configuration du code de l’application)
+description: Découvrez comment créer une application mobile qui appelle des API web (inscription d’application)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652637"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047671"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -40,7 +40,7 @@ Vous pouvez également connecter des utilisateurs à l'aide d'identités sociale
 
 Pour plus d'informations, consultez [Scénarios et flux d'authentification pris en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) et [Scénarios et plateformes/langues prises en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuration de la plateforme et URI de redirection  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuration de la plateforme et URI de redirection
 
 ### <a name="interactive-authentication"></a>Authentification interactive
 
@@ -72,20 +72,20 @@ Au terme de ces étapes, l'URI de redirection est calculé pour vous, comme illu
 
 Si vous préférez configurer manuellement l'URI de redirection, utilisez le manifeste de l'application. Voici le format recommandé pour le manifeste :
 
-- **iOS** : `msauth.<BUNDLE_ID>://auth` 
+- **iOS** : `msauth.<BUNDLE_ID>://auth`
   - Par exemple, entrez `msauth.com.yourcompany.appName://auth`.
 - **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Vous pouvez générer le hachage de la signature Android à l'aide de la clé de mise en production ou de la clé de débogage par le biais de la commande KeyTool.
 
 ### <a name="username-password-authentication"></a>Authentification par nom d'utilisateur/mot de passe
 
-Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers le point de terminaison de la plateforme d'identités Microsoft version 2.2.0. Votre application ne sera pas rappelée sur un URI spécifique. 
+Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers le point de terminaison de la plateforme d'identités Microsoft version 2.2.0. Votre application ne sera pas rappelée sur un URI spécifique.
 
 Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire, commencez à la section **Authentification** de votre application. Dans la sous-section **Paramètres avancés**, accédez au paragraphe **Type de client par défaut** et répondez **Oui** à la question **Considérer l'application comme un client public**.
 
 ## <a name="api-permissions"></a>Autorisations des API
 
-Les applications mobiles appellent des API pour le compte de l’utilisateur connecté. Votre application doit demander des autorisations déléguées. Ces autorisations sont également appelées des étendues. Selon l'expérience dont vous souhaitez bénéficier, vous pouvez demander des autorisations déléguées de manière statique via le portail Azure. Ou vous pouvez les demander de manière dynamique lors de l'exécution. 
+Les applications mobiles appellent des API pour le compte de l’utilisateur connecté. Votre application doit demander des autorisations déléguées. Ces autorisations sont également appelées des étendues. Selon l'expérience dont vous souhaitez bénéficier, vous pouvez demander des autorisations déléguées de manière statique via le portail Azure. Ou vous pouvez les demander de manière dynamique lors de l'exécution.
 
 En inscrivant les autorisations de manière statique, vous permettez aux administrateurs d'approuver facilement votre application. L'inscription statique est recommandée.
 

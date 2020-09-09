@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) – FAQ
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874620"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182511"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Foire aux questions : agent Microsoft Azure Recovery Services (MARS)
 
@@ -122,7 +122,7 @@ La taille du dossier du cache détermine la quantité de données que vous sauve
 1. Pour arrêter le moteur de sauvegarde, exécutez cette commande dans une invite de commandes avec élévation de privilèges :
 
     ```Net stop obengine```
-2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez gestion des disques et démontez le ou les disques avec des noms au format `"CBSSBVol_<ID>"`.
+2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez Gestion des disques et démontez le ou les disques dont le nom est au format `"CBSSBVol_<ID>"`.
 3. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copiez la totalité du dossier `\Scratch` sur un autre lecteur disposant d’un espace suffisant. Assurez-vous que le contenu est copié et non déplacé.
 5. Mettez à jour les entrées de registre suivantes en utilisant le chemin du dossier de travail qui vient d’être déplacé.
@@ -199,7 +199,7 @@ Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mes tâches de sauvegarde ont échoué ou n’ont pas été exécutées pendant une longue période. Ma période de rétention a expiré. Puis-je encore à restaurer ?
 
-Par mesure de sécurité, la sauvegarde Azure conserve le dernier point de récupération, même s’il est ultérieur à la période de rétention. Une fois que les sauvegardes sont relancées et que les nouveaux points de récupération deviennent disponibles, le point de récupération plus ancien est supprimé conformément à la rétention spécifiée.
+Par mesure de sécurité, Sauvegarde Azure conserve le point de récupération le plus récent, même s’il est ultérieur à la période de rétention. Une fois que les sauvegardes sont relancées et que les nouveaux points de récupération deviennent disponibles, le point de récupération plus ancien est supprimé conformément à la rétention spécifiée.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
 

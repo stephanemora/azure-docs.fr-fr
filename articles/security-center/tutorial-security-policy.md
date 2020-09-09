@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519352"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277661"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -40,7 +40,7 @@ Security Center offre les options suivantes pour l’utilisation des stratégies
 * **Ajouter des stratégies de conformité réglementaire** : le tableau de bord de conformité réglementaire du Security Center affiche l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation particulières (par exemple, Azure CIS, NIST SP 800-53 R4, CSP SWIFT CSCF-v2020). Pour plus d’informations, voir [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Gestion de vos stratégies de sécurité
+## <a name="manage-your-security-policies"></a>Gérer vos stratégies de sécurité
 
 Pour afficher vos stratégies de sécurité dans Security Center :
 
@@ -54,7 +54,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 1. La page relative à la stratégie de sécurité de cet abonnement ou ce groupe d’administration s’affiche. Elle présente les stratégies disponibles et attribuées.
 
-   ![Écran des stratégies](./media/tutorial-security-policy/security-policy-page.png)
+   ![page stratégie](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Si l’étiquette « Groupe d’administration hérité » figure en regard de votre stratégie par défaut, cela signifie que la stratégie a été attribuée à un groupe d’administration et que l’abonnement que vous consultez en a hérité.
@@ -111,11 +111,11 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 1. Sélectionnez **Afficher la stratégie actuelle**.
 
-   ![désactiver une stratégie](./media/tutorial-security-policy/view-effective-policy.png)
+   ![afficher la stratégie](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Sélectionnez la stratégie attribuée.
 
-   ![désactiver une stratégie](./media/tutorial-security-policy/security-policy.png)
+   ![sélectionner une stratégie](./media/tutorial-security-policy/security-policy.png)
 
 1. Dans la section **PARAMÈTRES**, recherchez la stratégie qui appelle la suggestion que vous souhaitez désactiver, puis sélectionnez **Désactiver** dans la liste déroulante.
 

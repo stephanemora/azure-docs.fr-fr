@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da21a002e6ea0bbbf528b911b7386b1dfc9c76f8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089700"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277916"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
@@ -55,7 +55,7 @@ Quand vous utilisez Azure Security Center pour superviser des serveurs, un locat
 Une fois qu’il est configuré, vous ne pouvez pas changer l’emplacement de stockage de vos données. Si vous avez besoin de déplacer des données vers un autre emplacement, contactez le Support Microsoft pour réinitialiser le locataire.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Intégration de serveurs à Security Center 
+## <a name="onboard-servers-to-security-center"></a>Intégrer des serveurs à Security Center 
 
 Pour intégrer des serveurs à Security Center, cliquez sur **Accéder à Azure Security Center pour intégrer des serveurs** dans la page d’intégration de serveur Microsoft Defender ATP.
 

@@ -1,14 +1,14 @@
 ---
 title: Utiliser des paramètres pour créer des blueprints dynamiques
 description: Découvrez les paramètres statiques et dynamiques et comment les utiliser pour créer des blueprints sécurisés et dynamiques.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970635"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051557"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -55,11 +55,11 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez sur un blueprint existant puis sur **Modifier le blueprint** OU cliquez sur **+ Créer un blueprint** et renseignez les informations sous l’onglet **De base**.
+1. Sélectionnez un blueprint existant puis **Modifier le blueprint** OU sélectionnez **+ Créer un blueprint** et renseignez les informations sous l’onglet **De base**.
 
-1. Cliquez sur **Suivant : Artefacts** OU cliquez sur l’onglet **Artefacts**.
+1. Sélectionnez **Suivant : Artefacts** OU sélectionnez l’onglet **Artefacts**.
 
-1. Les artefacts ajoutés au blueprint ayant des options de paramètre comportent la mention **X paramètres renseignés sur Y** dans la colonne **Paramètres**. Cliquez sur la ligne de l’artefact pour modifier ses paramètres.
+1. Les artefacts ajoutés au blueprint ayant des options de paramètre comportent la mention **X paramètres renseignés sur Y** dans la colonne **Paramètres**. Sélectionnez la ligne de l’artefact pour modifier ses paramètres.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Paramètres de blueprint sur une définition de blueprint" border="false":::
 
@@ -172,7 +172,7 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Affecter le blueprint** OU cliquez sur le blueprint que vous souhaitez affecter, puis sur le bouton **Affecter le blueprint**.
+1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Affecter le blueprint** OU sélectionnez le blueprint que vous souhaitez attribuer, puis utilisez le bouton **Affecter le blueprint**.
 
 1. Sur la page **Affecter le blueprint**, recherchez la section **Paramètres d’artefact**. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
 
@@ -234,8 +234,8 @@ La définition des **paramètres dynamiques** pendant l’affectation s’effect
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Affichez la liste des [fonctions de blueprint](../reference/blueprint-functions.md).
-- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
-- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
-- Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
+- En savoir plus sur le [cycle de vie des blueprints](./lifecycle.md)
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./sequencing-order.md).
+- Découvrir comment utiliser le [verrouillage de ressources de blueprint](./resource-locking.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
 - Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

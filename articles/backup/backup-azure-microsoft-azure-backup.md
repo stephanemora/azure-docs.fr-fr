@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892284"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181695"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892284"
 Cet article décrit la préparation de votre environnement à la sauvegarde des charges de travail avec Microsoft Azure Backup Server (MABS). Le serveur de sauvegarde Azure vous permet de protéger des charges de travail d’application telles que des machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et des clients Windows à partir d’une console unique.
 
 > [!NOTE]
-> Serveur de sauvegarde Azure peut désormais protéger les machines virtuelles VMware et fournit des fonctionnalités de sécurité améliorées. Installez le produit comme expliqué dans les sections ci-dessous et le dernier agent Azure Backup. Pour plus d’informations sur la sauvegarde de serveurs VMware avec le serveur de sauvegarde Azure, voir [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md). Pour découvrir les fonctionnalités de sécurité, voir la [documentation sur les fonctionnalités de sécurité de sauvegarde Azure](backup-azure-security-feature.md).
+> Serveur de sauvegarde Azure peut désormais protéger les machines virtuelles VMware et fournit des fonctionnalités de sécurité améliorées. Installez le produit comme expliqué dans les sections ci-dessous et le dernier agent Azure Backup. Pour plus d’informations sur la sauvegarde de serveurs VMware avec le serveur de sauvegarde Azure, voir [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md). Pour découvrir les fonctionnalités de sécurité, voir la [documentation sur les fonctionnalités de sécurité de la sauvegarde Microsoft Azure](backup-azure-security-feature.md).
 >
 >
 
@@ -66,9 +66,9 @@ Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de dédu
 >
 > * Un ordinateur servant de contrôleur de domaine
 > * Un ordinateur sur lequel est installé le rôle de serveur d’applications
-> * Un ordinateur qui est un serveur d’administration de System Center Operations Manager
+> * Un ordinateur qui est un serveur d’administration SCOM
 > * Un ordinateur sur lequel Exchange Server s’exécute
-> * Un ordinateur qui est un nœud d’un cluster
+> * Un ordinateur qui est un nœud de cluster
 >
 > L'installation du serveur de sauvegarde Azure n'est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
 
@@ -261,25 +261,25 @@ Voici les étapes à suivre si vous devez déplacer MABS vers un nouveau serveur
 
   > [!IMPORTANT]
   >
-  > * Le nom du nouveau serveur doit être le même que celui de l’instance du serveur Sauvegarde Azure d’origine. Vous ne pouvez pas changer le nom de la nouvelle instance du serveur de sauvegarde Azure si vous souhaitez utiliser le pool de stockage précédent et la base de données MABS (DPMDB) pour conserver les points de récupération.
-  > * Vous devez disposer d’une sauvegarde de la base de données MABS (DPMDB). Vous devez restaurer la base de données.
+  > * Le nom du nouveau serveur doit être le même que celui du serveur de sauvegarde Azure d’origine. Vous ne pouvez pas changer le nom de la nouvelle instance du serveur de sauvegarde Azure si vous souhaitez utiliser le pool de stockage précédent et la base de données MABS (DPMDB) pour conserver les points de récupération.
+  > * Vous devez disposer d’une sauvegarde de la base de données MABS (DPMDB). Vous en aurez besoin pour restaurer la base de données.
 
 1. Dans le volet d’affichage, sélectionnez les ordinateurs clients dont vous souhaitez mettre à jour l’agent de protection.
 2. Arrêtez le serveur de sauvegarde Azure d’origine ou mettez-le hors connexion.
 3. Réinitialisez le compte de la machine dans Active Directory.
-4. Installez Server 2016 sur une nouvelle machine et attribuez à celle-ci le même nom que le serveur de sauvegarde Azure d’origine.
+4. Installez Server 2016 sur une nouvelle machine et attribuez à celle-ci le même nom que le serveur de sauvegarde Azure d’origine.
 5. Joignez le domaine.
-6. Installez Azure Backup Server V3 ou version ultérieure (déplacez les disques du pool de stockage de MABS à partir de l’ancien serveur et effectuez l’importation).
+6. Installez le serveur de sauvegarde Azure v3 ou version ultérieure (déplacez les disques du pool de stockage de MABS à partir de l’ancien serveur et effectuez l’importation).
 7. Restaurez la base de données DPM de l’étape 1.
 8. Attachez le stockage à partir du serveur de sauvegarde d’origine au nouveau serveur.
-9. Depuis SQL, restaurez la base de données DPM.
-10. À partir de la ligne de commande d’administration sur le nouveau serveur, accédez au répertoire d’installation de Sauvegarde Microsoft Azure, puis au dossier bin.
+9. À partir de SQL, restaurez la base de données DPM.
+10. Exécutez CMD (en tant qu’administrateur) sur le nouveau serveur. Accédez à l’emplacement d’installation de Sauvegarde Microsoft Azure et au dossier bin.
 
-    Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Exemple de chemin d’accès : `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
-11. Vers la sauvegarde Azure, exécutez DPMSYNC -SYNC
+11. Pour vous connecter à Sauvegarde Azure, exécutez `DPMSYNC -SYNC`.
 
-    Si vous avez ajouté de nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez DPMSYNC -Reallocatereplica
+    Si vous avez ajouté de **nouveaux** disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez `DPMSYNC -Reallocatereplica`.
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 
@@ -300,7 +300,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
 
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez autoriser les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêchent l’accès à Azure, vous devez autoriser les adresses de domaine suivantes dans le profil de pare-feu/proxy :
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

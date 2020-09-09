@@ -4,12 +4,12 @@ description: Découvrez comment activer et afficher les journaux d’activité r
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250734"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048276"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -30,12 +30,8 @@ Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour a
 1. Sélectionnez votre cluster AKS, par exemple *myAKSCluster*, puis choisissez **Ajouter un paramètre de diagnostic**.
 1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer à Log Analytics**.
 1. Sélectionnez un espace de travail existant ou créez-en un. Si vous créez un espace de travail, indiquez un nom d’espace de travail, un groupe de ressources et un emplacement.
-1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pouvez activer des journaux d’activité supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
+1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Pour cet exemple, activez les journaux *kube-audit*. Les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux d’activité sélectionnés.
-
-L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic* :
-
-![Activer l’espace de travail Log Analytics pour les journaux d’activité Azure Monitor dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Afficher les journaux d’activité collectés
 
-L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Sur le portail Azure, sélectionnez le groupe de ressources de votre espace de travail Log Analytics, par exemple *myResourceGroup*, puis choisissez votre ressource Log Analytics, par exemple *myAKSLogs*.
+L’activation et l’affichage des journaux de diagnostic peuvent nécessiter quelques minutes. Dans le portail Azure, accédez à votre cluster AKS, puis sélectionnez **Journaux** sur le côté gauche. Fermez la fenêtre *Exemples de requêtes* si elle s’affiche.
 
-![Sélection de l’espace de travail Log Analytics pour votre cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-Sur le côté gauche, choisissez **Journaux d’activité**. Pour afficher le journal *kube-apiserver*, entrez la requête ci-après dans la zone de texte :
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-L’application vous renvoie alors probablement un grand nombre de journaux d’activité concernant le serveur d’API. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux d’activité relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *pods/nginx*, comme indiqué dans l’exemple de requête suivant :
+Sur le côté gauche, choisissez **Journaux d’activité**. Pour afficher le journal *kube-audit*, entrez la requête suivante dans la zone de texte :
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Les journaux d’activité propres à votre pod NGINX s’affichent, comme illustré dans l’exemple de capture d’écran suivant :
+L’application vous renvoie alors probablement un grand nombre de journaux. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx*, comme indiqué dans l’exemple de requête suivant :
 
-![Résultats de la requête Log Analytics pour l’exemple de pod NGINX](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Pour afficher des journaux d’activité supplémentaires, vous pouvez mettre à jour la requête en redéfinissant le nom *Catégorie* sur *kube-controller-manager* ou sur *kube-scheduler*, selon les autres journaux d’activité que vous activez. Vous pouvez ensuite utiliser des instructions *where* supplémentaires pour restreindre l’étendue de la requête aux événements qui vous intéressent.
 

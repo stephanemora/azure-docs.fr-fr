@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889806"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376976"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -51,7 +51,7 @@ Réessayez l’inscription. Si le problème persiste, contactez le support techn
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Impossible de supprimer le coffre Recovery Services après avoir ôté la protection d’un partage de fichiers
 
-Dans le portail Azure, ouvrez **Coffre** > **Infrastructure de sauvegarde** > **Comptes de stockage**, puis cliquez sur **Annuler l’enregistrement** pour supprimer le compte de stockage du coffre Recovery Services.
+Dans le portail Azure, ouvrez votre **coffre** > **Infrastructure de sauvegarde** > **Comptes de stockage**. Sélectionnez **Désinscrire** pour supprimer les comptes de stockage du coffre Recovery Services.
 
 >[!NOTE]
 >Vous ne pouvez supprimer un coffre Recovery Services qu’après avoir annulé l’inscription de tous les comptes de stockage inscrits auprès du coffre.
@@ -86,7 +86,7 @@ Code d’erreur : AFSMaxSnapshotReached
 Message d’erreur : Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré.
 
 - Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un partage de fichiers.
-- Il existe une limite de 200 instantanés par partage de fichiers, ceux pris par Sauvegarde Azure compris. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.
+- Il existe une limite de 200 instantanés par partage de fichiers, y compris ceux pris par Sauvegarde Azure. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.
 
 Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure.
 

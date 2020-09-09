@@ -3,12 +3,12 @@ title: Forum Aux Questions (FAQ) - Azure Event Hubs | Microsoft Docs
 description: Cet article contient une liste des questions fréquemment posées (FAQ) sur Azure Event Hubs, ainsi que leurs réponses.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537178"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288965"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -70,8 +70,8 @@ Consultez le tableau suivant pour savoir quels ports de sortie vous devez ouvrir
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Voir [Utiliser Azure Event Hubs à partir d’applications Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je ajouter à la liste verte ?
-Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, procédez comme suit :
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quelles adresses IP dois-je autoriser ?
+Pour trouver les adresses IP à ajouter à la liste verte pour vos connexions, procédez comme suit :
 
 1. Exécutez la commande suivante depuis une invite de commandes : 
 

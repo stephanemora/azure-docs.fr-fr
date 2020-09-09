@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037727"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046848"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -130,6 +130,8 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Nombre de sessions actives Tomcat |
 
 ## <a name="see-also"></a>Voir aussi
+* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Bien démarrer avec Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

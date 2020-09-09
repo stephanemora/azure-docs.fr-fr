@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131779"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047076"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -205,7 +205,7 @@ Vous pouvez vous préparer au basculement comme suit :
     - Estimer l’objectif de délai de récupération de bout en bout pour vos applications.
     - Estimer l’objectif de point de récupération de bout en bout pour vos applications.
     - Identifier des conflits de plage d’adresses IP.
-    - Nous vous recommandons de ne pas utiliser de réseaux de production pour les exercices, d’éviter d’utiliser les mêmes noms de sous-réseau dans les réseaux de production et de test, et de nettoyer les tests de basculements après chaque exercice.
+    - Nous vous recommandons de ne pas utiliser de réseaux de production pour les exercices et de nettoyer les tests de basculements après chaque exercice.
 
 Pour exécuter un basculement à grande échelle, nous recommandons de procéder comme suit :
 

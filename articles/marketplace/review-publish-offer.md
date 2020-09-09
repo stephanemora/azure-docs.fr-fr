@@ -1,5 +1,5 @@
 ---
-title: Consulter et publier une offre sur le Marketplace Microsoft
+title: Comment vérifier et publier une offre sur le marketplace commercial Microsoft
 description: Utilisez l’Espace Partenaires pour soumettre votre offre en préversion, afficher un aperçu de votre offre, puis la publier sur le Marketplace Microsoft.
 ms.reviewer: dannyevers
 ms.service: marketplace
@@ -8,60 +8,51 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: 53e5331ab36d5466bd5cdb495ac505dae29e57bf
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142296"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375876"
 ---
-# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Consulter et publier une offre sur la place de marché commerciale
+# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
 
-Cet article vous montre comment utiliser l’Espace Partenaires pour soumettre votre offre en préversion, afficher un aperçu de votre offre, puis la publier sur la place de marché commerciale Microsoft. Nous aborderons également la vérification de l’état de publication au fur et à mesure de la procédure de publication. Vous devez avoir déjà créé une offre que vous souhaitez publier.
+Cet article vous montre comment utiliser Espace Partenaires pour soumettre votre offre à la publication, afficher un aperçu de votre offre, puis la publier sur le marketplace commercial. Nous aborderons également la vérification de l’état de publication au fur et à mesure de la procédure de publication. Vous devez avoir déjà créé une offre que vous souhaitez publier.
 
-## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Accéder à votre offre sur la place de marché commerciale
+## <a name="offer-status"></a>État de l’offre
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3. Dans l’onglet **Vue d’ensemble**, sous **Offres**, l’un des indicateurs d’état suivants s’affiche dans la colonne **État** pour chaque offre.
+Vous pouvez consulter l’état de votre offre dans l’onglet **Vue d’ensemble** du tableau de bord du marketplace commercial dans [Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). L’un des indicateurs d’état suivants s’affiche dans la colonne **État** pour chaque offre.
 
-    | Statut | Description |
-    | ------------ | ------------- |
-    | Brouillon | L’offre a été créée, mais elle n’est actuellement pas publiée. |
-    | Publication en cours | Le processus de publication de l’offre est en cours. |
-    | Attention requise | Nous avons découvert un problème critique au cours de la certification ou au cours d’une autre phase de publication. |
-    | PRÉVERSION | L’offre a été certifiée par Microsoft et doit maintenant faire l’objet d’une vérification finale par l’éditeur. Sélectionnez **Mise en ligne** pour proposer l’offre en direct. |
-    | En direct | L’offre est également disponible en direct dans la Place de marché. Des clients peuvent la voir et l’acheter. |
-    | Arrêt de la vente en attente | L’éditeur a sélectionné « Arrêter la vente » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
-    | Non disponible dans la Place de marché | Une offre publiée sur la place de marché a été supprimée. |
-    |||
+| Statut | Description |
+| ------------ | ------------- |
+| Brouillon | L’offre a été créée, mais elle n’est actuellement pas publiée. |
+| Publication en cours | Le processus de publication de l’offre est en cours. |
+| Attention requise | Nous avons découvert un problème critique au cours de la certification ou au cours d’une autre phase de publication. |
+| PRÉVERSION | L’offre a été certifiée par Microsoft et doit maintenant faire l’objet d’une vérification finale par l’éditeur. Sélectionnez **Mise en ligne** pour proposer l’offre en direct. |
+| En direct | L’offre est également disponible en direct dans la Place de marché. Des clients peuvent la voir et l’acheter. |
+| Arrêt de la vente en attente | L’éditeur a sélectionné « Arrêter la vente » sur l’offre ou le plan, mais l’action n’est pas encore terminée. |
+| Non disponible dans la Place de marché | Une offre publiée sur la place de marché a été supprimée. |
+|||
 
-4. Dans la colonne **Alias d’offre**, sélectionnez l’offre que vous souhaitez prévisualiser et publier.
+## <a name="validation-and-publishing-steps"></a>Étapes de validation et de publication
 
-## <a name="submit-your-offer-to-preview"></a>Soumettre l’offre en préversion
-
-1. Pour soumettre votre offre en préversion, sélectionnez **Vérifier et publier** dans le coin supérieur droit du portail. La page **Vérifier et publier** s’ouvre.
-1. Assurez-vous que la colonne **État** de chaque page indique **Complète**. Les états possibles sont les suivants :
+Lorsque vous êtes prêt à soumettre votre offre à la publication, sélectionnez **Vérifier et publier** dans le coin supérieur droit du portail. La page **Vérifier et publier** affiche l’état de chaque page de votre offre, qui peut être l’un des états suivants :
 
    - **Non démarré** : la page n’est pas démarrée.
    - **Incomplète** : des informations requises sont manquantes dans la page ou des erreurs doivent être corrigées. Vous devez revenir à la page et la mettre à jour.
    - **Complète** : la page est complète. Toutes les données requises ont été fournies et il n’existe aucune erreur.
 
-1. Si l’un des pages présente un État autre que **Complète**, dans la colonne **Page**, sélectionnez le nom de la page, corrigez le problème, enregistrez la page, puis sélectionnez **Vérifier et publier** à nouveau pour revenir à cette page.
-1. Après avoir compléter toutes les pages, dans la boîte **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour vous assurer que votre application est correctement testée. Fournissez toutes les notes supplémentaires utiles pour comprendre votre demande.
-1. Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**. La page **Vue d’ensemble** s’affiche et indique l’état de publication.
+Si l’un des pages présente un état autre que **Complète**, vous devez corriger le problème sur cette page, puis revenir à la page **Vérifier et publier** pour confirmer que l’état s’affiche comme **Complète**. Certains types d’offres nécessitent un test. Si c’est le cas, vous verrez un champ **Notes pour la certification** dans lequel vous devez fournir des instructions de test à l’équipe de certification et toutes autres notes utiles pour comprendre votre application.
 
-## <a name="validation-and-publishing-steps"></a>Étapes de validation et de publication
-
-Une fois que vous avez sélectionné **Publier**, les processus de validation et de publication sont exécutés dans l’ordre. Le processus de publication le plus courant est illustré dans le tableau suivant :
+Une fois que toutes les pages sont terminées et que vous avez entré les notes de test correspondantes, sélectionnez **Publier** pour commencer les processus de validation et de publication. Les phases et la séquence globale peuvent varier en fonction du type d’offre que vous publiez. Le tableau suivant présente un seul et même flux de publication. Chaque phase est expliquée plus en détail dans les sections suivantes.
 
 | Phase | Ce qui se produit |
 | ------------ | ------------- | ------------- |
-| Validation automatique | Nous effectuons un ensemble de validations automatisées. |
-| Certification | Nous effectuons des validations manuelles. |
-| Création de la préversion | La page de liste de votre offre en préversion est disponible pour toute personne disposant d’un lien d’aperçu. Si votre offre est vendue par le biais de Microsoft (négociable), seul le public que vous avez spécifié sur la page **Preview audience** (Public de la préversion) de votre offre peut acheter et accéder à l’offre pour test. |
-| Approbation de l’éditeur | Nous vous envoyons un e-mail vous demandant de regarder votre offre et de l’approuver. |
-| Publish | Nous exécutons une série d’étapes pour vérifier que l’offre en préversion est publiée en direct sur la place de marché commerciale. |
+| [Validation automatique](#automated-validation-phase) | Nous effectuons un ensemble de validations automatisées. |
+| [Certification](#certification-phase) | Nous effectuons des validations manuelles. |
+| [Création de la préversion](#preview-creation-phase) | La page de liste de votre offre en préversion est disponible pour toute personne disposant d’un lien d’aperçu. Si votre offre est vendue par le biais de Microsoft (négociable), seul le public que vous avez spécifié sur la page **Preview audience** (Public de la préversion) de votre offre peut acheter et accéder à l’offre pour test. |
+| [Approbation de l’éditeur](#publisher-sign-off-phase) | Nous vous envoyons un e-mail vous demandant de regarder votre offre et de l’approuver. |
+| [Publier](#publish-phase) | Nous exécutons une série d’étapes pour vérifier que l’offre en préversion est publiée en direct sur la place de marché commerciale. |
 |||
 
 ## <a name="automated-validation-phase"></a>Phase de validation automatique
@@ -102,7 +93,7 @@ Chaque type d’offre vérifie un ensemble de critères d’éligibilité de bas
 
 #### <a name="content-validation"></a>Validation du contenu
 
-La qualité et la pertinence des informations entrées lors de la création de votre offre sont vérifiées. Ces vérifications passent en revue vos entrées pour les détails de référencement dans la Place de marché, le tarif, la disponibilité, les plans associés, etc. Pour répondre aux critères de référencement dans la Place de marché Azure et/ou AppSource, nous vérifions que votre offre inclut les éléments suivants :
+La qualité et la pertinence des informations entrées lors de la création de votre offre sont vérifiées. Ces vérifications passent en revue vos entrées pour les détails de référencement dans la Place de marché, le tarif, la disponibilité, les plans associés, etc. Pour répondre aux critères de référencement de Microsoft AppSource et Place de marché Azure, nous vérifions que votre offre inclut les éléments suivants :
 
 - Un titre qui décrit précisément l’offre
 - Des descriptions bien écrites qui fournissent une vue d’ensemble détaillée et une proposition de valeur
@@ -141,21 +132,18 @@ Une fois que l’offre est prête à être revue et approuvée, nous vous enverr
 
 La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** pour une offre SaaS. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre.
 
-![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](./partner-center-portal/media/publish-status-publisher-signoff.png)
+![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](./media/publish-status-publisher-signoff.png)
 
-### <a name="to-preview-your-offer-and-sign-off"></a>Pour afficher un aperçu de votre offre et approuver
+### <a name="previewing-and-approving-your-offer"></a>Aperçu et approbation de votre offre
 
-1. Sur la page **Vue d’ensemble de l’offre**, pour afficher un aperçu de votre offre, sélectionnez le lien sous le bouton **Go Live**.
+> [!IMPORTANT]
+> Pour valider le processus d’achat et d’installation de bout en bout, achetez votre offre en version préliminaire. Informez tout d’abord Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour être sûr que nous ne vous imputions pas des frais.
 
-   > [!NOTE]
-   > Il y aura un lien soit pour l’aperçu AppSource, soit pour l’aperçu de la Place de marché Azure, ou les deux, selon les options que vous avez choisies lors de la création de votre offre. Si vous avez choisi de vendre votre offre par le biais de Microsoft, quiconque a été ajouté au public de la préversion peut tester son acquisition et son déploiement pour vérifier qu’elle répond à vos exigences au cours de cette phase.
+Dans la page **Vue d’ensemble de l’offre**, vous verrez des liens d’aperçu sous le bouton **Mise en ligne**. Il y aura un lien soit pour l’aperçu AppSource, soit pour l’aperçu de la Place de marché Azure, ou les deux, selon les options que vous avez choisies lors de la création de votre offre. Si vous avez choisi de vendre votre offre par le biais de Microsoft, quiconque a été ajouté au public de la préversion peut tester son acquisition et son déploiement pour vérifier qu’elle répond à vos exigences au cours de cette phase.
 
-1. Si vous voulez apporter des changements à l’offre après l’avoir visualisée, vous pouvez la modifier et la soumettre de nouveau pour publier une nouvelle préversion. Pour plus d’informations, consultez [Mettre à jour une offre existante dans la Place de marché commerciale](./partner-center-portal/update-existing-offer.md).
+Une fois que vous avez approuvé votre préversion, sélectionnez **Mise en ligne** pour publier votre offre sur le marketplace commercial. 
 
-1. Une fois que vous avez approuvé votre préversion, pour publier votre offre en direct sur la place de marché commerciale, sélectionnez **Go Live**.
-
-   > [!TIP]
-   > Si votre offre est déjà publiée et disponible pour public dans la Place de marché, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous ne sélectionnerez pas **Go live**.
+Si vous souhaitez apporter des modifications après avoir visualisé un aperçu de l’offre, vous pouvez modifier et soumettre à nouveau votre demande de publication. Si votre offre est déjà en ligne et accessible au public sur le marketplace, toutes les mises à jour que vous apportez ne seront pas mises en service tant que vous n’aurez pas sélectionné **Mise en ligne*. Pour plus d’informations, consultez [Mettre à jour une offre existante dans le marketplace commercial](./partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Phase de publication
 
@@ -183,10 +171,6 @@ Maintenant que vous avez choisi de mettre en service votre offre, ce qui la rend
 
 Une fois ces vérifications terminées, votre offre est publiée sur la place de marché.
 
-### <a name="reporting-usage-of-preview-and-other-internal-usage"></a>Création de rapports sur l’utilisation de la version préliminaire et d’autres utilisations internes
+## <a name="next-steps"></a>Étapes suivantes
 
-Pour valider le processus d’achat et d’installation de bout en bout, achetez votre offre en version préliminaire. Informez tout d’abord Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour être sûr que nous ne vous imputions pas des frais.
-
-## <a name="next-step"></a>Étape suivante
-
-[Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)
+[Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md)

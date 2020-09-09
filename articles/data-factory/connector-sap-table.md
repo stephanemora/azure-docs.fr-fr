@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 09/01/2020
+ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529719"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279826"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir d’une table SAP. Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
@@ -48,6 +49,12 @@ Plus précisément, ce connecteur de table SAP prend en charge les opérations s
 - Copie de données à l’aide de l’authentification de base ou de Secure Network Communications (SNC), si SNC est configuré.
 - Connexion à un serveur d’applications SAP ou un serveur de messagerie SAP.
 - Récupération de données par le biais d’une RFC par défaut ou personnalisée.
+
+La version 7.01 ou ultérieure fait référence à la version SAP NetWeaver au lieu de la version SAP ECC. Par exemple, SAP ECC 6.0 EHP 7 dispose en général de la version NetWeaver >=7.4. Si vous n’êtes pas sûr de votre environnement, voici les étapes à suivre pour confirmer la version de votre système SAP :
+1.  Utilisez l’interface graphique utilisateur SAP pour vous connecter au système SAP. 
+2.  Accédez à **Système** -> **État**. 
+3.  Vérifiez la version de SAP_BASIS et assurez-vous qu’elle est supérieure ou égale à 701.  
+      ![Vérifier SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prérequis
 

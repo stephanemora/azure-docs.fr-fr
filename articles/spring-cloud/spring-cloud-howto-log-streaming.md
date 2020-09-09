@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 82d820e676cb241198e7b412bad9602b5eb8109b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299607"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI pour obtenir des journaux de console d’application en temps réel pour la résolution des problèmes. Vous pouvez également [analyser les journaux et les mesures à l’aide des paramètres de diagnostic](./diagnostic-services.md).
@@ -20,7 +20,7 @@ Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Installez [extension Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) pour Spring Cloud, version minimale 0.2.0.
-* Une instance d’**Azure Spring Cloud** avec une application en cours d’exécution, par exemple [application Spring Cloud](./spring-cloud-quickstart-launch-app-cli.md).
+* Une instance d’**Azure Spring Cloud** avec une application en cours d’exécution, par exemple [application Spring Cloud](./spring-cloud-quickstart.md).
 
 > [!NOTE]
 >  L’extension de l’interface CLI ASC est mise à jour de la version 0.2.0 vers la version 0.2.1. Cette modification affecte la syntaxe de la commande pour le streaming des journaux : `az spring-cloud app log tail`, qui est remplacée par : `az spring-cloud app logs`. La commande `az spring-cloud app log tail` sera dépréciée dans une version ultérieure. Si vous utilisez la version 0.2.0, vous pouvez effectuer la mise à niveau vers la version 0.2.1. Tout d’abord, supprimez l’ancienne version à l’aide de la commande `az extension remove -n spring-cloud`.  Ensuite, installez la version 0.2.1 à l’aide de la commande `az extension add -n spring-cloud`.
@@ -87,7 +87,7 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-
+* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
 
  

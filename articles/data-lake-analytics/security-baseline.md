@@ -6,13 +6,13 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 4a02fc8a04da658b3b6cbbb41e57114d6c4a0527
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005124"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231484"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de référence de la sécurité Azure pour Data Lake Analytics
 
@@ -86,7 +86,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Non applicable. Cette recommandation concerne les applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -334,7 +334,7 @@ Vous pouvez également activer l’accès juste-à-temps en utilisant Azure AD P
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Azure AD fournit un contrôle d’accès en fonction du rôle (RBAC) pour un contrôle affiné sur l’accès d’un client aux ressources Data Lake Analytics.
+**Aide** : Utiliser Azure Active Directory (Azure AD) comme système d’authentification et d’autorisation central. Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) offre un contrôle affiné de l’accès d’un client aux ressources Data Lake Analytics.
 
 * [Création et configuration d’une instance Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -404,7 +404,7 @@ Vous pouvez également activer l’accès juste-à-temps en utilisant Azure AD P
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
-**Aide** : Implémentez un isolement en utilisant des abonnements et groupes d’administration distincts selon les domaines de sécurité (par exemple, l’environnement et la sensibilité des données). Vous pouvez limiter votre Data Lake Analytics pour contrôler le niveau d’accès à vos ressources Data Lake Analytics que vos applications et environnements d’entreprise exigent. Lorsque les règles de pare-feu sont configurées, seules les applications demandant des données sur l’ensemble des réseaux spécifiés peuvent accéder aux ressources Data Lake Analytics. Vous pouvez contrôler l’accès à Azure Data Lake Analytics via Azure AD RBAC.
+**Aide** : Implémentez un isolement en utilisant des abonnements et groupes d’administration distincts selon les domaines de sécurité (par exemple, l’environnement et la sensibilité des données). Vous pouvez limiter votre Data Lake Analytics pour contrôler le niveau d’accès à vos ressources Data Lake Analytics que vos applications et environnements d’entreprise exigent. Lorsque les règles de pare-feu sont configurées, seules les applications demandant des données sur l’ensemble des réseaux spécifiés peuvent accéder aux ressources Data Lake Analytics. Vous pouvez contrôler l’accès à Azure Data Lake Analytics via Azure RBAC.
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -456,11 +456,11 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Responsabilité** : Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler la façon dont les utilisateurs interagissent avec le service.
+**Conseils** : vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler la façon dont les utilisateurs interagissent avec le service.
 
-* [Gérer le contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Gérer Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 

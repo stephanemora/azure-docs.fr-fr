@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925632"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300100"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -270,7 +270,7 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Les exemples ci-dessus définissent une liste verte de tables autorisées. Cet exemple montre une définition de liste rouge quand un utilisateur peut accéder à toutes les tables, à l’exception de la table _SecurityAlert_ :
+Les exemples ci-dessus définissent une liste des tables autorisées. Cet exemple montre la définition d’une liste bloquée où un utilisateur peut accéder à toutes les tables, à l’exception de la table _SecurityAlert_ :
 
 ```
 "Actions":  [

@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5fc01efc386a950cdc53e7928009c67a355962e4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815366"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182262"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -125,7 +125,7 @@ LTS 16.04 | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://s
 LTS 16.04 | [9.33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-generic à 4.4.0-178-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-99-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1082-azure </br> 4.15.0-101-generic & 4.4.0-179-generic à correctif logiciel à chaud 9.33**|
 LTS 16.04 | 9.32 | 4.4.0-21-generic à 4.4.0-171-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-74-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1066-azure|
 |||
-18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic à 4.15.0-112-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-58-generic </br> 5.3.0-19-generic à 5.3.0-65-generic </br> 5.4.0-37-generic à 5.4.0-42-generic</br> 4.15.0-1009-azure à 4.15.0-1092-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1032-azure </br> 5.4.0-1020-azure à 5.4.0-1022-azure|
+18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic à 4.15.0-112-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-58-generic </br> 5.3.0-19-generic à 5.3.0-65-generic </br> 5.4.0-37-generic à 5.4.0-42-generic</br> 4.15.0-1009-azure à 4.15.0-1092-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1032-azure </br> 5.4.0-1020-azure à 5.4.0-1022-azure </br> 5.0.0-60-generic et 5.3.0-1035-azure via le correctif logiciel à chaud 9.36**|
 18.04 LTS | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generic à 4.15.0-108-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-52-generic </br> 5.3.0-19-generic à 5.3.0-61-generic </br> 4.15.0-1009-azure à 4.15.0-1089-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1031-azure </br> 4.15.0-109-generic, 5.0.0-53-generic, 5.3.0-62-generic, 4.15.0-1091-azure & 5.3.0-1032-azure à 9.35 (correctif logiciel à chaud)**|
 18.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-generic à 4.15.0-99-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-47-generic </br> 5.3.0-19-generic à 5.3.0-51-generic </br> 4.15.0-1009-azure à 4.15.0-1082-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1020-azure </br> 4.15.0-101-generic, 5.0.0-48-generic, 5.3.0-1022-azure & 5.3.0-53-generic via le correctif logiciel à chaud 9.33**|
 18.04 LTS | 9.32| 4.15.0-20-generic à 4.15.0-74-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-37-generic </br> 5.3.0-19-generic à 5.3.0-24-generic </br> 4.15.0-1009-azure à 4.15.0-1037-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1028-azure </br> 5.3.0-1007-azure à 5.3.0-1009-azure|

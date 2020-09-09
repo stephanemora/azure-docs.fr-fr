@@ -3,12 +3,12 @@ title: Base de sécurité Azure pour Azure DevTest Labs
 description: Base de sécurité Azure pour Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212315"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398320"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de sécurité Azure pour Azure DevTest Labs
 
@@ -159,7 +159,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 **Conseils :** DevTest Labs utilise le service Azure AD pour la gestion des identités. Tenez compte de ces deux aspects clés lorsque vous autorisez les utilisateurs à accéder à un environnement basé sur DevTest Labs :
 
-- **Gestion des ressources** : l’accès au portail Azure permet d’effectuer les opérations de gestion des ressources (créer des machines virtuelles, créer des environnements, démarrer, arrêter, redémarrer, supprimer, appliquer des artefacts, etc.). La gestion des ressources s’effectue dans Azure en utilisant le contrôle d’accès en fonction du rôle (RBAC). Vous affectez des rôles aux utilisateurs et définissez les autorisations au niveau des ressources et de l’accès.
+- **Gestion des ressources** : l’accès au portail Azure permet d’effectuer les opérations de gestion des ressources (créer des machines virtuelles, créer des environnements, démarrer, arrêter, redémarrer, supprimer, appliquer des artefacts, etc.). La gestion des ressources s’effectue dans Azure en utilisant le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Vous affectez des rôles aux utilisateurs et définissez les autorisations au niveau des ressources et de l’accès.
 - **Machines virtuelles (au niveau du réseau)**  : dans la configuration par défaut, les machines virtuelles utilisent un compte d’administrateur local. S’il existe un domaine disponible (Azure AD Domain Services, un domaine local ou un domaine cloud), il est possible de lui adjoindre des machines. Les utilisateurs peuvent ensuite utiliser leurs identités basées sur le domaine en utilisant l’artefact de jonction de domaine pour se connecter aux machines. 
 
 - [Architecture de référence pour DevTest Labs](devtest-lab-reference-architecture.md#architecture)
@@ -315,9 +315,9 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 **Responsabilité :** Customer
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
-**Conseils :** Le contrôle d‘accès en fonction du rôle Azure Active Directory (Azure AD) permet de contrôler l‘accès aux labs dans Azure DevTest Labs.
+**Conseils :** Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès aux labs dans Azure DevTest Labs.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 - [Comprendre les rôles dans DevTest Labs](devtest-lab-add-devtest-user.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
@@ -638,12 +638,12 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 **Responsabilité :** Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
-**Conseils :** Si vous avez recours à des images personnalisées, utilisez le contrôle d'accès en fonction du rôle (RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images. À l’aide d’une galerie Shared Image Gallery, vous pouvez partager vos images avec des laboratoires spécifiques qui en ont besoin. Pour les images de conteneur, stockez-les dans Azure Container Registry et tirez parti de RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.
+**Conseils :** Si vous avez recours à des images personnalisées, utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour garantir que seuls les utilisateurs autorisés ont accès à ces images. À l’aide d’une galerie Shared Image Gallery, vous pouvez partager vos images avec des laboratoires spécifiques qui en ont besoin. Pour les images conteneur, stockez-les dans Azure Container Registry et tirez parti d’Azure RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.
 
-- [Contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Présentation d’Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Configurer une galerie Shared Image Gallery dans DevTest Labs](configure-shared-image-gallery.md)
-- [Comprendre RBAC pour Container Registry](../container-registry/container-registry-roles.md)
+- [Comprendre Azure RBAC pour Container Registry](../container-registry/container-registry-roles.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
 
@@ -693,7 +693,8 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 - [Configurer l’identité managée pour déployer des environnements Azure Resource Manager dans DevTest Labs](use-managed-identities-environments.md)
 - [Configurer l’identité gérée pour déployer des machines virtuelles dans DevTest Labs](enable-managed-identities-lab-vms.md)
 - [Créer un coffre de clés](../key-vault/quick-create-portal.md)
-- [Fournir une authentification Key Vault avec une identité managée](../key-vault/managed-identity.md)
+- [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
+- [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Surveillance d’Azure Security Center :** Oui
 

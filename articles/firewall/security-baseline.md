@@ -6,13 +6,13 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 869c6590146561f6f2f50694c5cc3f79530dad25
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 24c9e5137e59fbd14a489b4d41709f39aa448ed8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854129"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231348"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Base de référence de sécurité Azure pour Pare-feu Azure
 
@@ -74,7 +74,7 @@ Notez que vous ne peut pas créer votre propre balise de service, ni spécifier 
 
 **Conseils** : La stratégie Azure n’est pas encore entièrement prise en charge pour Pare-feu Azure. Azure Firewall Manager peut être utilisé pour garantir la standardisation des configurations de sécurité.
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les principaux artefacts d’environnement (par exemple, les modèles Azure Resource Manager, les contrôles RBAC et les stratégies) dans une même définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et ajuster le contrôle et la gestion grâce au contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les principaux artefacts d’environnement (par exemple, les modèles Resource Manager, les contrôles Azure RBAC et les stratégies) dans une même définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et ajuster le contrôle et la gestion grâce au contrôle de version.
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -416,11 +416,11 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 **Responsabilité** : Partagé
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure Active Directory (RBAC) pour contrôler l’accès aux ressources Pare-feu Azure et aux ressources associées.
+**Conseils** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès à Pare-feu Azure et aux ressources associées.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 

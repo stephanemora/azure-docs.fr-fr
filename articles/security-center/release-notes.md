@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 9836b7f223d1ac9617adc06578eb50652894b0da
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723960"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279378"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -159,11 +159,11 @@ Lors du déploiement d’une solution d’évaluation des vulnérabilités, Secu
 
 À partir de cette mise à jour, le contrôle a été supprimé et vous pouvez désormais déployer les outils d’évaluation des vulnérabilités sur des machines Windows et Linux « personnalisées ». Les images personnalisées sont celles que vous avez modifiées à partir des images par défaut de la Place de marché.
 
-Bien que vous puissiez désormais déployer l’extension d’évaluation des vulnérabilités intégrée (optimisée par Qualys) sur de nombreuses autres machines, le support n’est disponible que si vous utilisez un système d’exploitation répertorié dans [Déploiement de l’analyseur de vulnérabilités intégré à Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Bien que vous puissiez désormais déployer l’extension d’évaluation des vulnérabilités intégrée (optimisée par Qualys) sur de nombreuses autres machines, le support n’est disponible que si vous utilisez un système d’exploitation répertorié dans [Déployer l’analyseur de vulnérabilité intégré sur des machines virtuelles de niveau Standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms).
 
-Apprenez-en davantage sur l’[Analyseur de vulnérabilité intégré pour machines virtuelles (niveau Standard uniquement)](built-in-vulnerability-assessment.md).
+Apprenez-en davantage sur l’[Analyseur de vulnérabilité intégré pour machines virtuelles (niveau Standard uniquement)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Pour en savoir plus sur l’utilisation de votre propre solution d’évaluation des vulnérabilités sous licence privée de Qualys ou Rapid7, consultez [Déploiement d’une solution d’analyse des vulnérabilités des partenaires](partner-vulnerability-assessment.md).
+Pour en savoir plus sur l’utilisation de votre propre solution d’évaluation des vulnérabilités sous licence privée de Qualys ou Rapid7, consultez [Déploiement d’une solution d’analyse des vulnérabilités des partenaires](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protection contre les menaces pour Stockage Azure étendue pour inclure Azure Files et Azure Data Lake Storage Gen2 (préversion)
@@ -415,7 +415,7 @@ Pour déployer la solution, suivez la nouvelle recommandation de sécurité :
 
 « Activer la solution intégrée d’évaluation des vulnérabilités sur les machines virtuelles (optimisées par Qualys) (Préversion)
 
-Apprenez-en davantage sur l’[évaluation des vulnérabilités des machines virtuelles intégrée dans le Security Center](built-in-vulnerability-assessment.md).
+Apprenez-en davantage sur l’[évaluation des vulnérabilités des machines virtuelles intégrée dans le Security Center](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 
 
@@ -489,7 +489,7 @@ Créez une initiative personnalisée dans Azure Policy, ajoutez-y des stratégie
 
 Nous avons également ajouté une option permettant de modifier les métadonnées de recommandation personnalisées. Les options des métadonnées incluent la gravité, des mesures de correction, des informations sur les menaces, etc.  
 
-Pour en savoir plus, consultez [Amélioration de vos recommandations personnalisées avec des informations détaillées](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Pour en savoir plus, consultez [Amélioration de vos recommandations personnalisées avec des informations détaillées](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 

@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358291"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280160"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -29,7 +29,7 @@ Cet article présente les réponses aux questions fréquemment posées sur l’a
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Parmi les nouvelles méthodes de connexion Azure AD - authentification directe, synchronisation de hachage de mot de passe et services de fédération Active Directory (AD FS) - laquelle dois-je choisir ?
 
-Consultez [ce guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
+Consultez [ce guide](./choose-ad-authn.md) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 
@@ -39,7 +39,7 @@ L’authentification directe est une fonctionnalité gratuite. Il est inutile de
 
 Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L’accès conditionnel](../active-directory-conditional-access-azure-portal.md) fonctionne-t-il avec l’authentification directe ?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L’accès conditionnel](../conditional-access/overview.md) fonctionne-t-il avec l’authentification directe ?
 
 Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
 
@@ -113,7 +113,7 @@ La communication entre les agents d’authentification directe et Azure AD est 
 
 Tant qu’un agent d’authentification directe est en cours d’exécution, il reste actif et gère en permanence les demandes de connexion utilisateur. Si vous souhaitez désinstaller un agent d’authentification, accédez à **Panneau de configuration -> Programmes -> Programmes et fonctionnalités** et désinstallez les programmes **Agent d’authentification Microsoft Azure AD Connect** et **Outil de mise à jour de l’agent Microsoft Azure AD Connect**.
 
-Si vous consultez le panneau Authentification directe dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) une fois l’étape précédente effectuée, vous pouvez voir que l’agent d’authentification est indiqué comme étant **inactif**. Ceci est _normal_. L’agent d’authentification est automatiquement supprimé de la liste au bout de quelques jours.
+Si vous consultez le panneau Authentification directe dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) une fois l’étape précédente effectuée, vous pouvez voir que l’agent d’authentification est indiqué comme étant **inactif**. Ceci est _normal_. L’agent d’authentification est automatiquement supprimé de la liste après 10 jours.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>J'utilise déjà AD FS pour me connecter Azure AD. Comment basculer vers l’authentification directe ?
 
@@ -148,7 +148,7 @@ Non, ce scénario n’est _pas_ pris en charge.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Pourquoi ai-je besoin d’un compte d’administrateur général de type cloud uniquement pour activer l’authentification directe ?
 
-Il est recommandé d’activer ou de désactiver l’authentification directe à l’aide d’un compte d’administrateur général de type cloud uniquement. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette manière d’opérer garantit que vous ne serez pas verrouillé hors de votre locataire.
+Il est recommandé d’activer ou de désactiver l’authentification directe à l’aide d’un compte d’administrateur général de type cloud uniquement. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette manière d’opérer garantit que vous ne serez pas verrouillé hors de votre locataire.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Comment désactiver l’authentification directe ?
 
@@ -184,4 +184,3 @@ Les locataires créés après le 15 juin 2015 ont le comportement par défaut, c
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
-

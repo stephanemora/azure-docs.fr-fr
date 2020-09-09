@@ -1,20 +1,20 @@
 ---
 title: Chiffrement des données au repos par le traducteur
 titleSuffix: Azure Cognitive Services
-description: Chiffrement des données au repos par le traducteur
+description: Microsoft vous permet de gérer vos abonnements Cognitive Services à l’aide de vos propres clés, appelées clés gérées par le client (CMK). Cet article traite du chiffrement des données au repos pour Traducteur et de l’activation et de la gestion de CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310833"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079198"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Chiffrement des données au repos par le traducteur
 
@@ -34,7 +34,7 @@ Pour les abonnements qui prennent uniquement en charge les clés de chiffrement 
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Clés gérées par le client avec Azure Key Vault
 
-Une option vous permet également de gérer votre abonnement avec vos propres clés. Les clés gérées par le client (CMK), également appelées BYOK (Bring Your Own Key), offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d'accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
+Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Il existe aussi la possibilité de gérer votre abonnement avec vos propres clés appelées clés gérées par le client (CMK). Les CMK offrent plus de flexibilité pour créer, alterner, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données. Si une CMK est configurée pour votre abonnement, un double chiffrement est fourni, ce qui offre une deuxième couche de protection, tout en vous permettant de contrôler la clé de chiffrement par le biais de votre coffre de clés Azure.
 
 > [!IMPORTANT]
 > Des clés gérées par le client sont disponibles pour tous les niveaux tarifaires du service Traducteur. Pour demander à utiliser des clés gérées par le client, remplissez et envoyez le [Formulaire de demande de clés gérées par le client du Traducteur](https://aka.ms/cogsvc-cmk). Comptez 3 à 5 jours ouvrés pour recevoir une réponse. Selon la demande, vous pouvez être mis en file d'attente. Dès l'approbation de votre demande d'utilisation de clés gérées par le client auprès du service Traducteur, vous devez créer une nouvelle ressource Traducteur. Une fois votre ressource Traducteur créée, vous pouvez utiliser Azure Key Vault pour configurer votre identité managée.
@@ -44,8 +44,6 @@ Afin d'activer les clés gérées par le client pour le Traducteur, procédez co
 1. Créez votre nouvelle ressource Translator régionale ou Cognitive Services régionale. Cela ne fonctionnera pas avec une ressource globale.
 2. Activez l'identité managée sur le portail Azure et ajoutez les informations relatives à vos clés gérées par le client.
 3. Créez un nouvel espace de travail dans Custom Translator et associez ces informations d'abonnement.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Activer des clés gérées par le client
 

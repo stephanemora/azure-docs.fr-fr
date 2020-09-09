@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519605"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278137"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
@@ -23,7 +23,7 @@ Dans Azure Security Center, il existe une variété d’alertes pour les nombreu
 
 Les alertes de sécurité sont déclenchées par des détections avancées et sont disponibles uniquement dans le niveau Standard d’Azure Security Center. Un essai gratuit est disponible. Vous pouvez procéder à une mise à niveau à partir de la page **Tarification et paramètres**. En savoir plus sur la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Répondre aux menaces actuelles <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Répondre aux menaces actuelles <a name="respond-threats"> </a>
 
 Les menaces ont fortement évolué au cours des 20 dernières années. Auparavant, les entreprises avaient uniquement à se soucier de la dégradation des sites web par des attaquants isolés qui cherchaient principalement à découvrir « jusqu’où ils pouvaient aller ». Les pirates d’aujourd’hui sont beaucoup plus évolués et organisés. Ils ont souvent des objectifs financiers et stratégiques spécifiques. Ils ont également davantage de ressources disponibles, car ils peuvent être financés par des États-nations ou encore par le crime organisé.
 

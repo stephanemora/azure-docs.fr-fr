@@ -4,19 +4,19 @@ description: Le contrôle d’accès en fonction du rôle permet de gérer l’a
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533459"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376126"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 
 Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 > [!IMPORTANT]
-> Les rôles fournis par Azure Backup sont limités à des actions qui peuvent être effectuées dans le portail Azure ou via l’API REST, le coffre Recovery Services Powershell, ou les cmdlets d’interface de ligne de commande. Les actions effectuées dans l’interface cliente de l’agent Azure Backup, l’interface System Center Data Protection Manager ou l’interface de serveur de sauvegarde Azure ne sont pas contrôlées par ces rôles.
+> Les rôles fournis par Azure Backup sont limités à des actions qui peuvent être effectuées dans le portail Azure ou via l’API REST, le coffre Recovery Services Powershell, ou les cmdlets d’interface de ligne de commande. Les actions effectuées dans l’IU cliente de l’agent Sauvegarde Azure, l’IU System Center Data Protection Manager ou l’IU de serveur de sauvegarde Azure ne sont pas contrôlées par ces rôles.
 
 Azure Backup fournit 3 rôles intégrés pour contrôler les opérations de gestion des sauvegardes. Apprenez-en davantage sur les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md)
 
@@ -56,7 +56,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Supprimer un Windows Server/client/SCDPM inscrit ou un serveur de sauvegarde Azure | Contributeur de sauvegarde | Coffre Recovery Services |
 
 > [!IMPORTANT]
-> Si vous spécifiez VM Contributor dans le cadre d’une ressource de machine virtuelle et cliquez sur Backup dans les paramètres de la machine virtuelle, l’écran 'Enable Backup' (Activer la sauvegarde) s’ouvre même si la VM est déjà sauvegardée car l’appel de vérification de l’état de la sauvegarde fonctionne uniquement au niveau abonnement. Pour éviter cela, allez dans le coffre-fort et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle VM Contributor au niveau de l’abonnement.
+> Si vous spécifiez Contributeur de machine virtuelle au niveau de l’étendue d’une ressource de machine virtuelle et sélectionnez **Sauvegarde** dans les paramètres de la machine virtuelle, l’écran **Activer la sauvegarde** s’ouvre même si la machine virtuelle est déjà sauvegardée. Cela est dû au fait que l’appel permettant de vérifier l’état de la sauvegarde fonctionne uniquement au niveau de l’abonnement. Pour éviter cela, accédez au coffre et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle Contributeur de machine virtuelle au niveau de l’abonnement.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Exigences de rôle minimum pour la sauvegarde de partage de fichiers Azure
 

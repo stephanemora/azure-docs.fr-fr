@@ -3,12 +3,12 @@ title: Sauvegarder des charges de travail DPM à l’aide de PowerShell
 description: Découvrez comment déployer et gérer Sauvegarde Azure pour Data Protection Manager (DPM) à l’aide de PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892318"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182460"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
 
@@ -232,7 +232,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="protect-data-to-azure-backup"></a>Protection des données dans Sauvegarde Azure
 
-Dans cette section, vous allez ajouter un serveur de production à DPM, puis protéger les données sur le stockage DPM local, et enfin dans Sauvegarde Azure. Dans les exemples, nous vous montrerons comment sauvegarder des fichiers et des dossiers. La logique peut facilement être étendue pour sauvegarder toute source de données DPM prise en charge. Toutes vos sauvegardes DPM sont régies par un groupe de protection constitué de quatre parties :
+Dans cette section, vous allez ajouter un serveur de production à DPM et protéger les données sur le stockage DPM local puis dans Sauvegarde Azure. Dans les exemples, nous vous montrerons comment sauvegarder des fichiers et des dossiers. La logique peut facilement être étendue pour sauvegarder toute source de données DPM prise en charge. Toutes vos sauvegardes DPM sont régies par un groupe de protection constitué de quatre parties :
 
 1. **Membres du groupe** est une liste de tous les objets pouvant être protégés (également appelés *Sources de données* dans DPM) que vous souhaitez protéger dans le même groupe de protection. Par exemple, vous pouvez protéger les machines virtuelles de production dans un groupe de production et les bases de données SQL Server dans un autre groupe de protection, car leurs exigences de sauvegarde peuvent être différentes. Avant de pouvoir sauvegarder une source de données sur un serveur de production, vous devez vérifier que l'agent DPM est installé sur le serveur de production et géré par DPM. Suivez les étapes d’ [installation de l'agent DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) et de liaison de celui-ci au serveur DPM approprié.
 2. **Méthode de protection des données** spécifie les emplacements de sauvegarde cibles (bande, disque ou cloud). Dans notre exemple, nous protégerons les données sur le disque local et dans le cloud.
@@ -276,7 +276,7 @@ $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name
 Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-Répétez cette étape autant de fois que nécessaire, jusqu'à ce que vous ayez ajouté toutes les sources de données choisies au groupe de protection. Vous pouvez également commencer avec une seule source de données, puis terminer le flux de travail de création du groupe de protection, avant d’ajouter ultérieurement d’autres sources de données au groupe de protection.
+Répétez cette étape autant de fois que nécessaire, jusqu’à ce que vous ayez ajouté toutes les sources de données choisies au groupe de protection. Vous pouvez également commencer avec une seule source de données, puis terminer le flux de travail de création du groupe de protection, avant d’ajouter ultérieurement d’autres sources de données au groupe de protection.
 
 ### <a name="selecting-the-data-protection-method"></a>Sélection de la méthode de protection des données
 

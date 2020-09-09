@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853930"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047626"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Procédez comme suit pour modifier les options de sauvegarde par défaut pour un
 
    * **Rétention des sauvegardes** : période pendant laquelle chaque sauvegarde est conservée. Vous pouvez configurer cette valeur en heures ou en jours. La période de rétention minimale ne peut pas être inférieure à deux fois l’intervalle de sauvegarde (en heures), et ne peut pas être supérieure à 720 heures.
 
-   * **Copies des données conservées** : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Si vous avez besoin de copies supplémentaires, vous devez créer une demande de support sur le portail Azure. Les copies supplémentaires seront facturées. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   * **Copies des données conservées** : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Des frais supplémentaires sont facturés si vous avez besoin de plus de deux copies. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurer l’intervalle de sauvegarde et la rétention pour un compte Azure Cosmos existant" border="true":::
 

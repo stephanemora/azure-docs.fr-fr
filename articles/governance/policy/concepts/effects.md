@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544721"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079657"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -479,14 +479,33 @@ Exemple : Règle de contrôle d’admission Gatekeeper v2 pour autoriser uniquem
 
 ## <a name="modify"></a>Modifier
 
-Modify est utilisé pour ajouter, mettre à jour ou supprimer les étiquettes d’une ressource lors d’une création ou d’une mise à jour. Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Une stratégie Modify doit toujours avoir `mode` défini sur _Indexé_, sauf si la ressource cible est un groupe de ressources. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md). Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
+Modify est utilisé pour ajouter, mettre à jour ou supprimer les propriétés ou étiquettes d’une ressource lors d’une création ou d’une mise à jour.
+Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md). Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
+
+Les opérations suivantes sont prises en charge par Modify :
+
+- Ajouter, remplacer ou supprimer des étiquettes. Pour les étiquettes, une stratégie Modify doit avoir `mode` défini sur _Indexé_, sauf si la ressource cible est un groupe de ressources.
+- Ajouter ou remplacer la valeur du type d’identité managée (`identity.type`) des machines virtuelles et des groupes de machines virtuelles identiques.
+- Ajouter ou remplacer les valeurs de certains alias (préversion).
+  - Utilisez `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
+    dans Azure PowerShell **4.6.0** ou une version ultérieure pour obtenir la liste des alias pouvant être utilisés avec Modify.
 
 > [!IMPORTANT]
-> Modify s’utilise uniquement pour les étiquettes. Si vous gérez des étiquettes, il est recommandé d’utiliser Modify plutôt que Append, car Modify fournit des types d’opérations supplémentaires, ainsi que la possibilité de corriger les ressources existantes. Toutefois, Append est recommandé si vous n’êtes pas en mesure de créer une identité managée.
+> Si vous gérez des étiquettes, il est recommandé d’utiliser Modify plutôt qu’Append, car Modify fournit des types d’opérations supplémentaires, ainsi que la possibilité de corriger les ressources existantes. Toutefois, Append est recommandé si vous n’êtes pas en mesure de créer une identité managée ou si Modify ne prend pas encore en charge l’alias de la propriété de ressource.
 
 ### <a name="modify-evaluation"></a>Évaluation Modify
 
-L’évaluation Modify a lieu avant que la requête ne soit traitée par un fournisseur de ressources lors de la création ou de la mise à jour d’une ressource. Modify ajoute ou met à jour les étiquettes d’une ressource lorsque la condition **if** de la règle de stratégie est remplie.
+L’évaluation Modify a lieu avant que la requête ne soit traitée par un fournisseur de ressources lors de la création ou de la mise à jour d’une ressource. Les opérations Modify sont appliquées au contenu de la requête lorsque la condition **if** de la règle de stratégie est remplie. Chaque opération Modify peut spécifier une condition qui détermine le moment où elle est appliquée. Les opérations dont les conditions sont évaluées comme _false_ sont ignorées.
+
+Lorsqu’un alias est spécifié, les vérifications supplémentaires suivantes sont effectuées pour s’assurer que l’opération Modify ne modifie pas le contenu de la requête de manière à ce que le fournisseur de ressources le rejette :
+
+- La propriété à laquelle l’alias correspond est marquée comme « modifiable » dans la version d’API de la requête.
+- Le type de jeton dans l’opération Modify correspond au type de jeton attendu pour la propriété dans la version d’API de la requête.
+
+Si l’une de ces vérifications échoue, l’évaluation de la stratégie revient à la sous-propriété **conflictEffect** spécifiée.
+
+> [!IMPORTANT]
+> Il est recommandée que les définitions de Modify qui incluent des alias utilisent l’_audit_ **Effet de conflit** afin d’éviter les échecs de requêtes à l’aide de versions d’API où la propriété correspondantes n’est pas « modifiable ». Si le même alias se comporte différemment entre les versions d’API, des opérations Modify conditionnelles peuvent être utilisées pour déterminer l’opération Modify utilisée pour chaque version de l’API.
 
 Lorsqu’une définition de stratégie utilisant l’effet Modify est exécutée dans le cadre d’un cycle d’évaluation, elle n’apporte pas de modifications aux ressources qui existent déjà. Au lieu de cela, elle marque comme non conforme toute ressource qui répond à la condition **if**.
 
@@ -498,7 +517,7 @@ La propriété **details** de l’effet Modify comporte toutes les sous-proprié
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
   - Le rôle défini doit inclure toutes les opérations accordées au rôle [Contributeur](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (facultatif)
-  - Détermine la définition de stratégie « wins » dans le cas où plusieurs définitions de stratégie modifient la même propriété.
+  - Détermine la définition de stratégie « wins » dans le cas où plusieurs définitions de stratégie modifient la même propriété ou lorsque l’opération Modify ne fonctionne pas sur l’alias spécifié.
     - Pour les ressources nouvelles ou mises à jour, la définition de stratégie avec _deny_ est prioritaire. Les définitions de stratégie avec _audit_ ignorent toutes les **opérations**. Si plusieurs définitions de stratégie ont _deny_, la demande est refusée pour raison de conflit. Si toutes les définitions de stratégie ont _audit_, aucune des **opérations** des définitions de stratégie en conflit n’est traitée.
     - Pour les ressources existantes, si plusieurs définitions de stratégie ont _deny_, l’état de conformité est _Conflit_. Si au plus une définition de stratégie a _deny_, chaque attribution retourne l’état de conformité _Non conforme_.
   - Valeurs disponibles : _audit_, _deny_, _disabled_.
@@ -513,6 +532,9 @@ La propriété **details** de l’effet Modify comporte toutes les sous-proprié
     - **value** (facultatif)
       - Valeur à affecter à l’étiquette.
       - Cette propriété est obligatoire si l’**opération** est _addOrReplace_ ou _Add_.
+    - **condition** (facultatif)
+      - Chaîne contenant une expression de langage Azure Policy avec [fonctions de stratégie](./definition-structure.md#policy-functions) qui prend la valeur _true_ ou _false_.
+      - Ne prend pas en charge les fonctions de stratégie suivantes : `field()`, `resourceGroup()` et `subscription()`.
 
 ### <a name="modify-operations"></a>Opérations Modify
 
@@ -548,9 +570,9 @@ La propriété **operation** comprend les options suivantes :
 
 |Opération |Description |
 |-|-|
-|addOrReplace |Ajoute l’étiquette et la valeur définies à la ressource, même si l’étiquette a déjà une autre valeur. |
-|Ajouter |Ajoute l’étiquette et la valeur définies à la ressource. |
-|Supprimer |Supprime l’étiquette définie de la ressource. |
+|addOrReplace |Ajoute la propriété/l’étiquette et la valeur définies à la ressource, même si la propriété/l’étiquette a déjà une autre valeur. |
+|Ajouter |Ajoute la propriété/l’étiquette et la valeur définies à la ressource. |
+|Supprimer |Supprime la propriété/l’étiquette définie de la ressource. |
 
 ### <a name="modify-examples"></a>Exemples Modify
 
@@ -593,6 +615,28 @@ Exemple 2 : Supprimez l’étiquette `env` et ajoutez l’étiquette `environmen
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Exemple 3 : Assurez-vous qu’un compte de stockage n’autorise pas l’accès public aux blobs ; l’opération Modify est appliquée uniquement lors de l’évaluation des requêtes dont la version de l’API est supérieure ou égale à « 2019-04-01 » :
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

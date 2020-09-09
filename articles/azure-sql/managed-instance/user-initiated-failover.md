@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589501"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181763"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
 
@@ -36,6 +36,15 @@ Vous pouvez envisager d’exécuter un [basculement manuel](../database/high-ava
 > En vous assurant que vos applications bénéficient d’un basculement résilient avant le déploiement en production, vous atténuez le risque d’erreurs d’application en production et contribuez à la disponibilité des applications pour vos clients.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié sur SQL Managed Instance
+
+### <a name="rbac-permissions-required"></a>Autorisations RBAC requises
+
+L’utilisateur qui initie un basculement doit disposer de l’un des rôles RBAC suivants :
+
+- Rôle Propriétaire de l’abonnement ; ou
+- Rôle Contributeur Managed Instance ; ou
+- Rôle personnalisé avec l’autorisation suivante :
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Utilisation de PowerShell
 

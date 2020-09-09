@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73664412"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278081"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparer des lignes de base avec le Monitoring d'intégrité de fichier (FIM)
 
@@ -41,7 +41,7 @@ Par défaut, la ruche du registre du Monitoring d'intégrité de fichier offre u
 >[!NOTE]
 > Les vérifications récursives s’appliquent uniquement aux ruches de sécurité recommandées, et pas aux chemins d’accès personnalisés au registre.  
 
-## <a name="adding-a-custom-registry-check"></a>Ajout d’une vérification de registre personnalisée
+## <a name="add-a-custom-registry-check"></a>Ajouter une vérification de registre personnalisée
 
 Dans un premier temps, le Monitoring d'intégrité de fichier identifie les caractéristiques d’un état valide connu du système d’exploitation.  Pour cet exemple, nous allons nous concentrer sur les configurations de stratégie de mot de passe pour Windows Server 2008 ou version ultérieure.
 
@@ -73,14 +73,14 @@ Dans un premier temps, le Monitoring d'intégrité de fichier identifie les cara
 
       ![Activer le Monitoring intégré de fichier sur un registre](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Suivi des modifications apportées aux fichiers Windows
+## <a name="track-changes-to-windows-files"></a>Suivre les modifications apportées aux fichiers Windows
 
 1. Dans la fenêtre **Ajouter le fichier Windows pour Change Tracking**, dans la zone de texte **Entrer le chemin d'accès**, entrez le dossier contenant les fichiers que vous souhaitez suivre. Dans l’exemple de la figure suivante, **Contoso Web App** se trouve sous le lecteur D:\ dans la structure de dossiers **ContosWebApp**.  
 1. Créez une entrée de fichier Windows personnalisée en entrant un nom pour la classe de paramètres, en activant la récursion et en spécifiant le dossier supérieur avec un suffixe de caractère générique (*).
 
     ![Activer FIM sur un fichier](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Récupération des données modifiées
+## <a name="retrieve-change-data"></a>Récupérer les données modifiées
 
 Les données FIM se trouvent dans la table Azure Log Analytics / ConfigurationChange définie.  
 

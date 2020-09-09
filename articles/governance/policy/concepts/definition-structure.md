@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547798"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079028"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -651,6 +651,13 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > Pour rechercher des alias qui peuvent être utilisés avec l’effet [modify](./effects.md#modify), utilisez la commande suivante dans Azure PowerShell **4.6.0** ou version ultérieure :
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 105d867b4eafe37ca6555e3f6b54dc521a7264fe
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226826"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89143731"
 ---
 # <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
@@ -159,9 +159,9 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Translator Text                  | Oui                | Oui                | -                  |
 | Power BI                         | Oui                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |
-| Azure Stream Analytics           | Oui                | N/A\*            | -                  |
-| Event Hubs                       | Oui                | Oui, toutes les longueurs RSA. | -                  |
-| Fonctions                        | Oui                | Oui, toutes les longueurs RSA. | -                  |
+| Azure Stream Analytics           | Oui                | N/A\*              | -                  |
+| Event Hubs                       | Oui                | Oui                | -                  |
+| Fonctions                        | Oui                | Oui                | -                  |
 | Azure Analysis Services          | Oui                | -                  | -                  |
 | Azure Data Catalog               | Oui                | -                  | -                  |
 | Azure HDInsight                  | Oui                | Tous                | -                  |
@@ -175,9 +175,9 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Container Instances              | Oui                | Oui                | -                  |
 | Container Registry               | Oui                | Oui                | -                  |
 | **Calcul**                      |                    |                    |                    |
-| Virtual Machines                 | Oui                | Oui, RSA 2048 bits  | -                  |
-| Groupe de machines virtuelles identiques        | Oui                | Oui, RSA 2048 bits  | -                  |
-| SAP HANA                         | Oui                | Oui, RSA 2048 bits  | -                  |
+| Virtual Machines                 | Oui                | Oui                | -                  |
+| Groupe de machines virtuelles identiques        | Oui                | Oui                | -                  |
+| SAP HANA                         | Oui                | Oui                | -                  |
 | App Service                      | Oui                | Oui\*\*            | -                  |
 | Automatisation                       | Oui                | Oui\*\*            | -                  |
 | Azure Functions                  | Oui                | Oui\*\*            | -                  |
@@ -187,13 +187,13 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Service Bus                      | Oui                | Oui                | -                  |
 | Site Recovery                    | Oui                | Oui                | -                  |
 | **Bases de données**                    |                    |                    |                    |
-| SQL Server sur machines virtuelles   | Oui                | Oui, RSA 2048 bits  | Oui                |
-| Azure SQL Database               | Oui                | Oui, RSA 2048 bits  | Oui                |
+| SQL Server sur machines virtuelles   | Oui                | Oui                | Oui                |
+| Azure SQL Database               | Oui                | Oui, RSA 3072 bits  | Oui                |
 | Azure SQL Database pour MariaDB   | Oui                | -                  | -                  |
 | Azure SQL Database pour MySQL     | Oui                | Oui                | -                  |
 | Azure SQL Database pour PostgreSQL | Oui               | Oui                | -                  |
-| Azure Synapse Analytics          | Oui                | Oui, RSA 2048 bits  | -                  |
-| SQL Server Stretch Database      | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure Synapse Analytics          | Oui                | Oui, RSA 3072 bits  | -                  |
+| SQL Server Stretch Database      | Oui                | Oui, RSA 3072 bits  | Oui                |
 | Stockage Table                    | Oui                | Oui                | Oui                |
 | Azure Cosmos DB                  | Oui                | Oui                | -                  |
 | Azure Databricks                 | Oui                | Oui                | -                  |
@@ -203,7 +203,7 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Azure Repos                      | Oui                | -                  | Oui                |
 | **Identité**                     |                    |                    |                    |
 | Azure Active Directory           | Oui                | -                  | -                  |
-| Azure Active Directory Domain Services | Oui          | Oui, RSA 2048 bits  | -                  |
+| Azure Active Directory Domain Services | Oui          | Oui                | -                  |
 | **Intégration**                  |                    |                    |                    |
 | Service Bus                      | Oui                | Oui                | Oui                |
 | Event Grid                       | Oui                | -                  | -                  |
@@ -220,20 +220,20 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Azure Security Center pour IoT    | Oui                | Oui                | -                  |
 | Azure Sentinel                   | Oui                | Oui                | -                  |
 | **Stockage**                      |                    |                    |                    |
-| Stockage Blob                     | Oui                | Oui, RSA 2048 bits  | Oui                |
-| Stockage Blob Premium             | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage Blob                     | Oui                | Oui                | Oui                |
+| Stockage Blob Premium             | Oui                | Oui                | Oui                |
 | Stockage sur disque                     | Oui                | Oui                | -                  |
 | Disque Ultra               | Oui                | Oui                | -                  |
 | Stockage sur disque managé             | Oui                | Oui                | -                  |
-| Stockage Fichier                     | Oui                | Oui, RSA 2048 bits  | -                  |
-| Stockage Premium de fichiers             | Oui                | Oui, RSA 2048 bits  | -                  |
-| File Sync                        | Oui                | Oui, RSA 2048 bits  | -                  |
+| Stockage Fichier                     | Oui                | Oui                | -                  |
+| Stockage Premium de fichiers             | Oui                | Oui                | -                  |
+| File Sync                        | Oui                | Oui                | -                  |
 | Stockage File d’attente                    | Oui                | Oui                | Oui                |
 | Avere vFXT                       | Oui                | -                  | -                  |
 | Cache Azure pour Redis            | Oui                | N/A\*              | -                  |
 | Azure NetApp Files               | Oui                | Oui                | -                  |
-| Stockage archive                  | Oui                | Oui, RSA 2048 bits  | -                  |
-| StorSimple                       | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage archive                  | Oui                | Oui                | -                  |
+| StorSimple                       | Oui                | Oui                | Oui                |
 | Sauvegarde Azure                     | Oui                | Oui                | Oui                |
 | Data Box                         | Oui                | -                  | Oui                |
 | Data Box Edge                    | Oui                | Oui                | -                  |

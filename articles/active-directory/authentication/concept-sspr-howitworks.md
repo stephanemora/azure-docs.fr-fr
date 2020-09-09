@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716314"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377197"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -27,7 +27,7 @@ La réinitialisation de mot de passe en libre-service (SSPR) Azure Active Direct
 >
 > Si votre équipe informatique n’a pas activé la réinitialisation de votre propre mot de passe, contactez votre support technique pour obtenir une assistance supplémentaire.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Fonctionnement du portail de réinitialisation de mot de passe
+## <a name="how-does-the-password-reset-process-work"></a>Fonctionnement du processus de réinitialisation de mot de passe
 
 Un utilisateur peut réinitialiser ou changer son mot de passe à l’aide du [portail SSPR](https://aka.ms/sspr). Il doit d’abord avoir inscrit les méthodes d’authentification souhaitées. Quand un utilisateur accède au portail SSPR, la plateforme Azure prend en compte les facteurs suivants :
 
@@ -58,6 +58,11 @@ Une fois le portail SSPR affiché dans la langue appropriée, l’utilisateur es
   * Si la réécriture SSPR n’est pas déployée et si le mot de passe de l’utilisateur est géré localement, ce dernier est invité à contacter son administrateur pour qu’il réinitialise son mot de passe.
 
 Si toutes les vérifications précédentes sont correctement effectuées, l’utilisateur est guidé tout au long du processus de réinitialisation ou de changement de son mot de passe.
+
+> [!NOTE]
+> La SSPR peut envoyer des notifications par e-mail aux utilisateurs dans le cadre du processus de réinitialisation de mot de passe. Ces e-mails sont envoyés à l’aide du service de relais SMTP, qui fonctionne en mode actif/actif dans plusieurs régions.
+>
+> Les services de relais SMTP reçoivent et traitent le corps de l’e-mail, mais ne le stockent pas. Le corps de l’e-mail SSPR, qui peut éventuellement contenir des informations fournies par le client, n’est pas stocké dans les journaux du service de relais SMTP. Les journaux contiennent uniquement des métadonnées de protocole.
 
 Pour bien démarrer avec SSPR, suivez le tutoriel suivant :
 

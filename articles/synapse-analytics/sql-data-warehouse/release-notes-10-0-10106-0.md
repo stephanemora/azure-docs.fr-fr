@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075838"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047450"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="aug-2020"></a>Août 2020
+
+| Améliorations du service | Détails |
+| --- | --- |
+|**Gestion des charges de travail – Utilisation du portail**|Les utilisateurs peuvent configurer et gérer leurs paramètres de gestion des charges de travail par le biais du portail Azure. La possibilité de configurer des [groupes de charges de travail](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) et des [classifieurs de charges de travail](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) avec une importance est possible.|
+|**Vue améliorée du catalogue des mappages de table**|La nouvelle vue de catalogue [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mappe des **object_ids** de tables utilisateur permanentes à leurs noms de tables physiques.|
 
 ## <a name="july-2020"></a>Juillet 2020
 
