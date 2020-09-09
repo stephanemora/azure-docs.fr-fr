@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067652"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569002"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -33,7 +33,8 @@ Vous pouvez utiliser une application, telle que [VLC Player](https://www.videola
 
 Lorsque vous terminez la procédure ci-dessous, vous avez utilisé Live Video Analytics sur IoT Edge pour détecter que le mouvement de la voiture et l’enregistrement d’un extrait vidéo commence au repère d’approximativement 5 secondes. Le diagramme ci-dessous est la représentation visuelle du flux global.
 
-![Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement":::
 
 ## <a name="use-direct-method-calls"></a>Utiliser des appels de méthode directe
 

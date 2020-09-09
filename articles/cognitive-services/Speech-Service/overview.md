@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825352"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569303"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -90,7 +90,7 @@ Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une 
 
 Nous proposons des guides de démarrage rapide pour la plupart des langages de programmation. Chaque guide est conçu pour vous montrer des modèles de conception de base et vous permettre d’exécuter du code en moins de 10 minutes. Consultez la liste suivante pour connaître le guide de démarrage rapide de chaque fonctionnalité.
 
-* [Guide de démarrage rapide sur la reconnaissance vocale](speech-to-text-basics.md)
+* [Guide de démarrage rapide sur la reconnaissance vocale](get-started-speech-to-text.md)
 * [Démarrage rapide sur la conversion de texte par synthèse vocale](get-started-text-to-speech.md)
 * [Guide de démarrage rapide sur la traduction vocale](speech-translation-basics.md)
 * [Guide de démarrage rapide sur la reconnaissance de l’intention](quickstarts/intent-recognition.md)

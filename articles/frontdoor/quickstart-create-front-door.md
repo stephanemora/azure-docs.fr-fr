@@ -3,7 +3,7 @@ title: 'Démarrage rapide : Configurer la haute disponibilité avec Azure Front
 description: Ce guide de démarrage rapide décrit comment utiliser Azure Front Door Service pour votre application web globale hautement disponible et très performante.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.assetid: ''
 ms.service: frontdoor
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
-ms.author: sharadag
-ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: duau
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82133399"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569235"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
@@ -165,5 +165,3 @@ Répétez la procédure pour les deux autres groupes.
 Passez à l’article suivant pour apprendre à ajouter un domaine personnalisé à votre porte d’entrée.
 > [!div class="nextstepaction"]
 > [Ajouter un domaine personnalisé](front-door-custom-domain.md)
-
-Pour en savoir plus sur le routage du trafic, consultez [Méthodes de routage Front Door](front-door-routing-methods.md).
