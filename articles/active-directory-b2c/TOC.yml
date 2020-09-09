@@ -69,6 +69,8 @@
           href: tokens-overview.md
         - name: Demander un jeton d’accès
           href: access-tokens.md
+    - name: Clés de stratégies
+      href: policy-keys-overview.md
     - name: Flux et stratégie utilisateur
       items:
         - name: Flux d’utilisateurs

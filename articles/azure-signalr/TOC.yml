@@ -35,6 +35,8 @@
   items:
     - name: Éléments internes Azure SignalR Service
       href: signalr-concept-internals.md
+    - name: Mode de service
+      href: concept-service-mode.md
     - name: Mettre à l'échelle SignalR ASP.NET Core
       href: signalr-concept-scale-aspnet-core.md
     - name: Sans serveur
