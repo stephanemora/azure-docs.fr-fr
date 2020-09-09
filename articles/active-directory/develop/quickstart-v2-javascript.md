@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120522"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434603"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -151,7 +151,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 Exécutez le projet avec un serveur web en utilisant [Node.js](https://nodejs.org/en/download/) :
 
 1. Pour démarrer le serveur, exécutez la commande suivante dans le répertoire du projet :
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ La bibliothèque MSAL connecte les utilisateurs et demande les jetons utilisés 
 
 Sinon, si Node.js est installé, vous pouvez télécharger la dernière version via npm (Node.js Package Manager) :
 
-```batch
+```cmd
 npm install msal
 ```
 

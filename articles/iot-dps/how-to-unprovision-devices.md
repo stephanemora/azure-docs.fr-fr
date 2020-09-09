@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974834"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294388"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 
@@ -57,22 +57,10 @@ Pour voir la liste des appareils qui ont été provisionnés par le biais d’un
 Avec les groupes d’inscriptions, il existe deux scénarios à prendre en compte :
 
 - Pour déprovisionner tous les appareils qui ont été approvisionnés par le biais d’un groupe d’inscription :
-  1. Désactivez le groupe d’inscription pour mettre son certificat de signature sur liste rouge. 
+  1. Désactivez le groupe d’inscription pour interdire l’utilisation de son certificat de signature. 
   2. Utilisez la liste des appareils approvisionnés pour ce groupe d’inscription afin de désactiver ou de supprimer de son hub IoT chacun des appareils du registre des identités. 
   3. Après avoir désactivé ou supprimé tous les appareils de leurs hubs IoT respectifs, vous pouvez éventuellement supprimer le groupe d’inscription. Sachez toutefois que, si vous supprimez le groupe d’inscription et qu’il existe un groupe d’inscription activé pour un certificat de signature plus haut dans la chaîne de certificats de l’un ou plusieurs des appareils, ces appareils peuvent être réinscrits. 
 
 - Pour déprovisionner un seul appareil d’un groupe d’inscription :
   1. Créez une inscription individuelle désactivée pour son certificat feuille (appareil). Cela révoque l’accès au service de provisionnement pour cet appareil tout en autorisant l’accès pour d’autres appareils dont la chaîne contient le certificat de signature du groupe d’inscription. Ne supprimez pas l’inscription individuelle désactivée pour l’appareil, car cela permettrait à l’appareil d’être réinscrit par le biais du groupe d’inscription. 
   2. Utilisez la liste des appareils approvisionnés de ce groupe d’inscription pour trouver le hub IoT dans lequel l’appareil était approvisionné, et désactivez-le ou supprimez-le du registre des identités de ce hub. 
-  
-  
-
-
-
-
-
-
-
-
-
-

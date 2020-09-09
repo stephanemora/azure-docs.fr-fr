@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605760"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400311"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -118,6 +118,7 @@ En fonction de l’API que vous utilisez, un conteneur Azure Cosmos peut représ
 | Nombre maximal de chemins dans la stratégie d’indexation| 100 <sup>*</sup>|
 | Nombre maximal de clés uniques par conteneur|10 <sup>*</sup>|
 | Nombre maximal de chemins par contrainte de clé unique|16 <sup>*</sup>|
+| Valeur TTL maximale |2147483647|
 
 <sup>*</sup> Vous pouvez augmenter ces limites par conteneur en contactant le Support Azure.
 
@@ -136,6 +137,7 @@ En fonction de l’API que vous utilisez, un élément Azure Cosmos peut représ
 | Longueur maximale de la valeur d’une propriété | Aucune limite pratique |
 | Longueur maximale d’une valeur de propriété de chaîne | Aucune limite pratique |
 | Longueur maximale d’une valeur de propriété numérique | 64 bits double précision (norme IEEE754) |
+| Valeur TTL maximale |2147483647|
 
 Aucune restriction ne pèse sur les charges utiles d’élément comme le nombre de propriétés et la profondeur d’imbrication, sauf en ce qui concerne la longueur des valeurs d’ID et de clé de partition, et la taille globale est limitée à 2 Mo. Vous devrez peut-être configurer une stratégie d’indexation pour les conteneurs qui ont des structures comportant des éléments grands ou complexes pour réduire la consommation de RU. Consultez [Modélisation des éléments dans Cosmos DB](how-to-model-partition-example.md) pour découvrir un exemple concret et des modèles permettant de gérer de grands éléments.
 

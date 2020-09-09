@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963867"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400974"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Base de référence de sécurité Azure pour Batch
 
@@ -62,7 +62,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Aide** :  Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -416,7 +416,7 @@ Comment identifier les utilisateurs Azure AD signalés pour une activité à ris
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Superviser les activités liées aux identités et aux accès des utilisateurs dans Azure Security Center :
+Comment superviser les activités liées aux identités et aux accès des utilisateurs dans Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
@@ -596,17 +596,17 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Utilisez le contrôle d’accès en fonction du rôle d’Azure Active Directory (AAD) pour contrôler l’accès au plan de gestion des ressources Azure telles que le compte Batch, les pools Batch et les comptes de stockage.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour contrôler l’accès au plan de gestion des ressources Azure telles que le compte Batch, les pools Batch et les comptes de stockage.
 
 Comprendre Azure RBAC :
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-Configuration de RBAC dans Azure :
+Comment configurer RBAC Azure :
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -632,7 +632,7 @@ Comment gérer les clés de chiffrement des comptes de stockage Azure :
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -756,7 +756,7 @@ Créer et utiliser des étiquettes :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -765,7 +765,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 **Conseils** : Établissez la liste des ressources Azure approuvées et des logiciels approuvés pour les ressources de calcul.
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -912,7 +912,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -936,23 +936,23 @@ Documentation Azure Repos
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Conseils** : Si vous utilisez des images personnalisées pour vos pools Azure Batch, utilisez le contrôle d’accès en fonction du rôle (RBAC) pour garantir que seuls les utilisateurs autorisés pourront accéder aux images.
+**Aide** : Si vous utilisez des images personnalisées pour vos pools Azure Batch, utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour veiller à ce que seuls les utilisateurs autorisés puissent accéder aux images.
 
-Comprendre RBAC dans Azure :
+Comprendre Azure RBAC :
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Configuration de RBAC dans Azure :
+Comment configurer RBAC Azure :
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1014,13 +1014,17 @@ Intégration aux identités managées Azure :
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Créer un coffre Azure Key Vault :
+Pour créer un coffre de clés :
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Fournir une authentification Key Vault avec une identité managée :
+Comment s’authentifier auprès de Key Vault :
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Comment attribuer une stratégie d’accès Key Vault :
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -1041,7 +1045,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/helpcredscan.html
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1171,7 +1175,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities » : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815179"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437698"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -102,17 +102,17 @@ Les administrateurs d’accès conditionnel peuvent également créer des strat�
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Applications Office 365 |
+| Fonctionnalité | Détails  | Azure AD Free / Applications Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | Oui | Non | Non |
-| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | Oui | Non | Non |
-| Rapports de sécurité | Vue d’ensemble | Oui | Non | Non |
-| Rapports de sécurité | Utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
-| Rapports de sécurité | Connexions risquées | Accès total | Informations limitées | Informations limitées |
-| Rapports de sécurité | Détections de risques | Accès total | Informations limitées | Non |
-| Notifications | Alertes Utilisateurs à risque détectés | Oui | Non | Non |
-| Notifications | Synthèse hebdomadaire | Oui | Non | Non |
-| | Stratégie d'inscription MFA | Oui | Non | Non |
+| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection)  | Non | Non |Oui | 
+| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel)  | Non |  Non |Oui |
+| Rapports de sécurité | Vue d’ensemble |  Non | Non |Oui |
+| Rapports de sécurité | Utilisateurs à risque  | Informations limitées | Informations limitées | Accès total|
+| Rapports de sécurité | Connexions risquées  | Informations limitées | Informations limitées | Accès total|
+| Rapports de sécurité | Détections de risques   | Non | Informations limitées| Accès total|
+| Notifications | Alertes Utilisateurs à risque détectés  | Non | Non |Oui |
+| Notifications | Synthèse hebdomadaire| Non | Non | Oui | 
+| | Stratégie d'inscription MFA | Non | Non | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

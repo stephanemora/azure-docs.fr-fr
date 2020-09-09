@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496217"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055564"
 ---
 # <a name="use-file-metadata-in-queries"></a>Utiliser des métadonnées de fichier dans les requêtes
 
-Le service de requête à la demande SQL peut traiter plusieurs fichiers et dossiers, comme décrit dans l’article [Interroger plusieurs dossiers et fichiers](query-folders-multiple-csv-files.md). Dans cet article, vous allez apprendre à utiliser des informations de métadonnées sur des noms de fichiers et de dossiers dans les requêtes.
+SQL à la demande peut traiter plusieurs fichiers et dossiers, comme cela est décrit dans l’article [Interroger plusieurs dossiers et fichiers](query-folders-multiple-csv-files.md). Dans cet article, vous allez apprendre à utiliser des informations de métadonnées sur des noms de fichiers et de dossiers dans les requêtes.
 
 Vous devrez peut-être parfois savoir quelle source de fichier ou de dossier est corrélée à une ligne spécifique dans le jeu de résultats.
 

@@ -7,20 +7,22 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021271"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260321"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud
 
 Cette rubrique montre comment préparer une application Java Spring existante à son déploiement dans Azure Spring Cloud. S’il est correctement configuré, Azure Spring Cloud fournit des services robustes pour superviser, mettre à l’échelle et mettre à jour votre application Java Spring Cloud.
 
+Avant d’exécuter cet exemple, vous pouvez essayer le [démarrage rapide de base](spring-cloud-quickstart.md).
+
 D’autres exemples expliquent comment déployer une application sur Azure Spring Cloud quand le fichier POM est configuré. 
-* [Lancer l’application en utilisant le portail Azure](spring-cloud-quickstart-launch-app-portal.md)
-* [Lancer l’application en utilisant Azure CLI](spring-cloud-quickstart-launch-app-cli.md)
+* [Lancer votre première application](spring-cloud-quickstart.md)
+* [Créer et exécuter des microservices](spring-cloud-quickstart-sample-app-introduction.md)
 
 Cet article explique les dépendances nécessaires et comment les ajouter au fichier POM.
 
@@ -39,8 +41,8 @@ Azure Spring Cloud prend en charge seulement les applications Spring Boot versio
 Version de Spring Boot | Version de Spring Cloud
 ---|---
 2.1 | Greenwich.RELEASE
-2.2 | Hoxton.RELEASE
-2.3 | Hoxton.SR5
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dépendances pour Spring Boot version 2.1
 
@@ -60,7 +62,7 @@ Pour Spring Boot version 2.1, ajoutez les dépendances suivantes au fichier POM 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR4</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,7 +88,7 @@ Pour Spring Boot version 2.2, ajoutez les dépendances suivantes au fichier POM 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -111,7 +113,7 @@ Pour Spring Boot version 2.3, ajoutez les dépendances suivantes au fichier PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -120,49 +122,23 @@ Pour Spring Boot version 2.3, ajoutez les dépendances suivantes au fichier PO
 ```
 ## <a name="azure-spring-cloud-client-dependency"></a>Dépendance du client Azure Spring Cloud
 
-Azure Spring Cloud héberge et gère les composants Spring Cloud. Les composants sont notamment Spring Cloud Service Registry et Spring Cloud Config Server. Ajoutez la bibliothèque cliente d’Azure Spring Cloud à vos dépendances pour permettre la communication avec votre instance du service Azure Spring Cloud.
+Azure Spring Cloud héberge et gère les composants Spring Cloud. Les composants sont notamment Spring Cloud Service Registry et Spring Cloud Config Server. Il est recommandé d’utiliser Spring Boot 2.2 ou 2.3. Pour Spring Boot 2.1, ajoutez la bibliothèque cliente d’Azure Spring Cloud à vos dépendances pour permettre la communication avec votre instance du service Azure Spring Cloud.
 
 Le tableau suivant liste les versions d’Azure Spring Cloud qui sont compatibles avec les applications qui utilisent Spring Boot et Spring Cloud.
 
-Version de Spring Boot | Version de Spring Cloud | Version d’Azure Spring Cloud
+Version de Spring Boot | Version de Spring Cloud | Version Starter du client Azure Spring Cloud
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1
-2.2 | Hoxton.RELEASE | 2.2
-2.3 | Hoxton.SR5 | 2.3
+2.1 | Greenwich.RELEASE | 2.1.2
+2.2 | Hoxton.SR8 | Non nécessaire
+2.3 | Hoxton.SR8 | Non nécessaire
 
-Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionnez la dépendance dont la version d’Azure Spring Cloud correspond à la vôtre.
-
-### <a name="dependency-for-azure-spring-cloud-version-21"></a>Dépendance pour Azure Spring Cloud version 2.1
-
-Pour Spring Boot version 2.1, ajoutez la dépendance suivante au fichier POM de l’application.
+Incluez la dépendance suivante dans votre fichier pom.xml si vous utilisez Spring Boot 2.1.
 
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
         <version>2.1.2</version>
-</dependency>
-```
-
-### <a name="dependency-for-azure-spring-cloud-version-22"></a>Dépendance pour Azure Spring Cloud version 2.2
-
-Pour Spring Boot version 2.2, ajoutez la dépendance suivante au fichier POM de l’application.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.1</version>
-</dependency>
-```
-
-Pour Spring Boot version 2.3, ajoutez la dépendance suivante au fichier POM de l’application.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.3.0</version>
 </dependency>
 ```
 

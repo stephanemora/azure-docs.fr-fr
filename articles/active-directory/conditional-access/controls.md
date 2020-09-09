@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922097"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266576"
 ---
 # <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
 
 Les contrôles personnalisés sont en préversion dans Azure Active Directory. Quand vous utilisez les contrôles personnalisés, les utilisateurs sont redirigés vers un service compatible pour satisfaire aux exigences d’authentification en dehors d’Azure Active Directory. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, il effectue les opérations d’authentification nécessaires, puis il est redirigé vers Azure Active Directory. Azure Active Directory vérifie la réponse. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel.
 
 > [!NOTE]
-> Pour plus d’informations sur les changements que nous prévoyons d’apporter à la fonctionnalité Contrôle personnalisé, consultez les [Nouveautés](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls) de février 2020.
+> Pour plus d’informations sur les changements que nous prévoyons d’apporter à la fonctionnalité Contrôle personnalisé, consultez l’article [Archive des nouveautés](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls) de février 2020.
 
 ## <a name="creating-custom-controls"></a>Création de contrôles personnalisés
 
@@ -53,7 +53,7 @@ Pour modifier un contrôle personnalisé, vous devez supprimer le contrôle exis
 
 ## <a name="known-limitations"></a>Limitations connues
 
-Les contrôles personnalisés ne peuvent pas être utilisés avec l’automatisation d’Identity Protection qui nécessite Azure Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) Azure AD, le respect des exigences de revendication Multi-Factor Authentication, pour l’élévation de rôles dans Privileged Identity Manager (PIM) ou dans le cadre de l’inscription d’appareils Intune.
+Les contrôles personnalisés ne peuvent pas être utilisés avec l’automatisation d’Identity Protection qui nécessite Azure Multi-Factor Authentication, la réinitialisation de mot de passe en libre-service (SSPR) Azure AD, le respect des exigences de revendication Multi-Factor Authentication, pour l’élévation de rôles dans Privileged Identity Manager (PIM), dans le cadre de l’inscription d’appareils Intune ou lors de la jonction d’appareils à Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084362"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070579"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -294,7 +294,7 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 ```
 **Explication de multiplet de journal**
 
-![vue d’ensemble des journaux de flux](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tuple des journaux de flux](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Exemple de calcul de la bande passante**
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Activer sur des réseaux virtuels/sous-réseaux critiques** : Les journaux de flux doivent être activés sur tous les réseaux virtuels/sous-réseaux critiques de votre abonnement en guise de meilleures pratiques d’audit et de sécurité. 
 
-**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons d’activer les journaux de flux de groupe de sécurité réseau sur tous les groupes de sécurité réseau appliqués à un sous-réseau ou à l’interface réseau d’une ressource pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez la section [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) dans Groupes de sécurité réseau.
+**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons d’activer les journaux de flux de groupe de sécurité réseau sur tous les groupes de sécurité réseau appliqués à un sous-réseau ou à l’interface réseau d’une ressource pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez la section [Évaluation du trafic](../virtual-network/network-security-group-how-it-works.md) dans Groupes de sécurité réseau.
 
 **Approvisionnement du stockage** : Le stockage doit être approvisionné dans le paramétrage avec le volume de journal de flux attendu.
 

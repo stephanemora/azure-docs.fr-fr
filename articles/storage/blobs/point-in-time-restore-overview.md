@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b9514bea1f9c34f0ed36bf530a7129b6fea46c4f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501965"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229121"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauration dans le temps pour les objets blob de blocs (préversion)
 
@@ -56,7 +56,7 @@ La limite de restauration dans le temps nécessite que les fonctionnalités de s
 
 - [Suppression réversible](soft-delete-overview.md)
 - [Flux de modification (préversion)](storage-blob-change-feed.md)
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Gestion des versions d’objets blob](versioning-overview.md)
 
 Activez ces fonctionnalités pour le compte de stockage avant d’activer la restauration dans le temps. Veillez à vous inscrire pour les préversions du flux de modification et des versions d’objets blob avant de les activer.
 
@@ -105,7 +105,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

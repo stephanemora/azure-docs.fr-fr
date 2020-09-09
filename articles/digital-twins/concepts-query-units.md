@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615092"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067703"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unités de requête dans Azure Digital Twins 
 
@@ -20,7 +20,9 @@ Une **unité de requête** Azure Digital Twins est une unité de calcul à la de
 
 Elle soustrait les ressources système comme le processeur, l’IOPS et la mémoire qui sont requises pour effectuer les opérations de requête prises en charge par Azure Digital Twins, ce qui vous permet de suivre l’utilisation des unités de requête à la place.
 
-La complexité de la requête a une incidence sur le nombre d’unités de requête qu’elle consomme pour s’exécuter. 
+La quantité d’unités de requête consommées pour exécuter une requête est affectée par...
+* la complexité de la requête 
+* la taille du jeu de résultats (ainsi, une requête retournant 10 résultats consommera plus d’unités de requête qu’une requête de complexité similaire qui retourne un seul résultat)
 
 Cet article explique comment comprendre les unités de requête et effectuer le suivi de leur consommation.
 

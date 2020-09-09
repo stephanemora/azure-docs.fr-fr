@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131852"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055309"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Service Speech : nouveautés dans la documentation
 
@@ -48,9 +48,6 @@ Si vous souhaitez en savoir plus sur les mises à jour du service Speech, du Kit
 * [Démarrage rapide : Configurer l’environnement de développement](quickstarts/setup-platform.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Synthétiser la voix vers un fichier audio](quickstarts/text-to-speech-audio-file.md) - Instructions JavaScript ajoutées à la documentation.
 * [Démarrage rapide : Synthétiser la voix vers un haut-parleur](quickstarts/text-to-speech.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Traduire la voix en voix](quickstarts/translate-speech-to-speech.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Traduire la parole en plusieurs langues](quickstarts/translate-speech-to-text-multiple-languages.md) - Instructions JavaScript ajoutées à la documentation.
-* [Démarrage rapide : Traduire la voix en texte](quickstarts/translate-speech-to-text.md) - Instructions JavaScript ajoutées à la documentation.
 * [Qu’est-ce qu’un mot clé ?](custom-keyword-overview.md) - Contenu et liens de la prise en main mis à jour.
 * [Spécifier la langue source pour la reconnaissance vocale](how-to-specify-source-language.md) - Instructions JavaScript et Objective-C ajoutées à la documentation.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824948"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055632"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -24,9 +24,21 @@ Le reste de cet article fournit des exemples d’utilisation de ces opérations.
 
 ## <a name="query-syntax"></a>Syntaxe de requête
 
-Cette section contient quelques exemples de requêtes qui illustrent la structure du langage de requête et exécutent les opérations de requête possibles.
+Cette section contient quelques exemples de requêtes illustrant la structure du langage de requête et exécutant les opérations de requête possibles sur des [jumeaux numériques](concepts-twins-graph.md).
 
-Obtenir les [jumeaux numériques](concepts-twins-graph.md) d’après leurs propriétés (y compris l’ID et les métadonnées) :
+### <a name="select-top-items"></a>Sélectionner les meilleurs éléments
+
+Vous pouvez sélectionner les meilleurs éléments dans une requête à l’aide de la clause `Select TOP`.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+### <a name="query-by-property"></a>Requête par propriété
+
+Obtenir les jumeaux numériques d’après leurs **propriétés** (y compris l’ID et les métadonnées) :
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -38,24 +50,29 @@ AND T.Temperature = 70
 > [!TIP]
 > L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
 
-Vous pouvez également accéder aux jumeaux à l’aide de leurs propriétés de *balise*, comme décrit dans [Ajouter des balises à des jumeaux numériques](how-to-use-tags.md) :
+Vous pouvez également obtenir des jumeaux en fonction de **la définition ou non d’une certaine propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Location* a été définie :
+
+```sql
+SELECT *
+FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+```
+
+Cela vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag*, comme décrit dans [Ajouter des étiquettes à des jumeaux numériques](how-to-use-tags.md). Voici une requête qui récupère tous les jumeaux étiquetés avec *red* :
+
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-### <a name="select-top-items"></a>Sélectionner les meilleurs éléments
-
-Vous pouvez sélectionner les meilleurs éléments dans une requête à l’aide de la clause `Select TOP`.
+Vous pouvez également obtenir des jumeaux selon le **type d’une propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Temperature* est un nombre :
 
 ```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE property = 42
+SELECT * FROM DIGITALTWINS T
+WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>Requête par modèle
 
-L’opérateur `IS_OF_MODEL` peut être utilisé pour filtrer en fonction du [modèle](concepts-models.md) de jumeau. Il prend en charge l’héritage et comporte plusieurs options de surcharge.
+L’opérateur `IS_OF_MODEL` peut être utilisé pour filtrer en fonction du [**modèle**](concepts-models.md) de jumeau. Il prend en charge l’héritage et comporte plusieurs options de surcharge.
 
 L’utilisation la plus simple de `IS_OF_MODEL` ne prend qu’un paramètre `twinTypeName` : `IS_OF_MODEL(twinTypeName)`.
 Voici un exemple de requête qui transmet une valeur dans ce paramètre :
@@ -87,7 +104,7 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Requête basée sur des relations
 
-Lorsque vous effectuez une interrogation basée sur les relations des jumeaux numériques, sachez que le langage du magasin de requêtes d’Azure Digital Twins a une syntaxe spéciale.
+Lorsque vous effectuez une interrogation basée sur les **relations** des jumeaux numériques, sachez que le langage du magasin de requêtes d’Azure Digital Twins présente une syntaxe spéciale.
 
 Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Ce qui le distingue principalement des langages de type SQL « classiques » est que chaque expression de la clause `FROM` n’est pas une table. En effet, la clause `FROM` exprime une traversée de relation entre les entités, et elle est écrite avec une version Azure Digital Twins de `JOIN`. 
 
@@ -117,7 +134,8 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
 
-De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Le langage d’Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
+De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Vous pouvez interroger les jumeaux **selon les propriétés de leurs relations**.
+Le langage d’Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
 
 Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition*. Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
 
@@ -142,10 +160,20 @@ SELECT LightBulb
 FROM DIGITALTWINS Room 
 JOIN LightPanel RELATED Room.contains 
 JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
-AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
-AND Room.$dtId IN [‘room1’, ‘room2’] 
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
+
+### <a name="other-compound-query-examples"></a>Autres exemples de requêtes composées
+
+Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs de combinaison pour inclure plus de détails dans une seule requête. Voici quelques exemples supplémentaires de requêtes composées qui interrogent plusieurs types de descripteur de jumeau à la fois.
+
+| Description | Requête |
+| --- | --- |
+| Parmi les appareils qui équipent *Room 123* (la salle 123), retournez les appareils MxChip qui remplissent le rôle d’Operator (opérateur) | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
+| Récupérez les jumeaux qui présentent une relation nommée *Contains* (Contient) avec un autre jumeau dont l’ID est *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
+| Récupérez toutes les salles de ce modèle de salle qui sont contenues dans *floor11* (l’étage11) | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
 
 ## <a name="run-queries-with-an-api-call"></a>Exécuter des requêtes avec un appel d’API
 

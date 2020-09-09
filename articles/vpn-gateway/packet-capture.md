@@ -1,36 +1,36 @@
 ---
-title: 'Passerelle VPN Azure : Configurer les captures de paquets'
-description: En savoir plus sur les fonctionnalités de capture de paquets que vous pouvez utiliser sur les passerelles VPN.
+title: 'Passerelle VPN Azure : Configurer la capture de paquets'
+description: Découvrez la fonctionnalité de capture de paquets que vous pouvez utiliser sur les passerelles VPN pour cerner plus précisément la cause d’un problème.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb64e542c8b4ca9307a232bda3aa88d87294027b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077200"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400277"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Configurer les captures de paquets pour les passerelles VPN
+# <a name="configure-packet-capture-for-vpn-gateways"></a>Configurer la capture de paquets pour les passerelles VPN
 
-Les problèmes liés à la connectivité et aux performances sont souvent complexes et nécessitent beaucoup de temps et d’efforts pour identifier la cause du problème. La possibilité de capturer des paquets permet de réduire ce temps en limitant l’étendue du problème à certaines parties du réseau, par exemple si le problème se situe au niveau du client, du côté d’Azure ou entre les deux. Une fois que le problème a été localisé, il est bien plus facile de déboguer et de prendre des mesures correctives.
+Les problèmes de connectivité et de performance sont souvent complexes. Le simple fait de cerner la cause du problème peut demander beaucoup de temps et d’énergie. La capture de paquets peut vous aider à restreindre l’étendue d’un problème à certaines parties du réseau. Elle peut vous aider à déterminer si le problème se situe sur le réseau côté client, côté Azure ou entre les deux. Une fois que vous avez réussi à cerner le problème avec précision, vous pouvez déboguer et prendre des mesures correctives de manière plus efficace.
 
-Il existe des outils couramment disponibles pour la capture de paquets. L’obtention de captures de paquets pertinentes avec ces outils peut être fastidieuse, surtout lorsque vous travaillez avec des scénarios de trafic à volume élevé. Les capacités de filtrage fournies par une capture de paquets de passerelle VPN deviennent un avantage majeur. Vous pouvez utiliser une capture de paquets de passerelle VPN en plus des outils de capture de paquets couramment disponibles.
+Il existe plusieurs outils de capture de paquets communément disponibles. L’obtention de captures de paquets pertinentes avec ces outils peut être fastidieuse, surtout dans des scénarios de trafic à volume élevé. Les capacités de filtrage fournies par la capture de paquets Azure VPN Gateway sont particulièrement utiles. Vous pouvez utiliser la capture de paquets VPN Gateway conjointement avec d’autres outils de capture de paquets courants.
 
-## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Fonctionnalités de filtrage de capture de paquets de la passerelle VPN
+## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Fonctionnalités de filtrage de la capture de paquets VPN Gateway
 
-Les captures de paquets de la passerelle VPN peuvent être exécutées sur la passerelle ou sur une connexion spécifique en fonction des besoins du client. Vous pouvez également exécuter des captures de paquets sur plusieurs tunnels à la fois. Vous pouvez capturer le trafic à sens unique ou bidirectionnel, le trafic IKE et ESP, et les paquets internes, ainsi que filtrer sur une passerelle VPN.
+Vous pouvez effectuer une capture de paquets VPN Gateway sur la passerelle ou sur une connexion spécifique, en fonction de vos besoins. Vous pouvez également effectuer une capture de paquets sur plusieurs tunnels à la fois. Vous pouvez capturer le trafic unidirectionnel ou bidirectionnel, le trafic IKE et ESP, et les paquets internes, ainsi que filtrer sur une passerelle VPN.
 
-L’utilisation d’un filtre à cinq tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et d’indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est utile pour isoler les problèmes sur un trafic à volume élevé.
+Utiliser un filtre à cinq tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et des indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est pratique pour isoler les problèmes dans un trafic à volume élevé.
 
-Vous trouverez ci-dessous un exemple de schéma JSON et de code JSON avec une explication de chaque propriété. Notez également certaines limitations lors de l’exécution des captures de paquets :
-- Dans le schéma, le filtre est affiché sous la forme d’un tableau, mais à l’heure actuelle un seul filtre peut être utilisé à la fois.
-- Vous n’êtes pas autorisé à effectuer plusieurs captures de paquets à l’échelle de la passerelle en même temps.
-- Vous n’êtes pas autorisé à effectuer plusieurs captures de paquets sur la même connexion en même temps. Vous pouvez exécuter des captures de paquets sur différentes connexions en même temps.
-- Cinq captures de paquets au maximum peuvent être exécutées en parallèle par passerelle. Ces captures de paquets peuvent être une combinaison de captures de paquets à l’échelle de la passerelle ou de captures de paquets par connexion.
+Les exemples suivants de code JSON et d’un schéma JSON permettent d’expliquer chaque propriété. Voici quelques limitations à prendre en compte quand vous effectuez des captures de paquets :
+- Dans le schéma présenté ici, le filtre est un tableau, mais un seul filtre peut être utilisé à la fois actuellement.
+- Vous ne pouvez pas effectuer plusieurs captures de paquets à l’échelle de la passerelle en même temps.
+- Vous ne pouvez pas non plus effectuer plusieurs captures de paquets simultanément sur la même connexion. En revanche, vous pouvez effectuer plusieurs captures de paquets à la fois sur des connexions différentes.
+- Cinq captures de paquets au maximum peuvent être exécutées en parallèle par passerelle. Ces captures de paquets peuvent être une combinaison de captures de paquets à l’échelle de la passerelle et de captures de paquets par connexion.
 
 ### <a name="example-json"></a>Exemple JSON
 ```JSON-interactive
@@ -316,9 +316,9 @@ Vous trouverez ci-dessous un exemple de schéma JSON et de code JSON avec une ex
 }
 ```
 
-## <a name="setup-packet-capture-using-powershell"></a>Configurer la capture de paquets à l’aide de PowerShell
+## <a name="set-up-packet-capture-by-using-powershell"></a>Configurer la capture de paquets avec PowerShell
 
-Consultez les exemples ci-dessous pour connaître les commandes PowerShell permettant de démarrer et d’arrêter les captures de paquets. Pour plus d’informations sur les options des paramètres, consultez ce [document](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture) PowerShell.
+Les exemples ci-dessous montrent des commandes PowerShell qui démarrent et arrêtent les captures de paquets. Pour plus d’informations sur les options des paramètres, consultez [ce document PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Démarrer la capture de paquets pour une passerelle VPN
 
@@ -326,7 +326,7 @@ Consultez les exemples ci-dessous pour connaître les commandes PowerShell perme
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Le paramètre facultatif **FilterData** peut être utilisé pour appliquer des filtres.
+Vous pouvez utiliser le paramètre facultatif `-FilterData` pour appliquer un filtre.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Arrêter la capture de paquets pour une passerelle VPN
 
@@ -340,7 +340,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Le paramètre facultatif **FilterData** peut être utilisé pour appliquer des filtres.
+Vous pouvez utiliser le paramètre facultatif `-FilterData` pour appliquer un filtre.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Arrêter la capture de paquets sur une connexion de passerelle VPN
 
@@ -350,10 +350,10 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Considérations relatives aux clés
 
-- L’exécution de captures de paquets peut affecter les performances. N’oubliez pas d’arrêter la capture de paquets lorsqu’elle n’est pas nécessaire.
-- La durée de capture de paquets minimale suggérée est de 600 secondes. Une durée de capture de paquets plus faible peut ne pas fournir de données complètes en raison des problèmes de synchronisation entre plusieurs composants sur le chemin.
+- Effectuer des captures de paquets peut impacter les performances. N’oubliez donc pas d’arrêter la capture de paquets quand vous n’en avez plus besoin.
+- La durée de capture de paquets minimale suggérée est de 600 secondes. En raison de problèmes de synchronisation entre plusieurs composants sur le chemin, les captures de paquets d’une durée plus courte risquent de fournir des données incomplètes.
 - Les fichiers de données de capture de paquets sont générés au format PCAP. Utilisez Wireshark ou d’autres applications couramment disponibles pour ouvrir les fichiers PCAP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md)
+Pour plus d’informations sur la passerelle VPN, consultez [Qu’est-ce qu’une passerelle VPN ?](vpn-gateway-about-vpngateways.md).

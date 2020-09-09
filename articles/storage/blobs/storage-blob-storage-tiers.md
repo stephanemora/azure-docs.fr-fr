@@ -3,17 +3,17 @@ title: Niveaux d’accès chaud, froid et archive pour les objets blob - Stockag
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation. Comparez les options de stockage d’objets blob de blocs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849724"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226180"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -68,6 +68,9 @@ Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès 
 - Sauvegarde à long terme, sauvegarde secondaire et jeux de données d’archivage
 - Données d’origine (brutes) qui doivent être conservées, même après leur traitement sous un format final exploitable
 - Données de conformité et d’archivage qui doivent être stockées à long terme et qui sont très rarement sollicitées
+
+> [!NOTE]
+> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS, GZRS et RA-GZRS.
 
 ## <a name="account-level-tiering"></a>Hiérarchisation au niveau du compte
 
@@ -153,7 +156,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 1. Cliquez sur **Enregistrer** en haut.
 
-![Changer le niveau du compte de stockage](media/storage-tiers/account-tier.png)
+![Changer le niveau de compte par défaut dans le portail Azure](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau du compte. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. 
@@ -183,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Sélectionnez **Enregistrer** en bas.
 
-![Changer le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
+![Changer le niveau d’objet blob par défaut dans le portail Azure](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau de l’objet blob. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. La variable `$containerName` doit être initialisée avec le nom de votre conteneur. La variable `$blobName` doit être initialisée avec le nom de votre objet blob. 
@@ -216,6 +219,8 @@ Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage d�
 - **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
 - **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
 - **Modification du niveau d’accès** : La modification du niveau d’accès du compte entraîne des frais de modification de niveau pour les objets blob de _niveau d’accès déduit_ stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Pour plus d’informations sur la modification du niveau d’accès pour un objet blob unique, reportez-vous à [Facturation de la hiérarchisation au niveau de l’objet blob](#blob-level-tiering-billing).
+
+    Le changement du niveau d’accès pour un objet blob lorsque la gestion des versions des objets blob est activée, ou si l’objet blob a des instantanés, peut donner lieu à des frais supplémentaires. Pour plus d’informations sur la facturation appliquée quand la gestion des versions des objets blob est activée et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](versioning-overview.md#pricing-and-billing) dans la documentation relative à la gestion des versions des objets blob. Pour plus d’informations sur la facturation appliquée quand un objet blob a des instantanés et que vous changez explicitement le niveau d’un objet blob, consultez [Tarification et facturation](snapshots-overview.md#pricing-and-billing) dans la documentation relative aux instantanés d’objets blob.
 
 > [!NOTE]
 > Pour plus d’informations sur la tarification des objets blob de blocs, consultez la page [Présentation de la tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).

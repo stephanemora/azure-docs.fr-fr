@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386161"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400141"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -225,7 +225,7 @@ Pour cette tâche, vous pouvez utiliser la commande Azure PowerShell [Set-AzKeyV
 
    1. Quand vous en avez terminé avec le volet **Stratégies d’accès**, sélectionnez **Enregistrer**.
 
-Pour plus d’informations, consultez [Fournir une authentification Key Vault avec une identité managée](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
+Pour plus d’informations, consultez [Guide pratique pour s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

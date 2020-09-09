@@ -1,5 +1,5 @@
 ---
-title: Sécurité d’Azure Key Vault | Microsoft Docs
+title: Sécurité d’Azure Key Vault
 description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377571"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
-Vous utilisez Azure Key Vault pour protéger les secrets et les clés de chiffrement, comme les certificats, les chaînes de connexion et les mots de passe dans le cloud. Étant donné que vous stockez des données sensibles et vitales pour l’entreprise, vous devez prendre des mesures pour optimiser la sécurité de vos coffres et des données stockées à l’intérieur. Cet article décrit certains concepts dont vous devez tenir compte lors de la conception de la sécurité d’Azure Key Vault.
+Vous utilisez Azure Key Vault pour protéger les secrets et les clés de chiffrement, comme les certificats, les chaînes de connexion et les mots de passe dans le cloud. Lors du stockage de données sensibles et vitales pour l’entreprise, vous devez prendre des mesures afin d’optimiser la sécurité de vos coffres et des données qui y sont stockées.
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 
@@ -65,7 +64,7 @@ Les stratégies d’accès Key Vault accordent des autorisations distinctement 
 > [!IMPORTANT]
 > Les stratégies d’accès Key Vault ne prennent pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. Quand un utilisateur est autorisé à créer et à supprimer des clés, il peut effectuer ces opérations sur toutes les clés de ce coffre de clés.
 
-Pour définir des stratégies d’accès pour un coffre de clés, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) ou les [API REST de gestion Key Vault](/rest/api/keyvault/).
+Vous pouvez définir des stratégies d’accès pour un coffre de clés à l’aide du [portail Azure](assign-access-policy-portal.md), de l’interface [Azure CLI](assign-access-policy-cli.md), d’[Azure PowerShell](assign-access-policy-powershell.md) ou des [API REST de gestion Key Vault](/rest/api/keyvault/).
 
 Vous pouvez limiter l’accès au plan de données en utilisant des [points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md). Vous pouvez configurer [des pare-feu et des règles de réseau virtuel](network-security.md) pour mettre en place une couche de sécurité supplémentaire.
 
@@ -93,7 +92,7 @@ Vous pouvez accéder aux informations de journalisation 10 minutes après l’o
 - Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
 - Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
-Pour toute recommandation quant à la gestion sécurisée des comptes de stockage, voir le [guide de sécurité du Stockage Azure](../../storage/blobs/security-recommendations.md).
+Pour toute recommandation quant à la gestion sécurisée des comptes de stockage, consultez le [guide de sécurité du Stockage Azure](../../storage/blobs/security-recommendations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

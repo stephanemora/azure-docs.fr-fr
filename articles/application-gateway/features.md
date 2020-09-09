@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60ab0bd6093149aee4c9ee22f8b517dfd2460c09
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067967"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400560"
 ---
 # <a name="azure-application-gateway-features"></a>Fonctionnalités Azure Application Gateway
 
@@ -147,7 +147,7 @@ Pour plus d’informations, consultez [Réécrire les en-têtes et les URL HTTP]
 
 ## <a name="sizing"></a>Dimensionnement
 
-Application Gateway Standard_v2 peut être configuré dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. Cette référence SKU n’offre pas de tailles d’instance différentes. Pour plus d’informations sur les performances et les tarifs de v2, consultez [Mise à l’échelle automatique de la référence SKU v2](application-gateway-autoscaling-zone-redundant.md#pricing).
+Application Gateway Standard_v2 peut être configuré dans le cadre de déploiements avec mise à l’échelle automatique ou de taille fixe. Cette référence SKU n’offre pas de tailles d’instance différentes. Pour plus d’informations sur les performances et les tarifs de v2, consultez [Mise à l’échelle automatique de V2](application-gateway-autoscaling-zone-redundant.md) et [Compréhension de la tarification](understanding-pricing.md).
 
 Application Gateway Standard est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 

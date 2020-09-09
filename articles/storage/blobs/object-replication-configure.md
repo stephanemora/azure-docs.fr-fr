@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566061"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228322"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurer la réplication d’objets pour des objets blob de blocs (préversion)
 
@@ -24,6 +24,8 @@ La réplication d’objets (préversion) copie de façon asynchrone des objets b
 Lorsque vous configurez la réplication d’objets, vous créez une stratégie de réplication qui spécifie le compte de stockage source et le compte de destination. Une stratégie de réplication comprend une ou plusieurs règles qui spécifient un conteneur source et un conteneur de destination et indiquent quels objets blob de blocs du conteneur source seront répliqués.
 
 Cet article explique comment configurer la réplication d’objets pour votre compte de stockage à l’aide de Portail Azure, de PowerShell ou d’Azure CLI. Vous pouvez également utiliser l’une des bibliothèques clientes du fournisseur de ressources Stockage Azure pour configurer la réplication d’objets.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-a-replication-policy-and-rules"></a>Créer une stratégie et des règles de réplication
 
@@ -34,7 +36,7 @@ Un compte de stockage peut servir de compte source pour un maximum de deux compt
 Avant de commencer, veillez à vous inscrire aux préversions des fonctionnalités suivantes :
 
 - [Réplication d’objets (préversion)](object-replication-overview.md)
-- [Contrôle de version des blobs (préversion)](versioning-overview.md)
+- [Gestion des versions d’objets blob](versioning-overview.md)
 - [Prise en charge du flux de modification dans Stockage Blob Azure (préversion)](storage-blob-change-feed.md)
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)

@@ -6,13 +6,13 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: a3641994098834b47412598b25b3effb2be7d276
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836715"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227710"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Base de référence de sécurité Azure pour Service Fabric
 
@@ -356,7 +356,7 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
-**Aide** : Dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
+**Conseils** : Dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
 
 * [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -546,7 +546,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 **Responsabilité** : Partagé
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources qui stockent des données mais qui ne sont pas des ressources de calcul.
 
@@ -868,13 +868,13 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Aide** : Si vous utilisez des images personnalisées, utilisez RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images. Pour les images de conteneur, stockez-les dans Azure Container Registry et tirez parti de RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.
+**Aide** : Si vous avez recours à des images personnalisées, utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour garantir que seuls les utilisateurs autorisés ont accès à ces images. Pour les images conteneur, stockez-les dans Azure Container Registry et utilisez Azure RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Présentation d’Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Comprendre RBAC pour Container Registry](../container-registry/container-registry-roles.md)
+* [Comprendre Azure RBAC pour Container Registry](../container-registry/container-registry-roles.md)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Comment configurer Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -956,7 +956,7 @@ Utilisez Azure Key Vault pour faire pivoter automatiquement les certificats de c
 
 * [Gestion des certificats dans des clusters Service Fabric](./cluster-security-certificate-management.md#certificate-rotation)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

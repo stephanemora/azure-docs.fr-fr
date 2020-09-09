@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378369"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -142,7 +142,7 @@ Pour plus d’informations sur le déploiement de cette fonctionnalité, consult
 
 ## <a name="properties-source"></a>Propriétés : source
 
-Image Builder prend actuellement en charge uniquement les images et les machines virtuelles HyperV de 1re génération ; la section `source` contient des informations sur l’image source qui sera utilisée par Image Builder.
+La section `source` fournit des informations sur l’image source qui sera utilisée par le générateur d’images. Le générateur Image Builder prend en charge uniquement en mode natif la création d’images Hyper-V de génération 1 (Gen1) dans Azure Shared Image Gallery (SIG) ou Managed Image. Si vous souhaitez créer des images de génération 2 (Gen2), vous devez utiliser une image source Gen2 et la distribuer sur le disque dur virtuel. Après quoi, vous devez créer une image managée à partir du disque dur virtuel et l’injecter dans le SIG en tant qu’image Gen2.
 
 L’API nécessite un « SourceType » qui définit la source pour la génération d’image. Il en existe actuellement trois types :
 - PlatformImage : indique que l’image source est une image de la Place de marché.
@@ -571,7 +571,7 @@ Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une ga
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

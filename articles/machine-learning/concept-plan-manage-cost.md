@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012686"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144989"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planifier et gérer les coûts d’Azure Machine Learning
 
@@ -69,7 +69,7 @@ Avec des données constamment modifiées, vous avez besoin d’un entraînement 
 
 Les utilisateurs Azure Machine Learning peuvent utiliser le cluster de calcul Azure Machine Learning géré, également appelé AmlCompute. AmlCompute prend en charge un large éventail d’options de GPU et d’UC. AmlCompute est hébergé en interne pour le compte de votre abonnement par Azure Machine Learning. Il offre les mêmes sécurité, conformité et gouvernance de qualité professionnelle qu’à l’échelle du cloud Azure IaaS.
 
-Ces pools de calcul étant à l’intérieur de l’infrastructure IaaS d’Azure, vous pouvez déployer, mettre à l’échelle et gérer votre entraînement avec les mêmes exigences de sécurité et de conformité que le reste de votre infrastructure.  Ces déploiements se produisent dans votre abonnement et obéissent à vos règles de gouvernance. Découvrez plus en détail la [capacité de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+Ces pools de calcul étant à l’intérieur de l’infrastructure IaaS d’Azure, vous pouvez déployer, mettre à l’échelle et gérer votre entraînement avec les mêmes exigences de sécurité et de conformité que le reste de votre infrastructure.  Ces déploiements se produisent dans votre abonnement et obéissent à vos règles de gouvernance. Découvrez plus en détail la [capacité de calcul Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configurer des clusters d’entraînement pour la mise à l’échelle automatique
 
@@ -127,4 +127,4 @@ La capacité de calcul Azure Machine Learning prend en charge les instances rés
 Pour en savoir plus :
 * [Gérer et augmenter les quotas de ressources](how-to-manage-quotas.md)
 * [Gestion des coûts avec l’analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* [Capacité de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+* Créez un calcul Azure Machine Learning avec le [kit SDK](how-to-create-attach-compute-sdk.md#amlcompute) ou dans [Studio](how-to-create-attach-compute-studio.md#amlcompute).

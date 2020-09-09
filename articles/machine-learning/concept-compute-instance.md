@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651913"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226792"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -24,7 +24,7 @@ Les instances de calcul facilitent le démarrage du développement avec Azure Ma
 
 Utilisez une instance de calcul comme environnement de développement complètement configuré et managé dans le cloud pour l’apprentissage automatique. Elle peut également être utilisée comme cible de calcul pour l’apprentissage et l’inférence à des fins de développement et de test.  
 
-Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à nœuds multiples. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Pour un entraînement de modèle de niveau production, utilisez un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) avec des fonctionnalités de mise à l’échelle à nœuds multiples. Pour le déploiement d’un modèle de niveau production, utilisez un [cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?
 
@@ -80,10 +80,10 @@ Les packages Python sont tous installés dans l’environnement **Python 3.6 �
 
 ### <a name="installing-packages"></a>Installation des packages
 
-Vous pouvez installer des packages directement dans un bloc-notes Jupyter ou RStudio :
+Vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio :
 
 * RStudio utilise l’onglet **Packages** en bas à droite, ou l’onglet **Console** en haut à gauche.  
-* Python : Ajoutez le code d’installation et l’exécutez dans une cellule de bloc-notes Jupyter.
+* Python : Ajoutez le code d’installation et exécutez-le dans une cellule Jupyter Notebook.
 
 Ou vous pouvez accéder à une fenêtre de terminal de l’une des manières suivantes :
 
@@ -138,18 +138,7 @@ Ces actions peuvent être contrôlées par RBAC :
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Créer une instance de calcul
 
-Dans votre espace de travail dans Azure Machine Learning Studio, créez une instance de calcul à partir de la section **Calcul** ou de la section **Blocs-notes** lorsque vous êtes prêt à exécuter l’un de vos blocs-notes.
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Créer une instance de calcul":::
-
-
-|Champ  |Description  |
-|---------|---------|
-|Nom du calcul     |  <li>Le nom est obligatoire et doit comprendre entre 3 et 24 caractères.</li><li>Les caractères valides sont les lettres majuscules et minuscules, les chiffres et le caractère **-** .</li><li>Le nom doit commencer par une lettre.</li><li>Le nom doit être unique parmi tous les calculs existants au sein d’une région Azure. Si le nom que vous choisissez n’est pas unique, une alerte s’affiche.</li><li>Si le caractère **-** est utilisé, il doit être suivi d’au moins une lettre plus loin dans le nom.</li>     |
-|Type de machine virtuelle |  Choisissez UC ou GPU. Vous ne pouvez pas modifier ce type après la création.     |
-|Taille de la machine virtuelle     |  Il se peut que les tailles de machines virtuelles prises en charge soient restreintes dans votre région. Vérifier la [liste de disponibilité](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Activer/désactiver l’accès SSH     |   L’accès SSH est désactivé par défaut.  Il n’est pas possible de modifier l’accès SSH après sa création. Veillez à activer l’accès si vous envisagez de déboguer de manière interactive avec [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](how-to-enable-virtual-network.md#compute-instance) pour le réseau virtuel.        |
+Dans votre espace de travail dans Azure Machine Learning Studio, [créez une instance de calcul](how-to-create-attach-compute-studio.md#compute-instance) à partir de la section **Calcul** ou de la section **Notebooks** lorsque vous êtes prêt à exécuter l’un de vos notebooks. 
 
 Vous pouvez également créer une instance
 * Directement à partir de l’[expérience de blocs-notes intégrés](tutorial-1st-experiment-sdk-setup.md#azure)
@@ -158,7 +147,7 @@ Vous pouvez également créer une instance
 * Grâce au Kit de développement logiciel (SDK) Azure Machine Learning
 * À partir de l’[extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Les cœurs dédiés par région, le quota par famille de machines virtuelles et le quota régional total qui s’appliquent à la création de l’instance de calcul sont unifié et partagés avec le quota de cluster de calcul d’apprentissage de Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
+Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
 
 ## <a name="compute-target"></a>Cible de calcul
 

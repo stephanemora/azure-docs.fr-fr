@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258604"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259011"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -50,19 +50,22 @@ Le tableau ci-dessous détaille les différentes combinaisons et choix à la dis
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
 Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. L’instantané incrémentiel est basé sur l’heure de la dernière modification des fichiers. Les fichiers existants portant le même nom seront remplacés.
 
+Pour plus d’informations, consultez [Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage](how-to-share-from-storage.md).
+
 ## <a name="share-from-a-sql-based-source"></a>Partager à partir d’une source SQL
-Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Le consommateur de données peut choisir d’accepter les données dans Data Lake Store Gen2 ou Stockage Blob Azure en tant que fichier CSV ou Parquet. Notez que, par défaut, les formats de fichier sont CSV. Le consommateur de données peut choisir de recevoir les données au format Parquet. Il peut le faire dans les paramètres de mappage de jeu de données lors de la réception des données. 
+Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Les consommateurs de données peuvent choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure sous la forme d’un fichier csv ou parquet, et sous la forme de tables dans Azure SQL Database ou Azure Synapse Analytics.
 
-Lors de l’acceptation de données dans Azure Data Lake Store Gen 2 ou Stockage Blob Azure, des captures instantanées complètes remplacent le contenu du fichier cible. 
+Lors de l’acceptation des données dans Azure Data Lake Store Gen2 ou Stockage Blob Azure, des captures instantanées complètes remplacent le contenu du fichier cible s’il existe déjà.
+Lorsque les données sont reçues dans une table, et si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe déjà une table cible du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge.
 
-Le consommateur de données peut choisir de recevoir les données dans une table de son choix. Dans ce scénario, si la table cible n’existe pas encore, Azure Data Share crée la table SQL avec le schéma source. S’il existe une table de destination du même nom, celle-ci est remplacée par la dernière capture instantanée complète. Lors du mappage de la table de destination, vous pouvez spécifier un schéma et un nom de table différents. Les captures instantanées incrémentielles ne sont actuellement pas prises en charge. 
-
-Le partage à partir de sources SQL est sujet à des conditions préalables liées à des règles de pare-feu et autorisations. Pour plus d’informations, reportez-vous à la section relative aux conditions préalables du tutoriel [Partager vos données](share-your-data.md).
+Pour plus d’informations, consultez [Partager et recevoir des données à partir d’Azure SQL Database et d’Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## <a name="share-from-azure-data-explorer"></a>Partager depuis Azure Data Explorer
 Azure Data Share prend en charge la possibilité de partager des bases de données sur place à partir de clusters Azure Data Explorer. Le fournisseur de données peut partager au niveau de la base de données ou du cluster. Lorsqu’il est partagé au niveau de la base de données, le consommateur de données est uniquement en mesure d’accéder aux bases de données spécifiques partagées par le fournisseur de données. En cas de partage au niveau du cluster, le consommateur de données peut accéder à toutes les bases de données à partir du cluster du fournisseur, y compris toutes les futures bases de données créées par le fournisseur de données.
 
 Pour accéder aux bases de données partagées, le consommateur de données doit disposer de son propre cluster Azure Data Explorer. Le cluster Azure Data Explorer du consommateur de données doit se trouver dans le même centre de données Azure que le cluster Azure Data Explorer du fournisseur de données. Lorsque la relation de partage est établie, Azure Data Share crée un lien symbolique entre les clusters Azure Data Explorer du fournisseur et ceux du consommateur. Les données ingérées en mode batch dans le cluster Azure Data Explorer source apparaissent dans le cluster cible dans un délai de quelques secondes à quelques minutes.
+
+Pour plus d’informations, consultez [Partager et recevoir des données à partir d’Azure Data Explorer](/azure/data-explorer/data-share). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

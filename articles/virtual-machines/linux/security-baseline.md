@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 97b2189020beffda32cc70dc66f028bec834eee5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003251"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401093"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de référence de sécurité Azure pour machines virtuelles Linux
 
@@ -446,7 +446,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Conseils** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure Active Directory pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être évalué régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent. Lorsque vous utilisez des machines virtuelles Azure, vous devez examiner les groupes de sécurité et les utilisateurs locaux pour vous assurer qu’il n’existe pas de comptes inattendus susceptibles de compromettre le système.
+**Aide** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure Active Directory pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès de l’utilisateur peut être évalué régulièrement pour vérifier que seuls les utilisateurs appropriés bénéficient d’un accès permanent. Lorsque vous utilisez des machines virtuelles Azure, vous devez examiner les groupes de sécurité et les utilisateurs locaux pour vous assurer qu’il n’existe pas de comptes inattendus susceptibles de compromettre le système.
 
 * [Comment utiliser les révisions d’accès des identités Azure](../../active-directory/governance/access-reviews-overview.md)
 
@@ -980,7 +980,9 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Créer un coffre de clés](../../key-vault/secrets/quick-create-portal.md)
 
-* [Fournir une authentification Key Vault avec une identité managée](../../key-vault/general/managed-identity.md)
+* [Comment s’authentifier auprès de Key Vault](../../key-vault/general/authentication.md)
+
+* [Comment attribuer une stratégie d’accès Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center** : Oui
 

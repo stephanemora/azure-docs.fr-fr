@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826554"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377979"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -98,7 +98,7 @@ Restaurez comme ceci :
 
         ![Entrer des chemins cibles](./media/backup-azure-sql-database/target-paths.png)
 
-1. Cliquez sur **OK** pour déclencher la restauration. Suivez la progression de la restauration dans la zone **Notifications**, ou suivez-la sous la vue **Travaux de sauvegarde** dans le coffre.
+1. Sélectionnez **OK** pour déclencher la restauration. Suivez la progression de la restauration dans la zone **Notifications**, ou suivez-la sous la vue **Travaux de sauvegarde** dans le coffre.
 
     > [!NOTE]
     > La restauration à un point dans le temps est disponible seulement pour les sauvegardes de fichiers journaux pour les bases de données dont le mode de récupération est Complet et utilisant les journaux de transactions.
@@ -161,7 +161,7 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
     ![Choisir un point de récupération complète](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Par défaut, les points de récupération des 30 derniers jours sont affichés. Vous pouvez afficher les points de récupération datant de plus de 30 jours en cliquant sur **Filtrer**, puis en sélectionnant une plage personnalisée.
+    > Par défaut, les points de récupération des 30 derniers jours sont affichés. Vous pouvez afficher les points de récupération datant de plus de 30 jours en sélectionnant **Filtrer**, puis une plage personnalisée.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurer des bases de données comprenant un grand nombre de fichiers
 

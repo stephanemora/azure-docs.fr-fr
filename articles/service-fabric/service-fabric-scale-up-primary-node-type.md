@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle un cluster Service Fabric
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: a18a40cc9e467b089ea9d6be3d0ca81a21d2c474
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854620"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228713"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en ajoutant un type de nœud
 Cet article explique comment effectuer un scale-up sur un type de nœud principal de cluster Service Fabric en ajoutant un type de nœud supplémentaire au cluster. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée.
@@ -99,7 +99,7 @@ Vous pouvez trouver un modèle avec toutes les étapes suivantes terminées ici�
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
 ]
 ```
-4. Créez un nouveau groupe de machines virtuelles identiques qui utilise la nouvelle référence (SKU) de machine virtuelle et la référence du système d’exploitation pour lesquels vous voulez effectuer un scale-up. 
+4. Créez un autre groupe de machines virtuelles identiques qui utilise les nouvelles références SKU de la machine virtuelle et du système d’exploitation devant faire l’objet d’un scale-up. 
 
 Ref type de nœud 
 ```json
@@ -124,6 +124,134 @@ Référence (SKU) du système d’exploitation
     "version": "[parameters('vmImageVersion1')]"
 }
 ```
+
+L’extrait de code suivant est un exemple de nouvelle ressource de groupe de machines virtuelles identiques qui est utilisée dans le cadre de la création d’un nouveau type de nœud pour un cluster Service Fabric. Assurez-vous que vous incluez toutes les extensions supplémentaires requises pour votre charge de travail. 
+
+```json
+    {
+      "apiVersion": "[variables('vmssApiVersion')]",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('vmNodeType1Name')]",
+      "location": "[variables('computeLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+      ],
+      "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
+                "properties": {
+                  "type": "ServiceFabricNode",
+                  "autoUpgradeMinorVersion": true,
+                  "protectedSettings": {
+                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                  },
+                  "publisher": "Microsoft.Azure.ServiceFabric",
+                  "settings": {
+                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
+                    "dataPath": "D:\\SvcFab",
+                    "durabilityLevel": "Bronze",
+                    "enableParallelJobs": true,
+                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
+                    "certificate": {
+                      "thumbprint": "[parameters('certificateThumbprint')]",
+                      "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(variables('nicName'), '-1')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(variables('nicName'),'-',1)]",
+                      "properties": {
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID1')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID1')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "[parameters('adminPassword')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "computernamePrefix": "[variables('vmNodeType1Name')]",
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('certificateUrlValue')]"
+                  }
+                ]
+              }
+            ]
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[parameters('vmImagePublisher1')]",
+              "offer": "[parameters('vmImageOffer1')]",
+              "sku": "[parameters('vmImageSku1')]",
+              "version": "[parameters('vmImageVersion1')]"
+            },
+            "osDisk": {
+              "caching": "ReadOnly",
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      },
+      "sku": {
+        "name": "[parameters('vmNodeType1Size')]",
+        "capacity": "[parameters('nt1InstanceCount')]",
+        "tier": "Standard"
+      },
+      "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+      }
+    },
+
+```
+
 5. Ajoutez un nouveau type de nœud au cluster, qui fait référence au groupe de machines virtuelles identiques créé ci-dessus. La propriété **isPrimary** sur ce type de nœud doit être définie sur true. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -339,7 +467,7 @@ Pour les clusters Silver et de durabilité supérieure uniquement, mettez à jou
 ```
 10. Supprimez toutes les autres ressources associées au type de nœud d’origine à partir du modèle Resource Manager. Consultez [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) pour un modèle avec l’ensemble de ces ressources d’origine supprimées.
 
-11. Déployez le modèle Azure Resource Manager modifié. ** Cette étape prendra un certain temps, mais généralement pas plus de deux heures. Cette mise à niveau modifiera les paramètres d'InfrastructureService. Un redémarrage du nœud est donc nécessaire. Dans ce cas, forceRestart est ignoré. Le paramètre upgradeReplicaSetCheckTimeout spécifie la durée maximale pendant laquelle Service Fabric doit attendre qu’une partition soit sécurisée, si ce n’est pas encore le cas. Une fois les contrôles de sécurité réussis pour toutes les partitions d'un nœud, Service Fabric procède à la mise à niveau sur ce nœud. La valeur du paramètre upgradeTimeout peut être réduite à 6 heures, mais pour une sécurité maximale, il convient d’utiliser 12 heures.
+11. Déployez le modèle Azure Resource Manager modifié. ** Cette étape prendra un certain temps, mais généralement pas plus de deux heures. Comme cette mise à niveau modifie les paramètres d’InfrastructureService, un redémarrage du nœud est nécessaire. Dans ce cas, forceRestart est ignoré. Le paramètre upgradeReplicaSetCheckTimeout spécifie la durée maximale pendant laquelle Service Fabric doit attendre qu’une partition soit sécurisée, si ce n’est pas encore le cas. Une fois les contrôles de sécurité réussis pour toutes les partitions d'un nœud, Service Fabric procède à la mise à niveau sur ce nœud. La valeur du paramètre upgradeTimeout peut être réduite à 6 heures, mais pour une sécurité maximale, il convient d’utiliser 12 heures.
 Vérifiez ensuite que la ressource Service Fabric dans le portail semble prête. 
 
 ```powershell

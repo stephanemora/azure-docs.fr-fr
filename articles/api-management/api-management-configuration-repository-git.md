@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723943"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400351"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -47,7 +47,7 @@ Cet article décrit comment activer et utiliser Git pour gérer votre configurat
 
 ## <a name="access-git-configuration-in-your-service"></a>Accéder à la configuration de Git dans votre service
 
-Pour afficher et configurer vos paramètres de configuration Git, cliquez sur le menu **Sécurité** et accédez à l’onglet **Dépôt de configuration**.
+Pour afficher et configurer vos paramètres de configuration Git, vous pouvez cliquer sur le menu **Déploiement et infrastructure** et accéder à l’onglet **Dépôt**.
 
 ![Activer GIT][api-management-enable-git]
 
@@ -62,7 +62,7 @@ Pour plus d’informations sur l’activation ou la désactivation de l’accès
 
 La première étape avant le clonage du dépôt consiste à enregistrer l’état actuel de la configuration du service dans le dépôt. Cliquez sur **Enregistrer dans le dépôt**.
 
-Apportez les modifications souhaitées dans l’écran de confirmation, puis cliquez sur **OK** pour les enregistrer.
+Apportez les modifications souhaitées dans l’écran de confirmation, puis cliquez sur **Enregistrer** pour les enregistrer.
 
 Après quelques instants, la configuration est enregistrée, et l’état de configuration du dépôt est affiché, y compris la date et l’heure de la dernière modification de la configuration et de la dernière synchronisation entre la configuration du service et le dépôt.
 
@@ -112,7 +112,7 @@ Une fois le référentiel cloné, vous pouvez l’afficher et l’utiliser dans 
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Pour mettre à jour votre dépôt local avec la dernière configuration de l’instance du service
 
-Si vous apportez des changements à votre instance de service Gestion des API dans le portail Azure ou à l’aide de l’API REST, vous devez enregistrer ces changements dans le dépôt pour pouvoir mettre à jour votre dépôt local avec les derniers changements. Pour ce faire, cliquez sur **Enregistrer la configuration dans le dépôt** sous l’onglet **Dépôt de configuration** dans le portail Azure, puis exécutez la commande suivante dans votre dépôt local.
+Si vous apportez des changements à votre instance de service Gestion des API dans le portail Azure ou à l’aide de l’API REST, vous devez enregistrer ces changements dans le dépôt pour pouvoir mettre à jour votre dépôt local avec les derniers changements. Pour ce faire, cliquez sur **Enregistrer dans le dépôt** sous l’onglet **Dépôt** dans le portail Azure, puis exécutez la commande suivante dans votre dépôt local.
 
 ```
 git pull
@@ -198,7 +198,7 @@ Le dossier `api-management` racine contient un fichier `configuration.json` qui 
 }
 ```
 
-Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` et `UserRegistrationTermsConsentRequired`) correspondent aux paramètres suivants, disponibles dans l’onglet **Identités** de la section **Sécurité**.
+Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` et `UserRegistrationTermsConsentRequired`) correspondent aux paramètres suivants, disponibles dans l’onglet **Identités** de la section **Portail des développeurs**.
 
 | Paramètre d’identité | Correspond à |
 | --- | --- |
@@ -208,7 +208,7 @@ Les quatre premiers paramètres (`RegistrationEnabled`, `UserRegistrationTerms`,
 | UserRegistrationTermsConsentRequired |**Exiger le consentement** |
 | RequireUserSigninEnabled |**Rediriger les utilisateurs anonymes vers la page de connexion** |
 
-Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` et `DelegationValidationKey`) correspondent aux paramètres suivants, disponibles dans l’onglet **Délégation** de la section **Sécurité**.
+Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` et `DelegationValidationKey`) correspondent aux paramètres suivants, disponibles dans l’onglet **Délégation** de la section **Portail des développeurs**.
 
 | Paramètre de délégation | Correspond à |
 | --- | --- |

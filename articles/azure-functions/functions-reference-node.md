@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810114"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055326"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -183,15 +183,38 @@ Pour définir le type de données pour une liaison d’entrée, utilisez la prop
 Les options pour `dataType` sont `binary`, `stream` et `string`.
 
 ## <a name="context-object"></a>Objet de contexte
-Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime. L’objet de contexte peut être utilisé pour lire et définir des données à partir de liaisons, écrire des journaux d’activité et utiliser le rappel `context.done` lorsque votre fonction exportée est synchrone.
 
-L’objet `context` est toujours le premier paramètre d’une fonction. Il doit être inclus, car il possède des méthodes importantes telles que `context.done` et `context.log`. Vous pouvez nommer l’objet comme vous le souhaitez (par exemple, `ctx` ou `c`).
+Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et du runtime. Utilisé pour lire et définir les données de liaisons et pour écrire dans des journaux, l’objet `context` est toujours le premier paramètre à être transmis à une fonction.
+
+Pour les fonctions présentant du code synchrone, l’objet de contexte comprend le rappel `done` que vous appelez quand le traitement de la fonction est terminé. Il n’est pas nécessaire d’appeler explicitement `done` pendant l’écriture de code asynchrone ; le rappel `done` est appelé implicitement.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+Le contexte transmis à votre fonction expose une propriété `executionContext`, qui est un objet avec les propriétés suivantes :
+
+| Nom de la propriété  | Type  | Description |
+|---------|---------|---------|
+| `invocationId` | String | Fournit un identificateur unique pour l’appel de fonction spécifique. |
+| `functionName` | String | Fournit le nom de la fonction en cours d’exécution. |
+| `functionDirectory` | String | Fournit le répertoire de l’application Functions. |
+
+L'exemple suivant montre comment retourner `invocationId`.
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 

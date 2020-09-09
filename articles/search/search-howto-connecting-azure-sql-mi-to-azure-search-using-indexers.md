@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922886"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294252"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurer une connexion entre un indexeur Recherche cognitive Azure et SQL Managed Instance
 
@@ -27,7 +27,7 @@ Créez une instance SQL Managed Instance avec l’option **Activer le point de t
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Activer un point de terminaison public Azure SQL Managed Instance
 Vous pouvez également activer un point de terminaison public sur une instance SQL Managed Instance existante sous **Sécurité** > **Réseau virtuel** > **Point de terminaison public** > **Activer**.
 
-   ![Activer le point de terminaison public](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Activer un point de terminaison public")
+   ![Activer un point de terminaison public au moyen d’une instance managée de VNET](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Activer un point de terminaison public")
 
 ## <a name="verify-nsg-rules"></a>Vérifier les règles du groupe de sécurité réseau
 Vérifiez que le groupe de sécurité réseau contient des **règles de sécurité de trafic entrant** appropriées qui autorisent les connexions à partir des services Azure.

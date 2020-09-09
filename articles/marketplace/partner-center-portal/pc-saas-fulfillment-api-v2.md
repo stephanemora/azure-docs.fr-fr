@@ -7,20 +7,20 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305140"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378132"
 ---
-# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API de traitement SaaS version 2 dans la Place de marché commerciale Microsoft
+# <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
 Cet article décrit les API qui permettent aux partenaires de vendre leurs offres SaaS dans la Microsoft AppSource et la Place de marché Azure. Un éditeur doit implémenter l’intégration avec ces API pour publier une offre SaaS négociable dans l’Espace partenaires.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestion du cycle de vie des abonnements SaaS
 
-La Place de marché Azure gère l’ensemble du cycle de vie d’un abonnement SaaS suite à son achat par le client final.  Elle utilise la page d’accueil, les API de traitement, les API d’opérations et le webhook comme mécanisme pour piloter l’activation et l’utilisation de l’abonnement SaaS, ainsi que les mises à jour et l’annulation de l’abonnement.  La facture du client final se base sur l’état de l’abonnement SaaS managé par Microsoft. 
+La Place de marché commerciale gère l’ensemble du cycle de vie d’un abonnement SaaS suite à son achat par le client final.  Elle utilise la page d’accueil, les API de traitement, les API d’opérations et le webhook comme mécanisme pour piloter l’activation et l’utilisation de l’abonnement SaaS, ainsi que les mises à jour et l’annulation de l’abonnement.  La facture du client final se base sur l’état de l’abonnement SaaS managé par Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>États d’un abonnement SaaS
 
@@ -35,7 +35,7 @@ Lorsqu’un client final (ou CSP) a acheté une offre SaaS sur la Place de march
 Pour la création du compte :
 
 1. Le client doit cliquer sur le bouton **Configurer** disponible pour une offre SaaS après son achat dans Microsoft AppSource ou sur le portail Azure. Ou dans l’e-mail que le client recevra peu après l’achat.
-2. Microsoft avertit ensuite le partenaire de l’achat en ouvrant, dans le nouvel onglet de navigateur, l’URL de la page d’accueil avec le paramètre de jeton (le jeton d’identification d’achat de la Place de marché).
+2. Microsoft avertit ensuite le partenaire de l’achat en ouvrant, dans le nouvel onglet de navigateur, l’URL de la page d’accueil avec le paramètre de jeton (le jeton d’identification d’achat de la Place de marché commerciale).
 
 Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, tandis que l’URL de la page d’accueil de cette offre SaaS dans l’Espace partenaires est configurée comme `https://contoso.com/signup`. Ce jeton fournit à l’éditeur un ID qui identifie de façon unique l’achat SaaS et le client.
 
@@ -46,12 +46,12 @@ L’URL de la page d’accueil doit être disponible 24 h/24 et 7 j/7 et prêt
 
 Le *jeton* doit ensuite être renvoyé à Microsoft à partir de l’éditeur en appelant l’[API de résolution SaaS](#resolve-a-purchased-subscription), en tant que valeur du paramètre d’en-tête `x-ms-marketplace-token header`.  Après l’appel de l’API de résolution, le jeton est échangé pour recevoir les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée, l’ID du plan acheté, etc.
 
-Sur la page d’accueil, le client doit être connecté au compte SaaS nouveau ou existant via l’authentification unique (SSO) Azure Active Directory (AAD).
+Dans la page d’accueil, le client doit être connecté au compte SaaS nouveau ou existant par le biais de l’authentification unique Azure Active Directory (Azure AD).
 
 L’éditeur doit implémenter la connexion SSO pour fournir l’expérience utilisateur requise par Microsoft pour ce processus.  Veillez à utiliser l’application Azure AD mutualisée et à autoriser les comptes professionnels et scolaires ou les comptes Microsoft personnels lors de la configuration de l’authentification unique.  Cette exigence s’applique uniquement à la page d’accueil et aux utilisateurs redirigés vers le service SaaS lorsqu’ils sont déjà connectés avec des informations d’identification Microsoft. Elle ne s’applique pas à toutes les connexions au service SaaS.
 
 > [!NOTE]
->Si la connexion SSO requiert qu’un administrateur accorde une autorisation à une application, la description de l’offre dans l’Espace partenaires doit autoriser cet accès requis au niveau de l’administrateur. Cette procédure est nécessaire pour se conformer aux [stratégies de certification de Place de marché Azure](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Si la connexion SSO requiert qu’un administrateur accorde une autorisation à une application, la description de l’offre dans l’Espace partenaires doit autoriser cet accès requis au niveau de l’administrateur. Cette procédure est nécessaire pour se conformer aux [stratégies de certification de Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 Une fois connecté, le client doit effectuer la configuration SaaS côté éditeur. L’éditeur doit ensuite appeler [Activer l’API d’abonnement](#activate-a-subscription) pour envoyer un signal à Place de marché indiquant que le provisionnement du compte SaaS est terminé.
 Cette étape démarre le cycle de facturation du client. Si l’appel de l’API Activer l’abonnement échoue, le client n’est pas facturé pour l’achat.
@@ -69,14 +69,14 @@ Si l’abonnement SaaS est déjà actif et que le client choisit de **gérer** l
 
 Cette action signifie qu’une mise à jour d’un abonnement SaaS actif existant est traitée à la fois par Microsoft et par l’éditeur. Une telle mise à jour peut être lancée par :
 
-* le client à partir de la Place de marché
-* le CSP à partir de la Place de marché
-* le client à partir du site SaaS de l’éditeur (ne s’applique pas aux achats CSP effectués)
+- le client à partir de la Place de marché commerciale.
+- le fournisseur de solutions Cloud à partir de la Place de marché commerciale.
+- le client à partir du site SaaS de l’éditeur (ne s’applique pas aux achats CSP).
 
 Deux types de mises à jour sont disponibles pour un abonnement SaaS :
 
-1. Mettre à jour le plan lorsque le client choisit un autre plan pour l’abonnement.
-1. Mettre à jour la quantité lorsque le client modifie le nombre de postes achetés pour l’abonnement
+- Mettre à jour le plan lorsque le client choisit un autre plan pour l’abonnement.
+- Mettre à jour la quantité lorsque le client modifie le nombre de postes achetés pour l’abonnement
 
 Un seul abonnement actif peut être mis à jour. Pendant la mise à jour de l’abonnement, son état reste actif côté Microsoft.
 
@@ -976,6 +976,6 @@ Pour afficher les options de support pour les éditeurs, consultez [Support tech
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [API du service de mesure](marketplace-metering-service-apis.md) de la Place de marché pour plus d’options concernant les offres SaaS de la Place de marché.
+Pour découvrir plus d’options concernant les offres SaaS sur la Place de marché commerciale, consultez [API de facturation à la consommation de la Place de marché](marketplace-metering-service-apis.md).
 
 Examinez et utilisez le [Kit de développement logiciel (SDK) SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) basé sur les API décrites dans ce document.

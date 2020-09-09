@@ -4,16 +4,16 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827186"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377401"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
-Le service Sauvegarde Azure fournit plusieurs solutions de sauvegarde basées sur l’exigence en matière de sauvegarde et la topologie d’infrastructure (locale ou Azure). N’importe quel administrateur ou utilisateur de sauvegarde doit voir ce qui se passe au niveau de toutes les solutions et s’attendre à être informé dans les scénarios importants. Cet article décrit en détail les fonctionnalités de surveillance et de notification fournies par le service Sauvegarde Azure.
+Le service Sauvegarde Azure fournit plusieurs solutions de sauvegarde basées sur l’exigence en matière de sauvegarde et la topologie d’infrastructure (locale ou Azure). N’importe quel administrateur ou utilisateur de sauvegarde doit voir ce qu’il se passe au niveau de toutes les solutions et s’attendre à être informé dans les scénarios importants. Cet article décrit en détail les fonctionnalités de surveillance et de notification fournies par le service Sauvegarde Azure.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Travaux de sauvegarde dans le coffre Recovery Services
 
@@ -100,10 +100,10 @@ Si la fréquence était définie sur une synthèse horaire et qu’une alerte a 
 
 ## <a name="inactivating-alerts"></a>Désactivation des alertes
 
-Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de cliquer sur ce bouton change l’état de l’alerte en **Inactif**. Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver**.
+Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de sélectionner ce bouton change l’état de l’alerte en **Inactif**. Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver**.
 
 ![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Monitor Azure backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) (Surveiller les charges de travail de Sauvegarde Azure avec Azure Monitor)
+[Superviser les charges de travail Sauvegarde Azure à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

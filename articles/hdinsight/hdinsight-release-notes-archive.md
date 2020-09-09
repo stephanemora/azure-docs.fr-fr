@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036621"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292518"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -779,7 +779,7 @@ Cette version fournit Hive 1.2.1 et Hive 2.1.0 en plus des correctifs suivants :
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621) : Les paramètres de site Hive sont ignorés lors du calcul de fractionnement HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629) : CachedStore : La configuration d’une liste verte/liste rouge doit permettre la mise en cache sélective des tables/partitions et autoriser la lecture pendant la préparation.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629) : CachedStore : La configuration d’une liste approuvée/non-approuvée doit permettre la mise en cache sélective des tables/partitions et autoriser la lecture pendant la préparation.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636) : Ajout du test multiple\_agg.q pour les magasins d’objets blob.
 

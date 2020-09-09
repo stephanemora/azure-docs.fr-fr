@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607139"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055666"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Tableau de bord des Insights sur la Place de marché dans l’Espace partenaires
 
@@ -66,7 +66,10 @@ Affichez les métriques de la place de marché commerciale de plusieurs façons�
 
 ## <a name="marketplace-insights-summary"></a>Résumé des insights sur la place de marché
 
-La section Résumé des insights sur la place de marché indique le nombre de **Visites de pages**, **Appels à l’action** et **Visiteurs uniques** pour la plage de dates sélectionnée.
+La section Résumé des insights sur la Place de marché indique le nombre de **Visites de pages**, **Appels à l’action** et **Visiteurs uniques** pour la plage de dates sélectionnée.
+
+>[!NOTE]
+>Le tableau de bord Insights de la Place de marché fournit des données de parcours qui ne doivent pas être corrélées avec les prospects générés dans le point de terminaison de destination du prospect.
 
 ### <a name="page-visits"></a>Visites de pages
 
@@ -140,7 +143,7 @@ Ce tableau affiche en mode Liste les visites de pages et les appels à l’actio
 - Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
 - Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
-- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
+- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord Client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
 - Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562682"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400515"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -146,7 +146,7 @@ Si vous utilisez des Runbook Workers hybrides hébergés sur des machines virtue
 
 **Conseils** : Définissez et implémentez des configurations de la sécurité standard pour les ressources réseau utilisées par Azure Automation avec Azure Policy.
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les principaux artefacts d’environnement (par exemple, les modèles Azure Resource Manager, les contrôles RBAC et les stratégies) dans une même définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et ajuster le contrôle et la gestion grâce au contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les principaux artefacts d’environnement (par exemple, les modèles Azure Resource Manager, les contrôles Azure RBAC et les stratégies) dans une même définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et ajuster le contrôle et la gestion grâce au contrôle de version.
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -222,7 +222,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Interrogation des journaux Update Management](./update-management/update-mgmt-query-logs.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -368,7 +368,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -532,7 +532,7 @@ Toutefois, si vous utilisez des Runbook Workers hybrides qui s’appuient sur de
 
 * [Configuration des options « Alerter » et « Alerter et refuser » du pare-feu Azure](../firewall/threat-intel.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -570,11 +570,11 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 **Responsabilité** : Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez Azure AD RBAC pour contrôler l’accès aux ressources Azure Automation à l’aide des définitions de rôles intégrées et y assigner l’accès aux utilisateurs suivant un modèle d’accès minimal, dit « des privilèges minimum ». Lorsque vous avez recours à des Runbook Workers hybrides, tirez parti des identités managées pour ces machines virtuelles afin d’éviter d’utiliser des principaux de service ; si vous vous servez à la fois des Runbook Workers multilocataires et hybrides, veillez à définir correctement la portée des autorisations RBAC appliquées à leur identité.
+**Aide** : Utilisez le contrôle d’accès basé sur le rôle Azure (Azure RBAC) pour contrôler l’accès aux ressources Azure Automation à l’aide des définitions de rôles intégrées et y assigner l’accès aux utilisateurs suivant un modèle d’accès minimal, dit « des privilèges minimum ». Lorsque vous avez recours à des Runbook Workers hybrides, tirez parti des identités managées pour ces machines virtuelles afin d’éviter d’utiliser des principaux de service ; si vous vous servez à la fois des Runbook Workers multilocataires et hybrides, veillez à définir correctement la portée des autorisations Azure RBAC appliquées à leur identité.
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+* [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Autorisations d’un Runbook Worker hybride](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -742,7 +742,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients selon les définitions de stratégies intégrées suivantes :
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients selon les définitions de stratégies intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
@@ -958,7 +958,7 @@ Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base com
 
 * [Utilisation de l’intégration du contrôle de code source](./source-control-integration.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -968,9 +968,9 @@ Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base com
 
 Si vous vous servez de la fonctionnalité Runbook Worker hybride, veillez à bien restreindre l’accès à l’image de système d’exploitation personnalisée située dans votre compte de stockage aux seuls utilisateurs autorisés.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Présentation d’Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Comment configurer Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1042,7 +1042,9 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, utilisez Azure
 
 * [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-* [Fournir une authentification Key Vault avec une identité managée](../key-vault/general/managed-identity.md)
+* [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
+
+* [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1194,7 +1196,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Utilisation de l’intégration du contrôle de code source](./source-control-integration.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

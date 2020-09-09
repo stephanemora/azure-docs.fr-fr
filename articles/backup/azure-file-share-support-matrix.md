@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289501"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378030"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 
@@ -25,7 +25,7 @@ La sauvegarde des partages de fichiers Azure est disponible dans toutes les rég
 
 | Détails du compte de stockage | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Type de compte            | Sauvegarde Azure prend en charge les partages de fichiers Azure présents dans les comptes de stockage de type à usage général v1, à usage général v2 et stockage de fichiers |
+| Type de compte            | Sauvegarde Azure prend en charge les partages de fichiers Azure présents dans les comptes de stockage de type v1 universel, v2 universel et stockage de fichiers |
 | Performances              | Sauvegarde Azure prend en charge les partages de fichiers dans des comptes de stockage Standard et Premium |
 | Réplication              | Les partages de fichiers Azure dans des comptes de stockage avec tout type de réplication sont pris en charge |
 | Pare-feu activé         | Les partages de fichiers Azure dans des comptes de stockage avec des règles de pare-feu qui permettent aux services Microsoft Azure d’accéder au compte de stockage sont pris en charge|

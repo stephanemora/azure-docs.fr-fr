@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651758"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144836"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -55,7 +55,7 @@ Vous pouvez commencer avec une configuration d’exécution pour votre ordinateu
 * [Qu’est une configuration d’exécution ?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutoriel : Entraîner votre premier modèle ML](tutorial-1st-experiment-sdk-train.md)
 * [Exemples : exemples Jupyter Notebook de modèles d’entraînement](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [Procédure : configurer et utiliser des cibles de calcul pour l’entraînement de modèles](how-to-set-up-training-targets.md)
+* [Procédure : Utiliser des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Machine Learning automatisé
 
@@ -160,4 +160,4 @@ Vous pouvez utiliser l’extension VS Code pour exécuter et gérer vos travaux 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à [configurer des environnements d’entraînement](how-to-set-up-training-targets.md).
+Découvrez comment [utiliser des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md).

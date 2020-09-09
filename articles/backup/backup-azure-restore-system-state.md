@@ -3,12 +3,12 @@ title: Restaurer l’état du système sur un serveur Windows Server
 description: Explication étape par étape pour la restauration de l’état du système Windows Server à partir d’une sauvegarde dans Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892539"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377435"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -56,7 +56,7 @@ Les étapes suivantes expliquent comment restaurer votre configuration Windows S
 
 8. Vérifiez les détails de la récupération dans le volet **Confirmation** et sélectionnez **Récupérer**.
 
-   ![cliquer sur Récupérer pour accuser réception de l’action de récupération](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Sélectionner Récupérer pour accuser réception de l’action de récupération](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copiez le répertoire *WindowsImageBackup* dans la destination de récupération sur un volume non critique du serveur. En règle générale, le volume de système d’exploitation Windows est le volume critique.
 
@@ -104,7 +104,7 @@ Les termes ci-après sont utilisés pour cette procédure :
 
 11. Vérifiez les détails de la récupération dans le volet Confirmation et sélectionnez **Récupérer**.
 
-    ![cliquer sur le bouton Récupérer pour confirmer le processus de récupération](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Sélectionner le bouton Récupérer pour confirmer le processus de récupération](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copiez le répertoire *WindowsImageBackup* sur un volume non critique du serveur (par exemple D:\). En règle générale, le volume de système d’exploitation Windows est le volume critique.
 

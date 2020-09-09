@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604384"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259351"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -68,7 +68,7 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 
 <sup>4</sup> Un environnement d’infrastructure d’identité **managée** représente un environnement avec Azure AD en tant que fournisseur d’identité déployé au moyen de la [synchronisation de hachage de mot de passe (PHS)](../hybrid/whatis-phs.md) ou de l’[authentification directe (PTA)](../hybrid/how-to-connect-pta.md) avec l’[authentification unique fluide](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> La **prise en charge de la non persistance pour Windows actuel** nécessite une considération supplémentaire, comme indiqué ci-dessous dans la section d’aide.
+<sup>5</sup> La **prise en charge de la non persistance pour Windows actuel** nécessite une considération supplémentaire, comme indiqué ci-dessous dans la section d’aide. Ce scénario nécessite Windows 10 1803, Windows Server 2019 ou Windows Server (canal semi-annuel) à partir de la version 1803.
 
 <sup>6</sup> La **prise en charge de la non persistance pour Windows de bas niveau** nécessite une considération supplémentaire, comme indiqué ci-dessous dans la section d’aide.
 

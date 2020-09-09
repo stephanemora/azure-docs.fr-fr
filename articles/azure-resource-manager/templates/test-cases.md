@@ -2,15 +2,15 @@
 title: Cas de test pour la boîte à outils de test
 description: Décrit les tests qui sont exécutés par la boîte à outils de test de modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255778"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378115"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
@@ -100,6 +100,37 @@ Le prochain exemple **réussit** ce test :
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>Les URL d’environnement ne peuvent pas être codées en dur
+
+Nom du test : **DeploymentTemplate ne doit pas contenir d’URI codé en dur**
+
+Ne codez pas en dur les URL d’environnement dans votre modèle. Au lieu de cela, utilisez la [fonction d’environnement](template-functions-deployment.md#environment) pour obtenir dynamiquement ces URL pendant le déploiement. Pour obtenir la liste des hôtes d’URL bloqués, consultez le [cas de test](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+L’exemple suivant **échoue** à ce test, car l’URL est codée en dur.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+De même, le test **échoue** quand il est utilisé avec [concat](template-functions-string.md#concat) ou [uri](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+L’exemple suivant **réussit** ce test.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>L’emplacement utilise le paramètre
@@ -203,7 +234,7 @@ Nom du test : **Les ressources doivent avoir un emplacement**
 
 L’emplacement d’une ressource doit être défini sur une [expression de modèle](template-expressions.md) ou `global`. L’expression de modèle utilise généralement le paramètre d’emplacement décrit dans le test précédent.
 
-L’exemple suivant **échoue** à ce test, car il ne s’agit pas d’une expression ou de `global`.
+L’exemple suivant **échoue** à ce test, car l’emplacement n’est pas une expression ou `global`.
 
 ```json
 {
@@ -351,7 +382,7 @@ Vous recevez également cet avertissement si vous fournissez une valeur minimale
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Paramètre des artefacts défini correctement
 
-Nom du test : **artifacts-parameter**
+Nom du test : **paramètre artifacts**
 
 Lorsque vous incluez des paramètres pour `_artifactsLocation` et `_artifactsLocationSasToken`, utilisez les valeurs par défaut et les types appropriés. Les conditions suivantes doivent être satisfaites pour réussir ce test :
 
@@ -514,9 +545,9 @@ Ce test s’applique à :
 
 Concernant `reference` et `list*`, le test **échoue** quand vous utilisez `concat` pour construire l’ID de ressource.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn ne peut pas être conditionnel
+## <a name="dependson-best-practices"></a>Bonnes pratiques pour dependsOn
 
-Nom du test : **DependsOn ne doit pas être conditionnel**
+Nom du test : **Bonnes pratiques pour dependsOn**
 
 Lors de la définition des dépendances de déploiement, n’utilisez pas la fonction [if](template-functions-logical.md#if) pour tester une condition. Si une ressource dépend d’une ressource qui est [déployée de manière conditionnelle](conditional-resource-deployment.md), définissez la dépendance comme vous le feriez avec n’importe quelle ressource. Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
@@ -572,9 +603,9 @@ Si votre modèle contient une machine virtuelle avec une image, assurez-vous qu�
 
 ## <a name="use-stable-vm-images"></a>Utiliser des images de machine virtuelle stables
 
-Nom du test : **Virtual-Machines-Should-Not-Be-Preview**
+Nom du test : **Les machines virtuelles ne doivent pas être une préversion**
 
-Les machines virtuelles ne doivent pas utiliser d’images d’aperçu.
+Les machines virtuelles ne doivent pas utiliser d’images de préversion.
 
 L’exemple suivant **échoue** à ce test.
 

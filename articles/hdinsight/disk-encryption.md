@@ -1,43 +1,56 @@
 ---
-title: Chiffrement de disque avec clés gérées par le client pour Azure HDInsight
-description: Cet article explique comment utiliser votre propre clé de chiffrement Azure Key Vault pour chiffrer des données stockées sur des disques managés dans des clusters Azure HDInsight.
+title: Double chiffrement des données au repos
+titleSuffix: Azure HDInsight
+description: Cet article décrit les deux couches de chiffrement disponibles pour les données au repos sur les clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/10/2020
+ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387844"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290835"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>Chiffrement de disque de clés gérées par le client
+# <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Double chiffrement Azure HDInsight pour les données au repos
 
-Azure HDInsight prend en charge le chiffrement des clés gérées par le client pour les données figurant sur des disques managés et des disques de ressources attachés à des machines virtuelles de cluster HDInsight. Cette fonctionnalité vous permet d’utiliser Azure Key Vault pour gérer les clés de chiffrement qui sécurisent les données au repos sur vos clusters HDInsight.
+Cet article décrit les méthodes de chiffrement des données au repos dans les clusters Azure HDInsight. Le chiffrement des données au repos fait référence au chiffrement sur les disques managés (disques de données, disques de système d’exploitation et disques temporaires) attachés aux machines virtuelles du cluster HDInsight. 
 
-Tous les disques managés dans HDInsight sont protégés par Azure Storage Service Encryption (SSE). Par défaut, les données stockées sur ces disques sont chiffrées à l’aide de clés gérées par Microsoft. Si vous activez les clés gérées par le client pour HDInsight, vous fournissez les clés de chiffrement pour que HDInsight utilise et gère ces clés à l’aide d’Azure Key Vault.
-
-Ce document ne traite pas des données stockées dans votre compte Stockage Azure. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md). Vos clusters peuvent avoir un ou plusieurs comptes Stockage Azure attachés où les clés de chiffrement peuvent également être managées par Microsoft ou gérées par le client, mais le service de chiffrement est différent.
+Ce document ne traite pas des données stockées dans votre compte Stockage Azure. Vos clusters peuvent avoir un ou plusieurs comptes Stockage Azure attachés où les clés de chiffrement peuvent également être managées par Microsoft ou gérées par le client, mais le service de chiffrement est différent. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 ## <a name="introduction"></a>Introduction
 
-Le chiffrement à l’aide de clés gérées par le client est un processus en une étape géré pendant la création d’un cluster sans coût supplémentaire. Il vous suffit d’inscrire HDInsight comme identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement pendant la création du cluster.
+Il existe trois principaux rôles de disques managés dans Azure : disque de données, disque de système d’exploitation et disque temporaire. Pour plus d’informations sur les différents types de disques managés, consultez [Présentation des disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
 
-Le disque de ressources et les disques managés sur chaque nœud du cluster sont chiffrés avec une clé de chiffrement de données (DEK) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight.
+HDInsight prend en charge plusieurs types de chiffrement dans deux couches différentes :
+
+- Chiffrement côté serveur (SSE, Server Side Encryption) : il est effectué par le service de stockage. Dans HDInsight, SSE est utilisé pour chiffrer les disques de système d’exploitation et les disques de données. Il est activé par défaut. SSE est un service de chiffrement de couche 1.
+- Chiffrement sur l’hôte à l’aide d’une clé gérée par la plateforme : similaire à SSE, ce type de chiffrement est effectué par le service de stockage. Toutefois, il ne concerne que les disques temporaires et n’est pas activé par défaut. Le chiffrement sur l’hôte est également un service de chiffrement de couche 1.
+- Chiffrement au repos à l’aide d’une clé gérée par le client : ce type de chiffrement peut être utilisé sur les disques de données et les disques temporaires. Il n’est pas activé par défaut et exige que le client fournisse sa propre clé par le biais du coffre de clés Azure. Le chiffrement au repos est un service de chiffrement de couche 2.
+
+Ces types sont récapitulés dans le tableau ci-dessous.
+
+|Type de cluster |Disque de système d’exploitation (disque managé) |Disque de données (disque managé) |Disque de données temporaire (SSD local) |
+|---|---|---|---|
+|Kafka, HBase avec écritures accélérées|Couche 1 : [Chiffrement SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) par défaut|Couche 1 : [Chiffrement SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) par défaut, Couche 2 : Chiffrement au repos facultatif à l’aide d’une clé CMK|Couche 1 : Chiffrement facultatif sur l’hôte à l’aide d’une clé PMK, Couche 2 : Chiffrement au repos facultatif à l’aide d’une clé CMK|
+|Tous les autres clusters (Spark, interactive, Hadoop, HBase sans écritures accélérées)|Couche 1 : [Chiffrement SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) par défaut|N/A|Couche 1 : Chiffrement facultatif sur l’hôte à l’aide d’une clé PMK, Couche 2 : Chiffrement au repos facultatif à l’aide d’une clé CMK|
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Chiffrement au repos à l’aide de clés gérées par le client
+
+Le chiffrement à l’aide de clés gérées par le client est un processus en une étape géré pendant la création d’un cluster sans coût supplémentaire. Il vous suffit d’autoriser une identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement lors de la création du cluster.
+
+Les disques de données et les disques temporaires sur chaque nœud du cluster sont chiffrés avec une clé de chiffrement de données (DEK, Data Encryption Key) symétrique. La clé DEK est protégée avec la clé de chiffrement principale (KEK) de votre coffre de clés. Les processus de chiffrement et de déchiffrement sont entièrement gérés par Azure HDInsight.
+
+Pour les disques de système d’exploitation attachés aux machines virtuelles du cluster, une seule couche de chiffrement (PMK) est disponible. Nous recommandons aux clients d’éviter de copier des données sensibles sur des disques de système d’exploitation si un chiffrement CMK est requis pour leurs scénarios.
 
 Si le pare-feu de coffre de clés est activé sur le coffre de clés dans lequel la clé de chiffrement de disque est stockée, les adresses IP du fournisseur de ressources régionales HDInsight pour la région où le cluster sera déployé doivent être ajoutées à la configuration du pare-feu de coffre de clés. Cela est nécessaire, car HDInsight n’est pas un service de coffre de clés Azure approuvé.
 
 Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés du coffre de clés en toute sécurité. Quand une clé permute, le cluster HDInsight démarre en quelques minutes en utilisant la nouvelle clé. Activez les fonctionnalités de protection de clés [Suppression réversible](../key-vault/general/soft-delete-overview.md) pour vous protéger contre les scénarios de rançongiciel et de suppression accidentelle. Les coffres de clés sans cette fonctionnalité de protection ne sont pas pris en charge.
 
-|Type de cluster |Disque de système d’exploitation (disque managé) |Disque de données (disque managé) |Disque de données temporaire (SSD local) |
-|---|---|---|---|
-|Kafka, HBase avec écritures accélérées|[Chiffrement SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Chiffrement SSE + chiffrement CMK facultatif|Chiffrement CMK facultatif|
-|Tous les autres clusters (Spark, interactive, Hadoop, HBase sans écritures accélérées)|Chiffrement SSE|N/A|Chiffrement CMK facultatif|
-
-## <a name="get-started-with-customer-managed-keys"></a>Prise en main des clés gérées par le client
+### <a name="get-started-with-customer-managed-keys"></a>Prise en main des clés gérées par le client
 
 Pour créer un cluster HDInsight avec clé gérée par le client, nous allons passer en revue les étapes suivantes :
 
@@ -48,19 +61,21 @@ Pour créer un cluster HDInsight avec clé gérée par le client, nous allons pa
 1. Création d’un cluster HDInsight avec clé gérée par le client
 1. Rotation de la clé de chiffrement
 
-## <a name="create-managed-identities-for-azure-resources"></a>Création d’identités managées pour les ressources Azure
+Chaque étape est expliquée en détail dans l’une des sections suivantes.
+
+### <a name="create-managed-identities-for-azure-resources"></a>Création d’identités managées pour les ressources Azure
 
 Créez une identité gérée affectée par l’utilisateur pour l’authentification auprès de Key Vault.
 
 Pour les étapes spécifiques, voir [Créer une identité managée attribuée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Pour plus d’informations sur le fonctionnement des identités managées dans Azure HDInsight, consultez [Identités managées dans Azure HDInsight](hdinsight-managed-identities.md). Veillez à enregistrer l’ID de ressource d’identité managée, vous en aurez besoin pour l’ajouter à la stratégie d’accès Key Vault.
 
-## <a name="create-azure-key-vault"></a>Créer un Azure Key Vault
+### <a name="create-azure-key-vault"></a>Créer un Azure Key Vault
 
 Création d’un coffre de clés Pour les étapes spécifiques, voir [Créer un Azure Key Vault](../key-vault/secrets/quick-create-portal.md).
 
 HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre propre coffre de clés, vous pouvez importer vos clés dans Azure Key Vault. N’oubliez pas que la fonctionnalité **Suppression réversible** doit être activée pour le coffre de clés. Pour plus d’informations sur l’importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/about-keys-secrets-and-certificates.md).
 
-## <a name="create-key"></a>Créer une clé
+### <a name="create-key"></a>Créer une clé
 
 1. À partir de votre nouveau coffre de clés, accédez à **Paramètres** > **Clés** >  **+ Générer/importer**.
 
@@ -78,7 +93,7 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
     ![obtenir l’identificateur de clé](./media/disk-encryption/get-key-identifier.png)
 
-## <a name="create-access-policy"></a>Créer une stratégie d’accès
+### <a name="create-access-policy"></a>Créer une stratégie d’accès
 
 1. À partir de votre nouveau coffre de clés, accédez à **Paramètres** > **Stratégies d’accès** >  **+ Ajouter une stratégie d’accès.**
 
@@ -100,17 +115,17 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
     ![Enregistrer une stratégie d’accès Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
-## <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Créer un cluster avec chiffrement de disque par clé gérée par le client
+### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Créer un cluster avec chiffrement de disque par clé gérée par le client
 
-Vous êtes maintenant prêt à créer un cluster HDInsight. La clé gérée par le client ne peut être appliquée qu’aux nouveaux clusters, pendant leur création. Vous ne pouvez pas supprimer le chiffrement des clusters à clés gérées par le client, ni ajouter la clé gérée par le client aux clusters existants.
+Vous êtes maintenant prêt à créer un cluster HDInsight. Les clés gérées par le client ne peuvent être appliquées qu’aux nouveaux clusters, pendant leur création. Vous ne pouvez pas supprimer le chiffrement des clusters à clés gérées par le client, ni ajouter de clés gérées par le client aux clusters existants.
 
-### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+#### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 Pendant la création du cluster, fournissez l’**identificateur de clé** complet, incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
 
 ![Créer un cluster](./media/disk-encryption/create-cluster-portal.png)
 
-### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
+#### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
 L’exemple suivant montre comment utiliser Azure CLI pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, voir [Azure CLI az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
 
@@ -124,7 +139,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+#### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 
 L’exemple suivant montre comment utiliser un modèle Azure Resource Manager pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, consultez [Que sont les modèles ARM ?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
 
@@ -338,17 +353,17 @@ Le contenu du modèle de gestion des ressources, `azuredeploy.json` :
 }
 ```
 
-## <a name="rotating-the-encryption-key"></a>Rotation de la clé de chiffrement
+### <a name="rotating-the-encryption-key"></a>Rotation de la clé de chiffrement
 
 Dans certains scénarios, vous pouvez être amené à changer les clés de chiffrement qui sont utilisées par le cluster HDInsight une fois que celui-ci a été créé. Cette tâche peut être facilement effectuée dans le portail. Pour cette opération, le cluster doit avoir accès à la clé actuelle et à la nouvelle clé prévue. Sinon, l’opération de rotation des clés échouera.
 
-### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+#### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 Pour assurer la rotation de la clé, vous avez besoin de l’URI de base du coffre de clés. Une fois que vous avez effectué cette opération, accédez à la section Propriétés du cluster HDInsight dans le portail, puis cliquez sur **Changer de clé** sous **URL de la clé de chiffrement de disque**. Entrez la nouvelle URL de clé et envoyez-la pour effectuer la rotation.
 
 ![permutation de la clé de chiffrement de disque](./media/disk-encryption/change-key.png)
 
-### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
+#### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
 L’exemple suivant montre comment faire permuter la clé de chiffrement de disque d’un cluster HDInsight existant. Pour plus d’informations, voir [Azure CLI az hdinsight rotate-disk-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
 
@@ -385,9 +400,6 @@ Si le cluster ne peut plus accéder à la clé, des avertissements s’affichent
 
 Sachant que seules sont prises en charge les clés pour lesquelles la fonctionnalité « Suppression réversible » est activée, si les clés sont récupérées dans le coffre de clés, le cluster doit retrouver l’accès aux clés. Pour récupérer une clé Azure Key Vault, consultez [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) ou [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
 
-**Quels sont les types de disques chiffrés ? Les disques de système d’exploitation/ressources sont-ils également chiffrés ?**
-
-Les disques de ressources et les disques de données/managés sont chiffrés. Les disques de système d’exploitation ne sont pas chiffrés.
 
 **Si un cluster subit un scale-up, les nouveaux nœuds prendront-ils en charge les clés gérées par le client sans interruption ?**
 
@@ -396,6 +408,64 @@ Oui. Le cluster doit accéder à la clé dans le coffre de clés pendant la mont
 **Les clés gérées par le client sont-elles disponibles à mon emplacement ?**
 
 Les clés gérées par le client HDInsight sont disponibles dans tous les clouds publics et nationaux.
+
+## <a name="encryption-at-host-using-platform-managed-keys"></a>Chiffrement sur l’hôte à l’aide de clés gérées par la plateforme
+
+### <a name="enable-in-the-azure-portal"></a>Activer dans le portail Azure
+
+Le chiffrement sur l’hôte peut être activé lors de la création du cluster dans le portail Azure.
+
+> [!Note]
+> Lorsque le chiffrement sur l’hôte est activé, vous ne pouvez pas ajouter d’applications à votre cluster HDInsight à partir de la Place de marché Azure.
+
+:::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Activez le chiffrement sur l’hôte.":::
+
+Cette option active le [chiffrement sur l’hôte](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) pour les disques de données temporaires des machines virtuelles HDInsight à l’aide de la clé PMK. Le chiffrement sur l’hôte est uniquement [pris en charge sur certaines références SKU de machine virtuelle dans des régions limitées](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md), et HDInsight prend en charge les [configurations de nœuds et références SKU mentionnées dans cet article](./hdinsight-supported-node-configuration.md).
+
+Pour déterminer la taille de machine virtuelle adaptée à votre cluster HDInsight, consultez [Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight](hdinsight-selecting-vm-size.md). La référence SKU de machine virtuelle par défaut pour le nœud Zookeeper lorsque le chiffrement sur l’hôte est activé est DS2V2.
+
+### <a name="enable-using-powershell"></a>Activer à l’aide de PowerShell
+
+L’extrait de code suivant montre comment créer un cluster Azure HDInsight pour lequel le chiffrement sur l’hôte est activé à l’aide de PowerShell. Il utilise le paramètre `-EncryptionAtHost $true` pour activer la fonctionnalité.
+
+```powershell
+$storageAccountResourceGroupName = "Group"
+$storageAccountName = "yourstorageacct001"
+$storageAccountKey = Get-AzStorageAccountKey `
+    -ResourceGroupName $storageAccountResourceGroupName `
+    -Name $storageAccountName | %{ $_.Key1 }
+$storageContainer = "container002"
+# Cluster configuration info
+$location = "East US 2"
+$clusterResourceGroupName = "Group"
+$clusterName = "your-hadoop-002"
+$clusterCreds = Get-Credential
+# If the cluster's resource group doesn't exist yet, run:
+# New-AzResourceGroup -Name $clusterResourceGroupName -Location $location
+# Create the cluster
+New-AzHDInsightCluster `
+    -ClusterType Hadoop `
+    -ClusterSizeInNodes 4 `
+    -ResourceGroupName $clusterResourceGroupName `
+    -ClusterName $clusterName `
+    -HttpCredential $clusterCreds `
+    -Location $location `
+    -DefaultStorageAccountName "$storageAccountName.blob.core.contoso.net" `
+    -DefaultStorageAccountKey $storageAccountKey `
+    -DefaultStorageContainer $storageContainer `
+    -SshCredential $clusterCreds `
+    -EncryptionAtHost $true `
+```
+
+### <a name="enable-using-azure-cli"></a>Activer à l’aide d’Azure CLI
+
+L’extrait de code suivant montre comment créer un cluster Azure HDInsight pour lequel le chiffrement sur l’hôte est activé à l’aide d’Azure CLI. Il utilise le paramètre `--encryption-at-host true` pour activer la fonctionnalité.
+
+```azurecli
+az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
+-p "yourpass" \\
+--storage-account MyStorageAccount --encryption-at-host true
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

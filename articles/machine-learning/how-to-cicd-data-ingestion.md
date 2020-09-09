@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843706"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228883"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps pour un pipeline d’ingestion des données
 
@@ -64,7 +64,7 @@ Par exemple, le code est stocké dans un dépôt Azure DevOps, GitHub ou GitLab.
 Les ingénieurs de données utilisent le code source du notebook Python localement dans un IDE (par exemple, [Visual Studio Code](https://code.visualstudio.com)) ou directement dans l’espace de travail Databricks. Une fois les modifications de code terminées, elles sont fusionnées dans le dépôt selon une stratégie de gestion des branches.
 
 > [!TIP] 
-> Nous recommandons de stocker le code dans des fichiers `.py` au lieu du format de notebook Jupyter `.ipynb`. Cela améliore la lisibilité du code et active les vérifications automatiques de la qualité du code dans le processus d’intégration continue.
+> Nous vous recommandons de stocker le code dans des fichiers `.py` plutôt qu’au format Jupyter Notebook `.ipynb`. Cela améliore la lisibilité du code et active les vérifications automatiques de la qualité du code dans le processus d’intégration continue.
 
 ### <a name="azure-data-factory-source-code"></a>Code source Azure Data Factory
 

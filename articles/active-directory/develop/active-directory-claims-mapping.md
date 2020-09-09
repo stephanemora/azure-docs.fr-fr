@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853363"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068641"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -302,7 +302,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | streetaddress | Adresse postale |
 | Utilisateur | postalcode | Code postal |
 | Utilisateur | preferredlanguange | Langue par défaut |
-| Utilisateur | onpremisesuserprincipalname | UPN local |
+| Utilisateur | onpremisesuserprincipalname | UPN local |*
 | Utilisateur | mailNickName | pseudonyme de messagerie |
 | Utilisateur | extensionattribute1 | Attribut d’extension 1 |
 | Utilisateur | extensionattribute2 | Attribut d’extension 2 |
@@ -340,6 +340,8 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 - L’élément JwtClaimType doit contenir le nom de la revendication que les jetons JWT doivent émettre.
 - L’élément SamlClaimType doit contenir l’URI de la revendication que les jetons SAML doivent émettre.
+
+* **Attribut onPremisesUserPrincipalName :** Quand vous utilisez un ID secondaire, l’attribut local userPrincipalName est synchronisé avec l’attribut Azure AD onPremisesUserPrincipalName. Cet attribut est disponible uniquement quand l’option Autre ID est configurée mais il est également disponible via la version bêta de Microsoft Graph : https://graph.microsoft.com/beta/me/.
 
 > [!NOTE]
 > Les noms et URI des revendications dans l’ensemble de revendications restreint ne peuvent pas être utilisés pour les éléments de type de revendication. Pour plus d’informations, consultez la section « Exceptions et restrictions » plus loin dans cet article.

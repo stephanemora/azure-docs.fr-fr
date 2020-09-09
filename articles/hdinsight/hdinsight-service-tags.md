@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410855"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399954"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
 Les étiquettes de service Azure HDInsight des groupes de sécurité réseau sont des groupes d'adresses IP destinées aux services de contrôle d'intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les [étiquettes de service](../virtual-network/security-overview.md#service-tags) autorisent le trafic entrant à partir d'adresses IP spécifiques, sans avoir à entrer chacune des [adresses IP de gestion](hdinsight-management-ip-addresses.md) dans vos groupes de sécurité réseau.
 
 Le service HDInsight gère ces étiquettes de service. Vous ne pouvez pas créer votre propre étiquette de service ou modifier une étiquette existante. Microsoft gère les préfixes d'adresse correspondant à l'étiquette de service, et met automatiquement à jour l'étiquette de service lorsque les adresses changent.
+
+Si vous souhaitez utiliser une région particulière et que l’étiquette de service n’est pas encore documentée dans cette page, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher votre étiquette de service. Vous pouvez également télécharger le [fichier JSON d’étiquette de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
 
 ## <a name="get-started-with-service-tags"></a>Prise en main des étiquettes de service
 

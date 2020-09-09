@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 562a0fbd64fca530598a58599160dbdd7e479557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485522"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226537"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Base de référence de sécurité Azure pour Azure Application Gateway
 
@@ -120,13 +120,13 @@ Il existe également plusieurs options de place de marché, par exemple le WAF B
 
 * [Présentation du service cloud WAF Barracuda](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
-**Conseils** : Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
+**Aide** : Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
 
 * [Guide pratique pour déployer Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -140,7 +140,7 @@ Il existe également plusieurs options de place de marché, par exemple le WAF B
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Conseils** : Utilisez des balises de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou le Pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, GatewayManager) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
+**Aide** : Utilisez des balises de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou le Pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, GatewayManager) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 Pour les groupes de sécurité réseau (NSG) associés à vos sous-réseaux Azure Application Gateway, vous devez autoriser le trafic Internet entrant sur les ports TCP 65503-65534 pour la référence (SKU) Application Gateway v1 et sur les ports TCP 65200-65535 pour la référence (SKU) v2 avec le sous-réseau de destination en tant que Any et la source en tant qu’étiquette de service GatewayManager. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Les entités externes, y compris les clients de ces passerelles, ne peuvent pas communiquer avec ces points de terminaison.
 
@@ -156,13 +156,13 @@ Pour les groupes de sécurité réseau (NSG) associés à vos sous-réseaux Azur
 
 **Conseils** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau relatifs à vos déploiements d’Azure Application Gateway. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Network » pour créer des stratégies personnalisées d’audit ou d’application de la configuration réseau de vos passerelles Azure Application Gateway, de vos réseaux virtuels Azure et de vos groupes de sécurité réseau. Vous pouvez également utiliser une définition de stratégie intégrée.
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, le contrôles d'accès en fonction du rôle (RBAC) et les stratégies au sein d'une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Azure Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 * [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -212,13 +212,13 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Aide** : Pour la journalisation d’audit du plan de contrôle, activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Azure Event Hub ou un compte de stockage Azure. À l’aide des données du journal d’activité Azure, il vous est possible de déterminer « quoi, qui et quand » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour votre passerelle Azure Application Gateway et les ressources associées, telles que les groupes de sécurité réseau (NSG), utilisées pour protéger les sous-réseaux Azure Application Gateway.
 
-En plus de vos journaux d’activité, vous pouvez configurer les paramètres de diagnostic pour votre déploiement d’Azure Application Gateway. Les paramètres de diagnostic permettent de configurer l’exportation en continu des journaux et des métriques de la plateforme pour une ressource vers la destination de votre choix (Compte de stockage, Event Hubs et Log Analytics).
+En plus de vos journaux d’activité, vous pouvez configurer les paramètres de diagnostic pour vos déploiements d’Azure Application Gateway. Les paramètres de diagnostic permettent de configurer l’exportation en continu des journaux et des métriques de la plateforme pour une ressource vers la destination de votre choix (Compte de stockage, Event Hubs et Log Analytics).
 
 Azure Application Gateway est également intégré à Azure Application Insights. Application Insights collecte des données de journal, de performances et d’erreur. Application Insights détecte automatiquement les anomalies de performance et intègre de puissants outils d’analyse conçus pour aider à diagnostiquer les problèmes et à comprendre la manière dont vos applications web sont utilisées. Vous pouvez peut-être activer l’exportation continue pour exporter la télémétrie d’Application Insights vers un emplacement centralisé afin de garder les données plus longtemps que la période de rétention standard.
 
 * [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Activation des paramètres de diagnostic pour Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+* [Procédure d’activation des paramètres de diagnostic pour Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 
 * [Procédure d’activation d’Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
@@ -252,7 +252,7 @@ Azure Application Gateway est également intégré à Azure Application Insights
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -330,7 +330,7 @@ Configurez les paramètres de diagnostic pour votre déploiement d’Azure Appli
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10 : Activer l’enregistrement d’audit en ligne de commande
 
-**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -417,13 +417,13 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
-**Aide** : Utilisez les rapports de sécurité Azure Active Directory pour générer des journaux et des alertes lorsque des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
+**Conseils** : Utilisez les rapports de sécurité Azure Active Directory pour générer des journaux et des alertes lorsque des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
 
 * [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
 * [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -535,7 +535,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -545,7 +545,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Procédure de configuration du chiffrement TLS de bout en bout avec Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -561,11 +561,11 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Application Gateway, e
 
 **Responsabilité** : Non applicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez la fonctionnalité RBAC (contrôle d’accès en fonction du rôle) d’Azure Active Directory (AD) pour contrôler l’accès au plan de contrôle Azure Application Gateway (par exemple, le portail Azure).
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès au plan de contrôle Azure Application Gateway (portail Azure).
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -573,7 +573,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Application Gateway, e
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
-**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -607,7 +607,7 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Application Gateway, e
 
 La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez les contrôles de sécurité disponibles pour Azure Application Gateway afin de réduire les vulnérabilités liées à la configuration du service.
 
-* [Couverture de fonctionnalité (y compris l’évaluation des vulnérabilités) pour les services PaaS Azure](https://docs.microsoft.com/azure/security-center/features-paas)
+* [Couverture de fonctionnalité (notamment l’évaluation des vulnérabilités) pour les services PaaS Azure](https://docs.microsoft.com/azure/security-center/features-paas)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -625,7 +625,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -719,7 +719,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -733,7 +733,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
-**Conseils** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
+**Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -749,7 +749,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
@@ -757,7 +757,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -775,7 +775,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -801,7 +801,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -817,7 +817,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -825,7 +825,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -837,7 +837,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -883,7 +883,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Cette recommandation concerne les ressources de calcul IaaS.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -991,7 +991,7 @@ Azure DevOps Services tire profit de nombreuses fonctionnalités du stockage Azu
 
 * [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1067,7 +1067,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 * [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
@@ -1083,13 +1083,13 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
-**Aide** : Utilisez la fonctionnalité d’automatisation du workflow dans Azure Security Center pour déclencher automatiquement des réponses via « Logic Apps » sur les alertes et recommandations de sécurité.
+**Conseils** : Utilisez la fonctionnalité d’automatisation du workflow dans Azure Security Center pour déclencher automatiquement des réponses via « Logic Apps » sur les alertes et recommandations de sécurité.
 
 * [Comment configurer l’automatisation des workflows et Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
@@ -1103,13 +1103,13 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
-**Conseils** : 
+**Aide** : 
 
 * [Suivez les règles d’engagement de Microsoft pour garantir que vos tests d’intrusion sont conformes aux stratégies de Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif dans l’infrastructure, les services et les applications cloud gérés par Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918024"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294864"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
 
@@ -37,13 +37,13 @@ En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émett
 
 Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=** . 
 
-  ![En-tête de demande Postman](media/search-query-lucene-examples/postman-header.png)
+  ![en-tête de demande Postman définir les paramètres](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Définir l’URL de requête
 
 La requête est une commande GET accompagnée d’une URL contenant le point de terminaison de Recherche cognitive Azure et la chaîne de recherche.
 
-  ![En-tête de demande Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![en-tête de demande Postman GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 L’URL est composée des éléments suivants :
 

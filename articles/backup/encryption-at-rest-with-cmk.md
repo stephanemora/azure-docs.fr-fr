@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892641"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378285"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -66,7 +66,7 @@ Sauvegarde Azure utilise l’identité managée affectée par le système pour a
 
     ![Paramètres d’identité](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Cliquez sur le bouton bascule sous **Status** (État) pour le définir sur la valeur **On** (Actif), puis cliquez sur **Save** (Enregistrer).
+1. Cliquez sur le bouton bascule sous **État** pour le définir sur la valeur **Activé**, puis sélectionnez **Enregistrer**.
 
 1. Un ID d’objet est généré, qui correspond à l’identité managée affectée par le système du coffre.
 
@@ -82,13 +82,13 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 
     ![Attribuer des autorisations de clé](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Accédez à **Sélectionner le principal** et recherchez votre coffre dans la zone de recherche à partir de son nom ou de son identité managée. Une fois le coffre affiché, sélectionnez-le, puis cliquez sur **Sélectionner** au bas du volet.
+1. Accédez à **Sélectionner le principal** et recherchez votre coffre dans la zone de recherche à partir de son nom ou de son identité managée. Une fois le coffre affiché, sélectionnez-le, puis choisissez **Sélectionner** au bas du volet.
 
     ![Sélectionner le principal](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Sélectionnez ensuite **Ajouter** pour ajouter la nouvelle stratégie d’accès.
+1. Après quoi, sélectionnez **Ajouter** pour ajouter la nouvelle stratégie d’accès.
 
-1. Cliquez sur **Enregistrer** pour enregistrer les modifications apportées à la stratégie d’accès du coffre de clés Azure.
+1. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées à la stratégie d’accès du coffre de clés Azure.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
 
@@ -148,7 +148,7 @@ Pour affecter la clé :
 
     ![Paramètres de chiffrement](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Cliquez sur **Mettre à jour** en dessous de **Paramètres de chiffrement**.
+1. Sélectionnez **Mettre à jour** en dessous de **Paramètres de chiffrement**.
 
 1. Dans le volet Paramètres de chiffrement, sélectionnez **Utiliser votre propre clé**, puis continuez à spécifier la clé de l’une des façons suivantes. **Vérifiez que la clé que vous souhaitez utiliser est une clé RSA 2048, qui est à l’état activé.**
 
@@ -160,7 +160,7 @@ Pour affecter la clé :
 
         ![Sélectionner une clé dans le coffre de clés](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 1. **Suivi de la progression de la mise à jour de la clé de chiffrement :** vous pouvez suivre la progression de l’affectation de la clé à l’aide du **Journal d’activité**  dans le coffre Recovery Services. L’état doit passer rapidement à **Réussite**. Votre coffre chiffre alors toutes les données avec la clé spécifiée en tant que KEK.
 
@@ -169,7 +169,7 @@ Pour affecter la clé :
     ![État Réussite](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 >[!NOTE]
-> Ce processus est le même quand vous souhaitez mettre à jour/modifier la clé de chiffrement. Si vous souhaitez mettre à jour et utiliser une clé d’un autre coffre de clés (différent de celui en cours d’utilisation), vérifiez que :
+> Ce processus est le même quand vous souhaitez mettre à jour/modifier la clé de chiffrement. Si vous souhaitez mettre à jour et utiliser une clé d’un autre coffre de clés (différent de celui actuellement utilisé), vérifiez que :
 >
 > - Le coffre de clés se trouve dans la même région que le coffre Recovery Services
 >
@@ -242,7 +242,7 @@ Non, le chiffrement CMK ne peut être activé que pour les nouveaux coffres. Le 
 
 Non, le coffre ne doit pas avoir subi de tentatives de protection.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>J’ai un coffre qui utilise le chiffrement CMK. Puis-je revenir par la suite à un chiffrement à l’aide de clés gérées par la plateforme, même si le coffre contient des éléments de sauvegarde protégés ?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>J’ai un coffre qui utilise le chiffrement CMK. Puis-je revenir par la suite à un chiffrement à l’aide de clés gérées par la plateforme, même si le coffre contient des éléments de sauvegarde protégés ?
 
 Non, une fois que vous avez activé le chiffrement CMK, vous ne pouvez pas revenir à une utilisation de clés gérées par la plateforme. Vous pouvez modifier les clés en fonction de vos besoins.
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 09/02/2020
+ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773404"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400192"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Contrôler le trafic réseau dans Azure HDInsight
 
@@ -32,7 +32,11 @@ Si vous prévoyez d’utiliser des **groupes de sécurité réseau** pour contr�
 
 1. Identifiez la région Azure que vous projetez d’utiliser pour HDInsight.
 
-2. Identifiez les étiquettes de service demandées par HDInsight pour votre région. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md).
+2. Identifiez les étiquettes de service demandées par HDInsight pour votre région. Il existe plusieurs façons d’obtenir ces étiquettes de service :
+    1. Consultez la liste des étiquettes de service publiées dans [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md). 
+    2. Si votre région ne figure pas dans la liste, utilisez l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher une étiquette de service pour votre région.
+    3. Si vous ne parvenez pas à utiliser l’API, téléchargez le [fichier JSON d’étiquette de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
+
 
 3. Créez ou modifiez les groupes de sécurité réseau pour le sous-réseau dans lequel vous prévoyez d’installer HDInsight.
 
@@ -51,10 +55,6 @@ Le tunneling forcé est une configuration de routage défini par l’utilisateur
 Les clients qui souhaitent configurer le tunneling forcé doivent utiliser des [metastores personnalisés](./hdinsight-use-external-metadata-stores.md) et configurer la connectivité appropriée entre le sous-réseau du cluster ou le réseau local et ces metastores personnalisés.
 
 Pour voir un exemple de configuration du routage défini par l’utilisateur avec le Pare-feu Azure, consultez [Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
-
-## <a name="required-ip-addresses"></a>Adresses IP requises
-
-Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour contrôler le trafic, voir [Adresses IP de gestion HDInsight](hdinsight-management-ip-addresses.md).
 
 ## <a name="required-ports"></a>Ports requis
 

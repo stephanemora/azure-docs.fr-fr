@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816488"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291923"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Aperçu : Utiliser des clés gérées par le client pour le chiffrement d’images
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Afin de spécifier un jeu de chiffrement de disque pour une version d’image, utilisez [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) avec le paramètre `--target-region-encryption`. Le format pour `--target-region-encryption` est une liste de clés, séparée par des espaces, pour le chiffrement des disques de système d’exploitation et de données. Ce que vous obtenez doit ressembler à ceci : `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+Afin de spécifier un jeu de chiffrement de disque pour une version d’image, utilisez [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) avec le paramètre `--target-region-encryption`. Le format pour `--target-region-encryption` est une liste de clés, séparée par des virgules, pour le chiffrement des disques de système d’exploitation et de données. Ce que vous obtenez doit ressembler à ceci : `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 Si la source du disque du système d’exploitation est un disque managé ou une machine virtuelle, utilisez `--managed-image` pour spécifier la source de la version de l’image. Dans cet exemple, la source est une image managée qui possède un disque de système d’exploitation et un disque de données au numéro d’unité logique 0. Le disque du système d’exploitation sera chiffré avec DiskEncryptionSet1 et le disque de données avec DiskEncryptionSet2.
 

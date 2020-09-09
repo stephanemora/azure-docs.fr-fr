@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164918"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377860"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accès à distance aux applications locales par le bais du service Proxy d'application Azure AD
 
@@ -57,6 +57,11 @@ Le diagramme suivant montre comment Azure AD et Application Proxy fonctionnent e
 4. Si vous avez configuré l’authentification unique, le connecteur effectue toute authentification supplémentaire requise pour le compte de l’utilisateur.
 5. Le connecteur envoie la requête à l’application locale.
 6. La réponse est envoyée à l’utilisateur par le biais du connecteur et du service Proxy d’application.
+
+> [!NOTE]
+> Comme la plupart des agents hybrides Azure AD, le connecteur Proxy d’application ne nécessite pas l’ouverture de connexions entrantes via votre pare-feu. Le trafic utilisateur à l’étape 3 se termine au niveau du service de proxy d’application (dans Azure AD). Le connecteur Proxy d’application (local) est responsable du reste de la communication.
+>
+
 
 | Composant | Description |
 | --------- | ----------- |

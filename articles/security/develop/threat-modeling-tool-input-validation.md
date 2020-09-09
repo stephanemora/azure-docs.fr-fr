@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539796"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293351"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastructure de sécurité : validation des entrées | Mesures d’atténuation 
 | Produit/Service | Article |
@@ -396,7 +397,7 @@ Dans l’exemple de code précédent, la valeur d’entrée ne peut pas être su
 | **Technologies applicables** | Générique, MVC5, MVC6 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Adding Validation (Ajout d’une validation)](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validating Model Data in an MVC Application (Validation des données de modèle dans une application MVC)](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Principes directeurs pour vos applications ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Étapes** | <p>Tous les paramètres d’entrée doivent être validés avant d’être utilisés dans l’application afin de vous assurer que l’application est protégée contre les entrées utilisateur malveillantes. Validez les valeurs d’entrée en recourant à la validation d’expressions régulières côté serveur au moyen d’une stratégie de validation par liste verte. Les entrées utilisateur/paramètres non nettoyés et transmis aux méthodes peuvent engendrer des vulnérabilités par injection de code.</p><p>Pour les applications web, les points d’entrée peuvent également inclure des champs de formulaire, des chaînes de requête, des cookies, des en-têtes HTTP et des paramètres de service web.</p><p>Les contrôles de validation des entrées suivants doivent être effectués lors de la liaison de modèle :</p><ul><li>Les propriétés de modèle doivent être annotées au moyen d’une annotation RegularExpression, ce qui permet d’accepter les caractères autorisés et la longueur maximale autorisée</li><li>Les méthodes de contrôleur doivent procéder à la validation de ModelState</li></ul>|
+| **Étapes** | <p>Tous les paramètres d’entrée doivent être validés avant d’être utilisés dans l’application afin de vous assurer que l’application est protégée contre les entrées utilisateur malveillantes. Validez les valeurs d’entrée en recourant à la validation d’expressions régulières côté serveur au moyen d’une stratégie de validation par liste autorisée. Les entrées utilisateur/paramètres non nettoyés et transmis aux méthodes peuvent engendrer des vulnérabilités par injection de code.</p><p>Pour les applications web, les points d’entrée peuvent également inclure des champs de formulaire, des chaînes de requête, des cookies, des en-têtes HTTP et des paramètres de service web.</p><p>Les contrôles de validation des entrées suivants doivent être effectués lors de la liaison de modèle :</p><ul><li>Les propriétés de modèle doivent être annotées au moyen d’une annotation RegularExpression, ce qui permet d’accepter les caractères autorisés et la longueur maximale autorisée</li><li>Les méthodes de contrôleur doivent procéder à la validation de ModelState</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>Les champs de formulaire acceptant tous les caractères, par exemple dans un éditeur de texte enrichi, doivent être nettoyés
 
@@ -440,7 +441,7 @@ N’utilisez pas `innerHtml`. Utilisez plutôt `innerText`. De même, au lieu de
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [The OAuth 2.0 Authorization Framework - Open Redirectors (Infrastructure d’autorisation OAuth 2.0 : Redirecteurs ouverts)](https://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Étapes** | <p>La conception d’applications nécessitant une redirection vers un emplacement fourni par l’utilisateur doit limiter les cibles possibles de redirection à une liste prédéfinie « sécurisée » de sites ou de domaines. Toutes les redirections au sein de l’application doivent être fermées/sécurisées.</p><p>Pour ce faire :</p><ul><li>Identifiez toutes les redirections</li><li>Implémentez une mesure de correction appropriée pour chaque redirection. Les mesures de correction appropriées incluent la confirmation utilisateur ou les listes blanches de redirection. Si un site web ou un service avec vulnérabilité par redirection ouverte utilise les fournisseurs d’identité Facebook/OAuth/OpenID, une personne malveillante peut voler le jeton d’ouverture de session d’un utilisateur et emprunter l’identité de cet utilisateur. Il s’agit d’un risque inhérent de l’utilisation d’OAuth, décrit dans le document RFC 6749 « The OAuth 2.0 Authorization Framework » (Infrastructure d’autorisation OAuth 2.0), Section 10.15 « Open Redirects » (Redirecteurs ouverts). De même, les informations d’identification des utilisateurs peuvent être compromises par des attaques par hameçonnage ciblé se servant de redirections ouvertes</li></ul>|
+| **Étapes** | <p>La conception d’applications nécessitant une redirection vers un emplacement fourni par l’utilisateur doit limiter les cibles possibles de redirection à une liste prédéfinie « sécurisée » de sites ou de domaines. Toutes les redirections au sein de l’application doivent être fermées/sécurisées.</p><p>Pour ce faire :</p><ul><li>Identifiez toutes les redirections</li><li>Implémentez une mesure de correction appropriée pour chaque redirection. Les mesures d’atténuation appropriées incluent la redirection de la confirmation par utilisateur ou liste autorisée. Si un site web ou un service avec vulnérabilité par redirection ouverte utilise les fournisseurs d’identité Facebook/OAuth/OpenID, une personne malveillante peut voler le jeton d’ouverture de session d’un utilisateur et emprunter l’identité de cet utilisateur. Il s’agit d’un risque inhérent de l’utilisation d’OAuth, décrit dans le document RFC 6749 « The OAuth 2.0 Authorization Framework » (Infrastructure d’autorisation OAuth 2.0), Section 10.15 « Open Redirects » (Redirecteurs ouverts). De même, les informations d’identification des utilisateurs peuvent être compromises par des attaques par hameçonnage ciblé se servant de redirections ouvertes</li></ul>|
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>Implémenter la validation des entrées sur tous les paramètres de type de chaîne acceptés par les méthodes de contrôleur
 

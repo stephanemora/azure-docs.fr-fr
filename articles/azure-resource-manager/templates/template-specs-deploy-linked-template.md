@@ -2,13 +2,13 @@
 title: Déployer une spec de modèle en tant que modèle lié
 description: Découvrez comment déployer une spec de modèle existante dans un déploiement lié.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 799dac2bb553983b16f734d1d1abc2ad9281fb58
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918381"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228016"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutoriel : Déployer une spec de modèle en tant que modèle lié (préversion)
 
@@ -126,11 +126,11 @@ $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateS
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
 
 ```azurecli-interactive
-id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
 ```
 
 > [!NOTE]
-> Il existe un problème connu relatif à l’obtention de l’id de la spec de modèle puis de son attribution à une variable dans Windows PowerShell.
+> Il existe un problème connu lié à l’obtention de l’ID de la spec de modèle et à son affectation à une variable dans Windows PowerShell.
 
 ---
 

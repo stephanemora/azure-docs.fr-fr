@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885172"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291946"
 ---
 # <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
@@ -35,11 +35,17 @@ Vous pouvez créer votre première application en suivant le démarrage rapide s
 
 ## <a name="overview"></a>Vue d’ensemble
 
-De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework SPA, comme Angular, Vue.js et React.js. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur. 
+De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework d’application monopage, comme Angular, Vue et React. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur. 
 
-La plateforme d’identités Microsoft permet aux applications monopages de connecter des utilisateurs et d’obtenir des jetons pour accéder aux services principaux ou aux API web à l’aide du [Flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux implicite permet à l’application d’obtenir des jetons d’ID pour représenter l’utilisateur authentifié, mais également des jetons d’accès qui sont nécessaires pour appeler des API protégées.
+La plateforme d’identités Microsoft offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
 
-![Applications monopages](./media/scenarios/spa-app.svg)
+- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./v2-oauth2-auth-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’**ID** afin de représenter l’utilisateur authentifié et des jetons d’**accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’**actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. Il s’agit de l’approche **recommandée**.
+
+![Authentification des applications monopages](./media/scenarios/spa-app-auth.svg)
+
+- [Flux implicite OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’**ID** et d’**accès**. Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation**.
+
+![Flux implicite des applications monopages](./media/scenarios/spa-app.svg)
 
 Ce flux d’authentification n’inclut pas de scénarios d’application utilisant des frameworks JavaScript multiplateformes, tels qu’Electron et React-Native. Ils exigent davantage de fonctionnalités pour l’interaction avec les plateformes natives.
 
@@ -47,9 +53,9 @@ Ce flux d’authentification n’inclut pas de scénarios d’application utilis
 
 Afin d’activer ce scénario pour votre application, vous avez besoin des éléments suivants :
 
-* Inscription de l’application auprès d’Azure Active Directory (Azure AD). Cette inscription implique l’activation du flux implicite et la définition d’un URI de redirection vers lequel les jetons sont retournés.
+* Inscription de l’application auprès d’Azure Active Directory (Azure AD). Les étapes d’inscription diffèrent entre le flux d’octroi implicite et le flux de code d’autorisation.
 * Configuration de l’application avec les propriétés de l’application inscrite, comme l’ID d’application.
-* Utilisation de la bibliothèque MSAL (Microsoft Authentication Library) pour effectuer le flux d’authentification afin de se connecter et d’acquérir des jetons.
+* Utilisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) pour permettre au flux d’authentification de se connecter et d’acquérir des jetons.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

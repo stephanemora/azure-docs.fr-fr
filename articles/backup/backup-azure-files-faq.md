@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824727"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377418"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -30,7 +30,7 @@ Vérifiez si le partage de fichiers Azure est déjà protégé dans le même cof
 
 Oui. La protection des partages de fichiers Azure connectés à des groupes de synchronisation est activée.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quand j’ai essayé de sauvegarder des partages de fichiers, j’ai cliqué sur un compte de stockage pour détecter les partages de fichiers qu’il contient. Toutefois, je ne les ai pas protégés. Comment protéger ces partages de fichiers avec un autre coffre ?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quand j’ai essayé de sauvegarder des partages de fichiers, j’ai sélectionné un compte de stockage pour découvrir les partages de fichiers qu’il contenait. Toutefois, je ne les ai pas protégés. Comment protéger ces partages de fichiers avec un autre coffre ?
 
 Lorsque vous essayez de sauvegarder, le fait de sélectionner un compte de stockage pour détecter les partages de fichiers dans celui-ci permet d’enregistrer le compte de stockage avec le coffre à partir duquel cette action est effectuée. Si vous choisissez de protéger les partages de fichiers avec un autre coffre, [annulez l’enregistrement](manage-afs-backup.md#unregister-a-storage-account) du compte de stockage sélectionné à partir de ce coffre.
 

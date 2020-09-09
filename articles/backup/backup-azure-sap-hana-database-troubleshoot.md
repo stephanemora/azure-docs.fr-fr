@@ -3,12 +3,12 @@ title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826988"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377682"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -22,7 +22,7 @@ Reportez-vous aux sections [Conditions préalables](tutorial-backup-sap-hana-db.
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Message d’erreur**      | <span style="font-weight:normal">La sauvegarde Azure ne dispose pas des privilèges de rôle requis pour effectuer la sauvegarde</span>    |
+| **Message d’erreur**      | <span style="font-weight:normal">Sauvegarde Azure ne dispose pas des privilèges de rôle nécessaires pour effectuer la sauvegarde</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Causes possibles**    | Le rôle a peut-être été modifié.                          |
 | **Action recommandée** | Pour résoudre le problème, exécutez le script à partir du volet **Discover DB** ou téléchargez-le [ici](https://aka.ms/scriptforpermsonhana). Vous pouvez également ajouter le rôle « SAP_INTERNAL_HANA_SUPPORT » à l’utilisateur de sauvegarde de charge de travail (AZUREWLBACKUPHANAUSER). |
@@ -31,7 +31,7 @@ Reportez-vous aux sections [Conditions préalables](tutorial-backup-sap-hana-db.
 
 | Message d’erreur      | <span style="font-weight:normal">Échec de la connexion au système HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Causes possibles**    | L’instance SAP HANA est peut-être inactive.<br/>Les autorisations requises pour que Sauvegarde Azure interagisse avec la base de données HANA ne sont pas définies. |
+| **Causes possibles**    | L’instance SAP HANA est peut-être inactive.<br/>Les autorisations permettant à Sauvegarde Azure d’interagir avec la base de données HANA ne sont pas définies. |
 | **Action recommandée** | Vérifiez que la base de données SAP HANA est active. Si la base de données est opérationnelle, vérifiez que toutes les autorisations requises sont définies. Si une autorisation est absente, exécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) pour l’ajouter. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -97,7 +97,7 @@ Notez les points suivants :
 
 - Par défaut, le nom de la base de données restaurée est renseigné avec le nom de l’élément de sauvegarde. Dans ce cas, il s’agit de h21(sdc).
 - La sélection de la cible en tant que H11 ne modifie pas automatiquement le nom de la base de données restaurée. **Elle doit être modifiée en H11 (SDC)** . Concernant SDC, le nom de la base de données restaurée sera l’ID d’instance cible avec des lettres minuscules suivi de « sdc » entre crochets.
-- Étant donné que SDC ne peut avoir qu’une seule base de données, vous devez également activer la case à cocher pour autoriser le remplacement des données de la base de données existantes par les données du point de récupération.
+- Étant donné que SDC ne peut avoir qu’une seule base de données, vous devez aussi cocher la case pour autoriser le remplacement des données de la base de données existantes par les données du point de récupération.
 - Linux respecte la casse. Par conséquent, veillez à la conserver.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauration de la base de données à conteneurs multiples (MDC)
@@ -165,7 +165,7 @@ Vous pouvez gérer les mises à niveau de SDC vers MDC qui n’entraînent pas d
 - Effectuez la mise à niveau. À l’issue de l’opération, le système HANA est maintenant MDC avec une base de données système et une ou plusieurs bases de données de locataire.
 - Réexécuter le [script de préinscription](https://aka.ms/scriptforpermsonhana)
 - Réinscrivez l’extension pour la même machine dans le portail Azure (**Sauvegarde** -> **Afficher les détails** > sélectionner la machine virtuelle Azure appropriée -> Réinscrire).
-- Cliquez sur **Redécouvrir les bases de données** pour la même machine virtuelle. Cette action a pour effet de faire apparaître les nouvelles bases de données de l’étape 3 en tant que SYSTEMDB et Tenant DB, et non SDC.
+- Sélectionnez **Redécouvrir les bases de données** pour la même machine virtuelle. Cette action a pour effet de faire apparaître les nouvelles bases de données de l’étape 3 en tant que SYSTEMDB et Tenant DB, et non SDC.
 - L’ancienne base de données SDC continue d’exister dans le coffre, et les anciennes données sauvegardées sont conservées conformément à la stratégie.
 - Configurez la sauvegarde de ces bases de données.
 
@@ -178,7 +178,7 @@ Vous pouvez gérer les mises à niveau de SDC vers MDC qui entraînent une modif
 - Effectuez la mise à niveau. À l’issue de l’opération, le système HANA est maintenant MDC avec une base de données système et une ou plusieurs bases de données de locataire.
 - Réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) avec les détails (nouveaux SID et MDC) corrects. En raison d’une modification du SID, vous risquez de rencontrer des problèmes avec l’exécution du script. Si vous rencontrez des problèmes, contactez le support de Sauvegarde Azure.
 - Réinscrivez l’extension pour la même machine dans le portail Azure (**Sauvegarde** -> **Afficher les détails** > sélectionner la machine virtuelle Azure appropriée -> Réinscrire).
-- Cliquez sur **Redécouvrir les bases de données** pour la même machine virtuelle. Cette action a pour effet de faire apparaître les nouvelles bases de données de l’étape 3 en tant que SYSTEMDB et Tenant DB, et non SDC.
+- Sélectionnez **Redécouvrir les bases de données** pour la même machine virtuelle. Cette action a pour effet de faire apparaître les nouvelles bases de données de l’étape 3 en tant que SYSTEMDB et Tenant DB, et non SDC.
 - L’ancienne base de données SDC continue d’exister dans le coffre, et les anciennes données sauvegardées sont conservées conformément à la stratégie.
 - Configurez la sauvegarde de ces bases de données.
 

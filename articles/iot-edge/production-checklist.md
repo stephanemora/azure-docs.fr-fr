@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 90a6c287b1341b21f50a808d46cc681b0527f1c0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258791"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300338"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -321,9 +321,9 @@ Vous pouvez le faire dans **createOptions** au sein de chaque module. Par exempl
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Prendre en compte les tests et les pipelines CI/CD
 
-Pour maximiser l’efficacité du scénario de déploiement IoT Edge, intégrez votre déploiement de production dans vos pipelines de tests et CI/CD. Azure IoT Edge prend en charge plusieurs plateformes CI/CD, notamment Azure DevOps. Pour plus d’informations, voir [Intégration continue et déploiement continu sur Azure IoT Edge](how-to-ci-cd.md).
+Pour maximiser l’efficacité du scénario de déploiement IoT Edge, intégrez votre déploiement de production dans vos pipelines de tests et CI/CD. Azure IoT Edge prend en charge plusieurs plateformes CI/CD, notamment Azure DevOps. Pour plus d’informations, voir [Intégration continue et déploiement continu sur Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le [déploiement automatique IoT Edge](module-deployment-monitoring.md).
-* Découvrez comment IoT Edge prend en charge [l’intégration continue et le déploiement continu](how-to-ci-cd.md).
+* Découvrez comment IoT Edge prend en charge [l’intégration continue et le déploiement continu](how-to-continuous-integration-continuous-deployment.md).

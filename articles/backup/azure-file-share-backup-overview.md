@@ -3,12 +3,12 @@ title: À propos de la sauvegarde des partages de fichiers Azure
 description: Découvrir comment sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892250"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378081"
 ---
 # <a name="about-azure-file-share-backup"></a>À propos de la sauvegarde des partages de fichiers Azure
 
@@ -44,13 +44,19 @@ La sauvegarde des partages de fichiers Azure est une solution de sauvegarde clou
 
 6. Vous pouvez restaurer le contenu du partage de fichiers Azure (fichiers individuels ou partage complet) à partir des captures instantanées disponibles sur le partage de fichiers source. Une fois l’opération déclenchée, l’URL de capture instantanée est récupérée à partir du magasin de métadonnées et les données sont listées et transférées de l’instantané source vers le partage de fichiers cible de votre choix.
 
-7. Si vous utilisez Azure File Sync, le service de Sauvegarde indique au service Azure File Sync les chemins d’accès des fichiers en cours de restauration, ce qui déclenche un processus de détection des modifications en arrière-plan sur ces fichiers. Tous les fichiers qui ont été modifiés sont synchronisés avec le point de terminaison de serveur. Ce processus s’effectue en parallèle avec la restauration d’origine sur le partage de fichiers Azure.
+7. Si vous utilisez Azure File Sync, le service Sauvegarde indique au service Azure File Sync les chemins des fichiers restaurés, ce qui déclenche un processus de détection des modifications en arrière-plan sur ces fichiers. Tous les fichiers qui ont été modifiés sont synchronisés avec le point de terminaison de serveur. Ce processus s’effectue en parallèle avec la restauration d’origine sur le partage de fichiers Azure.
 
 8. Les données de surveillance des travaux de sauvegarde et de restauration sont envoyées au service Azure Backup Monitoring. Cela vous permet de surveiller les sauvegardes cloud de vos partages de fichiers dans un tableau de bord unique. En outre, vous pouvez également configurer des alertes ou des notifications par e-mail lorsque l’intégrité de la sauvegarde est affectée. Les e-mails sont envoyés par le biais du service de messagerie Azure.
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde
 
-Actuellement, vous ne serez facturé que pour les instantanés car la sauvegarde de partage de fichiers Azure est une solution basée sur des instantanés. Les frais de stockage inhérents sont facturés avec l’utilisation d’Azure Files selon la grille tarifaire présentée [ici](https://azure.microsoft.com/pricing/details/storage/files/).
+Les coûts associés à la solution de sauvegarde de partages de fichiers Azure sont au nombre de deux :
+
+1. **Coût de stockage des captures instantanées** : les frais de stockage inhérents aux captures instantanées sont facturés en même temps que l’utilisation d’Azure Files selon la grille tarifaire présentée [ici](https://azure.microsoft.com/pricing/details/storage/files/).
+
+2. **Frais d’instance protégée** : à partir du 1er septembre 2020, les clients se verront facturés des frais d’instance protégée selon la grille tarifaire présentée [ici](https://azure.microsoft.com/pricing/details/backup/). Les frais d’instance protégée varient en fonction de la taille totale des partages de fichiers protégés dans un compte de stockage.
+
+Pour obtenir des estimations détaillées sur la sauvegarde de partages de fichiers Azure, vous pouvez télécharger l’[outil d’estimation de prix Sauvegarde Azure](https://aka.ms/AzureBackupCostEstimates).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

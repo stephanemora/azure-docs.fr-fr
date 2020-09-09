@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 55ed71c6947c70ac797656f2f18cf71dd8aaae9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852478"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458559"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Python
 
@@ -81,7 +81,7 @@ Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Servi
 Le client de file d’attente reçoit les messages d’une file d’attente à l’aide de la méthode `get_receiver` sur l’objet **ServiceBusClient**. L’exemple de code suivant crée un client de file d’attente et reçoit un message de la file d’attente `taskqueue`. Remplacez `<connectionstring>` par la valeur de votre chaîne de connexion principale Service Bus. 
 
 ```python
-from azure.servicebus import QueueClient, Message
+from azure.servicebus import QueueClient
 
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")

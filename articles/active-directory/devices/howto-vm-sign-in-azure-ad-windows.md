@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005027"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259368"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC) d’Azure pour gérer l’accès aux ressources de votre abonnement Azure, consultez les articles suivants :
 
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Ajoutez ou supprimez des attributions de rôles Azure à l’aide d’Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Ajoutez ou supprimez des attributions de rôles Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
 
@@ -329,7 +329,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 ![Votre compte est configuré de façon à vous empêcher d’utiliser cet appareil.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Vérifiez que vous disposez de [stratégies RBAC configurées](../../virtual-machines/linux/login-using-aad.md) pour la machine virtuelle qui accorde à l’utilisateur le rôle Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles :
+Vérifiez que vous disposez de [stratégies Azure RBAC configurées](../../virtual-machines/linux/login-using-aad.md) pour la machine virtuelle qui accorde à l’utilisateur le rôle Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles :
  
 #### <a name="unauthorized-client"></a>Client non autorisé
 
@@ -339,7 +339,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 ![Vos informations d’identification n’ont pas fonctionné](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](/azure/active-directory/devices/overview).
+Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](./overview.md).
 
 > [!NOTE]
 > La build 20H1 de Windows 10 a ajouté la prise en charge d’un PC inscrit dans Azure AD pour initier une connexion RDP à votre machine virtuelle. Lorsque vous utilisez un PC inscrit dans Azure AD (pas joint à Azure AD ou joint à Azure AD par une jointure hybride) comme client RDP pour initier des connexions à votre machine virtuelle, vous devez entrer des informations d’identification au format AzureAD\UPn (par exemple, AzureAD\john@contoso.com).
@@ -367,4 +367,4 @@ Partagez vos commentaires sur cette fonctionnalité d’évaluation ou signalez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](/azure/active-directory/fundamentals/active-directory-whatis)
+Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md)

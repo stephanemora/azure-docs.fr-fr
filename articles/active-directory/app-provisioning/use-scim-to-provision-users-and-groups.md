@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3f21fa2df32644ff1c415db656fc3b0beed03965
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690253"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292773"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
@@ -153,7 +153,7 @@ Dans la [spécification du protocole SCIM 2.0](http://www.simplecloud.info/#Spec
 * Prise en charge de l'exécution de requêtes d'utilisateurs par ID et par gestion, conformément à la section 3.4.2 du protocole SCIM.  
 * Prise en charge de l'exécution de requêtes de groupes par ID et par membre, conformément à la section 3.4.2 du protocole SCIM.  
 * Acceptation d’un jeton du porteur unique pour l’authentification et l’autorisation d’Azure AD dans votre application.
-* Prend en charge la suppression réversible d’un utilisateur `active=false` et la restauration de l'utilisateur `active=true`.
+* Prise en charge de la suppression réversible d’un utilisateur `active=false` et de la restauration de l’utilisateur `active=true` (l’objet utilisateur doit être retourné dans une demande, que l’utilisateur soit actif ou non). La seule fois où l’utilisateur ne doit pas être retourné est lorsqu’il est supprimé définitivement de l’application. 
 
 Suivez ces recommandations lors de l’implémentation d’un point de terminaison SCIM pour garantir la compatibilité avec Azure AD :
 
@@ -746,7 +746,7 @@ Barre minimale des suites de chiffrement TLS 1.2 :
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Plages d’adresses IP
-Le service d’approvisionnement d’Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory et AzureActiveDirectoryDomainServices, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Le travail est en cours pour consolider uniquement les plages d’adresses IP sous AzureActiveDirectory. 
+Le service de provisionnement Azure AD fonctionne actuellement dans le cadre des plages d’adresses IP pour AzureActiveDirectory, comme indiqué [ici](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Vous pouvez ajouter les plages d’adresses IP listées sous la balise AzureActiveDirectory pour autoriser le trafic en provenance du service de provisionnement Azure AD dans votre application. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Étape 3 : Créer un point de terminaison SCIM
 

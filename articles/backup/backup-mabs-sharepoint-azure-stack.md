@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint sur Azure Stack. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538783"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378319"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 
@@ -76,7 +76,7 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
         Après l’exécution de ConfigureSharePoint.exe, vous devrez le réexécuter à chaque modification des informations d’identification de l’administrateur de la batterie de serveurs SharePoint.
 
-1. Pour créer un groupe de protection, cliquez sur **Protection** > **Actions** > **Créer un groupe de Protection** pour ouvrir l’Assistant **Création d’un nouveau groupe de protection** dans la console MABS.
+1. Pour créer un groupe de protection, sélectionnez **Protection** > **Actions** > **Créer un groupe de protection** pour ouvrir l’Assistant **Création d’un nouveau groupe de protection** dans la console MABS.
 
 1. Dans **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**.
 
@@ -104,7 +104,7 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
 1. Sous **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données aura lieu. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. [En savoir plus](./backup-azure-backup-import-export.md).
 
-1. Dans la page **Résumé**, vérifiez vos paramètres. Une fois que vous avez cliqué sur **Créer un groupe**, la réplication initiale des données se produit. Une fois l’opération terminée, l’état du groupe de protection s’affiche comme **OK** dans la page **État**. La sauvegarde a alors lieu conformément aux paramètres du groupe de protection.
+1. Dans la page **Résumé**, vérifiez vos paramètres. Après que vous avez sélectionné **Créer un groupe**, la réplication initiale des données est effectuée. Une fois l’opération terminée, l’état du groupe de protection s’affiche comme **OK** dans la page **État**. La sauvegarde a alors lieu conformément aux paramètres du groupe de protection.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -116,17 +116,17 @@ Une fois le groupe de protection créé, la réplication initiale se produit et 
 
 ### <a name="set-up-monitoring-notifications"></a>Configurer des notifications d’analyse
 
-1. Dans la console administrateur MABS, cliquez sur **Analyse** > **Action** > **Options**.
+1. Dans la console Administrateur MABS, sélectionnez **Analyse** > **Action** > **Options**.
 
-2. Cliquez sur **Serveur SMTP**, saisissez le nom du serveur, le port et l’adresse e-mail à partir desquels les notifications seront envoyées. L’adresse doit être valide.
+2. Sélectionnez **Serveur SMTP**, tapez le nom du serveur, le port et l’adresse e-mail à partir desquels les notifications seront envoyées. L’adresse doit être valide.
 
 3. Dans **Serveur SMTP authentifié**, saisissez un nom d’utilisateur et un mot de passe. Le nom d’utilisateur et le mot de passe doivent correspondre au nom du compte de domaine de la personne dont l’adresse « De » est décrite à l’étape précédente. Sinon, la remise de notification échoue.
 
-4. Pour tester les paramètres du serveur SMTP, cliquez sur **Envoyer un message de test**, saisissez l’adresse e-mail à laquelle MABS doit envoyer le message de test, puis cliquez sur **OK**. Cliquez sur **Options** > **Notifications**, puis sélectionnez les types d’alertes dont les destinataires souhaitent être avertis. Dans **Destinataires**, saisissez l’adresse e-mail de chaque destinataire auquel MABS doit envoyer des copies des notifications.
+4. Pour tester les paramètres du serveur SMTP, sélectionnez **Envoyer un message de test**, tapez l’adresse e-mail à laquelle MABS doit envoyer le message de test, puis sélectionnez **OK**. Sélectionnez **Options** > **Notifications**, puis sélectionnez les types d’alertes dont les destinataires souhaitent être avertis. Dans **Destinataires**, saisissez l’adresse e-mail de chaque destinataire auquel MABS doit envoyer des copies des notifications.
 
 ### <a name="publish-operations-manager-alerts"></a>Publier les alertes Operations Manager
 
-1. Dans la console administrateur MABS, cliquez sur **Analyse** > **Action** > **Options** > **Publication d’alertes** > **Publier des alertes actives**.
+1. Dans la Console Administrateur MABS, sélectionnez **Analyse** > **Action** > **Options** > **Publication d’alertes** > **Publier des alertes actives**.
 
 2. Un fois l’option **Publication d’alertes** activée, toutes les alertes MABS existantes pouvant nécessiter une action de l’utilisateur sont publiées dans le journal des événements **Alertes MABS**. L’agent Operations Manager installé sur le serveur MABS publie ensuite ces alertes dans Operations Manager, puis continue à mettre à jour la console à mesure que de nouvelles alertes sont générées.
 
@@ -148,10 +148,10 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
 5. Vous pouvez également parcourir les différents points de récupération et sélectionner une base de données ou un élément à restaurer. Sélectionnez **Date > Temps de récupération**, puis sélectionnez **Base de données > Batterie de serveurs SharePoint > Point de récupération > Élément**.
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Restaurer** pour ouvrir **l’Assistant Récupération**. Cliquez sur **Suivant**.
+6. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Restaurer** pour ouvrir **l’Assistant Récupération**. Sélectionnez **Suivant**.
 
     ![Vérifier la sélection à restaurer](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Sélectionnez le type de récupération que vous souhaitez effectuer, puis cliquez sur **Suivant**.
+7. Sélectionnez le type de récupération que vous souhaitez effectuer, puis sélectionnez **Suivant**.
 
     ![Type de récupération](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -161,7 +161,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
    >
 8. Sélectionnez le **processus de récupération** que vous souhaitez utiliser.
 
-   * Sélectionnez **Récupérer sans utiliser de batterie de serveurs de récupération** si la batterie de serveurs SharePoint n’a pas changé et qu’elle est la même que le point de restauration en cours de restauration.
+   * Sélectionnez **Récupérer sans utiliser de batterie de serveurs de récupération** si la batterie de serveurs SharePoint n’a pas changé et qu’elle est la même que le point de récupération restauré.
    * Sélectionnez l’option de **récupération avec une batterie de serveurs** si la batterie de serveurs SharePoint a changé depuis la création du point de restauration.
 
      ![processus de récupération](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -172,7 +172,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
     Le serveur de sauvegarde Azure connecte la base de données de contenu, qui héberge l’élément SharePoint, à l’instance SQL Server temporaire. À partir de la base de données de contenu, l’élément est restauré et stocké à l’emplacement du fichier intermédiaire sur le serveur de sauvegarde Azure. L’élément récupéré situé à l’emplacement intermédiaire doit maintenant être exporté vers l’emplacement intermédiaire sur la batterie de serveurs SharePoint.
 
     ![Emplacement intermédiaire2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Sélectionnez **Spécifier les options de récupération**et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Cliquez sur **Suivant**.
+10. Sélectionnez **Spécifier les options de récupération**et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Sélectionnez **Suivant**.
 
     ![Options de récupération](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -180,7 +180,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
     > Vous pouvez choisir de limiter l'utilisation de la bande passante réseau. Cela réduit l'impact sur le serveur de production pendant les heures de production.
     >
     >
-11. Passez en revue les informations de résumé et cliquez sur **Récupérer** pour commencer la récupération du fichier.
+11. Passez en revue les informations de résumé et sélectionnez **Récupérer** pour commencer la récupération du fichier.
 
     ![Résumé de la récupération](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Sélectionnez maintenant l’onglet **Surveillance** dans la **console administrateur du serveur de sauvegarde Azure** pour afficher **l’état** de la récupération.
@@ -203,7 +203,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
    > Comme la batterie de serveurs SharePoint est protégée pour une conservation à long terme dans Azure, aucune information du catalogue (métadonnées) n’est disponible sur le serveur MABS. Par conséquent, chaque fois qu’une base de données contenu SharePoint ponctuelle doit être récupérée, vous devez de nouveau cataloguer la batterie de serveurs SharePoint.
    >
    >
-3. Cliquez sur **Recataloguer**.
+3. Sélectionnez **Recataloguer**.
 
     ![MABS SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -211,10 +211,10 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Une fois le catalogage terminé, l’état passe à *Succès*. Cliquez sur **Fermer**.
+    Une fois le catalogage terminé, l’état passe à *Succès*. Sélectionnez **Fermer**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Cliquez sur l’objet SharePoint affiché dans l’onglet **Récupération** du serveur de sauvegarde Azure pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis cliquez sur **Récupérer**.
+4. Sélectionnez l’objet SharePoint affiché sous l’onglet **Récupération** du serveur de sauvegarde Azure pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Récupérer**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. À ce stade, suivez les étapes de récupération mentionnées précédemment dans cet article pour la récupération d’une base de données de contenu SharePoint à partir du disque.
@@ -249,7 +249,7 @@ La procédure suivante utilise l’exemple d’une batterie de serveurs avec deu
 
 1. Sur *Server2*, sur une invite de commandes, remplacez le répertoire par `_MABS installation location_\bin\` et exécutez **ConfigureSharepoint**. Pour plus d’informations sur ConfigureSharePoint, consultez [Configurer la sauvegarde](#configure-backup).
 
-1. Sélectionnez le groupe de protection auquel appartient la batterie de serveurs, puis cliquez sur **Modifier le groupe de protection**.
+1. Sélectionnez le groupe de protection auquel appartient la batterie de serveurs, puis sélectionnez **Modifier le groupe de protection**.
 
 1. Dans l’Assistant modifier le groupe, sur la page **Sélectionner les membres du groupe**, développez *Server2* et sélectionnez la batterie de serveurs, puis terminez l’Assistant.
 

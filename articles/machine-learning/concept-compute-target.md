@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141923"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146728"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -33,7 +33,7 @@ La prise en charge d’Azure Machine Learning varie selon les ressources de calc
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-En savoir plus sur [la configuration et l’utilisation d’une cible de calcul pour l’entraînement du modèle](how-to-set-up-training-targets.md).
+Apprenez-en davantage sur l’[utilisation d’une cible de calcul pour l’entraînement de modèle](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Cibles de déploiement
 
@@ -46,10 +46,10 @@ Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcul Azure Machine Learning (managé)
 
-Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. Les clusters de calcul Azure Machine Learning et les [instances de calcul](concept-compute-instance.md) sont les seuls calculs managés. Il se peut que d’autres ressources de calcul managées soient ajoutées à l’avenir.
+Une ressource de calcul managée est créée et managée par Azure Machine Learning. Ce calcul est optimisé pour les charges de travail Machine Learning. Les clusters de calcul Azure Machine Learning et les [instances de calcul](concept-compute-instance.md) sont les seuls calculs managés. 
 
 Vous pouvez créer des instances de calcul Azure Machine Learning ou des clusters de calcul depuis :
-* Azure Machine Learning Studio
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portail Azure
 * Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) et [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) du Kit de développement logiciel (SDK) Python
 * [Kit de développement logiciel (SDK) R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (préversion)
@@ -68,7 +68,7 @@ Une fois créées, ces instances de calcul font automatiquement partie de votre 
 
 
 > [!NOTE]
-> Quand un cluster de calcul est inactif, il adapte son échelle automatiquement à 0 nœud, ce qui vous évite de payer quand il n’est pas utilisé.  Cependant, une *instance* de calcul est toujours activée et n’adapte pas son échelle automatiquement.  Vous devez [arrêter l’instance de calcul](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quand vous ne l’utilisez pas pour éviter des frais supplémentaires.
+> Quand un cluster de calcul est inactif, il adapte son échelle automatiquement à 0 nœud, ce qui vous évite de payer quand il n’est pas utilisé.  Cependant, une *instance* de calcul est toujours activée et n’adapte pas son échelle automatiquement.  Vous devez [arrêter l’instance de calcul](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quand vous ne l’utilisez pas pour éviter des frais supplémentaires. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
 
@@ -107,5 +107,5 @@ Une cible de calcul non managée n’est *pas* managée par Azure Machine Learni
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment :
-* [Configurer une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md)
+* [Utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md)
 * [Déployer votre modèle sur une cible de calcul](how-to-deploy-and-where.md)

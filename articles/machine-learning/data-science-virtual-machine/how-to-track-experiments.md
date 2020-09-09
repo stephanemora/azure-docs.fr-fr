@@ -1,7 +1,7 @@
 ---
 title: Suivi des expériences et déploiement de modèles
 titleSuffix: Azure Data Science Virtual Machine
-description: Découvrez comment suivre et journaliser les expériences à partir de DSVM avec le service Azure Machine Learning et/ou MLFlow.
+description: Découvrez comment suivre et journaliser les expériences à partir de Data Science Virtual Machine avec Azure Machine Learning et/ou MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817105"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254781"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Suivre les expériences et déployer des modèles dans AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Suivi des expériences et déployer des modèles dans Azure Machine Learning
 
 Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques d'exécution. Dans cet article, découvrez comment ajouter du code de journalisation à votre script d’entraînement à l’aide de l’API [MLflow](https://mlflow.org/) et comment suivre l’expérience dans Azure Machine Learning.
 
@@ -40,7 +40,7 @@ Accédez au [portail Azure](https://portal.azure.com) et sélectionnez l’espac
 
 ![Obtenir le fichier de configuration](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-La configuration contient des informations comme le nom de l’espace de travail, l’abonnement, etc. ; cela signifie que vous n’avez pas besoin de coder en dur ces paramètres.
+La configuration contient des informations comme le nom de l’espace de travail, l’abonnement, et ainsi de suite ; cela signifie que vous n’avez pas besoin de coder en dur ces paramètres.
 
 ## <a name="track-dsvm-runs"></a>Suivre les exécutions de DSVM
 
@@ -177,9 +177,9 @@ Une fois le modèle déployé, voici les informations qui doivent s’afficher (
 
 ![Consommer le modèle](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Vous remarquerez que l’état du déploiement passe de __transition en cours__ à __sain__. Par ailleurs, cette section d’informations présente le point de terminaison REST et les URL Swagger qu’un développeur d’applications peut utiliser pour intégrer votre modèle ML à ses applications.
+Vous devriez voir que l’état du déploiement passe de __transition en cours__ à __sain__. Par ailleurs, cette section d’informations présente le point de terminaison REST et les URL Swagger qu’un développeur d’applications peut utiliser pour intégrer votre modèle ML à ses applications.
 
-Vous pouvez tester le point de terminaison en utilisant [Postman](https://www.postman.com/). L’autre solution consiste à utiliser le SDK AzureML :
+Vous pouvez tester le point de terminaison en utilisant [Postman](https://www.postman.com/), ou utiliser le SDK AzureML :
 
 ```python
 from azureml.core import Webservice
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Étape 4 : Nettoyer
 
-Vous devez supprimer la capacité de calcul d’inférence que vous avez créée à l’étape 1 pour éviter d’avoir à continuer de supporter des frais de calcul. Dans le menu de gauche d’Azure Machine Learning Studio, cliquez sur Capacité de calcul > Clusters d’inférence > Sélectionnez Capacité de calcul > Supprimer.
+Supprimez la capacité de calcul d’inférence que vous avez créée à l’étape 1 pour éviter d’avoir à continuer de supporter des frais de calcul. Dans le menu de gauche d’Azure Machine Learning Studio, cliquez sur Calcul > Clusters d’inférence > Sélectionnez le calcul > Supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

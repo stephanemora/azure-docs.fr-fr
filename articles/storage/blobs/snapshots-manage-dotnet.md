@@ -1,26 +1,27 @@
 ---
 title: Créer et gérer un instantané blob dans .NET
 titleSuffix: Azure Storage
-description: Découvrez comment créer un instantané d’un blob en lecture seule pour sauvegarder des données blob à un moment donné.
+description: Découvrez comment utiliser la bibliothèque cliente .NET pour créer un instantané en lecture seule d’un objet blob et sauvegarder ainsi les données de l’objet blob à un instant T.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185279"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226129"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Créer et gérer un instantané blob dans .NET
 
 Un instantané est une version en lecture seule d'un objet blob capturé à un instant donné. Cet article explique comment créer ou gérer des instantanés blob à l’aide de la [bibliothèque de client de Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Pour plus d’informations sur les instantanés d’objets blob dans le stockage Azure, consultez [Créer et gérer un instantané blob dans .NET](snapshots-overview.md).
+Pour plus d’informations sur les instantanés d’objet blob dans le Stockage Azure, consultez [Instantanés d’objet blob](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -161,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Instantanés d’objet blob](snapshots-overview.md)
-- [Versions d’objets blob (préversion)](versioning-overview.md)
+- [Versions d’objets blob](versioning-overview.md)
 - [Suppression réversible pour les objets blob](storage-blob-soft-delete.md)

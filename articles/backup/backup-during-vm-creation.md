@@ -3,12 +3,12 @@ title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892301"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377333"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -26,14 +26,14 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 
 ## <a name="create-a-vm-with-backup-configured"></a>Créer une machine virtuelle avec sauvegarde configurée
 
-1. Dans le portail Azure, cliquez sur **Créer une ressource**.
+1. Dans le portail Azure, sélectionnez **Créer une ressource**.
 
-2. Dans Place de marché Azure, cliquez sur **Calcul**, puis sélectionnez une image de machine virtuelle.
+2. Dans Place de marché Azure, sélectionnez **Calcul**, puis sélectionnez une image de machine virtuelle.
 
 3. Configurez la machine virtuelle conformément aux instructions [Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux](../virtual-machines/linux/quick-create-portal.md).
 
-4. Sous l’onglet **Gestion**, dans **Activer la sauvegarde**, cliquez sur **Activé**.
-5. Sauvegarde Azure sauvegarde dans un coffre Recovery Services. Cliquez sur **Créer** si vous n’avez pas de coffre.
+4. Sous l’onglet **Gestion**, dans **Activer la sauvegarde**, sélectionnez **Activé**.
+5. Sauvegarde Azure sauvegarde dans un coffre Recovery Services. Sélectionnez **Créer** si vous n’avez pas de coffre.
 6. Acceptez le nom de coffre suggéré ou spécifiez le vôtre.
 7. Spécifiez ou créez un groupe de ressources dans lequel se trouvera le coffre. Le groupe de ressources du coffre peut être différent du groupe de ressources de la machine virtuelle.
 
@@ -76,8 +76,8 @@ Votre sauvegarde de machine virtuelle s’exécute conformément à votre strat�
 
 Une fois la machine virtuelle créée, effectuez les étapes suivantes :
 
-1. Dans les propriétés de la machine virtuelle, cliquez sur **Sauvegarde**. L’état de la machine virtuelle est « Sauvegarde initiale en attente » jusqu’à ce que la sauvegarde initiale s’exécute.
-2. Cliquez sur **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
+1. Dans les propriétés de la machine virtuelle, sélectionnez **Sauvegarde**. L’état de la machine virtuelle est « Sauvegarde initiale en attente » jusqu’à ce que la sauvegarde initiale s’exécute.
+2. Sélectionnez **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
 
     ![Exécuter une sauvegarde à la demande](./media/backup-during-vm-creation/run-backup.png)
 

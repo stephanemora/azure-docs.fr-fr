@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c97009a69c937863a5776d63bab1c994a8a9160
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007605"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400634"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Se connecter à Windows Virtual Desktop avec le client web
 
@@ -41,11 +41,32 @@ Dans un navigateur, accédez à la version du client web de Windows Virtual Desk
 
 >[!NOTE]
 >Si vous utilisez Windows Virtual Desktop (classique) sans l’intégration dans Azure Resource Manager, connectez-vous à vos ressources à l’adresse <https://rdweb.wvd.microsoft.com/webclient> à la place.
+>
+> Si vous utilisez le portail US Gov, utilisez <https://rdweb.wvd.azure.us/arm/webclient/index.html>.
 
 >[!NOTE]
 >Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
 Une fois que vous êtes connecté, une liste de ressources apparaît. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans l’onglet **Toutes les ressources**.
+
+## <a name="using-an-input-method-editor"></a>Utilisation d’un éditeur de méthode d’entrée
+
+Le client web prend en charge l’utilisation d’un éditeur de méthode d’entrée (IME) dans la session à distance dans la version **1.0.21.16 ou ultérieure**. Le module linguistique pour le clavier que vous souhaitez utiliser dans la session à distance doit être installé sur la machine virtuelle hôte. Pour en savoir plus sur la configuration des modules linguistiques dans la session à distance, consultez [Ajouter des modules linguistiques à une image Windows 10 multisession](language-packs.md).
+
+Pour activer l’entrée IME à l’aide du client web :
+
+1. Avant de vous connecter à la session à distance, accédez au panneau **Paramètres** du client web.
+
+2. Changez le paramètre **Activer l’éditeur de méthode d’entrée** sur **Activé**.
+
+3. Dans le menu déroulant, sélectionnez le clavier que vous allez utiliser dans la session à distance.
+
+4. Connectez-vous à la session à distance.
+
+Le client web supprime la fenêtre IME locale lorsque vous utilisez la session à distance. Changer les paramètres IME après vous être connecté à la session à distance n’aura aucun effet.
+
+>[!NOTE]
+>Si le module linguistique n’est pas installé sur la machine virtuelle hôte, la session à distance utilise par défaut le clavier Anglais (États-Unis).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

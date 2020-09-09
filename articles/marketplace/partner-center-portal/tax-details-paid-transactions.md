@@ -1,44 +1,43 @@
 ---
 title: Détails des taxes pour la place de marché commerciale de Microsoft
 Description: Pour comprendre vos motifs fiscaux pour la sélection des prix, les implications en termes de paiement et la responsabilité fiscale, consultez vos pays/régions de distribution dans les tableaux ci-dessous.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 82e70c128b64f0574050c17d5e40509995488666
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319930"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378336"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Détails des taxes pour les éditeurs de la place de marché commerciale
 
-Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabilité fiscale dans le cadre du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) ou du contrat d’éditeur moderne, consultez vos pays/régions de distribution dans les tableaux ci-dessous.
+Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabilité fiscale dans le cadre du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) ou du contrat d’éditeur moderne, consultez vos pays/régions de distribution dans les tableaux suivants.
 
-> [!NOTE]
-> L’ajustement relatif à l’expansion du commerce peut avoir des implications de paiement dans un nombre limité de pays/régions. Pour plus d’informations sur l’ajustement relatif à l’expansion du commerce et sur les marchés auxquels il s’applique, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) et la liste des pays/régions concernés.
+L’ajustement relatif à l’expansion du commerce peut avoir des implications de paiement dans un nombre limité de pays/régions. Pour plus d’informations sur l’ajustement relatif à l’expansion du commerce et sur les marchés auxquels il s’applique, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) et la liste des pays/régions concernés.
 
 > [!IMPORTANT]
 > La responsabilité fiscale pour les pays/régions et la situation financière des revendeurs (comme décrit [ci-dessous](#reseller-countriesregions)) est couverte par l’annexe A du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560), nonobstant les informations du tableau ci-dessous.
 > Notez que la colonne **Implication de paiement** s’applique uniquement aux éditeurs. Les taux d’imposition notés dans cette colonne sont susceptibles d’être modifiés à tout moment, et Microsoft ne peut pas garantir que les taux indiqués dans les tableaux ci-dessous seront toujours exacts.
 
-| Pays/région                   | Motif fiscal pour la sélection des prix                                                                                                             | Implication de paiement                    | Responsabilité fiscale |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| Pays/région  | Motif fiscal pour la sélection des prix  | Implication de paiement  | Responsabilité fiscale |
+|---|---|---|---|
 | Afghanistan                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Albanie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Algérie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Samoa américaines                   | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Andorre                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
-| Anguilla                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Angola                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
+| Anguilla                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Antarctique                       | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Antigua-et-Barbuda              | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Argentine                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.  | Prix moins les frais de Store  | Serveur de publication          |
 | Arménie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins 20 % de taxe, moins les frais de Store       | Microsoft          |
 | Aruba                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
-| Australie                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                             | Prix moins 10 % de taxe, moins les frais de Store             | Microsoft          |
+| Australie                        | Le prix en cours de sélection exclut les taxes applicables.*        | Prix moins les frais de Store*        | Microsoft          |
 | Autriche                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 20 % de taxe, moins les frais de Store     | Microsoft          |
 | Azerbaïdjan                       | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Bahamas                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -83,7 +82,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Croatie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 25 % de taxe, moins les frais de Store   | Microsoft          |
 | Curaçao                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Chypre                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 19 % de taxe, moins les frais de Store  | Microsoft          |
-| République tchèque                   | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 21 % de taxe, moins les frais de Store   | Microsoft        |
+| Tchéquie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 21 % de taxe, moins les frais de Store   | Microsoft        |
 | Danemark                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.       | Prix moins 25 % de taxe, moins les frais de Store   | Microsoft          |
 | Djibouti                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Dominique                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -148,7 +147,6 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Lituanie                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 21 % de taxe, moins les frais de Store | Microsoft          |
 | Luxembourg                       | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 17 % de taxe, moins les frais de Store | Microsoft          |
 | Macao R.A.S.                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
-| Macédoine du Nord                | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Madagascar                       | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Malawi                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Malaisie                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -180,6 +178,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Nigeria                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Niue                             | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Norfolk (île)                   | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
+| Macédoine du Nord                | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Îles Marianne du Nord         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Norvège                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 25 % de taxe, moins les frais de Store | Microsoft          |
 | Oman                             | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -258,10 +257,12 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Zambie                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Zimbabwe                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 
+\* Pour les achats effectués via tous les scénarios d’achat client, sauf Contrat Entreprise.
+
 Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de marché Azure, nonobstant toute disposition contraire ci-dessus :
 
-| Pays/région                   | Motif fiscal pour la sélection des prix                                                                                                             | Gestion fiscale                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Pays/région | Motif fiscal pour la sélection des prix | Gestion fiscale |
+| --- |--- | --- |
 | Australie (pour les achats effectués via tous les scénarios d’achat client, sauf Contrat Entreprise) | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Microsoft |
 | Australie (uniquement pour les achats effectués par le biais du scénario d’achat client Contrat Entreprise) | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Serveur de publication |
 | Brésil | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Éditeur (**consultez Pays/régions des revendeurs**) |
@@ -287,6 +288,6 @@ Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de m
 | Brésil (pour les achats effectués via tous les scénarios d’achat client, sauf CSP) |
 | Mexique (uniquement pour les achats effectués par le biais du scénario d’achat client Contrat Entreprise) |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 [Configurer votre compte de paiement et vos déclarations de taxe](set-up-your-payout-account-tax-forms.md)

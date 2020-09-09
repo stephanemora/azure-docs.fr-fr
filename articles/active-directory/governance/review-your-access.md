@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077929"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292722"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser votre accès à des groupes ou applications dans Azure AD
 
@@ -33,7 +33,7 @@ Cet article décrit comment réviser votre propre accès à un groupe ou une app
 La première étape pour effectuer une révision d’accès consiste à rechercher et ouvrir la révision d’accès.
 
 >[!IMPORTANT]
-> Il peut y avoir des retards dans la réception de l’e-mail et, dans certains cas, cela peut prendre jusqu’à 24 heures. Liste verte azure-noreply@microsoft.com pour vous assurer que vous recevez tous les e-mails.
+> Il peut y avoir des retards dans la réception de l’e-mail et, dans certains cas, cela peut prendre jusqu’à 24 heures. Ajoutez azure-noreply@microsoft.com à votre liste de destinataires approuvés pour vous assurer de recevoir tous les e-mails.
 
 1. Recherchez un e-mail de Microsoft vous invitant à réviser les accès. Voici un exemple d’e-mail vous invitant à réviser votre accès à un groupe.
 
@@ -106,7 +106,7 @@ Vous pouvez essayer la nouvelle expérience avec l’interface utilisateur mise 
 ### <a name="email"></a>E-mail
 
 >[!IMPORTANT]
-> Il peut y avoir des retards dans la réception de l’e-mail et, dans certains cas, cela peut prendre jusqu’à 24 heures. Liste verte azure-noreply@microsoft.com pour vous assurer que vous recevez tous les e-mails.
+> Il peut y avoir des retards dans la réception de l’e-mail et, dans certains cas, cela peut prendre jusqu’à 24 heures. Ajoutez azure-noreply@microsoft.com à votre liste de destinataires approuvés pour vous assurer de recevoir tous les e-mails.
 
 1. Recherchez un e-mail de Microsoft vous invitant à réviser les accès. Vous pouvez voir un exemple d’e-mail ci-dessous :
 

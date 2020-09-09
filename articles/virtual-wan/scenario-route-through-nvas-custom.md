@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987196"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400005"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau – Personnalisé (préversion)
 
@@ -40,7 +40,7 @@ La matrice de connectivité suivante résume les flux pris en charge dans ce sc�
 | **Réseau virtuel DMZ** | &#8594;|       X |            X |      X    |      X       |
 | **Branches** | &#8594;|  statique |            X |      X    |      X       |
 
-Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique) pour un flux de trafic spécifique. Passons en revue les différentes lignes :
+Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique) pour un flux de trafic spécifique. Un « X » signifie que la connectivité est fournie en mode natif par Virtual WAN, et « Statique » signifie que la connectivité est assurée par Virtual WAN par le biais de routes statiques. Passons en revue les différentes lignes :
 
 * Spokes NVA :
   * Les spokes atteindront d’autres spokes directement via des hubs Virtual WAN.

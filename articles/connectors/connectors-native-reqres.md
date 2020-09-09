@@ -5,18 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289433"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226512"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête et l’action Réponse intégrés, vous pouvez créer des tâches et des workflows automatisés qui reçoivent les requêtes HTTP entrantes et y répondent. Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur de requête et l’action de réponse intégrés, vous pouvez créer des tâches et des workflows automatisés capables de recevoir des requêtes entrantes sur HTTPS. Pour envoyer plutôt des requêtes sortantes, utilisez le [déclencheur HTTP ou l’action HTTP](../connectors/connectors-native-http.md) intégrés.
+
+Par exemple, vous pouvez appliquer les actions suivantes à votre application logique :
 
 * Recevoir et répondre à une requête HTTP pour des données situées dans une base de données locale.
 
@@ -24,47 +26,28 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
-Le déclencheur de requête prend en charge [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) pour autoriser les appels entrants adressés à votre application logique. Pour plus d’informations sur l’activation de cette authentification, consultez [Accès et données sécurisés dans Azure Logic Apps : Activer l’authentification Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Cet article explique comment utiliser le déclencheur de requête et l’action de réponse pour que votre application logique puisse recevoir des appels entrants et y répondre.
+
+Pour plus d’informations sur le chiffrement, la sécurité et l’autorisation pour les appels entrants à votre application logique, comme le [protocole TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment connu sous le nom de protocole SSL ou [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consultez [Sécuriser l’accès et les données - Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Connaissances de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
-
-* Les appels entrants prennent en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2. Si vous constatez des erreurs de liaison TLS, assurez-vous d’utiliser le protocole TLS 1.2. Pour plus d'informations, consultez [Résolution du problème lié au protocole TLS 1.0](/security/solving-tls1-problem). Les appels sortants prennent en charge les protocoles TLS 1.0, 1.1 et 1.2 en fonction de la capacité du point de terminaison cible.
-
-* Les appels entrants prennent en charge les suites de chiffrement suivantes :
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](../logic-apps/logic-apps-overview.md) ?
 
 <a name="add-request"></a>
 
 ## <a name="add-request-trigger"></a>Ajouter un déclencheur de requête
 
-Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être appelé manuellement et peut recevoir *uniquement* des requête HTTPS entrantes. Lorsque cet événement se produit, le déclencheur s’active et exécute l’application logique. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur la façon d’appeler ce dernier, consultez [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTPS dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Ce déclencheur intégré crée un point de terminaison manuellement appelable qui peut gérer *uniquement* des requêtes entrantes sur HTTPS. Quand un appelant envoie une requête à ce point de terminaison, le [déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) déclenche et exécute l’application logique. Pour plus d’informations sur la manière d’appeler ce déclencheur, consultez [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTPS dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Votre application logique garde une requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#request-limits). En supposant que votre application logique inclue une [action de réponse](#add-response), si elle ne renvoie pas de réponse à l’appelant une fois ce délai écoulé, elle lui renvoie un état `504 GATEWAY TIMEOUT`. Si votre application logique n’inclut pas d’action de réponse, 
+> votre application logique retourne immédiatement un état `202 ACCEPTED` à l’appelant.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide.
 
-1. Une fois que le concepteur d’applications logiques s’ouvre, entrez `http request` comme filtre dans la zone de recherche. Dans la liste de déclencheurs, sélectionnez le déclencheur **Quand une requête HTTP est reçue**, qui est la première étape du flux de travail de votre application logique.
+1. Une fois que le concepteur d’applications logiques s’ouvre, entrez `http request` comme filtre dans la zone de recherche. Dans la liste des déclencheurs, sélectionnez **Lors de la réception d’une requête HTTP**.
 
    ![Sélectionner le déclencheur de requête](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -144,11 +127,11 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
 
    1. Dans le déclencheur de requête, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
 
-      ![Générer un schéma à partir de la charge utile](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Capture d’écran montrant l’option « Utiliser l’exemple de charge utile pour générer le schéma » sélectionnée](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Entrez l’exemple de charge utile, puis sélectionnez **Terminé**.
 
-      ![Générer un schéma à partir de la charge utile](./media/connectors-native-reqres/enter-payload.png)
+      ![Entrer l’exemple de charge utile pour générer le schéma](./media/connectors-native-reqres/enter-payload.png)
 
       Voici l'exemple de charge utile :
 
@@ -210,11 +193,9 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
 
 1. Pour déclencher votre application logique, envoyez une requête HTTP à l’URL générée.
 
-   Par exemple, vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/) pour envoyer la requête POST HTTP. Si vous avez [activé Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête, appelez le déclencheur à l’aide d’une [URL de signature d’accès partagé (SAP)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) ou d’un jeton d’authentification, mais vous ne pouvez pas utiliser les deux. Le jeton d’authentification doit spécifier le type `Bearer` dans l’en-tête d’autorisation. Pour plus d’informations, consultez [Accès et données sécurisés dans Azure Logic Apps : Accès aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Par exemple, vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/) pour envoyer la requête POST HTTP. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur la façon d’appeler ce dernier, consultez ces rubriques : [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur la façon d’appeler ce dernier, consultez ces rubriques : [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-### <a name="trigger-outputs"></a>Sorties du déclencheur
+## <a name="trigger-outputs"></a>Sorties du déclencheur
 
 Voici plus d’informations sur les sorties du déclencheur de requête :
 
@@ -228,9 +209,7 @@ Voici plus d’informations sur les sorties du déclencheur de requête :
 
 ## <a name="add-a-response-action"></a>Ajouter une action Réponse
 
-Vous pouvez utiliser l’action Réponse pour répondre avec une charge utile (données) à une requête HTTPS entrante, mais uniquement dans une application logique qui est déclenchée par une requête HTTPS. Vous pouvez ajouter l’action Réponse à n’importe quelle phase de votre workflow. Pour plus d’informations sur la définition JSON sous-jacente pour ce déclencheur, consultez [Type d’action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-Votre application logique garde la requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#request-limits). En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
+Quand vous utilisez le déclencheur de requête pour gérer les requêtes entrantes, vous pouvez modéliser la réponse et renvoyer les résultats de la charge utile à l’appelant à l’aide de l’[action de réponse](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action) intégrée. Vous pouvez utiliser l’action de réponse *uniquement* avec le déclencheur de requête. Cette combinaison avec le déclencheur de requête et l’action de réponse crée le [modèle requête-réponse](https://en.wikipedia.org/wiki/Request%E2%80%93response). Vous pouvez ajouter l’action de réponse n’importe où dans votre workflow, sauf à l’intérieur des boucles Foreach et Until, et des branches parallèles.
 
 > [!IMPORTANT]
 > Si une action Réponse contient les en-têtes ci-dessous, Logic Apps les supprime du message de réponse généré sans afficher d’avertissement ou d’erreur :
@@ -253,7 +232,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Sous **Choisir une action**, dans la zone de recherche, entrez « réponse » comme filtre, puis sélectionnez l'action **Réponse**.
+1. Sous **Choisir une action**, dans la zone de recherche, entrez `response` comme filtre, puis sélectionnez l’action **Réponse**.
 
    ![Sélectionner l’action Réponse](./media/connectors-native-reqres/select-response-action.png)
 
@@ -286,5 +265,5 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Sécuriser l’accès et les données - Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Connecteurs pour Logic Apps](../connectors/apis-list.md)
-

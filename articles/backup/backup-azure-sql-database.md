@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server sur Azure
 description: Cet article explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892437"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376534"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -66,11 +66,11 @@ Pour toutes les autres versions, corrigez les autorisations en procédant comme 
 
       ![Dans la boîte de dialogue Connexion - Nouveau, sélectionnez Rechercher](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Le compte de service virtuel Windows **NT SERVICE\AzureWLBackupPluginSvc** a été créé pendant la phase d’inscription de la machine virtuelle et de découverte SQL. Entrez le nom du compte, comme indiqué dans **Entrez le nom de l’objet à sélectionner**. Sélectionnez **Vérifier les noms** pour résoudre le nom. Cliquez sur **OK**.
+  4. Le compte de service virtuel Windows **NT SERVICE\AzureWLBackupPluginSvc** a été créé pendant la phase d’inscription de la machine virtuelle et de découverte SQL. Entrez le nom du compte, comme indiqué dans **Entrez le nom de l’objet à sélectionner**. Sélectionnez **Vérifier les noms** pour résoudre le nom. Sélectionnez **OK**.
 
       ![Cliquer sur Vérifier les noms pour résoudre le nom de service inconnu](./media/backup-azure-sql-database/check-name.png)
 
-  5. Dans **Rôles du serveur**, assurez-vous que le rôle **sysadmin** (administrateur système) est sélectionné. Cliquez sur **OK**. Les autorisations requises doivent désormais exister.
+  5. Dans **Rôles du serveur**, assurez-vous que le rôle **sysadmin** (administrateur système) est sélectionné. Sélectionnez **OK**. Les autorisations requises doivent désormais exister.
 
       ![S’assurer que le rôle serveur administrateur système est sélectionné](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,23 +91,23 @@ Ajouter des connexions **NT AUTHORITY\SYSTEM** et **NT Service\AzureWLBackupPlug
 
 1. Accédez à l’Instance SQL Server dans l’Explorateur d’objets.
 2. Accédez à Sécurité -> Connexions
-3. Cliquez avec le bouton droit sur Connexions, puis sélectionnez *Nouvelle connexion*.
+3. Cliquez avec le bouton droit sur les connexions, puis sélectionnez *Nouvelle connexion*.
 
     ![Nouvelle connexion à l’aide de SSML](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Accédez à l’onglet Général et entrez **NT AUTHORITY\SYSTEM** en tant que nom de connexion.
 
-    ![nom de connexion pour SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nom de connexion pour SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Accédez à *Rôles de serveur*, puis choisissez les rôles *public* et *sysadmin*.
 
-    ![choix de rôles dans SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Choix de rôles dans SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Cliquez sur *État*. *Accordez* l’autorisation de se connecter au moteur de base de données et de se connecter en tant que *Activé*.
 
     ![Accorder des autorisations dans SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Cliquez sur OK.
+7. Sélectionnez OK.
 8. Répétez la même séquence d’étapes (1 à 7 ci-dessus) pour ajouter la connexion NT Service\AzureWLBackupPluginSvc à l’instance SQL Server. Si la connexion existe, assurez-vous qu’elle a le rôle serveur sysadmin et que, sous État, l’autorisation lui est accordée de se connecter au moteur de base de données et de se connecter en tant que Activé.
 9. Une fois l’autorisation octroyée, **redécouvrez les bases de données** dans le portail : Coffre **->** Infrastructure de sauvegarde **->** Charge de travail dans machine virtuelle Azure :
 

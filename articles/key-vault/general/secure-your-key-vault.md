@@ -1,6 +1,6 @@
 ---
-title: Sécuriser l’accès à un coffre de clés - Azure Key Vault | Microsoft Docs
-description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
+title: Sécuriser l’accès à un coffre de clés
+description: Modèle d’accès pour Azure Key Vault, notamment les points de terminaison de ressources et l’authentification Active Directory.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: f9995b82c1dc437cdaa2f9f987abba3e9681454a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b9269974359bacc1609ece34ab8c7549d55348eb
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926754"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377520"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -35,10 +35,11 @@ Les deux plans utilisent Azure Active Directory (Azure AD) pour l’authentific
 
 Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Tous les appelants dans les deux plans doivent s’inscrire auprès de ce locataire et s’authentifier pour accéder au coffre de clés. Dans les deux cas, les applications peuvent accéder au coffre de clés de deux façons :
 
-- **Accès utilisateur plus application** : l’application accède au coffre de clés pour le compte d’un utilisateur connecté. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. L’accès utilisateur est accordé de deux manières. Les utilisateurs peuvent accéder au coffre de clés à partir de n’importe quelle application ou ils doivent utiliser une application spécifique (appelée _identité composée_).
-- **Accès application uniquement** : L’application s’exécute comme service de démon ou travail en arrière-plan. L’identité de l’application se voit octroyer l’accès au coffre de clés.
+- **Application uniquement** : l’application représente un service ou un travail en arrière-plan. Il s’agit du scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, l’`objectId` de l’application doit être spécifié dans la stratégie d’accès, et l’`applicationId` ne doit _pas_ être spécifié ou doit être `null`.
+- **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, l’`objectId` de l’utilisateur doit être spécifié dans la stratégie d’accès, et l’`applicationId` ne doit _pas_ être spécifié ou doit être `null`.
+- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. L’`applicationId` identifie l’application requise et l’`objectId` identifie l’utilisateur.
 
-Pour les deux types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 Le modèle d’un mécanisme d’authentification unique auprès des deux plans présente plusieurs avantages :
 

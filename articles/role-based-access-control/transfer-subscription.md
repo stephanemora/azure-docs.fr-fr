@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029975"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400542"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory (préversion)
 
@@ -28,18 +28,21 @@ Les organisations peuvent avoir plusieurs abonnements Azure. Chaque abonnement e
 
 Cet article décrit les étapes de base que vous pouvez suivre pour transférer un abonnement vers un autre annuaire Azure AD et recréer certaines des ressources après le transfert.
 
+> [!NOTE]
+> Pour les abonnements aux fournisseurs de services cloud (CSP) Azure, le changement d’annuaire Azure AD pour l’abonnement n’est pas pris en charge.
+
 ## <a name="overview"></a>Vue d’ensemble
 
 Le transfert d’un abonnement Azure vers un autre annuaire Azure AD est un processus complexe qui doit être soigneusement planifié et exécuté. De nombreux services Azure requièrent des principaux de sécurité (identités) pour fonctionner normalement ou même gérer d’autres ressources Azure. Cet article tente de couvrir la plupart des services Azure qui dépendent fortement des principaux de sécurité, mais n’est pas exhaustif.
 
 > [!IMPORTANT]
-> Le transfert d’un abonnement nécessite un temps d’arrêt pour terminer le processus.
+> Dans certains scénarios, le transfert d’un abonnement peut nécessiter un temps d’arrêt pour effectuer le processus. Effectuez une planification soignée pour évaluer si un temps d’arrêt est à prévoir pour votre transfert.
 
 Le diagramme suivant illustre les étapes de base que vous devez suivre lorsque vous transférez un abonnement à un autre annuaire.
 
 1. Préparer le transfert
 
-1. Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
+1. Transfert de l’abonnement Azure vers un autre annuaire
 
 1. Recréer les ressources dans l’annuaire cible, comme les attributions de rôles, les rôles personnalisés et les identités managées
 
@@ -70,10 +73,10 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Rôles personnalisés | Oui | Oui | [Répertorier les rôles personnalisés](#save-custom-roles) | Tous les rôles personnalisés sont définitivement supprimés. Vous devez recréer les rôles personnalisés et les attributions de rôles. |
 | Identités managées attribuées par le système | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez désactiver et réactiver les identités managées. Vous devez recréer les attributions de rôles. |
 | Identités managées attribuées par l’utilisateur | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez supprimer, recréer et attacher les identités managées à la ressource appropriée. Vous devez recréer les attributions de rôles. |
-| Azure Key Vault | Oui | Oui | [Répertorier les stratégies d’accès Key Vault](#list-other-known-resources) | Vous devez mettre à jour l’ID de locataire associé aux coffres de clés. Vous devez supprimer et ajouter de nouvelles stratégies d’accès. |
-| Bases de données SQL Azure avec authentification Azure AD | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-other-known-resources) |  |  |
+| Azure Key Vault | Oui | Oui | [Répertorier les stratégies d’accès Key Vault](#list-key-vaults) | Vous devez mettre à jour l’ID de locataire associé aux coffres de clés. Vous devez supprimer et ajouter de nouvelles stratégies d’accès. |
+| Bases de données Azure SQL avec l’intégration de l’authentification Azure AD activée | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Stockage Azure et Azure Data Lake Storage Gen2 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
-| Azure Data Lake Storage Gen1 | Oui |  |  | Vous devez recréer toutes les listes de contrôle d’accès. |
+| Azure Data Lake Storage Gen1 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Files | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure File Sync | Oui | Oui |  |  |
 | Azure Disques managés | Oui | N/A |  |  |
@@ -81,7 +84,8 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Azure Active Directory Domain Services | Oui | Non |  |  |
 | Inscriptions des applications | Oui | Oui |  |  |
 
-Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est pas dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
+> [!WARNING]
+> Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est **pas** dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -218,9 +222,9 @@ Les identités managées ne sont pas mises à jour lorsqu’un abonnement est tr
 Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l’ID de client Azure Active Directory par défaut pour l’abonnement dans lequel il est créé. Toutes les entrées de stratégie d’accès sont également liées à cet ID de client. Pour plus d’informations, consultez [Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
-> Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est pas dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
+> Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est **pas** dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
 
-- Si vous avez un coffre de clés, utilisez [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) pour répertorier les stratégies d’accès. Pour plus d’informations, consultez [Fournir une authentification Key Vault avec une stratégie de contrôle d’accès](../key-vault/key-vault-group-permissions-for-apps.md).
+- Si vous avez un coffre de clés, utilisez [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) pour répertorier les stratégies d’accès. Pour plus d’informations, consultez [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -228,7 +232,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Répertorier les bases de données SQL Azure avec authentification Azure AD
 
-- Utilisez [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) et l’extension [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) pour déterminer si vous utilisez des bases de données SQL Azure avec l’authentification Azure AD. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Utilisez [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) et l’extension [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) pour déterminer si vous utilisez des bases de données Azure AD avec l’intégration de l’authentification Azure AD activée. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -258,16 +262,21 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Étape 2 : Transférer la propriété de facturation
+## <a name="step-2-transfer-the-subscription"></a>Étape 2 : Transférer l’abonnement
 
-Au cours de cette étape, vous allez transférer la propriété de facturation de l’abonnement de l’annuaire source vers l’annuaire cible.
+Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l’annuaire cible. Les étapes sont différentes si vous souhaitez également transférer la propriété de facturation.
 
 > [!WARNING]
-> Lorsque vous transférez la propriété de facturation de l’abonnement, toutes les attributions de rôles dans l’annuaire source sont **définitivement** supprimées et ne peuvent pas être restaurées. Vous ne pouvez pas revenir en arrière une fois que vous avez transféré la propriété de facturation de l’abonnement. Veillez à effectuer les étapes précédentes avant d’effectuer cette étape.
+> Lorsque vous transférez l’abonnement, toutes les attributions de rôles dans l’annuaire source sont **définitivement** supprimées et ne peuvent pas être restaurées. Vous ne pouvez pas revenir en arrière une fois que vous avez transféré l’abonnement. Veillez à effectuer les étapes précédentes avant d’effectuer cette étape.
 
-1. Suivez les étapes indiquées dans [Transfert de la propriété de facturation d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md). Pour transférer l’abonnement vers un autre annuaire Azure AD, vous devez cocher la case **Locataire Azure AD de l’abonnement**.
+1. Déterminez si vous souhaitez également transférer la propriété de facturation à un autre compte.
 
-1. Une fois que vous avez terminé le transfert de la propriété, revenez à cet article pour recréer les ressources dans l’annuaire cible.
+1. Transférer l’abonnement vers un autre annuaire.
+
+    - Si vous voulez conserver la propriété de facturation actuelle, effectuez les étapes décrites dans [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Si vous souhaitez également transférer la propriété de facturation, effectuez les étapes indiquées dans [Transférer la propriété de facturation d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md). Pour transférer l’abonnement vers un autre annuaire, vous devez cocher la case **Locataire Azure AD de l’abonnement**.
+
+1. Une fois que vous avez terminé le transfert de l’abonnement, revenez à cet article pour recréer les ressources dans l’annuaire cible.
 
 ## <a name="step-3-re-create-resources"></a>Étape 3 : Recréer les ressources
 

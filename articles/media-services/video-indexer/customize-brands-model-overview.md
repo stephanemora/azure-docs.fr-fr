@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: a1b2738e3be2e2b8a388ef80ca94764cdae99b08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0df698cb431e5e26c69047a9f464904f0546487
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047352"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294235"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personnaliser un modèle de marques dans Video Indexer
 
 Video Indexer prend en charge la détection de marques dans les messages vocaux et visuels lors de l’indexation et de la réindexation de contenu vidéo et audio. La fonctionnalité de détection de marques identifie les noms de produits, services et entreprises suggérés par la base de données de marques Bing. Par exemple, si le nom de Microsoft est mentionné dans du contenu vidéo ou audio, ou s’il apparaît sous forme de texte visuel dans une vidéo, Video Indexer le détecte et l’interprète comme un nom de marque dans le contenu. Les marques sont différenciées des autres termes à l’aide du contexte.
 
-La détection de marques est utile dans de nombreux scénarios d’entreprise tels que l’archivage et la découverte de contenus, la publicité contextuelle, l’analyse des réseaux sociaux, l’analyse de la concurrence dans la vente au détail, et bien plus encore. La détection des marques avec Video Indexer vous permet d’indexer les mentions de marques avec la reconnaissance vocale et visuelle du texte, la base de données de marques de Bing, ainsi qu’avec la personnalisation, en créant un modèle personnalisé de marques pour chaque compte Video Indexer. La fonction de modèle de marques personnalisé vous permet de choisir si Video Indexer doit détecter ou non les marques répertoriées dans la base de données de marques Bing, ne pas détecter certaines marques (création d’une liste rouge de marques) et inclure d’autres marques en plus de celles répertoriées dans la base de données de marques Bing (création d’une liste verte de marques). Le modèle de marque que vous créez ne sera disponible que dans le compte dans lequel vous l’avez créé.
+La détection de marques est utile dans de nombreux scénarios d’entreprise tels que l’archivage et la découverte de contenus, la publicité contextuelle, l’analyse des réseaux sociaux, l’analyse de la concurrence dans la vente au détail, et bien plus encore. La détection des marques avec Video Indexer vous permet d’indexer les mentions de marques avec la reconnaissance vocale et visuelle du texte, la base de données de marques de Bing, ainsi qu’avec la personnalisation, en créant un modèle personnalisé de marques pour chaque compte Video Indexer. La fonction de modèle de marques personnalisé vous permet de choisir si Video Indexer doit détecter ou non les marques répertoriées dans la base de données de marques Bing, ne pas détecter certaines marques (création d’une liste de marques non approuvées) et inclure d’autres marques en plus de celles répertoriées dans la base de données de marques Bing (création d’une liste de marques approuvées). Le modèle de marque que vous créez ne sera disponible que dans le compte dans lequel vous l’avez créé.
 
 ## <a name="out-of-the-box-detection-example"></a>Exemple de détection prête à l’emploi
 

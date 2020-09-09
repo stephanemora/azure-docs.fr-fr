@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771029"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303942"
 ---
 ### <a name="functional-limits"></a>Limitations fonctionnelles
 
@@ -42,7 +42,7 @@ Ce tableau reflète les limites de débit de différentes API.
 | API Modèles | Nombre de demandes par seconde | 100 | Oui |
 | API Digital Twins | Nombre de demandes par seconde | 1 000 | Oui |
 | API de requête | Nombre de demandes par seconde | 500 | Oui |
-| API de requête | Unités de requête par seconde | 4 000 | Oui |
+| API de requête | [Unités de requête](../articles/digital-twins/concepts-query-units.md) par seconde | 4 000 | Oui |
 | API Routage d’événement | Nombre de demandes par seconde | 100 | Oui |
 
 ### <a name="other-limits"></a>Autres limites

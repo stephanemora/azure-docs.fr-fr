@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893066"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145567"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -173,7 +173,7 @@ Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors
 
 Cette section décrit un scénario dans lequel votre machine source qui a été protégée avec MARS n’est plus disponible, car elle a été supprimée, endommagée, infectée par un programme malveillant/ransomware ou a été mise hors service.
 
-Pour ces machines, le service Sauvegarde Azure s’assure que le dernier point de récupération n’expire pas (c’est-à-dire qu’il n’est pas nettoyé) en fonction des règles de conservation spécifiées dans la stratégie de sauvegarde. Ainsi, vous pouvez restaurer la machine de manière sécurisée.  Envisagez les scénarios suivants que vous pouvez effectuer sur les données sauvegardées :
+Pour ces machines, le service Sauvegarde Azure vérifie que le point de récupération le plus récent n’expire pas (c’est-à-dire qu’il n’est pas nettoyé) en fonction des règles de conservation spécifiées dans la stratégie de sauvegarde. Ainsi, vous pouvez restaurer la machine de manière sécurisée.  Envisagez les scénarios suivants que vous pouvez effectuer sur les données sauvegardées :
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scénario 1 : La machine source n’est pas disponible et vous n’avez plus besoin de conserver les données de sauvegarde
 

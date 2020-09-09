@@ -8,26 +8,36 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141157"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226741"
 ---
 # <a name="supported-data-types"></a>Types de données pris en charge
 
 Le tableau suivant répertorie les types de données qu’Azure Time Series Insights Gen2 prend en charge
 
-| Type de données | Description | Exemple | Nom de la colonne de propriété dans Parquet
-|---|---|---|---|
-| **bool** | Type de données ayant l’un des deux états suivants : `true` ou `false`. | `"isQuestionable" : true` | isQuestionable_bool
-| **datetime** | Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure. Valeur exprimée au format [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). Les propriétés DateHeure sont toujours stockées au format UTC. Les décalages de fuseau horaire, s’ils sont correctement mis en forme, sont appliqués, puis la valeur stockée au format UTC. Pour plus d’informations sur la propriété horodateur de l’environnement et les décalages DateHeure, consultez [cette](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) section | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` | eventProcessedLocalTime_datetime
-| **double** | 64 bits double précision  | `"value": 31.0482941` | value_double
-| **long** | Entier 64 bits signé  | `"value" : 31` | value_long
-| **string** | Les valeurs de texte doivent être au format UTF-8 valide. Les chaînes Null et vides sont traitées de la même façon. |  `"site": "DIM_MLGGG"` | site_string
-| **dynamic** | Type complexe (non primitif) constitué d’un tableau ou d’un conteneur de propriétés (dictionnaire). À l’heure actuelle, seuls des tableaux JSON convertis de primitives ou des tableaux d’objets ne contenant pas l’ID TS ou les propriétés d’horodatage sont stockés comme dynamiques. Pour comprendre la façon dont les objets sont aplatis et les tableaux peuvent être déroulés, lisez cet [article](./concepts-json-flattening-escaping-rules.md) . Les propriétés de charge utile stockées comme ce type sont accessibles par le biais de l’Explorateur Azure Time Series Insights Gen2 et de l’API de requête  `GetEvents`. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
+| Type de données | Description | Exemple | [Syntaxe Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nom de la colonne de propriété dans Parquet
+|---|---|---|---|---|
+| **bool** | Type de données ayant l’un des deux états suivants : `true` ou `false`. | `"isQuestionable" : true` | `$event.isQuestionable.Bool` ou `$event['isQuestionable'].Bool` | `isQuestionable_bool`
+| **datetime** | Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure. Valeur exprimée au format [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). Les propriétés DateHeure sont toujours stockées au format UTC. Les décalages de fuseau horaire, s’ils sont correctement mis en forme, sont appliqués, puis la valeur stockée au format UTC. Pour plus d’informations sur la propriété horodateur de l’environnement et les décalages DateHeure, consultez [cette](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) section | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Si « eventProcessedLocalTime » est l’horodateur de la source de l’événement : `$event.$ts`. Si c’est une autre propriété JSON : `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
+| **double** | 64 bits double précision  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
+| **long** | Entier 64 bits signé  | `"value" : 31` | `$event.value.Long` ou `$event['value'].Long` |  `value_long`
+| **string** | Les valeurs de texte doivent être au format UTF-8 valide. Les chaînes Null et vides sont traitées de la même façon. |  `"site": "DIM_MLGGG"`| `$event.site.String` ou `$event['site'].String`| `site_string`
+| **dynamic** | Type complexe (non primitif) constitué d’un tableau ou d’un conteneur de propriétés (dictionnaire). À l’heure actuelle, seuls des tableaux JSON convertis de primitives ou des tableaux d’objets ne contenant pas l’ID TS ou les propriétés d’horodatage sont stockés comme dynamiques. Pour comprendre la façon dont les objets sont aplatis et les tableaux peuvent être déroulés, lisez cet [article](./concepts-json-flattening-escaping-rules.md) . Les propriétés de charge utile stockées avec ce type sont accessibles uniquement en sélectionnant `Explore Events` dans l’Explorateur TSI pour afficher les événements bruts, ou via l’[`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API de requête pour l’analyse côté client. |  `"values": "[197, 194, 189, 188]"` | Le référencement de types dynamiques dans une expression Time Series (TSX) n’est pas encore pris en charge | `values_dynamic`
+
+> [!NOTE]
+> Les valeurs entières de 64 bits sont prises en charge, mais le plus grand nombre que l’Explorateur Azure Time Series Insights peut correctement exprimer est 9 007 199 254 740 991 (2^53-1) en raison de limitations propres à JavaScript. Si vous utilisez des nombres plus grands dans votre modèle de données, vous pouvez réduire la taille en créant une [variable de modèle Time Series](/concepts-variables#numeric-variables) et en [convertissant](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) la valeur.
+
+> [!NOTE]
+> Le type **String** n’accepte pas les valeurs Null :
+>
+> * Une [expression Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) exprimée dans une [requête Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) qui compare la valeur d’une chaîne vide ( **''** ) par rapport à **NULL** se comporte de la même façon : `$event.siteid.String = NULL` équivaut à `$event.siteid.String = ''`.
+> * L’API peut retourner des valeurs **NULL** même si les événements d’origine contenaient des chaînes vides.
+> * N’établissez pas de dépendance sur des valeurs **NULL** dans des colonnes **String** pour effectuer des comparaisons ou des évaluations, mais traitez-les de la même façon que des chaînes vides.
 
 ## <a name="sending-mixed-data-types"></a>Envoi de types de données mixtes
 

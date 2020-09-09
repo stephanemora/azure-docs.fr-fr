@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120777"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068471"
 ---
 # <a name="publisher-verification-preview"></a>Vérification de l'éditeur (préversion)
 
@@ -42,13 +42,13 @@ Il existe quelques conditions préalables à la vérification de l'éditeur, don
 
 -  Un ID MPN pour un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) valide auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme. Ce compte MPN doit être le [compte global partenaire (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) de votre organisation. 
 
--  Un locataire Azure AD avec un [domaine personnalisé](../fundamentals/add-custom-domain.md) vérifié par DNS. Le domaine personnalisé doit correspondre au domaine de l'adresse e-mail utilisée lors de la vérification à l'étape précédente. 
+-  Une application inscrite auprès d’un locataire Azure AD, avec un [domaine d’éditeur](howto-configure-publisher-domain.md) configuré.
 
--  Une application inscrite auprès d'un locataire Azure AD, avec un [domaine d'éditeur](howto-configure-publisher-domain.md) configuré avec le même domaine que précédemment. 
+-  Le domaine de l’adresse e-mail utilisée lors de la vérification du compte MPN doit correspondre au domaine de l’éditeur configuré sur l’application ou à un [domaine personnalisé](../fundamentals/add-custom-domain.md) vérifié par DNS, ajouté au locataire Azure AD. 
 
 -  L'utilisateur qui procède à la vérification doit être autorisé à apporter des modifications à l'inscription de l'application dans Azure AD et au compte MPN dans l'Espace partenaires. 
 
-    -  Dans Azure AD, cet utilisateur doit être le propriétaire de l'application ou disposer d'un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    -  Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d’application, Administrateur d’application cloud ou Administrateur général. 
 
     -  Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD).
     

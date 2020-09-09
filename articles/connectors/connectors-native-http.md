@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286629"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226425"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés qui envoient des requêtes à des points de terminaison de service via HTTP ou HTTPS. Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification spécifique. Lorsque l'événement spécifié se produit au niveau de ce point de terminaison, comme une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions dans ce workflow. Pour recevoir et répondre aux appels HTTP ou HTTPS entrants, utilisez le [déclencheur de requête ou l’action Réponse](../connectors/connectors-native-reqres.md) intégrés.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés capables d’envoyer des requêtes sortantes à des points de terminaison de service sur d’autres services et systèmes sur HTTP ou HTTPS. Pour plutôt recevoir des appels HTTPS entrants et y répondre, utilisez le [déclencheur de requête et l’action de réponse](../connectors/connectors-native-reqres.md) intégrés.
+
+Par exemple, vous pouvez superviser un point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification spécifique. Lorsque l'événement spécifié se produit au niveau de ce point de terminaison, comme une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions dans ce workflow.
 
 * Vous pouvez *ajouter le déclencheur HTTP* comme première étape de votre workflow pour vérifier ou [interroger](#http-trigger) un point de terminaison selon une planification récurrente. Chaque fois que le déclencheur vérifie le point de terminaison, il appelle ou envoie une *requête* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse du point de terminaison aux actions de votre application logique.
 
 * Pour appeler un point de terminaison à partir de n’importe quel autre emplacement de votre workflow, [ajoutez l’action HTTP](#http-action). La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail.
 
-Cet article explique comment ajouter un déclencheur ou une action HTTP au workflow de votre application logique.
+Cet article montre comment utiliser le déclencheur HTTP et l’action HTTP pour que votre application logique puisse envoyer des appels sortants à d’autres services et systèmes.
+
+Pour plus d’informations sur le chiffrement, la sécurité et l’autorisation pour les appels sortants de votre application logique, comme le [protocole TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment connu sous le nom de protocole SSL, les certificats auto-signés ou [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consultez [Sécuriser l’accès et les données - Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * L’URL du point de terminaison cible que vous souhaitez appeler
 
@@ -96,21 +100,27 @@ Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un poi
 
 1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Sorties des déclencheurs et actions
 
-## <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
+Voici d’autres informations sur les sorties d’un déclencheur ou d’une action HTTP qui renvoient les données suivantes :
 
-En fonction de la capacité du point de terminaison cible, les appels sortants prennent en charge le protocole TLS (anciennement protocole SSL) versions 1.0, 1.1 et 1.2. Logic Apps négocie avec le point de terminaison en utilisant la version prise en charge la plus récente possible.
+| Propriété | Type | Description |
+|----------|------|-------------|
+| `headers` | Objet JSON | En-têtes de la requête |
+| `body` | Objet JSON | Objet avec le contenu du corps de la requête |
+| `status code` | Integer | Code d’état de la requête |
+|||
 
-Par exemple, si le point de terminaison prend en charge la version 1.2, le connecteur HTTP utilise d’abord cette version. Sinon, le connecteur utilise la version prise en charge juste inférieure.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificats auto-signés
-
-* Pour les applications logiques situées dans l’environnement Azure multilocataire global, le connecteur HTTP n’autorise pas les certificats TLS/SSL auto-signés. Si votre application logique émet un appel HTTP vers un serveur et présente un certificat auto-signé TLS/SSL, l’appel HTTP échouera avec une erreur `TrustFailure`.
-
-* Pour les applications logiques situées dans un [environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), le connecteur HTTP autorise les certificats auto-signés pour les négociations TLS/SSL. Toutefois, vous devez d’abord [activer la prise en charge des certificats auto-signés](../logic-apps/create-integration-service-environment-rest-api.md#request-body) pour un environnement ISE existant ou un nouvel ISE à l’aide de l’API REST Logic Apps, puis installer le certificat public à l’emplacement `TrustedRoot`.
+| Code d’état | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Acceptée |
+| 400 | Demande incorrecte |
+| 401 | Non autorisé |
+| 403 | Interdit |
+| 404 | Introuvable |
+| 500 | Erreur interne du serveur. Une erreur inconnue s’est produite. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Contenu avec type multipart/form-data
 
@@ -168,7 +178,7 @@ Par défaut, dans Azure Logic Apps, toutes les actions HTTP suivent le [modèle
 
   Pour trouver ce paramètre, effectuez les étapes suivantes :
 
-  1. Dans la barre de titre de l’action HTTP, sélectionnez les points de suspension ( **...** ) qui permettent d’ouvrir les paramètres de l’action.
+  1. Dans la barre de titre de l’action HTTP, sélectionnez le bouton de sélection ( **...** ) qui permet d’ouvrir les paramètres de l’action.
 
   1. Recherchez le paramètre **Modèle asynchrone**.
 
@@ -249,29 +259,8 @@ Pour en savoir plus sur les paramètres des déclencheurs et des actions, consul
 * [Paramètres de déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Détails des résultats
-
-Voici d’autres informations sur les sorties d’un déclencheur ou d’une action HTTP qui renvoient les données suivantes :
-
-| Propriété | Type | Description |
-|----------|------|-------------|
-| `headers` | Objet JSON | En-têtes de la requête |
-| `body` | Objet JSON | Objet avec le contenu du corps de la requête |
-| `status code` | Integer | Code d’état de la requête |
-|||
-
-| Code d’état | Description |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Acceptée |
-| 400 | Demande incorrecte |
-| 401 | Non autorisé |
-| 403 | Interdit |
-| 404 | Introuvable |
-| 500 | Erreur interne du serveur. Une erreur inconnue s’est produite. |
-|||
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
+* [Sécuriser l’accès et les données - Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Connecteurs pour Logic Apps](../connectors/apis-list.md)
 

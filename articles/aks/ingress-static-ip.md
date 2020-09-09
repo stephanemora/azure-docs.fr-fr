@@ -5,12 +5,12 @@ description: Découvrez comment installer et configurer un contrôleur d’entr�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852574"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290546"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Les commandes ci-dessus créent une adresse IP qui sera supprimée si vous supprimez votre cluster AKS. Vous pouvez également créer une adresse IP dans un autre groupe de ressources qui peut être géré séparément de votre cluster AKS. Dans ce cas, veillez à ce que le principal du service utilisé par le cluster AKS dispose de permissions déléguées sur l’autre groupe de ressources, par exemple, *Contributeur réseau*.
+> Les commandes ci-dessus créent une adresse IP qui sera supprimée si vous supprimez votre cluster AKS. Vous pouvez également créer une adresse IP dans un autre groupe de ressources qui peut être géré séparément de votre cluster AKS. Dans ce cas, veillez à ce que le principal du service utilisé par le cluster AKS dispose de permissions déléguées sur l’autre groupe de ressources, par exemple, *Contributeur réseau*. Pour plus d’informations, consultez [Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibreur de charge AKS][aks-static-ip].
 
 À présent, déployez le graphique *nginx-ingress* avec Helm. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
@@ -483,3 +483,4 @@ Vous pouvez également :
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md

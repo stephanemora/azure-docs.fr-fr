@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dc3daf28a4e8dd4ebf1fcedddd1a46986ac80cc4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400600"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -47,87 +47,7 @@ Avec la référence SKU v2, le modèle de tarification est basé sur la consomma
 
 Chaque unité de capacité est composée au maximum de ce qui suit : 1 unité Compute, 2 500 connexions permanentes et 2,22 Mbits/s de débit.
 
-Aide relative aux unités de calcul :
-
-- **Standard_v2** - Chaque unité Compute permet environ 50 connexions par seconde avec un certificat TLS de clé RSA de 2048 bits.
-- **WAF_v2** - Chaque unité Compute peut prendre en charge environ 10 requêtes simultanées par seconde pour une combinaison de trafic de 70-30 % avec 70 % des demandes inférieures à 2 Ko GET/POST et restant plus élevées. Actuellement, le niveau de performance WAF n’est pas affecté par la taille de la réponse.
-
-> [!NOTE]
-> Chaque instance peut prendre en charge environ 10 unités de capacité.
-> Le nombre de requêtes qu'une unité Compute peut gérer dépend de différents critères parmi lesquels, la taille de clé du certificat TLS, l'algorithme d’échange de clés, les réécritures d’en-têtes et la taille de la requête entrante WAF, le cas échéant. Nous vous recommandons de procéder à des tests d’application pour déterminer le taux de requêtes par unité Compute. L'unité de capacité et l'unité Compute sont disponibles sous forme de métrique avant le début de la facturation.
-
-Le tableau suivant montre des exemples de prix proposés à des fins d'illustration uniquement.
-
-**Tarification - USA Est** :
-
-|              Nom de la référence SKU                             | Prix fixe ($/h)  | Prix unitaire de la capacité ($/CU-h)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0,0080                          |
-| WAF_v2                                            |    0,36             | 0,0144                          |
-
-Pour plus d’informations concernant la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Exemple 1**
-
-Une passerelle Application Gateway Standard_v2 est approvisionnée sans mise à l’échelle automatique en mode de mise à l'échelle manuel, avec capacité fixe de cinq instances.
-
-Prix fixe = 744 (heures) * 0,20 $ = 148,8 $ <br>
-Unités de capacité = 744 (heures) * 10 unités de capacité par instance * 5 instances * 0,008 $ par heure d’unité de capacité = 297,6 $
-
-Prix total = 148,8 $ + 297,6 $ = 446,4 $
-
-**Exemple 2**
-
-Une passerelle Application Gateway Standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à zéro, et reçoit 25 nouvelles connexions TLS/s, avec une moyenne de transfert de données de 8,88 Mbits/s. En supposant que les connexions présentent une durée limitée, votre prix serait le suivant :
-
-Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
-
-Prix d'unité de capacité = 744  (heures) * Max (25/50 unités Compute pour les connexions/s, 8,88/2,22 unités de capacité pour le débit) * 0,008 $ = 744 * 4 * 0,008 = 23,81 $
-
-Prix total = 148,8  + 23,81 $ = 172,61 $
-
-Comme vous pouvez le voir, vous êtes uniquement facturé pour quatre unités de capacité, et non pour l’ensemble de l’instance. 
-
-> [!NOTE]
-> La fonction Max renvoie la plus grande valeur dans une paire de valeurs.
-
-
-**Exemple 3**
-
-Une passerelle Application Gateway standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à cinq. En supposant qu’il n’y a pas de trafic et que les connexions présentent une durée limitée, votre prix serait le suivant :
-
-Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
-
-Prix d’unité de capacité = 744 (heures) * Max (0/50 unités Compute pour les connexions/s, 0/2,22 unités de capacité pour le débit) * 0,008 $ = 744 * 50 * 0,008 = 297,60 $
-
-Prix total = 148,80 $ + 297,60 $ = 446,4 $
-
-Dans ce cas, vous êtes facturé pour l’intégralité des cinq instances, même s’il n’y a pas de trafic.
-
-**Exemple 4**
-
-Une passerelle Application Gateway Standard_v2 est provisionnée pour un mois, avec un nombre minimal d’instances égal à cinq, mais cette fois, il y a une moyenne de transfert de données de 125 Mbits/s et 25 connexions SSL par seconde. En supposant qu’il n’y a pas de trafic et que les connexions présentent une durée limitée, votre prix serait le suivant :
-
-Prix fixe = 744 (heures) * 0,20 $ = 148,8 $
-
-Prix d’unité de capacité = 744  (heures) * Max (25/50 unités Compute pour les connexions/s, 125/2,22 unités de capacité pour le débit) * 0,008 $ = 744 * 57 * 0,008 = 339,26 $
-
-Prix total = 148,80 $ + 339,26 $ = 488,06 $
-
-Dans ce cas, vous êtes facturé pour les cinq instances complètes, plus sept unités de capacité (7/10 d’une instance).  
-
-**Exemple 5**
-
-Une passerelle Application Gateway WAF_v2 est approvisionnée pour un mois. Durant ce laps de temps, elle reçoit 25 nouvelles connexions TLS/s, avec une moyenne de transfert de données de 8,88 Mbits/s et effectue 80 requêtes par seconde. En supposant que les connexions présentent une durée limitée et que le calcul d'unités Compute pour l'application prenne en charge 10 RPS par unité Compute, votre prix serait le suivant :
-
-Prix fixe = 744 (heures) * 0,36 $ = 267,84 $
-
-Prix d'unité de capacité = 744 (heures) * Max (25/50 unités Compute pour les connections/s, 80/10 WAF RPS), 8.88/2.22 les unités de capacité pour le débit * 0,0144 $ = 744 * 8 * 0,0144 = 85,71 $
-
-Prix total = 267,84 $ + 85,71 $ = 353,55 $
-
-> [!NOTE]
-> La fonction Max renvoie la plus grande valeur dans une paire de valeurs.
+Pour plus d’informations, consultez [Compréhension de la tarification](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Mise à l’échelle d'Application Gateway et de WAF v2
 

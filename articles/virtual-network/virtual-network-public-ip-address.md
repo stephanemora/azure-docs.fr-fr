@@ -1,6 +1,7 @@
 ---
-title: Créer, modifier ou supprimer une adresse IP publique Azure | Microsoft Docs
-description: Créez, modifiez ou supprimez une adresse IP publique. Découvrez aussi en quoi une adresse IP publique est une ressource disposant de ses propres paramètres configurables.
+title: Gérer les adresses IP publiques | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description: Gérer les adresses IP publiques.  Découvrez aussi en quoi une adresse IP publique est une ressource disposant de ses propres paramètres configurables.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7beff39ed2c37eeb0f07571ba6d611d23a3221e7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265124"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292025"
 ---
-# <a name="create-change-or-delete-a-public-ip-address"></a>Créer, modifier ou supprimer une adresse IP publique
+# <a name="manage-public-ip-addresses"></a>Gérer des adresses IP publiques
 
 Découvrez les adresses IP publiques et apprenez à en créer, modifier et supprimer une. Une adresse IP publique est une ressource disposant de ses propres paramètres configurables. L’attribution d’une adresse IP publique à une ressource Azure qui prend en charge les adresses IP publiques permet :
 - Communication entrante d’Internet vers la ressource, par exemple les machines virtuelles Azure (VM), les passerelles Azure Application Gateway, les équilibreurs de charge Azure Load Balancer, les passerelles VPN Azure, etc. Vous pouvez toujours communiquer avec des ressources telles qu’une machine virtuelle, à partir d’Internet si aucune adresse IP publique ne lui est attribuée à condition que la machine virtuelle fasse partie d’un pool principal à équilibreur de charge et qu’une adresse IP publique soit attribuée à l’équilibreur de charge. Pour déterminer si une ressource d’un service Azure spécifique peut se voir attribuer une adresse IP publique ou si des communications peuvent être établies avec elle via l’adresse IP publique d’une autre ressource Azure, consultez la documentation du service.

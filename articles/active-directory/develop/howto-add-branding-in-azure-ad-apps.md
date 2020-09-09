@@ -1,7 +1,7 @@
 ---
 title: Instructions de personnalisation des applications | Azure
 titleSuffix: Microsoft identity platform
-description: Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory
+description: Découvrez les instructions de personnalisation d’application pour la plateforme d’identité Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226639"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 
-Lorsque vous développez des applications avec Azure Active Directory (Azure AD), vous devez orienter vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire (géré dans Azure AD) ou leur compte personnel pour s’inscrire et se connecter à votre application.
+Lorsque vous développez des applications avec la plateforme d’identité Microsoft, vous devez orienter vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire (géré dans Azure AD) ou leur compte personnel pour s’inscrire et se connecter à votre application.
 
 En lisant cet article, vous pourrez :
 
 - En savoir plus sur les deux types de compte utilisateur gérés par Microsoft et sur la façon de faire référence aux comptes Azure AD dans votre application
-- Découvrir ce dont vous avez besoin pour ajouter le logo Microsoft en vue de son utilisation dans votre application
+- Découvrir ce que vous devez faire pour ajouter le logo Microsoft en vue de son utilisation dans votre application
 - Télécharger les images **Se connecter** ou **Se connecter avec Microsoft** officielles en vue de leur utilisation dans votre application
 - En savoir plus sur les choses à faire et à éviter en matière de personnalisation et de navigation
 

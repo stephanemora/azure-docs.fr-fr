@@ -3,12 +3,12 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892233"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378047"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 

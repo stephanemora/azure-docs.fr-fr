@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd71eae77c75d490585c27d7bc04c069d006009
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357407"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398529"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -32,7 +32,7 @@ Par défaut, les ressources Office 365 des utilisateurs se trouvent dans la mêm
 L’attribut **preferredDataLocation** vous permet de définir la zone géographique d’un utilisateur. Il est possible de mettre les ressources Office 365 de l’utilisateur, par exemple la boîte aux lettres et OneDrive, dans la même zone géographique que l’utilisateur, tout en conservant un seul locataire pour l’organisation.
 
 > [!IMPORTANT]
-> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients dotés d’un Contrat Entreprise actif avec au moins 500 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
+> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients dotés d’un Contrat Entreprise actif avec au moins 250 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
 >
 

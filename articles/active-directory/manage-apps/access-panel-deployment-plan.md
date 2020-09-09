@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930534"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146621"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planifier le déploiement de Mes applications Azure Active Directory
 
-Mes applications Azure Active Directory (Azure AD) est un portail basé sur le web qui vous permet de réduire les coûts de support, d’accroître la productivité et la sécurité, et de réduire la frustration des utilisateurs. Le système inclut des rapports détaillés de suivi d’accès au système, et prévient les administrateurs de toute utilisation malveillante ou de tout abus.
+Mes applications Azure Active Directory (Azure AD) est un portail basé sur le web qui vous permet de réduire les coûts de support, d’accroître la productivité et la sécurité, et de réduire la frustration des utilisateurs. Le système inclut des rapports détaillés de suivi d’accès au système, et prévient les administrateurs de toute utilisation malveillante ou de tout abus. Pour en savoir plus sur l’utilisation de Mes applications du point de vue de l’utilisateur final, consultez l’[aide du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 À l’aide de Mes applications Azure AD, vous pouvez :
 
@@ -42,7 +42,7 @@ Mes applications Azure AD offre aux entreprises les avantages suivants :
 
 **Offre une expérience utilisateur intuitive** : Mes applications vous offre une plateforme unique pour toutes vos applications connectées à l’authentification unique Azure (SSO). Vous disposez d’un portail unifié pour trouver les paramètres existants et les nouvelles fonctionnalités telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service, à mesure qu’elles sont ajoutées. L’expérience intuitive permet aux utilisateurs de continuer à travailler plus rapidement et à être plus productifs, tout en réduisant leur frustration.
 
-**Augmente la productivité** : L’authentification unique (SSO) est activée pour toutes les applications utilisateur de Mes applications. L’activation de l’authentification unique sur les applications d’entreprise et Microsoft 365 offre une expérience de connexion supérieure en réduisant ou en éliminant des invites de connexion excessives. Mes applications utilise l’appartenance libre-service et dynamique, et améliore la sécurité globale de votre système d’identité. Il vérifie pour cela que l’accès aux applications est géré par des personnes appropriées. Mes applications fait office de page d’accueil cohérente pour vous permettre de trouver rapidement des ressources et continuer à travailler.
+**Augmente la productivité** : L’authentification unique (SSO) est activée pour toutes les applications utilisateur de Mes applications. L’activation de l’authentification unique sur les applications d’entreprise et Microsoft 365 offre une expérience de connexion supérieure en réduisant ou en éliminant des invites de connexion excessives. Mes applications utilise l’appartenance libre-service et dynamique, et améliore la sécurité globale de votre système d’identité. Mes applications vérifie pour cela que l’accès aux applications est géré par les personnes appropriées. Mes applications fait office de page d’accueil cohérente pour vous permettre de trouver rapidement des ressources et continuer à travailler.
 
 **Vous aide à gérer les coûts** : L’activation de Mes applications dans Azure AD peut permettre de réduire les infrastructures locales. Cela permet également de réduire les coûts de support grâce à un portail cohérent pour trouver toutes vos applications, demander l’accès aux ressources et gérer vos comptes.
 
@@ -55,11 +55,8 @@ Mes applications Azure AD offre aux entreprises les avantages suivants :
 Mes applications est gratuit et ne nécessite aucune licence pour une utilisation de base. Toutefois, le nombre d’objets contenus dans votre répertoire et les fonctionnalités supplémentaires que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Les scénarios Azure AD ayant des exigences en matière de licences incluent les fonctionnalités de sécurité suivantes :
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Appartenance basée sur des groupes](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Réinitialisation de mot de passe en libre service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Consultez le [guide complet des licences pour Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Consultez le [guide complet des licences pour Azure AD](https://azure.microsoft.
 Avant de commencer ce projet, vérifiez que vous remplissez les conditions préalables suivantes :
 
 * [Intégration de l’authentification unique de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Gestion de l’infrastructure d’utilisateurs et de groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planifier un déploiement de Mes applications Azure AD
@@ -89,6 +85,10 @@ Le tableau suivant présente les principaux cas d’utilisation d’un déploiem
 | Expérience utilisateur| Les utilisateurs peuvent gérer leurs comptes. |
 | Expérience utilisateur| Les utilisateurs connaissent la compatibilité du navigateur. |
 | Support| Les utilisateurs peuvent trouver de l’aide pour les problèmes liés à Mes applications. |
+
+
+> [!TIP]
+> La page Mes applications peut être utilisée avec les URL internes de l’entreprise tout en utilisant à distance le proxy d’application. Pour en savoir plus, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Meilleures pratiques liées au déploiement de Mes applications Azure AD
 
@@ -135,7 +135,6 @@ Les utilisateurs ou les administrateurs doivent accepter les conditions d’util
 Pour utiliser le consentement de l’administrateur, vous devez être un administrateur général de l’organisation, et les applications doivent être :
 
 * Inscrites dans votre organisation
-
 * Inscrites dans une autre organisation Azure AD et précédemment autorisées par au moins un utilisateur
 
 Pour plus d’informations, consultez [Configurer le consentement de l’utilisateur final pour une application dans Azure Active Directory](configure-user-consent.md).
@@ -176,9 +175,7 @@ Lorsque des utilisateurs se connectent à des applications SSO basées sur un mo
 Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l’extension à l’échelle avec les [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
 
 * [Stratégie de groupe pour Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager pour Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Les utilisateurs qui n’utilisent pas d’applications SSO basées sur un mot de passe tirent également parti de l’extension. Ces avantages incluent la possibilité de lancer une application à partir de sa barre de recherche, de rechercher l’accès aux applications récemment utilisées et d’avoir un lien vers la page My Apps.
@@ -255,7 +252,7 @@ Consultez [Assigner des utilisateurs et des groupes à une application dans Acti
 
 Si, pendant le test ou le déploiement, vous souhaitez ajouter des groupes, mais que vous n’autorisez pas encore les applications à s’afficher dans My Apps, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Déployer des applications Microsoft 365 sur Mes applications
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Déployer des applications Microsoft 365 dans Mes applications
 
 Pour les applications Microsoft 365, les utilisateurs reçoivent une copie d’Office en fonction des licences qui leur sont attribuées. Une condition préalable à l’accès aux applications Office consiste à affecter aux utilisateurs les licences appropriées liées aux applications Office. Lorsque vous affectez une licence à un utilisateur, il voit automatiquement les applications associées à la licence dans la page Mes applications et dans le lanceur d’applications Microsoft 365.
 
@@ -290,7 +287,6 @@ Les tests suivants doivent être effectués avec les appareils d’entreprise et
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Exemples de cas de test des fonctionnalités de libre-service des applications
 
-
 | Cas métier| Résultat attendu |
 | - | - |
 | L’utilisateur peut gérer l’appartenance à l’application| L’utilisateur peut ajouter/supprimer les membres qui ont accès à l’application |
@@ -303,7 +299,7 @@ Il est important d’avoir un plan de repli en cas d’échec de votre déploiem
 
 ## <a name="manage-your-implementation"></a>Gérer l’implémentation
 
-Nous vous recommandons d’utiliser le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
+Utilisez le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
 
 | Rôles| Rôles| Rôle Azure AD  |
 | - | -| -|
@@ -315,22 +311,5 @@ Nous vous recommandons d’utiliser le rôle le moins privilégié pour accompli
 
 Vous pouvez utiliser [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 
-### <a name="troubleshoot-my-apps-issues"></a>Résoudre les problèmes liés à Mes applications
-
-Créez des guides de dépannage pour votre organisation de support avec des scénarios courants et pointant vers la documentation Microsoft quant à leur résolution. Vous pouvez créer des guides qui détaillent la prise en charge des niveaux utilisés par votre organisation.
-
-Consultez les guides de dépannage ci-dessous pour référence :
-
-[Les applications ne s’affichent pas](access-panel-troubleshoot-application-not-appearing.md)
-
-[Des applications inattendues s’affichent](access-panel-troubleshoot-unexpected-application.md)
-
-[L’utilisateur ne peut pas se connecter à Mes applications](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problèmes liés à l’accès aux applications en libre-service](access-panel-troubleshoot-self-service-access.md)
-
-[Problèmes avec l’extension de navigateur](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>Étapes suivantes
-
 [Planifier un déploiement d’Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

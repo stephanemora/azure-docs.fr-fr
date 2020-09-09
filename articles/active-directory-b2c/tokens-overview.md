@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482581"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258433"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
 
@@ -119,7 +119,7 @@ L’en-tête du jeton contient des informations sur la clé et la méthode de ch
 }
 ```
 
-La valeur de la revendication **alg** correspond à l’algorithme utilisé pour signer le jeton. La valeur de la revendication **kid** est la clé publique utilisée pour signer le jeton. À tout moment, Azure AD B2C peut signer un jeton à l’aide de l’un des ensembles de paires de clés publique-privée. Azure AD B2C alterne le jeu de clés possible de façon périodique. Votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD B2C, spécifiez une fréquence raisonnable d’environ 24 heures.
+La valeur de la revendication **alg** correspond à l’algorithme utilisé pour signer le jeton. La valeur de la revendication **kid** est la clé publique utilisée pour signer le jeton. À tout moment, Azure AD B2C peut signer un jeton à l’aide de l’un des ensembles de paires de clés publique-privée. Azure AD B2C alterne le jeu de clés possible de façon périodique. Votre application doit être écrite de manière à gérer automatiquement ces changements de clés. Pour vérifier les mises à jour apportées aux clés publiques utilisées par Azure AD B2C, spécifiez une fréquence raisonnable d’environ 24 heures. Pour gérer les modifications de clé inattendues, votre application doit être écrite de façon à récupérer à nouveau les clés publiques si elle reçoit une valeur **kid** inattendue.
 
 Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. À l’aide de ce point de terminaison, les applications peuvent demander des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Votre locataire Azure AD B2C contient un document de métadonnées JSON pour chaque stratégie. Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Les métadonnées contiennent **jwks_uri** qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser **jwks_uri** :
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006483"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399988"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scénario : Router vers des réseaux virtuels de services partagés
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur le routage de hub virtuel, consultez [À propos d
 
 ## <a name="design"></a><a name="design"></a>Conception
 
-Nous pouvons utiliser une matrice de connectivité pour résumer les exigences de ce scénario. Dans la matrice, chaque cellule indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique.
+Nous pouvons utiliser une matrice de connectivité pour résumer les exigences de ce scénario. Dans la matrice, chaque cellule indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Un « X » signifie que la connectivité est assurée par Virtual WAN :
 
 **Matrice de connectivité**
 

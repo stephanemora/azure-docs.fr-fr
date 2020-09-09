@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826699"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377452"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -41,7 +41,7 @@ Les alertes sont un moyen simple de superviser les sauvegardes des bases de donn
 
   ![Liste des alertes de sauvegarde](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Cliquez sur les alertes pour afficher plus de détails :
+* Sélectionnez les alertes pour afficher plus de détails :
 
   ![Détails de l’alerte](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,10 +61,12 @@ Sauvegarde Azure simplifie la gestion d’une base de données SAP HANA sauvegar
 
 Les sauvegardes s’exécutent conformément à la planification de la stratégie. Vous pouvez exécuter une sauvegarde à la demande en procédant comme suit :
 
-1. Dans le menu du coffre, cliquez sur **Éléments de sauvegarde**.
-2. Dans **Éléments de sauvegarde**, sélectionnez la machine virtuelle exécutant la base de données SAP HANA, puis cliquez sur **Sauvegarder maintenant**.
-3. Dans **Sauvegarder maintenant**, choisissez le type de sauvegarde que vous souhaitez effectuer. Cliquez ensuite sur **OK**. Cette sauvegarde sera conservée en fonction de la stratégie associée à cet élément de sauvegarde.
+1. Dans le menu du coffre, sélectionnez **Éléments de sauvegarde**.
+2. Dans **Éléments de sauvegarde**, sélectionnez la machine virtuelle exécutant la base de données SAP HANA, puis **Sauvegarder maintenant**.
+3. Dans **Sauvegarder maintenant**, choisissez le type de sauvegarde que vous souhaitez effectuer. Sélectionnez ensuite **OK**. Cette sauvegarde sera conservée en fonction de la stratégie associée à cet élément de sauvegarde.
 4. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre base de données, la création de la sauvegarde initiale peut prendre un certain temps.
+
+Par défaut, la période de rétention des sauvegardes à la demande est de 45 jours.
 
 ### <a name="hana-native-client-integration"></a>Intégration du client natif HANA
 
@@ -84,7 +86,7 @@ Ces sauvegardes complètes figurent aussi dans la liste des points de restaurati
 
 Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données pour laquelle la sauvegarde Azure est activée
+### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données avec Sauvegarde Azure activée
 
 Si vous souhaitez sauvegarder localement (à l’aide de HANA Studio/Cockpit) une base de données qui est sauvegardée par Sauvegarde Azure, procédez comme suit :
 
@@ -112,7 +114,7 @@ Vous pouvez changer la stratégie sous-jacente d’un élément de sauvegarde SA
   ![Choisir SAP HANA dans les machines virtuelles Azure](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Choisissez l’élément de sauvegarde dont vous souhaitez changer la stratégie sous-jacente.
-* Cliquez sur la stratégie de sauvegarde existante.
+* Sélectionnez la stratégie de sauvegarde existante.
 
   ![Sélectionnez une stratégie de sauvegarde existante.](./media/sap-hana-db-manage/existing-backup-policy.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193103"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400090"
 ---
 # <a name="security-control-secure-configuration"></a>Contrôle de sécurité : Configuration sécurisée
 
@@ -110,13 +110,13 @@ Utilisez Azure DevOps pour stocker et gérer en toute sécurité votre code, com
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-Si vous avez recours à des images personnalisées, utilisez le contrôle d'accès en fonction du rôle (RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images. Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation.  Pour les images de conteneur, stockez-les dans Azure Container Registry et tirez parti de RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.  
+Si vous avez recours à des images personnalisées, utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour garantir que seuls les utilisateurs autorisés ont accès à ces images. Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation.  Pour les images conteneur, stockez-les dans Azure Container Registry et utilisez Azure RBAC pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux images.  
 
-- [Contrôle d'accès en fonction du rôle dans Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Comprendre RBAC pour Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Comprendre Azure RBAC pour Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [Configurer le contrôle d'accès en fonction du rôle dans Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 - [Présentation de Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -174,7 +174,9 @@ Utilisez Managed Service Identity conjointement avec Azure Key Vault pour simpli
 
 - [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Fournir une authentification Key Vault avec une identité managée](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Comment s’authentifier auprès de Key Vault](../../key-vault/general/authentication.md)
+
+- [Comment attribuer une stratégie d’accès Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 

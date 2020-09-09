@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cd6e61b8614e4c8ff5d54232972865c81cbb3ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928868"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294779"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Créer et gérer des clés API pour un service Recherche cognitive Azure
 
@@ -21,7 +21,7 @@ Toutes les demandes adressées à un service de recherche ont besoin d’une cl�
 
 Lors du provisionnement du service, les clés sont créées avec votre service de recherche. Vous pouvez afficher et obtenir des valeurs de clés dans le [portail Azure](https://portal.azure.com).
 
-![Page du portail, section Paramètres\Clés](media/search-manage/azure-search-view-keys.png)
+![page du portail, récupérer les paramètres, section clés](media/search-manage/azure-search-view-keys.png)
 
 ## <a name="what-is-an-api-key"></a>Qu’est-ce qu’une clé API ?
 
@@ -47,7 +47,7 @@ Vous pouvez obtenir les clés d’accès dans le portail ou via l’[API REST de
 2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
 3. Sélectionnez le service, puis sur la page de présentation, cliquez sur **Paramètres** >**Clés** pour afficher les clés d'administration et de requête.
 
-   ![Page du portail, section Paramètres\Clés](media/search-security-overview/settings-keys.png)
+   ![page du portail, afficher les paramètres, section clés](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>Créer des clés de requête
 

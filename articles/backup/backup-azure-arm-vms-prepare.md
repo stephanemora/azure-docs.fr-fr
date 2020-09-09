@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826308"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145652"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -155,7 +155,7 @@ Completed | Échec | Terminé avec un avertissement
 Échec | Échec | Échec
 
 Désormais, avec cette fonctionnalité, pour la même machine virtuelle, deux sauvegardes peuvent s’exécuter en parallèle, mais dans chaque phase (prise d’instantané, transfert des données vers le coffre), une seule sous-tâche peut être en cours d’exécution. Ainsi, les scénarios où un travail de sauvegarde en cours entraîne l’échec de la sauvegarde du jour suivant sont évités grâce à cette fonctionnalité de découplage. Les sauvegardes des jours suivants peuvent voir la réalisation de la phase de prise d’instantané, mais pas celle de la phase **Transférer les données vers le coffre**, si le travail de sauvegarde d’un jour précédent est dans l’état en cours.
-Le point de récupération incrémentielle créé dans le coffre capture toute l’évolution depuis le dernier point de récupération créé dans le coffre. Il n’y a aucun impact sur l’utilisateur en ce qui concerne les coûts.
+Le point de récupération incrémentielle créé dans le coffre capture toute l’évolution à partir du point de récupération de plus récent créé dans le coffre. Il n’y a aucun impact sur l’utilisateur en ce qui concerne les coûts.
 
 ## <a name="optional-steps"></a>Étapes facultatives
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400039"
 ---
 # <a name="scenario-isolating-vnets"></a>Scénario : Isolation des réseaux virtuels
 
@@ -29,7 +29,7 @@ Dans ce scénario, la charge de travail au sein d’un réseau virtuel donné re
 | Réseaux virtuels     | &#8594;|           |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
-Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique) pour un flux de trafic spécifique.
+Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique) pour un flux de trafic spécifique, où un « X » signifie que la connectivité est fournie par Virtual WAN.
 
 Cette matrice de connectivité nous donne deux modèles de ligne différents, qui traduisent en deux tables de routage. Le Virtual WAN possédant déjà une table de routage par défaut, nous aurons besoin d’une autre table de routage. Pour cet exemple, nous allons nommer la table de routage **RT_VNET**.
 

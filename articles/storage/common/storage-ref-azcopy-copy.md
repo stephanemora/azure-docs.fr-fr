@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 883d0afac5623838e9dde068964b36cfe3b44380
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281988"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070392"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -263,6 +263,8 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 **--include-path** string Inclure uniquement ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif (par exemple, `myFolder;myFolder/subDirName/file.pdf`).
 
 **--include-pattern** string Inclure uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un point-virgule (`;`).
+
+**--list-of-versions** string  Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un objet blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement à l’objet blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--log-level** string Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut `INFO`) 
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935549"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378353"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -349,3 +349,7 @@ Pour contourner cet avertissement, déterminez l’encodage de texte pour ce blo
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avertissement : La collection « X » de Cosmos DB a une stratégie d’indexation différée. Certaines données peuvent être perdues.
 
 Les collections dotées de stratégies d’indexation [différée](/azure/cosmos-db/index-policy#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.
+
+## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Avertissement : Le document contient des mots très longs (de plus de 64 caractères). Ces mots peuvent donner lieu à des prédictions de modèle tronquées et/ou non fiables.
+
+Cet avertissement provient du service Analyse de texte.  Dans certains cas, vous pouvez sans problème ignorer cet avertissement, par exemple quand votre document contient une URL longue (qui n’est sans doute pas une phrase clé, un sentiment de conduite, etc.).  Sachez que lorsqu’un mot dépasse 64 caractères, il est tronqué à 64 caractères, ce qui peut impacter les prédictions de modèle.  

@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810086"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144921"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -144,14 +144,16 @@ Le tableau suivant présente les versions Java actuellement prises en charge pou
 
 | Version de Functions | Versions Java (Windows) | Versions Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (préversion)<br/>8<sup>\*</sup> | 11 (préversion)<br/>8 |
+| 3.x | 11 (préversion)<br/>8 | 11 (préversion)<br/>8 |
 | 2.x | 8 | n/a |
 
-<sup>\*</sup> Il s’agit de la version par défaut actuelle du fichier pom.xml généré par l’archétype Maven.
+Si vous n’avez pas spécifié de version Java pour votre déploiement, l’archétype Maven par défaut est Java 8 pendant le déploiement sur Azure.
 
 ### <a name="specify-the-deployment-version"></a>Spécification de la version du déploiement
 
-Actuellement, l’archétype Maven génère un fichier pom.xml qui cible Java 8. Les éléments suivants de ce fichier doivent être mis à jour pour créer une application de fonction qui exécute Java 11.
+Vous pouvez contrôler la version de Java ciblée par l’archétype Maven à l’aide du paramètre `-DjavaVersion`. La valeur de ce paramètre peut être `8` ou `11`. La prise en charge de Java 11 est actuellement disponible en préversion. 
+
+L’archétype Maven génère un fichier pom.xml qui cible la version spécifiée de Java. Les éléments suivants du fichier pom.xml indiquent quelle version de Java utiliser :
 
 | Élément |  Valeur Java 8 | Valeur Java 11 | Description |
 | ---- | ---- | ---- | --- |

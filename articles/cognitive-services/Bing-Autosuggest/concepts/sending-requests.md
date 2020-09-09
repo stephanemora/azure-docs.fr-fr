@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921136"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294116"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envoi de demandes à l’API Suggestion automatique Bing.
 
@@ -64,7 +64,7 @@ Pour obtenir la liste complète des en-têtes de requête et de réponse, consul
 > [!NOTE]
 > Lorsque vous appelez l’API Suggestion automatique Bing en JavaScript, les fonctionnalités de sécurité intégrées de votre navigateur peuvent dans certains cas vous empêcher d’accéder aux valeurs de ces en-têtes.
 
-Pour résoudre ce problème, vous pouvez envoyer la demande à l’API Suggestion automatique Bing par le biais d’un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend accessibles à du code JavaScript.
+Pour résoudre ce problème, vous pouvez envoyer la demande à l’API Suggestion automatique Bing par le biais d’un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui filtre les en-têtes de réponse et les rend accessibles à du code JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser [l’application du didacticiel](../tutorials/autosuggest.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez alors la commande suivante dans l’invite de commandes.
 
