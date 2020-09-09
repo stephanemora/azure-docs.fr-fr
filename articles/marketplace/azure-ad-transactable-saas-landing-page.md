@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921264"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378795"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS à vendre dans le Marketplace commercial
 
@@ -38,15 +38,15 @@ En général, la page d’accueil comprend les éléments suivants :
 Les sections suivantes vous guideront tout au long du processus de création d’une page d’accueil :
 
 1. [Créer une inscription d’application Azure AD](#create-an-azure-ad-app-registration) pour la page d’accueil.
-2. [Utiliser un exemple de code comme point de départ](#use-a-code-sample-as-a-starting-point) pour votre application.
-3. [Résoudre le jeton d’identification d’achat du marketplace](#resolve-the-marketplace-purchase-identification-token) ajouté à l’URL par le marketplace commercial.
-4. [Lire les informations des revendications encodées dans le jeton d’ID](#read-information-from-claims-encoded-in-the-id-token) qui a été envoyé par Azure AD avec la requête après la connexion.
-5. [Utiliser l’API Microsoft Graph](#use-the-microsoft-graph-api) pour recueillir des informations supplémentaires le cas échéant.
-6. [Utiliser deux applications Azure AD pour améliorer la sécurité de la production](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Utiliser un exemple de code comme point de départ](#use-a-code-sample-as-a-starting-point) pour votre application.
+1. [Utiliser deux applications Azure AD pour améliorer la sécurité de la production](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Résoudre le jeton d’identification d’achat du marketplace](#resolve-the-marketplace-purchase-identification-token) ajouté à l’URL par le marketplace commercial.
+1. [Lire les informations des revendications encodées dans le jeton d’ID](#read-information-from-claims-encoded-in-the-id-token) qui a été envoyé par Azure AD avec la requête après la connexion.
+1. [Utiliser l’API Microsoft Graph](#use-the-microsoft-graph-api) pour recueillir des informations supplémentaires le cas échéant.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Créer une inscription d’application Azure AD
 
-Le marketplace commercial est entièrement intégrée à Azure AD. Les acheteurs arrivent sur le marketplace authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après l’achat, l’acheteur passe du marketplace commercial à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’acheteur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) de l’offre.
+Le marketplace commercial est entièrement intégrée à Azure AD. Les acheteurs arrivent sur le marketplace authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après l’achat, l’acheteur passe du marketplace commercial à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’acheteur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](plan-saas-offer.md#technical-information) de l’offre.
 
 La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons à l’application en fonction des paramètres de l’application.
 
@@ -82,7 +82,7 @@ Cela permet à la solution de fonctionner dans des scénarios qui observent le p
 Lorsque l’acheteur est envoyé à votre page d’accueil, un jeton est ajouté au paramètre URL. Ce jeton est différent de celui émis par Azure AD et du jeton d’accès utilisé pour l’authentification de service à service. Il est utilisé comme entrée pour l’appel de résolution des [ASP de réalisation SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) afin d’obtenir les détails de l’abonnement. Comme pour tous les appels aux API de traitement SaaS, votre demande de service à service sera authentifiée avec un jeton d’accès basé sur l’utilisateur de l’ID d’application Azure AD de l’application pour l’authentification de service à service.
 
 > [!NOTE]
-> Dans la plupart des cas, il est préférable d’effectuer cet appel à partir d’une deuxième application à locataire unique. Consultez [Utiliser deux applications Azure AD pour améliorer la sécurité de la production](#use-two-azure-ad-apps-to-improve-security-in-production) plus loin dans cet article.
+> Dans la plupart des cas, il est préférable d’effectuer cet appel à partir d’une deuxième application à locataire unique. Consultez [Utiliser deux applications Azure AD pour améliorer la sécurité de la production](#use-two-azure-ad-apps-to-improve-security-in-production) plus haut dans cet article.
 
 ### <a name="request-an-access-token"></a>Demander un jeton d’accès
 
@@ -131,4 +131,4 @@ La plupart des applications inscrites à Azure AD accordent des autorisations d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une offre SaaS dans la Place de marché commerciale](./partner-center-portal/create-new-saas-offer.md)
+- [Créer une offre SaaS dans la place de marché commerciale](create-new-saas-offer.md)

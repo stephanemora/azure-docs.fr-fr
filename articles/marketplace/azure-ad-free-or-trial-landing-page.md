@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/03/2020
+ms.openlocfilehash: 655caa05eff16bcf3e598dccd3c9845928b2fcff
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921382"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378829"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Créer la page d'accueil de votre offre SaaS gratuite ou d’évaluation dans la Place de marché commerciale
 
@@ -21,7 +21,7 @@ Cet article vous guide tout au long du processus de création d’une page d’a
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez considérer la page d’accueil comme la « salle d’attente » pour votre offre SaaS (software as a service). Une fois que le client a choisi d'obtenir votre application, la Place de marché commerciale le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Lorsque vous créez une offre Software as a service (SaaS), dans l’espace Partenaires, vous pouvez choisir de [vendre via Microsoft](partner-center-portal/create-new-saas-offer.md). Si vous souhaitez uniquement répertorier votre offre dans la Place de marché commerciale Microsoft et ne pas vendre via Microsoft, vous pouvez spécifier la manière dont les clients potentiels peuvent interagir avec l’offre. Lorsque vous activez l’option **Obtenir maintenant (gratuit)** ou **Essai gratuit**, vous devez spécifier une URL de page d’accueil permettant à l’utilisateur d’accéder à l’abonnement ou à l’essai gratuit.
+Vous pouvez considérer la page d’accueil comme la « salle d’attente » pour votre offre SaaS (software as a service). Une fois que le client a choisi d'obtenir votre application, la Place de marché commerciale le dirige vers la page d’accueil pour activer et configurer son abonnement à votre application SaaS. Lorsque vous créez une offre Software as a service (SaaS), dans l’espace Partenaires, vous pouvez choisir de [vendre via Microsoft](plan-saas-offer.md#listing-options). Si vous souhaitez uniquement répertorier votre offre dans la Place de marché commerciale Microsoft et ne pas vendre via Microsoft, vous pouvez spécifier la manière dont les clients potentiels peuvent interagir avec l’offre. Lorsque vous activez l’option **Obtenir maintenant (gratuit)** ou **Essai gratuit**, vous devez spécifier une URL de page d’accueil permettant à l’utilisateur d’accéder à l’abonnement ou à l’essai gratuit.
 
 L’objectif de la page d’accueil est simplement de recevoir l’utilisateur afin qu’il puisse activer l’abonnement ou l’essai gratuit. À l’aide d’Azure Active Directory (Azure AD) et de Microsoft Graph, vous allez activer l’authentification unique (SSO) pour l’utilisateur et obtenir des informations importantes sur lui que vous pouvez utiliser pour activer son abonnement ou essai gratuit, notamment son nom, son adresse e-mail et son organisation.
 
@@ -43,7 +43,7 @@ Les sections suivantes de cet article vous guideront tout au long du processus d
 
 ## <a name="create-an-azure-ad-app-registration"></a>Créer une inscription d’application Azure AD
 
-La Place de marché commerciale est entièrement intégrée à Azure AD. Les utilisateurs arrivent sur la Place de marché, authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après avoir acquis un abonnement ou un essai gratuit par le biais de votre offre à consulter uniquement, l’utilisateur passe de la Place de marché commerciale à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’utilisateur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) de l’offre).
+La Place de marché commerciale est entièrement intégrée à Azure AD. Les utilisateurs arrivent sur la Place de marché, authentifiés avec un [compte Azure AD ou un compte Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Après avoir acquis un abonnement ou un essai gratuit par le biais de votre offre à consulter uniquement, l’utilisateur passe de la Place de marché commerciale à l’URL de votre page d’accueil pour activer et gérer son abonnement à votre application SaaS. Vous devez laisser l’utilisateur se connecter à votre application avec Azure AD SSO. (L’URL de la page d’accueil est spécifiée dans la page de [Configuration technique](plan-saas-offer.md#technical-information) de l’offre.
 
 La première étape de l’utilisation de l’identité consiste à s’assurer que votre page d’accueil est inscrite en tant qu’application Azure AD. Inscrire l’application vous permet d’utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources utilisateur. Cela peut être considéré comme la définition de l’application, ce qui permet au service de savoir comment émettre des jetons à l’application en fonction des paramètres de l’application.
 
@@ -103,4 +103,4 @@ La plupart des applications inscrites à Azure AD accordent des autorisations d�
 > Les comptes du locataire MSA (avec ID de locataire `9188040d-6c67-4c5b-b112-36a304b66dad`) ne retourneront pas plus d’informations que ce qui a déjà été collecté avec le jeton d’ID. Vous pouvez donc ignorer cet appel à l’API Graph pour ces comptes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer une offre SaaS dans la Place de marché commerciale](./partner-center-portal/create-new-saas-offer.md)
+- [Créer une offre SaaS dans la place de marché commerciale](create-new-saas-offer.md)

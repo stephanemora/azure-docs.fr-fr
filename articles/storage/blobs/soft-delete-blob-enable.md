@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185296"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230226"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Activer et gérer la suppression réversible pour les blobs
 
-La suppression réversible de blobs protège vos données d’une modification ou d’une suppression accidentelle. Lorsque la suppression réversible de blob est activée pour un compte de stockage, les objets BLOB, les versions d’objets BLOB (préversion) et les captures instantanées de ce compte de stockage peuvent être récupérés après leur suppression, au cours d’une période de rétention que vous spécifiez.
+La suppression réversible de blobs protège vos données d’une modification ou d’une suppression accidentelle. Lorsque la suppression réversible de blob est activée pour un compte de stockage, les blobs, les versions des blobs et les captures instantanées de ce compte de stockage peuvent être récupérés après leur suppression, au cours d’une période de rétention que vous spécifiez.
 
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible de blob. Cet article explique comment activer la suppression réversible pour les blobs. Pour en savoir plus sur la suppression réversible de blob, consultez [Suppression réversible pour les blobs](soft-delete-blob-overview.md).
 
@@ -195,4 +195,4 @@ blockBlob.StartCopy(copySource);
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Suppression réversible pour le stockage de blobs](soft-delete-overview.md)
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)

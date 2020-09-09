@@ -5,17 +5,18 @@ services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/03/2020
+ms.date: 09/02/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9a96c385c25eea1c5e217665f162de402a73e558
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: e0c5ab4f6d36a24ff9f59ec373291e00669e1e92
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567804"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320117"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Résoudre des problèmes d’expérience utilisateur dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article présente des méthodes de résolution des problèmes couramment utilisée pour l’expérience utilisateur dans Azure Data Factory.
@@ -34,21 +35,28 @@ L’expérience utilisateur ADF utilise des cookies de navigateurs pour conserve
 #### <a name="allow-all-cookies"></a>Autoriser tous les cookies
 
 1. Visitez **chrome://settings/cookies** dans votre navigateur.
-1. Sélectionnez l’option **Autoriser tous les cookies** ![Chrome-Allow-All-Cookies](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
+1. Sélectionner l’option **Autoriser tous les cookies** 
+
+    ![Autoriser tous les cookies dans Chrome](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
 1. Actualisez l’expérience utilisateur ADF, puis réessayez.
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Autoriser uniquement l’expérience utilisateur ADF à utiliser des cookies
 Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser que l’expérience utilisateur ADF :
 1. Visitez **chrome://settings/cookies**.
-1. Sous l’option **Sites qui peuvent toujours utiliser des cookies**, cliquez sur **Ajouter** ![Ajouter l’expérience utilisateur ADF aux sites autorisés](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png).
-1. Ajoutez le site **adf.azure.com**, cochez l’option **tous les cookies**, puis enregistrez. ![Autoriser tous les cookies du site d’expérience utilisateur ADF](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
-1. Actualisez l’expérience utilisateur ADF, puis réessayez.
+1. Sélectionner **ajouter** sous l’option **Sites qui peuvent toujours utiliser des cookies** 
 
+    ![Ajouter l’expérience utilisateur ADF aux sites autorisés dans Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
+1. Ajoutez le site **adf.azure.com**, cochez l’option **tous les cookies**, puis enregistrez. 
+
+    ![Autoriser tous les cookies du site d’expérience utilisateur ADF](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
+1. Actualisez l’expérience utilisateur ADF, puis réessayez.
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
 1. Visitez **edge://settings/content/cookies** dans votre navigateur.
-1. Assurez-vous que l’option **Autoriser les sites à enregistrer et à lire les données de cookie** est activée, et que l’option **Bloquer les cookies tiers** est désactivée ![Autoriser tous les cookies dans Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png).
+1. Assurez-vous que l’option **Autoriser les sites à enregistrer et à lire les données de cookie** est activée, et que l’option **Bloquer les cookies tiers** est désactivée 
+
+    ![Autoriser tous les cookies dans Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png)
 1. Actualisez l’expérience utilisateur ADF, puis réessayez.
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Autoriser uniquement l’expérience utilisateur ADF à utiliser des cookies
@@ -56,8 +64,42 @@ Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser q
 Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser que l’expérience utilisateur ADF :
 
 1. Visitez **edge://settings/content/cookies**.
-1. Sous la section **Autoriser**, cliquez sur **Ajouter**, puis ajoutez le site **adf.azure.com**. ![Ajouter l’expérience utilisateur ADF aux sites autorisés](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
+1. Sous la section **Autoriser**, sélectionnez **Ajouter**, puis ajoutez le site **adf.azure.com**. 
+
+    ![Ajouter l’expérience utilisateur ADF aux sites autorisés dans Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
 1. Actualisez l’expérience utilisateur ADF, puis réessayez.
+
+## <a name="connection-failed-on-adf-ux"></a>Échec de la connexion dans l’expérience utilisateur ADF
+
+Parfois, dans l’expérience utilisateur ADF, vous pouvez voir des erreurs « Échec de la connexion » similaires à la capture d’écran ci-dessous après avoir cliqué sur **Tester la connexion**, **Aperçu**, etc.
+
+![Échec de la connexion](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
+
+Dans ce cas, vous pouvez d’abord essayer la même opération avec le mode de navigation InPrivate dans votre navigateur.
+
+Si cela ne fonctionne toujours pas, dans le navigateur, appuyez sur F12 pour ouvrir **Outils de développement**. Accédez à l’onglet **Réseau**, cochez **Désactiver le cache**, recommencez l’opération qui a échoué et recherchez la requête ayant échoué (en rouge).
+
+![Requête ayant échoué](media/data-factory-ux-troubleshoot-guide/failed-request.png)
+
+Recherchez ensuite le **nom d’hôte** (dans ce cas, **dpnortheurope.svc.datafactory.azure.com**) à partir de **l’URL de requête** de la requête ayant échoué.
+
+Tapez le **nom d’hôte** directement dans la barre d’adresses de votre navigateur. Si la mention 404 s’affiche dans le navigateur, cela signifie généralement que tout est correct côté client et que le problème se trouve au niveau du service ADF. Envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+
+![Ressource introuvable](media/data-factory-ux-troubleshoot-guide/status-code-404.png)
+
+Si vous voyez une erreur similaire à celle ci-dessous dans le navigateur, cela signifie généralement qu’il y a un problème côté client. Suivez les étapes de dépannage.
+
+![Erreur côté client](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
+
+Ouvrez **l’invite de commandes** et tapez **nslookup dpnortheurope.svc.datafactory.azure.com**. Une réponse normale doit ressembler à ce qui suit :
+
+![Réponse de la commande 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
+
+Si vous voyez une réponse DNS normale, contactez votre support informatique local pour vérifier les paramètres de pare-feu afin de savoir si la connexion HTTPS à ce nom d’hôte est bloquée ou non. Si le problème ne peut pas être résolu, envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+
+Si autre chose s’affiche, cela signifie généralement qu’il y a un problème avec votre serveur DNS lors de la résolution du nom DNS. En règle générale, la modification du fournisseur de services Internet (ISP) ou du DNS (par exemple, sur Google DNS 8.8.8.8) peut être une solution de contournement possible. Si le problème persiste, vous pouvez essayer **nslookup datafactory.azure.com** et **nslookup azure.com** pour voir à quel niveau votre résolution DNS a échoué et envoyer toutes les informations à votre support informatique local ou à votre fournisseur de services Internet pour résoudre le problème. S’ils pensent que le problème se trouve toujours du côté de Microsoft, envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
+
+![Réponse de la commande 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

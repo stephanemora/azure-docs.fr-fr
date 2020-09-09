@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890023"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177684"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
 

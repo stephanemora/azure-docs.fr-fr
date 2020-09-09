@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057034"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230107"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
-La suppression réversible pour les objets blob protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible pour les objets blob est activée pour un compte de stockage, les objets BLOB, les versions d’objets BLOB (préversion) et les captures instantanées de ce compte de stockage peuvent être récupérés après leur suppression, au cours d’une période de rétention que vous spécifiez.
+La suppression réversible pour les objets blob protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible pour les objets blob est activée pour un compte de stockage, les blobs, les versions des blobs et les captures instantanées de ce compte de stockage peuvent être récupérés après leur suppression, au cours d’une période de rétention que vous spécifiez.
 
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible. Pour plus d’informations sur l’activation de la suppression réversible, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ S’il existe une possibilité de modification ou de suppression accidentelles d
 
 Lorsque la suppression réversible pour les objets blob est activée sur un compte de stockage, vous pouvez récupérer les objets une fois qu’ils ont été supprimés, au cours de la période de conservation des données spécifiée. Cette protection s’étend à tous les blobs (objets blob de blocs, objets blob d’ajout ou objets blob de pages) qui sont effacées à la suite d’un remplacement.
 
-Si les données d’un objet blob ou d’un instantané existant sont supprimées alors que la suppression réversible d’objet blob est activée, mais que le contrôle de version de l’objet blob (préversion) n’est pas activé, un instantané supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. Une fois la période de rétention spécifiée expirée, l’objet est supprimé définitivement.
+Si les données d’un objet blob ou d’une capture instantanée existant sont supprimées alors que la suppression réversible d’objet blob est activée, mais que le contrôle de version des blobs n’est pas activé, une capture instantanée supprimée de manière réversible est générée pour enregistrer l’état des données remplacées. Une fois la période de rétention spécifiée expirée, l’objet est supprimé définitivement.
 
 Si le contrôle de version des objets blob et la suppression réversible d’objets blob sont tous deux activés sur le compte de stockage, la suppression d’un objet blob crée une nouvelle version au lieu d’un instantané supprimé de manière réversible. La nouvelle version n’est pas supprimée de manière réversible et n’est pas supprimée à l’expiration de la période de rétention de la suppression réversible. Les versions supprimées de manière réversible d’un objet BLOB peuvent être restaurées au cours de la période de rétention en appelant l’opération [Undelete Blob](/rest/api/storageservices/undelete-blob) (Annuler la suppression d’un objet BLOB). L’objet BLOB peut ensuite être restauré à partir de l’une de ses versions en appelant l’opération [Copy Blob](/rest/api/storageservices/copy-blob) (Copier l’objet BLOB). Pour plus d’informations sur l’utilisation conjointe de la gestion des versions d’objets BLOB et de la suppression réversible, consultez [Contrôle de version d’objet BLOB et suppression réversible](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -194,4 +194,4 @@ Vous pouvez tirer parti de la suppression réversible, quelle que soit la versio
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Activer la suppression réversible pour les objets blob](soft-delete-enable.md)
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)

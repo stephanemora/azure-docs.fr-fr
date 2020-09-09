@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066659"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230073"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Activer et gérer la suppression réversible pour les conteneurs (préversion)
 
@@ -22,7 +22,7 @@ La suppression réversible de conteneur (préversion) protège vos données cont
 
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, Microsoft vous recommande d’activer la suppression réversible de conteneur. Cet article explique comment activer la suppression réversible pour les conteneurs. Pour plus d’informations sur la suppression réversible de conteneur, notamment sur la façon de s’inscrire à la préversion, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
 
-Pour la protection des données de bout en bout, Microsoft vous recommande également d’activer la suppression réversible pour les blobs et le contrôle de version des blobs (préversion). Pour savoir comment activer la suppression réversible pour les blobs, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md). Pour savoir comment activer le contrôle de version des blobs, consultez [Contrôle de version des objets blob (préversion)](versioning-overview.md).
+Pour la protection des données de bout en bout, Microsoft vous recommande également d’activer la suppression réversible pour les blobs et le contrôle de version des blobs. Pour savoir comment activer la suppression réversible pour les blobs, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md). Pour savoir comment activer le contrôle de version des blobs, consultez [Contrôle de version des blobs](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Activer la suppression réversible de conteneur
 
@@ -101,4 +101,4 @@ Vous pouvez restaurer un conteneur supprimé de manière réversible et son cont
 
 - [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md)
 - [Suppression réversible pour les objets blob](soft-delete-blob-overview.md)
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)

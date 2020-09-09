@@ -1,6 +1,6 @@
 ---
-title: 'CLI : créer une image à partir d’une capture instantanée ou d’un disque dur virtuel dans une Shared Image Gallery'
-description: Découvrez comment créer une image à partir d’une capture instantanée ou d’un disque dur virtuel dans une Shared Image Gallery à l’aide de l’Azure CLI.
+title: CLI - Créer une image à partir d’une capture instantanée ou d’un disque managé dans Shared Image Gallery
+description: Découvrez comment créer une image à partir d’une capture instantanée ou d’un disque managé dans Shared Image Gallery à l’aide d’Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502875"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297091"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Créez une image à partir d’un disque dur virtuel ou d’une capture instantanée dans une Shared Image Gallery à l’aide de l’Azure CLI
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Créer une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide d’Azure CLI
 
-Si vous souhaitez migrer une capture instantanée ou un VHD existants dans une Shared Image Gallery, vous pouvez créer une image Shared Image Gallery directement à partir du VHD ou de la capture instantanée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer le VHD ou la capture instantanée source. Vous pouvez également créer une image à partir d’un disque dur virtuel ou d’une capture instantanée dans une Shared Image Gallery à l’aide d’[Azure PowerShell](image-version-snapshot-powershell.md).
+Si vous souhaitez migrer une capture instantanée ou un disque managé existants dans Shared Image Gallery, vous pouvez créer une image Shared Image Gallery directement à partir du disque managé ou de la capture instantanée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer la capture instantanée ou le disque managé source. Vous pouvez également créer une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide [d’Azure PowerShell](image-version-snapshot-powershell.md).
 
 Les images d’une galerie d’images comportent deux composants, que nous allons créer dans cet exemple :
 - Une **définition d’image** transporte des informations sur l’image et ses conditions d’utilisation. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, spécialisée ou généralisée, et comprennent les notes de publication et la mémoire maximale et minimale requise. Il s’agit d’une définition de type d’image. 
@@ -27,13 +27,13 @@ Les images d’une galerie d’images comportent deux composants, que nous allon
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre l’exemple de cet article, vous devez avoir une capture instantanée ou un VHD. 
+Pour suivre l’exemple de cet article, vous devez avoir une capture instantanée ou un disque managé. 
 
 Si vous voulez inclure un disque de données, la taille du disque de données ne peut pas être supérieure à 1 To.
 
 Dans cet article, remplacez les noms de ressources si nécessaire.
 
-## <a name="find-the-snapshot-or-vhd"></a>Recherchez la capture instantanée ou le disque dur virtuel 
+## <a name="find-the-snapshot-or-managed-disk"></a>Rechercher la capture instantanée ou le disque managé 
 
 Pour voir la liste des captures instantanées disponibles dans un groupe de ressources, utilisez la liste [az snapshot list](/cli/azure/snapshot#az-snapshot-list). 
 
@@ -41,13 +41,13 @@ Pour voir la liste des captures instantanées disponibles dans un groupe de ress
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-Vous pouvez également utiliser un disque dur virtuel au lieu d’une capture instantanée. Pour obtenir un disque dur virtuel, utilisez [AZ Disk List](/cli/azure/disk#az-disk-list). 
+Vous pouvez également utiliser un disque managé au lieu d’une capture instantanée. Pour obtenir un disque managé, utilisez [az disk list](/cli/azure/disk#az-disk-list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Une fois que vous avez l’ID de la capture instantanée ou du VHD et que vous l’affectez à une variable nommée `$source` à utiliser ultérieurement.
+Une fois que vous avez l’ID de la capture instantanée ou du disque managé, vous pouvez l’affectez à une variable nommée `$source` à utiliser ultérieurement.
 
 Vous pouvez utiliser le même processus pour obtenir tous les disques de données que vous souhaitez inclure dans votre image. Affectez-les à des variables, puis utilisez ces variables ultérieurement lorsque vous créez la version de l’image.
 
@@ -67,7 +67,7 @@ az sig list -o table
 
 Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur l’image. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. 
 
-Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le VHD sont issus d’une machine virtuelle en cours d’utilisation et n’ont pas été généralisés. Si le disque dur virtuel ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
+Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le disque managé sont issus d’une machine virtuelle en cours d’utilisation et qui n’a pas été généralisée. Si le disque managé ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
 
 Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./linux/shared-image-galleries.md#image-definitions).
 
@@ -99,9 +99,9 @@ Créez une version d’image à l’aide de la commande [az image gallery create
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer 1 réplica dans la région *USA Centre Sud* et 1 réplica dans la région *USA Est 2* à l’aide du stockage redondant interzone. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* pour le VHD ou la capture instantanée en tant que cible pour la réplication.
+Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer 1 réplica dans la région *USA Centre Sud* et 1 réplica dans la région *USA Est 2* à l’aide du stockage redondant interzone. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* pour le disque managé ou la capture instantanée en tant que cible pour la réplication.
 
-Transmettez l’ID de la capture instantanée ou du VHD dans le paramètre `--os-snapshot`.
+Transmettez l’ID de la capture instantanée ou du disque managé dans le paramètre `--os-snapshot`.
 
 
 ```azurecli-interactive 
