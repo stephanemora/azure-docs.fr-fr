@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651197"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647231"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Créer une cible de calcul
 
-Dans Azure Machine Learning, le *calcul* (ou la *cible de calcul*) fait référence aux machines ou aux clusters qui effectuent les étapes de calcul de votre pipeline Machine Learning. Exécutez le code suivant pour créer une cible [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) basée sur le processeur.
+Dans Azure Machine Learning, le *calcul* (ou la *cible de calcul*) fait référence aux machines ou aux clusters qui effectuent les étapes de calcul de votre pipeline Machine Learning. Exécutez le code suivant pour créer une cible [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) basée sur le processeur.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Créer les entrées de données
 
-Les entrées de l’inférence par lots sont les données que vous souhaitez partitionner pour un traitement parallèle. Un pipeline d’inférence par lots accepte les entrées de données par l’intermédiaire de [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
+Les entrées de l’inférence par lots sont les données que vous souhaitez partitionner pour un traitement parallèle. Un pipeline d’inférence par lots accepte les entrées de données par l’intermédiaire de [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true).
 
-`Dataset` sert à explorer, transformer et gérer les données dans Azure Machine Learning. Il existe deux types : [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) et [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). Dans cet exemple, vous utilisez `FileDataset` en tant qu’entrées. `FileDataset` vous offre la possibilité de télécharger ou de monter les fichiers dans votre calcul. En créant un jeu de données, vous créez une référence à l’emplacement de la source de données. Si vous avez appliqué des transformations au jeu de données par la création de sous-ensembles, celles-ci seront également stockées dans le jeu de données. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru.
+`Dataset` sert à explorer, transformer et gérer les données dans Azure Machine Learning. Il existe deux types : [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) et [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true). Dans cet exemple, vous utilisez `FileDataset` en tant qu’entrées. `FileDataset` vous offre la possibilité de télécharger ou de monter les fichiers dans votre calcul. En créant un jeu de données, vous créez une référence à l’emplacement de la source de données. Si vous avez appliqué des transformations au jeu de données par la création de sous-ensembles, celles-ci seront également stockées dans le jeu de données. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru.
 
 Pour plus d’informations sur les jeux de données Azure Machine Learning, consultez [Créer des jeux de données et y accéder (préversion)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-Afin de pouvoir utiliser des entrées de données dynamiques lors de l’exécution du pipeline d’inférence par lots, vous pouvez définir les entrées `Dataset` en tant que [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). Vous pouvez spécifier le jeu de données des entrées chaque fois que vous soumettez de nouveau une exécution de pipeline d’inférence par lots.
+Afin de pouvoir utiliser des entrées de données dynamiques lors de l’exécution du pipeline d’inférence par lots, vous pouvez définir les entrées `Dataset` en tant que [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true). Vous pouvez spécifier le jeu de données des entrées chaque fois que vous soumettez de nouveau une exécution de pipeline d’inférence par lots.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Créer la sortie
 
-Les objets [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) sont utilisés pour transférer les données intermédiaires entre chaque étape du pipeline. Dans cet exemple, vous les utiliserez pour les sorties d’inférence.
+Les objets [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) sont utilisés pour transférer les données intermédiaires entre chaque étape du pipeline. Dans cet exemple, vous les utiliserez pour les sorties d’inférence.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Créer et exécuter le pipeline
 
-À présent, exécutez le pipeline. Commencez par créer un objet [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, l’inférence par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
+À présent, exécutez le pipeline. Commencez par créer un objet [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, l’inférence par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
 
 Utilisez ensuite la fonction `Experiment.submit()` pour soumettre l’exécution du pipeline.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 La durée d’un travail d’inférence par lots peut être très longue. Cet exemple supervise la progression à l’aide d’un widget Jupyter. Vous pouvez également superviser la progression du travail en utilisant :
 
 * Azure Machine Learning Studio 
-* La sortie de console de l’objet [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py).
+* La sortie de console de l’objet [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true).
 
 ```python
 from azureml.widgets import RunDetails

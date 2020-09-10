@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 408b507ff23a2a20c5ed6d2fc32fd5dbf5dbab5d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ae9891edc80aab5d3223686547dfef4273f8a921
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930891"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514626"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exporter des certificats depuis Azure Key Vault
 
@@ -66,7 +66,7 @@ Pour plus d’informations, consultez [Exemples et définitions de paramètres](
 Si vous voulez télécharger l’intégralité du certificat (la partie publique et la partie privée de sa composition), téléchargez le certificat en tant que secret.
 
 ```azurecli
-az keyvault secret download –file {nameofcert.pfx}
+az keyvault secret download -–file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]
