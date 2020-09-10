@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799364"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177089"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>Définir le point d’attache
 
 Pour déboguer une fonction PowerShell quelconque, la fonction doit s’arrêter pour que le débogueur soit attaché. L’applet de commande `Wait-Debugger` arrête son exécution et attend le débogueur.
+
+>[!NOTE]
+>Lorsque vous utilisez PowerShell 7, vous n’avez pas besoin d’ajouter l’appel `Wait-Debugger` à votre code.
 
 Il vous suffit d’ajouter un appel à l’applet de commande `Wait-Debugger` juste au-dessus de l’instruction `if`, comme suit :
 

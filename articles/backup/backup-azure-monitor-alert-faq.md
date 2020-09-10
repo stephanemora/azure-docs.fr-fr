@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les réponses aux questions les plus f
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892556"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181491"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerte de supervision de Sauvegarde Azure - Questions fréquentes (FAQ)
 
@@ -19,7 +19,7 @@ Cet article répond aux questions courantes sur la supervision et la création d
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Comment vérifier si les données de rapports ont commencé à arriver dans un espace de travail Log Analytics (LA) ?
 
-Accédez à l’espace de travail LA que vous avez configuré, accédez à l’élément de menu **Journaux** et exécutez la requête CoreAzureBackup | take 1. Si vous voyez un enregistrement retourné, cela signifie que les données ont commencé à arriver dans l’espace de travail. Le Push de données initial peut prendre jusqu’à 24 heures.
+Accédez à l’espace de travail LA que vous avez configuré. Accédez à l’élément de menu **Journaux** et exécutez la requête `CoreAzureBackup | take 1`. Si vous voyez un enregistrement retourné, cela signifie que les données ont commencé à arriver dans l’espace de travail. Le Push de données initial peut prendre jusqu’à 24 heures.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Quelle est la fréquence de Push de données à un espace de travail LA ?
 
@@ -50,13 +50,13 @@ Si vous êtes un utilisateur [Azure Lighthouse](https://azure.microsoft.com/serv
 
 ## <a name="recovery-services-vault"></a>Coffre Recovery Services
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent Sauvegarde Azure apparaisse dans le portail ?
 
-Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
+Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent Sauvegarde Azure ne s’affiche dans le portail Azure.
 
 ### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
 
-Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
+Une alerte est générée dans les 20 minutes qui suivent l’échec de Sauvegarde Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
 

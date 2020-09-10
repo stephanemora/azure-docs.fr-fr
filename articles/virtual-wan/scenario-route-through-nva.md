@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852088"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400022"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -46,7 +46,7 @@ La matrice de connectivité suivante résume les flux pris en charge dans ce sc�
 | **Réseaux virtuels non-NVA**| &#8594; |   statique |      X   |        X     |      X    |
 | **Branches**     | &#8594; |   statique |      X   |        X     |      X    |
 
-Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Tenez compte des éléments suivants :
+Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Un « X » signifie que la connectivité est fournie en mode natif par Virtual WAN, et « Statique » signifie que la connectivité est assurée par Virtual WAN par le biais de routes statiques. Tenez compte des éléments suivants :
 
 * Les spokes NVA ne sont pas gérés par Virtual WAN. Par conséquent, les mécanismes avec lesquels ils communiquent avec d’autres réseaux virtuels ou branches sont gérés par l’utilisateur. La connectivité au réseau virtuel NVA est assurée par un appairage de réseaux virtuels, et un itinéraire par défaut vers 0.0.0.0/0 pointant vers la NVA en tant que tronçon suivant doit couvrir la connectivité à Internet, à d’autres spokes et à des branches
 * Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans le Tableau 1, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes tels que VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA

@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798837"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048418"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -37,19 +37,28 @@ Les valeurs des paramètres de la topologie sont spécifiées lorsque vous crée
 
 ## <a name="media-graph-states"></a>États du graphe multimédia  
 
-Un graphe multimédia peut avoir l’un des états suivants :
+Le cycle de vie des topologies de graphe et des instances de graphe est illustré dans le diagramme d’état suivant.
 
-* Inactif : état lorsqu’un graphe multimédia est configuré, mais non actif.
-* Activation : état d’instanciation d’un graphe multimédia (autrement dit, état de transition entre inactif et actif).
-* Actif : état lorsqu’un graphe multimédia est actif. 
+![Cycle de vie des instances et des topologies de graphe](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  Le graphe multimédia peut être actif sans transmettre de données (par exemple, la source vidéo d’entrée devient hors connexion).
-* Désactivation : état lorsqu’un graphe multimédia passe d’actif à inactif.
+Commencez par [créer une topologie de graphe](direct-methods.md#graphtopologyset). Ensuite, pour chaque flux vidéo en direct que vous souhaitez traiter avec cette topologie, vous [créez une instance de graphe](direct-methods.md#graphinstanceset). 
 
-Le diagramme ci-dessous illustre la machine d’état du graphe multimédia.
+L’instance de graphe sera à l’état `Inactive` (inactif).
 
-![Machine d’état du graphe multimédia](./media/media-graph/media-graph-state-machine.png)
+Lorsque vous êtes prêt à envoyer le flux vidéo en direct dans l’instance de graphe, vous [l’activez](direct-methods.md#graphinstanceactivate). L’instance de graphe passe brièvement par un état `Activating` transitoire et, en cas de réussite, passe à l’état `Active`. À l’état `Active`, le média sera traité (si l’instance de graphe reçoit des données d’entrée).
+
+> [!NOTE]
+>  Une instance de graphe peut être active sans transmettre de données (par exemple, la caméra devient hors connexion).
+> Votre abonnement Azure est facturé lorsque l’instance de graphe est à l’état actif.
+
+Vous pouvez répéter le processus de création et d’activation d’autres instances de graphe pour la même topologie, si vous avez d’autres flux vidéo en direct à traiter.
+
+Lorsque vous avez fini de traiter le flux vidéo en direct, vous pouvez [désactiver](direct-methods.md#graphinstancedeactivate) l’instance de graphe. L’instance de graphe passe brièvement par un état `Deactivating` transitoire, vide toutes les données qu’elle contient, puis revient à l’état `Inactive`.
+
+Vous ne pouvez [supprimer](direct-methods.md#graphinstancedelete) une instance de graphe que lorsqu’elle est à l’état `Inactive`.
+
+Une fois que toutes les instances de graphe qui font référence à une topologie de graphe spécifique ont été supprimées, vous pouvez [supprimer la topologie de graphe](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Sources, processeurs et récepteurs  
 

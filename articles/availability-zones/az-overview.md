@@ -4,15 +4,15 @@ description: Apprenez-en davantage sur les régions et les zones de disponibilit
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413159"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018669"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -92,46 +92,45 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | De base | Standard | Spécialisée |
 > | --- | --- | --- |
 > | Stockage du compte | Gestion des API | API Azure pour FHIR |
-> | Application Gateway | Configuration d’application | Service Azure Blockchain |
-> | Sauvegarde Azure | App Service | Azure Blueprints |
-> | Azure Cosmos DB | Automatisation | Azure Database for MariaDB |
-> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Module de sécurité matériel (HSM) dédié Azure |
-> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
-> | Azure SQL Database | Azure Bastion | Azure Digital Twins |
-> | Cloud Services | Cache Azure pour Redis | Azure Lab Services |
-> | Services cloud : Série Av2 | Recherche cognitive Azure | Azure NetApp Files |
-> | Services cloud : Série Dv2 | Explorateur de données Azure | Azure Quantum |
-> | Services cloud : Série Dv3 | Azure Data Share | Azure Time Series Insights |
-> | Services cloud : Série Ev3 | Azure Database pour MySQL | Azure VMware Solution by CloudSimple |
-> | Services cloud : IP de niveau d'instance | Azure Database pour PostgreSQL | Services cloud : A8 - A11 (Calcul intensif) |
-> | Services cloud : Adresse IP réservée | Azure Database Migration Service | Services cloud : Série G |
-> | Stockage sur disque | Azure Databricks | Services cloud : Série H |
-> | Event Hubs | Protection DDoS dans Azure | Cognitive Services : Le détecteur d’anomalies |
-> | Key Vault | Azure DevTest Labs | Cognitive Services : Vision personnalisée |
+> | Application Gateway | Configuration d’application | Azure Analysis Services |
+> | Sauvegarde Azure | App Service | Service Azure Blockchain |
+> | Azure Cosmos DB | Automatisation | Azure Blueprints |
+> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
+> | Azure ExpressRoute | Azure Bastion | Module de sécurité matériel (HSM) dédié Azure |
+> | Azure SQL Database | Cache Azure pour Redis | Azure Dev Spaces |
+> | Cloud Services | Recherche cognitive Azure | Azure Digital Twins |
+> | Services cloud : Série Av2 | Explorateur de données Azure | Azure Lab Services |
+> | Services cloud : Série Dv2 | Azure Data Share | Azure NetApp Files |
+> | Services cloud : Série Dv3 | Azure Database pour MySQL | Azure Quantum |
+> | Services cloud : Série Ev3 | Azure Database pour PostgreSQL | Service Azure Spring Cloud |
+> | Services cloud : IP de niveau d'instance | Azure Database Migration Service | Azure Time Series Insights |
+> | Services cloud : Adresse IP réservée | Azure Databricks | Azure VMware Solution by CloudSimple |
+> | Stockage sur disque | Protection DDoS dans Azure | Services cloud : Série G |
+> | Event Hubs | Azure DevTest Labs | Services cloud : Série H |
+> | Key Vault | Pare-feu Azure | Cognitive Services : Vision personnalisée |
 > | Équilibrage de charge | Azure Firewall Manager | Cognitive Services : Reconnaissance de l’orateur |
-> | Service Bus | Pare-feu Azure | Data Box Heavy |
-> | Service Fabric | Azure Functions | Data Catalog |
-> | Virtual Machine Scale Sets | Azure HPC Cache | Fabrique de données : Data Factory V1 |
-> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
-> | Machines virtuelles : Série Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
-> | Machines virtuelles : Série Bs | Azure Machine Learning | Microsoft Genomics |
-> | Machines virtuelles : Série DSv2 | Azure Private Link | Rendu à distance |
-> | Machines virtuelles : Série DSv3 | Azure Red Hat OpenShift | Spatial Anchors |
+> | Service Bus | Azure Functions | Data Box Heavy |
+> | Service Fabric | Azure HPC Cache | Data Catalog |
+> | Virtual Machine Scale Sets | Azure IoT Hub | Fabrique de données : Data Factory V1 |
+> | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
+> | Machines virtuelles : Série Av2 | Azure Machine Learning | Machine Learning Studio |
+> | Machines virtuelles : Série Bs | Azure Private Link | Microsoft Genomics |
+> | Machines virtuelles : Série DSv2 | Azure Red Hat OpenShift | Rendu à distance |
+> | Machines virtuelles : Série DSv3 | Service Azure SignalR | Spatial Anchors |
 > | Machines virtuelles : Série Dv2 | Azure Site Recovery | StorSimple |
-> | Machines virtuelles : Série Dv3 | Service Azure Spring Cloud | Video Indexer |
-> | Machines virtuelles : Série ESv3 | Azure Stack Hub | Machines virtuelles : A8 - A11 (Calcul intensif) |
-> | Machines virtuelles : Série Ev3 | Azure Stream Analytics | Machines virtuelles : Série DASv4 |
-> | Machines virtuelles : Série F | Azure Synapse Analytics | Machines virtuelles : Série Dav4 |
-> | Machines virtuelles : Série FS | Service Azure SignalR | Machines virtuelles : série DCsv2 |
-> | Machines virtuelles : IP de niveau d'instance | Batch | Machines virtuelles : Série EASv4 |
-> | Machines virtuelles : Adresse IP réservée | Services cloud : Série M | Machines virtuelles : Série Eav4 |
-> | Réseau virtuel | Cognitive Services | Machines virtuelles : Série G |
-> | Passerelle VPN | Cognitive Services : Vision par ordinateur | Machines virtuelles : Série GS |
-> |  | Cognitive Services : Content Moderator | Machines virtuelles : Série HBv1 |
-> |  | Cognitive Services : Face | Machines virtuelles : Série HBv2 |
+> | Machines virtuelles : Série Dv3 | Azure Stack Hub | Video Indexer |
+> | Machines virtuelles : Série ESv3 | Azure Stream Analytics | Machines virtuelles : Série DASv4 |
+> | Machines virtuelles : Série Ev3 | Azure Synapse Analytics | Machines virtuelles : Série Dav4 |
+> | Machines virtuelles : Série F | Batch | Machines virtuelles : série DCsv2 |
+> | Machines virtuelles : Série FS | Services cloud : Série M | Machines virtuelles : Série EASv4 |
+> | Machines virtuelles : IP de niveau d'instance | Cognitive Services | Machines virtuelles : Série Eav4 |
+> | Machines virtuelles : Adresse IP réservée | Cognitive Services : Vision par ordinateur | Machines virtuelles : Série G |
+> | Réseau virtuel | Cognitive Services : Content Moderator | Machines virtuelles : Série GS |
+> | Passerelle VPN | Cognitive Services : Face | Machines virtuelles : Série HBv1 |
+> |  | Cognitive Services : Form Recognizer | Machines virtuelles : Série HBv2 |
 > |  | Cognitive Services : Language Understanding | Machines virtuelles : Série HCv1 |
-> |  | Cognitive Services : Services Speech | Machines virtuelles : Série H |
-> |  | Cognitive Services : QnA Maker | Machines virtuelles : Série LS |
+> |  | Cognitive Services : QnA Maker | Machines virtuelles : Série H |
+> |  | Cognitive Services : Services Speech | Machines virtuelles : Série LS |
 > |  | Container Instances | Machines virtuelles : Série LSv2 |
 > |  | Container Registry | Machines virtuelles : Série Mv2 |
 > |  | Data Factory | Machines virtuelles : Série NC |
@@ -146,6 +145,14 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > |  | Stockage de fichiers Premium | Visual Studio App Center |
 > |  | Stockage : Stockage archive |  |
 > |  | Disque Ultra |  |
+> |  | Machines virtuelles : Série Ddsv4 |  |
+> |  | Machines virtuelles : Série Ddv4 |  |
+> |  | Machines virtuelles : Série Dsv4 |  |
+> |  | Machines virtuelles : Série Dv4 |  |
+> |  | Machines virtuelles : Série Edsv4 |  |
+> |  | Machines virtuelles : Série Edv4 |  |
+> |  | Machines virtuelles : Série Esv4 |  |
+> |  | Machines virtuelles : Série Ev4 |  |
 > |  | Machines virtuelles : Série Fsv2 |  |
 > |  | Machines virtuelles : Série M |  |
 > |  | WAN virtuel |  |

@@ -16,12 +16,13 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542091"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296462"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 
@@ -34,24 +35,24 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 | Condition requise | Description |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health est une fonctionnalité d’Azure AD Premium qui nécessite Azure AD Premium. <br /><br />Pour plus d'informations, consultez la section [Prise en main d’Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Pour démarrer une période d’évaluation gratuite de 30 jours, consultez [Démarrer l’essai gratuit.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Vous devez être administrateur général de votre instance Azure AD pour démarrer Azure AD Connect Health |Par défaut, seuls les administrateurs généraux peuvent installer et configurer les agents d’intégrité afin de permettre leur démarrage, accéder au portail et exécuter des opérations au sein d’Azure AD Connect Health. Pour plus d’informations, consultez l’article [Administration de votre annuaire Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> À l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC), vous pouvez accorder l’accès à Azure AD Connect Health à d’autres utilisateurs de votre organisation. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Important :** Le compte utilisé lors de l’installation des agents doit être un compte professionnel ou scolaire. Il ne peut pas s’agir d’un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](../fundamentals/sign-up-organization.md) |
+| Vous devez être administrateur général de votre instance Azure AD pour démarrer Azure AD Connect Health |Par défaut, seuls les administrateurs généraux peuvent installer et configurer les agents d’intégrité afin de permettre leur démarrage, accéder au portail et exécuter des opérations au sein d’Azure AD Connect Health. Pour plus d’informations, consultez l’article [Administration de votre annuaire Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> À l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC), vous pouvez accorder l’accès à Azure AD Connect Health à d’autres utilisateurs de votre organisation. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**Important :** Le compte utilisé lors de l’installation des agents doit être un compte professionnel ou scolaire. Il ne peut pas s’agir d’un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](../fundamentals/sign-up-organization.md) |
 | L’agent Azure AD Connect Health est installé sur chaque serveur cible | Azure AD Connect Health nécessite que les agents d’intégrité soient installés et configurés sur les serveurs cibles pour recevoir les données et fournir les fonctionnalités de surveillance et d’analyse. <br /><br />Par exemple, pour obtenir les données de votre infrastructure AD FS, l’agent doit être installé sur les serveurs AD FS et proxy d’application web. De même, pour obtenir des données sur votre infrastructure locale AD DS, l’agent doit être installé sur les contrôleurs de domaine. <br /><br /> |
 | Connectivité sortante vers les points de terminaison de service Azure | Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l’aide de pare-feu, assurez-vous d’ajouter les points de terminaison suivants à la liste autorisée. Consultez les [points de terminaison de connectivité sortante](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints). |
 |Connectivité sortante basée sur des adresses IP | Pour le filtrage basé sur des adresses IP sur les pare-feu, reportez-vous aux [plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
-| L’inspection TLS pour le trafic sortant est filtrée ou désactivée | L’étape d’inscription de l’agent ou les étapes de téléchargement de données peuvent échouer en cas d’inspection TLS ou d’arrêt pour le trafic sortant sur la couche réseau. En savoir plus sur [comment configurer l’inspection TLS](https://technet.microsoft.com/library/ee796230.aspx) |
-| Ports du pare-feu sur le serveur qui exécute l’agent |L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Notez que le port 5671 n'est plus requis pour la dernière version de l'agent. Procédez à une mise à niveau vers la dernière version pour que seul le port 443 soit requis. En savoir plus sur l’[activation des ports de pare-feu](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| L’inspection TLS pour le trafic sortant est filtrée ou désactivée | L’étape d’inscription de l’agent ou les étapes de téléchargement de données peuvent échouer en cas d’inspection TLS ou d’arrêt pour le trafic sortant sur la couche réseau. En savoir plus sur [comment configurer l’inspection TLS](/previous-versions/tn-archive/ee796230(v=technet.10)) |
+| Ports du pare-feu sur le serveur qui exécute l’agent |L’agent requiert que les ports de pare-feu suivants soient ouverts pour pouvoir communiquer avec les points de terminaison du service Azure AD Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Notez que le port 5671 n'est plus requis pour la dernière version de l'agent. Procédez à une mise à niveau vers la dernière version pour que seul le port 443 soit requis. En savoir plus sur l’[activation des ports de pare-feu](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Autoriser les sites web suivants en cas d’activation de la sécurité renforcée d’IE |Si la sécurité renforcée d’Internet Explorer est activée, les sites web suivants doivent être autorisés sur le serveur où l’agent sera installé.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Le serveur de fédération pour votre organisation approuvé par Azure Active Directory. Par exemple : https:\//sts.contoso.com</li> Apprenez-en davantage sur la [configuration d’Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Si vous avez un proxy dans votre réseau, consultez la remarque ci-dessous.|
-| Vérifier que le logiciel PowerShell 4.0 ou plus est installé | <li>Le logiciel Windows Server 2008 R2 est livré avec PowerShell 2.0, qui est insuffisant pour l’agent. Mettez à jour PowerShell, comme expliqué ci-dessous sous [Installation de l’agent sur les serveurs Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Le logiciel Windows Server 2012 est livré avec PowerShell 3.0, qui est insuffisant pour l’agent.  [Mettez à jour](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Le logiciel Windows Server 2012 R2 et les versions ultérieures sont proposés avec une version suffisamment récente de PowerShell.</li>|
+| Vérifier que le logiciel PowerShell 4.0 ou plus est installé | <li>Le logiciel Windows Server 2008 R2 est livré avec PowerShell 2.0, qui est insuffisant pour l’agent. Mettez à jour PowerShell, comme expliqué ci-dessous sous [Installation de l’agent sur les serveurs Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Le logiciel Windows Server 2012 est livré avec PowerShell 3.0, qui est insuffisant pour l’agent.</li><li>Le logiciel Windows Server 2012 R2 et les versions ultérieures sont proposés avec une version suffisamment récente de PowerShell.</li>|
 |Désactiver FIPS|FIPS n’est pas pris en charge par les agents Azure AD Connect Health.|
 
 
 > [!NOTE]
-> Si votre environnement est hautement verrouillé et extrêmement restreint, vous devez ajouter à la liste verte les URL mentionnées dans les listes de points de terminaison de service ci-dessous, en plus de celles répertoriées dans la configuration de sécurité renforcée d’Internet Explorer activée ci-dessus. 
+> Si votre environnement est hautement verrouillé et extrêmement restreint, vous devez ajouter les URL mentionnées dans les listes de points de terminaison de service ci-dessous, en plus de celles répertoriées dans la configuration de sécurité renforcée d’Internet Explorer activée ci-dessus. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connectivité sortante vers les points de terminaison de service Azure
 
- Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l'aide de pare-feu, assurez-vous que les URL suivantes ne sont pas bloquées par défaut. Ne désactivez pas la surveillance ou l'inspection de la sécurité de ces URL, mais autorisez-les comme vous le feriez pour tout autre trafic Internet. Celles-ci permettent la communication avec les points de terminaison de service Azure AD Connect Health. Découvrez comment [vérifier la connectivité sortante avec Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l'aide de pare-feu, assurez-vous que les URL suivantes ne sont pas bloquées par défaut. Ne désactivez pas la surveillance ou l'inspection de la sécurité de ces URL, mais autorisez-les comme vous le feriez pour tout autre trafic Internet. Celles-ci permettent la communication avec les points de terminaison de service Azure AD Connect Health. Découvrez comment [vérifier la connectivité sortante avec Test-AzureADConnectHealthConnectivity](#test-connectivity-to-azure-ad-connect-health-service).
 
 | Environnement de domaine | Points de terminaison de service Azure nécessaires |
 | --- | --- |
@@ -81,15 +82,15 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 Avant l’installation, assurez-vous que votre nom d’hôte de serveur AD FS est unique et non présent dans le service AD FS.
 Pour démarrer l’installation de l’agent, double-cliquez sur le fichier .exe que vous avez téléchargé. Sur le premier écran, cliquez sur Installer.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/install1.png)
+![Démarrage de l’installation d’Azure AD Connect Health AD FS](./media/how-to-connect-health-agent-install/install1.png)
 
 Une fois l’installation terminée, cliquez sur Configurer maintenant.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/install2.png)
+![Fin de l’installation d’Azure AD Connect Health AD FS](./media/how-to-connect-health-agent-install/install2.png)
 
 Une fenêtre PowerShell s’ouvre pour démarrer le processus d’inscription de l’agent. Lorsque vous y êtes invité, connectez-vous avec un compte Azure AD disposant d’un accès pour effectuer l’inscription de l’agent. Par défaut, l’administrateur général dispose de cet accès.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/install3.png)
+![Connexion de configuration d’Azure AD Connect Health AD FS](./media/how-to-connect-health-agent-install/install3.png)
 
 Une fois que vous êtes connecté, PowerShell continue. À l’issue du processus, vous pouvez fermer PowerShell ; la configuration est terminée.
 
@@ -97,7 +98,7 @@ Une fois que vous êtes connecté, PowerShell continue. À l’issue du processu
 
 Si vous n’avez pas satisfait la configuration requise décrite dans les sections précédentes, des avertissements s’affichent dans la fenêtre PowerShell. Assurez-vous que vous disposez de la [configuration requise](how-to-connect-health-agent-install.md#requirements) avant d’installer l’agent. La capture d’écran suivante est un exemple de ces erreurs.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/install4.png)
+![Script de configuration d’Azure AD Connect Health AD FS](./media/how-to-connect-health-agent-install/install4.png)
 
 Pour vérifier que l’agent a été installé, recherchez les services suivants sur le serveur. Si vous avez terminé la configuration, ils doivent déjà être en cours d’exécution. Dans le cas contraire, ils sont arrêtés tant que la configuration n’est pas terminée.
 
@@ -105,7 +106,7 @@ Pour vérifier que l’agent a été installé, recherchez les services suivants
 * Azure AD Connect Health AD FS Insights Service
 * Azure AD Connect Health AD FS Monitoring Service
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+![Services Azure AD Connect Health AD FS](./media/how-to-connect-health-agent-install/install5.png)
 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Installation de l’agent sur les serveurs Windows Server 2008 R2
 
@@ -116,7 +117,6 @@ Procédure pour les serveurs Windows Server 2008 R2 :
 3. Installez Windows PowerShell 4.0 sur chacun des serveurs avant d’installer l’agent AD Health. Pour installer Windows PowerShell 4.0 :
    * Installez [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) en cliquant sur le lien suivant pour télécharger le programme d’installation hors connexion.
    * Installer PowerShell ISE (à partir des fonctionnalités de Windows)
-   * Installez [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
    * Installez Internet Explorer version 10 ou supérieure sur le serveur. (Cette installation est requise par le service Health pour l’authentification avec vos informations d’identification d’administrateur Azure.)
 4. Pour plus d’informations sur l’installation de Windows PowerShell 4.0 sur Windows Server 2008 R2, consultez l’article wiki [ici](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
@@ -170,7 +170,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter et a
 9. Sélectionnez les cases **Audits des succès et Audits des échecs**, puis cliquez sur **OK**. Ceci doit être activé par défaut.
 10. Ouvrez une fenêtre PowerShell et exécutez la commande suivante : ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Notez que le niveau d’audit « de base » est activé par défaut. En savoir plus sur l’[amélioration de l’audit AD FS dans Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
+Notez que le niveau d’audit « de base » est activé par défaut. En savoir plus sur l’[amélioration de l’audit AD FS dans Windows Server 2016](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Pour localiser les journaux d’audit AD FS
@@ -231,21 +231,21 @@ Lorsque vous êtes invité à vous authentifier, vous devez utiliser le compte A
 
 Pour démarrer l’installation de l’agent, double-cliquez sur le fichier .exe que vous avez téléchargé. Sur le premier écran, cliquez sur Installer.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
+![Début de l’installation de l’agent Azure AD Connect Health pour AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
 
 Une fois l’installation terminée, cliquez sur Configurer maintenant.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
+![Fin de l’installation de l’agent Azure AD Connect Health pour AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
 
 Une invite de commandes est lancée, suivie par certains éléments PowerShell qui exécutent Register-AzureADConnectHealthADDSAgent. Lorsque vous y êtes invité, connectez-vous à Azure.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
+![Connexion de configuration de l’agent Azure AD Connect Health pour AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
 
 Une fois que vous êtes connecté, PowerShell continue. À l’issue du processus, vous pouvez fermer PowerShell ; la configuration est terminée.
 
 À ce stade, les services doivent être démarrés automatiquement, permettant à l’agent de surveiller et de collecter les données. Si vous n’avez pas satisfait la configuration requise décrite dans les sections précédentes, des avertissements s’affichent dans la fenêtre PowerShell. Assurez-vous que vous disposez de la [configuration requise](how-to-connect-health-agent-install.md#requirements) avant d’installer l’agent. La capture d’écran suivante est un exemple de ces erreurs.
 
-![Vérifier Azure AD Connect Health pour AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
+![Script de configuration de l’agent Azure AD Connect Health pour AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
 
 Pour vérifier que l’agent a été installé, recherchez les services suivants sur le contrôleur de domaine.
 
@@ -254,12 +254,12 @@ Pour vérifier que l’agent a été installé, recherchez les services suivants
 
 Si vous avez terminé la configuration, ces services doivent déjà être en cours d’exécution. Dans le cas contraire, ils sont arrêtés tant que la configuration n’est pas terminée.
 
-![Vérifier Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
+![Agent Azure AD Connect Health pour services AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>Installation de l’agent rapide sur plusieurs serveurs
 
 1. Créez un compte d’utilisateur dans Azure AD avec un mot de passe.
-2. Affectez le rôle **Propriétaire** à ce compte AAD local dans Azure AD Connect Health, via le portail. Suivez cette [procédure](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Affectez le rôle à toutes les instances de services. 
+2. Affectez le rôle **Propriétaire** à ce compte AAD local dans Azure AD Connect Health, via le portail. Suivez cette [procédure](how-to-connect-health-operations.md#manage-access-with-azure-rbac). Affectez le rôle à toutes les instances de services. 
 3. Téléchargez le fichier MSI .exe dans le contrôleur de domaine local pour l’installation.
 4. Exécutez le script suivant pour effectuer l’inscription. Remplacez les paramètres par le nouveau compte d’utilisateur et son mot de passe. 
 
@@ -295,7 +295,7 @@ Après avoir installé le fichier setup.exe de l’agent approprié, vous pouvez
 Ces commandes acceptent les « informations d’identification » en tant que paramètre pour terminer l’inscription de manière non interactive ou sur un ordinateur Serveur-Core.
 * Les informations d’identification peuvent être insérées dans une variable PowerShell qui est transmise en tant que paramètre.
 * Vous pouvez fournir une identité Azure AD disposant d’un accès pour inscrire les agents et dans laquelle la MFA n’est PAS activée.
-* Par défaut, les administrateurs généraux disposent d’un accès pour effectuer l’inscription de l’agent. Vous pouvez également autoriser des identités moins privilégiées à effectuer cette étape. Pour en savoir plus sur le [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control).
+* Par défaut, les administrateurs généraux disposent d’un accès pour effectuer l’inscription de l’agent. Vous pouvez également autoriser des identités moins privilégiées à effectuer cette étape. Pour en savoir plus sur le [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac).
 
 ```powershell
     $cred = Get-Credential
@@ -394,7 +394,7 @@ Le paramètre de rôle peut avoir les valeurs suivantes :
 
 ## <a name="related-links"></a>Liens connexes
 
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Opérations Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md)
 * [Utilisation d'Azure AD Connect Health pour la synchronisation (en Anglais)](how-to-connect-health-sync.md)

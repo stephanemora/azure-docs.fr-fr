@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327342"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961973"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage
 
@@ -54,11 +54,11 @@ Pour afficher l’utilisation et la disponibilité de vos comptes de stockage po
 
 ### <a name="overview-workbook"></a>Classeur de présentation
 
-Dans le classeur **Vue d’ensemble** de l’abonnement sélectionné, le tableau affiche les métriques de stockage interactives et l’état de disponibilité du service pour jusqu’à 10 comptes de stockage regroupés au sein de l’abonnement. Vous pouvez filtrer les résultats en fonction des options que vous sélectionnez dans les listes déroulantes suivantes :
+Dans le classeur **Vue d’ensemble** de l’abonnement sélectionné, le tableau affiche les métriques de stockage interactives et l’état de disponibilité du service pour jusqu’à 5 comptes de stockage regroupés au sein de l’abonnement. Vous pouvez filtrer les résultats en fonction des options que vous sélectionnez dans les listes déroulantes suivantes :
 
 * **Abonnements** : seuls les abonnements qui ont des comptes de stockage sont répertoriés.  
 
-* **Comptes de stockage** : par défaut, 10 comptes de stockage sont présélectionnés. Si vous sélectionnez plusieurs comptes de stockage ou tous les comptes dans le sélecteur de portée, jusqu’à 200 comptes de stockage sont retournés. Par exemple, si vous avez un total de 573 comptes de stockage sur trois abonnements que vous avez sélectionnés, seuls 200 comptes sont affichés. 
+* **Comptes de stockage** : par défaut, 5 comptes de stockage sont présélectionnés. Si vous sélectionnez plusieurs comptes de stockage ou tous les comptes dans le sélecteur de portée, jusqu’à 200 comptes de stockage sont retournés. Par exemple, si vous avez un total de 573 comptes de stockage sur trois abonnements que vous avez sélectionnés, seuls 200 comptes sont affichés. 
 
 * **Intervalle de temps** : par défaut, affiche les quatre dernières heures d’informations en fonction des sélections correspondantes effectuées.
 

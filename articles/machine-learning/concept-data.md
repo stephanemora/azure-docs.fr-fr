@@ -1,7 +1,7 @@
 ---
 title: Sécuriser l’accès aux données dans le cloud
 titleSuffix: Azure Machine Learning
-description: Apprenez à vous connecter en toute sécurité à vos données à partir d’Azure Machine Learning et à utiliser des jeux de données et des magasins de données pour les tâches de ML. Les magasins de données peuvent stocker des données provenant d’un Blob Azure, d’Azure Data Lake Gen 1 et 2, d’une base de données SQL, de Databricks, etc.
+description: Apprenez à vous connecter en toute sécurité à vos données à partir d’Azure Machine Learning et à utiliser des jeux de données et des magasins de données pour les tâches de ML. Les magasins de données peuvent stocker des données provenant d’un Blob Azure, d’Azure Data Lake Gen 1 et 2, d’une base de données SQL et d’Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651792"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146686"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
 Azure Machine Learning facilite la connexion à vos données dans le cloud.  Il fournit une couche d’abstraction sur le service de stockage sous-jacent, ce qui vous permet d’accéder de manière sécurisée à vos données et de les utiliser sans avoir à écrire du code propre à votre type de stockage. Azure Machine Learning propose également les fonctionnalités de données suivantes :
 
+*    Interopérabilité avec les DataFrames Pandas et Spark
 *    Gestion de versions et suivi de la traçabilité des données
 *    Étiquetage des données 
 *    Supervision de la dérive des données
-*    Interopérabilité avec les DataFrames Pandas et Spark
-
+    
 ## <a name="data-workflow"></a>Workflow de données
 
 Quand vous êtes prêt à utiliser les données dans votre solution de stockage cloud, nous vous recommandons de recourir au workflow de livraison de données suivant. Ce workflow suppose que vous disposez d’un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) et de données dans un service de stockage cloud au sein d’Azure. 
@@ -67,13 +67,19 @@ Services de stockage cloud pris en charge dans Azure qui peuvent être enregistr
 
 ## <a name="datasets"></a>Groupes de données
 
-Les jeux de données Azure Machine Learning sont des références qui pointent vers les données de votre service de stockage. Il n’y a pas de copie de vos données. Ainsi, aucun coût de stockage supplémentaire n’est encouru et l’intégrité de vos sources de données n’est pas en péril.
+Les jeux de données Azure Machine Learning sont des références qui pointent vers les données de votre service de stockage. Ce ne sont pas des copies de vos données. En créant un jeu de données Azure Machine Learning, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. 
 
- Pour interagir avec vos données dans le stockage, [créez un jeu de données](how-to-create-register-datasets.md) afin d’empaqueter vos données dans un objet consommable pour les tâches de machine learning. Inscrivez le jeu de données dans votre espace de travail pour le partager et le réutiliser dans différentes expériences sans avoir à gérer la complexité liée à l’ingestion des données.
+Étant donné que les jeux de données sont évalués tardivement et que les données restent à leur emplacement existant :
 
-Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL publiques, d’[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) ou de services de stockage Azure par le biais de magasins de données. Pour créer un jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier parquet), puis créez votre jeu de données à partir de ce fichier.  
+* Vous n’engagez aucun coût de stockage supplémentaire.
+* Vous ne risquez pas de modifier involontairement vos sources de données d’origine.
+* Vous améliorez les performances des workflows de ML.
 
-Nous prenons en charge 2 types de jeux de données : 
+Pour interagir avec vos données dans le stockage, [créez un jeu de données](how-to-create-register-datasets.md) afin d’empaqueter vos données dans un objet consommable pour les tâches de machine learning. Inscrivez le jeu de données dans votre espace de travail pour le partager et le réutiliser dans différentes expériences sans avoir à gérer la complexité liée à l’ingestion des données.
+
+Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL publiques, d’[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) ou de services de stockage Azure par le biais de magasins de données. 
+
+Il existe 2 types de datasets : 
 
 + Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fait référence à des fichiers uniques ou multiples dans vos magasins de données ou vos URL publiques. Si vos données sont déjà nettoyées et prêtes à l’emploi dans des expériences de formation, vous pouvez [télécharger ou monter des fichiers](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) référencés par FileDatasets dans votre cible de calcul.
 

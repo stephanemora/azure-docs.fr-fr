@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856818"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229223"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Créer des clusters HDInsight avec Azure Data Lake Storage Gen1 à l’aide du portail Azure
 
@@ -85,18 +85,11 @@ Dans cette section, vous configurez l’accès à Data Lake Storage Gen1 à part
 Dans le portail Azure, vous pouvez utiliser un principal du service existant ou en créer un.
 
 Pout créer un principal de service dans le portail Azure :
-
-1. Sélectionnez **Accès à Data Lake Storage** dans le panneau Stockage.
-1. Sur le panneau **Accès à Data Lake Storage Gen1**, sélectionnez **Créer**.
-1. Sélectionnez **Principal du service**, puis suivez les instructions pour créer un principal du service.
-1. Téléchargez le certificat si vous souhaitez l’utiliser à l’avenir. Le téléchargement du certificat est utile si vous souhaitez utiliser le même principal de service lorsque vous allez créer des clusters HDInsight supplémentaires.
-
-    ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Ajouter un principal du service à un cluster HDInsight")
-
-1. Sélectionnez **Accès** pour configurer l’accès au dossier.  Reportez-vous à [Configurer les autorisations des fichiers](#configure-file-permissions).
+1. Consultez [Créer un principal de service et des certificats](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) à l’aide d’Azure Active Directory.
 
 Utiliser un principal du service existant dans le portail Azure :
 
+1. Le principal du service doit avoir des autorisations de propriétaire sur le compte de stockage. Consultez [Configurer des autorisations pour que le principal du service soit propriétaire du compte de stockage](#configure-serviceprincipal-permissions)
 1. Sélectionnez **Accès à Data Lake Store**.
 1. Sur le panneau **Accès à Data Lake Storage Gen1**, sélectionnez **Utiliser existant**.
 1. Sélectionnez **Principal du service**, puis sélectionnez un principal du service.
@@ -105,6 +98,10 @@ Utiliser un principal du service existant dans le portail Azure :
     ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Ajouter un principal du service à un cluster HDInsight")
 
 1. Sélectionnez **Accès** pour configurer l’accès au dossier.  Reportez-vous à [Configurer les autorisations des fichiers](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurer des autorisations pour que le principal du service soit propriétaire du compte de stockage
+1. Dans le panneau Access Control (IAM) du compte de stockage, cliquez sur Ajouter une attribution de rôle. 
+2. Dans le panneau ajouter une attribution de rôle, sélectionnez le rôle « propriétaire », puis sélectionnez le nom de principal du service et cliquez sur Enregistrer.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurer les autorisations des fichiers
 

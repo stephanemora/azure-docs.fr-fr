@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/31/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007439"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181972"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Vue d’ensemble du connecteur Azure Data Factory
 
@@ -25,6 +25,17 @@ Azure Data Factory prend en charge les magasins de données et les formats suiva
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="integrate-with-more-data-stores"></a>Intégrer avec d’autres magasins de données
+
+Azure Data Factory peut atteindre un ensemble plus large de magasins de données que la liste mentionnée ci-dessus. Si vous devez déplacer des données vers/depuis un magasin de données qui ne figure pas dans la liste des connecteurs intégrés d’Azure Data Factory, voici quelques options extensibles :
+- Pour les bases de données et les entrepôts de données, vous pouvez généralement trouver un pilote ODBC correspondant, avec lequel vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md).
+- Pour les applications SaaS :
+    - Si elle fournit des API RESTful, vous pouvez utiliser un [connecteur REST générique](connector-rest.md).
+    - Si elle contient un flux OData, vous pouvez utiliser un [connecteur OData générique](connector-odata.md).
+    - Si elle fournit des API SOAP, vous pouvez utiliser un [connecteur HTTP générique](connector-http.md).
+    - Si elle utilise le pilote ODBC, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md).
+- Pour les autres, vérifiez si vous pouvez charger des données ou exposer des données comme n’importe quel magasin de données pris en charge par ADF, par exemple Azure Blob/File/FTP/SFTP/etc., puis laissez ADF se charger du reste. Vous pouvez appeler un mécanisme personnalisé de chargement des données via [une fonction Azure](control-flow-azure-function-activity.md), [une activité personnalisée](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [une activité web](control-flow-web-activity.md), etc.
 
 ## <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 

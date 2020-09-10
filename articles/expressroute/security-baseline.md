@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079047"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231382"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Ligne de base de sécurité Azure pour ExpressRoute
 
@@ -48,7 +48,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -60,7 +60,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Guide pratique pour configurer la protection DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -68,7 +68,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 **Aide** : Non applicable ; la capture de package est prise en charge uniquement pour les ressources de calcul IaaS (machines virtuelles Azure).
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -78,7 +78,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Comprendre les contrôles de sécurité pour Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -86,7 +86,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -104,7 +104,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -118,7 +118,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 * [Organisation des ressources Azure à l’aide de catégories](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -132,7 +132,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -144,15 +144,15 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 **Aide** : Non applicable ; Microsoft conserve la source de temps utilisée pour les ressources Azure, par exemple, Azure Sentinel, pour les timestamps dans les journaux.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
-**Conseils** : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos ressources Azure ExpressRoute au niveau du plan de contrôle. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos ressources ExpressRoute.
+**Aide** : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos ressources Azure ExpressRoute au niveau du plan de contrôle. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos ressources ExpressRoute.
 
-* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Activation des paramètres de diagnostic pour le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -212,7 +212,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 **Aide** : Non applicable ; Azure ExpressRoute ne traite pas ni ne produit de journaux liés aux logiciels anti-programmes malveillants.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -220,7 +220,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 **Aide** : Non applicable ; Azure ExpressRoute ne traite pas ni ne produit de journaux liés au DNS.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -240,13 +240,13 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher ou effectuer 
 
 **Aide** : Conservez un inventaire des comptes d’utilisateur qui ont un accès d’administration au plan de contrôle (par exemple le portail Azure) de vos ressources Azure ExpressRoute.
 
-Vous pouvez utiliser le volet de contrôle d'accès et des identités (IAM) pour votre abonnement dans le Portail Azure pour configurer le contrôle d’accès en fonction du rôle (RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory.
+Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory.
 
 En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de partenaire ExpressRoute peuvent appliquer des contrôles d’accès en fonction du rôle à la ressource expressRouteCrossConnection. Ces contrôles peuvent définir des autorisations pour lesquelles les comptes d’utilisateurs peuvent modifier la ressource expressRouteCrossConnection et ajouter/mettre à jour/supprimer des configurations de Peering.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Tirer parti du RBAC dans l’API Gestionnaire des ressources du partenaire ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Tirer parti d’Azure RBAC dans l’API Gestionnaire des ressources du partenaire ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -254,7 +254,7 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Conseils** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
+**Aide** : Azure AD n’intègre pas le concept des mots de passe par défaut. Selon le service, d’autres ressources Azure qui exigent un mot de passe forcent la création d’un mot de passe conforme à des exigences de complexité et d’une longueur minimale. Vous êtes responsable des applications tierces et des services de la place de marché susceptibles d’utiliser des mots de passe par défaut.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -381,7 +381,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -453,17 +453,17 @@ Guide pratique pour configurer IPSEC de site à site sur ExpressRoute https://do
 
 **Responsabilité** : Non applicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Vous pouvez utiliser le volet de contrôle d'accès et des identités (IAM) pour votre abonnement dans le Portail Azure pour configurer le contrôle d’accès en fonction du rôle (RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory. Vous pouvez utiliser des rôles intégrés ou des rôles personnalisés pour les individus et les groupes.
+**Aide** : Vous pouvez utiliser le volet de gestion des identités et des accès (IAM) dans le portail Azure de votre abonnement afin de configurer le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC). Les rôles sont appliqués aux utilisateurs, aux groupes, aux principaux de service et aux identités gérées dans Active Directory. Vous pouvez utiliser des rôles intégrés ou des rôles personnalisés pour les individus et les groupes.
 
 Azure ExpressRoute possède également des rôles d’utilisateur de circuit et de propriétaire de circuit. Les utilisateurs du circuit sont les propriétaires des passerelles de réseau virtuel qui ne figurent pas dans le même abonnement que le circuit ExpressRoute. Le propriétaire du circuit a le pouvoir de modifier et de révoquer les autorisations à tout moment. La révocation d’une autorisation entraîne la suppression de toutes les connexions de l’abonnement dont l’accès a été révoqué. Les utilisateurs du circuit peuvent échanger des autorisations (une seule autorisation par réseau virtuel).
 
 En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de partenaire ExpressRoute peuvent appliquer des contrôles d’accès en fonction du rôle à la ressource expressRouteCrossConnection. Ces contrôles peuvent définir des autorisations pour lesquelles les comptes d’utilisateurs peuvent modifier la ressource expressRouteCrossConnection et ajouter/mettre à jour/supprimer des configurations de Peering.
 
-* [Contrôle d'accès en fonction du rôle dans Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Tirer parti du RBAC dans l’API Gestionnaire des ressources du partenaire ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Tirer parti d’Azure RBAC dans l’API Gestionnaire des ressources du partenaire ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Comprendre les rôles d’administration dans ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 
@@ -477,7 +477,7 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 * [Protection des données client Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -513,13 +513,13 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 **Aide** : Non applicable ; Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure ExpressRoute.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -527,7 +527,7 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -537,7 +537,7 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 **Aide** : Non applicable ; Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure ExpressRoute.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -545,7 +545,7 @@ En outre, les partenaires qui utilisent l’API Gestionnaire des ressources de p
 
 **Aide** : Non applicable ; Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents prenant en charge Azure ExpressRoute.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -575,7 +575,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -677,7 +677,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -687,7 +687,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications web s’exécutant sur Azure App Service ou des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -703,15 +703,15 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -723,7 +723,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Présentation des effets d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -731,7 +731,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -743,7 +743,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -751,7 +751,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -763,7 +763,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -771,7 +771,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -781,7 +781,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -789,7 +789,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -799,7 +799,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Comment créer une instance Key Vault pour stocker des secrets MACsec dans un nouveau groupe de ressources](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -809,7 +809,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 * [Services Azure qui prennent en charge des identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -831,7 +831,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable. Ces conseils concernent les ressources de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Azure App Service), mais il ne s’exécute pas sur du contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -849,7 +849,7 @@ Il vous incombe de pré-analyser tous le contenu téléchargé vers des ressourc
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure, mais il ne s’exécute pas sur le contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -863,7 +863,7 @@ Il vous incombe de pré-analyser tous le contenu téléchargé vers des ressourc
 
 * [Comprendre les contrôles de sécurité pour Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -873,7 +873,7 @@ Il vous incombe de pré-analyser tous le contenu téléchargé vers des ressourc
 
 * [Comment sauvegarder des clés Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -895,7 +895,7 @@ Il vous incombe de pré-analyser tous le contenu téléchargé vers des ressourc
 
 * [Activer la suppression réversible dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -935,13 +935,13 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé. Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 * [Comment définir le contact de sécurité d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 

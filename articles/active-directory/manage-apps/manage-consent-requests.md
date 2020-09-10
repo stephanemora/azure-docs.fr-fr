@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f7dc1d4b0f6678f02c4f5d152edf2ae9af063d1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763191"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392440"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
@@ -107,6 +107,18 @@ Au lieu d’accorder un consentement pour toute l’organisation, un administrat
 L’accès des utilisateurs aux applications peut quand même être limité même si le consentement de l’administrateur au niveau du locataire a été accordé. Pour plus d’informations sur la façon de demander l’attribution d’utilisateurs à une application, consultez [Méthodes pour attribuer des utilisateurs et des groupes](methods-for-assigning-users-and-groups.md).
 
 Pour une vue d’ensemble plus générale comprenant comment gérer d’autres scénarios complexes, consultez [Utilisation d’Azure AD pour la gestion des accès aux applications](what-is-access-management.md).
+
+## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
+
+La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour plus d’informations sur le consentement de l’application et sur les conditions pour donner ou refuser ce consentement, consultez la section [Comprendre le consentement de l’utilisateur et de l’administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+Pour **désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire**, procédez comme suit :
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
+2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
+5.  Cliquez sur **Paramètres utilisateur**.
+6.  Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

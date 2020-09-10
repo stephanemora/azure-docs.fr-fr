@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5479ad31f45a92b0e4cd03f07bdd9e7930f543
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038612"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277287"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Superviser la sécurité de vos conteneurs
 
 Cette page explique comment utiliser les fonctionnalités de sécurité des conteneurs qui sont décrites dans l’[article Sécurité des conteneurs](container-security.md) de la section Concepts.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Analyser vos registres de conteneurs basés sur ARM pour identifier les vulnérabilités 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Analyser vos registres de conteneurs basés sur ARM pour identifier les vulnérabilités 
 
 1. Pour activer les analyses de vulnérabilités dans vos images Azure Container Registry :
 
@@ -86,7 +86,7 @@ Cette page explique comment utiliser les fonctionnalités de sécurité des cont
     1. Quand vous êtes sûr que l’image mise à jour a été envoyée et analysée, et qu’elle n’apparaît plus dans la recommandation, supprimez l’« ancienne » image vulnérable de votre registre.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Durcissement de la sécurité des hôtes Docker de vos conteneurs
+## <a name="harden-your-containers-docker-hosts"></a>Durcir la sécurité des hôtes Docker de vos conteneurs
 
 Security Center supervise en continu la configuration de vos hôtes Docker et génère des recommandations de sécurité qui reflètent les normes du secteur.
 

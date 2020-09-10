@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 11742b00b62437b3acd6fa804a668cf83c2860f6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c99aa1bdb246d242c4c1cbd33672367b66f923ea
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007256"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229968"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurer le module PowerShell pour Windows Virtual Desktop
 
@@ -40,6 +40,12 @@ Ensuite, exécutez la cmdlet suivante pour vous connecter à Azure :
 ```powershell
 Connect-AzAccount
 ```
+
+>![IMPORTANT] Si vous vous connectez au portail US Gov, exécutez cette cmdlet à la place :
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
 
 La connexion à votre compte Azure nécessite un code qui est généré lorsque vous exécutez la cmdlet Connect. Pour vous connecter, accédez à <https://microsoft.com/devicelogin>, entrez le code, puis connectez-vous à l’aide de vos informations d’identification d’administrateur Azure.
 

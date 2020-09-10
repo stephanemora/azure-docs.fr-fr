@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522854"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279548"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -821,7 +821,7 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Message** : `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Cause** : Le nom de l’utilisateur ou le mot de passe est vide.
+- **Cause** : Le nom d’utilisateur ou le mot de passe est vide.
 
 - **Recommandation** : Fournissez les informations d’identification correctes pour vous connecter à HDI et réessayez.
 
@@ -1053,6 +1053,11 @@ Pour utiliser **Fiddler** en vue de créer une session HTTP de l’application 
 1. Accédez à : **Fichier** > **Enregistrer** > **Toutes les sessions**.
 
 Pour plus d’informations, consultez [Bien démarrer avec Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## <a name="general"></a>Général
+
+### <a name="activity-stuck-issue"></a>Problème d’activité bloquée
+Si vous remarquez que l’exécution de l’activité dure beaucoup plus longtemps que vos exécutions normales et qu’elle ne progresse pratiquement pas, elle peut être bloquée. Vous pouvez essayer de l’annuler et de faire une nouvelle tentative pour voir si cela est utile. S’il s’agit d’une activité de copie, vous pouvez en savoir plus sur l’analyse des performances et la résolution des problèmes en consultant la section [Résoudre les problèmes de performances de l’activité de copie](copy-activity-performance-troubleshooting.md) ; s’il s’agit d’un flux de données, consultez la section [Performances des flux de données de mappage](concepts-data-flow-performance.md) et le guide de réglage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

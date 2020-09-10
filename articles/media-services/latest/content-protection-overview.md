@@ -4,25 +4,27 @@ titleSuffix: Azure Media Services
 description: En savoir plus sur la protection du contenu avec le chiffrement dynamique, les protocoles de diffusion en continu et les types de chiffrement dans Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/17/2020
-ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023260"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401382"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Utilisez Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à sa remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Si le contenu est chiffré avec une clé en clair AES et est envoyé via HTTPS, il ne s’affiche en clair qu’une fois qu’il atteint le client. 
 
@@ -154,6 +156,10 @@ Le protocole Smooth Streaming prend en charge les formats de conteneur et schém
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1.1 (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> La prise en charge de PIFF 1.1 est fournie en tant que solution de compatibilité descendante pour les Smart TV (Samsung, LG) qui implémentaient la version « Silverlight » précoce de la norme CENC. Nous vous recommandons d’utiliser le format PIFF uniquement là où il est nécessaire pour la prise en charge des Smart TV Samsung ou LG livrés entre 2009 et 2015 qui prenaient en charge la version PIFF 1.1 du chiffrement PlayReady. 
 
 ### <a name="browsers"></a>Navigateurs
 
@@ -265,5 +271,5 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 * [Protéger avec DRM](protect-with-drm.md)
 * [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
 * [Chiffrement côté stockage](storage-account-concept.md#storage-side-encryption)
-* [Forum Aux Questions (FAQ)](frequently-asked-questions.md)
+* [Forum Aux Questions](frequently-asked-questions.md)
 * [JSON Web Token Handler](/dotnet/framework/security/json-web-token-handler)

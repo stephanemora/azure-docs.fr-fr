@@ -1,44 +1,39 @@
 ---
-title: Appeler, déclencher ou imbriquer des applications logiques
-description: Configurer des points de terminaison HTTPS pour appeler, déclencher ou imbriquer des workflows d’application logique dans Azure Logic Apps
+title: Appeler, déclencher ou imbriquer des applications logiques à l’aide de déclencheurs de demande
+description: Configurer des points de terminaison HTTPS pour appeler, déclencher ou imbriquer des flux de travail d’application logique dans Azure Logic Apps
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078666"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230804"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS dans Azure Logic Apps
 
-Afin que votre application logique puisse être appelée via une URL pour qu’elle puisse recevoir des demandes entrantes d’autres services, vous pouvez exposer en mode natif un point de terminaison HTTPS synchrone en tant que déclencheur sur cette application logique. Quand vous configurez cette fonctionnalité, vous pouvez également imbriquer votre application logique dans d’autres applications logiques, ce qui vous permet de créer un modèle de points de terminaison pouvant être appelés.
-
-Pour configurer un point de terminaison que vous pouvez appeler, vous pouvez utiliser l’un de ces types de déclencheurs, qui permettent aux applications logiques de recevoir des demandes entrantes :
+Afin que votre application logique puisse être appelée via une URL, et recevoir des demandes entrantes d’autres services, vous pouvez exposer en mode natif un point de terminaison HTTPS synchrone utilisant un déclencheur basé sur une requête sur cette application logique. Avec cette fonctionnalité, vous pouvez appeler votre application logique à partir d’autres applications logiques, et créer un modèle de points de terminaison pouvant être appelés. Pour configurer un point de terminaison pouvant être appelé pour la gestion des appels entrants, vous pouvez utiliser l’un des types de déclencheurs suivants :
 
 * [Requête](../connectors/connectors-native-reqres.md)
 * [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
-* Les déclencheurs de connecteur managé ayant le [type ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) et pouvant recevoir des requêtes HTTPS entrantes
+* Déclencheurs de connecteur managé du [type ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) et pouvant recevoir des requêtes HTTPS entrantes
 
-> [!NOTE]
-> Ces exemples utilisent le déclencheur de requête, mais vous pouvez utiliser n’importe quel déclencheur basé sur une requête HTTPS figurant dans la liste précédente. Tous les principes s’appliquent de manière identique à ces autres types de déclencheurs.
+Cet article montre comment créer un point de terminaison pouvant être appelé sur votre application logique en utilisant le déclencheur de requête, et appeler ce point de terminaison à partir d’une autre application logique. Tous les principes s’appliquent de la même façon aux autres types de déclencheurs que vous pouvez utiliser pour recevoir des demandes entrantes.
 
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pour plus d’informations sur le chiffrement, la sécurité et l’autorisation des appels entrants à votre application logique, comme [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé Secure Sockets Layer (SSL), ou [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consultez [Sécuriser l’accès et les données – Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* L’application logique dans laquelle vous souhaitez utiliser le déclencheur pour créer le point de terminaison pouvant être appelé. Vous pouvez commencer avec une application logique vide ou une application logique existante au sein de laquelle vous souhaitez remplacer le déclencheur actuel. Pour cet exemple, vous avez besoin d’une application logique vide.
+* L’application logique dans laquelle vous souhaitez utiliser le déclencheur pour créer le point de terminaison pouvant être appelé. Vous pouvez commencer avec une application logique vide ou une application logique existante dans de laquelle vous pouvez remplacer le déclencheur actuel. Pour cet exemple, vous avez besoin d’une application logique vide. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Créer un point de terminaison pouvant être appelé
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez et ouvrez une application logique vide dans le concepteur d’applications logiques.
-
-   Cet exemple utilise le déclencheur de requête, mais vous pouvez utiliser n’importe quel déclencheur capable de recevoir des requêtes HTTPS entrantes. Tous les principes s’appliquent de manière identique à ces déclencheurs. Pour plus d’informations sur le déclencheur de requête, consultez [Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. Dans la zone de recherche, sélectionnez **Intégré**. Dans la zone de recherche, entrez `request` en guise de filtre. Dans la liste Déclencheurs, sélectionnez **Lors de la réception d’une requête HTTP**.
 
@@ -408,3 +403,4 @@ Pour afficher la définition JSON de l’action de réponse et de la définition
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps](../connectors/connectors-native-reqres.md)
+* [Accès et données sécurisés dans Azure Logic Apps – Accès – Accès pour les appels entrants à des déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

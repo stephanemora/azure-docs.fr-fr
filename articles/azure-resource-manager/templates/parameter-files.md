@@ -2,13 +2,13 @@
 title: Créer un fichier de paramètres
 description: Créer un fichier de paramètres pour transmettre des valeurs pendant le déploiement d’un modèle d’Azure Resource Manager
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082934"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276641"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
@@ -148,6 +148,8 @@ Enfin, examinez les valeurs autorisées et les restrictions telles que la longue
 }
 ```
 
+Votre fichier de paramètres peut contenir uniquement des valeurs pour les paramètres définis dans le modèle. Si votre fichier de paramètres contient des paramètres supplémentaires qui ne correspondent pas à des paramètres définis dans le modèle, une erreur s’affiche.
+
 ## <a name="parameter-type-formats"></a>Formats de types de paramètres
 
 L'exemple suivant indique les formats des différents types de paramètres.
@@ -184,10 +186,30 @@ L'exemple suivant indique les formats des différents types de paramètres.
 
 ## <a name="deploy-template-with-parameter-file"></a>Déployer un modèle avec un fichier de paramètres
 
-Consultez l'article :
+Pour passer un fichier de paramètres local avec Azure CLI, utilisez @ et le nom du fichier de paramètres.
 
-- [Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure](./deploy-cli.md#parameters)
-- [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure CLI](./deploy-cli.md#parameters).
+
+Pour passer un fichier de paramètres local avec Azure PowerShell, utilisez le paramètre `TemplateParameterFile`.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles ARM et d’Azure PowerShell](./deploy-powershell.md#pass-parameter-values).
+
+> [!NOTE]
+> Il n’est pas possible d’utiliser un fichier de paramètres avec le panneau de modèle personnalisé dans le portail.
 
 ## <a name="file-name"></a>Nom de fichier
 
@@ -199,7 +221,7 @@ Pour effectuer un déploiement dans différents environnements, créez plusieurs
 
 Vous pouvez utiliser des paramètres inline et un fichier de paramètres local pendant la même opération de déploiement. Par exemple, vous pouvez spécifier certaines valeurs dans le fichier de paramètres local et ajouter d’autres valeurs inline pendant le déploiement. Si vous fournissez des valeurs pour un paramètre à la fois dans le fichier de paramètres local et inline, la valeur inline est prioritaire.
 
-Il est possible d’utiliser un fichier de paramètres externe, en indiquant l’URI du fichier. Cependant, vous ne pourrez dans ce cas pas transmettre d’autres valeurs, qu’elles soient inline ou issues d’un fichier local. Tous les paramètres inline sont ignorés. Fournissez toutes les valeurs de paramètre dans le fichier externe.
+Il est possible d’utiliser un fichier de paramètres externe, en indiquant l’URI du fichier. Quand vous utilisez un fichier de paramètres externe, vous ne pouvez pas transmettre d’autres valeurs, qu’elles soient incluses ou extraites d’un fichier local. Tous les paramètres inline sont ignorés. Fournissez toutes les valeurs de paramètre dans le fichier externe.
 
 ## <a name="parameter-name-conflicts"></a>Conflits de noms de paramètre
 

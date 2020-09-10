@@ -3,12 +3,12 @@ title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server vers Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824460"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376488"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Sauvegarder l’état du système Windows vers Azure
 
@@ -62,7 +62,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
     ![Configuration des fichiers et dossiers](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Lorsque vous cliquez sur OK, une coche apparaît à côté de la zone **Objectif de la sauvegarde** et le volet **Préparer l’infrastructure** s’ouvre.
+    Lorsque vous sélectionnez **OK**, une coche apparaît à côté de la zone **Objectif de la sauvegarde** et le volet **Préparer l’infrastructure** s’ouvre.
 
     ![Objectif de sauvegarde configuré, début de préparation de l’infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 

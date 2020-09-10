@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 6be16c7726b979ec7a6dfb58f4bff5a82a0f6c43
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782938"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299097"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -660,7 +660,7 @@ L'erreur suivante peut apparaître : **L’URL de réponse spécifiée dans la 
 
 Après avoir activé Azure Monitor pour conteneurs pour un cluster AKS, si vous supprimez l’espace de travail Log Analytics auquel le cluster envoyait ses données, le cluster échoue lorsque vous tentez de le mettre à niveau. Pour contourner ce problème, vous devez désactiver la supervision, puis la réactiver en faisant référence à un autre espace de travail valide dans votre abonnement. Lorsque vous réessayez de mettre le cluster à niveau, il doit être traité et s’effectuer correctement.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quels ports et domaines dois-je ouvrir/mettre sur liste verte pour l’agent ?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>Quels ports et domaines dois-je ouvrir/autoriser pour l’agent ?
 
 Pour plus d'informations sur les configurations de proxy et de pare-feu requises pour l'agent conteneurisé avec les clouds Azure, Azure US Government et Azure China 21Vianet, consultez [Configuration requise pour le pare-feu réseau](insights/container-insights-onboard.md#network-firewall-requirements).
 

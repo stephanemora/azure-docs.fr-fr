@@ -136,7 +136,11 @@
       items:
         - name: Corriger les recommandations
           href: security-center-remediate-recommendations.md
+        - name: Empêcher des configurations incorrectes avec Appliquer/Refuser
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: Renforcer la posture de sécurité
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: Liste de référence des recommandations
           href: recommendations-reference.md

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260177"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021425"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -57,12 +57,14 @@ Ces deux options de basculement offrent les objectifs de point de récupération
 
 <sup>1</sup>Les messages cloud-à-appareil et les travaux parents ne sont pas récupérés dans le cadre d’un basculement manuel.
 
-Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle. Cela signifie que vos messages appareil-à-cloud continuent de fonctionner et que l’intégralité du registre de l’appareil est intacte. Les événements émis via Event Grid peuvent être utilisés sur les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles.
+Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle. Cela signifie que vos messages appareil-à-cloud continuent de fonctionner et que l’intégralité du registre de l’appareil est intacte. Les événements émis via Event Grid peuvent être utilisés sur les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles. Aucune manipulation supplémentaire n’est requise pour les points de terminaison personnalisés.
 
 > [!CAUTION]
-> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison intégré, vous devrez peut-être effectuer un **redémarrage**.
+> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. 
 >
-> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. 
+> - Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison Events intégré, vous devrez peut-être effectuer un **redémarrage**. Cela est dû au fait que, pendant le basculement, les décalages précédents ne sont plus valides.
+>
+> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. Pour en savoir plus, consultez [Stockage Azure en tant que point de terminaison de routage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 

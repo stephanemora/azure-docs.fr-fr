@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935260"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950474"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Fonctionnalités d’évaluation dans Recherche cognitive Azure
 
@@ -35,7 +35,7 @@ Les fonctionnalités d’évaluation qui passent en disponibilité générale so
 |  [**Indexeur Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Source de données d’indexeur | Indexe le contenu et les métadonnées de Data Lake Storage Gen2.| L’[inscription](https://aka.ms/azure-cognitive-search/indexer-preview) est nécessaire pour que la prise en charge puisse être activée pour votre abonnement sur le back-end. Accédez à cette source de données à l’aide de [Créer une source de données (REST)](/rest/api/searchservice/create-data-source) avec api-version=2020-06-30-Preview ou api-version=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Requête | Recherche les documents correspondant à un document spécifique. Cette fonctionnalité existait dans les préversions antérieures. | Ajoutez ce paramètre de requête dans les appels à [Recherche dans des documents (REST)](/rest/api/searchservice/search-documents) avec api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview ou 2017-11-11-Preview. |
 
-## <a name="calling-preview-rest-apis"></a>Appel des API REST en préversion
+## <a name="how-to-call-a-preview-rest-api"></a>Comment appeler une API REST en préversion
 
 Le service Recherche cognitive Azure publie toujours les fonctionnalités expérimentales par le biais de l’API REST, puis par le biais des préversions du SDK .NET.
 
@@ -47,12 +47,14 @@ Alors que certaines fonctionnalités d’évaluation peuvent être disponibles d
 
 + Pour les opérations de gestion, [ **`2019-10-01-Preview`** ](/rest/api/searchmanagement/index-2019-10-01-preview) correspond à la préversion actuelle.
 
-Les préversions plus anciennes sont toujours opérationnelles mais deviennent obsolètes au fil du temps. Si votre code appelle `api-version=2019-05-06-Preview`, `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview`, ces appels sont toujours valides. Toutefois, seule la dernière préversion est actualisée avec des améliorations. 
+Les préversions plus anciennes sont toujours opérationnelles mais deviennent obsolètes au fil du temps. Si votre code appelle `api-version=2019-05-06-Preview`, `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview`, ces appels sont toujours valides. Toutefois, seule la dernière préversion est actualisée avec des améliorations.
 
 La syntaxe de l’exemple suivant illustre un appel à l’API en préversion.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 Le service Recherche cognitive Azure est disponible sous plusieurs versions. Pour plus d’informations, consultez [Versions d’API](search-api-versions.md).

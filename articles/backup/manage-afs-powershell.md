@@ -3,12 +3,12 @@ title: Gérer les sauvegardes de partage de fichiers Azure avec PowerShell
 description: Découvrez comment PowerShell pour gérer et superviser les partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e2f07e56fb9a8715b1b53165ab5f4b45b4e20ccb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826750"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000224"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gérer les sauvegardes de partage de fichiers Azure avec PowerShell
 

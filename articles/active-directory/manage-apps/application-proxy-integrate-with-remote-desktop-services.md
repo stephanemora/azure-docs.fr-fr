@@ -1,6 +1,6 @@
 ---
 title: Publier le Bureau à distance avec le proxy d’application Azure AD | Microsoft Docs
-description: Couvre les bases sur les connecteurs de proxy d’application Azure AD.
+description: Explique comment configurer le proxy d’application avec RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019520"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396758"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -135,7 +135,7 @@ La configuration décrite dans cet article concerne l’accès à RDS via Site W
 
 | Méthode d'authentification | Configuration client prise en charge |
 | --------------------- | ------------------------------ |
-| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer + module complémentaire ActiveX RDS |
+| Pré-authentification    | Site Web Bureau à distance : Windows 7/10 avec Internet Explorer ou [le mode IE d’Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) + module complémentaire ActiveX RDS |
 | Pré-authentification    | Client Site Web Bureau à distance : navigateur web compatible avec HTML5, tel que Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v55.0 et versions ultérieures) |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79db3db5a46700f55c1dc759443cae194660372d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007639"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230039"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Connexion à Windows Virtual Desktop avec le client iOS
 
@@ -36,14 +36,15 @@ Pour s’abonner à un flux :
 2. Entrez l’URL du flux dans le champ **Feed URL** (URL du flux). Il peut s’agir d’une URL ou d’une adresse e-mail.
    - Si vous utilisez une URL, utilisez celle que votre administrateur vous a donnée. En règle générale, l’URL est <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Pour utiliser l’e-mail, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré le serveur de cette manière.
-3. Appuyez sur **Suivant**.
+   - Pour vous connecter par le biais du portail US Gov, utilisez <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
+3. Appuyez **Next** (Suivant).
 4. À l’invite, indiquez vos informations d’identification.
    - Pour **Nom d’utilisateur**, indiquez le nom de l’utilisateur ayant l’autorisation d’accéder aux ressources.
    - Pour **Mot de passe**, indiquez le mot de passe associé au nom d’utilisateur.
    - Vous pouvez également être invité à fournir des facteurs supplémentaires si votre administrateur a configuré l’authentification de cette manière.
 5. Appuyez sur **Save** (Enregistrer).
 
-Une fois cette opération terminée, le Centre de connexion doit afficher les ressources distantes.
+Le Centre de connexion doit ensuite afficher les ressources distantes.
 
 Une fois que vous êtes abonné à un flux, son contenu est automatiquement mis à jour de façon régulière. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
 

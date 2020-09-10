@@ -4,14 +4,14 @@ description: Découvrez comment activer le lien Synapse pour les comptes Azure C
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815570"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322464"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurer et utiliser Azure Synapse Link pour Azure Cosmos DB (préversion)
 
@@ -228,4 +228,4 @@ Pour en savoir plus, consultez les documents suivants :
 
 * [Apache Spark dans Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL Server serverless/à la demande dans Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Prise en charge de runtime serverless SQL dans Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

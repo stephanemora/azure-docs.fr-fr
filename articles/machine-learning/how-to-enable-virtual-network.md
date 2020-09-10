@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9bf8843fa807bde1032d9bba92f09b8c9e9e39e6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824200"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280041"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolement réseau pendant l’entraînement et l’inférence avec les réseaux virtuels privés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,10 +60,6 @@ Vous pouvez aussi [activer Azure Private Link](how-to-configure-private-link.md)
 > | Azure Container Registry dans un réseau virtuel | ✔ | |
 > | Clés gérées par le client pour l’espace de travail | ✔ | |
 > 
-
-> [!WARNING]
-> 
-> La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où le service Liaison privée est activé.
 
 <a id="amlcompute"></a>
 
@@ -269,6 +265,7 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > Dans le cas de clusters, ces ressources sont supprimées (et recréées) chaque fois que le cluster n’a plus aucun nœud. Toutefois, pour une instance, les ressources sont conservées jusqu’à ce que l’instance soit complètement supprimée (l’arrêt ne supprime pas les ressources). 
 > Ces ressources sont limitées par les [quotas de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de l’abonnement.
 
+Pour utiliser une instance de calcul dans un espace de travail où Azure Private Link est activé, l’instance de calcul et l’espace de travail doivent se trouver dans les régions __eastus__, __westus2__ ou __southcentralus__.
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Ports requis
 
@@ -438,7 +435,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Une fois le processus de création terminé, vous pouvez entraîner votre modèle en utilisant le cluster dans le cadre d’une expérience. Pour plus d’informations, consultez [Sélectionner et utiliser une cible de calcul pour l’entraînement](how-to-set-up-training-targets.md).
+Une fois le processus de création terminé, vous pouvez entraîner votre modèle en utilisant le cluster dans le cadre d’une expérience. Pour plus d’informations, consultez [Utiliser une cible de calcul pour la formation](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -667,7 +664,7 @@ Pour obtenir des informations sur l’utilisation d’Azure Machine Learning ave
 > * La région de votre espace de travail Azure Machine Learning doit être une [région accessible via un lien privé](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Vous devez disposer de la version Premium d'Azure Container Registry. Pour plus d'informations sur la mise à niveau, consultez [Changer de référence SKU](/azure/container-registry/container-registry-skus#changing-skus).
 > * Votre instance d'Azure Container Registry doit se trouver dans les mêmes réseau virtuel et sous-réseau que le compte de stockage et les cibles de calcul utilisés pour l'apprentissage ou l'inférence.
-> * Votre espace de travail Azure Machine Learning doit contenir un [cluster de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+> * Votre espace de travail Azure Machine Learning doit contenir un [cluster de calcul Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 >
 >     Lorsque ACR se trouve derrière un réseau virtuel, Azure Machine Learning ne peut pas l'utiliser pour créer directement les images Docker. Le cluster de calcul est alors utilisé pour créer les images.
 
@@ -828,14 +825,15 @@ Pour utiliser une machine virtuelle ou un cluster Azure HDInsight dans un résea
 
     Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
+
     Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, consultez la section [Limiter la connectivité sortante à partir du réseau virtuel](#limiting-outbound-from-vnet).
 
-1. Attachez la machine virtuelle ou le cluster HDInsight à votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Configurer des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md).
+1. Attachez la machine virtuelle ou le cluster HDInsight à votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Utiliser des cibles de calcul pour la formation des modèles](how-to-set-up-training-targets.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des environnements d’entraînement](how-to-set-up-training-targets.md)
+* [Utiliser des cibles de calcul pour la formation des modèles](how-to-set-up-training-targets.md)
 * [Configurer des points de terminaison privés](how-to-configure-private-link.md)
 * [Où déployer les modèles](how-to-deploy-and-where.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)

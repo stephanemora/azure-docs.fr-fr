@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f60fba6a0b3a4d891fe19b7d75ab9c9fde278629
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826767"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393800"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -57,7 +57,7 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Croatie                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Chypre                              | CY        | EUR          |
-| République tchèque                      | CZ        | EUR          |
+| Tchéquie                      | CZ        | EUR          |
 | Danemark                             | DK        | DKK          |
 | République dominicaine                  | DO        | USD          |
 | Équateur                             | EC        | USD          |
@@ -99,7 +99,6 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Lituanie                           | LT        | EUR          |
 | Luxembourg                          | LU        | EUR          |
 | Macao R.A.S.                           | MO        | USD          |
-| Macédoine du Nord                     | MK        | USD          |
 | Malaisie                            | MY        | USD          |
 | Malte                               | MT        | EUR          |
 | Maurice (île)                           | MU        | USD          |
@@ -115,6 +114,7 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Nouvelle-Zélande                         | NZ        | NZD          |
 | Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| Macédoine du Nord                     | MK        | USD          |
 | Norvège                              | Non        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
@@ -166,7 +166,7 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* Pour les clients en Brésil, la place de marché via les fournisseurs de solutions Cloud (CSP) utilise l’USD.
+\* Pour les clients au Brésil, la place de marché commerciale via les fournisseurs de solutions cloud (CSP) utilise l’USD.
 
 \** Images de machines virtuelles gratuites et BYOL uniquement.
 
@@ -190,7 +190,7 @@ Microsoft reçoit les paiements des clients dans leur devise locale et vous paie
 
 Les prix individuels (qui, selon la façon dont ils ont été définis, peuvent avoir été influencés par les taux de change le jour de leur enregistrement) peuvent être récupérés à l’aide d’une API. Ce n’est pas le cas pour les informations sur les devises.
 
-Pour plus d’informations sur la façon d’entrer le prix de certains types d’offres, reportez-vous aux articles suivants :
+Pour plus d’informations sur la façon d’entrer les prix de certains types d’offres, reportez-vous aux articles suivants :
 
 - [Créer une offre Azure Application](partner-center-portal/create-new-azure-apps-offer.md)
 - [Créer une offre de conteneur Azure](partner-center-portal/create-azure-container-offer.md)

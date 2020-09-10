@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d8324b0b861829b02b589f8145121559114b7435
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194469"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289577"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
@@ -39,16 +39,14 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 ## <a name="earlier-versions"></a>Versions antérieures
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Améliorations
-- Vous pouvez ajouter des entrées DNS à la liste verte
- Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
+- Vous pouvez ajouter des entrées DNS pour autoriser Service Bus plutôt que d’autoriser toutes les adresses IP Azure à partir de votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
 - Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation TLS.
 - Résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Améliorations
--   Vous pouvez ajouter des entrées DNS à la liste verte
- Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
+-   Vous pouvez ajouter des entrées DNS pour autoriser Service Bus plutôt que d’autoriser toutes les adresses IP Azure à partir de votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
 -   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
 -   Résolu : problème d’index hors plage durant la copie de Document DB vers SQL Server avec la fonctionnalité d’idempotence.

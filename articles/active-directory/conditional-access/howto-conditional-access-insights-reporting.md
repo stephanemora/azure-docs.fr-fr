@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253271"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049415"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights et rapports sur l’accès conditionnel
 
@@ -97,6 +97,22 @@ Affichez la répartition des utilisateurs (ou connexions) pour chacune des condi
 
 Vous pouvez également examiner les connexions d’un utilisateur en particulier, en recherchant des connexions en bas du tableau de bord. La requête située sur la gauche affiche les utilisateurs les plus fréquents. La sélection d’un utilisateur va filtrer la requête sur la droite.  
 
+> [!NOTE]
+> Lorsque vous téléchargez les journaux de connexion, choisissez le format JSON pour inclure les résultats en mode rapport uniquement de la stratégie d’accès conditionnel.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurer une stratégie d’accès conditionnel en mode Rapport seul
+
+Pour configurer une stratégie d’accès conditionnel en mode Rapport uniquement :
+
+1. Connectez-vous au **portail Azure** en tant qu’administrateur de l’accès conditionnel, administrateur de la sécurité ou administrateur général.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez une stratégie existante ou créez-en une.
+1. Sous **Activer la stratégie**, définissez le mode **Rapport uniquement**.
+1. Sélectionnez **Enregistrer**.
+
+> [!TIP]
+> La modification de l’état **Activer la stratégie** d’une stratégie d’**Activé** en **Rapport seul** désactive l’application de la stratégie. 
+
 ## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Pourquoi les requêtes échouent-elles en raison d’une erreur d’autorisation ?
@@ -111,6 +127,10 @@ Pour accéder au classeur, vous devez disposer des autorisations Azure AD approp
 ![Résoudre les échecs de requêtes](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Pour plus d’informations sur la diffusion en continu des journaux de connexion Azure AD vers un espace de travail Log Analytics, consultez l’article [Intégrer des journaux Azure AD avec aux journaux d’activité Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Pourquoi les requêtes dans le classeur échouent-elles ?
+
+Des clients ont remarqué que des requêtes échouent parfois si un espace de travail erroné ou plusieurs espaces de travail sont associés au classeur. Pour résoudre ce problème, cliquez sur **Modifier** en haut du classeur, puis sur l’engrenage paramètres. Sélectionnez et supprimez les espaces de travail qui ne sont pas associés au classeur. Il ne doit y avoir qu’un seul espace de travail associé à chaque classeur.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Pourquoi le paramètre des stratégies d’accès conditionnel est-il vide ?
 
@@ -134,4 +154,8 @@ Vous pouvez modifier et personnaliser le classeur en accédant à **Azure Active
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Mode Rapport seul de l’accès conditionnel](concept-conditional-access-report-only.md)
+- [Mode Rapport seul de l’accès conditionnel](concept-conditional-access-report-only.md)
+
+- Pour plus d’informations sur les classeurs Azure AD, voir l’article[Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416500"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290172"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer un peering de réseau virtuel
 
@@ -126,11 +126,12 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
   - *Date :* Lorsque vous créez le peering au deuxième réseau virtuel à partir du premier réseau virtuel, l’état du peering est *Initié*. 
   - *Connecté :* Lorsque vous créez le peering à partir du deuxième réseau virtuel au premier réseau virtuel, l’état du peering est *Connecté*. Si vous affichez l’état de peering pour le premier réseau virtuel, vous voyez que son état est passé de *Initié* à *Connecté*. Le peering n’est pas correctement établi tant que l’état de peering pour les deux peerings de réseau virtuel est *Connecté*.
 - Lors du peering d’un réseau virtuel créé via le Gestionnaire de ressources avec un réseau virtuel créé via le modèle de déploiement classique, vous configurez un peering uniquement pour le réseau virtuel est déployé via le Gestionnaire de ressources. Vous ne pouvez pas configurer de peering pour un réseau virtuel (classique), ou entre deux réseaux virtuels déployés via le modèle de déploiement classique. Lorsque vous créez le peering à partir du réseau virtuel (Gestionnaire des ressources) au réseau virtuel (classique), l’état de peering est *Mis à jour*, puis passe rapidement à *Connecté*.
-- Un peering est établi entre deux réseaux virtuels. Les peerings ne sont pas transitifs. Imaginons que vous créez des peerings entre :
-  - VirtualNetwork1 et VirtualNetwork2
-  - VirtualNetwork2 et VirtualNetwork3
+- Un peering est établi entre deux réseaux virtuels. Les Peerings ne sont pas transitifs en soi. Imaginons que vous créez des peerings entre :
+  - VirtualNetwork1 et VirtualNetwork2     - VirtualNetwork1 et VirtualNetwork2
+  - VirtualNetwork2 et VirtualNetwork3     - VirtualNetwork2 et VirtualNetwork3
 
-  Il n’existe aucun peering entre VirtualNetwork1 et VirtualNetwork3 via VirtualNetwork2. Si vous souhaitez créer un peering de réseaux virtuels entre VirtualNetwork1 et VirtualNetwork3, vous devez créer un peering entre VirtualNetwork1 et VirtualNetwork3.
+
+  Il n’existe aucun peering entre VirtualNetwork1 et VirtualNetwork3 via VirtualNetwork2. Si vous souhaitez créer un peering de réseaux virtuels entre VirtualNetwork1 et VirtualNetwork3, vous devez créer un peering entre VirtualNetwork1 et VirtualNetwork3. Il n’existe aucun peering entre VirtualNetwork1 et VirtualNetwork3 via VirtualNetwork2. Si vous souhaitez que VirtualNetwork1 et VirtualNetwork3 communiquent directement, vous devez créer un Peering explicite entre VirtualNetwork1 et VirtualNetwork3 ou passer par une appliance virtuelle réseau dans le réseau hub.  
 - Vous ne pouvez pas résoudre des noms dans des réseaux virtuels homologués en utilisant une résolution de noms Azure par défaut. Pour résoudre des noms dans d’autres réseaux virtuels, vous devez utiliser [Azure DNS pour les domaines privés](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou un serveur DNS personnalisé. Pour savoir comment configurer votre propre serveur DNS, consultez [Résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Les ressources des réseaux virtuels homologués dans la même région peuvent communiquer entre elles avec les mêmes bande passante et latence que si elles étaient dans le même réseau virtuel. Toutefois, chaque taille de machine virtuelle a sa propre bande passante réseau maximale. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, consultez les tailles de machine virtuelle pour [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Un réseau virtuel peut être homologué ainsi qu’être connecté à un autre réseau virtuel avec une passerelle de réseau virtuel Azure. Lorsque des réseaux virtuels sont connectés via un peering et une passerelle, le trafic entre les réseaux virtuels passe par le peering plutôt que par la passerelle.

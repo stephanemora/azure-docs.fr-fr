@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825220"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182001"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -82,7 +82,7 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 
 **Problème** | **Détails**
 --- | ---
-**Installation** | Installez DPM/MABS sur une machine à usage unique.<br/><br/> N'installez pas DPM/MABS sur un contrôleur de domaine, une machine avec l'installation du rôle Serveur d'applications, une machine qui exécute Exchange Server, System Center Operations Manager ou un nœud de cluster.<br/><br/> [Passez en revue toutes les exigences système de DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
+**Installation** | Installez DPM/MABS sur une machine à usage unique.<br/><br/> N’installez pas DPM/MABS sur un contrôleur de domaine, sur une machine sur laquelle est installé le rôle Serveur d’applications, sur une machine qui exécute Microsoft Exchange Server ou System Center Operations Manager, ou encore sur un nœud de cluster.<br/><br/> [Passez en revue toutes les exigences système de DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domaine** | DPM/MABS doit être joint à un domaine. Effectuez d’abord l’installation, puis joignez DPM/MABS à un domaine. Le déplacement de DPM/MABS vers un nouveau domaine après le déploiement n’est pas pris en charge.
 **Stockage** | Le stockage de sauvegarde moderne (MBS) est pris en charge pour DPM 2016/MABS v2 et versions ultérieures. Il n’est pas disponible pour MABS v1.
 **Mise à niveau de MABS** | Vous pouvez installer directement MABS v3 ou effectuer la mise à niveau vers MABS v3 à partir de MABS v2. [Plus d’informations](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
@@ -162,7 +162,7 @@ Aucune connectivité pendant plus de 15 jours | Expiré/déprovisionné | Aucun
 
 ## <a name="dpmmabs-storage-support"></a>Prise en charge du stockage pour DPM/MABS
 
-Les données sauvegardées sur DPM/MABS sont stockées sur le stockage de disque local.
+Les données sauvegardées sur DPM/MABS sont stockées sur un disque local.
 
 **Stockage** | **Détails**
 --- | ---

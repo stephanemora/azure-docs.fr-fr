@@ -1,20 +1,20 @@
 ---
 title: Chiffrement des données au repos du service Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Chiffrement des données au repos du service Language Understanding.
+description: Microsoft propose des clés de chiffrement gérées par Microsoft et vous permet également de gérer vos abonnements Cognitive Services à l’aide de vos propres clés, appelées clés gérées par le client (CMK). Cet article traite du chiffrement des données au repos pour Language Understanding (LUIS) et de l’activation et de la gestion de CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052698"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078127"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Chiffrement des données au repos du service Language Understanding
 
@@ -26,7 +26,7 @@ Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256�
 
 ## <a name="about-encryption-key-management"></a>À propos de la gestion des clés de chiffrement
 
-Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Une option vous permet également de gérer votre abonnement avec vos propres clés. Les clés managées par le client (CMK) offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
+Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Il existe aussi la possibilité de gérer votre abonnement avec vos propres clés appelées clés gérées par le client (CMK). Les CMK offrent plus de flexibilité pour créer, alterner, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Clés gérées par le client avec Azure Key Vault
 
@@ -39,10 +39,6 @@ Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le clie
 Pour demander la possibilité d’utiliser des clés gérées par le client, complétez et envoyez le  [formulaire de demande de clé gérée par le client du service LUIS](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que vous avez approuvé l’utilisation de CMK avec LUIS, vous devez créer une ressource Language Understanding à partir du portail Azure et sélectionner E0 comme niveau tarifaire. La nouvelle référence (SKU) fonctionnera de la même façon que la référence F0 déjà disponible, à l’exception de CMK. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
 
 ![Image d’abonnement LUIS](../media/cognitive-services-encryption/luis-subscription.png)
-
-### <a name="regional-availability"></a>Disponibilité régionale
-
-Les clés gérées par le client sont disponibles dans toutes les [régions de création](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limites
 

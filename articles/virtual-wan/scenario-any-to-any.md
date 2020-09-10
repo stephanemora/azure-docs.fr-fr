@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553425"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400073"
 ---
 # <a name="scenario-any-to-any"></a>Scénario : Any-to-any
 
@@ -29,7 +29,7 @@ Pour déterminer le nombre de tables de routage nécessaires dans un scénario d
 | Réseaux virtuels     | &#8594;|      X     |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
-Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique.
+Chacune des cellules du tableau précédent indique si une connexion de Virtual WAN (côté « De » du flux, en-têtes de lignes dans le tableau) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans le tableau) pour un flux de trafic spécifique, où un « X » signifie que la connectivité est fournie par Virtual WAN.
 
 Étant donné que toutes les connexions à partir de réseaux virtuels et de branches (VPN, ExpressRoute et VPN utilisateur) ont les mêmes exigences de connectivité, une seule table de routage est requise. Par conséquent, toutes les connexions sont associées et propagées à la même table de routage, la table de routage par défaut :
 

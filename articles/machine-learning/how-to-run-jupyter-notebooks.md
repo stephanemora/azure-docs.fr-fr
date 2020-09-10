@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7448da5149bb859f25de2110aa929a40f872c26b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386450"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378897"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Pour créer un bloc-notes :
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Créer un fichier":::
 
 1. Nommez le fichier. 
-1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-notes Python**.
+1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-note**.
 1. Sélectionnez un répertoire de fichiers.
 1. Sélectionnez **Create** (Créer).
 

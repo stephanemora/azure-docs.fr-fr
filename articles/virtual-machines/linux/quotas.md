@@ -4,19 +4,22 @@ description: Découvrez plus en détail les quotas de processeurs virtuels pour 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949692"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Quotas de processeurs virtuels pour les machines virtuelles
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Vérifier les quotas de processeurs virtuels à l’aide d’Azure CLI
 
 Les quotas de processeurs virtuels pour les machines virtuelles et les groupes de machines virtuelles identiques sont organisés en deux niveaux pour chaque abonnement, dans chaque région. Le premier niveau est le total des processeurs virtuels régionaux. Le deuxième niveau se compose des cœurs des différentes familles de tailles de machine virtuelle, comme les processeurs virtuels de la série D. Chaque fois qu’une nouvelle machine virtuelle est déployée, le nombre de processeurs virtuels de cette machine virtuelle ne doit pas dépasser le quota de processeurs virtuels pour la famille de tailles de machine virtuelle ou le quota du total des processeurs virtuels régionaux. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé. Il existe également un quota pour le nombre total de machines virtuelles dans la région. Pour plus d’informations sur chacun de ces quotas, consultez la section **Utilisation + quotas** de la page **Abonnement** dans le [portail Azure](https://portal.azure.com) ou lancez une requête pour obtenir les valeurs à l’aide d’Azure CLI.
+
+> [!NOTE]
+> Le quota se calcule en fonction du nombre total de cœurs en cours d’utilisation, à la fois alloués et libérés. Si vous avez besoin de cœurs supplémentaires, [demandez une augmentation de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) ou supprimez des machines virtuelles devenues inutiles. 
 
 
 ## <a name="check-usage"></a>Vérifier l’utilisation

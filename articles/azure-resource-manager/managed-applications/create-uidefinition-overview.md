@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210971"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319563"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json pour une expérience de création d’applications managées Azure
 
@@ -25,6 +25,7 @@ Le modèle est le suivant :
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,7 +36,7 @@ Le modèle est le suivant :
 }
 ```
 
-Une fonction CreateUiDefinition contient toujours trois propriétés : 
+Une fonction `CreateUiDefinition` contient toujours trois propriétés :
 
 * gestionnaire
 * version
@@ -43,41 +44,19 @@ Une fonction CreateUiDefinition contient toujours trois propriétés :
 
 Le gestionnaire doit toujours être `Microsoft.Azure.CreateUIDef` et la version prise en charge la plus récente est `0.1.2-preview`.
 
-Le schéma de la propriété des paramètres dépend de la version et du gestionnaire spécifiés. Pour les applications managées, les propriétés prises en charge sont `basics`, `steps`, `outputs` et `config`. Les propriétés basics et steps contiennent des [éléments](create-uidefinition-elements.md), comme des zones de texte et des listes déroulantes, à afficher dans le portail Azure. La propriété « outputs » est utilisée pour mapper les valeurs de sortie des éléments spécifiés aux paramètres du modèle Resource Manager. Vous utilisez `config` uniquement lorsque vous devez remplacer le comportement par défaut de l’étape `basics`.
+Le schéma de la propriété des paramètres dépend de la version et du gestionnaire spécifiés. Pour les applications managées, les propriétés prises en charge sont `config`, `basics`, `steps` et `outputs`. Vous utilisez `config` uniquement lorsque vous devez remplacer le comportement par défaut de l’étape `basics`. Les propriétés basics et steps contiennent des [éléments](create-uidefinition-elements.md), comme des zones de texte et des listes déroulantes, à afficher dans le portail Azure. La propriété « outputs » est utilisée pour mapper les valeurs de sortie des éléments spécifiés aux paramètres du modèle Resource Manager.
 
 L’inclusion de `$schema` est recommandée, mais facultative. Si la valeur de `version` est spécifiée, celle-ci doit correspondre à la version figurant dans l’`$schema` URI.
 
 Vous pouvez utiliser un éditeur JSON pour créer votre fichier createUiDefinition, puis la tester dans le [sandbox (bac à sable) createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) pour en afficher un aperçu. Pour plus d’informations sur le bac à sable, consultez [Tester votre interface de portail pour les Applications managées Azure](test-createuidefinition.md).
 
-## <a name="basics"></a>Concepts de base
-
-L’étape **Basics** est la première étape générée lorsque le portail Azure analyse le fichier. Par défaut, l’étape Basics permet aux utilisateurs de choisir l’abonnement, le groupe de ressources et l’emplacement du déploiement.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Paramètres Basics par défaut":::
-
-Vous pouvez ajouter d’autres éléments dans cette section. Lorsque cela est possible, ajoutez des éléments qui interrogent les paramètres de déploiement, comme le nom d’un cluster ou des informations d’identification administrateur.
-
-L’exemple suivant montre une zone de texte qui a été ajoutée aux éléments par défaut.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>Config
 
-Vous spécifiez l’élément « config » lorsque vous devez remplacer le comportement par défaut pour les étapes de base. L’exemple suivant présente les propriétés disponibles.
+La propriété `config` est facultative. Utilisez-la pour remplacer le comportement par défaut de l’étape de base, ou pour définir votre interface en tant qu’Assistant pas à pas. Si `config` est utilisée, il s’agit de la première propriété de la section `parameters` du fichier **createUiDefinition.json**. L’exemple suivant présente les propriétés disponibles.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ Vous spécifiez l’élément « config » lorsque vous devez remplacer le com
 },
 ```
 
-Pour `description`, indiquez une chaîne avec démarques qui décrit votre ressource. Le format sur plusieurs lignes et les liens sont pris en charge.
+### <a name="wizard"></a>Assistant
 
-Pour `location`, spécifiez les propriétés du contrôle d’emplacement que vous souhaitez remplacer. Toutes les propriétés non remplacées sont définies sur leurs valeurs par défaut. `resourceTypes` accepte un tableau de chaînes contenant des noms complets de types de ressources. Les options d’emplacement sont limitées aux seules régions qui prennent en charge les types de ressources.  `allowedValues` accepte un tableau de chaînes de région. Seules ces régions s’affichent dans la liste déroulante. Vous pouvez définir à la fois `allowedValues` et  `resourceTypes`. Le résultat est l’intersection des deux listes. Enfin, la propriété `visible` peut être utilisée pour désactiver complètement ou sous certaines conditions la liste déroulante des emplacements.  
+La propriété `isWizard` vous permet de demander une validation réussie de chaque étape avant de passer à l’étape suivante. Lorsque la propriété `isWizard` n’est pas spécifiée, la valeur par défaut est **false** et la validation pas à pas n’est pas nécessaire.
+
+Lorsque `isWizard` est activé, affectez la valeur **true**, l’onglet **de base** est disponible et tous les autres onglets sont désactivés. Quand le bouton **Suivant** est sélectionné, l’icône de l’onglet indique si la validation d’un onglet a réussi ou échoué. Une fois les champs obligatoires d’un onglet remplis et validés, le bouton **Suivant** permet de naviguer jusqu’à l’onglet suivant. Lorsque tous les onglets sont validés, vous pouvez accéder à la page **Vérifier et créer** et sélectionner le bouton **Créer** pour commencer le déploiement.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Assistant d’onglet":::
+
+### <a name="override-basics"></a>Notions de base des remplacements
+
+La configuration de base vous permet de personnaliser les étapes de base.
+
+Pour `description`, indiquez une chaîne avec démarques qui décrit votre ressource. Le format sur plusieurs lignes et les liens sont pris en charge.
 
 Les éléments `subscription` et `resourceGroup` vous permettent de spécifier des validations supplémentaires. La syntaxe permettant de spécifier les validations est identique à la validation personnalisée pour la [zone de texte](microsoft-common-textbox.md). Vous pouvez également spécifier des validations `permission` sur l’abonnement ou le groupe de ressources.  
 
 Le contrôle d’abonnement accepte une liste d’espaces de noms de fournisseurs de ressources. Par exemple, vous pouvez spécifier **Microsoft.Compute**. Il affiche un message d’erreur lorsque l’utilisateur sélectionne un abonnement qui ne prend pas en charge le fournisseur de ressources. L’erreur se produit lorsque le fournisseur de ressources n’est pas inscrit sur cet abonnement et que l’utilisateur n’est pas autorisé à l’y inscrire.  
 
 Le contrôle de groupe de ressources a une option pour `allowExisting`. Lorsqu’elle est définie sur `true`, les utilisateurs peuvent sélectionner des groupes de ressources qui ont déjà des ressources. Cet indicateur s’applique surtout aux modèles de solutions, où le comportement par défaut oblige les utilisateurs à sélectionner un groupe de ressources nouveau ou vide. Dans la plupart des autres scénarios, il n’est pas nécessaire de spécifier cette propriété.  
+
+Pour `location`, spécifiez les propriétés du contrôle d’emplacement que vous souhaitez remplacer. Toutes les propriétés non remplacées sont définies sur leurs valeurs par défaut. `resourceTypes` accepte un tableau de chaînes contenant des noms complets de types de ressources. Les options d’emplacement sont limitées aux seules régions qui prennent en charge les types de ressources.  `allowedValues` accepte un tableau de chaînes de région. Seules ces régions s’affichent dans la liste déroulante. Vous pouvez définir à la fois `allowedValues` et  `resourceTypes`. Le résultat est l’intersection des deux listes. Enfin, la propriété `visible` peut être utilisée pour désactiver complètement ou sous certaines conditions la liste déroulante des emplacements.  
+
+## <a name="basics"></a>Concepts de base
+
+L’étape **Basics** est la première étape générée lorsque le portail Azure analyse le fichier. Par défaut, l’étape Basics permet aux utilisateurs de choisir l’abonnement, le groupe de ressources et l’emplacement du déploiement.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Paramètres Basics par défaut":::
+
+Vous pouvez ajouter d’autres éléments dans cette section. Lorsque cela est possible, ajoutez des éléments qui interrogent les paramètres de déploiement, comme le nom d’un cluster ou des informations d’identification administrateur.
+
+L’exemple suivant montre une zone de texte qui a été ajoutée aux éléments par défaut.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>Étapes
 

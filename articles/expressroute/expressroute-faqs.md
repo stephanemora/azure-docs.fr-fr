@@ -2,17 +2,17 @@
 title: FAQ - Azure ExpressRoute | Microsoft Docs
 description: Le Forum aux questions ExpressRoute contient des informations sur les services Azure pris en charge, le coût, les données et connexions, le contrat de niveau de service, les fournisseurs et les emplacements, la bande passante et les détails techniques.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: jaredro
-ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: fe7fd6d7a7511b1b1c6a218878fc185f83b1a2cd
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537120"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396690"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -217,13 +217,13 @@ Oui. Vous pouvez avoir jusqu’à 10 connexions réseaux virtuels sur un circuit
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Je possède plusieurs abonnements Azure qui contiennent des réseaux virtuels. Puis-je connecter des réseaux virtuels qui figurent dans des abonnements distincts à un circuit ExpressRoute ?
 
-Oui. Vous pouvez lier jusqu’à 10 réseaux virtuels dans le même abonnement que le circuit, ou dans différents abonnements par l’intermédiaire d’un circuit ExpressRoute unique. Cette limite peut être augmentée en activant la fonctionnalité Premium d’ExpressRoute.
+Oui. Vous pouvez lier jusqu’à 10 réseaux virtuels dans le même abonnement que le circuit, ou dans différents abonnements par l’intermédiaire d’un circuit ExpressRoute unique. Cette limite peut être augmentée en activant la fonctionnalité Premium d’ExpressRoute. Notez que les frais de connectivité et de bande passante pour le circuit dédié s’appliquent au propriétaire du circuit ExpressRoute ; tous les réseaux virtuels partagent la même bande passante.
 
 Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute entre plusieurs abonnements](expressroute-howto-linkvnet-arm.md).
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>J’ai plusieurs abonnements Azure associés à différents clients Azure Active Directory ou inscriptions d’Accord Entreprise. Puis-je connecter des réseaux virtuels qui se trouvent dans des clients et des inscriptions distincts à un même circuit ExpressRoute qui ne se trouve pas dans le même client ou la même inscription ?
 
-Oui. Les autorisations ExpressRoute peuvent aller jusqu’aux limites de l’abonnement, du client et de l’inscription sans aucune configuration supplémentaire. 
+Oui. Les autorisations ExpressRoute peuvent aller jusqu’aux limites de l’abonnement, du client et de l’inscription sans aucune configuration supplémentaire. Notez que les frais de connectivité et de bande passante pour le circuit dédié s’appliquent au propriétaire du circuit ExpressRoute ; tous les réseaux virtuels partagent la même bande passante.
 
 Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute entre plusieurs abonnements](expressroute-howto-linkvnet-arm.md).
 

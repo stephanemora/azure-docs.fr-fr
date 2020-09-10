@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50926074c09ef8f438b0abb53a4eb5f1813871b3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81275156"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321015"
 ---
 Le conteneur fournit des [API de point de terminaison basées sur REST](../rest-text-to-speech.md). Il existe de nombreux [exemples de projets de code source](https://github.com/Azure-Samples/Cognitive-Speech-TTS) pour les variantes de plateforme, d’infrastructure et de langage disponibles.
 
-Avec le conteneur de *synthèse vocale standard*, vous devez vous appuyer sur les paramètres régionaux et la voix de la balise d’image que vous avez téléchargée. Par exemple, si vous avez téléchargé la balise `latest`, les paramètres régionaux par défaut sont `en-US` et la voix `JessaRUS`. L’argument `{VOICE_NAME}` est alors [`en-US-JessaRUS`](../language-support.md#standard-voices). Consultez l’exemple SSML ci-dessous :
+Avec les conteneurs de synthèse vocale standard et neuronale, vous devez vous appuyer sur les paramètres régionaux et la voix de la balise d’image que vous avez téléchargée. Par exemple, si vous avez téléchargé la balise `latest`, les paramètres régionaux par défaut sont `en-US` et la voix `AriaRUS`. L’argument `{VOICE_NAME}` est alors [`en-US-AriaRUS`](../language-support.md#standard-voices). Consultez l’exemple SSML ci-dessous :
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-JessaRUS">
+    <voice name="en-US-AriaRUS">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

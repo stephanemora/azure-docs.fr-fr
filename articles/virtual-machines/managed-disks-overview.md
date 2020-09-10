@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: contperfq1
+ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749680"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299930"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction aux disques managés Azure
 
@@ -91,7 +92,7 @@ Un disque de données est un disque managé attaché à une machine virtuelle po
 
 Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Ce disque de système d’exploitation est doté d’un système d’exploitation préinstallé qui a été sélectionnée lors de la création de la machine virtuelle. Ce disque contient le volume de démarrage.
 
-Ce disque a une capacité maximale de 2 048 Gio.
+Ce disque a une capacité maximale de 4 095 Gio.
 
 ### <a name="temporary-disk"></a>Disque temporaire
 

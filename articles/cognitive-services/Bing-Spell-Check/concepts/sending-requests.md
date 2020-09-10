@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832540"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299114"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Envoi de demandes à l’API Vérification orthographique Bing
 
@@ -42,7 +42,7 @@ Pour obtenir la liste complète des en-têtes de requête et de réponse, consul
 
 Quand vous appelez l’API Vérification orthographique Bing en JavaScript, les fonctionnalités de sécurité intégrées de votre navigateur peuvent dans certains cas vous empêcher d’accéder aux valeurs de ces en-têtes.
 
-Pour résoudre ce problème, vous pouvez envoyer la requête à l’API Vérification orthographique Bing par le biais d’un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend accessibles à du code JavaScript.
+Pour résoudre ce problème, vous pouvez envoyer la requête à l’API Vérification orthographique Bing par le biais d’un proxy CORS. La réponse provenant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui filtre les en-têtes de réponse et les rend accessibles à JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser [l’application du tutoriel](../tutorials/spellcheck.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez alors la commande suivante dans l’invite de commandes.
 

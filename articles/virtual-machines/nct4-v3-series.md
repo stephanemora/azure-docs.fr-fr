@@ -8,16 +8,18 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 73d583cb371876cefc10c982dbe66f6e15bddf03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932608"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375225"
 ---
-# <a name="ncast4_v3-series"></a>NCasT4_v3-series 
+# <a name="ncast4_v3-series-in-preview"></a>Série NCasT4_v3 (en préversion) 
 
 Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs graphiques NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) et des processeurs AMD EPYC 7V12(Rome). Les machines virtuelles comportent jusqu’à 4 processeurs graphiques NVIDIA T4 avec 16 Go de mémoire chacun, jusqu’à 64 cœurs AMD EPYC 7V12 (Rome) et 440 Gio de mémoire système. Ces machines virtuelles sont idéales pour exécuter des charges de travail de ML et d’IA en utilisant CUDA, TensorFlow, Pytorch, Caffe et d’autres frameworks ou les charges de travail graphiques à l’aide de la technologie GRID de NVIDIA. La série NCasT4_v3 est idéale pour l’exécution de charges de travail d’inférence.
+
+Vous pouvez [soumettre une demande](https://aka.ms/NCT4v3Preview) pour participer au programme de préversion.
 
 <br>
 

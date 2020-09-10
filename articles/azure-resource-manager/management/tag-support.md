@@ -3,12 +3,12 @@ title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 91c6d5930a9066e73355a0c8e6021b1e7c20802d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1f74ecff7c5db7a851ad2795fdfdb8e552a309c0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855074"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231518"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -263,6 +263,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | reportFeedback | Non | Non |
 > | service | Oui | Oui |
 > | validateServiceName | Non | Non |
+
+> [!NOTE]
+> Gestion des API Azure prend en charge uniquement la création d’un maximum de 15 paires nom-valeur de balise pour chaque service.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 

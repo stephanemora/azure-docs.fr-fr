@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005582"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078178"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Mettre à l’échelle des hôtes de session Windows Virtual Desktop (classique) à l’aide d’Azure Automation
 
@@ -21,10 +21,6 @@ ms.locfileid: "88005582"
 Vous pouvez réduire le coût total de déploiement de Windows Virtual Desktop en procédant à la mise à l'échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
 
 Cet article présente l’outil de mise à l’échelle créé avec le compte Azure Automation et l’application logique Azure pour procéder à la mise à l’échelle automatique des machines virtuelles hôtes de session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
-
-## <a name="report-issues"></a>Signaler des problèmes
-
-Les rapports de problèmes pour l’outil de mise à l’échelle sont actuellement traités sur GitHub plutôt que par le Support Microsoft. Si vous rencontrez un problème avec l’outil de mise à l’échelle, obtenez les informations nécessaires comme décrit dans la section [Signaler un problème](#reporting-issues) et ouvrez un problème GitHub nommé « 4a-WVD-scaling-logicapps » dans la [page GitHub RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Fonctionnement de l'outil de mise à l'échelle
 
@@ -362,3 +358,7 @@ Si vous avez décidé d’utiliser Log Analytics, vous pouvez afficher toutes le
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Signaler des problèmes
+
+Les rapports de problèmes pour l’outil de mise à l’échelle sont actuellement traités par le Support Microsoft. Lorsque vous créez un rapport de problème, veillez à suivre les instructions fournies dans [Signalement de problèmes](#reporting-issues). Si vous avez des commentaires sur l’outil ou si vous souhaitez demander de nouvelles fonctionnalités, ouvrez un problème GitHub intitulé « 4-WVD-scaling-tool » sur la [page RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

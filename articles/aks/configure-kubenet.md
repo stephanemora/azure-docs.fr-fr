@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f9bc0cd229888d952821509ced6cc5410000ee52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543365"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078722"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Cet article vous montre comment utiliser la mise en réseau *kubenet* pour crée
 * Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Ne créez pas plus d’un cluster AKS dans le même sous-réseau.
 * Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ou `192.0.2.0/24` pour la plage d’adresses de service Kubernetes.
-* Le principal du service utilisé par le cluster AKS doit avoir au moins le rôle [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
+* Le principal du service utilisé par le cluster AKS doit avoir au moins le rôle [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Vous devez également disposer des autorisations appropriées, par exemple le propriétaire de l’abonnement, pour créer un principal de service et lui attribuer des autorisations. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 

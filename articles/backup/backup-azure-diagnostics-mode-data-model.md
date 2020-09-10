@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890261"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020947"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -472,7 +472,7 @@ Reportez-vous à la troisième colonne « Description » dans le [modèle de d
 
 Comme le schéma V1 est sur le point d’être déprécié, nous vous recommandons d’utiliser uniquement le schéma V2 dans toutes vos requêtes personnalisées sur les données de diagnostics Sauvegarde Azure. Voici un exemple de mise à jour de vos requêtes pour supprimer les dépendances sur le schéma V1 :
 
-1. Déterminez si votre requête utilise un champ qui s’applique uniquement au schéma V1. Supposons que vous disposez d’une requête pour répertorier tous les éléments de sauvegarde et leurs serveurs protégés associés comme suit :
+1. Déterminez si votre requête utilise un champ qui s’applique uniquement au schéma V1. Supposons que vous disposez d’une requête pour répertorier tous les éléments de sauvegarde et leurs serveurs protégés associés comme suit :
 
     ````Kusto
     AzureDiagnostics

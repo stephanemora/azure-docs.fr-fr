@@ -4,12 +4,12 @@ description: Découvrez comment la suppression réversible peut protéger vos pa
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282702"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179910"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Protection contre la suppression accidentelle pour les partages de fichiers Azure à l’aide de Sauvegarde Azure
 
@@ -53,7 +53,7 @@ Si vous disposez d’au moins un partage de fichiers protégé dans un compte de
 >Vous devez effectuer l’étape 2 avant l’exécution de la tâche de sauvegarde planifiée suivante sur le partage de fichiers protégé dans votre compte de stockage. En effet, chaque fois que le travail de sauvegarde s’exécute, il réactive la suppression réversible pour tous les partages de fichiers dans le compte de stockage.
 
 >[!WARNING]
->Après la désactivation de la suppression réversible à l’étape 2, toute opération de suppression effectuée sur les partages de fichiers est une opération de suppression permanente. Cela signifie que si vous supprimez accidentellement le partage de fichiers sauvegardé après la désactivation de la suppression réversible, vous perdrez toutes vos captures instantanées et ne pourrez pas récupérer vos données.
+>Après la désactivation de la suppression réversible à l’étape 2, toute opération de suppression effectuée sur les partages de fichiers est une opération de suppression permanente. Donc, si vous supprimez accidentellement le partage de fichiers sauvegardé après la désactivation de la suppression réversible, vous perdrez toutes vos captures instantanées et ne pourrez pas récupérer vos données.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Dans le contexte du paramètre de suppression réversible d’un partage de fichiers, quelles sont les modifications apportées par Sauvegarde Azure quand j’annule l’inscription d’un compte de stockage ?
 

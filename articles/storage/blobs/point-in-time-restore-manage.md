@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a4c68454807cb26ac62799b598f146680e37c42
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445438"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230175"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Activer et gérer une restauration dans le temps pour les objets blob de blocs (préversion)
 
@@ -184,4 +184,4 @@ $job | Wait-Job
 - [Restauration dans le temps pour les objets blob de blocs (préversion)](point-in-time-restore-overview.md)
 - [Suppression réversible](soft-delete-overview.md)
 - [Flux de modification (préversion)](storage-blob-change-feed.md)
-- [Contrôle de version des objets blob (préversion)](versioning-overview.md)
+- [Contrôle de version des blobs](versioning-overview.md)

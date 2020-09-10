@@ -924,8 +924,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Démarrages rapides
           items:
-            - name: "Créer une machine virtuelle\_SQL"
-              items: null
             - name: Portail
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell

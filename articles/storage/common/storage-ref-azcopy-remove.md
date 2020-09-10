@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1cdb49f6865afa4101468dc35b4e416d999b63f5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285218"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078218"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -73,7 +73,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-
 Supprimez un seul fichier d’un compte de stockage d’objets BLOB qui a un espace de noms hiérarchique (inclure/exclure non pris en charge) :
 
 ```azcopy
@@ -102,7 +101,9 @@ Chaîne **--include-path**   Inclut uniquement ces chemins lors de la suppressio
 
 **--include-pattern** string  Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *`.jpg`;* `.pdf`;`exactName`
 
-Chaîne **--list-of-files**  Définit l’emplacement d’un fichier qui contient la liste des fichiers et répertoires à supprimer. Les chemins d’accès relatifs doivent être délimités par des sauts de ligne, et les chemins d’accès ne doivent pas être codés URL.
+Chaîne **--list-of-files**  Définit l’emplacement d’un fichier qui contient la liste des fichiers et répertoires à supprimer. Les chemins d’accès relatifs doivent être délimités par des sauts de ligne, et les chemins d’accès ne doivent pas être codés URL. 
+
+Chaîne **--list-of-versions**   Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un objet blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement à l’objet blob source. Les ID de version spécifiés de l’objet blob donné seront supprimés du stockage Azure. 
 
 Chaîne **--log-level**   Définit la verbosité du journal pour le fichier journal. Les niveaux disponibles sont les suivants : `INFO` (toutes les demandes/réponses), `WARNING` (réponses lentes), `ERROR` (uniquement les demandes ayant échoué) et `NONE` (aucun journal de sortie). (par défaut `INFO`) (par défaut `INFO`)
 

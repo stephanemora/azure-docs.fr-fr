@@ -8,17 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 501cdde95cfdf0277fe3e260e8cc929664af257e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104404"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321433"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
+![Informations juridiques ](./media/cognitive-services-container-support/banner.png)
+<!--
+> [!IMPORTANT]
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+-->
 La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure, et permet une flexibilité sur l’emplacement de déploiement et de stockage des services fournis avec les [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services, dont des composants de :
 
 > [!div class="checklist"]
@@ -60,6 +65,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 | [API Speech Service][sp-containers-cstt] | F0, S0 | **Reconnaissance vocale personnalisée** | Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé. |
 | [API Speech Service][sp-containers-tts] | F0, S0 | **Synthèse vocale** | Convertit le texte en paroles naturelles. |
 | [API Speech Service][sp-containers-ctts] | F0, S0 | **Synthèse vocale personnalisée** | Convertit le texte en paroles naturelles à l’aide d’un modèle personnalisé. |
+| [API Speech Service][sp-containers-ntts] | F0, S0 | **Synthèse vocale neuronale** | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. |
 | [Analyse de texte][ta-containers-keyphrase] | F0, S | **Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 | [Analyse de texte][ta-containers-language] | F0, S | **Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
 | [Analyse de texte][ta-containers-sentiment] | F0, S | **Analyse des sentiments v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette version d’Analyse des sentiments renvoie des étiquettes de sentiment (par exemple, *positif* ou *négatif*) pour chaque document et phrase qu’elle contient. |

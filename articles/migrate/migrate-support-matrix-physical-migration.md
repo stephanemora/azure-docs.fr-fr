@@ -4,12 +4,12 @@ description: Découvrez la prise en charge pour la migration de serveurs physiqu
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770337"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051132"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -44,6 +44,7 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **Conditions requises pour Azure** | Pour obtenir les informations les plus récentes, consultez les exigences d’Azure en matière de [réseau](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), de [stockage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage) et de [calcul](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) pour Site Recovery. Azure Migrate a des exigences identiques pour la migration de serveurs physiques.
 **Service de mobilité** | L’agent du service Mobilité doit être installé sur chaque machine que vous souhaitez migrer.
 **Démarrage UEFI** | La machine migrée dans Azure est automatiquement convertie en machine virtuelle Azure de démarrage du BIOS. Seul un serveur exécutant Windows Server 2012 ou version ultérieure est pris en charge.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
+**UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.
 **Disque cible** | Les machines peuvent être migrées seulement vers des disques managés (disques HDD standard, disques SSD Premium) dans Azure.
 **Taille du disque** | Disque de système d’exploitation de 2 To ; 8 To pour des disques de données.
 **Limites du disque** |  Jusqu’à 63 disques par machine.

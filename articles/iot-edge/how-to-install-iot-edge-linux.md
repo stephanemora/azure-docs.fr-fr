@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4078d7e6c20571db2387cfd138ecb325fc3469e7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022086"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -288,33 +288,15 @@ Cette commande fournit une sortie détaillée contenant l’état des fonctionna
 
 ## <a name="install-runtime-using-release-assets"></a>Installer le runtime à l’aide des ressources de mise en production
 
-Utilisez les étapes de cette section si vous souhaitez installer une version spécifique de Moby et le runtime Azure IoT Edge, qui ne sont pas disponibles via `apt-get install`. La liste des packages Microsoft contient uniquement un ensemble limité de versions récentes et leurs sous-versions. Par conséquent, ces étapes sont destinées à toute personne souhaitant installer une version antérieure ou une version Release Candidate.
+Utilisez les étapes de cette section si vous souhaitez installer une version spécifique du runtime Azure IoT Edge, qui n’est pas disponible via `apt-get install`. La liste des packages Microsoft contient uniquement un ensemble limité de versions récentes et leurs sous-versions. Par conséquent, ces étapes sont destinées à toute personne souhaitant installer une version antérieure ou une version Release Candidate.
 
-À l’aide de commandes curl, vous pouvez cibler les fichiers de composants directement à partir du référentiel GitHub IoT Edge. Suivez les étapes suivantes pour obtenir tous les composants IoT Edge sur votre appareil : le moteur Moby et CLI, le libiothsm, et enfin le démon de sécurité IoT Edge.
+À l’aide de commandes curl, vous pouvez cibler les fichiers de composants directement à partir du référentiel GitHub IoT Edge. Procédez comme suit pour installer libiothsm et le démon de sécurité IoT Edge. Installez le moteur Moby et l’interface CLI à l’aide des étapes de la section [Installer un runtime de conteneurs](#install-a-container-runtime).
 
 1. Accédez aux [versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)et recherchez celle que vous souhaitez cibler.
 
 2. Développez la section **Ressources** pour cette version.
 
-3. Des mises à jour du moteur Moby peuvent être disponibles dans une version donnée, ou non. Si vous voyez des fichiers qui commencent par **moby-engine** et **moby-cli**, utilisez les commandes suivantes pour mettre à jour ces composants. Si vous ne voyez aucun fichier Moby, retournez dans les anciennes versions jusqu'à trouver la version la plus récente.
-
-   1. Trouvez le fichier **moby-engine** qui correspond à l’architecture de votre périphérique IoT Edge. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
-
-   2. Utilisez le lien copié dans la commande suivante pour installer cette version du moteur Moby :
-
-      ```bash
-      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-      ```
-
-   3. Recherchez le fichier **moby-cli** qui correspond à l’architecture de votre périphérique IoT Edge. L’interface de ligne de commande Moby est un composant optionnel, mais peut être utile pendant le développement. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
-
-   4. Utilisez le lien copié dans la commande suivante pour installer cette version de l’interface de ligne de commande Moby :
-
-      ```bash
-      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-      ```
-
-4. Chaque version devrait avoir de nouveaux fichiers pour le démon de sécurité IoT Edge et le hsmlib. Utilisez les commandes suivantes pour mettre à jour ces composants.
+3. Chaque version devrait avoir de nouveaux fichiers pour le démon de sécurité IoT Edge et le hsmlib. Utilisez les commandes suivantes pour mettre à jour ces composants.
 
    1. Trouvez le fichier **libiothsm-std** qui correspond à l’architecture de votre périphérique IoT Edge. Cliquez avec le bouton droit de la souris sur le lien de fichier et copiez l’adresse du lien.
 

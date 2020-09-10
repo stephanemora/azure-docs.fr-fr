@@ -6,13 +6,13 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: bbec83c655d568b43b319f30a96da0a8fc1effe8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210900"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230651"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Base de référence de la sécurité Azure pour Synapse Analytics
 
@@ -138,7 +138,7 @@ Lorsque vous utilisez un point de terminaison de service pour votre pool Azure S
 
 **Aide** : Définissez et implémentez des configurations de sécurité réseau pour les ressources associées à votre pool SQL à l’aide d’Azure Policy. Vous pouvez utiliser l’espace de noms « Microsoft.Sql » pour définir des définitions de stratégie personnalisées ou utiliser l’une des définitions de stratégie intégrées conçues pour la protection réseau de serveur ou la base de données Azure SQL. Voici un exemple de stratégie de sécurité réseau intégrée applicable pour serveur Azure SQL Database : « SQL Server doit utiliser un point de terminaison de service de réseau virtuel ».
 
-Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Azure Resource Manager, les contrôles d’accès en fonction du rôle (RBAC) et les stratégies au sein d’une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
+Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
 
 * [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -582,7 +582,7 @@ En outre, vous pouvez configurer une stratégie de masquage dynamique des donné
 
 **Responsabilité** : Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
 **Aide** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer l’accès aux bases de données Azure SQL dans votre pool Synapse SQL.
 
@@ -748,7 +748,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients selon les définitions de stratégies intégrées suivantes :
+**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans les abonnements clients selon les définitions de stratégies intégrées suivantes :
 - Types de ressources non autorisés
 - Types de ressources autorisés
 

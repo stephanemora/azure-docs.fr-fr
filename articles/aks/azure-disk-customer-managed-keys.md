@@ -3,39 +3,25 @@ title: Utiliser une clé gérée par le client pour chiffrer les disques Azure d
 description: BYOK (Bring Your Own Keys) pour chiffrer les disques de données et de système d’exploitation AKS.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796882"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297754"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>BYOK (Bring Your Own Keys) avec des disques Azure dans Azure Kubernetes Service (AKS)
 
-Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour renforcer le contrôle sur les clés de chiffrement, vous pouvez fournir des [clés managées par le client][customer-managed-keys] à utiliser pour le chiffrement au repos des disques de système d’exploitation et des disques de données pour vos clusters AKS.
+Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour renforcer le contrôle sur les clés de chiffrement, vous pouvez fournir des clés managées par le client à utiliser pour le chiffrement au repos des disques de système d’exploitation et des disques de données pour vos clusters AKS. En savoir plus sur les clés gérées par le client sur [Linux][customer-managed-keys-linux] et [Windows][customer-managed-keys-windows].
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="limitations"></a>Limites
+* La prise en charge du chiffrement de disque de données est limitée aux clusters AKS exécutant Kubernetes 1.17 et les versions ultérieures.
+* Le chiffrement du système d’exploitation et du disque de données avec des clés gérées par le client ne peut être activé que lors de la création d’un cluster AKS.
 
-* Cet article suppose que vous créez un *cluster AKS*.
-
+## <a name="prerequisites"></a>Prérequis
 * Vous devez activer la suppression réversible et la protection contre le vidage pour *Azure Key Vault* lors de l’utilisation de Key Vault pour chiffrer des disques managés.
-
-* Vous devez disposer d’Azure CLI version 2.0.79 ou ultérieure et de l’extension aks-preview 0.4.26
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Installer la dernière extension de la préversion d’AKS CLI
-
-Pour utiliser des clés gérées par le client, vous devez disposer de l’extension CLI *aks-preview* version 0.4.26 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Vous devez disposer d’Azure CLI 2.11.1 ou d’un version ultérieure.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Créer une instance Azure Key Vault
 
@@ -155,11 +141,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>Limites
-
-* Le chiffrement de disque de données avec la version Kubernetes 1.17 et ultérieure
-* Le chiffrement avec des clés gérées par le client est actuellement réservé aux nouveaux clusters AKS. Les clusters existants ne peuvent pas être mis à niveau
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consulter les [bonnes pratiques relatives à la sécurité des clusters AKS][best-practices-security]
@@ -171,6 +152,7 @@ Consulter les [bonnes pratiques relatives à la sécurité des clusters AKS][bes
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

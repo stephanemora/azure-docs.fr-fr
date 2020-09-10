@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656540"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231314"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps
 
@@ -58,7 +58,7 @@ Dans l’en-tête de la requête, incluez les propriétés suivantes :
 
 ## <a name="request-body"></a>Corps de la demande
 
-Voici la syntaxe du corps de la requête, qui décrit les propriétés à utiliser lors de la création de votre ISE. Pour créer un environnement ISE qui autorise l’utilisation d’un certificat auto-signé installé à l’emplacement `TrustedRoot`, incluez l’objet `certificates` à l’intérieur de la section `properties` de la définition ISE. Pour une application ISE existante, vous pouvez envoyer une requête PATCH pour l’objet `certificates` seulement. Pour plus d’informations sur l’utilisation des certificats auto-signés, voir aussi [Connecteur HTTP - Certificats auto-signés](../connectors/connectors-native-http.md#self-signed).
+Voici la syntaxe du corps de la requête, qui décrit les propriétés à utiliser lors de la création de votre ISE. Pour créer un environnement ISE qui autorise l’utilisation d’un certificat auto-signé installé à l’emplacement `TrustedRoot`, incluez l’objet `certificates` à l’intérieur de la section `properties` de la définition ISE. Pour une application ISE existante, vous pouvez envoyer une requête PATCH pour l’objet `certificates` seulement. Pour plus d’informations sur l’utilisation de certificats auto-signés, consultez [Sécuriser l’accès et les données – Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

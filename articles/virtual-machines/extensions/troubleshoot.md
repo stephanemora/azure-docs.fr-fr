@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187555"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180353"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -63,6 +63,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>Dépannage des échecs d’extension
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Réexécuter l’extension sur la machine virtuelle
 Si vous exécutez des scripts sur la machine virtuelle à l’aide de l’extension de script personnalisé, cela peut générer une erreur indiquant que la machine virtuelle a été créée avec succès mais que le script a échoué. Dans ces conditions, la méthode recommandée pour corriger cette erreur consiste à supprimer l'extension et exécuter le modèle à nouveau.
 Remarque : cette fonctionnalité sera ultérieurement améliorée de manière à ne plus devoir désinstaller l'extension.
@@ -74,3 +75,28 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>Déclencher un nouveau GoalState sur la machine virtuelle
+Vous pouvez remarquer qu’une extension n’a pas été exécutée ou ne peut pas s’exécuter en raison d’un « générateur de certificats CRP Windows Azure » manquant (ce certificat est utilisé pour sécuriser le transport des paramètres protégés de l’extension).
+Ce certificat sera automatiquement régénéré en redémarrant l’agent invité Windows à partir de la machine virtuelle :
+- Ouvrir le Gestionnaire des tâches
+- Accéder à l’onglet Détails
+- Rechercher le processus WindowsAzureGuestAgent.exe
+- Cliquez avec le bouton droit, puis sélectionnez « Terminer la tâche ». Le processus sera redémarré automatiquement.
+
+
+Vous pouvez également déclencher un nouveau GoalState sur la machine virtuelle, en exécutant une « mise à jour vide » :
+
+Azure PowerShell :
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+Azure CLI :
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+Si une « mise à jour vide » n’a pas fonctionné, vous pouvez ajouter un nouveau disque de données vide à la machine virtuelle à partir du portail de gestion Azure, puis le supprimer une fois le certificat rajouté.

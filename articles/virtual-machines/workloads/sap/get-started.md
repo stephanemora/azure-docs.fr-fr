@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 08/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 0f26c83f87811acc5853f1bff5303cd37092b33f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871375"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075951"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -88,6 +88,7 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 08/28/2020 : Modification de la [haute disponibilité pour SAP NW sur les machines virtuelles sur SLES avec ANF](./high-availability-guide-suse-netapp-files.md) pour corriger la faute de frappe
 - 25/08/2020 : Modification dans [Guide HA pour SAP ASCS/SCS avec WSFC et disque partagé](./sap-high-availability-guide-wsfc-shared-disk.md), [Préparer l’infrastructure Azure pour SAP ASCS/SCS avec WSFC et le disque partagé](./sap-high-availability-infrastructure-wsfc-shared-disk.md) et [Installer SAP NW HA avec WSFC et le disque partagé](./sap-high-availability-guide-wsfc-shared-disk.md) pour introduire la possibilité d’utiliser le disque partagé et de documenter l’architecture SAP ERS2
 - 25/08/2020 : Publication du [guide multi-SID HA pour SAP ASCS/SCS avec WSFC et le disque partagé Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
 - 25/08/2020 : Modification dans [Guide HA pour SAP ASCS/SCS avec WSFC et Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Préparer l’infrastructure Azure pour SAP ASCS/SCS avec WSFC et le partage de fichiers](./sap-high-availability-infrastructure-wsfc-file-share.md), [Guide HA pour SAP ASCS/SCS avec WSFC et disque partagé](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) et [Guide multi-SID HA pour SAP ASCS/SCS avec WSFC et partage de fichiers SOFS](./sap-ascs-ha-multi-sid-wsfc-file-share.md), suite à des mises à jour et des restructurations de contenu dans les guides HA pour SAP ASCS/SCS avec WFC et le disque partagé 

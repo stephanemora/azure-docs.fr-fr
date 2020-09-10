@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 32905383b046148893492640fe42fc721d1944dd
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810239"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394089"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de référence de sécurité Azure pour Azure Functions
 
@@ -179,7 +179,7 @@ Il existe également plusieurs options de place de marché, par exemple le WAF B
 - Function App ne doit pas être accessible via HTTPS
 - La dernière version de TLS doit être utilisée dans votre application de fonction
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, le contrôles d'accès en fonction du rôle (RBAC) et les stratégies au sein d'une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -443,7 +443,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 - [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -595,9 +595,9 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez la fonctionnalité RBAC (contrôle d’accès en fonction du rôle) d’AD (Azure Active Directory) pour contrôler l’accès au plan de contrôle Azure Functions (par exemple le portail Azure). 
+**Aide** : utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour contrôler l’accès au plan de contrôle d’Azure Functions (portail Azure). 
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -960,7 +960,9 @@ Guide pratique pour créer un ASE interne :
 
 - [Guide pratique pour utiliser des identités managées avec App Service et Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Fournir une authentification Key Vault avec une identité managée](../key-vault/general/managed-identity.md)
+* [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
+
+* [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 - [Utiliser des références Key Vault pour App Service et Azure Functions](../app-service/app-service-key-vault-references.md)
 
@@ -1133,7 +1135,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045533"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078994"
 ---
 # <a name="security-control-data-protection"></a>Contrôle de sécurité : Protection des données
 
@@ -84,15 +84,15 @@ Utilisez Azure SQL Information Protection pour faciliter la classification et l'
 
 - [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
 | Identifiant Azure | Identifiants CIS | Responsabilité |
 |--|--|--|
 | 4.6 | 14.6 | Customer |
 
-Utilisez Azure AD RBAC pour contrôler l’accès aux données et aux ressources, sinon utilisez des méthodes de contrôle d’accès spécifiques au service.
+Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès aux données et aux ressources ; sinon, utilisez des méthodes de contrôle d’accès spécifiques au service.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 

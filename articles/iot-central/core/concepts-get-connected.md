@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7898e533da3433040d990863c22d53ca34f384c4
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337090"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318809"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -147,10 +147,10 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Clé primaire du groupe à partir du groupe d’inscription SAS-IoT-Devices":::
 
-1. Utilisez l’outil [dps-keygen](https://www.npmjs.com/package/dps-keygen) pour générer les clés SAS des appareils. Utilisez la clé primaire de groupe de l’étape précédente. Les ID d’appareils doivent être en minuscules :
+1. Utilisez la commande `az iot central device compute-device-key` pour générer les clés SAS des appareils. Utilisez la clé primaire de groupe de l’étape précédente. Les ID d’appareils doivent être en minuscules :
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. L’OEM dote chaque périphérique d’un ID d’appareil, d’une clé SAS d’appareil générée et de la valeur d'**étendue de l’ID** de l’application.

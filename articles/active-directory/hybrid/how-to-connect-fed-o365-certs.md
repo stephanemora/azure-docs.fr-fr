@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 491c0aef74b44c0452b4d8d002a81928d80f360b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830449"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276437"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d’ensemble
@@ -140,7 +140,7 @@ Dans ces scénarios, vous devez mettre à jour votre domaine Office 365 à l’a
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Étape 1 : Vérifier qu’AD FS dispose de nouveaux certificats de signature de jetons
 **Configuration différente de la configuration par défaut**
 
-Si vous êtes dans une configuration différente de la configuration par défaut d’AD FS, dans laquelle **AutoCertificateRollover** est défini sur **False**, vous utilisez probablement des certificats personnalisés (pas auto-signés). Pour en savoir plus sur la manière de renouveler les certificats de signature de jeton AD FS, consultez [Conseils pour les clients qui n’utilisent pas de certificats auto-signés AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Si vous êtes dans une configuration différente de la configuration par défaut d’AD FS, dans laquelle **AutoCertificateRollover** est défini sur **False**, vous utilisez probablement des certificats personnalisés (pas auto-signés). Pour plus d’informations sur le renouvellement des certificats de signature de jetons AD FS, consultez [Exigences en matière de certificats pour les serveurs fédérés](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers).
 
 **Les métadonnées de fédération ne sont pas disponibles publiquement**
 
@@ -188,4 +188,4 @@ Par défaut, AD FS est configuré pour générer automatiquement des certificats
 
 Azure AD tente de récupérer un nouveau certificat à partir de vos métadonnées de service de fédération 30 jours avant l’expiration du certificat actuel. Si aucun nouveau certificat n’est disponible à ce moment-là, Azure AD va continuer à surveiller les métadonnées de manière quotidienne. Dès que le nouveau certificat est disponible dans les métadonnées, les paramètres de fédération du domaine sont mis à jour avec les informations du nouveau certificat. Vous pouvez utiliser `Get-MsolDomainFederationSettings` pour voir si le nouveau certificat est présent dans NextSigningCertificate ou SigningCertificate.
 
-Pour plus d’informations sur les certificats de signature de jetons dans AD FS, consultez [Obtenir et configurer des certificats de signature et de déchiffrement de jetons pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs).
+Pour plus d’informations sur les certificats de signature de jetons dans AD FS, consultez [Obtenir et configurer des certificats de signature et de déchiffrement de jetons pour AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs).

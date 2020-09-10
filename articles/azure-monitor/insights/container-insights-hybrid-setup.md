@@ -3,12 +3,12 @@ title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les c
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498897"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398379"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
@@ -71,9 +71,11 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 L’activation d’Azure Monitor pour les conteneurs pour le cluster Kubernetes hybride consiste à effectuer les étapes suivantes dans l’ordre.
 
-1. Configurez votre espace de travail Log Analytics avec la solution Container Insights.
+1. Configurez votre espace de travail Log Analytics avec la solution Container Insights.   
 
 2. Activez le graphique HELM Azure Monitor pour conteneurs avec l’espace de travail Log Analytics.
+
+Pour plus d’informations sur les solutions de supervision dans Azure Monitor, cliquez [ici](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Comment ajouter la solution Azure Monitor pour conteneurs
 
@@ -337,19 +339,19 @@ Une fois que vous avez correctement déployé le graphique, vous pouvez examiner
 La valeur de configuration de proxy a la syntaxe suivante : `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
->Si votre serveur proxy ne requiert pas d’authentification, vous devez toujours spécifier un nom d’utilisateur/mot de passe pseudo. Il peut s’agir de n’importe quel nom d’utilisateur ou mot de passe.
+>Si votre serveur proxy n’impose pas d’authentification, vous avez quand même besoin de spécifier un pseudo nom d’utilisateur/mot de passe. Il peut s’agir de n’importe quel nom d’utilisateur ou mot de passe.
 
 |Propriété| Description |
 |--------|-------------|
 |Protocol | http ou https |
 |utilisateur | Nom d’utilisateur facultatif pour l’authentification du proxy |
 |mot de passe | Mot de passe facultatif pour l’authentification du proxy |
-|proxyhost | Adresse ou FQDN du serveur proxy |
+|proxyhost | Adresse ou nom de domaine complet (FQDN) du serveur proxy |
 |port | Numéro de port facultatif pour le serveur proxy |
 
 Par exemple : `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-Si vous spécifiez le protocole comme **http**, les requêtes HTTP sont créées à l’aide d’une connexion sécurisée SSL/TLS. Le serveur proxy doit prendre en charge les protocoles SSL/TLS.
+Si vous spécifiez le protocole **http**, les requêtes HTTP sont créées en utilisant une connexion sécurisée SSL/TLS. Le serveur proxy doit prendre en charge les protocoles SSL/TLS.
 
 ## <a name="troubleshooting"></a>Dépannage
 

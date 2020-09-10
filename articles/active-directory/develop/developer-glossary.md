@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117241"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178822"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
@@ -164,7 +164,7 @@ Comme les [étendues](#scopes), les rôles offrent au [serveur de ressources](#r
 
 Les rôles sont des chaînes définies par les ressources (par exemple, « Expense approver », « Read-only » ou « Directory.ReadWrite.All »), gérées dans le [portail Azure][AZURE-portal] via le [manifeste d’application](#application-manifest) de la ressource et stockées dans la [propriété appRoles][Graph-Sp-Resource] de cette dernière. Le portail Azure est également utilisé pour affecter des utilisateurs aux rôles « utilisateur » et pour configurer les [autorisations d’application](#permissions) du client, lui permettant d’accéder à un rôle « application ».
 
-Pour une présentation détaillée des rôles d’application exposés par l’API Microsoft Graph, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][Graph-Perm-Scopes]. Pour obtenir un exemple d’implémentation pas à pas, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure][AAD-RBAC].
+Pour une présentation détaillée des rôles d’application exposés par l’API Microsoft Graph, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][Graph-Perm-Scopes]. Pour obtenir un exemple d’implémentation pas à pas, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>étendues
 

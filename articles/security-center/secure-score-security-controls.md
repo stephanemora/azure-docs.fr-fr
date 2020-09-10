@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 596fc44cb3d449b73b681d17db879746ce3051d3
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272278"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277746"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Degré de sécurisation amélioré dans Azure Security Center
 
@@ -45,17 +45,17 @@ La page dédié au degré de sécurisations de Security Center comprend les él�
 > Les versions antérieures de Security Center attribuaient des points au niveau des recommandations : quand vous appliquiez une recommandation pour une seule ressource, votre degré de sécurisation était amélioré. Aujourd’hui, votre degré de sécurisation augmente seulement si vous avez suivi *toutes* les recommandations fournies pour une même ressource au sein d’un contrôle. Par conséquent, votre degré de sécurisation n’augmente que quand vous avez amélioré la sécurité d’une ressource.
 
 
-## <a name="accessing-your-secure-score"></a>Accéder à votre degré de sécurisation
+## <a name="access-your-secure-score"></a>Accédez à votre score de sécurité
 
 Vous pouvez trouver votre score de sécurité global, ainsi que votre score par abonnement, via le portail Azure ou par programmation avec l’API REST Azure Security Center.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>Obtenir votre score de sécurité à partir du portail
+### <a name="get-your-secure-score-from-the-portal"></a>Obtenir votre score de sécurité à partir du portail
 
 Security Center affiche le degré de sécurisation de manière bien visible dans le portail, puisque c’est la première chose que l’on voit quand on ouvre la page Vue d’ensemble. Si vous cliquez sur la page dédiée au degré de sécurisation, vous verrez le degré de sécurisation global décomposé par abonnement. Cliquez sur un abonnement pour voir la liste détaillée des recommandations classées par ordre de priorité ainsi que l’impact que peut avoir leur prise en compte sur le degré de sécurisation de l’abonnement.
 
 ![Score de sécurité global comme indiqué dans le portail](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>Obtention de votre score sécurisé à partir de l’API REST
+### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenir votre score de sécurité à partir de l’API REST
 
 Vous pouvez accéder à votre degré de sécurisation par le biais de [l’API Degré de sécurisation](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (actuellement en préversion). Les méthodes de l’API offrent la flexibilité nécessaire pour interroger les données et créer votre propre mécanisme de création de rapports sur vos degrés de sécurisation au fil du temps. Par exemple, vous pouvez utiliser l’API **Degré de sécurisation** pour obtenir le degré de sécurisation d’un abonnement spécifique. En outre, vous pouvez utiliser l’API **Contrôles du degré de sécurisation** pour répertorier les contrôles de sécurité et le degré de sécurisation actuel de vos abonnements.
 
@@ -91,7 +91,7 @@ Le score maximal pour ce contrôle, Appliquer des mises à jour système, est to
 |**Degré de sécurisation**<br>Abonnements multiples|<br>Les scores courants de toutes les ressources de tous les abonnements sont ajoutés et le calcul est alors le même que pour un abonnement unique<br><br>Quand vous consultez plusieurs abonnements, le degré de sécurisation évalue toutes les ressources de toutes les stratégies activées, et regroupe leur impact combiné sur le degré maximal de chaque contrôle de sécurité.<br>![Degré de sécurisation pour plusieurs abonnements avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Le score combiné **n’est pas** une moyenne. Il s’agit plutôt d’une évaluation de l’état de toutes les ressources de tous les abonnements.<br>Ici aussi, si vous accédez à la page des recommandations et si vous ajoutez les points que vous pouvez potentiellement gagner, vous constaterez qu’il s’agit de la différence entre le score actuel (24) et le score maximal possible (60).|
 ||||
 
-## <a name="improving-your-secure-score"></a>Amélioration de votre degré de sécurisation
+## <a name="improve-your-secure-score"></a>Améliorer votre score de sécurité
 
 Pour améliorer votre degré de sécurisation, appliquez les recommandations de sécurité qui figurent dans la liste des recommandations. Vous pouvez appliquer chaque recommandation manuellement à chaque ressource, ou à l’aide de l’option **Correction rapide !** (si celle-ci est disponible) pour appliquer rapidement une recommandation à un groupe de ressources. Pour plus d’informations, consultez [Appliquer des recommandations](security-center-remediate-recommendations.md).
 

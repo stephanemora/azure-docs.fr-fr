@@ -3,12 +3,12 @@ title: FAQ sur Azure Relay | Documents Microsoft
 description: Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317026"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299284"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -119,8 +119,8 @@ Pour obtenir une description des exceptions courantes et des actions suggérées
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages puis-je utiliser pour générer une signature ?
 Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Python, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison de relais en liste verte ?
-Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge la mise en liste verte de DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>Est-il possible d’autoriser uniquement certains points de terminaison de relais ?
+Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge les listes d’approbation de DNS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un espace de noms](relay-create-namespace-portal.md)

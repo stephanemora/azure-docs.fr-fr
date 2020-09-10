@@ -1,25 +1,28 @@
 ---
-title: Reconnaissance vocale - Service Speech
+title: Vue d’ensemble de la reconnaissance vocale – service Speech
 titleSuffix: Azure Cognitive Services
-description: La fonctionnalité de reconnaissance vocale permet la transcription en temps réel des flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur cette entrée de texte. Ce service fonctionne de façon continue avec les fonctionnalités de synthèse vocale et de traduction vocale.
+description: Un logiciel de reconnaissance vocale permet la transcription en temps réel de flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur cette entrée de texte. Cet article est une vue d’ensemble des avantages et des capacités du service de reconnaissance vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconnaissance vocale, logiciel de reconnaissance vocale
+ms.openlocfilehash: 42696728427c34d5000881af8bbbf97ae2313111
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640410"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401263"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
-La reconnaissance vocale du service Speech permet la transcription en temps réel des flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur ce texte sous la forme d’une entrée de commande. Ce service s’appuie sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office. Il fonctionne de façon homogène avec les offres de service de <a href="./speech-translation.md" target="_blank">traduction<span class="docon docon-navigate-external x-hidden-focus"></span></a> et de <a href="./text-to-speech.md" target="_blank">synthèse vocale <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Vous trouverez une liste complète des langues compatibles avec la reconnaissance vocale dans [Langues prises en charge](language-support.md#speech-to-text).
+Dans cette vue d’ensemble, vous découvrez les avantages et les fonctionnalités du service de reconnaissance vocale.
+La conversion de parole en texte, également appelée reconnaissance vocale, permet la transcription en temps réel de flux audio en texte. Vos applications, outils ou appareils peuvent consommer, afficher et agir sur ce texte sous la forme d’une entrée de commande. Ce service s’appuie sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office. Il fonctionne de façon homogène avec les offres de service de <a href="./speech-translation.md" target="_blank">traduction<span class="docon docon-navigate-external x-hidden-focus"></span></a> et de <a href="./text-to-speech.md" target="_blank">synthèse vocale <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Vous trouverez une liste complète des langues compatibles avec la reconnaissance vocale dans [Langues prises en charge](language-support.md#speech-to-text).
 
 Par défaut, le service de reconnaissance vocale utilise le modèle de langage universel. Ce modèle a été entraîné avec des données qui sont la propriété de Microsoft et est déployé dans le cloud. Il est particulièrement adapté aux scénarios de conversation et de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et entraîner des modèles de prononciation, de langue et d’acoustique personnalisés. La personnalisation permet de prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur.
 

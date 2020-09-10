@@ -1,20 +1,20 @@
 ---
 title: Chiffrement Custom Vision des données au repos
 titleSuffix: Azure Cognitive Services
-description: Chiffrement Custom Vision des données au repos.
+description: Microsoft propose des clés de chiffrement gérées par Microsoft et vous permet également de gérer vos abonnements Cognitive Services à l’aide de vos propres clés, appelées clés gérées par le client (CMK). Cet article traite du chiffrement des données au repos pour Custom Vision et de l’activation et de la gestion de CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310289"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077753"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Chiffrement Custom Vision des données au repos
 
@@ -38,6 +38,6 @@ Les clés gérées par le client sont actuellement disponibles dans les régions
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir la liste complète des services qui prennent en charge CMK, consultez [Clés gérées par le client pour Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
+* Pour obtenir la liste complète des services qui prennent en charge les clés CMK, consultez [Clés gérées par le client pour Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Formulaire de demande de clé gérée par le client Cognitive Services](https://aka.ms/cogsvc-cmk)

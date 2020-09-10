@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027697"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179401"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -242,12 +242,9 @@ La fonctionnalité _Adresses IP approuvées_ d’Azure Multi-Factor Authenticati
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 
-| Type de locataire Azure AD | Options de la fonctionnalité Adresses IP approuvées |
-|:--- |:--- |
-| Adresses IP gérées |**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. Un maximum de 50 plages d’adresses IP approuvées peuvent être configurées.|
-| Adresses IP fédérées |**Tous les utilisateurs fédérés** : tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner la vérification en deux étapes. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
+| Type de locataire Azure AD | Options de fonctionnalité d’adresse IP approuvée | | :---| :---| deux étapes | Géré |**Plage spécifique d’adresses IP** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. Un maximum de 50 plages d’adresses IP approuvées peuvent être configurées. | | Fédérés |**Tous les utilisateurs fédérés** : Tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner l’authentification multifacteur. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : Les administrateurs spécifient une plage d’adresses IP pouvant contourner l’authentification multifacteur pour les utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
 
-Le contournement de la vérification des adresses IP approuvées n’est possible qu’au sein de l’intranet de l’entreprise. Si vous sélectionnez l’option **All Federated Users (Tous les utilisateurs fédérés)** et qu’un utilisateur se connecte en dehors de l’intranet de l’entreprise, il doit s’authentifier avec la vérification en deux étapes. Le processus est le même, même si l’utilisateur présente une revendication AD FS.
+Le contournement de la vérification des adresses IP approuvées n’est possible qu’au sein de l’intranet de l’entreprise. Si vous sélectionnez l’option **Tous les utilisateurs fédérés** et qu’un utilisateur se connecte en dehors de l’intranet de l’entreprise, celui-ci doit utiliser l’authentification multifacteur. Le processus est le même, même si l’utilisateur présente une revendication AD FS.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Expérience de l’utilisateur final au sein du réseau d’entreprise
 
@@ -278,14 +275,14 @@ Pour activer les adresses IP approuvées à l’aide de stratégies d’accès c
 1. Sélectionnez **Configurer des adresses IP approuvées MFA**.
 1. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez l’une des deux options suivantes :
 
-   * **Pour les requêtes issues d’utilisateurs fédérés provenant de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
+   * **Pour les requêtes issues d’utilisateurs fédérés provenant de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contournent l’authentification multifacteur en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Pour les requêtes provenant d’une plage spécifique d’adresses IP** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
       * Pour les adresses IP qui se trouvent entre xxx.xxx.xxx.1 et xxx.xxx.xxx.254, utilisez la notation **xxx.xxx.xxx.0/24**.
       * Pour une seule adresse IP, utilisez la notation **xxx.xxx.xxx.xxx/32**.
-      * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
+      * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent l’authentification multifacteur.
 
 1. Sélectionnez **Enregistrer**.
 
@@ -298,20 +295,20 @@ Si vous ne souhaitez pas utiliser de stratégies d’accès conditionnel pour ac
 1. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 1. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez une des deux options suivantes (ou les deux) :
 
-   * **Pour les requêtes issues d’utilisateurs fédérés de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
+   * **Pour les requêtes issues d’utilisateurs fédérés de mon intranet** : Pour choisir cette option, activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contournent l’authentification multifacteur en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Pour les requêtes provenant d’une plage spécifique d’adresses IP** : pour choisir cette option, saisissez les adresses IP dans la zone de texte en notation CIDR.
       * Pour les adresses IP qui se trouvent entre xxx.xxx.xxx.1 et xxx.xxx.xxx.254, utilisez la notation **xxx.xxx.xxx.0/24**.
       * Pour une seule adresse IP, utilisez la notation **xxx.xxx.xxx.xxx/32**.
-      * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
+      * Vous pouvez saisir jusqu’à 50 plages d’adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent l’authentification multifacteur.
 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="verification-methods"></a>Méthodes de vérification
 
-Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md).
+Vous pouvez choisir les méthodes de vérification mises à la disposition des utilisateurs dans le portail des paramètres de service. Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Les méthodes de vérification disponibles sont les suivantes :
 
@@ -336,25 +333,25 @@ Pour activer ou désactiver les méthodes de vérification, effectuez les étape
 
 ## <a name="remember-multi-factor-authentication"></a>Mémoriser Multi-Factor Authentication
 
-La fonctionnalité de _mémorisation de Multi-Factor Authentication_ permet aux utilisateurs de contourner les vérifications suivantes pendant un nombre spécifié de jours après s’être connectés à un appareil à l’aide de Multi-Factor Authentication. Cette fonctionnalité améliore le confort d’utilisation en réduisant le nombre de fois où un utilisateur doit procéder à une authentification MFA sur un même appareil.
+La fonctionnalité de _mémorisation de Multi-Factor Authentication_ permet aux utilisateurs de contourner les vérifications suivantes pendant un nombre spécifié de jours après s’être connectés à un appareil à l’aide de Multi-Factor Authentication. Pour améliorer la convivialité et réduire le nombre de fois qu’un utilisateur doit effectuer une authentification multifacteur sur le même appareil, sélectionnez une durée de 90 jours ou plus.
 
 > [!IMPORTANT]
 > Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [révoquer les sessions MFA](howto-mfa-userdevicesettings.md).
 >
-> L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander aux utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, comme cela est indiqué dans [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> L’action de restauration révoque le statut approuvé de tous les appareils, et oblige l’utilisateur à procéder de nouveau à l’authentification multifacteur. Vous pouvez également demander aux utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, comme cela est indiqué dans [Gérer vos paramètres pour l’authentification multifacteur](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Principe de la fonctionnalité
 
 La fonctionnalité de mémorisation de Multi-Factor Authentication crée un cookie persistant sur le navigateur lorsqu’un utilisateur sélectionne **Don’t ask again for X days (Ne plus me demander pendant X jours)** lors de sa connexion. L’utilisateur n’est pas réinvité à se connecter à Multi-Factor Authentication sur ce navigateur tant que le cookie reste valable. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification.
 
-L’option **Don’t ask again for X days (Ne plus me demander pendant X jours)** ne s’affiche pas dans les applications sans navigateur, qu’elles prennent en charge ou non l’authentification moderne. Ces applications utilisent des _jetons d’actualisation_ qui fournissent de nouveaux jetons d’accès toutes les heures. Quand un jeton d’actualisation est validé, Azure AD vérifie que la dernière vérification en deux étapes est intervenue dans le délai spécifié (en jours).
+L’option **Don’t ask again for X days (Ne plus me demander pendant X jours)** ne s’affiche pas dans les applications sans navigateur, qu’elles prennent en charge ou non l’authentification moderne. Ces applications utilisent des _jetons d’actualisation_ qui fournissent de nouveaux jetons d’accès toutes les heures. Quand un jeton d’actualisation est validé, Azure AD vérifie que la dernière authentification multifacteur est intervenue dans le nombre spécifié de jours.
 
-La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. Elle augmente le nombre d’authentifications pour les clients qui utilisent une authentification moderne (normalement exigée tous les 90 jours). Elle peut également augmenter le nombre d’authentifications quand elle est combinée avec des stratégies d’accès conditionnel.
+La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. La fonctionnalité peut augmenter le nombre d’authentifications pour les clients d’authentification modernes qui, normalement, reçoivent une invite tous les 90 jours, si une durée inférieure est configurée. Elle peut également augmenter le nombre d’authentifications quand elle est combinée avec des stratégies d’accès conditionnel.
 
 > [!IMPORTANT]
-> La fonctionnalité de **mémorisation de Multi-Factor Authentication** n’est pas compatible avec la fonctionnalité **Maintenir la connexion** d’AD FS, lorsque les utilisateurs effectuent la vérification en deux étapes pour AD FS via le serveur Azure Multi-Factor Authentication ou avec une solution d’authentification multifacteur tierce.
+> La fonctionnalité de **mémorisation de Multi-Factor Authentication** n’est pas compatible avec la fonctionnalité **Maintenir la connexion** d’AD FS, lorsque les utilisateurs effectuent l’authentification multifacteur pour AD FS via le serveur Azure Multi-Factor Authentication ou avec une solution d’authentification multifacteur tierce.
 >
-> Si votre utilisateur sélectionne **Maintenir la connexion** dans AD FS et désigne son appareil comme approuvé pour Multi-Factor Authentication, il n’est pas vérifié automatiquement à l’issue du délai en jours spécifiés dans **Mémoriser Multi-Factor Authentication**. Azure AD demande une nouvelle vérification en deux étapes, mais AD FS renvoie un jeton avec la revendication Multi-Factor Authentication et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. **Cette réaction déclenche une boucle de vérification entre Azure AD et AD FS**.
+> Si votre utilisateur sélectionne **Maintenir la connexion** dans AD FS et désigne son appareil comme approuvé pour Multi-Factor Authentication, il n’est pas vérifié automatiquement à l’issue du délai en jours spécifiés dans **Mémoriser Multi-Factor Authentication**. Azure AD demande une nouvelle authentification multifacteur, mais AD FS renvoie un jeton avec la revendication Multi-Factor Authentication et la date associée, au lieu d’effectuer de nouveau l’authentification multifacteur. **Cette réaction déclenche une boucle de vérification entre Azure AD et AD FS**.
 >
 > La fonctionnalité **Mémoriser Multi-Factor Authentication** n’est pas compatible avec les utilisateurs B2B, et n’est pas visible pour ceux-ci lors de la connexion aux locataires invités.
 >
@@ -366,8 +363,8 @@ Pour activer et configurer l’option permettant aux utilisateurs de mémoriser 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure Active Directory**, puis choisissez **Utilisateurs**.
 1. Sélectionnez **Multi-Factor Authentication**.
 1. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
-1. Dans la page **Paramètres du service**, **Gérer Mémoriser Multi-Factor Authentication**, sélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
-1. Définissez le nombre de jours pendant lesquels les appareils approuvés peuvent contourner la vérification en deux étapes. La valeur par défaut est de 14 jours.
+1. Dans la page **Paramètres du service**, sous **Mémoriser Multi-Factor Authentication**, sélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
+1. Définissez le nombre de jours pendant lesquels les appareils approuvés peuvent contourner l’authentification multifacteur. Pour une expérience utilisateur optimale, étendez la durée à *90* jours ou plus.
 1. Sélectionnez **Enregistrer**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marquer un appareil en tant qu’appareil de confiance

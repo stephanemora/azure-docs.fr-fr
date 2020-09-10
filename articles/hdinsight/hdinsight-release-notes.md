@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826818"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319795"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -49,7 +49,7 @@ La vue Apache Tez est utilisée pour suivre et déboguer l’exécution de la t�
 
 ## <a name="behavior-changes"></a>Changements de comportement
 ### <a name="ambari-stack-version-change"></a>Modification de la version de la pile Ambari
-À partir de cette version, la version d’Ambari est passée de 2.x.x.x à 4.1. Vous pouvez obtenir la version d’Ambari à partir de l’interface d’Ambari > À propos.
+À partir de cette mise en production, la version d’Ambari passe de 2.x.x.x à 4.1. Vous pouvez vérifier la version de la pile (HDInsight 4,1) dans Ambari : Ambari > Utilisateur > Versions.
 
 ## <a name="upcoming-changes"></a>Changements à venir
 Aucun changement cassant à venir auquel vous devez prêter attention.

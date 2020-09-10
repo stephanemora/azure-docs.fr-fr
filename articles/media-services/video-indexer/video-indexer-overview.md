@@ -8,20 +8,24 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744601"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318679"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
+
+[!INCLUDE [regulation](./includes/regulation.md)]
 
 Video Indexer (VI) est la solution IA Azure Media Services. Elle fait partie de la marque Azure Cognitive Services. Video Indexer permet d’extraire des insights détaillés (sans avoir besoin de compétences en matière d’analyse des données ou de programmation) à l’aide de modèles Machine Learning basés sur plusieurs canaux (voix, visuel). Vous pouvez affiner la personnalisation et l’entraînement des modèles. Le service permet d’effectuer une recherche détaillée, réduit les coûts d’exploitation, offre de nouvelles opportunités de monétisation et crée de nouvelles expériences utilisateur sur un grand nombre de vidéos archivées (avec de faibles barrières d’entrée).
 
 Pour commencer à extraire des insights avec Video Indexer, vous devez créer un compte et charger des vidéos. Quand vous chargez vos vidéos dans Video Indexer, il analyse les éléments audio-visuels en exécutant différents modèles d’IA. À mesure que Video Indexer analyse votre vidéo, les insights sont extraits par les modèles IA.
+
+Lorsque vous créez un compte Video Indexer et que vous le connectez à Media Services, les fichiers de médias et de métadonnées sont stockés dans le compte de stockage Azure associé à ce compte Media Services. Pour plus d’informations, consultez [Créer un compte Video Indexer connecté à Azure](connect-to-azure.md).
 
 Le diagramme suivant est une illustration et non une explication technique de la façon dont Video Indexer fonctionne dans le back-end.
 

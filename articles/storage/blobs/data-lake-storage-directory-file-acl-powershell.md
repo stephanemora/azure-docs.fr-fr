@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923872"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077090"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -125,6 +126,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> Pour obtenir le répertoire racine du conteneur, omettez le paramètre `-Path`.
 
 ## <a name="rename-or-move-a-directory"></a>Renommer ou déplacer un répertoire
 
@@ -202,7 +205,8 @@ $properties.Group
 $properties.Owner
 ```
 
-Pour lister le contenu d’un conteneur, omettez le paramètre `-Path` dans la commande.
+> [!NOTE]
+> Pour répertorier les contenus du répertoire racine du conteneur, omettez le paramètre `-Path`.
 
 ## <a name="upload-a-file-to-a-directory"></a>Charger un fichier dans un répertoire
 
@@ -227,6 +231,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> Pour charger un fichier dans le répertoire racine du conteneur, omettez le paramètre `-Path`.
 
 ## <a name="show-file-properties"></a>Afficher les propriétés d’un fichier
 

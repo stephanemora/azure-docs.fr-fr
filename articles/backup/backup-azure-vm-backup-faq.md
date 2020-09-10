@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761506"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377316"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -71,7 +71,7 @@ Si vous verrouillez le groupe de ressources créé par le service Sauvegarde Azu
 
 Supprimez le verrou et effacez la collection de points de restauration de ce groupe de ressources pour que les futures sauvegardes réussissent. [Procédez comme suit](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) pour supprimer la collection de points de restauration.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
+### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
 
 Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
@@ -197,6 +197,6 @@ Oui, il existe une limite de 100 machines virtuelles pouvant être associées �
 
 Actuellement, vous pouvez consulter les paramètres de rétention au niveau d’un élément de sauvegarde (machine virtuelle) en fonction de la stratégie de sauvegarde qui est attribuée à la machine virtuelle.
 
-Pour voir les paramètres de rétention de vos sauvegardes, vous pouvez accéder au [tableau de bord](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) des éléments de sauvegarde de votre machine virtuelle dans le portail Azure. En cliquant sur le lien vers sa politique de sauvegarde, vous pouvez visualiser la durée de rétention de tous les points de rétention quotidiens, hebdomadaires, mensuels et annuels associés à la machine virtuelle.
+Pour voir les paramètres de rétention de vos sauvegardes, vous pouvez accéder au [tableau de bord](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) des éléments de sauvegarde de votre machine virtuelle dans le portail Azure. En sélectionnant le lien vers sa politique de sauvegarde, vous pouvez visualiser la durée de rétention de tous les points de rétention quotidiens, hebdomadaires, mensuels et annuels associés à la machine virtuelle.
 
 Vous pouvez également utiliser [Explorateur de sauvegarde](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) pour afficher les paramètres de rétention de toutes vos machines virtuelles dans un seul volet transparent. Accédez à Explorateur de sauvegarde à partir de n’importe quel coffre Recovery Services, rendez-vous dans l’onglet **Éléments de sauvegarde** et sélectionnez l’affichage avancé pour voir les informations de rétention détaillées de chaque machine virtuelle.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dfeafc34547cff663a13ee7be78e2d6819c2ca19
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525073"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295595"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Authentification Azure Active Directory : Configurer un client VPN pour les connexions P2S de protocole OpenVPN
 
@@ -20,6 +20,8 @@ Cet article vous aide à configurer un client VPN pour qu’il se connecte à un
 
 > [!NOTE]
 > L’authentification Azure AD est prise en charge uniquement pour les connexions de protocole OpenVPN®.
+>
+> L’authentification Azure AD requiert le client VPN Azure, qui est disponible uniquement pour Windows 10.
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilisation de profils clients

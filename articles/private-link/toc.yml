@@ -32,6 +32,10 @@
       href: private-link-service-overview.md
     - name: Intégration DNS avec des points de terminaison privés
       href: private-endpoint-dns.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
 - name: Procédures
   items:
     - name: Se connecter en privé à un compte de stockage

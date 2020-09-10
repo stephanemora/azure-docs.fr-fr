@@ -3,12 +3,12 @@ title: Restaurer des partages de fichiers Azure
 description: Découvrez comment utiliser le portail Azure pour restaurer un partage de fichiers entier ou des fichiers spécifiques à partir d’un point de restauration créé par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762820"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376772"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurer des partages de fichiers Azure
 
@@ -50,16 +50,16 @@ Vous pouvez utiliser cette option de restauration pour restaurer l’intégralit
 
    ![Sélectionner Restaurer le partage](./media/restore-afs/restore-share.png)
 
-1. Lorsque vous sélectionnez **Restaurer le partage**, le volet **Restaurer** s’ouvre. Pour sélectionner le point de restauration à utiliser pour exécuter l’opération de restauration, cliquez sur le texte du lien **Sélectionner** situé sous la zone de texte **Point de restauration**.
+1. Lorsque vous sélectionnez **Restaurer le partage**, le volet **Restaurer** s’ouvre. Pour sélectionner le point de restauration à utiliser pour exécuter l’opération de restauration, choisissez le texte du lien **Sélectionner** situé sous la zone de texte **Point de restauration**.
 
-    ![Sélectionner un point de restauration en cliquant sur Sélectionner](./media/restore-afs/select-restore-point.png)
+    ![Sélectionner un point de restauration en choisissant Sélectionner](./media/restore-afs/select-restore-point.png)
 
 1. Le volet contextuel **Sélectionner un point de restauration** s’ouvre à droite et propose une liste de points de restauration disponibles pour le partage de fichiers sélectionné. Sélectionnez le point de restauration que vous souhaitez utiliser pour effectuer l’opération de restauration, puis sélectionnez **OK**.
 
     ![Sélectionner le point de restauration](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Par défaut, le volet **Sélectionner un point de restauration** présente les points de restauration des 30 derniers jours. Si vous souhaitez afficher les points de restauration créés à un moment précis, spécifiez la plage en sélectionnant l'**heure de début** et l'**heure de fin** appropriées, puis cliquez sur le bouton **Actualiser**.
+    >Par défaut, le volet **Sélectionner un point de restauration** présente les points de restauration des 30 derniers jours. Si vous souhaitez afficher les points de restauration créés à un moment précis, spécifiez la plage en sélectionnant l’**heure de début** et l’**heure de fin** appropriées, puis sélectionnez le bouton **Actualiser**.
 
 1. L’étape suivante consiste à choisir l’**emplacement de restauration**. Dans la section **Destination de récupération**, spécifiez où et comment restaurer les données. Sélectionnez l’une des deux options suivantes à l’aide du bouton bascule :
 
@@ -93,9 +93,9 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
 
     ![Sélectionner la récupération de fichier](./media/restore-afs/file-recovery.png)
 
-1. Lorsque vous sélectionnez **Récupération de fichier**, le volet **Restaurer** s’ouvre. Pour sélectionner le point de restauration à utiliser pour exécuter l’opération de restauration, cliquez sur le texte du lien **Sélectionner** situé sous la zone de texte **Point de restauration**.
+1. Lorsque vous sélectionnez **Récupération de fichier**, le volet **Restaurer** s’ouvre. Pour sélectionner le point de restauration à utiliser pour exécuter l’opération de restauration, choisissez le texte du lien **Sélectionner** situé sous la zone de texte **Point de restauration**.
 
-    ![Sélectionner un point de restauration en cliquant sur Sélectionner](./media/restore-afs/select-restore-point.png)
+    ![Sélectionner un point de restauration en choisissant le lien Sélectionner](./media/restore-afs/select-restore-point.png)
 
 1. Le volet contextuel **Sélectionner un point de restauration** s’ouvre à droite et propose une liste de points de restauration disponibles pour le partage de fichiers sélectionné. Sélectionnez le point de restauration que vous souhaitez utiliser pour effectuer l’opération de restauration, puis sélectionnez **OK**.
 
@@ -112,7 +112,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
 
     ![Emplacement d’origine pour la récupération au niveau de l’élément](./media/restore-afs/original-location-item-level.png)
 
-1. Pour sélectionner les fichiers ou dossiers à restaurer, cliquez sur le bouton **Ajouter un fichier**. Un volet contextuel s’ouvre à droite et présente le contenu du point de récupération du partage de fichiers sélectionné pour restauration.
+1. Pour sélectionner les fichiers ou dossiers à restaurer, sélectionnez le bouton **Ajouter un fichier**. Un volet contextuel s’ouvre à droite et présente le contenu du point de récupération du partage de fichiers sélectionné pour restauration.
 
     ![Choisir Ajouter un fichier](./media/restore-afs/add-file.png)
 
@@ -132,7 +132,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
 1. La liste déroulante **Sélectionner le partage de fichiers** affiche les partages de fichiers présents dans le compte de stockage que vous avez sélectionné à l’étape 2. Sélectionnez le partage de fichiers dans lequel vous souhaitez restaurer le contenu sauvegardé.
 1. Dans la zone **Nom du dossier**, spécifiez le nom du dossier que vous souhaitez créer dans le partage de fichiers de destination avec le contenu restauré.
 1. Indiquez si les conflits doivent être ignorés ou remplacés.
-1. Pour sélectionner les fichiers ou dossiers à restaurer, cliquez sur le bouton **Ajouter un fichier**. Un volet contextuel s’ouvre à droite et présente le contenu du point de récupération du partage de fichiers sélectionné pour restauration.
+1. Pour sélectionner les fichiers ou dossiers à restaurer, sélectionnez le bouton **Ajouter un fichier**. Un volet contextuel s’ouvre à droite et présente le contenu du point de récupération du partage de fichiers sélectionné pour restauration.
 
     ![Sélectionner les éléments à restaurer à un autre emplacement](./media/restore-afs/restore-to-alternate-location.png)
 

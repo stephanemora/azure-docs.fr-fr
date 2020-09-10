@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 911e9efe6a6b404b0ba543c585d10f96b289672a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104405"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321432"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
@@ -73,4 +73,5 @@ Les conteneurs en préversion contrôlée suivants sont hébergés dans le regis
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=cstt) | Reconnaissance vocale personnalisée | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=tts) | Synthèse vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [API Speech Service](../../speech-service/speech-container-howto.md?tab=ctts) | Synthèse vocale personnalisée | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [API Speech Service](../../speech-service/speech-container-howto.md?tab=ntts) | Synthèse vocale neuronale | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
 | [Analyse de texte pour la santé](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analyse de texte pour la santé | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

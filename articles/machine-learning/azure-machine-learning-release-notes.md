@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 02f654cd36dfa3e01a250303f0f00a4f1351c137
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652064"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296071"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -22,6 +22,67 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2020-08-31"></a>2020-08-31
+
+### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Kit SDK Azure Machine Learning pour Python v1.13.0
++ **Fonctionnalités préliminaires**
+  + **azureml-core**
+  
+    Avec la nouvelle fonctionnalité de jeux de données de sortie, vous pouvez mettre à jour dans le stockage cloud, notamment les objets BLOB, ADLS GEN 1, ADLS Gen 2 et FileShare. Vous pouvez configurer l’emplacement de sortie des données, le mode de sortie des données (montage ou chargement), l’enregistrement des données de sortie pour une réutilisation ultérieure ainsi que le partage et la transmission des données intermédiaires entre les étapes de pipeline en toute transparence. Cela permet la reproductibilité, le partage, empêche la duplication des données et génère des gains de productivité et de rentabilité. [Découvrez son utilisation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py)
+    
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    + Ajout du fichier validated_{platform}_requirements.txt pour épingler toutes les dépendances PIP pour AutoML.
+    + Cette version prend en charge des modèles de plus de 4 Go.
+    + Mise à niveau des dépendances AutoML : `scikit-learn` (maintenant 0.22.1), `pandas` (maintenant 0.25.1) et `numpy` (Now 1.18.2).
+  + **azureml-automl-runtime**
+    + Définition de horovod pour que les DNN de texte utilisent toujours la compression fp16.
+    + Cette version prend en charge des modèles de plus de 4 Go.
+    + Correction du problème où AutoML échoue avec ImportError : impossible d’importer le nom `RollingOriginValidator`.
+    + Mise à niveau des dépendances AutoML : `scikit-learn` (maintenant 0.22.1), `pandas` (maintenant 0.25.1) et `numpy` (Now 1.18.2).
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Mise à niveau des dépendances AutoML : `scikit-learn` (maintenant 0.22.1), `pandas` (maintenant 0.25.1) et `numpy` (Now 1.18.2).
+  + **azureml-contrib-fairness**
+    + Brève description d’azureml-contrib-fairness.
+  + **azureml-contrib-pipeline-steps**
+    + Ajout d’un message indiquant que ce package est déprécié et que l’utilisateur devrait utiliser azureml-pipeline-steps à la place.
+  + **azureml-core**
+    + Ajout de la commande de clé de liste pour l’espace de travail.
+    + Ajout d’un paramètre de balises dans le kit de développement logiciel (SDK) de l’espace de travail et l’interface CLI.
+    + Correction du bogue dans lequel l’envoi d’une exécution enfant avec un jeu de données échoue en raison de `TypeError: can't pickle _thread.RLock objects`.
+    + Ajout de la valeur par défaut/documentation de page_count pour la liste de modèles().
+    + Modification de l’interface CLI et du kit de développement logiciel (SDK) pour prendre le paramètre adbworkspace et ajout d’un espace de travail adb lier/dissocier le testeur.
+    + Correction du bogue dans Dataset.update qui entraînait la mise à jour de la version la plus récente du jeu de données et non de la version de la mise à jour du jeux de données qui était appelée. 
+    + Correction du bogue dans Dataset.get_by_name qui affichait les balises pour la version la plus récente du jeu de données même lorsqu’une version antérieure spécifique était en fait récupérée.
+  + **azureml-interpret**
+    + Ajout des sorties de probabilité aux explicateurs de scoring SHAP dans azureml-interpret en fonction du paramètre shap_values_output de l’explicateur d’origine.
+  + **azureml-pipeline-core**
+    + Documentation de `PipelineOutputAbstractDataset.register` améliorée.
+  + **azureml-train-automl-client**
+    + Mise à niveau des dépendances AutoML : `scikit-learn` (maintenant 0.22.1), `pandas` (maintenant 0.25.1) et `numpy` (Now 1.18.2).
+  + **azureml-train-automl-runtime**
+    + Mise à niveau des dépendances AutoML : `scikit-learn` (maintenant 0.22.1), `pandas` (maintenant 0.25.1) et `numpy` (Now 1.18.2).
+  + **azureml-train-core**
+    + Les utilisateurs doivent maintenant fournir un argument hyperparameter_sampling valide lors de la création d’une configuration HyperDriveConfig. De plus, la documentation de HyperDriveRunConfig a été modifiée pour informer les utilisateurs de la dépréciation de HyperDriveRunConfig.
+    + Restauration de la version par défaut de PyTorch vers 1.4.
+    + Ajout d’images PyTorch 1.6 et Tensorflow 2.2 et d’un environnement organisé.
+
+### <a name="azure-machine-learning-studio-notebooks-experience-august-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour d’août)
++ **Nouvelles fonctionnalités**
+  + Nouvelle page d’accueil de prise en main 
+  
++ **Fonctionnalités préliminaires**
+    + Fonctionnalité de regroupement dans les notebooks. Grâce à la fonctionnalité de  [regroupement](https://github.com/microsoft/gather) , les utilisateurs peuvent désormais facilement nettoyer les notebooks. Le regroupement utilise une analyse de dépendance automatisée de votre notebook, ce qui garantit que le code essentiel est conservé, tout en supprimant les éléments non pertinents.
+
++ **Résolutions de bogue et améliorations**
+  + Amélioration de la vitesse et de la fiabilité
+  + Résolution des bogues en mode sombre
+  + Résolution des bogues de défilement de sortie
+  + L’exemple de recherche cherche désormais dans tout le contenu de la totalité des fichiers de l’exemples de référenties de notebooks Azure Machine Learning
+  + Les cellules R à plusieurs lignes peuvent maintenant s’exécuter
+  + « Je fais confiance au contenu de ce fichier » est maintenant vérifié automatiquement après la première exécution
+  + Amélioration de la boîte de dialogue de résolution des conflits avec une option « Créer une copie »
+  
 ## <a name="2020-08-17"></a>17/08/2020
 
 ### <a name="azure-machine-learning-sdk-for-python-v1120"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.12.0
@@ -1510,10 +1571,6 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
   + Activation de `TabularDataset` pour consommation par AutomatedML. Pour en savoir plus sur `TabularDataset`, consultez https://aka.ms/azureml/howto/createdatasets.
 
 + **Résolutions de bogue et améliorations**
-  + **automl-client-core-nativeclient**
-    + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
-    + Interface mise à jour pour créer un `RawDataContext` pour exiger uniquement les données et l’objet `AutoMLBaseSettings`.
-    +  Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’apprentissage lors de la prévision.
   + **azure-cli-ml**
     + Vous pouvez maintenant mettre à jour le certificat TLS/SSL pour le point de terminaison de score déployé sur le cluster AKS pour les certificats générés par Microsoft et par le client.
   + **azureml-automl-core**
@@ -1650,9 +1707,6 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
     + Découvrez comment [utiliser des estimateurs pour reprendre l’entraînement à partir d’une exécution précédente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb).
 
 + **Résolutions de bogue et améliorations**
-  + **automl-client-core-nativeclient**
-    + Correction du bogue concernant la perte des types de colonnes après la transformation (bogue lié)
-    + Possibilité pour y_query d’être un type d’objet débutant par « None(s) » (n° 459519)
   + **azure-cli-ml**
     + Les commandes CLI « model deploy » et « service update » acceptent désormais les paramètres, les fichiers de configuration ou une combinaison des deux. Les paramètres ont priorité sur les attributs des fichiers.
     + La description du modèle peut désormais être mise à jour après l’inscription.

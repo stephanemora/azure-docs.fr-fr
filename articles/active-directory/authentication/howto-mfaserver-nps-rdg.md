@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ebe6671e0a5f4821d06e93e3da4e37bd09a2fa7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 7ac4813e26d847f99f6a3bb7e3eb91bf06797d3c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716943"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949335"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -27,7 +27,13 @@ Souvent, la passerelle du Bureau à distance (RD) utilise les [services de strat
 Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui envoie par proxy la demande RADIUS au serveur NPS sur le serveur de la passerelle Bureau à distance. Une fois que le serveur NPS (Network Policy Server) a validé le nom d’utilisateur et le mot de passe, il renvoie une réponse au serveur Multi-Factor Authentication. Ensuite, le serveur MFA applique le second facteur d’authentification et retourne un résultat à la passerelle.
 
 > [!IMPORTANT]
-> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> Depuis le 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander une authentification multifacteur au cours des événements de connexion doivent utiliser l’authentification multifacteur Azure basée sur le cloud.
+>
+> Pour commencer à utiliser l’authentification multifacteur basée sur le cloud, consultez [Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Si vous utilisez une authentification multifacteur basée sur le cloud, consultez [Intégrer avec l’authentification RADIUS pour l’authentification multifacteur Azure](howto-mfa-nps-extension.md).
+>
+> Les clients existants qui ont activé le serveur MFA avant le 1er juillet 2019 peuvent télécharger la dernière version, les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
 
 ## <a name="prerequisites"></a>Prérequis
 

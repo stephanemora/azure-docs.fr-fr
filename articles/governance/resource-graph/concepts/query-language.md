@@ -3,12 +3,12 @@ title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 965fb6a009306ccebc5daa34ec4ec8d70157e56c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798548"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299046"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -142,7 +142,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 L’étendue des abonnements à partir desquels les ressources sont retournées par une requête dépend de la méthode d’accès à Azure Resource Graph. Azure CLI et Azure PowerShell remplissent la liste des abonnements à inclure dans la demande en fonction du contexte de l’utilisateur autorisé. La liste des abonnements peut être définie manuellement pour chacun respectivement avec des **abonnements** des **paramètres d’abonnement**.
 Dans l’API REST et tous les autres kits de développement logiciel (SDK), la liste des abonnements dont inclure les ressources doit être définie explicitement dans le cadre de la demande.
 
-En guide d’**aperçu**, la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si un groupe d’administration ou une liste d’abonnements n’est pas défini(e), l’étendue de la requête correspond à l’ensemble des ressources auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration. Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
+En guide d’**aperçu**, la version de l’API REST `2020-04-01-preview` ajoute une propriété pour étendre la requête à un [groupe d’administration](../../management-groups/overview.md). Cette API d’aperçu rend également la propriété d’abonnement facultative. Si un groupe d’administration ou une liste d’abonnements ne sont pas définis, l’étendue de la requête correspond à l’ensemble des ressources, qui incluent les ressources [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) déléguées, auxquelles l’utilisateur authentifié peut accéder. La nouvelle propriété `managementGroupId` prend l’ID du groupe d’administration, qui est différent du nom du groupe d’administration. Quand `managementGroupId` est spécifié, les ressources des 5 000 premiers abonnements dans ou sous la hiérarchie du groupe d’administration spécifié sont incluses. `managementGroupId` ne peut pas être utilisé en même temps que `subscriptions`.
 
 Exemple : Interroger toutes les ressources dans la hiérarchie du groupe d’administration nommé « Mon groupe d’administration » avec l’ID « myMG ».
 

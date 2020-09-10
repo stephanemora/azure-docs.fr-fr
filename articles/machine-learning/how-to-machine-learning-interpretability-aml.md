@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8a0853d4a863f6b7677f665513bdac9ca8e6b673
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853396"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144105"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -275,7 +275,7 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [configuration des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md#amlcompute). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
+1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [Créer des cibles de calcul avec le Kit de développement logiciel (SDK) Python](how-to-create-attach-compute-sdk.md#amlcompute). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
 
 1. Téléchargez l’explication dans votre Jupyter Notebook local.
 

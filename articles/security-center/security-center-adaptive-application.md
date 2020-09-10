@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691477"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276760"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -76,7 +76,7 @@ Sélectionnez la recommandation ou ouvrez la page des contrôles d’application
     - **Recommandés** : groupes d’ordinateurs qui exécutent régulièrement les mêmes applications et qui n’ont pas de liste verte configurée. Nous vous recommandons d’activer les contrôles d’application adaptatifs pour ces groupes.
     
       > [!TIP]
-      > Si vous voyez un nom de groupe avec le préfixe « REVIEWGROUP », il contient des ordinateurs avec une liste d’applications partiellement cohérente. Security Center ne voit pas de modèle, mais recommande d’examiner ce groupe pour voir si _vous_ pouvez définir manuellement certaines règles de contrôles d’application adaptatifs, comme décrit dans [Modification de la règle de contrôle d’application adaptative d’un groupe](#editing-a-groups-adaptive-application-controls-rule).
+      > Si vous voyez un nom de groupe avec le préfixe « REVIEWGROUP », il contient des ordinateurs avec une liste d’applications partiellement cohérente. Security Center ne voit pas de modèle, mais recommande d’examiner ce groupe pour voir si _vous_ pouvez définir manuellement certaines règles de contrôles d’application adaptatifs, comme décrit dans [Modification de la règle de contrôle d’application adaptative d’un groupe](#edit-a-groups-adaptive-application-controls-rule).
       >
       > Vous pouvez également déplacer des machines de ce groupe vers d’autres groupes, comme décrit dans [Déplacer une machine d’un groupe vers un autre](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Sélectionnez la recommandation ou ouvrez la page des contrôles d’application
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Modification de la règle de contrôles d’application adaptatifs d’un groupe
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Modifier la règle de contrôles d’application adaptatifs d’un groupe
 
 Vous pouvez décider de modifier la liste verte pour un groupe d’ordinateurs en raison des modifications connues dans votre organisation. 
 
@@ -150,7 +150,7 @@ Pour modifier les règles d’un groupe d’ordinateurs :
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Réponse à la recommandation « Les règles de liste verte de la stratégie de contrôles d’application adaptatifs doivent être mises à jour »
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Répondre à la recommandation « Les règles de liste verte de la stratégie de contrôles d’application adaptatifs doivent être mises à jour »
 
 Cette recommandation s’affiche lorsque l’apprentissage automatique de Security Center identifie un comportement potentiellement légitime qui n’a pas été autorisé précédemment. La recommandation suggère de nouvelles règles pour vos définitions existantes afin de réduire le nombre d’alertes de faux positifs.
 
@@ -167,7 +167,7 @@ Pour corriger les problèmes :
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Audit des alertes et des violations
+## <a name="audit-alerts-and-violations"></a>Auditer les alertes et les violations
 
 1. Dans le menu de Security Center, sélectionnez **Contrôles d’application adaptatifs**.
 
@@ -199,7 +199,7 @@ Lorsque vous déplacez une machine d’un groupe à un autre, la stratégie de c
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Gestion des contrôles d’application via l’API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Gérer les contrôles d’application via l’API REST 
 
 Pour gérer vos contrôles d’application adaptatifs par programmation, utilisez notre API REST. 
 

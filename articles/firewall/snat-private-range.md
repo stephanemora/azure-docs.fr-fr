@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272f5b747efbc3776b1b2ba7c3546ade717c2452
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610521"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231365"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Pare-feu Azure traduit l’adresse réseau source des plages d’adresses IP privées
 
@@ -20,9 +20,12 @@ Le Pare-feu Azure assure automatiquement la traduction SNAT pour l'ensemble du t
 
 Cette logique fonctionne bien lorsque vous acheminez le trafic directement vers Internet. Cependant, si vous avez activé le [tunneling forcé](forced-tunneling.md), le trafic Internet est « SNATé » vers l'une des adresses IP privées du pare-feu dans AzureFirewallSubnet, ce qui a pour effet de masquer la source à votre pare-feu local.
 
-Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet. Toutefois, vous pouvez configurer Pare-feu Azure pour qu’il n’effectue **pas** une telle traduction.
+Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet. Toutefois, vous pouvez configurer Pare-feu Azure pour qu’il n’effectue **pas** une telle traduction. Par exemple, pour spécifier une adresse IP individuelle, vous pouvez la spécifier comme suit : `192.168.1.10`. Pour spécifier une plage d’adresses IP, vous pouvez la spécifier comme suit : `192.168.1.0/24`.
 
 Pour configurer le Pare-feu Azure afin de ne jamais utiliser la traduction d'adresses réseau sources (SNAT), quelle que soit l'adresse IP de destination, utilisez **0.0.0.0/0** comme plage d'adresses IP privées. Avec cette configuration, le Pare-feu Azure ne peut jamais acheminer le trafic directement vers Internet. Pour configurer le pare-feu afin qu'il utilise toujours la traduction SNAT, quelle que soit l'adresse de destination, utilisez **255.255.255.255/32** comme plage d'adresses IP privées.
+
+> [!IMPORTANT]
+> Si vous souhaitez spécifier vos propres plages d’adresses IP privées et conserver les plages d’adresses IANA RFC 1918 par défaut, assurez-vous que votre liste personnalisée comprend toujours la plage IANA RFC 1918. 
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Configurer des plages d'adresses IP privées pour la traduction SNAT - Azure PowerShell
 

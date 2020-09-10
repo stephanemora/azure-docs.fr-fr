@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225368"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181440"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Certification des machines virtuelles : problèmes et solutions 
 
@@ -84,7 +84,7 @@ Si vous essayez d'installer Visual Studio ou un produit sous licence Office, con
 
 Pour plus d'informations sur la sélection d'une base approuvée, consultez [Créer vos ressources techniques de machine virtuelle Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Échec de l’exécution du cas de test du kit de ressources
+## <a name="tool-kit-test-case-execution-failed"></a>Échec de l’exécution du cas de test du kit de ressources 
 
 Le kit de ressources de certification Microsoft peut vous aider à exécuter des cas de test et à vérifier que votre disque dur virtuel ou votre image est compatible avec l'environnement Azure.
 
@@ -113,7 +113,7 @@ Le tableau suivant répertorie les erreurs courantes qui ont été détectées l
  
 |Scénario|Cas de test|Error|Solution|
 |---|---|---|---|
-|1|Cas de test Version de l'agent Linux|La version minimale de l'agent Linux est 2.241 ou ultérieure. Cette exigence est obligatoire depuis le 1er mai 2020.|L’image doit être mise à jour avec la version requise pour que vous puissiez [envoyer la demande](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Cas de test Version de l'agent Linux|La version minimale de l’agent Linux est 2.2.41 ou ultérieure. Cette exigence est obligatoire depuis le 1er mai 2020.|Veuillez mettre à jour la version de l’agent Linux et celle-ci doit être 2.2.41 ou une version ultérieure. Pour plus d’informations, consultez la [page de mise à jour de la version de l’agent Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Cas de test Historique Bash|Une erreur s'affiche si la taille de l'historique Bash de l'image que vous avez envoyée est supérieure à 1 kilo-octet (Ko). La taille est limitée à 1 Ko pour garantir qu’aucune information potentiellement sensible n’est capturée dans votre fichier d’historique Bash.|Pour résoudre ce problème, montez le disque dur virtuel sur n'importe quelle autre machine virtuelle opérationnelle et apportez les modifications de votre choix (par exemple, supprimez les fichiers d'historique *.bash*) pour que la taille soit inférieure ou égale à 1 Ko.|
 |3|Cas de test Paramètres de noyau requis|Vous recevez cette erreur quand la valeur de **console** n’est pas **ttyS0**. Vérifiez en exécutant la commande suivante :<br>`cat /proc/cmdline`|Affectez la valeur **ttyS0** à **console** et renvoyez la demande.|
 |4|Cas de test Intervalle d'activité du client|Si le résultat du kit de ressources est un échec pour ce cas de test, cela signifie que la valeur de **ClientAliveInterval** est incorrecte.|Affectez une valeur inférieure ou égale à 235 à **ClientAliveInterval**, puis renvoyez la demande.|
@@ -363,7 +363,8 @@ Les éditeurs doivent s’adresser au [Support aux éditeurs de Place de marché
    4.    Version : version de l’offre de machine virtuelle pour laquelle l’exception est demandée
    5.   Type d’exception : tests, machine virtuelle verrouillée, modèles personnalisés
    6.   Raison de la demande : raison de cette exception et informations sur les tests à exempter 
-   7.   Pièce jointe : joindre tout document de preuve d’importance. Pour les machines virtuelles verrouillées, joignez le rapport de test et, pour les modèles personnalisés, fournissez le modèle Resource Manager personnalisé en pièce jointe. Ne pas joindre les documents requis entraîne un refus de demande.
+   7. Chronologie : date jusqu’à laquelle cette exception a été demandée 
+   8.   Pièce jointe : joindre tout document de preuve d’importance. Pour les machines virtuelles verrouillées, joignez le rapport de test et, pour les modèles personnalisés, fournissez le modèle Resource Manager personnalisé en pièce jointe. Ne pas joindre les documents requis entraîne un refus de demande.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

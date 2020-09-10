@@ -4,14 +4,14 @@ description: Répertorie les types de ressources Azure qui peuvent être déplac
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 70f981f2763dd36f0f417faec6c81e168e9856e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040960"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948111"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Prise en charge du déplacement des ressources Azure entre les régions
 
@@ -121,6 +121,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
@@ -1027,6 +1028,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
 > | queries |  Non |  
+
+## <a name="microsoftresources"></a>Microsoft.Resources
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Changement de région |
+> | ------------- | ----------- |
+> | deploymentScripts |  Oui<br/><br/>[Déplacer des ressources Microsoft.Resources vers une nouvelle région](microsoft-resources-move-regions.md) |
+> | templateSpecs |  Oui<br/><br/>[Déplacer des ressources Microsoft.Resources vers une nouvelle région](microsoft-resources-move-regions.md) |  
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 

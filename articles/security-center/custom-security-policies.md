@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559558"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278171"
 ---
 # <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
 
@@ -69,7 +69,7 @@ Comme nous l’avons vu dans la [documentation Azure Policy](https://docs.micros
 
     [![Recommandations personnalisées](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Amélioration de vos recommandations personnalisées avec des informations détaillées
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Améliorez vos recommandations personnalisées grâce à des informations détaillées
 
 Les recommandations intégrées fournies avec Azure Security Center incluent des détails tels que des niveaux de gravité et des instructions de correction. Si vous souhaitez ajouter ce type d’informations à vos recommandations personnalisées afin qu’elles apparaissent dans le portail Azure ou à l’endroit où vous accédez à vos recommandations, vous devez utiliser l’API REST. 
 

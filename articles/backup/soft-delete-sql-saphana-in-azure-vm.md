@@ -3,12 +3,12 @@ title: Suppression réversible pour les charges de travail SQL Server dans Azure
 description: Découvrez comment la suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM permet de rendre les sauvegardes plus sécurisées.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825169"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022290"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM
 
@@ -109,7 +109,7 @@ La valeur **DeleteState** de l’élément de sauvegarde passe de **NotDeleted**
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Annulation de l’opération de suppression à l’aide d’Azure PowerShell
 
-Tout d’abord, récupérez l’élément de sauvegarde approprié qui est dans l’état de suppression réversible (c’est-à-dire sur le point d’être supprimé).
+Tout d’abord, récupérez l’élément de sauvegarde approprié qui est en état de suppression réversible (c’est-à-dire, sur le point d’être supprimé).
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}

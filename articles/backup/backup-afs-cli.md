@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: cc4422a7d20dbd231729922bd013549d5276deb1
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763234"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182205"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
 
@@ -74,7 +74,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-L'attribut **name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération d'activation de la sauvegarde (**enable backup**). Pour suivre l'état de ce travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération d’**activation de la sauvegarde**. Pour suivre l'état de ce travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
 
 ## <a name="trigger-an-on-demand-backup-for-file-share"></a>Déclencher une sauvegarde à la demande des partages de fichiers
 
@@ -98,7 +98,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-L'attribut **name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération de sauvegarde à la demande (« on-demand backup »). Pour suivre l'état d'un travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+L’attribut **Name** figurant dans la sortie correspond au nom du travail créé par le service de sauvegarde pour votre opération de « sauvegarde à la demande ». Pour suivre l'état d'un travail, utilisez la cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

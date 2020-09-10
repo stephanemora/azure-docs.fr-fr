@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11bd5f7397664d183f27337f7ca36d0123ee63f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927542"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397064"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Créer et utiliser des environnements logiciels dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,6 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-Si vous définissez votre propre environnement, vous devez répertorier `azureml-defaults` avec la version >= 1.0.45 comme dépendance PIP. Ce package contient les fonctionnalités qui sont nécessaires pour héberger le modèle en tant que service web.
 
 ### <a name="use-conda-and-pip-specification-files"></a>Utiliser des fichiers de spécification Conda et pip
 
@@ -142,8 +141,6 @@ run = myexp.submit(config=runconfig)
 # Show each step of run 
 run.wait_for_completion(show_output=True)
 ```
-
-De même, si vous utilisez un objet [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) pour l'apprentissage, vous pouvez directement soumettre l'instance de l'estimateur en tant qu'exécution sans spécifier d'environnement. L'objet `Estimator` encapsule déjà l'environnement et la cible de calcul.
 
 ## <a name="add-packages-to-an-environment"></a>Ajouter des packages à un environnement
 
@@ -364,33 +361,12 @@ run = exp.submit(runconfig)
 
 Si vous ne spécifiez aucun environnement dans la configuration de votre exécution, le service crée un environnement par défaut lorsque vous soumettez votre exécution.
 
-### <a name="use-an-estimator-for-training"></a>Utiliser un estimateur pour l'apprentissage
-
-Si vous utilisez un [estimateur](how-to-train-ml-models.md) pour l'apprentissage, vous pouvez directement soumettre l'instance de l'estimateur. Celle-ci encapsule déjà l'environnement et la cible de calcul.
-
-Le code suivant utilise un estimateur pour une exécution d'apprentissage à nœud unique. L'exécution s'effectue sur un calcul distant pour un modèle `scikit-learn`. Le code part du principe que vous avez précédemment créé un objet de cible de calcul, `compute_target`, et un objet de magasin de données, `ds`.
-
-```python
-from azureml.train.estimator import Estimator
-
-script_params = {
-    '--data-folder': ds.as_mount(),
-    '--regularization': 0.8
-}
-
-sk_est = Estimator(source_directory='./my-sklearn-proj',
-                   script_params=script_params,
-                   compute_target=compute_target,
-                   entry_script='train.py',
-                   conda_packages=['scikit-learn'])
-
-# Submit the run 
-run = experiment.submit(sk_est)
-```
-
 ## <a name="use-environments-for-web-service-deployment"></a>Utiliser des environnements pour le déploiement de services web
 
 Vous pouvez utiliser des environnements lorsque vous déployez votre modèle en tant que service web. Cette fonctionnalité permet un flux de travail reproductible et connecté. Dans ce flux de travail, vous pouvez former, tester et déployer votre modèle en utilisant les mêmes bibliothèques dans votre calcul d'apprentissage et dans votre calcul d'inférence.
+
+
+Si vous définissez votre propre environnement afin de déployer des services web, vous devez répertorier `azureml-defaults` avec la version >= 1.0.45 comme dépendance PIP. Ce package contient les fonctionnalités qui sont nécessaires pour héberger le modèle en tant que service web.
 
 Pour déployer un service web, combinez l'environnement, le calcul d'inférence, le script de scoring et le modèle inscrit dans votre objet de déploiement, [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Pour plus d’informations, consultez [Comment et où déployer des modèles ?](how-to-deploy-and-where.md).
 

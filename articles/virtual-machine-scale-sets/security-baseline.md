@@ -6,13 +6,13 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007095"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398442"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Base de référence de sécurité Azure pour Virtual Machine Scale Sets
 
@@ -916,7 +916,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Conseils** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
+**Aide** : Si vous avez recours à des images personnalisées (par exemple, un disque dur virtuel), utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour veiller à ce que seuls les utilisateurs autorisés aient accès aux images.
 
 * [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
@@ -976,7 +976,9 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Fournir une authentification Key Vault avec une identité managée](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
+
+* [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

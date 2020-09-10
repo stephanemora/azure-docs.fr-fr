@@ -6,13 +6,13 @@ ms.service: resource-graph
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a85fdf1e1e27b1ce5abb0c7890b717d48ba3bd3f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008999"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230447"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Azure Resource Graph pour le benchmark de sécurité Azure
 
@@ -41,13 +41,13 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 *Pour plus d’informations, consultez [Contrôle de sécurité : Protection des données](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès aux données et ressources. Pour utiliser Azure Resource Graph, vous devez également disposer d’un accès approprié aux ressources que vous souhaitez interroger. Cet accès doit être limité en lecture seule et accordé uniquement au personnel requis.
+**Conseils** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès aux données et ressources. Pour utiliser Azure Resource Graph, vous devez également disposer d’un accès approprié aux ressources que vous souhaitez interroger. Cet accès doit être limité en lecture seule et accordé uniquement au personnel requis.
 
 * [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../../../role-based-access-control/role-assignments-rest.md)
+* [Comment configurer Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
 
 **Supervision Azure Security Center** : actuellement non disponible

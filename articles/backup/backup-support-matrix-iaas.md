@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825254"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019587"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -146,7 +146,7 @@ Sauvegarder des machines virtuelles déployées à partir d’une image personna
 Sauvegarder des machines virtuelles migrées vers Azure| Pris en charge.<br/><br/> Pour sauvegarder la machine virtuelle, l’agent de machine virtuelle doit être installé sur la machine migrée.
 Cohérence multimachine virtuelle de la sauvegarde | La Sauvegarde Azure ne fournit pas la cohérence des données et des applications sur plusieurs machines virtuelles.
 Sauvegarde avec les [Paramètres de diagnostic](../azure-monitor/platform/platform-logs-overview.md)  | Non prise en charge. <br/><br/> Si la restauration de la machine virtuelle Azure avec les paramètres de diagnostic est déclenchée à l’aide de l’option [Créer](backup-azure-arm-restore-vms.md#create-a-vm), la restauration échoue.
-Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle la [zone de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) est disponible)<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible, la restauration échoue.
+Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle les [zones de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) sont disponibles).<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible, la restauration échoue.
 Machines virtuelles de deuxième génération | Prise en charge <br> Sauvegarde Azure prend en charge la sauvegarde et la restauration des [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Lorsque ces machines virtuelles sont restaurées à partir du point de récupération, elles sont restaurées sous la forme de [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge pour les machines virtuelles non managées. <br><br> Pris en charge pour les machines virtuelles managées.
 [Machines virtuelles Spot](../virtual-machines/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
@@ -160,7 +160,7 @@ Taille de disque de données | La taille d’un disque individuel peut atteindre
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.
 Disques chiffrés | Pris en charge.<br/><br/> Les machines virtuelles Azure activées pour Azure Disk Encryption peuvent être sauvegardées (avec ou sans l’application Azure AD).<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la totalité de la machine virtuelle.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.
-Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> La sauvegarde Azure exclut automatiquement les disques avec l’Accélérateur d’écriture (WA) activé durant la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pouvez pas restaurer ces disques à partir des points de récupération de la machine virtuelle. <br><br> **Remarque importante** : Les machines virtuelles avec des disques WA ont besoin d’une connectivité Internet pour une sauvegarde réussie (même si ces disques sont exclus de la sauvegarde).
+Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> Le service Sauvegarde Azure exclut automatiquement les disques avec l’Accélérateur d’écriture (WA) activé durant la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pouvez pas restaurer ces disques à partir des points de récupération de la machine virtuelle. <br><br> **Remarque importante** : Les machines virtuelles avec des disques WA ont besoin d’une connectivité Internet pour une sauvegarde réussie (même si ces disques sont exclus de la sauvegarde).
 Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvegarde Azure ne prend pas en charge la déduplication. Pour plus d’informations, consultez cet [article](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Sauvegarde Azure n’effectue pas de déduplication entre les machines virtuelles du coffre Recovery Services <br/> <br/>  - S’il existe des machines virtuelles en état de déduplication pendant la restauration, les fichiers ne peuvent pas être restaurés, car le coffre ne comprend pas le format. Toutefois, vous pouvez effectuer la restauration complète de la machine virtuelle.
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.

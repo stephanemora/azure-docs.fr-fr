@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587495"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014640"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 

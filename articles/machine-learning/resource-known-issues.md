@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757283"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230379"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -185,6 +185,8 @@ Parfois, fournir des informations de diagnostic quand vous demandez de l’aide 
 
 * **Problèmes de création d’une capacité AmlCompute** : Il peut arriver, dans de rares cas, que des utilisateurs ayant créé leur espace de travail Azure Machine Learning sur le Portail Azure avant la disponibilité générale ne puissent pas créer de capacité AmlCompute dans cet espace de travail. Vous pouvez créer une demande de support auprès du service ou créer un espace de travail sur le Portail ou avec le Kit de développement logiciel (SDK) pour vous débloquer sans délai.
 
+* **Azure Container Registry ne prend actuellement pas en charge les caractères Unicode dans les noms de groupe de ressources** : Il est possible que les requêtes ACR échouent parce que le nom de leur groupe de ressources contient des caractères Unicode. Pour atténuer ce problème, nous vous recommandons de créer un ACR dans un groupe de ressources de nom différent.
+
 ## <a name="work-with-data"></a>Utilisation des données
 
 ### <a name="overloaded-azurefile-storage"></a>Stockage Fichier Azure surchargé
@@ -316,6 +318,26 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Machine learning automatisé
 
+* **La mise à niveau récente des dépendances AutoML vers les versions plus récentes va entraîner une rupture de compatibilité** :  à partir de la version 1.13.0 du kit de développement logiciel (SDK), les modèles ne seront pas chargés dans les kit de développement logiciel (SDK) plus anciens en raison d’une incompatibilité entre les anciennes versions que nous avons épinglées dans nos packages précédents et les nouvelles versions que nous épinglons maintenant. Vous voyez une erreur telle que :
+  * Module introuvable : Ex.`No module named 'sklearn.decomposition._truncated_svd`,
+  * Erreurs d’importation : Ex.`ImportError: cannot import name 'RollingOriginValidator'`,
+  * Erreurs d’attribut : Ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  Pour contourner ce problème, effectuez l’une des deux étapes suivantes en fonction de votre version de formation du kit de développement logiciel (SDK) AutoML :
+  1. Si votre version de formation du kit de développement logiciel (SDK) AutoML est supérieure à 1.13.0, vous avez besoin de `pandas == 0.25.1` et de `sckit-learn==0.22.1`. En cas d’incompatibilité de version, mettez à niveau scikit-Learn et/ou pandas pour corriger la version, comme indiqué ci-dessous :
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. Si votre version de formation du kit de développement logiciel (SDK) AutoML est inférieure ou égale à 1.12.0, vous avez besoin de `pandas == 0.23.4` et de `sckit-learn==0.20.3`. En cas d’incompatibilité de version, passez à une version antérieure de scikit-Learn et/ou de pandas pour corriger la version, comme indiqué ci-dessous :
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow** : Depuis la version 1.5.0 du Kit de développement logiciel (SDK), le Machine Learning automatisé n’installe pas de modèles TensorFlow par défaut. Pour installer TensorFlow et l’utiliser avec vos expériences de ML automatisé, installez tensorflow==1.12.0 via CondaDependecies. 
  
    ```python

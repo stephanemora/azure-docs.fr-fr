@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032882"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375242"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 
@@ -53,7 +53,7 @@ Pour savoir comment restaurer un élément SharePoint à partir d’un disque av
    > Comme la batterie de serveurs SharePoint est protégée pour une rétention à long terme dans Azure, aucune information du catalogue (métadonnées) n’est disponible sur le serveur DPM. Par conséquent, chaque fois qu’une base de données contenu SharePoint ponctuelle doit être récupérée, vous devez de nouveau cataloguer la batterie de serveurs SharePoint.
    >
    >
-3. Cliquez sur **Recataloguer**.
+3. Sélectionnez **Recataloguer**.
 
     ![DPM SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Pour savoir comment restaurer un élément SharePoint à partir d’un disque av
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Une fois le catalogage terminé, l’état passe à *Succès*. Cliquez sur **Fermer**.
+    Une fois le catalogage terminé, l’état passe à *Succès*. Sélectionnez **Fermer**.
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Cliquez sur l’objet SharePoint affiché dans l’onglet **Récupération** DPM pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis cliquez sur **Récupérer**.
+4. Sélectionnez l’objet SharePoint affiché dans l’onglet **Récupération** DPM pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Récupérer**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. À ce stade, suivez les étapes de récupération mentionnées précédemment dans cet article pour la récupération d’une base de données de contenu SharePoint à partir du disque.

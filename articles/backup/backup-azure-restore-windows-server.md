@@ -3,12 +3,12 @@ title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892505"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178555"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -89,7 +89,7 @@ Ces étapes incluent la terminologie suivante :
 * *Exemple d’archivage* : coffre Recovery Services dans lequel l’ordinateur source et l’ordinateur cible sont enregistrés.
 
 > [!NOTE]
-> Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 7 (ou une version ultérieure). Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 8.
+> Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 7 (ou une version ultérieure). Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 10.
 >
 >
 

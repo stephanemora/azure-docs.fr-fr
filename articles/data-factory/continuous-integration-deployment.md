@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 08/31/2020
+ms.openlocfilehash: 582a9eb4c98e89602e35e2ee424a00adc54a88e3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815808"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229546"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -335,6 +335,16 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -390,7 +400,6 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -427,7 +436,8 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -450,8 +460,8 @@ Vous trouverez ci-dessous le modèle actuel. Si vous n’avez besoin d’ajouter
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exemple : paramétrage d’un ID de cluster interactif Azure Databricks existant
@@ -460,6 +470,16 @@ L’exemple suivant montre comment ajouter une valeur unique au modèle de param
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -625,6 +645,8 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 
     - Les entités Data Factory dépendent les unes des autres. Par exemple, les déclencheurs dépendent des pipelines et les pipelines dépendent des jeux de données et d’autres pipelines. La publication sélective d’un sous-ensemble de ressources peut engendrer des comportements inattendus et des erreurs.
     - Dans les rares cas où vous avez besoin d’une publication sélective, envisagez d’utiliser un correctif logiciel. Pour plus d’informations, consultez [Environnement de production de correctif logiciel](#hotfix-production-environment).
+
+- L’équipe Azure Data Factory ne recommande pas d’attribuer des contrôles RBAC à des entités individuelles (pipelines, jeux de données, etc.) dans une fabrique de données. Par exemple, si un développeur a accès à un pipeline ou à un jeu de données, il doit être en mesure d’accéder à tous les pipelines ou jeux de données de la fabrique de données. Si vous estimez que vous devez implémenter de nombreux rôles RBAC dans une fabrique de données, envisager de déployer une deuxième fabrique de données.
 
 -   Vous ne pouvez pas publier à partir de branches privées.
 

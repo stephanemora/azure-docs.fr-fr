@@ -10,12 +10,13 @@ ms.date: 05/15/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327716"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021236"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -37,7 +38,6 @@ Un hub IoT a un point de terminaison intégré par défaut (**messages/événeme
 
 Chaque message est routé vers tous les points de terminaison dont il correspond aux requêtes de routage. En d’autres termes, un message peut être routé vers plusieurs points de terminaison.
 
-
 Si votre point de terminaison personnalisé a des configurations de pare-feu, envisagez d’utiliser l’exception interne approuvée de Microsoft pour accorder à votre hub IoT l’accès au point de terminaison spécifique : le [Stockage Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) et [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Cette option est disponible uniquement dans certaines régions pour les hubs IoT avec une [identité de service managé](./virtual-network-support.md).
 
 IoT Hub prend actuellement en charge les points de terminaison suivants :
@@ -47,19 +47,23 @@ IoT Hub prend actuellement en charge les points de terminaison suivants :
  - Files d’attente et rubriques Service Bus
  - Event Hubs
 
-### <a name="built-in-endpoint"></a>Point de terminaison intégré
+## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Point de terminaison intégré en tant que point de terminaison de routage
 
 Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-devguide-messages-read-builtin.md) pour recevoir des messages appareil-à-cloud du point de terminaison intégré (**messages/événements**). Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison.
 
-### <a name="azure-storage"></a>Stockage Azure
+## <a name="azure-storage-as-a-routing-endpoint"></a>Stockage Azure en tant que point de terminaison de routage
 
 Il existe deux services de stockage vers lesquels IoT Hub peut acheminer des messages : les comptes de [stockage d’objets Blob Azure](../storage/blobs/storage-blobs-introduction.md) et [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Les comptes Azure Data Lake Storage sont des comptes de stockage compatibles avec [l’espace de noms hiérarchique](../storage/blobs/data-lake-storage-namespace.md) basés sur le stockage d’objets Blob. Les deux utilisent des objets Blob pour leur stockage.
 
-IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison existant. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64. Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Le schéma suivant illustre la façon de sélectionner le format d’encodage dans le portail Azure.
+IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La valeur par défaut est AVRO. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur **application/json** et contentEncoding sur **UTF-8** dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) du message. Ces deux valeurs sont insensibles à la casse. Si ce codage n’est pas défini, IoT Hub écrit les messages dans un format codé base-64.
+
+Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage de blobs ; il ne peut pas être modifié pour un point de terminaison existant. Pour changer les formats d’encodage d’un point de terminaison existant, vous devez supprimer et recréer le point de terminaison personnalisé avec le format souhaité. Une stratégie utile peut consister à créer un nouveau point de terminaison personnalisé avec le format d’encodage souhaité et à ajouter un itinéraire parallèle à ce point de terminaison. De cette façon, vous pouvez vérifier vos données avant de supprimer le point de terminaison existant.
+
+Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub regroupe les messages dans des lots et écrit les données dans un stockage quand le lot atteint une certaine taille ou après un certain laps de temps. IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante : 
+IoT Hub regroupe les messages dans des lots et écrit les données dans un stockage quand le lot atteint une certaine taille ou après un certain laps de temps. IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante :
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -89,12 +93,11 @@ Pour créer un compte de stockage compatible Azure Data Lake Gen2, créez un nou
 
 ![Sélectionner le stockage Azure Data Lake Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### <a name="service-bus-queues-and-service-bus-topics"></a>Files d’attente et rubriques Service Bus
+## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Files d’attente et rubriques Service Bus en tant que point de terminaison de routage
 
 Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
-### <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs-as-a-routing-endpoint"></a>Event Hubs en tant que point de terminaison de routage
 
 En plus du point de terminaison compatible Event Hubs intégré, vous pouvez router des données vers des points de terminaison personnalisés de type Event Hubs. 
 

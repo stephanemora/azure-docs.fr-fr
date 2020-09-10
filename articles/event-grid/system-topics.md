@@ -2,13 +2,13 @@
 title: Rubriques système dans Azure Event Grid
 description: Décrit les rubriques système d’Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119920"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019094"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Rubriques système dans Azure Event Grid
 Une rubrique système dans Event Grid représente un ou plusieurs événements publiés par les services Azure, tels que Stockage Azure et Azure Event Hubs. Par exemple, une rubrique système peut représenter **tous les événements blob** ou uniquement les événements **de création de blob** et **de suppression de blob** publiés pour un **compte de stockage spécifique**. Dans cet exemple, lorsqu’un blob est chargé sur le compte de stockage, le service Stockage Azure publie un événement **de création de blob** dans la rubrique système d’Event Grid, qui transfère ensuite l’événement aux [abonnés](event-handlers.md) de la rubrique qui reçoivent et traitent l’événement. 
@@ -57,7 +57,7 @@ La création d’une rubrique système échoue si vous avez configuré des strat
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Emplacement et groupe de ressources pour une rubrique système
 Pour les sources d’événements Azure qui se trouvent dans une région/un emplacement spécifique, la rubrique système est créée au même endroit que la source d’événements Azure. Par exemple, si vous créez un abonnement aux événements pour un stockage Blob dans USA Est, la rubrique système est créée dans la région USA Est. Pour les sources d’événements Azure globales, comme les abonnements Azure, les groupes de ressources ou les Azure Maps, Event Grid crée la rubrique système dans l’emplacement **global**. 
 
-En général, la rubrique système est créée dans le même groupe de ressources dans lequel se trouve la source d’événements Azure. Pour les abonnements aux événements créés dans l’étendue de l’abonnement Azure, la rubrique système est créée sous le groupe de ressources **Default-EventGrid**. Si le groupe de ressources n’existe pas, Azure Event Grid le crée avant de créer la rubrique système. 
+En général, la rubrique système est créée dans le même groupe de ressources dans lequel se trouve la source d’événements Azure. Pour les abonnements aux événements créés dans l’étendue de l’abonnement Azure, la rubrique système est créée dans le groupe de ressources **Default-EventGrid** dans la région **USA Ouest 2**. Si le groupe de ressources n’existe pas, Azure Event Grid le crée avant de créer la rubrique système. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants : 

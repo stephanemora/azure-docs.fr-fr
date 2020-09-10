@@ -3,12 +3,12 @@ title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893185"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182137"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Nouveautés du serveur de sauvegarde Microsoft Azure (MABS)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8328b961c8166247caaf0b9cd5cc288c420d089e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650466"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279990"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -88,7 +88,7 @@ Les suggestions de mise en cache pour disques Azure Premium indiquées plus bas 
 **Recommandation : pour observer ces modèles d’E/S définis par SAP HANA, vous devez paramétrer la mise en cache pour les différents volumes à l’aide du stockage Premium Azure comme suit :**
 
 - **/hana/data** - aucune mise en cache ou mise en cache en lecture
-- **/hana/log** : aucune mise en cache, à l’exception des séries M et Mv2, où l’Accélérateur d’écriture doit être activé sans mise en cache de lecture. 
+- **/hana/log** : aucune mise en cache, à l’exception des machines virtuelles des séries M et Mv2, où Accélérateur d’écriture Azure doit être activé 
 - **/hana/shared** : mise en cache en lecture
 - **Disque du système d’exploitation**  --ne pas modifier la mise en cache par défaut définie par Azure au moment de la création de la machine virtuelle
 

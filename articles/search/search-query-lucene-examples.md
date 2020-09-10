@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934971"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297992"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche cognitive Azure)
 
@@ -40,13 +40,13 @@ En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émett
 
 Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réutiliser pour toutes les requêtes dans cet article, en remplaçant uniquement la chaîne **search=** . 
 
-  ![En-tête de demande Postman](media/search-query-lucene-examples/postman-header.png)
+  ![En-tête de demande Postman Définir les paramètres](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Définir l’URL de requête
 
 La requête est une commande GET accompagnée d’une URL contenant le point de terminaison de Recherche cognitive Azure et la chaîne de recherche.
 
-  ![En-tête de demande Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![En-tête de demande Postman GET](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 L’URL est composée des éléments suivants :
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La réponse pour cette requête doit ressembler à la capture d’écran suivante.
 
-  ![Exemple de réponse Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Exemple de réponse Postman avec scores](media/search-query-lucene-examples/postman-sample-results.png)
 
 Vous avez peut-être remarqué le score de recherche dans la réponse. Des scores uniformes de 1 sont obtenus en l’absence de classement, soit parce que la recherche n’était pas une recherche en texte intégral, soit parce qu’aucun critère n’a été appliqué. Pour la recherche de valeur Null sans aucun critère, les lignes sont renvoyées dans un ordre arbitraire. Si vous incluez des critères de recherche réels, vous constaterez que les scores de recherche deviendront des valeurs significatives.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Exemple de réponse Postman](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Expression de recherche de réponse de l’exemple Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Vous pouvez définir une opération de recherche par champ avec la syntaxe **fieldName:searchExpression**, où l'expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :
 

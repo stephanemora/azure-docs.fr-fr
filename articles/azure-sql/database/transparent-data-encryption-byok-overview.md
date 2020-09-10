@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387113"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318287"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ Après la restauration de l’accès à la clé, la sauvegarde de la base de don
 - Si l’accès à la clé est restauré dans un délai de 8 heures, la base de données sera automatiquement réparée dans l’heure suivante.
 
 - Si l’accès à la clé est restauré dans un délai supérieur à huit heures, la réparation automatique n’est pas possible et la restauration de la base de données nécessite des étapes supplémentaires dans le portail et peut prendre beaucoup de temps, en fonction de la taille de la base de données. Une fois la base de données de nouveau en ligne, les paramètres précédemment configurés au niveau du serveur, tels que la configuration du [groupe de basculement](auto-failover-group-overview.md), l’historique de la limite de restauration dans le temps ainsi que les balises **seront perdus**. Par conséquent, il est recommandé d’implémenter un système de notification qui vous permet d’identifier et de résoudre les problèmes d’accès aux clés sous-jacentes dans un délai de 8 heures.
+
+Vous trouverez ci-dessous une vue des étapes supplémentaires requises sur le portail pour remettre en ligne une base de données inaccessible.
+
+![Base de données inaccessible TDE BYOK](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Révocation accidentelle de l’accès au protecteur TDE
 

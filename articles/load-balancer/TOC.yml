@@ -81,6 +81,8 @@
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procédures
   items:
+    - name: Paramètres du portail
+      href: manage.md
     - name: Groupes identiques de machines virtuelles
       items:
         - name: Utiliser avec un équilibreur de charge Azure existant - Portail

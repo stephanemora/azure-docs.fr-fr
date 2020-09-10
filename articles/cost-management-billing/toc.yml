@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Comptes de facturation d’un contrat partenaire Microsoft
           href: understand/mpa-overview.md
+        - name: Transférer des abonnements entre partenaires (préversion)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guides pratiques
   items:
     - name: Configurer Cost Management + Facturation

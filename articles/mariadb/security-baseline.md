@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366830"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393834"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Base de référence de sécurité Azure pour Azure Database for MariaDB
 
@@ -46,7 +46,7 @@ Comment configurer des règles de pare-feu d’Azure Database for MariaDB : htt
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2 : Surveiller et consigner la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**Aide** : Quand votre serveur Azure Database for MariaDB est sécurisée sur un point de terminaison privé, vous pouvez déployer des machines virtuelles dans le même réseau virtuel. Vous pouvez utiliser un groupe de sécurité réseau pour réduire le risque d’exfiltration de données. Activez les journaux de flux NSG et transférez-les vers un compte de stockage pour l'audit du trafic. Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics et utiliser Traffic Analytics pour fournir des insights sur le flux de trafic dans votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau et d’identifier les zones réactives, d’identifier les menaces de sécurité, de comprendre les modèles de flux de trafic et de repérer les mauvaises configurations du réseau.
+**Conseils** : Quand votre serveur Azure Database for MariaDB est sécurisée sur un point de terminaison privé, vous pouvez déployer des machines virtuelles dans le même réseau virtuel. Vous pouvez utiliser un groupe de sécurité réseau pour réduire le risque d’exfiltration de données. Activez les journaux de flux NSG et transférez-les vers un compte de stockage pour l'audit du trafic. Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics et utiliser Traffic Analytics pour fournir des insights sur le flux de trafic dans votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau et d’identifier les zones réactives, d’identifier les menaces de sécurité, de comprendre les modèles de flux de trafic et de repérer les mauvaises configurations du réseau.
 
 Comment configurer Private Link pour Azure Database for MariaDB : https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
@@ -100,7 +100,7 @@ Activer les journaux de flux NSG : https://docs.microsoft.com/azure/network-wat
 Comment configurer Advanced Threat Protection pour Azure Database for MariaDB : https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -522,9 +522,9 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utilisez Azure AD RBAC pour contrôler l’accès à la base de données Azure pour le plan de gestion MariaDB (Portail Azure/Azure Resource Manager). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (RBAC Azure) pour contrôler l’accès à la base de données Azure pour le plan de gestion MariaDB (Portail Azure/Azure Resource Manager). Pour l’accès au plan de données (dans la base de données elle-même), utilisez des requêtes SQL pour créer des utilisateurs et configurer des autorisations utilisateur.
 
-Configurer le contrôle d’accès en fonction du rôle dans Azure : https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Comment configurer Azure RBAC : https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Comment configurer l’accès utilisateur avec SQL pour MariaDB : https://docs.microsoft.com/azure/mariadb/howto-create-users
 
@@ -802,7 +802,7 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -822,7 +822,7 @@ Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/rep
 
 Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -880,11 +880,11 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Intégration aux identités managées Azure : https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Pour créer un coffre de clés : https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Pour créer un coffre de clés : https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Fournir une authentification Key Vault avec une identité managée : https://docs.microsoft.com/azure/key-vault/managed-identity 
+Comment s’authentifier auprès de Key Vault : https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+Comment attribuer une stratégie d’accès Key Vault : https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervision d’Azure Security Center** : Oui
 

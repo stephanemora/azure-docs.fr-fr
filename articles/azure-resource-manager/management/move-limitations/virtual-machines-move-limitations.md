@@ -2,13 +2,13 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933237"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230957"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -48,7 +48,7 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 2. Pour déplacer des machines virtuelles configurées avec Sauvegarde Azure, effectuez les étapes suivantes :
 
    1. Recherchez l’emplacement de votre machine virtuelle.
-   2. Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`. Par exemple, *AzureBackupRG_westus2_1*.
+   2. Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<VM location>_1`. Par exemple, le nom est au format *AzureBackupRG_westus2_1*.
    3. Dans le Portail Azure, cochez la case **Afficher les types masqués**.
    4. Recherchez la ressource de type **Microsoft. Microsoft.Compute/restorePointCollections** dont le modèle de nommage est `AzureBackup_<name of your VM that you're trying to move>_###########`.
    5. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
@@ -59,19 +59,41 @@ Si la [suppression réversible](../../../backup/backup-azure-security-feature-cl
 
 ### <a name="powershell"></a>PowerShell
 
-* Recherchez l’emplacement de votre machine virtuelle.
-* Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`, par exemple, AzureBackupRG_westus2_1
-* Si vous utilisez PowerShell, utilisez l’applet de commande `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Recherchez la ressource du type `Microsoft.Compute/restorePointCollections` avec le modèle de nommage `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+1. Recherchez l’emplacement de votre machine virtuelle.
+
+1. Recherchez un groupe de ressources avec le modèle de nommage – `AzureBackupRG_<VM location>_1`. Par exemple, le nom peut être `AzureBackupRG_westus2_1`.
+
+1. Utilisez la commande suivante pour récupérer la collection de points de restauration.
+
+   ```azurepowershell
+   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+1. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+
+   ```azurepowershell
+   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-* Recherchez l’emplacement de votre machine virtuelle.
-* Recherchez un groupe de ressources dont le modèle de nommage est le suivant : `AzureBackupRG_<location of your VM>_1`, par exemple, AzureBackupRG_westus2_1
-* Si vous utilisez l’interface CLI, utilisez `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Recherchez la ressource du type `Microsoft.Compute/restorePointCollections` avec le modèle de nommage `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+1. Recherchez l’emplacement de votre machine virtuelle.
+
+1. Recherchez un groupe de ressources avec le modèle de nommage – `AzureBackupRG_<VM location>_1`. Par exemple, le nom peut être `AzureBackupRG_westus2_1`.
+
+1. Utilisez la commande suivante pour récupérer la collection de points de restauration.
+
+   ```azurecli
+   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```
+
+1. Recherchez l’ID de ressource pour la ressource avec le modèle de nommage `AzureBackup_<VM name>_###########`
+
+1. Supprimez cette ressource. Cette opération supprime uniquement les points de récupération instantanée, et non les données sauvegardées dans le coffre.
+
+   ```azurecli
+   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

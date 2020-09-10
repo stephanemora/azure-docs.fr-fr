@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 3299865837bd14566cca54ec84b2dce452c633da
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080505"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950372"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -177,6 +177,8 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
+        
+        Vous pouvez également utiliser les commandes Azure CLI [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) et [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
@@ -230,7 +232,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
     * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 
-        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies de capture instantanée](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Afficher la sélection avancée](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

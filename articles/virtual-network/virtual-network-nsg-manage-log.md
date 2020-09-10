@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696029"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319438"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Journalisation des ressources pour un groupe de sécurité réseau
 
@@ -24,7 +24,7 @@ Un groupe de sécurité réseau (NSG) comprend les règles qui autorisent ou ref
 Quand vous activez la journalisation pour un groupe de sécurité réseau, vous pouvez collecter les types suivants d’informations sur le journal de ressources :
 
 * **Événement :** les entrées sont enregistrées pour lesquelles des règles NSG sont appliquées aux machines virtuelles, en fonction de l’adresse MAC.
-* **Compteur de règles :** contient les entrées correspondant au nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic. L’état de ces règles est collecté toutes les 60 secondes.
+* **Compteur de règles :** contient les entrées correspondant au nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic. L’état de ces règles est collecté toutes les 300 secondes.
 
 Les journaux de ressources ne sont disponibles que pour les groupes de sécurité réseau déployés via le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas activer la journalisation des ressources pour les groupes de sécurité réseau déployés via le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, consultez [Présentation des modèles de déploiement Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

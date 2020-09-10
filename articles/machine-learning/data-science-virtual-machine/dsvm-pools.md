@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: cc0efc0a076ddc3fc9425999f1e38b4a32dec7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477338"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144768"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Création d’un pool partagé de Data Science Virtual Machines
 
 Dans cet article, vous allez apprendre à créer un pool partagé de DSVM (Data Science Virtual Machine) pour une équipe. L’utilisation d’un pool partagé comporte certains avantages : meilleure utilisation des ressources, partage et collaboration facilités, et gestion plus efficace des ressources des machines virtuelles DSVM.
 
-Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de DSVM. Cet article se concentre sur les pools de machines virtuelles interactives. La capacité de calcul Azure Machine Learning est un autre exemple d'infrastructure de calcul managée. Pour plus d’informations, consultez [Configurer des cibles de calcul](../how-to-set-up-training-targets.md#amlcompute).
+Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de DSVM. Cet article se concentre sur les pools de machines virtuelles interactives. La capacité de calcul Azure Machine Learning est un autre exemple d'infrastructure de calcul managée. Pour plus d’informations, consultez [Créer des cibles de calcul avec le Kit de développement logiciel (SDK) Python](../how-to-create-attach-compute-sdk.md).
 
 ## <a name="interactive-vm-pool"></a>Pool de machines virtuelles interactives
 

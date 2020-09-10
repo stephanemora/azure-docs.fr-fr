@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ec151c813bfb0b9777e583a4ea5144e3b2079a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558764"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297057"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Application monopage : Se connecter et se déconnecter
 
@@ -42,7 +42,8 @@ Vous ne pouvez pas utiliser conjointement ces deux méthodes de fenêtre context
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Se connecter avec une fenêtre contextuelle
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
 
@@ -58,12 +59,52 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
         //login success
-        let idToken = loginResponse.idToken;
+
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
+    
+        if (currentAccounts === null) {
+            // no accounts detected
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username;
+        }
+    
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new UserAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -124,7 +165,47 @@ Pour une expérience de fenêtre contextuelle, activez l’option de configurati
 
 ## <a name="sign-in-with-redirect"></a>Se connecter avec une redirection
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
+
+function handleResponse(response) {
+    //handle redirect response
+
+    // In case multiple accounts exist, you can select
+    const currentAccounts = myMsal.getAllAccounts();
+
+    if (currentAccounts === null) {
+        // no accounts detected
+    } else if (currentAccounts.length > 1) {
+        // Add choose account code here
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username;
+    }
+}
+
+myMsal.handleRedirectPromise(handleResponse);
+
+myMsal.loginRedirect(loginRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 Les méthodes de redirection ne retournent pas de promesse en raison du déplacement en dehors de l’application principale. Pour traiter et accéder aux jetons retournés, vous devez enregistrer les rappels de réussite et d’erreur avant d’appeler les méthodes de redirection.
 
@@ -142,7 +223,7 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+const myMsal = new UserAgentApplication(config);
 
 function authCallback(error, response) {
     //handle redirect response
@@ -157,9 +238,6 @@ myMsal.loginRedirect(loginRequest);
 
 Ce code est identique à celui décrit plus haut, à la section traitant de la connexion au moyen d’une fenêtre contextuelle. La redirection correspond au flux par défaut.
 
-> [!NOTE]
-> Le jeton d’ID ne contient pas les étendues autorisées et représente uniquement l’utilisateur authentifié. Les étendues acceptées sont retournées dans le jeton d’accès que vous obtenez à l’étape suivante.
-
 ---
 
 ## <a name="sign-out"></a>Se déconnecter
@@ -168,7 +246,28 @@ La bibliothèque MSAL fournit une méthode `logout` qui efface le cache dans le 
 
 Vous pouvez configurer l’URI de redirection après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit également être enregistré en tant qu’URI de déconnexion dans l’inscription de votre application.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByUsername(username)
+}
+
+myMsal.logout(logoutRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 ```javascript
 const config = {

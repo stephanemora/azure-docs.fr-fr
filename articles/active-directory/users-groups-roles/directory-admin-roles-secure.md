@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795913"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179570"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -310,11 +310,11 @@ L’[Azure Security Center](../../security-center/security-center-intro.md) :
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventorier vos comptes privilégiés dans des machines virtuelles hébergées
 
-Le plus souvent, vous n’avez pas besoin d’accorder à des utilisateurs des autorisations d’accès illimitées à l’ensemble de vos abonnements ou ressources Azure. Utilisez des rôles d’administrateur Azure AD pour accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour accomplir leur travail. Par exemple, vous pouvez utiliser des rôles d’administrateur Azure AD pour permettre à un administrateur de gérer uniquement les machines virtuelles dans un abonnement, et à un autre de gérer uniquement les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).
+Le plus souvent, vous n’avez pas besoin d’accorder à des utilisateurs des autorisations d’accès illimitées à l’ensemble de vos abonnements ou ressources Azure. Utilisez des rôles d’administrateur Azure AD pour accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour accomplir leur travail. Par exemple, vous pouvez utiliser des rôles d’administrateur Azure AD pour permettre à un administrateur de gérer uniquement les machines virtuelles dans un abonnement, et à un autre de gérer uniquement les bases de données SQL au sein du même abonnement. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implémenter PIM pour les rôles d’administrateur Azure AD
 
-Utilisez Privileged Identity Management avec des rôles d’administrateur Azure AD pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM protège en réduisant le temps d’exposition des privilèges et en augmentant votre visibilité sur leur utilisation grâce à des rapports et alertes. Pour plus d’informations, consultez [Gérer l’accès RBAC aux ressources Azure avec Privileged Identity Management](../../role-based-access-control/best-practices.md).
+Utilisez Privileged Identity Management avec des rôles d’administrateur Azure AD pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM protège en réduisant le temps d’exposition des privilèges et en augmentant votre visibilité sur leur utilisation grâce à des rapports et alertes. Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../privileged-identity-management/pim-configure.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Utiliser des intégrations des journaux d’activité Azure pour envoyer les journaux d’activité Azure pertinents à vos systèmes SIEM
 

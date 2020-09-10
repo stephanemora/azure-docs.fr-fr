@@ -52,8 +52,20 @@
           href: how-application-gateway-works.md
         - name: Composants d’Application Gateway
           href: application-gateway-components.md
-        - name: Présentation de la configuration
-          href: configuration-overview.md
+        - name: Configuration
+          items:
+            - name: Vue d'ensemble
+              href: configuration-overview.md
+            - name: Infrastructure
+              href: configuration-infrastructure.md
+            - name: Adresse IP front-end
+              href: configuration-front-end-ip.md
+            - name: Écouteurs
+              href: configuration-listeners.md
+            - name: Règles de routage des requêtes
+              href: configuration-request-routing-rules.md
+            - name: Paramètres HTTP
+              href: configuration-http-settings.md
     - name: Prise en charge du trafic élevé
       href: high-traffic-support.md
     - name: "Référence SKU de mise à l’échelle version\_2"

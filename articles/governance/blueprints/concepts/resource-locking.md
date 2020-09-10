@@ -1,14 +1,14 @@
 ---
 title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383589"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051500"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -28,7 +28,7 @@ Les ressources créées par des artefacts dans une attribution de blueprint ont 
 |-|-|-|-|
 |Ne pas verrouiller|*|Non verrouillé|Les ressources ne sont pas protégées par Azure Blueprints. Cet état est également utilisé pour des ressources ajoutées à un artéfact de groupe de ressources **En lecture seule** ou **Ne pas supprimer** à partir de l’extérieur d’une attribution de blueprint.|
 |Lecture seule|Resource group|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
-|Lecture seule|Groupe de non-ressources|Lecture seule|La ressource ne peut pas être modifiée de quelque manière que ce soit (aucune modification possible et suppression impossible).|
+|Lecture seule|Groupe de non-ressources|Lecture seule|La ressource ne peut pas être modifiée de quelque manière que ce soit. Aucune modification et ne peut pas être supprimée.|
 |Ne pas supprimer|*|Suppression impossible|Les ressources peuvent être modifiées mais pas supprimées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 
 ## <a name="overriding-locking-states"></a>Neutralisation des états de verrouillage
@@ -182,8 +182,8 @@ Bien que **excludedPrincipals** doive être explicite, les entrées **excludedAc
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Suivre le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
-- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
-- Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
-- Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
+- En savoir plus sur le [cycle de vie des blueprints](./lifecycle.md)
+- Comprendre comment utiliser les [paramètres statiques et dynamiques](./parameters.md).
+- Apprendre à personnaliser l’[ordre de séquencement des blueprints](./sequencing-order.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).
 - Résoudre les problèmes durant l’affectation d’un blueprint en suivant les étapes de [dépannage général](../troubleshoot/general.md).

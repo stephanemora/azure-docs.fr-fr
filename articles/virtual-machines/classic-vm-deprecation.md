@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 0b2b995a6fe4cedd14b2e4ceeddc5747ec2423cf
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: de590168ecf4febe3c18442a6dc6c1c2eba4dc51
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754801"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297601"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrez vos ressources IaaS vers Azure Resource Manager avant le 1er mars 2023 
 
@@ -39,17 +39,24 @@ Les services et fonctionnalités Azure suivants ne seront **PAS** affectés par 
 
 - Commencez dès aujourd’hui la planification de votre migration vers Azure Resource Manager. 
 
-- Dressez la liste de toutes les machines virtuelles affectées. Le type de machines virtuelles « Machines virtuelles (classique) » dans le [panneau des machines virtuelles dans le portail Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) désigne toutes les machines virtuelles affectées au sein de l’abonnement. 
+- Dressez la liste de toutes les machines virtuelles affectées. 
+    - Le type de machines virtuelles « Machines virtuelles (classique) » dans le [panneau des machines virtuelles dans le portail Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) désigne toutes les machines virtuelles affectées au sein de l’abonnement. 
+    - Vous pouvez également interroger Azure Resource Graph à l’aide du [portail](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) ou de [PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) pour afficher la liste de toutes les machines virtuelles marquées (classiques) et leurs informations associées pour les abonnements sélectionnés. 
+    - Nous avons envoyé des e-mails aux propriétaires d’abonnements avec la liste de tous les abonnements contenant ces machines virtuelles (classiques). Utilisez-les pour dresser cette liste. 
 
 - [Apprenez-en davantage](./windows/migration-classic-resource-manager-overview.md) sur la migration de vos machines virtuelles [Linux](./linux/migration-classic-resource-manager-plan.md) et [Windows](./windows/migration-classic-resource-manager-plan.md) Classic vers Azure Resource Manager.
 
 - Pour plus d’informations, voir [Questions fréquemment posées sur la migration de Classic vers Azure Resource Manager](./migration-classic-resource-manager-faq.md)
 
+- Nous vous recommandons de commencer la planification à l’aide de l’[outil de migration de prise en charge de plateforme](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) afin de migrer vos machines virtuelles existantes en 3 étapes simples : « confirmer, préparer et valider ». 
+    - L’outil est conçu pour migrer vos machines virtuelles sans temps d’arrêt ou avec un temps d’arrêt minimal. 
+    - La première étape, « Confirmer » n’a aucune incidence sur votre déploiement existant. Elle produit la liste de tous les scénarios non pris en charge pour la migration. 
+    - Parcourez la [liste de solutions de contournement](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) pour corriger votre déploiement et le préparer pour la migration. 
+    - Idéalement, une fois toutes les erreurs de confirmation corrigées, vous ne devriez pas rencontrer de problèmes lors des étapes de préparation et de validation. Une fois la validation réussie, votre déploiement est migré de façon dynamique vers Azure Resource Manager, et peut désormais être géré à l’aide de nouvelles API exposées par Azure Resource Manager. 
+    - Si cet outil n’est pas adapté pour votre migration, vous pouvez explorer une [autre offre de calcul](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) pour cette migration. Étant donné qu’il existe de nombreuses offres de calcul Azure très différents les unes des autres, nous ne pouvons pas fournir pour cette offre de chemin de migration pris en charge par la plateforme.  
 - Pour toute question technique, tout problème et l’ajout d’abonnements à la liste verte, [contacter le support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
-- Pour toute autre question ne figurant pas dans le FAQ et les commentaires, commentez ci-dessous.
-
-- Effectuez la migration dès que possible pour éviter tout impact négatif sur votre activité et pour tirer parti des performances améliorées, de la sécurité ains que des nouvelles fonctionnalités fournies par Azure Resource Manager. 
+- Effectuez la migration dès que possible pour éviter tout impact négatif sur votre activité et pour tirer parti des performances améliorées, de la sécurité ainsi que des nouvelles fonctionnalités fournies par Azure Resource Manager. 
 
 ## <a name="what-resources-are-provided-to-me-for-this-migration"></a>Quelles sont les ressources qui me sont fournies pour cette migration ?
 

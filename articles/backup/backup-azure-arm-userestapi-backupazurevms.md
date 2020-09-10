@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890329"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006293"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -29,7 +29,7 @@ Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuel
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-L’URI POST contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. `{fabricName}` est « Azure ». Selon notre exemple, `{vaultName}` correspond à « testVault » et `{vaultresourceGroupName}` à « testVaultRG ». Comme tous les paramètres nécessaires sont fournis dans l’URI, un corps de demande séparé est inutile.
+L’URI POST contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. `{fabricName}` est « Azure ». Selon notre exemple, `{vaultName}` correspond à « testVault » et `{vaultresourceGroupName}` à « testVaultRG ». Étant donné que tous les paramètres nécessaires sont fournis dans l’URI, un corps de demande distinct est inutile.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01

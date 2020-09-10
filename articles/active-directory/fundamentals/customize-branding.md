@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a76a20d2cbc8a7b12b283c2858a13e9343499335
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796792"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321291"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
@@ -80,7 +80,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Couleur d’arrière-plan de la page de connexion.** Spécifiez la couleur hexadécimale (par exemple, #FFFFFF pour blanc) qui s’affiche à la place de votre image d’arrière-plan en cas de faible bande passante. Nous vous recommandons d’utiliser la couleur principale de votre logo de bannière ou la couleur de votre organisation.
 
-        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10. Dans certains cas, elle peut également apparaître dans la boîte de dialogue de consentement.
+        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( /windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10. Dans certains cas, elle peut également apparaître dans la boîte de dialogue de consentement.
         
             La taille de l’image ne peut pas dépasser 240 x 240 pixels et doit être inférieure à 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
     
@@ -88,7 +88,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
         
         - **Afficher l’option permettant de rester connecté.** Vous pouvez autoriser les utilisateurs à rester connecté à Azure AD jusqu’à ce qu’ils se déconnectent de manière explicite. Si vous sélectionnez **Non**, cette option est masquée et les utilisateurs doivent se connecter chaque fois que le navigateur est fermé puis ouvert.
 
-            Pour en savoir plus sur la configuration et la résolution des problèmes de l’option permettant de rester connecté, consultez [Configurer l’invite « Rester connecté ? » pour les comptes Azure AD](keep-me-signed-in.md)
+            Cette fonctionnalité est disponible uniquement sur l’objet de personnalisation par défaut, non sur un objet spécifique d’une langue. Pour en savoir plus sur la configuration et la résolution des problèmes de l’option permettant de rester connecté, consultez [Configurer l’invite « Rester connecté ? » pour les comptes Azure AD](keep-me-signed-in.md)
         
             >[!NOTE]
             >Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non**, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
@@ -134,7 +134,7 @@ Vous ne pouvez pas changer la langue par défaut de votre configuration d’orig
 
     La page **Contoso - Marque de société** est mise à jour pour afficher la nouvelle configuration en français.
 
-    ![Page Contoso - Marque de société, avec configuration par défaut](media/customize-branding/company-branding-french-config.png)
+    ![Page de personnalisation de la société Contoso, avec la nouvelle configuration de langue affichée](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Ajouter votre personnalisation aux pages
 Pour ajouter votre personnalisation aux pages, modifiez la fin de l’URL avec le texte `?whr=yourdomainname`. Cette modification fonctionne sur plusieurs pages, notamment la page de configuration de l’authentification multifacteur (MFA), la page de configuration de réinitialisation de mot de passe en libre-service (SSPR) et la page de connexion.

@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018125"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -99,7 +99,7 @@ La protection des charges de travail à l’aide d’Azure Backup Server peut pr
 > - Un ordinateur servant de contrôleur de domaine
 > - Un ordinateur sur lequel est installé le rôle de serveur d’applications
 > - Un ordinateur sur lequel Exchange Server s’exécute
-> - Un ordinateur qui est un nœud d’un cluster
+> - Un ordinateur qui est un nœud de cluster
 
 Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur de sauvegarde Azure dans un autre domaine, installez-le tout d’abord, puis joignez-le au nouveau domaine. Une fois déployé, le serveur de sauvegarde Azure ne peut pas être déplacé dans un nouveau domaine.
 

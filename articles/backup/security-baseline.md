@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 9e960914f86f2f9fc63a62d62fe1f923d21b9d31
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890499"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394616"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
@@ -480,11 +480,11 @@ Microsoft gère l’infrastructure sous-jacente de Sauvegarde Azure et a implém
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
+**Aide** : Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet une gestion des accès affinée pour Azure. Avec Azure RBAC, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les opérations de gestion des sauvegardes : Contributeur de sauvegarde, Opérateur de sauvegarde et Lecteur de sauvegarde. Vous pouvez mapper les rôles intégrés de Sauvegarde à différentes actions de gestion des sauvegardes.
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Utilisation du contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure](./backup-rbac-rs-vault.md)
 
@@ -818,7 +818,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 - [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-- [Fournir une authentification Key Vault avec une identité managée](../key-vault/general/managed-identity.md)
+* [Comment s’authentifier auprès de Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Comment attribuer une stratégie d’accès Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Supervision d’Azure Security Center** : Non applicable
 

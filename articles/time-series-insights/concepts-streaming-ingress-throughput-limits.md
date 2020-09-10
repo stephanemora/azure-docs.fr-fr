@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb10effce8b94a6443e1daa8dadaa99111da0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094477"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950457"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de débit d’ingestion de diffusion en continu
 
@@ -34,7 +34,7 @@ Par défaut, Azure Time Series Insights Gen2 peut ingérer des données entrante
 
 > [!TIP]
 >
-> * Une prise en charge de l’environnement pour l’ingestion de vitesses jusqu’à 16 Mbits/s peut être fournie sur demande.
+> * Une prise en charge de l’environnement pour des vitesses d’ingestion jusqu’à 8 Mbits/s peut être fournie sur demande.
 > * Contactez-nous si vous avez besoin d’un débit supérieur en soumettant un ticket de support via le portail Azure.
  
 * **Exemple 1 :**
@@ -42,16 +42,16 @@ Par défaut, Azure Time Series Insights Gen2 peut ingérer des données entrante
     Contoso Shipping est doté de 100 000 appareils qui émettent un événement trois fois par minute. La taille d’un événement est de 200 octets. Un IoT Hub comportant quatre partitions est utilisé en tant que source d’événements Azure Time Series Insights Gen2.
 
     * Le taux d’ingestion de leur environnement Azure Time Series Insights Gen2 est le suivant : **100 000 appareils * 200 octets/événement * (3/60 événements/s) = 1 Mbit/s**.
-    * Le taux d’ingestion par partition est de 0,25 Mbits/s.
-    * Le débit d’ingestion de Contoso Shipping se situe dans la limite de l’échelle.
+    * En supposant que les partitions sont équilibrées, le taux d’ingestion par partition est de 0,25 Mbits/s.
+    * Le débit d’ingestion de Contoso Shipping s’inscrit dans les limitations de mise à l’échelle.
 
 * **Exemple 2 :**
 
-    Contoso Fleet Analytics est doté de 60 000 appareils qui émettent un événement chaque seconde. Un Event Hub comportant quatre partitions est utilisé comme source d'événements Azure Time Series Insights Gen2. La taille d’un événement est de 200 octets.
+    Contoso Fleet Analytics compte 40 000 appareils qui émettent un événement à chaque seconde. Un Event Hub comportant deux partitions est utilisé comme source d’événements Azure Time Series Insights Gen2. La taille d’un événement est de 200 octets.
 
-    * Le taux d’ingestion de l’environnement est le suivant : **60 000 appareils * 200 octets/événement * 1 événement/s = 12 Mbit/s**.
-    * Le taux par partition est de 3 Mbits/s.
-    * Le taux d'ingestion de Contoso Fleet Analytics dépasse les limites de l'environnement et des partitions. Une demande peut être adressée à Azure Time Series Insights Gen2 via le portail Azure pour augmenter le taux d'ingestion de l'environnement, et un Event Hub comportant davantage de partitions peut être créé afin de respecter les limites.
+    * Le taux d’ingestion de l’environnement est le suivant : **40 000 appareils * 200 octets/événement * 1 événement/s = 8 Mbit/s**.
+    * En supposant que les partitions sont équilibrées, leur taux par partition est de 4 Mbits/s.
+    * Le taux d'ingestion de Contoso Fleet Analytics dépasse les limites de l'environnement et des partitions. Une demande peut être adressée à Azure Time Series Insights Gen2 via le portail Azure pour augmenter le taux d’ingestion de l’environnement, et un Event Hub comportant davantage de partitions peut être créé afin de respecter les limites.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partitions de hub et limites par partition
 

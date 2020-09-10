@@ -3,14 +3,18 @@ title: Importer des certificats dans un conteneur
 description: En savoir plus sur l’importation des fichiers de certificat dans un service de conteneurs Service Fabric.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: da4babd8f9d1a25a8514d0c6f1526b43a9723854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614109"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050741"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importer un fichier de certificat dans un conteneur en cours d’exécution sur Service Fabric
+
+> [!NOTE]
+> Pour les clusters Service Fabric fonctionnant sur Azure, il est recommandé d’utiliser [Service Fabric Application Managed Identity](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) pour approvisionner des certificats d’application à partir d’un conteneur. Managed Identity permet d’isoler les secrets et les certificats au niveau du service, et permet à l’approvisionnement des certificats d’application d’être inclus dans le workflow de l’application, plutôt que dans celui de l’infrastructure. Le mécanisme CertificateRef sera déconseillé dans une version ultérieure.
 
 Vous pouvez sécuriser vos services de conteneur en spécifiant un certificat. Service Fabric fournit un mécanisme pour les services à l’intérieur d’un conteneur pour accéder à un certificat installé sur les nœuds dans un cluster Windows ou Linux (version 5.7 ou version ultérieure). Le certificat doit être installé dans un magasin de certificats sous tous les nœuds du cluster de LocalMachine. La clé privée correspondant au certificat doit être disponible, accessible et - sur Windows - exportable. Les informations de certificat sont fournies dans le manifeste d’application avec la balise `ContainerHostPolicies` comme le montre l’extrait de code suivant :
 
@@ -29,6 +33,8 @@ Pour les clusters Linux, les certificats (PEM) sont copiés à partir du magasin
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Notez que les fichiers `PEM` et `PrivateKey` contiennent le certificat et la clé privée non chiffrée.
 
 Si vous disposez déjà des certificats au format requis et souhaitez y accéder à l’intérieur du conteneur, vous pouvez également créer un package de données à l’intérieur de votre package de l’application et spécifier les éléments suivants au sein de votre manifeste de l’application :
 

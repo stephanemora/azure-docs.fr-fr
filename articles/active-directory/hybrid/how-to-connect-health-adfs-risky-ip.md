@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37489e2f2df063c6a974eaf5d401e6192cbf027c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359346"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296360"
 ---
 # <a name="risky-ip-report-public-preview"></a>Rapport sur les adresses IP à risque (préversion publique)
 Les clients AD FS peuvent exposer des points de terminaison d’authentification par mot de passe à Internet pour fournir des services d’authentification permettant aux utilisateurs finaux d’accéder aux applications SaaS telles qu’Office 365. Dans ce cas, il est possible pour un mauvais acteur de tenter de se connecter à votre système AD FS pour deviner le mot de passe d’un utilisateur final et accéder aux ressources de l’application. AD FS fournit la fonctionnalité de verrouillage de compte extranet pour éviter ce type d’attaques depuis AD FS dans Windows Server 2012 R2. Si vous utilisez une version antérieure, nous vous recommandons vivement de mettre à niveau votre système AD FS vers Windows Server 2016. <br />
@@ -35,7 +35,7 @@ En outre, il est possible qu’une seule adresse IP tente de se connecter plusie
 
 > [!NOTE]
 > Pour utiliser ce rapport, vous devez vous assurer que l’audit AD FS est activé. Pour plus d’informations, consultez [Activer l’audit pour AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) est nécessaire.  
+> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](../../role-based-access-control/built-in-roles.md#security-reader) est nécessaire.  
 > 
 
 ## <a name="what-is-in-the-report"></a>Contenu du rapport
@@ -99,7 +99,7 @@ Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seu
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 **Pourquoi des plages d’adresses IP privées s’affichent-elles dans le rapport ?**  <br />
-Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste verte d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
+Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste d’adresses IP approuvées. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
 
 **Pourquoi des adresses IP d’équilibreur de charge s’affichent-elles dans le rapport ?**  <br />
 Si vous voyez des adresses d’équilibreur de charge, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP cliente lorsqu’il transfère la requête au serveur proxy d’application web. Veuillez configurer correctement votre équilibreur de charge pour qu’il transfère l’adresse IP cliente. 
@@ -113,9 +113,9 @@ Vous devez ajouter l’adresse IP malveillante identifiée dans le pare-feu ou l
 - Les audits ne sont pas activés dans les batteries de serveurs AD FS.
 
 **Pourquoi est-ce que je ne vois aucun accès au rapport ?**  <br />
-L’autorisation Administrateur général ou [Lecteur Sécurité](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) est nécessaire. Contactez votre administrateur global pour obtenir l’accès.
+L’autorisation Administrateur général ou [Lecteur Sécurité](../../role-based-access-control/built-in-roles.md#security-reader) est nécessaire. Contactez votre administrateur global pour obtenir l’accès.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Installation de l’agent Azure AD Connect Health](how-to-connect-health-agent-install.md)

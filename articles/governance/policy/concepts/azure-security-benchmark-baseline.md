@@ -6,13 +6,13 @@ ms.service: azure-policy
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7871099e3e05613bec29a4bfc0824dd9647431e7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 6c6bd3ab87013aba04f43c95b3a986a64f2bc394
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937444"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231467"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Azure Policy pour le benchmark de sécurité Azure
 
@@ -46,12 +46,12 @@ Azure Policy utilise le terme de _Propriété_ à la place de _Responsabilité_.
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Aide** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration. 
+**Conseils** : Créez des procédures standard autour de l’utilisation de comptes d’administration dédiés. Utilisez la gestion des identités et des accès dans Azure Security Center pour superviser le nombre de comptes d’administration. 
 
 Vous pouvez également activer une solution JIT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide de rôles [Azure AD Privileged Identity Management](../../../active-directory/privileged-identity-management/pim-configure.md) ou d’[Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -72,13 +72,13 @@ Vous pouvez également activer une solution JIT (Juste-à-temps)/JEA (Just-Enoug
 
 *Pour plus d’informations, consultez [Contrôle de sécurité : Protection des données](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Aide** : Utiliser le contrôle d’accès en fonction du rôle Azure Active Directory (RBAC) pour contrôler l’accès à Azure Policy.
+**Aide** : Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler l’accès à Azure Policy.
 
-* [Autorisations RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
+* [Autorisations Azure RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [Guide pratique pour configurer le contrôle RBAC dans Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Comment configurer Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Supervision d’Azure Security Center** : actuellement non disponible

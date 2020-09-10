@@ -10,12 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904256"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268823"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -166,7 +167,7 @@ Si le paramètre `videoUrl` n’est pas spécifié, Video Indexer s’attend à 
 
 L’extrait de code C# suivant illustre l’utilisation conjointe de toutes les API Video Indexer.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Instructions pour l’exécution de cet exemple de code
+**Instructions pour l’exécution de l’exemple de code suivant**
 
 Après avoir copié ce code dans votre plateforme de développement, vous devez fournir deux paramètres : URL de la vidéo et clé d’authentification de Gestion des API.
 

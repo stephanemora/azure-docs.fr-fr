@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07e33279452b8296688c358c9ffdab1bfb2e1321
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543960"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299998"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -204,7 +205,7 @@ Veuillez noter que la sécurité au niveau des lignes, en tant que fonctionnalit
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Étapes** | Un jeton qui accorde un accès direct au concentrateur d’événement ne doit pas être fourni à l’appareil. L’utilisation d’un jeton avec des privilèges minimum pour l’appareil, qui n’accorde l’accès qu’à un éditeur, permet d’identifier et de bloquer un appareil s’il est jugé non fiable ou compromis.|
+| **Étapes** | Un jeton qui accorde un accès direct au concentrateur d’événement ne doit pas être fourni à l’appareil. L’utilisation d’un jeton avec des privilèges minimum pour l’appareil, qui n’accorde l’accès qu’à un éditeur, permet d’identifier et d’interdire un appareil s’il est jugé non fiable ou compromis.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises
 

@@ -3,12 +3,12 @@ title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530115"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050673"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -39,10 +39,14 @@ L’appliance peut être déployée comme suit :
 - Si vous ne souhaitez pas utiliser de modèle, ou si vous êtes dans Azure Government, vous pouvez déployer l’appliance pour VMware ou Hyper-V à l’aide d’un script PowerShell.
 - Pour les serveurs physiques, vous déployez toujours l’appliance à l’aide d’un script.
 
-
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Comment l’appliance se connecte-t-elle à Azure ?
 
-L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute avec le peering public/Microsoft.
+L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute.
+
+- Afin d’utiliser Azure ExpressRoute pour le trafic de réplication Azure Migrate, un Peering Microsoft ou un Peering public existant est requis (le Peering public est déconseillé pour les nouvelles créations d’ExpressRoute ).
+- La réplication sur Azure ExpressRoute avec (uniquement) le Peering privé activé n’est pas prise en charge.
+
+Azure ExpressRoute avec Peering Microsoft configuré est le domaine de routage recommandé pour le trafic de réplication.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L’analyse de l’appliance affecte-t-elle les performances ?
 
@@ -53,7 +57,6 @@ L’appliance Azure Migrate profile les machines locales en continu pour mesurer
 Quand vous utilisez le modèle téléchargé pour créer la machine virtuelle de l’appliance, vous pouvez ajouter des composants (par exemple un antivirus) au modèle si vous conservez les règles de communication et de pare-feu nécessaires à l’appliance Azure Migrate.
 
 ## <a name="what-network-connectivity-is-required"></a>Quelle est la connectivité réseau nécessaire ?
-
 
 L’appliance doit avoir accès aux URL Azure. [Examinez](migrate-appliance.md#url-access) la liste des URL.
 
@@ -99,9 +102,11 @@ Ces étapes décrivent comment l’appliance se connecte au serveur VMware vCent
 Non. Il existe un mappage un-à-un entre une [appliance Azure Migrate](migrate-appliance.md) et vCenter Server. Pour découvrir des machines virtuelles sur plusieurs instances de vCenter Server, vous devez déployer plusieurs appliances. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un projet Azure Migrate peut-il avoir plusieurs appliances ?
+
 Plusieurs appliances peuvent être attachées à un même projet. Toutefois, une appliance ne peut être associée qu’à un seul projet. 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>L’appliance Azure Migrate/de réplication peut-elle se connecter au même vCenter ?
+
 Oui. Vous pouvez ajouter à la fois l’appliance Azure Migrate (utilisée pour l’évaluation et la migration VMware sans agent) et l’appliance de réplication (utilisée pour la migration basée sur agent des machines virtuelles VMware) vers le même serveur vCenter.
 
 

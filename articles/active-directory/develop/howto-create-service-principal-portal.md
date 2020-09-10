@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117224"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178941"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -87,7 +87,7 @@ Vous avez créé votre application Azure AD et le principal de service.
 
 ## <a name="assign-a-role-to-the-application"></a>Attribuer un rôle à l’application
 
-Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle *Lecteur* pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 

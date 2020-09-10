@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086600"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075305"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utiliser un broker d’ID pour la gestion des informations d’identification
 
@@ -98,6 +98,8 @@ Une fois le broker d’ID activé, vous avez toujours besoin d’un hachage de M
 
 L’authentification SSH requiert que le hachage soit disponible dans Azure AD DS. Si vous souhaitez utiliser SSH uniquement pour les scénarios d’administration, vous pouvez créer un compte cloud seulement et l’utiliser pour utiliser SSH pour le cluster. Les autres utilisateurs peuvent toujours utiliser les outils Ambari ou HDInsight (par exemple, le plug-in IntelliJ) sans avoir le hachage de Mot de passe disponible dans Azure AD DS.
 
+Pour résoudre les problèmes d’authentification, consultez ce [guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clients utilisant OAuth pour se connecter à la passerelle HDInsight avec la configuration du broker d’ID
 
 Dans la configuration du broker d’ID, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Vous pouvez suivre les étapes décrites dans ce [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) pour obtenir le jeton avec les informations suivantes :
@@ -105,6 +107,12 @@ Dans la configuration du broker d’ID, les applications personnalisées et les 
 *   URI de ressource OAuth : `https://hib.azurehdinsight.net` 
 * AppId : 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Autorisation : (nom : Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+
+Après l’acquisition du jeton OAuth, vous pouvez l’utiliser dans l’en-tête d’autorisation de la requête HTTP adressée à la passerelle de cluster (par exemple, <clustername>-int.azurehdinsight.net). Par exemple, un exemple de commande de boucle pour l’API livy peut se présenter comme suit :
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

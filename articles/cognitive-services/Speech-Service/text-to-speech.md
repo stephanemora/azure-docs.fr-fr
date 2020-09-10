@@ -1,27 +1,29 @@
 ---
-title: Synthèse vocale – Service Speech
+title: Vue d’ensemble de la synthèse vocale – service Speech
 titleSuffix: Azure Cognitive Services
-description: La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Choisissez des voix prédéfinies ou créez votre propre voix personnalisée.
+description: La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Cet article est une vue d’ensemble des avantages et des capacités du service de conversion de texte par synthèse vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: conversion de texte par synthèse vocale
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167706"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401178"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-La synthèse vocale du service Speech permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou à votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans un nombre limité de langues et de paramètres régionaux. Pour obtenir la liste complète des voix, langues et paramètres régionaux pris en charge, consultez [Langues prises en charge](language-support.md#text-to-speech).
+Dans cette vue d’ensemble, vous allez découvrir les avantages et les capacités du service de conversion de texte par synthèse vocale, qui permet à vos applications, outils ou appareils de convertir du texte en voix synthétisée quasi humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou à votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans un nombre limité de langues et de paramètres régionaux. Pour obtenir la liste complète des voix, langues et paramètres régionaux pris en charge, consultez [Langues prises en charge](language-support.md#text-to-speech).
 
 > [!NOTE]
 > La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing ou Custom Speech, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.

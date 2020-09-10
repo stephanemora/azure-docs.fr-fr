@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585863"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394752"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -67,7 +67,7 @@ Avant d’utiliser des clés, des secrets ou des certificats dans votre coffre d
 - [Définir et récupérer un certificat avec l’interface CLI](../certificates/quick-create-cli.md)
 - [Définir et récupérer un certificat avec PowerShell](../certificates/quick-create-powershell.md)
 - [Définir et récupérer une clé avec le Portail Azure](../certificates/quick-create-portal.md)
-- [Opérations sur clés avec les API REST](/rest/api/keyvault/#certificate-operations)
+- [Opérations de certificat avec REST](/rest/api/keyvault/#certificate-operations)
 - [Définir et récupérer un certificat avec Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codage avec coffre de clés
@@ -125,7 +125,7 @@ Les articles et scénarios suivants fournissent des conseils spécifiques sur l�
 - [Utilisation de Key Vault pour la gestion extensible de clés avec SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) : le connecteur SQL Server pour Azure Key Vault permet à SQL Server et à SQL-in-a-VM d'exploiter le service Azure Key Vault comme un fournisseur de gestion extensible de clés (EKM) afin de protéger ses clés de chiffrement pour le lien des applications ; chiffrement transparent des données, chiffrement de sauvegarde et chiffrement au niveau des colonnes.
 - [Comment déployer des certificats sur des machines virtuelles à partir du coffre de clés](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Une application cloud s’exécutant sur une machine virtuelle sur Azure a besoin d’un certificat. Comment obtenir ce certificat sur cette machine virtuelle dès aujourd’hui ?
 - [Déploiement d’Azure App Service Certificate via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) fournit des instructions détaillées pour déployer les certificats stockés dans Key Vault dans le cadre l’offre [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Autoriser de nombreuses applications à accéder à un coffre de clés](group-permissions-for-apps.md) : la stratégie de contrôle d’accès de Key Vault prend en charge jusqu’à 1024 entrées. Mais vous pouvez créer un groupe de sécurité Azure Active Directory. Ajoutez tous les principaux du service associés à ce groupe de sécurité et accordez à ce groupe de sécurité l’accès à Key Vault.
+- Attribuer une stratégie d’accès ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Portail](assign-access-policy-portal.md)). Key Vault prend en charge jusqu’à 1024 entrées de stratégie d’accès. Pour rester dans cette limite avec les utilisateurs, créez des groupes de sécurité Azure Active Directory, ajoutez tous les principaux de service associés à ce groupe, puis accordez au groupe l’accès à Key Vault.
 - Pour obtenir des conseils plus spécifiques sur certaines tâches, en relation avec l’intégration et l’utilisation de coffres de clés avec Azure, voir les [exemples de modèles Azure Resource Manager de Ryan Jones pour Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](soft-delete-cli.md) décrit l’utilisation et le cycle de vie d’un coffre de clés et des différents objets du coffre de clés quand la suppression réversible est activée.
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec PowerShell](soft-delete-powershell.md) décrit l’utilisation et le cycle de vie d’un coffre de clés et des différents objets du coffre de clés quand la suppression réversible est activée.

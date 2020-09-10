@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 11e8a2fd709b40c68b90e5ed139f18997e4cb29e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497067"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396962"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -353,7 +353,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide de PowerShell, utilisez la commande [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
+Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide de PowerShell, utilisez la commande [Remove-AzSqlVM](/powershell/module/az.sqlvirtualmachine/remove-azsqlvm). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
@@ -398,9 +398,9 @@ Le mode de gestion SQL par défaut au moment de l’inscription auprès du fourn
 
 **L’inscription auprès du fournisseur de ressources de machine virtuelle SQL a-t-elle pour effet d’installer un agent sur ma machine virtuelle ?**
 
-Non. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL crée uniquement une ressource de métadonnées. Elle n’a pas pour effet d’installer un agent sur la machine virtuelle.
+Oui, l’inscription auprès du fournisseur de ressources de machine virtuelle SQL installera un agent sur la machine virtuelle.
 
-L’extension IaaS SQL Server n’est nécessaire que pour activer la gestion complète. La mise à niveau du mode de gestion léger à complet a pour effet d’installer l’extension IaaS SQL Server et de redémarrer SQL Server.
+L’extension IaaS SQL Server s’appuie sur l’agent pour interroger les métadonnées de SQL Server. La seule fois où un agent n’est pas installé est lorsque le fournisseur de ressources de machine virtuelle SQL est inscrit en mode NoAgent.
 
 **Est-ce que l’inscription auprès du fournisseur de ressources de machine virtuelle SQL permet de redémarrer SQL Server sur ma machine virtuelle ?**
 
@@ -466,6 +466,6 @@ Les deux noms de service sont les suivants :
 Pour plus d’informations, consultez les articles suivants : 
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.md)
+* [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.md)  
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
 * [Notes de publication pour SQL Server sur une machine virtuelle Windows](../../database/doc-changes-updates-release-notes.md)

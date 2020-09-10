@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029091"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999816"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
@@ -36,7 +36,7 @@ Les journaux Azure Monitor fournissent des fonctionnalités de supervision, d’
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-Pour plus d’informations sur les distributions Linux prises en charge, consultez l’article [Vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+Pour plus d’informations sur les distributions Linux prises en charge, consultez l’article [Vue d’ensemble des agents Azure Monitor](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
 Le tableau ci-après mappe la version de l’extension de machine virtuelle Log Analytics sur la version du bundle de l’agent Log Analytics pour chaque mise en production. Un lien vers les notes de publication pour la version du bundle de l’Agent Log Analytics est inclus. Les notes de version fournissent des détails sur les correctifs de bogues et les nouvelles fonctionnalités disponibles pour une version spécifique de l’agent.  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941981"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299522"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La machine virtuelle ne répond pas lors de l’application de la stratégie Configuration de la stratégie d’audit
 
@@ -27,7 +27,7 @@ Cet article décrit les étapes à suivre pour résoudre les problèmes d’abse
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que le système d’exploitation a été suspendu au cours d’un démarrage avec le message **Application de la stratégie Configuration de la stratégie d’audit**.
+Lorsque vous utilisez [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) pour afficher la capture d’écran de la machine virtuelle, la capture d’écran indique que le système d’exploitation restait sans réponse au cours d’un démarrage avec le message **Application de la stratégie Configuration de la stratégie d’audit**.
 
   ![Démarrage du système d’exploitation avec le message : « Application de la stratégie Configuration de la stratégie d’audit »](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

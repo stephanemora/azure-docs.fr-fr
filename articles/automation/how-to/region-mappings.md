@@ -10,18 +10,21 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 879c6d247a915def7b4b8d53c74bde7861e47f1d
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447860"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279803"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
 Dans Azure Automation, vous pouvez activer les fonctionnalités Update Management, Change Tracking and Inventory et Start/Stop VMs during off-hours pour vos machines virtuelles. Toutefois, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation dans votre abonnement. Les mappages de régions s’applique uniquement au compte Automation et à l’espace de travail Log Analytics. L’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même abonnement, mais ils peuvent se trouver dans des groupes de ressources différents déployés dans la même région. Pour plus d’informations, consultez [Espace de travail Log Analytics et compte Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mappages pris en charge
+
+> [!NOTE]
+> Comme indiqué dans le tableau suivant, un seul mappage peut exister entre Log Analytics et Azure Automation.
 
 Le tableau suivant renseigne sur les mappages pris en charge :
 

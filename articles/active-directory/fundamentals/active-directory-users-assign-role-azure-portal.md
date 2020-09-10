@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902352"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321240"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
 
@@ -28,10 +28,10 @@ Pour plus d’informations sur les rôles Azure AD disponibles, consultez [Attri
 
 ## <a name="assign-roles"></a>Attribuer des rôles
 
-Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve dans la page **Rôles affectés** d’un utilisateur. Vous pouvez également configurer l’éligibilité de l’utilisateur à disposer du droit d’être promu juste-à-temps dans un rôle avec Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Une méthode courante pour assigner des rôles Azure AD à un utilisateur se trouve dans la page **Rôles affectés** d’un utilisateur. Vous pouvez également configurer l’éligibilité de l’utilisateur à disposer du droit d’être promu juste-à-temps dans un rôle avec Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> Si vous disposez d’un plan de licences Azure AD Premium P2 et que vous utilisez déjà PIM, toutes les tâches de gestion des rôles sont effectuées dans l’[expérience Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md).
+> Si vous disposez d’un plan de licences Azure AD Premium P2 et que vous utilisez déjà PIM, toutes les tâches de gestion des rôles sont effectuées dans l’[expérience Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md). Cette fonctionnalité est actuellement limitée à l’attribution d’un seul rôle à la fois. Actuellement, vous ne pouvez pas sélectionner plusieurs rôles et les affecter à un utilisateur tous en même temps.
 >
 > ![Rôles Azure AD gérés dans PIM pour les utilisateurs qui se servent déjà de PIM et qui disposent d’une licence Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -79,6 +79,6 @@ Si vous devez supprimer l’attribution de rôle d’un utilisateur, vous pouvez
 
 - [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)
 
-- [Ajouter des utilisateurs invités à partir d’un autre répertoire](../b2b/what-is-b2b.md)
+- [Ajouter des utilisateurs invités à partir d’un autre répertoire](../external-identities/what-is-b2b.md)
 
 Vous pouvez consulter d’autres tâches de gestion des utilisateurs disponibles dans [Documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).

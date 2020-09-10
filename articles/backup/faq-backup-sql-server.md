@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890553"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180097"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 

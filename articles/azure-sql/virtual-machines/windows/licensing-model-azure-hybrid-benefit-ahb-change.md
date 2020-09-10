@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010220"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,7 +156,9 @@ Le changement de modèle de licence est :
 
 ## <a name="known-errors"></a>Erreurs connues
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>La ressource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' sous le groupe de ressources '\<resource-group>' est introuvable.
+Passez en revue les erreurs courantes connues et leurs résolutions. 
+
+**La ressource ’Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>’ sous le groupe de ressources ’\<resource-group>’ est introuvable.**
 
 Cette erreur se produit lorsque vous essayez de changer le modèle de licence sur une machine virtuelle SQL Server qui n’a pas été inscrite auprès du fournisseur de ressources de machines virtuelles SQL Server.
 
@@ -165,7 +167,7 @@ Cette erreur se produit lorsque vous essayez de changer le modèle de licence su
 Vous devez inscrire votre abonnement auprès du fournisseur de ressources, puis [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources](sql-vm-resource-provider-register.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La machine virtuelle '\<vmname\>' a plus d’une carte réseau associée
+**La machine virtuelle ’\<vmname\>’ a plus d’une carte réseau associée**
 
 Cette erreur se produit sur les machines virtuelles dotées de plusieurs cartes d’interface réseau. Supprimez l’une des cartes d’interface réseau avant de changer de modèle de licence. Bien que vous puissiez rajouter la carte d’interface réseau à la machine virtuelle après avoir changé de modèle de licence, les opérations dans le portail Azure telles que la sauvegarde et la mise à jour corrective automatiques ne sont plus prises en charge. 
 

@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890074"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378455"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure (MABS)
 
@@ -51,10 +51,10 @@ Assurez-vous que les prérequis suivants sont remplis avant de démarrer le work
 * Créez un compte de stockage Azure dans le même abonnement que le coffre Recovery Services.
 * Assurez-vous de disposer des [autorisations nécessaires](../active-directory/develop/howto-create-service-principal-portal.md) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion.
 * Inscrivez le fournisseur de ressources Microsoft.ImportExport dans l’abonnement contenant le compte de stockage Azure. Pour inscrire le fournisseur de ressources :
-    1. Dans le menu principal, cliquez sur **Abonnements**.
+    1. Dans le menu principal, sélectionnez **Abonnements**.
     2. Si vous disposez de plusieurs abonnements, sélectionnez celui que vous utilisez pour la sauvegarde hors connexion. Si vous n’utilisez qu’un seul abonnement, celui-ci s’affiche.
-    3. Dans le menu de l’abonnement, cliquez sur **Fournisseurs de ressources** pour afficher la liste des fournisseurs.
-    4. Faites défiler la liste des fournisseurs jusqu’à Microsoft.ImportExport. Si l’état est NotRegistered, cliquez sur **Inscrire**.
+    3. Dans le menu de l’abonnement, sélectionnez **Fournisseurs de ressources** pour afficher la liste des fournisseurs.
+    4. Faites défiler la liste des fournisseurs jusqu’à Microsoft.ImportExport. Si l’état est NotRegistered, sélectionnez **Inscrire**.
 
        ![Inscription du fournisseur de ressources](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
 ## <a name="initiate-offline-backup"></a>Lancer la sauvegarde hors connexion
 
-1. Lorsque vous créez un nouveau groupe de protection avec la protection en ligne ou ajoutez une protection en ligne à un groupe de protection existant, l’écran suivant s’affiche. Pour sélectionner la méthode de réplication en ligne initiale, sélectionnez **Transfert depuis mon propre disque** puis cliquez sur **Suivant**.
+1. Lorsque vous créez un nouveau groupe de protection avec la protection en ligne ou ajoutez une protection en ligne à un groupe de protection existant, l’écran suivant s’affiche. Pour sélectionner la méthode de réplication en ligne initiale, sélectionnez **Transfert depuis mon propre disque** puis sélectionnez **Suivant**.
 
     ![Écran d’importation](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ La procédure suivante met à jour les informations d’expédition de la tâche
 * les détails de retour d’expédition pour vos disques
 
    1. Connectez-vous à votre abonnement Azure.
-   2. Dans le menu principal, cliquez sur **Tous les services**, puis, dans la boîte de dialogue Tous les services, saisissez Importer. Cliquez sur **Tâches d’importation/exportation**.
+   2. Dans le menu principal, sélectionnez **Tous les services**, puis, dans la boîte de dialogue Tous les services, saisissez Importer. Lorsque vous voyez **Tâches d’importation/d’exportation**, sélectionnez-le.
        ![Saisie des informations d’expédition](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Le menu **Tâches d’importation/exportation** s’ouvre et affiche la liste de toutes les tâches d’importation/exportation associées à l’abonnement sélectionné.
@@ -169,11 +169,11 @@ La procédure suivante met à jour les informations d’expédition de la tâche
 
        ![Réviser les informations d’expédition](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. Dans le menu Paramètres de la tâche d’importation, cliquez sur **Manage Shipping Info** (Gérer les informations d’expédition) et saisissez les informations de retour d’expédition.
+   4. Dans le menu Paramètres de la tâche d’importation, sélectionnez **Manage Shipping Info** (Gérer les informations d’expédition) et saisissez les informations de retour d’expédition.
 
        ![Stockage des informations d’expédition](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Une fois que votre transporteur vous a transmis le numéro de suivi, cliquez sur la bannière dans la page de la tâche d’importation Azure et entrez les informations suivantes :
+   5. Une fois que votre transporteur vous a transmis le numéro de suivi, sélectionnez la bannière dans la pageTâche d’importation d’Azure et entrez les informations suivantes :
 
       > [!IMPORTANT]
       > Assurez-vous que les informations relatives au transporteur et au numéro de suivi sont mises à jour dans un délai de deux semaines après la création de la tâche d’importation Azure. Si ces informations ne sont pas confirmées dans un délai de deux semaines, la tâche peut être annulée, annulant de ce fait le traitement des disques.
@@ -192,7 +192,7 @@ Vous pouvez suivre l’état de votre tâche d’importation à partir du portai
 
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
 
-Une fois le travail d’importation terminé, les données de sauvegarde initiale sont disponibles dans votre compte de stockage. Lors de la prochaine sauvegarde planifiée, Sauvegarde Azure copie le contenu des données à partir du compte de stockage vers le coffre Recovery Services.
+Une fois le travail d’importation terminé, les données de sauvegarde initiale sont disponibles dans votre compte de stockage. Lors de la sauvegarde planifiée suivante, Sauvegarde Azure copie le contenu des données à partir du compte de stockage vers le coffre Recovery Services.
 
 Lors du prochain travail de création de réplica planifié, Data Protection Manager effectue une sauvegarde incrémentielle par-dessus la copie de sauvegarde initiale.
 

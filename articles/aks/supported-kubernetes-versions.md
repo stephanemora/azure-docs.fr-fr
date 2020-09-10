@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475190"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144615"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -135,10 +135,10 @@ Pour connaître l’historique des versions antérieures, cliquez [ici](https://
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | 9 déc. 19  | Jan. 19   | Juil. 20  | 1.20 GA | 
-| 1.18  | 23 mars 20  | Mai 20   | Août 20  | 1.21 GA | 
-| 1,19  | 4 août 20  | Août 20   | Nov. 20  | 1.22 GA | 
-| 1.20  | Nov. 20*    | Déc. 20*   | Jan. 21*  | 1.23 GA | 
+| 1.17  | 9 déc. 19  | janvier 2019   | Juil. 2020  | 1.20 GA | 
+| 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
+| 1,19  | 4 août 20  | Août 2020   | Nov. 2020  | 1.22 GA | 
+| 1.20  | *Nov. 2020    | *Déc. 2020   | *Jan. 2021  | 1.23 GA | 
 
 \* En attente de confirmation de la date de sortie en amont.
 

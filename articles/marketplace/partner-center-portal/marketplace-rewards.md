@@ -8,18 +8,18 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705042"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378710"
 ---
 # <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
 Les récompenses du marketplace vous soutiennent dans votre phase de croissance spécifique, en commençant par des activités de sensibilisation pour vous aider à décrocher vos premiers clients. À mesure que vous progressez sur le marketplace commercial Microsoft, vous déverrouillez de nouveaux avantages conçus pour vous aider à convertir vos clients et conclure des affaires.
 
-Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance vous aident à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme le marketplace commercial.
+Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance vous aident à passer à l’étape suivante, ce qui vous aide à développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme le marketplace commercial.
 
 Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
@@ -29,16 +29,16 @@ Pour les partenaires Transact, vous débloquez des avantages supplémentaires pa
 
 La configuration minimale requise pour publier dans les magasins en ligne est un MPNID. Ainsi, ces avantages sont disponibles pour tous les partenaires, quel que soit le statut de compétence MPN ou le type de partenaire. Chaque partenaire est habilité à développer son activité sur le marketplace commercial en tant que plateforme.
 
-Vous bénéficierez d’un support technique pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [évaluer vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Vous bénéficierez d’une aide pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [consulter vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Pour vérifier votre éligibilité au programme Marketplace Rewards, consultez la page [Récompenses de la place de marché](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) dans Espace partenaires.
 
 Les étapes à suivre pour démarrer sont simples :
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
-2. Accédez au [tableau de bord](https://partner.microsoft.com/dashboard/directory) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente** dans la page Récompenses de la Place de marché pour afficher votre liste d’avantages.
-3. Pour activer l’avantage de marketing et de vente, vous devez d’abord attribuer un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
-4. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
+1. Pour afficher votre liste d’avantages, accédez à la page [Récompenses de la Place de marché](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) de l’Espace partenaires et sélectionnez l’onglet **Avantages de marketing et de vente**.
+1. Pour activer l’avantage de marketing et de vente, vous devez d’abord attribuer un contact marketing d’entreprise. Ce contact recevra les communications de suivi concernant vos récompenses de la Place de marché.
+1. Pour ajouter ou mettre à jour vos informations de contact marketing, accédez à la partie supérieure de l’onglet Avantages de marketing et de vente, dans la page Récompenses de la Place de marché, puis sélectionnez **Ajouter, mettre à jour ou modifier**.  Ensuite, effectuez les actions suivantes :
 
     1. Sélectionnez un utilisateur dans la liste. Si l’utilisateur que vous souhaitez attribuer ne figure pas dans la liste, vous pouvez ajouter de nouveaux utilisateurs dans **Paramètres du compte**.
     1. Fournissez une adresse e-mail pour l’utilisateur qui diffère de celle associée au compte de l’Espace partenaires de votre société. Nous vous enverrons par e-mail des instructions pour l’utilisation de votre avantage Récompenses de la Place de marché à l’adresse e-mail de votre contact marketing désigné.
@@ -48,7 +48,7 @@ Les étapes à suivre pour démarrer sont simples :
 ## <a name="technical-benefits"></a>Avantages techniques
 
 1. Vous pouvez utiliser votre avantage technique pour demander une assistance technique pendant les phases de prévente, de conception, de déploiement et de développement d’applications de vos solutions cloud et hybrides. Pour demander de l’aide, remplissez le formulaire de demande, puis sélectionnez **Envoyer la demande**.
-2. La façon d’utiliser les avantages du parrainage Azure sera partagée via un e-mail à mesure que vous déverrouillerez ces avantages.
+1. La façon d’utiliser les avantages du parrainage Azure sera partagée via un e-mail à mesure que vous déverrouillerez ces avantages.
 
 >[!NOTE]
 >Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, consultez Espace partenaires pour savoir qui est le propriétaire de l’offre en question dans votre organisation. Cette personne devrait disposer de la communication et des étapes suivantes. Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, ouvrez un ticket de support sur https://aka.ms/marketplacepublishersupport.

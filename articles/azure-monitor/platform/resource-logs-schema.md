@@ -3,13 +3,13 @@ title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/15/2020
-ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/01/2020
+ms.openlocfilehash: 133847abada718acbf42baf723e598c132d64e14
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782122"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392610"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -54,9 +54,6 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Passerelles d’application |[Journalisation pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation d’Azure Batch](../../batch/batch-diagnostics.md) |
-| Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Explorateur de données Azure | [Journaux d’Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Réseau de distribution de contenu | [Journaux Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -64,7 +61,11 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accès aux journaux d’Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accès aux journaux d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Explorateur de données Azure | [Journaux d’Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Digital Twins | [Configurer les diagnostics Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schéma non disponible. |
 | Pare-feu Azure | Schéma non disponible. |
@@ -84,6 +85,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Network | Schéma non disponible. |
 | Passerelles de réseau virtuel | Schéma non disponible. |
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

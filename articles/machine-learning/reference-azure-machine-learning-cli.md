@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f037ea30a1507d4736db7f837e5286701db030e0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611762"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146677"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -150,15 +150,49 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
 
     Pour plus d’informations, consultez [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
 
-+ Créez une nouvelle cible de calcul AML.
+### <a name="compute-clusters"></a>Clusters de calcul
+
++ Créez un cluster de calcul géré.
 
     ```azurecli-interactive
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
 
-    Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-+ <a id="computeinstance"></a> Gérer des instances de calcul.  Dans tous les exemples ci-dessous, le nom de l’instance de calcul est **cpu**
+
++ Créer un cluster de calcul géré avec une identité managée
+
+  + Identité managée affectée par l’utilisateur
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+    ```
+
+  + Identité managée affectée par le système
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
+    ```
++ Ajouter une identité managée à un cluster existant :
+
+    + Identité managée affectée par l’utilisateur
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+        ```
+    + Identité managée affectée par le système
+
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
+        ```
+
+Pour plus d’informations, consultez [aaz ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
+
+<a id="computeinstance"></a>
+
+### <a name="compute-instance"></a>Instance de calcul
+ Gérer des instances de calcul.  Dans tous les exemples ci-dessous, le nom de l’instance de calcul est **cpu**
 
     + Créer un nouveau computeinstance.
 
@@ -225,6 +259,36 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
     ```
 
     Pour plus d’informations, consultez [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+### <a name="hyperdrive-run"></a>Série de tests HyperDrive
+
+Vous pouvez utiliser HyperDrive avec Azure CLI pour effectuer des séries de tests pour le réglage des paramètres. Commencez par créer un fichier de configuration HyperDrive au format suivant. Pour plus d’informations sur les paramètres de réglage des hyperparamètres, voir l’article [Optimiser les hyperparamètres pour votre modèle](how-to-tune-hyperparameters.md).
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Ajoutez ce fichier aux fichiers de configuration de série de tests. Ensuite, soumettez une série de tests HyperDrive en utilisant :
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Notez la section *arguments* dans le fichier runconfig et la section *parameter space* dans le fichier config HyperDrive. Elles contiennent les arguments de ligne de commande à passer au script d’apprentissage. La valeur dans le fichier runconfig reste la même pour chaque itération, tandis que la plage dans le fichier config HyperDrive fait l’objet d’une itération. Ne spécifiez pas le même argument dans les deux fichiers.
 
 ## <a name="dataset-management"></a>Gestion des jeux de données
 

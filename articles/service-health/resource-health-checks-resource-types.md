@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611940"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230158"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -22,6 +22,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Est-ce que le service Gestion des API est opérationnel ?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
+|Vérifications exécutées|
+|---|
+|<ul><li>L’instance Azure Spring Cloud est-elle disponible ?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Vérifications exécutées|
@@ -62,6 +67,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Est-ce que le serveur d’hébergement de cette machine virtuelle est en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li><li>Le matériel hôte est-il détérioré, avec la prévision d’une panne imminente ?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+|Vérifications exécutées|
+|---|
+|<ul><li>Le cluster est-il opérationnel ?</li><li>Les services principaux sont-ils disponibles dans le cluster ?</li><li>Tous les nœuds de cluster sont-ils prêts ?</li><li>Le principal du service est-il actuel et valide ?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Vérifications exécutées|
@@ -124,10 +134,20 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les services principaux sont-ils disponibles dans le cluster HDInsight ?</li><li>Le cluster HDInsight peut-il accéder à la clé pour le chiffrement BYOK au repos ?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+|Vérifications exécutées|
+|---|
+|<ul><li>L’application IoT Central est-elle disponible ?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Vérifications exécutées|
 |---|
 |<ul><li>Les demandes de coffre de clés échouent-elles en raison de problèmes de plateforme Azure KeyVault ?</li><li>Les demandes de coffre de clés sont-elles limitées en raison de trop de requêtes effectuées par le client ?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/clusters
+|Vérifications exécutées|
+|---|
+|<ul><li>Le cluster connaît-il de taux de réussite d’ingestion des données faibles ?</li><li>Le cluster connaît-il une lance d’ingestion élevée ?</li><li>Le cluster rencontre-t-il un grand nombre d’échecs de requêtes ?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Vérifications exécutées|
@@ -164,6 +184,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les points de terminaison d’équilibrage de charge sont-ils disponibles ?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.network/trafficmanagerprofiles
+|Vérifications exécutées|
+|---|
+|<ul><li>Y a-t-il des problèmes affectant le profil de Traffic Manager ?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Vérifications exécutées|
 |---|
@@ -183,11 +208,6 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>La ressource de capacité est-elle opérationnelle ?</li><li>Toutes les charges de travail sont-elles opérationnelles ?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Vérifications exécutées|
-|---|
-|<ul><li>Le système d’exploitation hôte est-il en cours d’exécution ?</li><li>WorkspaceCollection est-elle accessible depuis l’extérieur du centre de données ?</li><li>Le fournisseur de ressources Power BI est-il disponible ?</li><li>Le service Power BI est-il disponible dans la région appropriée ?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Vérifications exécutées|

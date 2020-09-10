@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032181"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049534"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -122,7 +122,7 @@ Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
-- Si vous ne savez pas encore configurer des stratégies d’accès conditionnel, consultez la section [Exiger l’authentification multifacteur (MFA) pour certaines applications disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md) pour en avoir un exemple.
+- [Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-insights-reporting.md)
+- Si vous ne savez pas encore configurer des stratégies d’accès conditionnel, consultez la section [Exiger l’authentification multifacteur (MFA) pour certaines applications disposant d’un accès conditionnel Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md) pour en avoir un exemple.
 - Pour en savoir plus sur la prise en charge de l’authentification moderne, voir [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
 - [Comment configurer une application ou un appareil multifonction pour envoyer un e-mail à l’aide d’Office 365 et de Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

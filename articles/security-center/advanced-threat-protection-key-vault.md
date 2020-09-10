@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7025b091b83a56b7b3df18c3f42cb84b163560bb
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77914804"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277763"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Protection contre les menaces pour Azure Key Vault (préversion)
 
@@ -21,7 +21,7 @@ La protection avancée contre les menaces pour Azure Key Vault fournit une couch
 
 Lorsque Security Center détecte une activité anormale, il affiche des alertes. Il envoie également un e-mail à l’administrateur des abonnements avec les détails de l’activité suspecte et des recommandations sur la façon d’examiner et de corriger les menaces identifiées.
 
-## <a name="configuring-threat-protection-from-security-center"></a>Configuration de la protection contre les menaces à partir de Security Center
+## <a name="configure-threat-protection-from-security-center"></a>Configurer la protection contre les menaces à partir de Security Center
 
 Par défaut, la protection avancée contre les menaces est activée pour tous vos comptes Key Vault lorsque vous vous abonnez au niveau tarifaire Standard de Security Center. Pour plus d’informations, voir la [tarification](security-center-pricing.md).
 

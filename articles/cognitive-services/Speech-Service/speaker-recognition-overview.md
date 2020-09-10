@@ -1,25 +1,27 @@
 ---
-title: Service Azure Reconnaissance de l’orateur
+title: Présentation de Reconnaissance de l’orateur – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Le service Reconnaissance de l’orateur d’Azure Cognitive Services fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ».
+description: Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres en utilisant la biométrie vocale. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». Cet article est une présentation des avantages et des capacités du service Reconnaissance de l’orateur.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: speaker recognition, voice biometry
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780883"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397257"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>Qu’est-ce que le service Azure Reconnaissance de l’orateur ?
+# <a name="what-is-speaker-recognition"></a>Qu’est-ce que la reconnaissance de l’orateur ?
 
-Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». Vous fournissez des données d’entraînement audio pour un seul orateur, ce qui crée un profil d’inscription basé sur les caractéristiques uniques de la voix de l’orateur. Vous pouvez ensuite effectuer une vérification croisée des échantillons audio de la voix par rapport à ce profil pour vérifier que l’orateur est la même personne (vérification de l’orateur) ou par rapport à un *groupe* de profils d’orateur inscrits, pour voir s’ils correspondent à un profil du groupe (identification de l’orateur). En revanche, la [diarisation des orateurs](batch-transcription.md#speaker-separation-diarization) regroupe des segments audio par orateur dans une opération de traitement par lot.
+Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres en utilisant la biométrie vocale. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». Vous fournissez des données d’entraînement audio pour un seul orateur, ce qui crée un profil d’inscription basé sur les caractéristiques uniques de la voix de l’orateur. Vous pouvez ensuite effectuer une vérification croisée des échantillons audio de la voix par rapport à ce profil pour vérifier que l’orateur est la même personne (vérification de l’orateur) ou par rapport à un *groupe* de profils d’orateur inscrits, pour voir s’ils correspondent à un profil du groupe (identification de l’orateur). En revanche, la [diarisation des orateurs](batch-transcription.md#speaker-separation-diarization) regroupe des segments audio par orateur dans une opération de traitement par lot.
 
 ## <a name="speaker-verification"></a>Vérification de l’orateur
 

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722566"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321767"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Étiquettes des images conteneur Azure Cognitive Services
 
@@ -120,6 +120,8 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | Étiquettes d’image            | Notes |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.3.1-amd64-preview` |       | 
+| `2.3.0-amd64-preview` |       |
 | `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
@@ -135,17 +137,138 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | Étiquettes d’image            | Notes |
 |-----------------------|:------|
 | `latest`              |       |
+| `1.6.0-amd64-preview` |       |
+| `1.5.0-amd64-preview` |       |
+| `1.4.0-amd64-preview` |       |
 | `1.3.0-amd64-preview` |       |
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
 L’image conteneur [Reconnaissance vocale][sp-stt] se trouve dans le registre de conteneurs `containerpreview.azurecr.io`. Elle réside dans le référentiel `microsoft` et se nomme `cognitive-services-speech-to-text`. Le nom complet de l’image conteneur est `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
+La version *Virginie du gouvernement des États-Unis* des images de reconnaissance vocale est pris en charge dans la version v2.4.0 et se trouve sur `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text`.
 
 Les étiquettes suivantes sont disponibles pour cette image conteneur :
 
 | Étiquettes d’image                  | Notes                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Image conteneur avec les paramètres régionaux `en-US`. |
+| `2.4.0-amd64-ar-ae-preview` | Image conteneur avec les paramètres régionaux `ar-AE`. |
+| `2.4.0-amd64-ar-eg-preview` | Image conteneur avec les paramètres régionaux `ar-EG`. |
+| `2.4.0-amd64-ar-kw-preview` | Image conteneur avec les paramètres régionaux `ar-KW`. |
+| `2.4.0-amd64-ar-qa-preview` | Image conteneur avec les paramètres régionaux `ar-QA`. |
+| `2.4.0-amd64-ar-sa-preview` | Image conteneur avec les paramètres régionaux `ar-SA`. |
+| `2.4.0-amd64-ca-es-preview` | Image conteneur avec les paramètres régionaux `ca-ES`. |
+| `2.4.0-amd64-da-dk-preview` | Image conteneur avec les paramètres régionaux `da-DK`. |
+| `2.4.0-amd64-de-de-preview` | Image conteneur avec les paramètres régionaux `de-DE`. |
+| `2.4.0-amd64-en-au-preview` | Image conteneur avec les paramètres régionaux `en-AU`. |
+| `2.4.0-amd64-en-ca-preview` | Image conteneur avec les paramètres régionaux `en-CA`. |
+| `2.4.0-amd64-en-gb-preview` | Image conteneur avec les paramètres régionaux `en-GB`. |
+| `2.4.0-amd64-en-in-preview` | Image conteneur avec les paramètres régionaux `en-IN`. |
+| `2.4.0-amd64-en-nz-preview` | Image conteneur avec les paramètres régionaux `en-NZ`. |
+| `2.4.0-amd64-en-us-preview` | Image conteneur avec les paramètres régionaux `en-US`. |
+| `2.4.0-amd64-es-es-preview` | Image conteneur avec les paramètres régionaux `es-ES`. |
+| `2.4.0-amd64-es-mx-preview` | Image conteneur avec les paramètres régionaux `es-MX`. |
+| `2.4.0-amd64-fi-fi-preview` | Image conteneur avec les paramètres régionaux `fi-FI`. |
+| `2.4.0-amd64-fr-ca-preview` | Image conteneur avec les paramètres régionaux `fr-CA`. |
+| `2.4.0-amd64-fr-fr-preview` | Image conteneur avec les paramètres régionaux `fr-FR`. |
+| `2.4.0-amd64-gu-in-preview` | Image conteneur avec les paramètres régionaux `gu-IN`. |
+| `2.4.0-amd64-hi-in-preview` | Image conteneur avec les paramètres régionaux `hi-IN`. |
+| `2.4.0-amd64-it-it-preview` | Image conteneur avec les paramètres régionaux `it-IT`. |
+| `2.4.0-amd64-ja-jp-preview` | Image conteneur avec les paramètres régionaux `ja-JP`. |
+| `2.4.0-amd64-ko-kr-preview` | Image conteneur avec les paramètres régionaux `ko-KR`. |
+| `2.4.0-amd64-mr-in-preview` | Image conteneur avec les paramètres régionaux `mr-IN`. |
+| `2.4.0-amd64-nb-no-preview` | Image conteneur avec les paramètres régionaux `nb-NO`. |
+| `2.4.0-amd64-nl-nl-preview` | Image conteneur avec les paramètres régionaux `nl-NL`. |
+| `2.4.0-amd64-pl-pl-preview` | Image conteneur avec les paramètres régionaux `pl-PL`. |
+| `2.4.0-amd64-pt-br-preview` | Image conteneur avec les paramètres régionaux `pt-BR`. |
+| `2.4.0-amd64-pt-pt-preview` | Image conteneur avec les paramètres régionaux `pt-PT`. |
+| `2.4.0-amd64-ru-ru-preview` | Image conteneur avec les paramètres régionaux `ru-RU`. |
+| `2.4.0-amd64-sv-se-preview` | Image conteneur avec les paramètres régionaux `sv-SE`. |
+| `2.4.0-amd64-ta-in-preview` | Image conteneur avec les paramètres régionaux `ta-IN`. |
+| `2.4.0-amd64-te-in-preview` | Image conteneur avec les paramètres régionaux `te-IN`. |
+| `2.4.0-amd64-th-th-preview` | Image conteneur avec les paramètres régionaux `th-TH`. |
+| `2.4.0-amd64-tr-tr-preview` | Image conteneur avec les paramètres régionaux `tr-TR`. |
+| `2.4.0-amd64-zh-cn-preview` | Image conteneur avec les paramètres régionaux `zh-CN`. |
+| `2.4.0-amd64-zh-hk-preview` | Image conteneur avec les paramètres régionaux `zh-HK`. |
+| `2.4.0-amd64-zh-tw-preview` | Image conteneur avec les paramètres régionaux `zh-TW`. |
+| `2.3.1-amd64-ar-ae-preview` | Image conteneur avec les paramètres régionaux `ar-AE`. |
+| `2.3.1-amd64-ar-eg-preview` | Image conteneur avec les paramètres régionaux `ar-EG`. |
+| `2.3.1-amd64-ar-kw-preview` | Image conteneur avec les paramètres régionaux `ar-KW`. |
+| `2.3.1-amd64-ar-qa-preview` | Image conteneur avec les paramètres régionaux `ar-QA`. |
+| `2.3.1-amd64-ar-sa-preview` | Image conteneur avec les paramètres régionaux `ar-SA`. |
+| `2.3.1-amd64-ca-es-preview` | Image conteneur avec les paramètres régionaux `ca-ES`. |
+| `2.3.1-amd64-da-dk-preview` | Image conteneur avec les paramètres régionaux `da-DK`. |
+| `2.3.1-amd64-de-de-preview` | Image conteneur avec les paramètres régionaux `de-DE`. |
+| `2.3.1-amd64-en-au-preview` | Image conteneur avec les paramètres régionaux `en-AU`. |
+| `2.3.1-amd64-en-ca-preview` | Image conteneur avec les paramètres régionaux `en-CA`. |
+| `2.3.1-amd64-en-gb-preview` | Image conteneur avec les paramètres régionaux `en-GB`. |
+| `2.3.1-amd64-en-in-preview` | Image conteneur avec les paramètres régionaux `en-IN`. |
+| `2.3.1-amd64-en-nz-preview` | Image conteneur avec les paramètres régionaux `en-NZ`. |
+| `2.3.1-amd64-en-us-preview` | Image conteneur avec les paramètres régionaux `en-US`. |
+| `2.3.1-amd64-es-es-preview` | Image conteneur avec les paramètres régionaux `es-ES`. |
+| `2.3.1-amd64-es-mx-preview` | Image conteneur avec les paramètres régionaux `es-MX`. |
+| `2.3.1-amd64-fi-fi-preview` | Image conteneur avec les paramètres régionaux `fi-FI`. |
+| `2.3.1-amd64-fr-ca-preview` | Image conteneur avec les paramètres régionaux `fr-CA`. |
+| `2.3.1-amd64-fr-fr-preview` | Image conteneur avec les paramètres régionaux `fr-FR`. |
+| `2.3.1-amd64-gu-in-preview` | Image conteneur avec les paramètres régionaux `gu-IN`. |
+| `2.3.1-amd64-hi-in-preview` | Image conteneur avec les paramètres régionaux `hi-IN`. |
+| `2.3.1-amd64-it-it-preview` | Image conteneur avec les paramètres régionaux `it-IT`. |
+| `2.3.1-amd64-ja-jp-preview` | Image conteneur avec les paramètres régionaux `ja-JP`. |
+| `2.3.1-amd64-ko-kr-preview` | Image conteneur avec les paramètres régionaux `ko-KR`. |
+| `2.3.1-amd64-mr-in-preview` | Image conteneur avec les paramètres régionaux `mr-IN`. |
+| `2.3.1-amd64-nb-no-preview` | Image conteneur avec les paramètres régionaux `nb-NO`. |
+| `2.3.1-amd64-nl-nl-preview` | Image conteneur avec les paramètres régionaux `nl-NL`. |
+| `2.3.1-amd64-pl-pl-preview` | Image conteneur avec les paramètres régionaux `pl-PL`. |
+| `2.3.1-amd64-pt-br-preview` | Image conteneur avec les paramètres régionaux `pt-BR`. |
+| `2.3.1-amd64-pt-pt-preview` | Image conteneur avec les paramètres régionaux `pt-PT`. |
+| `2.3.1-amd64-ru-ru-preview` | Image conteneur avec les paramètres régionaux `ru-RU`. |
+| `2.3.1-amd64-sv-se-preview` | Image conteneur avec les paramètres régionaux `sv-SE`. |
+| `2.3.1-amd64-ta-in-preview` | Image conteneur avec les paramètres régionaux `ta-IN`. |
+| `2.3.1-amd64-te-in-preview` | Image conteneur avec les paramètres régionaux `te-IN`. |
+| `2.3.1-amd64-th-th-preview` | Image conteneur avec les paramètres régionaux `th-TH`. |
+| `2.3.1-amd64-tr-tr-preview` | Image conteneur avec les paramètres régionaux `tr-TR`. |
+| `2.3.1-amd64-zh-cn-preview` | Image conteneur avec les paramètres régionaux `zh-CN`. |
+| `2.3.1-amd64-zh-hk-preview` | Image conteneur avec les paramètres régionaux `zh-HK`. |
+| `2.3.1-amd64-zh-tw-preview` | Image conteneur avec les paramètres régionaux `zh-TW`. |
+| `2.3.0-amd64-ar-ae-preview` | Image conteneur avec les paramètres régionaux `ar-AE`. |
+| `2.3.0-amd64-ar-eg-preview` | Image conteneur avec les paramètres régionaux `ar-EG`. |
+| `2.3.0-amd64-ar-kw-preview` | Image conteneur avec les paramètres régionaux `ar-KW`. |
+| `2.3.0-amd64-ar-qa-preview` | Image conteneur avec les paramètres régionaux `ar-QA`. |
+| `2.3.0-amd64-ar-sa-preview` | Image conteneur avec les paramètres régionaux `ar-SA`. |
+| `2.3.0-amd64-ca-es-preview` | Image conteneur avec les paramètres régionaux `ca-ES`. |
+| `2.3.0-amd64-da-dk-preview` | Image conteneur avec les paramètres régionaux `da-DK`. |
+| `2.3.0-amd64-de-de-preview` | Image conteneur avec les paramètres régionaux `de-DE`. |
+| `2.3.0-amd64-en-au-preview` | Image conteneur avec les paramètres régionaux `en-AU`. |
+| `2.3.0-amd64-en-ca-preview` | Image conteneur avec les paramètres régionaux `en-CA`. |
+| `2.3.0-amd64-en-gb-preview` | Image conteneur avec les paramètres régionaux `en-GB`. |
+| `2.3.0-amd64-en-in-preview` | Image conteneur avec les paramètres régionaux `en-IN`. |
+| `2.3.0-amd64-en-nz-preview` | Image conteneur avec les paramètres régionaux `en-NZ`. |
+| `2.3.0-amd64-en-us-preview` | Image conteneur avec les paramètres régionaux `en-US`. |
+| `2.3.0-amd64-es-es-preview` | Image conteneur avec les paramètres régionaux `es-ES`. |
+| `2.3.0-amd64-es-mx-preview` | Image conteneur avec les paramètres régionaux `es-MX`. |
+| `2.3.0-amd64-fi-fi-preview` | Image conteneur avec les paramètres régionaux `fi-FI`. |
+| `2.3.0-amd64-fr-ca-preview` | Image conteneur avec les paramètres régionaux `fr-CA`. |
+| `2.3.0-amd64-fr-fr-preview` | Image conteneur avec les paramètres régionaux `fr-FR`. |
+| `2.3.0-amd64-gu-in-preview` | Image conteneur avec les paramètres régionaux `gu-IN`. |
+| `2.3.0-amd64-hi-in-preview` | Image conteneur avec les paramètres régionaux `hi-IN`. |
+| `2.3.0-amd64-it-it-preview` | Image conteneur avec les paramètres régionaux `it-IT`. |
+| `2.3.0-amd64-ja-jp-preview` | Image conteneur avec les paramètres régionaux `ja-JP`. |
+| `2.3.0-amd64-ko-kr-preview` | Image conteneur avec les paramètres régionaux `ko-KR`. |
+| `2.3.0-amd64-mr-in-preview` | Image conteneur avec les paramètres régionaux `mr-IN`. |
+| `2.3.0-amd64-nb-no-preview` | Image conteneur avec les paramètres régionaux `nb-NO`. |
+| `2.3.0-amd64-nl-nl-preview` | Image conteneur avec les paramètres régionaux `nl-NL`. |
+| `2.3.0-amd64-pl-pl-preview` | Image conteneur avec les paramètres régionaux `pl-PL`. |
+| `2.3.0-amd64-pt-br-preview` | Image conteneur avec les paramètres régionaux `pt-BR`. |
+| `2.3.0-amd64-pt-pt-preview` | Image conteneur avec les paramètres régionaux `pt-PT`. |
+| `2.3.0-amd64-ru-ru-preview` | Image conteneur avec les paramètres régionaux `ru-RU`. |
+| `2.3.0-amd64-sv-se-preview` | Image conteneur avec les paramètres régionaux `sv-SE`. |
+| `2.3.0-amd64-ta-in-preview` | Image conteneur avec les paramètres régionaux `ta-IN`. |
+| `2.3.0-amd64-te-in-preview` | Image conteneur avec les paramètres régionaux `te-IN`. |
+| `2.3.0-amd64-th-th-preview` | Image conteneur avec les paramètres régionaux `th-TH`. |
+| `2.3.0-amd64-tr-tr-preview` | Image conteneur avec les paramètres régionaux `tr-TR`. |
+| `2.3.0-amd64-zh-cn-preview` | Image conteneur avec les paramètres régionaux `zh-CN`. |
+| `2.3.0-amd64-zh-hk-preview` | Image conteneur avec les paramètres régionaux `zh-HK`. |
+| `2.3.0-amd64-zh-tw-preview` | Image conteneur avec les paramètres régionaux `zh-TW`. |
 | `2.2.0-amd64-ar-ae-preview` | Image conteneur avec les paramètres régionaux `ar-AE`. |
 | `2.2.0-amd64-ar-eg-preview` | Image conteneur avec les paramètres régionaux `ar-EG`. |
 | `2.2.0-amd64-ar-kw-preview` | Image conteneur avec les paramètres régionaux `ar-KW`. |
@@ -467,7 +590,250 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 
 | Étiquettes d’image                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-JessaRUS`.        |
+| `latest`                                    | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.         |
+| `1.6.0-amd64-ar-eg-hoda-preview`            | Image conteneur avec les paramètres régionaux `ar-EG` et la voix `ar-EG-Hoda`.            |
+| `1.6.0-amd64-ar-sa-naayf-preview`           | Image conteneur avec les paramètres régionaux `ar-SA` et la voix `ar-SA-Naayf`.           |
+| `1.6.0-amd64-bg-bg-ivan-preview`            | Image conteneur avec les paramètres régionaux `bg-BG` et la voix `bg-BG-Ivan`.            |
+| `1.6.0-amd64-ca-es-herenarus-preview`       | Image conteneur avec les paramètres régionaux `ca-ES` et la voix `ca-ES-HerenaRUS`.       |
+| `1.6.0-amd64-cs-cz-jakub-preview`           | Image conteneur avec les paramètres régionaux `cs-CZ` et la voix `cs-CZ-Jakub`.           |
+| `1.6.0-amd64-da-dk-hellerus-preview`        | Image conteneur avec les paramètres régionaux `da-DK` et la voix `da-DK-HelleRUS`.        |
+| `1.6.0-amd64-de-at-michael-preview`         | Image conteneur avec les paramètres régionaux `de-AT` et la voix `de-AT-Michael`.         |
+| `1.6.0-amd64-de-ch-karsten-preview`         | Image conteneur avec les paramètres régionaux `de-CH` et la voix `de-CH-Karsten`.         |
+| `1.6.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.6.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.6.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
+| `1.6.0-amd64-el-gr-stefanos-preview`        | Image conteneur avec les paramètres régionaux `el-GR` et la voix `el-GR-Stefanos`.        |
+| `1.6.0-amd64-en-au-catherine-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       |
+| `1.6.0-amd64-en-au-hayleyrus-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-HayleyRUS`.       |
+| `1.6.0-amd64-en-ca-heatherrus-preview`      | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-HeatherRUS`.      |
+| `1.6.0-amd64-en-ca-linda-preview`           | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-Linda`.           |
+| `1.6.0-amd64-en-gb-george-apollo-preview`   | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-George-Apollo`.   |
+| `1.6.0-amd64-en-gb-hazelrus-preview`        | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-HazelRUS`.        |
+| `1.6.0-amd64-en-gb-susan-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-Susan-Apollo`.    |
+| `1.6.0-amd64-en-ie-sean-preview`            | Image conteneur avec les paramètres régionaux `en-IE` et la voix `en-IE-Sean`.            |
+| `1.6.0-amd64-en-in-heera-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Heera-Apollo`.    |
+| `1.6.0-amd64-en-in-priyarus-preview`        | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-PriyaRUS`.        |
+| `1.6.0-amd64-en-in-ravi-apollo-preview`     | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Ravi-Apollo`.     |
+| `1.6.0-amd64-en-us-benjaminrus-preview`     | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-BenjaminRUS`.     |
+| `1.6.0-amd64-en-us-guy24krus-preview`       | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Guy24kRUS`.       |
+| `1.6.0-amd64-en-us-aria24krus-preview`      | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Aria24kRUS`.     |
+| `1.6.0-amd64-en-us-ariarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.        |
+| `1.6.0-amd64-en-us-zirarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-ZiraRUS`.         |
+| `1.6.0-amd64-es-es-helenarus-preview`       | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-HelenaRUS`.       |
+| `1.6.0-amd64-es-es-laura-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Laura-Apollo`.    |
+| `1.6.0-amd64-es-es-pablo-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Pablo-Apollo`.    |
+| `1.6.0-amd64-es-mx-hildarus-preview`        | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-HildaRUS`.        |
+| `1.6.0-amd64-es-mx-raul-apollo-preview`     | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-Raul-Apollo`.     |
+| `1.6.0-amd64-fi-fi-heidirus-preview`        | Image conteneur avec les paramètres régionaux `fi-FI` et la voix `fi-FI-HeidiRUS`.        |
+| `1.6.0-amd64-fr-ca-caroline-preview`        | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-Caroline`.        |
+| `1.6.0-amd64-fr-ca-harmonierus-preview`     | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-HarmonieRUS`.     |
+| `1.6.0-amd64-fr-ch-guillaume-preview`       | Image conteneur avec les paramètres régionaux `fr-CH` et la voix `fr-CH-Guillaume`.       |
+| `1.6.0-amd64-fr-fr-hortenserus-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-HortenseRUS`.     |
+| `1.6.0-amd64-fr-fr-julie-apollo-preview`    | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Julie-Apollo`.    |
+| `1.6.0-amd64-fr-fr-paul-apollo-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Paul-Apollo`.     |
+| `1.6.0-amd64-he-il-asaf-preview`            | Image conteneur avec les paramètres régionaux `he-IL` et la voix `he-IL-Asaf`.            |
+| `1.6.0-amd64-hi-in-hemant-preview`          | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Hemant`.          |
+| `1.6.0-amd64-hi-in-kalpana-apollo-preview`  | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana-Apollo`.  |
+| `1.6.0-amd64-hi-in-kalpana-preview`         | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
+| `1.6.0-amd64-hr-hr-matej-preview`           | Image conteneur avec les paramètres régionaux `hr-HR` et la voix `hr-HR-Matej`.           |
+| `1.6.0-amd64-hu-hu-szabolcs-preview`        | Image conteneur avec les paramètres régionaux `hu-HU` et la voix `hu-HU-Szabolcs`.        |
+| `1.6.0-amd64-id-id-andika-preview`          | Image conteneur avec les paramètres régionaux `id-ID` et la voix `id-ID-Andika`.          |
+| `1.6.0-amd64-it-it-cosimo-apollo-preview`   | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-Cosimo-Apollo`.   |
+| `1.6.0-amd64-it-it-luciarus-preview`        | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-LuciaRUS`.        |
+| `1.6.0-amd64-ja-jp-ayumi-apollo-preview`    | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ayumi-Apollo`.    |
+| `1.6.0-amd64-ja-jp-harukarus-preview`       | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-HarukaRUS`.       |
+| `1.6.0-amd64-ja-jp-ichiro-apollo-preview`   | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ichiro-Apollo`.   |
+| `1.6.0-amd64-ko-kr-heamirus-preview`        | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-HeamiRUS`.        |
+| `1.6.0-amd64-ms-my-rizwan-preview`          | Image conteneur avec les paramètres régionaux `ms-MY` et la voix `ms-MY-Rizwan`.          |
+| `1.6.0-amd64-nb-no-huldarus-preview`        | Image conteneur avec les paramètres régionaux `nb-NO` et la voix `nb-NO-HuldaRUS`.        |
+| `1.6.0-amd64-nl-nl-hannarus-preview`        | Image conteneur avec les paramètres régionaux `nl-NL` et la voix `nl-NL-HannaRUS`.        |
+| `1.6.0-amd64-pl-pl-paulinarus-preview`      | Image conteneur avec les paramètres régionaux `pl-PL` et la voix `pl-PL-PaulinaRUS`.      |
+| `1.6.0-amd64-pt-br-daniel-apollo-preview`   | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-Daniel-Apollo`.   |
+| `1.6.0-amd64-pt-br-heloisarus-preview`      | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-HeloisaRUS`.      |
+| `1.6.0-amd64-pt-pt-heliarus-preview`        | Image conteneur avec les paramètres régionaux `pt-PT` et la voix `pt-PT-HeliaRUS`.        |
+| `1.6.0-amd64-ro-ro-andrei-preview`          | Image conteneur avec les paramètres régionaux `ro-RO` et la voix `ro-RO-Andrei`.          |
+| `1.6.0-amd64-ru-ru-ekaterinarus-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-EkaterinaRUS`.    |
+| `1.6.0-amd64-ru-ru-irina-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Irina-Apollo`.    |
+| `1.6.0-amd64-ru-ru-pavel-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Pavel-Apollo`.    |
+| `1.6.0-amd64-sk-sk-filip-preview`           | Image conteneur avec les paramètres régionaux `sk-SK` et la voix `sk-SK-Filip`.           |
+| `1.6.0-amd64-sl-si-lado-preview`            | Image conteneur avec les paramètres régionaux `sl-SI` et la voix `sl-SI-Lado`.            |
+| `1.6.0-amd64-sv-se-hedvigrus-preview`       | Image conteneur avec les paramètres régionaux `sv-SE` et la voix `sv-SE-HedvigRUS`.       |
+| `1.6.0-amd64-ta-in-valluvar-preview`        | Image conteneur avec les paramètres régionaux `ta-IN` et la voix `ta-IN-Valluvar`.        |
+| `1.6.0-amd64-te-in-chitra-preview`          | Image conteneur avec les paramètres régionaux `te-IN` et la voix `te-IN-Chitra`.          |
+| `1.6.0-amd64-th-th-pattara-preview`         | Image conteneur avec les paramètres régionaux `th-TH` et la voix `th-TH-Pattara`.         |
+| `1.6.0-amd64-tr-tr-sedarus-preview`         | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-SedaRUS`.         |
+| `1.6.0-amd64-vi-vn-an-preview`              | Image conteneur avec les paramètres régionaux `vi-VN` et la voix `vi-VN-An`.              |
+| `1.6.0-amd64-zh-cn-huihuirus-preview`       | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-HuihuiRUS`.       |
+| `1.6.0-amd64-zh-cn-kangkang-apollo-preview` | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. |
+| `1.6.0-amd64-zh-cn-yaoyao-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   |
+| `1.6.0-amd64-zh-hk-danny-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Danny-Apollo`.    |
+| `1.6.0-amd64-zh-hk-tracy-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Tracy-Apollo`.    |
+| `1.6.0-amd64-zh-hk-tracyrus-preview`        | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-TracyRUS`.        |
+| `1.6.0-amd64-zh-tw-hanhanrus-preview`       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       |
+| `1.6.0-amd64-zh-tw-yating-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   |
+| `1.6.0-amd64-zh-tw-zhiwei-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   |
+| `1.5.0-amd64-ar-eg-hoda-preview`            | Image conteneur avec les paramètres régionaux `ar-EG` et la voix `ar-EG-Hoda`.            |
+| `1.5.0-amd64-ar-sa-naayf-preview`           | Image conteneur avec les paramètres régionaux `ar-SA` et la voix `ar-SA-Naayf`.           |
+| `1.5.0-amd64-bg-bg-ivan-preview`            | Image conteneur avec les paramètres régionaux `bg-BG` et la voix `bg-BG-Ivan`.            |
+| `1.5.0-amd64-ca-es-herenarus-preview`       | Image conteneur avec les paramètres régionaux `ca-ES` et la voix `ca-ES-HerenaRUS`.       |
+| `1.5.0-amd64-cs-cz-jakub-preview`           | Image conteneur avec les paramètres régionaux `cs-CZ` et la voix `cs-CZ-Jakub`.           |
+| `1.5.0-amd64-da-dk-hellerus-preview`        | Image conteneur avec les paramètres régionaux `da-DK` et la voix `da-DK-HelleRUS`.        |
+| `1.5.0-amd64-de-at-michael-preview`         | Image conteneur avec les paramètres régionaux `de-AT` et la voix `de-AT-Michael`.         |
+| `1.5.0-amd64-de-ch-karsten-preview`         | Image conteneur avec les paramètres régionaux `de-CH` et la voix `de-CH-Karsten`.         |
+| `1.5.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.5.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.5.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
+| `1.5.0-amd64-el-gr-stefanos-preview`        | Image conteneur avec les paramètres régionaux `el-GR` et la voix `el-GR-Stefanos`.        |
+| `1.5.0-amd64-en-au-catherine-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       |
+| `1.5.0-amd64-en-au-hayleyrus-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-HayleyRUS`.       |
+| `1.5.0-amd64-en-ca-heatherrus-preview`      | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-HeatherRUS`.      |
+| `1.5.0-amd64-en-ca-linda-preview`           | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-Linda`.           |
+| `1.5.0-amd64-en-gb-george-apollo-preview`   | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-George-Apollo`.   |
+| `1.5.0-amd64-en-gb-hazelrus-preview`        | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-HazelRUS`.        |
+| `1.5.0-amd64-en-gb-susan-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-Susan-Apollo`.    |
+| `1.5.0-amd64-en-ie-sean-preview`            | Image conteneur avec les paramètres régionaux `en-IE` et la voix `en-IE-Sean`.            |
+| `1.5.0-amd64-en-in-heera-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Heera-Apollo`.    |
+| `1.5.0-amd64-en-in-priyarus-preview`        | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-PriyaRUS`.        |
+| `1.5.0-amd64-en-in-ravi-apollo-preview`     | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Ravi-Apollo`.     |
+| `1.5.0-amd64-en-us-benjaminrus-preview`     | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-BenjaminRUS`.     |
+| `1.5.0-amd64-en-us-guy24krus-preview`       | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Guy24kRUS`.       |
+| `1.5.0-amd64-en-us-aria24krus-preview`      | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Aria24kRUS`.     |
+| `1.5.0-amd64-en-us-ariarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.        |
+| `1.5.0-amd64-en-us-zirarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-ZiraRUS`.         |
+| `1.5.0-amd64-es-es-helenarus-preview`       | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-HelenaRUS`.       |
+| `1.5.0-amd64-es-es-laura-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Laura-Apollo`.    |
+| `1.5.0-amd64-es-es-pablo-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Pablo-Apollo`.    |
+| `1.5.0-amd64-es-mx-hildarus-preview`        | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-HildaRUS`.        |
+| `1.5.0-amd64-es-mx-raul-apollo-preview`     | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-Raul-Apollo`.     |
+| `1.5.0-amd64-fi-fi-heidirus-preview`        | Image conteneur avec les paramètres régionaux `fi-FI` et la voix `fi-FI-HeidiRUS`.        |
+| `1.5.0-amd64-fr-ca-caroline-preview`        | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-Caroline`.        |
+| `1.5.0-amd64-fr-ca-harmonierus-preview`     | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-HarmonieRUS`.     |
+| `1.5.0-amd64-fr-ch-guillaume-preview`       | Image conteneur avec les paramètres régionaux `fr-CH` et la voix `fr-CH-Guillaume`.       |
+| `1.5.0-amd64-fr-fr-hortenserus-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-HortenseRUS`.     |
+| `1.5.0-amd64-fr-fr-julie-apollo-preview`    | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Julie-Apollo`.    |
+| `1.5.0-amd64-fr-fr-paul-apollo-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Paul-Apollo`.     |
+| `1.5.0-amd64-he-il-asaf-preview`            | Image conteneur avec les paramètres régionaux `he-IL` et la voix `he-IL-Asaf`.            |
+| `1.5.0-amd64-hi-in-hemant-preview`          | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Hemant`.          |
+| `1.5.0-amd64-hi-in-kalpana-apollo-preview`  | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana-Apollo`.  |
+| `1.5.0-amd64-hi-in-kalpana-preview`         | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
+| `1.5.0-amd64-hr-hr-matej-preview`           | Image conteneur avec les paramètres régionaux `hr-HR` et la voix `hr-HR-Matej`.           |
+| `1.5.0-amd64-hu-hu-szabolcs-preview`        | Image conteneur avec les paramètres régionaux `hu-HU` et la voix `hu-HU-Szabolcs`.        |
+| `1.5.0-amd64-id-id-andika-preview`          | Image conteneur avec les paramètres régionaux `id-ID` et la voix `id-ID-Andika`.          |
+| `1.5.0-amd64-it-it-cosimo-apollo-preview`   | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-Cosimo-Apollo`.   |
+| `1.5.0-amd64-it-it-luciarus-preview`        | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-LuciaRUS`.        |
+| `1.5.0-amd64-ja-jp-ayumi-apollo-preview`    | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ayumi-Apollo`.    |
+| `1.5.0-amd64-ja-jp-harukarus-preview`       | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-HarukaRUS`.       |
+| `1.5.0-amd64-ja-jp-ichiro-apollo-preview`   | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ichiro-Apollo`.   |
+| `1.5.0-amd64-ko-kr-heamirus-preview`        | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-HeamiRUS`.        |
+| `1.5.0-amd64-ms-my-rizwan-preview`          | Image conteneur avec les paramètres régionaux `ms-MY` et la voix `ms-MY-Rizwan`.          |
+| `1.5.0-amd64-nb-no-huldarus-preview`        | Image conteneur avec les paramètres régionaux `nb-NO` et la voix `nb-NO-HuldaRUS`.        |
+| `1.5.0-amd64-nl-nl-hannarus-preview`        | Image conteneur avec les paramètres régionaux `nl-NL` et la voix `nl-NL-HannaRUS`.        |
+| `1.5.0-amd64-pl-pl-paulinarus-preview`      | Image conteneur avec les paramètres régionaux `pl-PL` et la voix `pl-PL-PaulinaRUS`.      |
+| `1.5.0-amd64-pt-br-daniel-apollo-preview`   | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-Daniel-Apollo`.   |
+| `1.5.0-amd64-pt-br-heloisarus-preview`      | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-HeloisaRUS`.      |
+| `1.5.0-amd64-pt-pt-heliarus-preview`        | Image conteneur avec les paramètres régionaux `pt-PT` et la voix `pt-PT-HeliaRUS`.        |
+| `1.5.0-amd64-ro-ro-andrei-preview`          | Image conteneur avec les paramètres régionaux `ro-RO` et la voix `ro-RO-Andrei`.          |
+| `1.5.0-amd64-ru-ru-ekaterinarus-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-EkaterinaRUS`.    |
+| `1.5.0-amd64-ru-ru-irina-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Irina-Apollo`.    |
+| `1.5.0-amd64-ru-ru-pavel-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Pavel-Apollo`.    |
+| `1.5.0-amd64-sk-sk-filip-preview`           | Image conteneur avec les paramètres régionaux `sk-SK` et la voix `sk-SK-Filip`.           |
+| `1.5.0-amd64-sl-si-lado-preview`            | Image conteneur avec les paramètres régionaux `sl-SI` et la voix `sl-SI-Lado`.            |
+| `1.5.0-amd64-sv-se-hedvigrus-preview`       | Image conteneur avec les paramètres régionaux `sv-SE` et la voix `sv-SE-HedvigRUS`.       |
+| `1.5.0-amd64-ta-in-valluvar-preview`        | Image conteneur avec les paramètres régionaux `ta-IN` et la voix `ta-IN-Valluvar`.        |
+| `1.5.0-amd64-te-in-chitra-preview`          | Image conteneur avec les paramètres régionaux `te-IN` et la voix `te-IN-Chitra`.          |
+| `1.5.0-amd64-th-th-pattara-preview`         | Image conteneur avec les paramètres régionaux `th-TH` et la voix `th-TH-Pattara`.         |
+| `1.5.0-amd64-tr-tr-sedarus-preview`         | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-SedaRUS`.         |
+| `1.5.0-amd64-vi-vn-an-preview`              | Image conteneur avec les paramètres régionaux `vi-VN` et la voix `vi-VN-An`.              |
+| `1.5.0-amd64-zh-cn-huihuirus-preview`       | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-HuihuiRUS`.       |
+| `1.5.0-amd64-zh-cn-kangkang-apollo-preview` | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. |
+| `1.5.0-amd64-zh-cn-yaoyao-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   |
+| `1.5.0-amd64-zh-hk-danny-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Danny-Apollo`.    |
+| `1.5.0-amd64-zh-hk-tracy-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Tracy-Apollo`.    |
+| `1.5.0-amd64-zh-hk-tracyrus-preview`        | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-TracyRUS`.        |
+| `1.5.0-amd64-zh-tw-hanhanrus-preview`       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       |
+| `1.5.0-amd64-zh-tw-yating-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   |
+| `1.5.0-amd64-zh-tw-zhiwei-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   |
+| `1.4.0-amd64-ar-eg-hoda-preview`            | Image conteneur avec les paramètres régionaux `ar-EG` et la voix `ar-EG-Hoda`.            |
+| `1.4.0-amd64-ar-sa-naayf-preview`           | Image conteneur avec les paramètres régionaux `ar-SA` et la voix `ar-SA-Naayf`.           |
+| `1.4.0-amd64-bg-bg-ivan-preview`            | Image conteneur avec les paramètres régionaux `bg-BG` et la voix `bg-BG-Ivan`.            |
+| `1.4.0-amd64-ca-es-herenarus-preview`       | Image conteneur avec les paramètres régionaux `ca-ES` et la voix `ca-ES-HerenaRUS`.       |
+| `1.4.0-amd64-cs-cz-jakub-preview`           | Image conteneur avec les paramètres régionaux `cs-CZ` et la voix `cs-CZ-Jakub`.           |
+| `1.4.0-amd64-da-dk-hellerus-preview`        | Image conteneur avec les paramètres régionaux `da-DK` et la voix `da-DK-HelleRUS`.        |
+| `1.4.0-amd64-de-at-michael-preview`         | Image conteneur avec les paramètres régionaux `de-AT` et la voix `de-AT-Michael`.         |
+| `1.4.0-amd64-de-ch-karsten-preview`         | Image conteneur avec les paramètres régionaux `de-CH` et la voix `de-CH-Karsten`.         |
+| `1.4.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.4.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.4.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
+| `1.4.0-amd64-el-gr-stefanos-preview`        | Image conteneur avec les paramètres régionaux `el-GR` et la voix `el-GR-Stefanos`.        |
+| `1.4.0-amd64-en-au-catherine-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       |
+| `1.4.0-amd64-en-au-hayleyrus-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-HayleyRUS`.       |
+| `1.4.0-amd64-en-ca-heatherrus-preview`      | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-HeatherRUS`.      |
+| `1.4.0-amd64-en-ca-linda-preview`           | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-Linda`.           |
+| `1.4.0-amd64-en-gb-george-apollo-preview`   | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-George-Apollo`.   |
+| `1.4.0-amd64-en-gb-hazelrus-preview`        | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-HazelRUS`.        |
+| `1.4.0-amd64-en-gb-susan-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-Susan-Apollo`.    |
+| `1.4.0-amd64-en-ie-sean-preview`            | Image conteneur avec les paramètres régionaux `en-IE` et la voix `en-IE-Sean`.            |
+| `1.4.0-amd64-en-in-heera-apollo-preview`    | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Heera-Apollo`.    |
+| `1.4.0-amd64-en-in-priyarus-preview`        | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-PriyaRUS`.        |
+| `1.4.0-amd64-en-in-ravi-apollo-preview`     | Image conteneur avec les paramètres régionaux `en-IN` et la voix `en-IN-Ravi-Apollo`.     |
+| `1.4.0-amd64-en-us-benjaminrus-preview`     | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-BenjaminRUS`.     |
+| `1.4.0-amd64-en-us-guy24krus-preview`       | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Guy24kRUS`.       |
+| `1.4.0-amd64-en-us-aria24krus-preview`      | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-Aria24kRUS`.     |
+| `1.4.0-amd64-en-us-ariarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaRUS`.        |
+| `1.4.0-amd64-en-us-zirarus-preview`         | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-ZiraRUS`.         |
+| `1.4.0-amd64-es-es-helenarus-preview`       | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-HelenaRUS`.       |
+| `1.4.0-amd64-es-es-laura-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Laura-Apollo`.    |
+| `1.4.0-amd64-es-es-pablo-apollo-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-Pablo-Apollo`.    |
+| `1.4.0-amd64-es-mx-hildarus-preview`        | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-HildaRUS`.        |
+| `1.4.0-amd64-es-mx-raul-apollo-preview`     | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-Raul-Apollo`.     |
+| `1.4.0-amd64-fi-fi-heidirus-preview`        | Image conteneur avec les paramètres régionaux `fi-FI` et la voix `fi-FI-HeidiRUS`.        |
+| `1.4.0-amd64-fr-ca-caroline-preview`        | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-Caroline`.        |
+| `1.4.0-amd64-fr-ca-harmonierus-preview`     | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-HarmonieRUS`.     |
+| `1.4.0-amd64-fr-ch-guillaume-preview`       | Image conteneur avec les paramètres régionaux `fr-CH` et la voix `fr-CH-Guillaume`.       |
+| `1.4.0-amd64-fr-fr-hortenserus-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-HortenseRUS`.     |
+| `1.4.0-amd64-fr-fr-julie-apollo-preview`    | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Julie-Apollo`.    |
+| `1.4.0-amd64-fr-fr-paul-apollo-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Paul-Apollo`.     |
+| `1.4.0-amd64-he-il-asaf-preview`            | Image conteneur avec les paramètres régionaux `he-IL` et la voix `he-IL-Asaf`.            |
+| `1.4.0-amd64-hi-in-hemant-preview`          | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Hemant`.          |
+| `1.4.0-amd64-hi-in-kalpana-apollo-preview`  | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana-Apollo`.  |
+| `1.4.0-amd64-hi-in-kalpana-preview`         | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
+| `1.4.0-amd64-hr-hr-matej-preview`           | Image conteneur avec les paramètres régionaux `hr-HR` et la voix `hr-HR-Matej`.           |
+| `1.4.0-amd64-hu-hu-szabolcs-preview`        | Image conteneur avec les paramètres régionaux `hu-HU` et la voix `hu-HU-Szabolcs`.        |
+| `1.4.0-amd64-id-id-andika-preview`          | Image conteneur avec les paramètres régionaux `id-ID` et la voix `id-ID-Andika`.          |
+| `1.4.0-amd64-it-it-cosimo-apollo-preview`   | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-Cosimo-Apollo`.   |
+| `1.4.0-amd64-it-it-luciarus-preview`        | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-LuciaRUS`.        |
+| `1.4.0-amd64-ja-jp-ayumi-apollo-preview`    | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ayumi-Apollo`.    |
+| `1.4.0-amd64-ja-jp-harukarus-preview`       | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-HarukaRUS`.       |
+| `1.4.0-amd64-ja-jp-ichiro-apollo-preview`   | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-Ichiro-Apollo`.   |
+| `1.4.0-amd64-ko-kr-heamirus-preview`        | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-HeamiRUS`.        |
+| `1.4.0-amd64-ms-my-rizwan-preview`          | Image conteneur avec les paramètres régionaux `ms-MY` et la voix `ms-MY-Rizwan`.          |
+| `1.4.0-amd64-nb-no-huldarus-preview`        | Image conteneur avec les paramètres régionaux `nb-NO` et la voix `nb-NO-HuldaRUS`.        |
+| `1.4.0-amd64-nl-nl-hannarus-preview`        | Image conteneur avec les paramètres régionaux `nl-NL` et la voix `nl-NL-HannaRUS`.        |
+| `1.4.0-amd64-pl-pl-paulinarus-preview`      | Image conteneur avec les paramètres régionaux `pl-PL` et la voix `pl-PL-PaulinaRUS`.      |
+| `1.4.0-amd64-pt-br-daniel-apollo-preview`   | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-Daniel-Apollo`.   |
+| `1.4.0-amd64-pt-br-heloisarus-preview`      | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-HeloisaRUS`.      |
+| `1.4.0-amd64-pt-pt-heliarus-preview`        | Image conteneur avec les paramètres régionaux `pt-PT` et la voix `pt-PT-HeliaRUS`.        |
+| `1.4.0-amd64-ro-ro-andrei-preview`          | Image conteneur avec les paramètres régionaux `ro-RO` et la voix `ro-RO-Andrei`.          |
+| `1.4.0-amd64-ru-ru-ekaterinarus-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-EkaterinaRUS`.    |
+| `1.4.0-amd64-ru-ru-irina-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Irina-Apollo`.    |
+| `1.4.0-amd64-ru-ru-pavel-apollo-preview`    | Image conteneur avec les paramètres régionaux `ru-RU` et la voix `ru-RU-Pavel-Apollo`.    |
+| `1.4.0-amd64-sk-sk-filip-preview`           | Image conteneur avec les paramètres régionaux `sk-SK` et la voix `sk-SK-Filip`.           |
+| `1.4.0-amd64-sl-si-lado-preview`            | Image conteneur avec les paramètres régionaux `sl-SI` et la voix `sl-SI-Lado`.            |
+| `1.4.0-amd64-sv-se-hedvigrus-preview`       | Image conteneur avec les paramètres régionaux `sv-SE` et la voix `sv-SE-HedvigRUS`.       |
+| `1.4.0-amd64-ta-in-valluvar-preview`        | Image conteneur avec les paramètres régionaux `ta-IN` et la voix `ta-IN-Valluvar`.        |
+| `1.4.0-amd64-te-in-chitra-preview`          | Image conteneur avec les paramètres régionaux `te-IN` et la voix `te-IN-Chitra`.          |
+| `1.4.0-amd64-th-th-pattara-preview`         | Image conteneur avec les paramètres régionaux `th-TH` et la voix `th-TH-Pattara`.         |
+| `1.4.0-amd64-tr-tr-sedarus-preview`         | Image conteneur avec les paramètres régionaux `tr-TR` et la voix `tr-TR-SedaRUS`.         |
+| `1.4.0-amd64-vi-vn-an-preview`              | Image conteneur avec les paramètres régionaux `vi-VN` et la voix `vi-VN-An`.              |
+| `1.4.0-amd64-zh-cn-huihuirus-preview`       | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-HuihuiRUS`.       |
+| `1.4.0-amd64-zh-cn-kangkang-apollo-preview` | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. |
+| `1.4.0-amd64-zh-cn-yaoyao-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   |
+| `1.4.0-amd64-zh-hk-danny-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Danny-Apollo`.    |
+| `1.4.0-amd64-zh-hk-tracy-apollo-preview`    | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-Tracy-Apollo`.    |
+| `1.4.0-amd64-zh-hk-tracyrus-preview`        | Image conteneur avec les paramètres régionaux `zh-HK` et la voix `zh-HK-TracyRUS`.        |
+| `1.4.0-amd64-zh-tw-hanhanrus-preview`       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       |
+| `1.4.0-amd64-zh-tw-yating-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   |
+| `1.4.0-amd64-zh-tw-zhiwei-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Image conteneur avec les paramètres régionaux `ar-EG` et la voix `ar-EG-Hoda`.            |
 | `1.3.0-amd64-ar-sa-naayf-preview`           | Image conteneur avec les paramètres régionaux `ar-SA` et la voix `ar-SA-Naayf`.           |
 | `1.3.0-amd64-bg-bg-ivan-preview`            | Image conteneur avec les paramètres régionaux `bg-BG` et la voix `bg-BG-Ivan`.            |
@@ -477,7 +843,6 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | `1.3.0-amd64-de-at-michael-preview`         | Image conteneur avec les paramètres régionaux `de-AT` et la voix `de-AT-Michael`.         |
 | `1.3.0-amd64-de-ch-karsten-preview`         | Image conteneur avec les paramètres régionaux `de-CH` et la voix `de-CH-Karsten`.         |
 | `1.3.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
 | `1.3.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-HeddaRUS`.        |
 | `1.3.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
 | `1.3.0-amd64-el-gr-stefanos-preview`        | Image conteneur avec les paramètres régionaux `el-GR` et la voix `el-GR-Stefanos`.        |
@@ -511,8 +876,7 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-Paul-Apollo`.     |
 | `1.3.0-amd64-he-il-asaf-preview`            | Image conteneur avec les paramètres régionaux `he-IL` et la voix `he-IL-Asaf`.            |
 | `1.3.0-amd64-hi-in-hemant-preview`          | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Hemant`.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana-Apollo`.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
 | `1.3.0-amd64-hi-in-kalpana-preview`         | Image conteneur avec les paramètres régionaux `hi-IN` et la voix `hi-IN-Kalpana`.         |
 | `1.3.0-amd64-hr-hr-matej-preview`           | Image conteneur avec les paramètres régionaux `hr-HR` et la voix `hr-HR-Matej`.           |
 | `1.3.0-amd64-hu-hu-szabolcs-preview`        | Image conteneur avec les paramètres régionaux `hu-HU` et la voix `hu-HU-Szabolcs`.        |
@@ -551,7 +915,7 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-HanHanRUS`.       |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Yating-Apollo`.   |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-TW` et la voix `zh-TW-Zhiwei-Apollo`.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
+| `1.2.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
 | `1.2.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-HeddaRUS`.        |
 | `1.2.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
 | `1.2.0-amd64-en-au-catherine-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       |
@@ -589,7 +953,6 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. |
 | `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   |
 | `1.1.0-amd64-de-de-hedda-preview`           | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Hedda`.           |
 | `1.1.0-amd64-de-de-heddarus-preview`        | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-HeddaRUS`.        |
 | `1.1.0-amd64-de-de-stefan-apollo-preview`   | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-Stefan-Apollo`.   |
 | `1.1.0-amd64-en-au-catherine-preview`       | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-Catherine`.       |
@@ -634,6 +997,32 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur :
 | `1.0.0-amd64-zh-cn-huihuirus-preview`       | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-HuihuiRUS`.       |
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Kangkang-Apollo`. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-Yaoyao-Apollo`.   |
+
+## <a name="neural-text-to-speech"></a>Synthèse vocale neuronale
+
+L’image conteneur de [synthèse vocale neuronale][sp-ntts] se trouve dans le registre de conteneurs `containerpreview.azurecr.io`. Elle réside dans le référentiel `microsoft` et se nomme `cognitive-services-neural-text-to-speech`. Le nom complet de l’image conteneur est `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech`.
+
+Les étiquettes suivantes sont disponibles pour cette image conteneur :
+
+| Étiquettes d’image                                  | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaNeural`.      |
+| `1.1.0-amd64-de-de-katjaneural-preview`     | Image conteneur avec les paramètres régionaux `de-DE` et la voix `de-DE-KatjaNeural`.     |
+| `1.1.0-amd64-en-au-natashaneural-preview`   | Image conteneur avec les paramètres régionaux `en-AU` et la voix `en-AU-NatashaNeural`.   |
+| `1.1.0-amd64-en-ca-claraneural-preview`     | Image conteneur avec les paramètres régionaux `en-CA` et la voix `en-CA-ClaraNeural`.     |
+| `1.1.0-amd64-en-gb-libbyneural-preview`     | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-LibbyNeural`.     |
+| `1.1.0-amd64-en-gb-mianeural-preview`       | Image conteneur avec les paramètres régionaux `en-GB` et la voix `en-GB-MiaNeural`.       |
+| `1.1.0-amd64-en-us-arianeural-preview`      | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-AriaNeural`.      |
+| `1.1.0-amd64-en-us-guyneural-preview`       | Image conteneur avec les paramètres régionaux `en-US` et la voix `en-US-GuyNeural`.       |
+| `1.1.0-amd64-es-es-elviraneural-preview`    | Image conteneur avec les paramètres régionaux `es-ES` et la voix `es-ES-ElviraNeural`.    |
+| `1.1.0-amd64-es-mx-dalianeural-preview`     | Image conteneur avec les paramètres régionaux `es-MX` et la voix `es-MX-DaliaNeural`.     |
+| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Image conteneur avec les paramètres régionaux `fr-CA` et la voix `fr-CA-SylvieNeural`.    |
+| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Image conteneur avec les paramètres régionaux `fr-FR` et la voix `fr-FR-DeniseNeural`.    |
+| `1.1.0-amd64-it-it-elsaneural-preview`      | Image conteneur avec les paramètres régionaux `it-IT` et la voix `it-IT-ElsaNeural`.      |
+| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Image conteneur avec les paramètres régionaux `ja-JP` et la voix `ja-JP-NanamiNeural`.    |
+| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Image conteneur avec les paramètres régionaux `ko-KR` et la voix `ko-KR-SunHiNeural`.     |
+| `1.1.0-amd64-pt-br-franciscaneural-preview` | Image conteneur avec les paramètres régionaux `pt-BR` et la voix `pt-BR-FranciscaNeural`. |
+| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Image conteneur avec les paramètres régionaux `zh-CN` et la voix `zh-CN-XiaoxiaoNeural`.  |
 
 ## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
 

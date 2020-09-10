@@ -1,14 +1,14 @@
 ---
 title: Guide pratique pour protéger votre hiérarchie de ressources – Gouvernance Azure
 description: Découvrez comment protéger votre hiérarchie de ressources avec des paramètres de hiérarchie qui incluent la définition du groupe d’administration par défaut.
-ms.date: 08/10/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: e73a72339b58a30a3fc5b1008ea1b70e449f77c7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056616"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401691"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Comment protéger votre hiérarchie de ressources
 
@@ -31,7 +31,26 @@ Par défaut, un nouvel abonnement ajouté au sein d’un locataire est ajouté e
 
 En permettant la définition du groupe d’administration par défaut des nouveaux abonnements, les concepts de gouvernance à l’échelle de l’organisation peuvent être appliqués au niveau du groupe d’administration racine, et il est possible de définir un groupe d’administration distinct avec des affectations de stratégie ou des attributions de rôle Azure plus adaptées à un nouvel abonnement.
 
-Pour configurer ce paramètre, le point de terminaison de l’API REST [Paramètres de hiérarchie ](/rest/api/resources/hierarchysettings) est appelé. Pour ce faire, utilisez le format de corps et d’URI d’API REST suivant. Remplacez `{rootMgID}` par l’ID de votre groupe d’administration racine et `{defaultGroupID}` par l’ID du groupe d’administration qui doit devenir le groupe d’administration par défaut :
+### <a name="set-default-management-group-in-portal"></a>Définir un groupe d'administration par défaut dans le portail
+
+Pour configurer ce paramètre dans le portail Azure, procédez comme suit :
+
+1. Utilisez la barre de recherche pour rechercher et sélectionner « Groupes d’administration ».
+
+1. Dans le groupe d’administration racine, sélectionnez **Détails** en regard du nom du groupe d’administration.
+
+1. Dans **Paramètres**, sélectionnez **Paramètres de hiérarchie**.
+
+1. Sélectionnez le bouton **Modifier le groupe d'administration par défaut**.
+
+   > [!NOTE]
+   > Si le bouton **Modifier le groupe d’administration par défaut** est désactivé, soit le groupe d’administration affiché n’est pas le groupe d’administration racine, soit votre principal de sécurité ne dispose pas des autorisations nécessaires pour modifier les paramètres de la hiérarchie.
+
+1. Sélectionnez un groupe d’administration dans votre hiérarchie et utilisez le bouton **Sélectionner**.
+
+### <a name="set-default-management-group-with-rest-api"></a>Définir un groupe d’administration par défaut avec l’API REST
+
+Pour configurer ce paramètre avec l’API REST, le point de terminaison [Paramètres de hiérarchie ](/rest/api/resources/hierarchysettings) est appelé. Pour ce faire, utilisez le format de corps et d’URI d’API REST suivant. Remplacez `{rootMgID}` par l’ID de votre groupe d’administration racine et `{defaultGroupID}` par l’ID du groupe d’administration qui doit devenir le groupe d’administration par défaut :
 
 - URI de l’API REST
 
@@ -55,7 +74,24 @@ Pour faire à nouveau du groupe d’administration par défaut le groupe d’adm
 
 Par défaut, n’importe quel utilisateur peut créer de nouveaux groupes d’administration au sein d’un locataire. Les administrateurs d’un locataire peuvent juger souhaitable de n’attribuer ces autorisations qu’à certains utilisateurs de façon à préserver la cohérence et la conformité dans la hiérarchie du groupe d’administration. S’il y est autorisé, un utilisateur a besoin de l’opération `Microsoft.Management/managementGroups/write` sur le groupe d’administration racine pour créer de nouveaux groupes d’administration enfants.
 
-Pour configurer ce paramètre, le point de terminaison de l’API REST [Paramètres de hiérarchie ](/rest/api/resources/hierarchysettings) est appelé. Pour ce faire, utilisez le format de corps et d’URI d’API REST suivant. S’agissant d’une valeur _booléenne_, indiquez la valeur **true** ou **false**. La valeur **true** active cette méthode de protection de la hiérarchie de votre groupe d’administration :
+### <a name="set-default-management-group-in-portal"></a>Définir un groupe d'administration par défaut dans le portail
+
+Pour configurer ce paramètre dans le portail Azure, procédez comme suit :
+
+1. Utilisez la barre de recherche pour rechercher et sélectionner « Groupes d’administration ».
+
+1. Dans le groupe d’administration racine, sélectionnez **Détails** en regard du nom du groupe d’administration.
+
+1. Dans **Paramètres**, sélectionnez **Paramètres de hiérarchie**.
+
+1. Activez ou désactivez **Demander des autorisations pour créer des groupes d’administration.** option sur on.
+
+   > [!NOTE]
+   > Si le bouton d’activation ou de désactivation **Demander des autorisations pour créer des groupes d’administration.** est désactivé, soit le groupe d’administration affiché n’est pas le groupe d’administration racine, soit votre principal de sécurité ne dispose pas des autorisations nécessaires pour modifier les paramètres de la hiérarchie.
+
+### <a name="set-require-authorization-with-rest-api"></a>Définir Demander une autorisation avec l’API REST
+
+Pour configurer ce paramètre avec l’API REST, le point de terminaison [Paramètres de hiérarchie ](/rest/api/resources/hierarchysettings) est appelé. Pour ce faire, utilisez le format de corps et d’URI d’API REST suivant. S’agissant d’une valeur _booléenne_, indiquez la valeur **true** ou **false**. La valeur **true** active cette méthode de protection de la hiérarchie de votre groupe d’administration :
 
 - URI de l’API REST
 

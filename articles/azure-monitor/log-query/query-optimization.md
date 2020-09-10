@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565721"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177741"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -52,6 +52,8 @@ Les indicateurs de performances de requête suivants sont disponibles pour chaqu
 
 ## <a name="total-cpu"></a>Total Unité centrale
 Processeur de calcul réel consacré au traitement de cette requête sur tous les nœuds de traitement des requêtes. Étant donné que la plupart des requêtes sont exécutées sur un grand nombre de nœuds, cette valeur est généralement beaucoup plus grande que la durée réelle de l’exécution de la requête. 
+
+Une requête qui utilise plus de 100 secondes d’UC est considérée comme une requête consommant une quantité excessive de ressources. Une requête qui utilise plus de 1 000 secondes d’UC est considérée comme une requête abusive et peut être limitée.
 
 Le temps de traitement des requêtes est consacré aux opérations suivantes :
 - Extraction de données : l’extraction d’anciennes données consomme plus de temps que l’extraction de données récentes.
@@ -177,6 +179,8 @@ SecurityEvent
 
 Un facteur critique dans le traitement de la requête est le volume de données analysé et utilisé. Azure Data Explorer utilise des optimisations agressives qui réduisent considérablement le volume de données par rapport aux autres plateformes de données. Toutefois, il existe des facteurs critiques dans la requête qui peuvent impacter le volume de données utilisé.
 
+Une requête qui traite plus de 2 000 Ko de données est considérée comme une requête consommant une quantité excessive de ressources. Une requête qui traite plus de 20 000KB de données est considérée comme une requête abusive et peut être limitée.
+
 Dans Journaux Azure Monitor, la colonne **TimeGenerated** est utilisée comme mode d’indexation des données. Le fait de limiter les valeurs **TimeGenerated** à une plage aussi fine que possible améliore considérablement les performances des requêtes en limitant de manière significative la quantité de données à traiter.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Évitez l’utilisation inutile des opérateurs de recherche et d’union
@@ -300,6 +304,8 @@ SecurityEvent
 
 Tous les journaux dans Journaux Azure Monitor sont partitionnés en fonction de la colonne **TimeGenerated**. Le nombre de partitions accessibles est directement lié à l’intervalle de temps. La réduction de l’intervalle de temps est la méthode la plus efficace pour garantir l’exécution d’une requête d’invite.
 
+Une requête sur une période de plus de 15 jours est considérée comme une requête consommant une quantité excessive de ressources. Une requête sur une période de plus de 90 jours est considérée comme une requête abusive et peut être limitée.
+
 L’intervalle de temps peut être défini à l’aide du sélecteur d’intervalle de temps dans l’écran Log Analytics, comme décrit dans [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](scope.md#time-range). Il s’agit de la méthode recommandée, car l’intervalle de temps sélectionné est transmis au back-end à l’aide des métadonnées de requête. 
 
 Une autre méthode consiste à inclure explicitement une condition [where](/azure/kusto/query/whereoperator) sur **TimeGenerated** dans la requête. Vous devez utiliser cette méthode, car elle garantit que l’intervalle de temps est fixe, même quand la requête est utilisée à partir d’une interface différente.
@@ -389,6 +395,9 @@ Il existe plusieurs cas où le système ne peut pas fournir une mesure exacte de
 ## <a name="age-of-processed-data"></a>Âge des données traitées
 Azure Data Explorer utilise plusieurs niveaux de stockage : en mémoire, disques SSD locaux et objets blob Azure beaucoup plus lents. Plus les données sont récentes, plus il est probable qu’elles soient stockées dans un niveau plus performant avec une latence plus faible, ce qui réduit la durée de la requête et la consommation des ressources processeur. Outre pour les données elles-mêmes, le système dispose d’un cache pour les métadonnées. Plus les données sont anciennes, moins il est probable que leurs métadonnées se trouvent dans le cache.
 
+Une requête qui traite des données datant de plus de 14 jours est considérée comme une requête consommant une quantité excessive de ressources.
+
+
 Bien que certaines requêtes nécessitent l’utilisation d’anciennes données, il existe des cas où les anciennes données sont utilisées par erreur. Cela se produit quand les requêtes sont exécutées sans que soit fourni d’intervalle de temps dans leurs métadonnées et que toutes les références de table n’incluent pas le filtre sur la colonne **TimeGenerated**. Dans ces cas, le système analyse toutes les données stockées dans la table concernée. Quand la conservation des données est longue, elle peut couvrir des intervalles de temps longs et, donc, des données aussi anciennes que la période de conservation des données.
 
 Voici certains exemples :
@@ -408,6 +417,8 @@ Il existe plusieurs situations où une seule requête peut être exécutée dans
 L’exécution d’une requête inter-région nécessite que le système sérialise et transfère dans le back-end de grands segments de données intermédiaires qui sont généralement beaucoup plus volumineux que les résultats finaux de la requête. Elle limite également la capacité du système à effectuer des optimisations, des heuristiques et à utiliser des caches.
 S’il n’y a pas vraiment de raison d’analyser toutes ces régions, vous devez ajuster l’étendue afin qu’elle couvre moins de régions. Si l’étendue de ressource est réduite, mais que de nombreuses régions sont toujours utilisées, la raison peut en être une mauvaise configuration. Par exemple, les journaux d’audit et les paramètres de diagnostic sont envoyés à différents espaces de travail dans différentes régions ou il existe plusieurs configurations de paramètres de diagnostic. 
 
+Une requête qui s’étend à plus de 3 régions est considérée comme une requête consommant une quantité excessive de ressources. Une requête qui s’étend à plus de 6 régions est considérée comme une requête abusive et peut être limitée.
+
 > [!IMPORTANT]
 > Lorsqu’une requête est exécutée dans plusieurs régions à la fois, les mesures du processeur et des données ne sont pas exactes, car elles représentent uniquement les mesures de l’une des régions.
 
@@ -420,6 +431,8 @@ L’utilisation de plusieurs espaces de travail peut résulter :
 - De la récupération par une requête dont l’étendue est limitée à des ressources de données qui sont stockées dans plusieurs espaces de travail.
  
 L’exécution de requêtes inter-région et inter-cluster nécessite que le système sérialise et transfère dans le back-end de grands segments de données intermédiaires qui sont généralement beaucoup plus volumineux que les résultats finaux de la requête. Elle limite également la capacité du système à effectuer des optimisations, des heuristiques et à utiliser des caches.
+
+Une requête qui s’étend à plus de 5 espaces de travail est considérée comme une requête consommant une quantité excessive de ressources. Les requêtes ne peuvent pas s’étendre à plus de 100 espaces de travail.
 
 > [!IMPORTANT]
 > Dans certains scénarios à plusieurs espaces de travail, les mesures du processeur et des données ne sont pas précises et représentent la mesure uniquement de quelques-uns des espaces de travail.

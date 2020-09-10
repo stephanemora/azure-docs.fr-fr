@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892335"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376177"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -28,10 +28,10 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
 * Vérifiez la connectivité Internet de la machine virtuelle.
   * Vérifiez qu’aucun autre service de sauvegarde n’est en cours d’exécution.
 * À partir de `Services.msc`, assurez-vous que le service d’**agent invité Windows Azure** est en **cours d’exécution**. Si le service d’**agent invité Windows Azure** est manquant, installez-le à partir de la [sauvegarde de machines virtuelles Azure dans un coffre Recovery Services](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple la sauvegarde de Windows Server, qui ne sont pas dus à la sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
-  * En cas d’erreur avec une entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
+* Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple la sauvegarde de Windows Server, qui ne sont pas dus à Sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
+  * En cas d’erreur avec l’entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
   * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
-  * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle la Sauvegarde Azure fonctionnait correctement mais la « Sauvegarde Windows Server » échouait :<br>
+  * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle Sauvegarde Azure fonctionnait correctement, mais la « sauvegarde de Windows Server » a échoué :<br>
     ![Échec de la Sauvegarde Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * En cas d’échec de la Sauvegarde Azure, recherchez le code d’erreur correspondant dans la section Erreurs de sauvegarde de machine virtuelle courantes dans cet article.
 
@@ -103,18 +103,60 @@ L’opération de sauvegarde a échoué en raison d’un problème avec l’**ap
 Code d’erreur : ExtensionFailedVssWriterInBadState <br/>
 Message d’erreur : L’opération de capture instantanée a échoué parce que les enregistreurs VSS étaient dans un état incorrect.
 
-Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect. À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```. La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez l’enregistreur VSS en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
+Cette erreur se produit parce que les enregistreurs VSS sont dans un état incorrect. Les extensions Sauvegarde Azure interagissent avec les enregistreurs VSS pour prendre des instantanés des disques. Pour résoudre ce problème, effectuez les étapes suivantes :
 
-* ```net stop serviceName```
-* ```net start serviceName```
+Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
+- À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```.
+- La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez le service de l’enregistreur VSS correspondant. 
+- Pour redémarrer le service, exécutez les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
-Une autre procédure qui peut être utile consiste à exécuter la commande suivante à partir d’une invite de commandes avec élévation de privilèges (en tant qu’administrateur).
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> Le redémarrage de certains services peut avoir un impact sur votre environnement de production. Assurez-vous que le processus d’approbation est respecté et que le service est redémarré à l’heure d’arrêt prévue.
+ 
+   
+Si le redémarrage des enregistreurs VSS n’a pas résolu le problème et que le problème persiste en raison de l’expiration du délai d’attente, procédez comme suit :
+- Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges (en tant qu’administrateur) pour empêcher la création de threads pour les instantanés-blobs.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-L’ajout de cette clé de Registre empêche la création de threads pour les instantanés d’objets blob et l’expiration du délai d’attente.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState : échec de l’opération d’instantané en raison de l’état incorrect du service VSS (cliché instantané de volume)
+
+Code d’erreur : ExtensionFailedVssServiceInBadState <br/>
+Message d’erreur : Échec de l’opération d’instantané en raison de l’état incorrect du service VSS (cliché instantané de volume).
+
+Cette erreur se produit parce que le service VSS est dans un état incorrect. Les extensions Sauvegarde Azure interagissent avec le service VSS pour prendre des instantanés des disques. Pour résoudre ce problème, effectuez les étapes suivantes :
+
+Redémarrez le service VSS (cliché instantané de volume).
+- Accédez à Services.msc et redémarrez « Service de cliché instantané du volume ».<br>
+(ou)<br>
+- Exécutez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+Si le problème persiste, redémarrez la machine virtuelle lors des temps d’arrêt planifiés.
+
+### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable  : échec de création de la machine virtuelle, car la taille de machine virtuelle sélectionnée n’est pas disponible
+
+Code d’erreur : UserErrorSkuNotAvailable Message d’erreur : Échec de création de la machine virtuelle car la taille de machine virtuelle sélectionnée n’est pas disponible. 
+ 
+Cette erreur se produit parce que la taille de machine virtuelle sélectionnée pendant l’opération de restauration n’est pas prise en charge. <br>
+
+Pour résoudre ce problème, utilisez l’option [Restaurer les disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) au cours de l’opération de restauration. Utilisez ces disques pour créer une machine virtuelle à partir de la liste des [tailles de machines virtuelles prises en charge disponibles](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) à l’aide de [cmdlets PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported  : échec de création de la machine virtuelle en raison de l’absence d’une demande d’achat de Place de marché
+
+Code d’erreur : UserErrorMarketPlaceVMNotSupported Message d’erreur : Échec de création de la machine virtuelle en raison de l’absence d’une demande d’achat de Place de marché. 
+ 
+Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles qui sont disponibles sur Place de marché Azure. Cette erreur se produit lorsque vous essayez de restaurer une machine virtuelle (avec un paramètre Plan/Éditeur spécifique) qui n’est plus disponible sur Place de marché Azure. [En savoir plus ici](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- Pour résoudre ce problème, utilisez l’option [Restaurer les disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) au cours de l’opération de restauration, puis utilisez des cmdlets [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) ou [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) pour créer la machine virtuelle avec les informations les plus récentes sur le marketplace qui correspondent à la machine virtuelle.
+- Si l’éditeur ne dispose d’aucune information sur le marketplace, vous pouvez utiliser les disques de données pour récupérer vos données et les attacher à une machine virtuelle existante.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – Échec d’analyse de la configuration pour l’extension de sauvegarde
 
@@ -156,7 +198,7 @@ L’opération de sauvegarde a échoué en raison d’un état incohérent de l�
 
 * Vérifiez que l’agent invité est installé et réactif
 * Dans le portail Azure, accédez à **Machine virtuelle** > **Tous les paramètres** > **Extensions**
-* Sélectionnez l’extension de sauvegarde VmSnapshot ou VmSnapshotLinux, puis cliquez sur **Désinstaller**
+* Sélectionnez l’extension de sauvegarde VmSnapshot ou VmSnapshotLinux, puis sélectionnez **Désinstaller**.
 * Après avoir supprimé l’extension de sauvegarde, recommencez l’opération de sauvegarde
 * L’opération de sauvegarde suivante installera la nouvelle extension à l’état souhaité
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a7ed148c4bc8d58b2dcbc344656137a403c62eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037540"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299724"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Intégrer Azure Spring Cloud à des solutions d’équilibrage de charge Azure
 
@@ -26,7 +26,7 @@ Azure fournit déjà différentes solutions d’équilibrage de charge. Il exist
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Azure Spring Cloud : [Guide pratique pour créer un service Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure Spring Cloud : [Guide pratique pour créer un service Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager : [Guide pratique pour créer un profil Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure Application Gateway : [Guide pratique pour créer une passerelle Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front Door : [Guide pratique pour créer un profil Front Door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)

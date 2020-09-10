@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683893"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298910"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -59,7 +59,7 @@ Mise en cache du Stockage Premium :  Prise en charge
 
 MBps = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances (./premium-storage-performance.md).
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](premium-storage-performance.md).
 
 
 ## <a name="nvv2-series"></a>Série NVv2
@@ -267,7 +267,7 @@ Mise en cache du Stockage Premium :  Prise en charge
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32 000/256 (288) | 25 600/256 | 8/4 000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64 000/512 (576) | 51 200/512 | 8/8 000 |
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances (./premium-storage-performance.md).
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](premium-storage-performance.md).
 <sup>2</sup> La famille de machines virtuelles peut s’exécuter sur l’un des processeurs suivants : Intel Xeon® E5-2660 v2 de 2,2 GHz, Intel Xeon® E5-2673 v3 de 2,4 GHz (Haswell) ou Intel XEON® E5-2673 v4 de 2,3 GHz (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80 000/800 | 20 000/500 | 8/16 000 |
 | Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160 000/1 600 | 40 000/1 000 | 8/20 000 |
 
-Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Conception pour de hautes performances (./premium-storage-performance.md).
+Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Conception pour de hautes performances](premium-storage-performance.md).
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
@@ -315,7 +315,7 @@ Mise en cache du Stockage Premium :  Prise en charge
 | Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80 000/800 (2112) | 40 000/1 000 | 8/16 000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160 000/1 600 (4224) | 80 000/2 000 | 8/20 000 |
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Conception pour de hautes performances (./premium-storage-performance.md).
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Conception pour de hautes performances](premium-storage-performance.md).
 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 

@@ -7,20 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/03/2020
-ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 08/11/2020
+ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778258"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401637"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
+Cet article répertorie les adresses IP utilisées par les services d’intégrité et de gestion Azure HDInsight. Si vous utilisez des groupes de sécurité réseau (NSG) ou des itinéraires définis par l’utilisateur (UDR), vous devrez peut-être ajouter une partie de ces adresses IP à la liste d’autorisation pour le trafic réseau entrant.
+
+## <a name="introduction"></a>Introduction
+ 
 > [!Important]
-> Dans la plupart des cas, vous pouvez désormais utiliser la fonctionnalité [balise de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau, au lieu d’ajouter manuellement des adresses IP. Les nouvelles régions seront ajoutées uniquement pour les balises de service et les adresses IP statiques seront éventuellement déconseillées.
+> Dans la plupart des cas, vous pouvez désormais utiliser des [balises de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau au lieu d’ajouter manuellement des adresses IP. Les adresses IP ne seront pas publiées pour les nouvelles régions Azure, seules des balises de service seront publiées. Les adresses IP statiques pour les adresses IP de gestion seront finalement dépréciées.
 
 Si vous utilisez des groupes de sécurité réseau ou des routes définies par l’utilisateur pour contrôler le trafic vers votre cluster HDInsight, vérifiez que votre cluster peut communiquer avec les services de gestion et d’intégrité Azure.  Certaines adresses IP sont propres à une région, et d’autres s’appliquent à toutes les régions Azure. Vous devrez peut-être autoriser le trafic provenant du service Azure DNS si vous n’utilisez pas de DNS personnalisé.
+
+Si vous avez besoin d’adresses IP pour une région qui n’est pas mentionnée ici, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher des adresses IP pour votre région. Si vous ne parvenez pas à utiliser l’API, téléchargez le [fichier JSON de balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
 
 Les sections suivantes traitent des adresses IP spécifiques qui doivent être autorisées.
 

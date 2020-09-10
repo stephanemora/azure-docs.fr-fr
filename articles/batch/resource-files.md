@@ -3,12 +3,12 @@ title: Création et utilisation de fichiers de ressources
 description: Découvrez comment créer des fichiers de ressources Batch à partir de diverses sources d’entrée. Cet article décrit quelques méthodes courantes pour les créer et les placer sur une machine virtuelle.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964020"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230940"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > Pour l’accès au conteneur, vous devez disposer des autorisations `Read` et `List`, tandis que pour l’accès aux objets blob, vous n’avez besoin que de l’autorisation `Read`.
 
-Une fois que les autorisations sont configurées, créez le jeton SAS et mettez en forme l’URL SAS pour l’accès au conteneur de stockage. À l’aide de l’URL SAS mise en forme pour le conteneur de stockage, générez un fichier de ressources avec [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Une fois que les autorisations sont configurées, créez le jeton SAS et mettez en forme l’URL SAS pour l’accès au conteneur de stockage. À l’aide de l’URL SAS mise en forme pour le conteneur de stockage, générez un fichier de ressources avec [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -99,7 +99,7 @@ Si chaque tâche comporte de nombreux fichiers uniques à celle-ci, les fichiers
 
 Si plusieurs centaines de fichiers de ressources sont spécifiés sur une tâche, Batch peut rejeter la tâche car trop importante. Des petites tâches sont préférables, en réduisant le nombre de fichiers de ressources sur la tâche elle-même.
 
-S’il est impossible de réduire le nombre de fichiers nécessaires à votre tâche, vous pouvez optimiser la tâche en créant un fichier de ressources unique qui fait référence à un conteneur de stockage de fichiers de ressources. Pour cela, placez vos fichiers de ressources dans un conteneur de Stockage Azure et utilisez les différents [modes](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) de « Conteneur » de fichiers de ressources. Utilisez les options de préfixe d’objet blob pour spécifier des collections de fichiers à télécharger pour vos tâches.
+S’il est impossible de réduire le nombre de fichiers nécessaires à votre tâche, vous pouvez optimiser la tâche en créant un fichier de ressources unique qui fait référence à un conteneur de stockage de fichiers de ressources. Pour cela, placez vos fichiers de ressources dans un conteneur de Stockage Azure et utilisez les différents [modes](/dotnet/api/microsoft.azure.batch.resourcefile#methods) de « Conteneur » de fichiers de ressources. Utilisez les options de préfixe d’objet blob pour spécifier des collections de fichiers à télécharger pour vos tâches.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827118"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181508"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -17,7 +17,7 @@ Cet article explique comment déplacer un coffre Recovery Services configuré po
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Le déplacement de ressources pour un coffre Recovery Services est pris en charge dans les régions suivantes : Australie Est, Australie Sud-Est, Canada Centre, Canada Est, Asie Sud-Est, Asie Est, USA Centre, USA Centre Nord, USA Est, USA Est 2, USA Centre Sud, USA Centre-Ouest, USA Centre-Ouest 2, USA Ouest, USA Ouest 2, Inde Centre, Inde Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Afrique du Sud Nord, Afrique du Sud Ouest, Royaume-Uni Sud et Royaume-Uni Ouest.
+Le déplacement de ressources pour un coffre Recovery Services est pris en charge dans les régions suivantes : Australie Est, Australie Sud-Est, Canada Centre, Canada Est, Asie Sud-Est, Asie Est, USA Centre, USA Centre Nord, USA Est, USA Est 2, USA Centre Sud, USA Centre-Ouest, USA Centre-Ouest 2, USA Ouest, USA Ouest 2, Brésil Sud, Inde Centre, Inde Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Afrique du Sud Nord, Afrique du Sud Ouest, Royaume-Uni Sud et Royaume-Uni Ouest.
 
 ## <a name="unsupported-regions"></a>Régions non prises en charge
 
@@ -46,7 +46,7 @@ France Centre, France Sud, Allemagne Nord-Est, Allemagne Centre, US Gov Iowa, Ch
 
 > [!NOTE]
 > Le déplacement de coffres Recovery Services pour Sauvegarde Azure d’une région Azure à une autre n’est pas pris en charge.<br><br>
-> Si vous avez configuré des machines virtuelles (IaaS Azure, Hyper-V, VMware) ou des machines physiques pour la reprise d’activité avec **Azure Site Recovery**, l’opération de déplacement est bloquée. Si vous souhaitez déplacer des coffres pour Azure Site Recovery, consultez [cet article](../site-recovery/move-vaults-across-regions.md) pour en savoir plus sur le déplacement manuel des coffres.
+> Si vous avez configuré des machines virtuelles (IaaS Azure, Hyper-V, VMware) ou des machines physiques pour la récupération d’urgence avec **Azure Site Recovery**, l’opération de déplacement est bloquée. Si vous souhaitez déplacer des coffres pour Azure Site Recovery, consultez [cet article](../site-recovery/move-vaults-across-regions.md) pour en savoir plus sur le déplacement manuel des coffres.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Utiliser le portail Azure pour déplacer un coffre Recovery Services vers un autre groupe de ressources
 

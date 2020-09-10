@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893015"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999221"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Restaurer | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les serveurs DPM d’origine et externe doivent être inscrits dans le même coffre | **Cause** : Ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
+| Restaurer | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les serveurs DPM d’origine et externe doivent être inscrits dans le même coffre | **Cause** : ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent.
 

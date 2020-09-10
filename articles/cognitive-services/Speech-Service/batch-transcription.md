@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918942"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050180"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -170,7 +170,7 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL facultative avec [SAP de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur. Si aucune URL n’est spécifiée, Microsoft stocke les résultats dans un conteneur de stockage géré par Microsoft. Lorsque la transcription est supprimée en appelant [Supprimer la transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), les données de résultats sont également supprimées.
+      URL facultative avec [SAP ad hoc de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur. Les SAP avec stratégie d’accès stockée ne sont **pas** prises en charge. Si aucune URL n’est spécifiée, Microsoft stocke les résultats dans un conteneur de stockage géré par Microsoft. Lorsque la transcription est supprimée en appelant [Supprimer la transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), les données de résultats sont également supprimées.
 :::row-end:::
 
 ### <a name="storage"></a>Stockage

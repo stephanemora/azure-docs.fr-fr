@@ -3,12 +3,12 @@ title: Guide pratique pour remplacer votre infrastructure sur bande
 description: Découvrir comment la Sauvegarde Azure fournit une sémantique de type bande qui vous permet de sauvegarder et de restaurer des données dans Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757232"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378438"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 
@@ -62,7 +62,7 @@ Le nombre total de points de récupération est 56.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
-En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible.
+En sélectionnant **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible.
 
 ![Modifier la fenêtre de stratégie](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

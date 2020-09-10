@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9fc5fac95d1fca743b8242f253d15be9a4b70853
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080792"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277593"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Protéger vos applications Web et API Azure App Service
 
@@ -32,7 +32,7 @@ Une fois le plan App Service activé, Security Center évalue les ressources cou
 Security Center tire parti de l’échelle du cloud et de la visibilité qu’Azure a en tant que fournisseur de cloud, pour surveiller les attaques d’applications Web courantes. Security Center peut découvrir les attaques dirigées contre vos applications et identifier les attaques émergentes, même lorsque les pirates sont en phase de reconnaissance et analysent les vulnérabilités de multiples applications hébergées sur Azure. En tant que service natif Azure, Security Center occupe également dans une position privilégiée pour proposer des analyses de sécurité basées sur l’hôte, couvrant des nœuds de calcul sous-jacents pour ce PaaS, ce qui permet à Security Center de détecter les attaques dirigées contre des applications web qui ont déjà été exploitées. Pour plus d’informations, consultez [Protection contre les menaces pour Azure App Service](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Activation de la surveillance et la protection d’App Service
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Activer la surveillance et la protection d’App Service
 
 1. Dans le Portail Azure, choisissez Security Center.
 2. Accédez à **Tarifs et paramètres**, puis choisissez un abonnement.
