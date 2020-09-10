@@ -154,6 +154,8 @@
               href: openvpn-azure-ad-client.md
             - name: À propos du fichier de téléchargement du profil VPN client
               href: about-vpn-profile-download.md
+            - name: Intune - Déployer un profil de client VPN
+              href: vpn-profile-intune.md
         - name: OpenVPN
           items:
             - name: Configurer OpenVPN pour les connexions de point à site

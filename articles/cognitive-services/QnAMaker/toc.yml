@@ -24,6 +24,8 @@
   items:
     - name: Intégrer à l’agent virtuel Power BI
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Créer un bot de Forum aux questions avec Azure Bot Service
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Tester avec un fichier de commandes
       href: Quickstarts/batch-testing.md
 - name: Concepts
@@ -91,7 +93,7 @@
         - name: Migrer vers une nouvelle base de connaissances
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Test
+        - name: Base de connaissances de test
           href: How-To/test-knowledge-base.md
     - name: Gérer les paires de Q/R
       items:
