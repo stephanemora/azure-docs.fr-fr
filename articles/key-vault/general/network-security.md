@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504515"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536053"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
-Cet article fournit des instructions détaillées pour configurer les pare-feux et réseaux virtuels d’Azure Key Vault afin de restreindre l’accès à votre coffre de clés. Les [points de terminaison de service de réseau virtuel pour Key Vault](overview-vnet-service-endpoints.md) permettent de restreindre l’accès à un réseau virtuel et à un ensemble de plages d’adresses IPv4 (Internet Protocol version 4) spécifiés.
+Cet article fournit des instructions détaillées pour configurer les pare-feux et réseaux virtuels d’Azure Key Vault afin de restreindre l’accès à votre coffre de clés. Les [points de terminaison de service de réseau virtuel pour Key Vault](overview-vnet-service-endpoints.md) permettent de restreindre l’accès à un réseau virtuel et à un ensemble de plages d’adresses IPv4 (Internet Protocol version 4) spécifiés.
 
 > [!IMPORTANT]
 > Une fois que les règles de pare-feu sont effectives, les utilisateurs peuvent effectuer des opérations du [plan de données](secure-your-key-vault.md#data-plane-access-control) de Key Vault seulement quand leurs demandes proviennent de réseaux virtuels ou de plages d’adresses IPv4 autorisés. Ceci s’applique également à l’accès au coffre de clés à partir du portail Azure. Si des utilisateurs peuvent accéder à un coffre de clés à partir du portail Azure, il ne peuvent pas lister les clés/secrets/certificats si leur ordinateur client ne figure pas dans la liste autorisée. Ceci affecte également l’accès au sélecteur de compte Key Vault par d’autres services Azure. Des utilisateurs qui peuvent voir la liste des coffres de clés ne peuvent pas lister les clés si des règles de pare-feu bloquent leur ordinateur client.
@@ -129,5 +129,5 @@ Voici comment configurer les pare-feux et les réseaux virtuels Key Vault avec P
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Points de terminaison de service de réseau virtuel pour Key Vault](overview-vnet-service-endpoints.md)
-* [Sécuriser votre coffre de clés](secure-your-key-vault.md)
+* [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
+* [Sécurisez votre coffre de clés](secure-your-key-vault.md)
