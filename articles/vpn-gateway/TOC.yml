@@ -172,6 +172,8 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Publier des routes personnalisées vers des clients P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
+        - name: Créer des stratégies IPsec personnalisées pour P2S
+          href: create-custom-policies-p2s-ps.md
     - name: 'Routage, BGP et peering de réseau virtuel'
       items:
         - name: Configurer BGP pour une passerelle VPN

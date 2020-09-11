@@ -52,8 +52,8 @@
   items:
     - name: Planifier votre déploiement d’accès conditionnel
       href: plan-conditional-access.md
-    - name: Meilleures pratiques
-      href: best-practices.md
+    - name: API d’accès conditionnel
+      href: howto-conditional-access-apis.md
     - name: Stratégies d’accès conditionnel courantes
       items:
         - name: Bloquer l’authentification héritée
@@ -92,6 +92,8 @@
       href: terms-of-use.md
     - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
       href: howto-conditional-access-session-lifetime.md
+    - name: Meilleures pratiques
+      href: best-practices.md
     - name: Dépannage
       items:
         - name: Résoudre les problèmes de connexion

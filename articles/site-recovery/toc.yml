@@ -466,6 +466,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Superviser Site Recovery avec les journaux Azure Monitor
       href: monitor-log-analytics.md
+    - name: Supervision des modèles d’attrition sur les machines virtuelles
+      href: monitoring-high-churn.md
     - name: Surveiller les serveurs de processus
       href: vmware-physical-azure-monitor-process-server.md
 - name: Dépannage

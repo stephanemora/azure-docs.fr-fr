@@ -213,8 +213,10 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Dépanner
       items:
-        - name: SSPR
-          href: active-directory-passwords-troubleshoot.md
+        - name: Réinitialisation de mot de passe en libre-service (SSPR)
+          href: troubleshoot-sspr.md
+        - name: Écriture différée SSPR
+          href: troubleshoot-sspr-writeback.md
         - name: FAQ sur SSPR
           href: active-directory-passwords-faq.md
         - name: FAQ sur l’authentification multifacteur

@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Workflow de l’architecture de machine virtuelle classique
           href: cloud-services-workflow-process.md
+        - name: Prise en charge de Resource Health pour les services cloud
+          href: resource-health-for-cloud-services.md
         - name: Forum aux questions sur les services cloud
           items:
             - name: FAQ sur la disponibilité de l’application et du service
