@@ -28,8 +28,6 @@
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Journaux d’activité Azure Monitor
-      href: log-analytics-samples.md
 - name: Concepts
   items:
     - name: Fonctionnalités du Pare-feu Azure
@@ -88,6 +86,8 @@
       href: dns-settings.md
     - name: Surveiller les journaux de diagnostics
       href: firewall-diagnostics.md
+    - name: Journaux d’activité Azure Monitor
+      href: log-analytics-samples.md
 - name: Informations de référence
   items:
     - name: Azure CLI
