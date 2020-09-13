@@ -106,8 +106,6 @@
   items:
     - name: "Se connecter au portail Mes\_applications et l’utiliser"
       href: my-apps-portal-end-user-access.md
-    - name: Mettre à jour vos informations de profil et de compte
-      href: my-apps-portal-end-user-update-profile.md
     - name: Mettre à jour les informations de vos groupes
       href: my-apps-portal-end-user-groups.md
     - name: Organiser des applications à l’aide de regroupements
