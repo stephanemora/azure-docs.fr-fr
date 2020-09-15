@@ -4,7 +4,7 @@
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce qu’Azure Synapse Analytics\_?"
+    - name: "Qu’est-ce qu’Azure Synapse\_?"
       href: overview-what-is.md
     - name: Découvrir
       items:
@@ -36,10 +36,10 @@
   items:
     - name: Créer un espace de travail Synapse en utilisant le portail Azure
       href: quickstart-create-workspace.md
-    - name: Déployer les mises à niveau avec un modèle
-      href: quickstart-deployment-template-workspaces.md
     - name: Créer un espace de travail Synapse en utilisant Azure CLI
       href: quickstart-create-workspace-cli.md
+    - name: Déployer les mises à niveau avec un modèle
+      href: quickstart-deployment-template-workspaces.md
     - name: Utiliser Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Lier un espace de travail Power BI
@@ -70,7 +70,7 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutoriels
   items:
-    - name: Exécuter des applications Apache Spark pour des pools Spark
+    - name: Exécuter des applications Apache Spark
       href: ./spark/intellij-tool-synapse.md
     - name: Définitions des travaux Spark
       href: ./spark/apache-spark-job-definitions.md
@@ -84,7 +84,7 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Analyste de données
       items:
-        - name: Utiliser SQL à la demande pour analyser et Synapse Studio pour visualiser
+        - name: Utiliser SQL à la demande pour analyser des données
           href: ./sql/tutorial-data-analyst.md
 - name: Exemples
   href: 'https://github.com/Azure-Samples/Synapse'
@@ -372,9 +372,9 @@
           href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Intégration d’outils (IA, ETL, BI)'
       items:
-        - name: Résoudre les problèmes liés à Synapse Analytics Studio
+        - name: Résoudre les problèmes liés à Synapse Studio
           href: troubleshoot/troubleshoot-synapse-studio.md
-        - name: Résoudre les problèmes liés à Synapse Analytics Studio avec PowerShell
+        - name: Résoudre les problèmes de connectivité de Synapse Studio
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
 - name: Procédures
   items:
@@ -422,7 +422,7 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Mettre à niveau vers la 2e génération
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Ingestion et préparation des données
+    - name: Ingérer et préparer les données
       items:
         - name: Dans l’entrepôt de données
           items:
@@ -869,7 +869,7 @@
               href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Résolution des problèmes des runtimes d’intégration auto-hébergés
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Connecter des outils à Synapse Analytics
+    - name: "Connecter des outils aux espaces de travail\_Synapse"
       items:
         - name: SQL Synapse
           items:

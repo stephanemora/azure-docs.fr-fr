@@ -4,6 +4,10 @@
   items:
     - name: "Qu’est-ce qu’Azure DB pour PostgreSQL\_?"
       href: overview.md
+    - name: Mises à jour de service
+      items:
+        - name: Expiration du certificat racine SSL
+          href: concepts-certificate-rotation.md
 - name: Démarrages rapides
   expanded: true
   items:

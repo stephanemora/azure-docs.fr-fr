@@ -7,8 +7,10 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une Front Door
+    - name: Créer une porte d’entrée - Portail
       href: quickstart-create-front-door.md
+    - name: Créer une porte d’entrée - Modèle ARM
+      href: quickstart-create-front-door-template.md
 - name: Tutoriels
   items:
     - name: Ajouter un domaine personnalisé à votre Front Door

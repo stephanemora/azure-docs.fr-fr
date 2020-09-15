@@ -20,7 +20,7 @@
   items:
     - name: Créer un tableau de bord de triage des données de santé
       href: howto-health-data-triage.md
-    - name: Connecter des appareils
+    - name: Connecter et développer des appareils
       items:
         - name: "Préparer et connecter un Rigado Cascade\_500"
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json

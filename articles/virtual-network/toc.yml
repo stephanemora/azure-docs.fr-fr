@@ -91,6 +91,8 @@
           href: ipv6-public-ip-address-prefix.md
         - name: Préférence de routage
           href: routing-preference-overview.md
+        - name: Base de référence de sécurité pour les adresses IP publiques
+          href: public-ip-security-baseline.md
     - name: Sécurité
       items:
         - name: Groupes de sécurité réseau

@@ -39,6 +39,8 @@
       href: use-prediction-api.md
     - name: Utiliser les suggestions d’étiquettes
       href: suggested-tags.md
+    - name: Contrôle d’accès en fonction du rôle
+      href: role-based-access-control.md
     - name: Exporter des modèles
       items:
         - name: Exporter votre modèle sur votre mobile

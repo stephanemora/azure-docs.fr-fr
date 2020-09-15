@@ -25,6 +25,8 @@
   items:
     - name: Générer une application serverless en temps réel avec l’authentification
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Créer une application de conversation sur un serveur Blazor Server
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: Exemples
   items:
     - name: Exemples de code
