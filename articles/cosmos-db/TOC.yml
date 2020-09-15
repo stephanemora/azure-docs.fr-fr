@@ -967,6 +967,8 @@
         - name: Utilisation de modèles Resource Manager
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: Déplacer d’une région à l’autre
+          href: how-to-move-regions.md
     - name: Diffusion mondiale
       items:
         - name: Configurer le multimaître

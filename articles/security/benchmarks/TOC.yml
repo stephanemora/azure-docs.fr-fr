@@ -2,11 +2,37 @@
   href: index.yml
 - name: Introduction
   href: introduction.md
-- name: Security Controls
+- name: Contrôles de sécurité (v2)
   expanded: true
   items:
     - name: Vue d’ensemble des contrôles de sécurité Azure
       href: overview.md
+    - name: Sécurité du réseau
+      href: security-controls-v2-network-security.md
+    - name: Gestion des identités
+      href: security-controls-v2-identity-management.md
+    - name: Accès privilégié
+      href: security-controls-v2-privileged-access.md
+    - name: Protection des données
+      href: security-controls-v2-data-protection.md
+    - name: Gestion des ressources
+      href: security-controls-v2-asset-management.md
+    - name: Journalisation et détection des menaces
+      href: security-controls-v2-logging-threat-detection.md
+    - name: Réponse aux incidents
+      href: security-controls-v2-incident-response.md
+    - name: Gestion des postures et des vulnérabilités
+      href: security-controls-v2-posture-vulnerability-management.md
+    - name: Sécurité des points de terminaison
+      href: security-controls-v2-endpoint-security.md
+    - name: Sauvegarde et récupération
+      href: security-controls-v2-backup-recovery.md
+    - name: Gouvernance et stratégie
+      href: security-controls-v2-governance-strategy.md
+- name: Contrôles de sécurité (v1)
+  items:
+    - name: Vue d’ensemble des contrôles de sécurité Azure (v1)
+      href: overview-v1.md
     - name: Sécurité du réseau
       href: security-control-network-security.md
     - name: Enregistrement et surveillance
