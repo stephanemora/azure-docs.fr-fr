@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: duau
-ms.openlocfilehash: f0d4ab9e3ecba8af1f6775389a4837e8c90eb14d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ee9a883cbd69826e30d6f2416d588792a8c17b1c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399767"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648808"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutoriel : Ajouter un domaine personnalisé à votre Front Door
 Ce tutoriel montre comment ajouter un domaine personnalisé à votre Front Door. Quand vous utilisez Azure Front Door pour la livraison d’applications, vous avez besoin d’un domaine personnalisé si vous souhaitez que votre propre nom de domaine soit visible dans votre demande d’utilisateur final. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation.
@@ -37,11 +37,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir effectuer les étapes de ce tutoriel, vous devez d’abord créer un Front Door. Pour plus d’informations, consultez [Démarrage rapide : Créer une porte d’entrée](quickstart-create-front-door.md)
+* Avant de pouvoir effectuer les étapes de ce tutoriel, vous devez d’abord créer un Front Door. Pour plus d’informations, consultez [Démarrage rapide : Créer une porte d’entrée](quickstart-create-front-door.md)
 
-Si vous ne disposez pas déjà d’un domaine personnalisé, vous devez tout d’abord en acheter un auprès d’un fournisseur de domaine. Par exemple, consultez [Acheter un nom de domaine personnalisé](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* Si vous ne disposez pas déjà d’un domaine personnalisé, vous devez tout d’abord en acheter un auprès d’un fournisseur de domaine. Par exemple, consultez [Acheter un nom de domaine personnalisé](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
-Si vous utilisez Azure pour héberger vos [domaines DNS](https://docs.microsoft.com/azure/dns/dns-overview), vous devez déléguer le DNS (Domain Name System) du fournisseur de domaine à un DNS Azure. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Sinon, si vous utilisez un fournisseur de domaine pour gérer votre domaine DNS, passez à [Créer un enregistrement CNAME DNS](#create-a-cname-dns-record).
+* Si vous utilisez Azure pour héberger vos [domaines DNS](https://docs.microsoft.com/azure/dns/dns-overview), vous devez déléguer le DNS (Domain Name System) du fournisseur de domaine à un DNS Azure. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Sinon, si vous utilisez un fournisseur de domaine pour gérer votre domaine DNS, passez à [Créer un enregistrement CNAME DNS](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Créer un enregistrement CNAME DNS
@@ -202,7 +202,11 @@ Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un
 
 Dans ce didacticiel, vous avez appris à :
 
-> [!div class="checklist"]
-> - Créez un enregistrement CNAME DNS.
-> - Associez le domaine personnalisé à votre Front Door.
-> - Vérifiez le domaine personnalisé.
+* Créez un enregistrement CNAME DNS.
+* Associez le domaine personnalisé à votre Front Door.
+* Vérifiez le domaine personnalisé.
+
+Pour savoir comment activer le protocole HTTPS de votre domaine personnalisé, passez au tutoriel suivant.
+
+> [!div class="nextstepaction"]
+> [Activer le protocole HTTPS pour un domaine personnalisé](front-door-custom-domain.md)

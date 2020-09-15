@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269639"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489933"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Démarrage rapide : Partager des données avec Azure Data Share dans le portail Azure
 
@@ -67,7 +67,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
    ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
-1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure SQL Data Warehouse, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
+1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure Synapse Analytics, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
 
    ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 

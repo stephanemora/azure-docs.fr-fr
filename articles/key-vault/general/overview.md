@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190555"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421643"
 ---
 # <a name="about-azure-key-vault"></a>À propos d’Azure Key Vault
 
@@ -25,7 +25,7 @@ Azure Key Vault aide à résoudre les problèmes suivants :
 - **Gestion des secrets** : Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés API et autres secrets, et pour en contrôler étroitement l’accès.
 - **Gestion des clés** : Azure Key Vault peut également servir de solution de gestion de clés. Azure Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. 
 - **Gestion des certificats** : Azure Key Vault est également un service qui vous permet de provisionner, gérer et déployer facilement des certificats SSL/TLS publics et privés pour une utilisation avec Azure et vos ressources connectées internes. 
-- **Stockage de secrets protégés par des modules de sécurité matériels** : les secrets et les clés peuvent être protégés soit par logiciel, soit par des modules de sécurité matériels validés FIPS 140-2 de niveau 2.
+- **Stocker les secrets sauvegardés avec les modules de sécurité matériels** : les secrets, les clés et les certificats en magasin sont chiffrés avec une clé logicielle (niveau Standard) ou une clé des modules de sécurité matériels certifiés FIPS 140-2 de niveau 2 (niveau Premium) 
 
 ## <a name="why-use-azure-key-vault"></a>Pourquoi utiliser Azure Key Vault ?
 

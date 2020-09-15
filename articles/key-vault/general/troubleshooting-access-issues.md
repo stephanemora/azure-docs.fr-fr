@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400430"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595986"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -25,6 +25,14 @@ Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez prob
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Comment faire pour surveiller la disponibilité du coffre, les périodes de latence du service ou d’autres métriques de performances pour le coffre de clés ?
 
 Plus votre service se développera, plus le nombre de demandes envoyées à votre coffre de clés augmentera. Cette demande risque d'augmenter la latence de vos demandes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous pouvez surveiller les métriques de performances du coffre de clés et recevoir des alertes pour des seuils spécifiques. Pour en savoir plus sur la configuration de la surveillance, consultez ce [guide pas à pas](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Je ne parviens pas à modifier la stratégie d’accès, comment l’activer ?
+L’utilisateur doit disposer d’autorisations AAD suffisantes pour modifier la stratégie d’accès. Dans le cas présent, l’utilisateur doit détenir un rôle Contributeur supérieur.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Je vois une erreur « Stratégie inconnue ». Qu’est-ce que cela signifie ?
+Il y a deux explications différentes à la présence de la stratégie d’accès dans la section Inconnu :
+* Un ancien utilisateur avait un accès et, pour une raison ou une autre, celui-ci n’existe pas.
+* Si la stratégie d’accès est ajoutée via PowerShell, et qu’elle est ajoutée pour l’ObjectID de l’application au lieu du principal du service
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Comment faire pour attribuer le contrôle d’accès par objet du coffre de clés ? 
 

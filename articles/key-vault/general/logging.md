@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585914"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485453"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -36,7 +36,7 @@ Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisat
 > Cet article fournit des instructions Azure PowerShell pour la mise à jour de la journalisation des diagnostics. Vous pouvez également mettre à jour la journalisation des diagnostics à l’aide d’Azure Monitor dans la section **Journaux de diagnostic** du Portail Azure. 
 >
 
-Pour obtenir des informations générales sur Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](overview.md) Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/).
+Pour obtenir des informations générales sur Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](overview.md) Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/). Découvrez plus d’informations sur l’utilisation d’[Azure Monitor pour Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="prerequisites"></a>Prérequis
 

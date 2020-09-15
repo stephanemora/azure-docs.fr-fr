@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236981"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421286"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Démarrage rapide : Configurer Azure Attestation avec Azure PowerShell
 
@@ -159,26 +159,27 @@ TagsTable:
 
 Les fournisseurs d’attestations peuvent être supprimés à l’aide de l’applet de commande Remove-AzAttestation.  
 
-``azurepowershell Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>Gestion des stratégies
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+Afin de gérer les stratégies, un utilisateur Azure AD doit avoir les autorisations suivantes pour « Actions » :
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+Ces autorisations peuvent être attribuées à un utilisateur AD par le biais d’un rôle tel que « Propriétaire » (autorisations génériques), « Contributeur » (autorisations génériques) ou « Contributeur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+Afin de lire les stratégies, un utilisateur Azure AD doit avoir l’autorisation suivante pour « Actions » :
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+Cette autorisation peut être attribuée à un utilisateur AD par le biais d’un rôle tel que « Lecteur » (autorisations génériques) ou « Lecteur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+Les applets de commande PowerShell ci-dessous permettent de gérer les stratégies pour un fournisseur d’attestations (un environnement TEE à la fois).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy retourne la stratégie actuelle pour l’environnement TEE spécifié. L’applet de commande affiche la stratégie à la fois dans le texte et le format JWT de la stratégie.
 
 ```powershell
 $teeType = "<tee Type>"

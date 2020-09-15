@@ -83,6 +83,8 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: Résoudre l’erreur de démarrage - État introuvable
           href: boot-error-status-not-found.md
+        - name: Résoudre le problème de Windows qui n’a pas pu terminer la configuration du système
+          href: windows-could-not-configure-system.md
         - name: Résoudre les problèmes de capacité d’installation Windows Update
           href: windows-update-installation-capacity.md
         - name: Disque non amorçable

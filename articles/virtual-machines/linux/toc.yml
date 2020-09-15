@@ -479,7 +479,7 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-cli.md
-                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                    - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-cli.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-powershell.md
-                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                    - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-powershell.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
-            - name: Créer une machine virtuelle avec un réseau virtuel - CLI
+            - name: Utiliser un réseau virtuel - CLI
               href: image-builder-vnet.md
-            - name: Configurer les autorisations - CLI
-              href: image-builder-permissions-cli.md
-            - name: Configurer les autorisations - PowerShell
-              href: image-builder-permissions-powershell.md
             - name: Options réseau
               href: image-builder-networking.md
+            - name: Configurer les autorisations
+              items:
+                - name: Interface de ligne de commande
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: Tâche DevOps
               href: image-builder-devops-task.md
             - name: Informations de référence sur les modèles ARM

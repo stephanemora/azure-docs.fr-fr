@@ -2,20 +2,20 @@
 title: 'Vue d’ensemble d’Azure ExpressRoute : connexion via une connexion privée'
 description: La présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: overview
 ms.date: 08/25/2020
-ms.author: mialdrid
-ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.author: duau
+ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852946"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566872"
 ---
 # <a name="what-is-azure-expressroute"></a>Qu’est-ce qu’Azure ExpressRoute ?
-ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Office 365.
+ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Microsoft 365.
 
 La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent ainsi une meilleure fiabilité, des vitesses supérieures, des latences cohérentes et une plus grande sécurité que les connexions classiques sur Internet. Pour plus d’informations sur la connexion de votre réseau à Microsoft à l’aide d’ExpressRoute, consultez [Modèles de connectivité ExpressRoute](expressroute-connectivity-models.md).
 
@@ -44,7 +44,7 @@ Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Micro
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connectivité aux services de cloud Microsoft
 Les connexions ExpressRoute permettent d’accéder aux services suivants :
 * Services Microsoft Azure
-* Services Microsoft Office 365
+* Services Microsoft 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

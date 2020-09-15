@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d55916539f64fc70560565bd5caf6254aac5a908
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684862"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567909"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
@@ -67,7 +67,7 @@ Si vous passez au paiement par facture, cela signifie que vous devez payer votre
      Région spécifique & série d’abonnements :<br>
 
     - Le **nom de la société** et l’**adresse de la société** doivent correspondre aux informations que vous avez fournies pour le compte Azure. Pour afficher ou mettre à jour les informations, consultez [Modifier les informations de profil de votre compte Azure](change-azure-account-profile.md).
-    - Ajoutez vos informations de contact de facturation dans le portail Azure pour que la limite de crédit puisse être approuvée. Les détails du contact doivent être liés au service financier et comptabilité fournisseurs de l’entreprise. Pour mettre à jour les informations de contact de facturation, accédez au [Centre des comptes Azure](https://account.azure.com/Profile).
+    - Ajoutez vos informations de contact de facturation dans le portail Azure pour que la limite de crédit puisse être approuvée. Les détails du contact doivent être liés au service financier et comptabilité fournisseurs de l’entreprise. Pour mettre à jour les informations de contact de facturation, accédez au [portail Azure](https://portal.azure.com).
 
 6. Vérifiez vos coordonnées et votre méthode de contact préférée, puis sélectionnez **Créer**.
 

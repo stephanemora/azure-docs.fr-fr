@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262853"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421371"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutoriel : Installer Azure Stack Edge avec GPU
 
@@ -221,6 +221,10 @@ Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de 
 4. Fixez les câbles d’alimentation aux unités de distribution d’alimentation (PDU) du rack. Assurez-vous que les deux unités d’alimentation utilisent des sources d’alimentation distinctes.
 5. Appuyez sur le bouton d’alimentation pour allumer l’appareil.
 6. Connectez l’interface réseau 1-GbE PORT 1 à l’ordinateur utilisé pour configurer l’appareil physique. Le PORT 1 sert d’interface de gestion.
+    
+    > [!NOTE]
+    > Si vous connectez l’ordinateur directement à votre appareil (sans passer par un commutateur), utilisez un câble croisé ou une carte Ethernet USB.
+
 7. Connectez un ou plusieurs interfaces PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 au réseau du centre de données/à Internet.
 
     - Si vous connectez le PORT 2, utilisez le câble réseau 1-GbE RJ-45.
@@ -235,7 +239,7 @@ Dans ce tutoriel, vous avez approfondi vos connaissances sur Azure Stack Edge et
 > * Montage de l’appareil en rack
 > * Câblage de l’appareil
 
-Passez au didacticiel suivant pour savoir comment connecter, configurer et activer votre appareil.
+Passez au tutoriel suivant pour savoir comment vous connecter à votre appareil.
 
 > [!div class="nextstepaction"]
 > [Connecter Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)

@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682839"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487349"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
-Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. À l’aide du lien d’administrateur partenaire, les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la remise du service.
+Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. En utilisant le lien d’administrateur partenaire (PAL), les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la fourniture de service.
 
-Le lien d’administrateur partenaire permet à Microsoft d’identifier et de gratifier les partenaires qui favorisent la réussite des clients Azure. Microsoft peut attribuer une influence et un revenu consommé Azure à votre organisation en fonction des autorisations du compte (rôle Azure) et de l’étendue (abonnement, groupe de ressources, ressource).
+PAL permet à Microsoft d’identifier et de gratifier les partenaires qui favorisent la réussite des clients Azure. Microsoft peut attribuer une influence et un revenu consommé Azure à votre organisation en fonction des autorisations du compte (rôle Azure) et de l’étendue (abonnement, groupe de ressources, ressource).
 
 ## <a name="get-access-from-your-customer"></a>Accéder à votre client
 
@@ -133,10 +133,11 @@ Oui. Un ID partenaire lié peut être modifié, ajouté ou supprimé.
 
 Le lien entre l’ID partenaire et le compte est établi pour chaque locataire client. Liez l’ID partenaire dans chaque locataire client.
 
+En revanche, si vous gérez les ressources d’un client via Azure Lighthouse, vous devez créer le lien dans votre locataire de fournisseur de services, en utilisant un compte qui a accès aux ressources du client. Pour plus d’informations, consultez [Lier votre ID de partenaire pour activer le crédit Partenaires sur des ressources déléguées](../../lighthouse/how-to/partner-earned-credit.md).
+
 **D’autres partenaires ou clients peuvent-ils modifier ou supprimer le lien vers l’ID partenaire ?**
 
 Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire.
-
 
 **Quel ID MPN utiliser si ma société en possède plusieurs ?**
 
@@ -158,10 +159,11 @@ Vous ne voyez pas le client dans les rapports pour les raisons suivantes
 
 Oui, vous pouvez lier votre ID partenaire pour Azure Stack.
 
-**Comment puis-je lier mon ID partenaire si ma société utilise [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) pour accéder aux ressources client ?**
+**Comment puis-je lier mon ID partenaire si ma société utilise [Azure Lighthouse](../../lighthouse/overview.md) pour accéder aux ressources client ?**
 
-Si vous intégrez des clients à la gestion des ressources déléguées Azure en [publiant une offre de services managés sur la Place de marché Azure](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), votre ID MPN est automatiquement associé. Si vous [intégrez des clients en déployant des modèles Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), vous devez associer votre ID MPN (Microsoft Partner Network) à au moins un compte d’utilisateur qui a accès à chacun de vos abonnements intégrés. Notez que vous devez faire cela dans le locataire de votre fournisseur de services. Par souci de simplicité, nous vous recommandons de créer un compte de principal du service dans votre locataire qui est associé à votre ID MPN et de lui accorder un accès Lecteur pour chaque client que vous intégrez. Dans cet exemple, le rôle Lecteur RBAC est utilisé et il s’agit de l’un des rôles qui ne sont pas éligibles au crédit Partenaires. Pour plus d’informations sur les rôles, consultez [Rôles et autorisations pour le crédit Partenaires](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+Si vous intégrez des clients à la gestion des ressources déléguées Azure en [publiant une offre de services managés sur la Place de marché Azure](../../lighthouse/how-to/publish-managed-services-offers.md), votre ID MPN est automatiquement associé.
 
+Si vous [intégrez des clients en déployant des modèles Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), vous devez associer votre ID MPN à au moins un compte d’utilisateur qui a accès à chacun de vos abonnements intégrés. Notez que vous devez faire cela dans votre locataire de fournisseur de services et non dans le locataire de chaque client. Pour simplifier, nous vous recommandons de créer un compte de principal de service dans votre locataire, de l’associer à votre ID MPN, puis d’accorder à chaque client que vous intégrez un accès à ce compte avec un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec). Pour plus d’informations, consultez [Lier votre ID de partenaire pour activer le crédit Partenaires sur des ressources déléguées](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Comment expliquer Partner Admin Link (PAL) à mon client ?**
 
@@ -173,4 +175,4 @@ L’association PAL aux informations d’identification existantes ne fournit pa
 
 **Cela a-t-il un impact sur la sécurité de l’environnement Azure d’un client ?**
 
-L’association PAL ajoute uniquement l’ID MPN du partenaire aux informations d’identification déjà provisionnées et ne modifie aucune autorisation (rôle Azure) ni ne fournit de données de service Azure supplémentaires au partenaire ou à Microsoft. 
+L’association PAL ajoute uniquement l’ID MPN du partenaire aux informations d’identification déjà provisionnées et ne modifie aucune autorisation (rôle Azure) ni ne fournit de données de service Azure supplémentaires au partenaire ou à Microsoft.

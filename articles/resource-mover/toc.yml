@@ -18,9 +18,9 @@
   items:
     - name: Vue d’ensemble du déplacement
       href: about-move-process.md
-    - name: Matrice de prise en charge pour le déplacement de région de machine virtuelle Azure
+    - name: Support - Déplacer des machines virtuelles Azure d’une région à une autre
       href: support-matrix-move-region-azure-vm.md
-    - name: Matrice de prise en charge pour le déplacement de région d’Azure SQL
+    - name: Support - Déplacer Azure SQL d’une région à une autre
       href: support-matrix-move-region-sql.md
 - name: Guides pratiques
   items:
@@ -34,11 +34,11 @@
           href: move-region-within-resource-group.md
     - name: Gérer les déplacements de régions
       items:
-        - name: Modifier les paramètres cibles d’un déplacement de région
+        - name: Modifier les paramètres de destination
           href: modify-target-settings.md
-        - name: Supprimer des ressources d’une collection de déplacement de région
+        - name: Supprimer des ressources d’une collection de déplacements
           href: remove-move-resources.md
-        - name: Gérer les ressources créées par le processus de déplacement de région
+        - name: Gérer les ressources créées pendant le déplacement
           href: manage-resources-created-move-process.md
 - name: Ressources
   items:

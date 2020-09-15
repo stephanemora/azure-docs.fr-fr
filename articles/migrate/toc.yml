@@ -18,12 +18,32 @@
           href: common-questions-server-migration.md
 - name: Tutoriels
   items:
-    - name: Évaluer et migrer des machines virtuelles VMware
+    - name: Découvrez
       items:
-        - name: Préparer VMware à l’évaluation et la migration
-          href: tutorial-prepare-vmware.md
-        - name: Évaluer des machines virtuelles VMware pour la migration
-          href: tutorial-assess-vmware.md
+        - name: Détection des machines virtuelles VMware
+          href: tutorial-discover-vmware.md
+        - name: Détection des machines virtuelles Hyper-V
+          href: tutorial-discover-hyper-v.md
+        - name: Détection des serveurs physiques
+          href: tutorial-discover-physical.md
+        - name: Découvrir les instances AWS
+          href: tutorial-discover-aws.md
+        - name: Découvrir les serveurs importés
+          href: tutorial-discover-import.md
+    - name: Évaluer
+      items:
+        - name: Évaluer les machines virtuelles VMware pour les migrer vers des machines virtuelles Azure
+          href: tutorial-assess-vmware-azure-vm.md
+        - name: Évaluer les machines virtuelles VMware pour les migrer vers AVS
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Évaluer les machines virtuelles Hyper-V pour les migrer vers Azure
+          href: tutorial-assess-hyper-v.md
+        - name: Évaluer des serveurs physiques pour la migration vers Azure
+          href: tutorial-assess-physical.md
+        - name: Évaluer des instances AWS pour la migration vers Azure
+          href: tutorial-assess-aws.md
+    - name: Migrer
+      items:
         - name: Migrer des machines virtuelles VMware
           items:
             - name: À propos des options de migration pour les machines virtuelles VMware
@@ -32,30 +52,12 @@
               href: tutorial-migrate-vmware.md
             - name: Migrer des machines virtuelles VMware avec une migration basée sur agent
               href: tutorial-migrate-vmware-agent.md
-    - name: Évaluer et migrer des machines virtuelles Hyper-V
-      items:
-        - name: Préparer Hyper-V à l’évaluation et la migration
-          href: tutorial-prepare-hyper-v.md
-        - name: Évaluer les machines virtuelles Hyper-V pour les migrer
-          href: tutorial-assess-hyper-v.md
         - name: Migrer des machines virtuelles Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Évaluer et migrer des serveurs physiques
-      items:
-        - name: Préparer des serveurs physiques pour l’évaluation et la migration
-          href: tutorial-prepare-physical.md
-        - name: Évaluer des serveurs physiques
-          href: tutorial-assess-physical.md
         - name: Migrer des serveurs physiques
           href: tutorial-migrate-physical-virtual-machines.md
-    - name: Évaluer et migrer des machines virtuelles AWS
-      items:
-        - name: 'Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure'
+        - name: Migrer des instances AWS
           href: tutorial-migrate-aws-virtual-machines.md
-    - name: Évaluer des serveurs importés pour la migration
-      items:
-        - name: Évaluer des serveurs importés pour la migration
-          href: tutorial-assess-import.md
 - name: Concepts
   items:
     - name: Créer un plan de migration avec Azure Migrate

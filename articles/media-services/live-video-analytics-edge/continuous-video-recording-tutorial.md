@@ -3,12 +3,12 @@ title: Enregistrement vidéo en continu et lecture vidéo dans le cloud - Azure
 description: Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043470"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566792"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo en continu et lecture vidéo dans le cloud
 
@@ -61,7 +61,8 @@ Comme expliqué dans l’article [Concept de graphe multimédia](media-graph-con
  
  Pour effectuer un enregistrement CVR, vous devez capturer la vidéo à partir d’une caméra compatible RTSP et l’enregistrer en continu sur une [ressource Azure Media Services](terminology.md#asset). Ce diagramme montre une représentation graphique de ce graphe multimédia.
 
-![Graphe multimédia](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Graphe multimédia":::
 
 Dans ce tutoriel, vous allez utiliser un module de périphérie créé avec le [serveur multimédia Live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) pour simuler une caméra RTSP. Dans le graphe multimédia, vous allez utiliser un nœud [source RTSP](media-graph-concept.md#rtsp-source) pour obtenir le flux en direct, puis envoyer cette vidéo au [nœud récepteur d’actifs multimédias](media-graph-concept.md#asset-sink) qui enregistrera la vidéo sur un élément multimédia.
 
@@ -352,7 +353,7 @@ Vous pouvez examiner l’actif multimédia Media Services qui a été créé par
 1. Localisez votre compte Media Services parmi les ressources que vous avez dans votre abonnement, puis ouvrez le volet du compte.
 1. Sélectionnez **Ressources** dans la liste **Media Services**.
 
-    ![Éléments multimédias](./media/continuous-video-recording-tutorial/assets.png)
+    ![Ressources Media Services](./media/continuous-video-recording-tutorial/assets.png)
 1. Vous trouverez un élément multimédia listé sous le nom sampleAsset-CVRToAMSAsset-Sample-Graph-1. Il s’agit du modèle de nommage choisi dans votre fichier de topologie de graphe.
 1. Sélectionnez l’élément multimédia.
 1. Dans la page de détails de l’élément multimédia, sélectionnez **Créer** sous la zone de texte **URL de streaming**.

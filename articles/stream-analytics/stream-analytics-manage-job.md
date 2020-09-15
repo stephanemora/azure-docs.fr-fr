@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a265bc2ed131dc0bb69d89f767ab60225d30ee8e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697384"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612048"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutoriel : Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -185,7 +185,7 @@ La dernière étape consiste à définir un récepteur de sortie pour le travail
 
    ![Configurer une sortie Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. Lorsque vous sélectionnez **Autoriser**, une fenêtre contextuelle s’ouvre et vous invite à fournir des informations d’identification pour vous authentifier auprès de votre compte Power BI. Une fois que l’autorisation a réussi, **enregistrez** les paramètres.
+4. Lorsque vous sélectionnez **Autoriser**, une fenêtre contextuelle s’ouvre et vous invite à fournir des informations d’identification pour vous authentifier auprès de votre compte Power BI. Une fois que l’autorisation a réussi, **enregistrez** les paramètres. Pour utiliser l’identité managée, consultez [Utiliser une identité managée pour authentifier votre tâche Azure Stream Analytics dans Power BI](powerbi-output-managed-identity.md).
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Définir une requête pour analyser les données d’entrée
 

@@ -446,7 +446,7 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-powershell.md
-                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                    - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-powershell.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-powershell.md
@@ -468,7 +468,7 @@
                   items:
                     - name: À partir d’une machine virtuelle
                       href: ../image-version-vm-cli.md
-                    - name: À partir d’un disque dur virtuel ou d’un instantané
+                    - name: À partir d’un disque managé ou d’un instantané
                       href: ../image-version-snapshot-cli.md
                     - name: Migrer à partir d’une image managée
                       href: ../image-version-managed-image-cli.md
@@ -507,21 +507,33 @@
           items:
             - name: Vue d’ensemble
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
-              href: image-builder.md
-            - name: Créer une machine virtuelle avec un réseau virtuel
+            - name: Utiliser Image Builder
+              items:
+                - name: Interface de ligne de commande
+                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: image-builder-powershell.md
+            - name: Utiliser un réseau virtuel
               href: image-builder-vnet.md
-            - name: Utilisation d'Azure PowerShell
-              href: image-builder-powershell.md
+            - name: Options réseau
+              href: ../linux/image-builder-networking.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Configurer les autorisations
+              items:
+                - name: Interface de ligne de commande
+                  href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Tâche DevOps
+              href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Informations de référence sur les modèles ARM
+              displayName: Azure Resource Manager
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Créer pour des galeries d’images
               href: image-builder-gallery.md
             - name: Mettre à jour une image existante
               href: image-builder-gallery-update-image-version.md
             - name: Stocker des scripts
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Informations de référence sur les modèles ARM
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Dépanner
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trouver et utiliser des images

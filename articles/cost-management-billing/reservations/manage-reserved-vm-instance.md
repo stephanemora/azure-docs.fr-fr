@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684777"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400124"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -73,7 +73,7 @@ Pour déléguer la gestion de l’accès à une réservation :
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Diviser une réservation unique en deux réservations
 
- Après avoir acheté plusieurs instances de ressource dans une réservation, vous pouvez affecter de instances de cette réservation à d’autres abonnements. Par défaut, toutes les instances ont une étendue : abonnement unique ou partagé. Par exemple, vous avez acheté 10 instances de réservation et spécifié l’étendue de l’abonnement A. Vous pouvez à présent modifier l’étendue de 7 réservations à l’abonnement A, et les 3 instances restantes à l’abonnement B. La division d’une réservation vous permet de répartir les instances pour une gestion de l’étendue précise. Vous pouvez simplifier la répartition sur les abonnements en choisissant une étendue partagée. Toutefois, pour des raisons de gestion de coûts et de budgétisation, vous pouvez affecter des quantités à des abonnements spécifiques.
+ Après avoir acheté plusieurs instances de ressource dans une réservation, vous pouvez affecter de instances de cette réservation à d’autres abonnements. Par défaut, toutes les instances ont une étendue : abonnement unique, groupe de ressources ou partagée. Supposons que vous ayez acheté une réservation pour 10 instances de machine virtuelle et spécifié l’abonnement A comme étendue. Vous voulez à présent modifier l’étendue avec 7 instances de machine virtuelle pour l’abonnement A, et les trois restantes pour l’abonnement B. C’est ce que vous pouvez faire en divisant une réservation. Après avoir divisé une réservation, l’ID de réservation d’origine est annulé et deux nouvelles réservations sont créées. La division n’a pas d’impact sur la commande de réservation : l’opération ne donne lieu à aucune nouvelle transaction commerciale et les nouvelles réservations ont la même date de fin que celle qui a été divisée.
 
  Vous pouvez diviser une réservation en deux réservations par l’intermédiaire de PowerShell, de CLI ou de l’API.
 

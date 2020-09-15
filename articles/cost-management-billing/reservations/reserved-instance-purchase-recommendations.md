@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684607"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398424"
 ---
 # <a name="reservation-recommendations"></a>Reservation recommendations
 
@@ -25,6 +25,7 @@ Les étapes suivantes définissent comment les recommandations sont calculées 
 2. En fonction des données d’utilisation, le moteur simule vos coûts avec et sans réservations.
 3. Les coûts sont simulés pour différentes quantités, et la quantité qui optimise les économies est recommandée.
 4. Si vos ressources sont arrêtées régulièrement, la simulation ne trouve aucune économie et aucune recommandation d’achat n’est fournie.
+5. Les recommandations tiennent compte des remises spéciales qui peuvent s’appliquer à vos taux d’utilisation à la demande.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recommandations dans le portail Azure
 
@@ -52,11 +53,11 @@ Pour optimiser les économies avec les réservations, essayez d’acheter des r�
 
 Les recommandations d’achat de réservation sont disponibles dans Azure Advisor. Gardez à l’esprit les points suivants :
 
-- Advisor produit des recommandations dont l’étendue est limitée à un seul abonnement.
-- Les recommandations sont calculées en tenant compte de la tendance d’utilisation des 30 derniers jours.
+- Advisor produit des recommandations dont l’étendue est limitée à un seul abonnement. Si vous voulez voir les recommandations pour l’ensemble de l’étendue de facturation (compte de facturation ou profil de facturation), accédez au Portail Azure > Réservations > Ajoutez et sélectionnez le type pour lequel vous voulez voir les recommandations.
+- Les recommandations disponibles dans Advisor considèrent la tendance d’utilisation sur 30 jours.
 - La quantité et les économies relatives aux recommandations concernent une réservation de 3 ans, le cas échéant. Si la réservation de 3 ans n’est pas vendue pour le service, la recommandation est calculée à l’aide d’un prix de réservation de 1 an.
 - Les recommandations tiennent compte des remises spéciales qui peuvent s’appliquer à vos taux d’utilisation à la demande.
-- Si vous achetez une réservation d’étendue partagée, les recommandations d’achat de réservations d’Advisor peuvent prendre jusqu’à 30 jours pour disparaître.
+- Si vous achetez une réservation d’étendue partagée, les recommandations d’achat de réservations d’Advisor peuvent mettre jusqu’à cinq jours avant de disparaître.
 
 ## <a name="other-expected-api-behavior"></a>Autre comportement attendu de l’API
 

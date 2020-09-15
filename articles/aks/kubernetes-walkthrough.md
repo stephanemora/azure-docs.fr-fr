@@ -12,12 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 863017797aa6872d7ac7a824e1d38f2dde4c6d1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+- contperfq1
+ms.openlocfilehash: 975f32872cd5fcdf00fb9e394920a7a50ba898ce
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589933"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482798"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Démarrage rapide : Déployer un cluster Azure Kubernetes Service à l’aide d’Azure CLI
 
@@ -68,7 +69,7 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. L’exécution de cette commande prend plusieurs minutes.
 
 > [!NOTE]
-> Azure Monitor pour conteneurs est activé à l’aide du paramètre *--enable-addons monitoring*, qui nécessite l’inscription de *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* sur votre abonnement. Pour vérifier l’état de l’inscription :
+> [Azure Monitor pour conteneurs][azure-monitor-containers] est activé à l’aide du paramètre *--enable-addons monitoring*, qui nécessite l’inscription de *Microsoft.OperationsManagement* et *Microsoft.OperationalInsights* sur votre abonnement. Pour vérifier l’état de l’inscription :
 > 
 > ```azurecli
 > az provider show -n Microsoft.OperationsManagement -o table
@@ -106,7 +107,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 > [!NOTE]
-> La commande ci-dessus utilise l’emplacement par défaut pour le fichier de configuration Kubernetes, à savoir `~/.kube/config`. Vous pouvez spécifier un autre emplacement pour votre fichier de configuration Kubernetes à l’aide de *--file*.
+> La commande ci-dessus utilise l’emplacement par défaut pour le [fichier de configuration Kubernetes][kubeconfig-file], à savoir `~/.kube/config`. Vous pouvez spécifier un autre emplacement pour votre fichier de configuration Kubernetes à l’aide de *--file*.
 
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
 
@@ -123,7 +124,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Ce manifeste inclut deux [déploiements Kubernetes][kubernetes-deployment] : un pour les exemples d’applications Azure Vote Python et l’autre pour une instance Redis. Deux [services Kubernetes][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet.
+Un [fichier manifeste Kubernetes][kubernetes-deployment] définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’[application Azure Vote][azure-vote-app]. Ce manifeste inclut deux [déploiements Kubernetes][kubernetes-deployment] : un pour les exemples d’applications Azure Vote Python et l’autre pour une instance Redis. Deux [services Kubernetes][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet.
 
 Créez un fichier nommé `azure-vote.yaml`, et copiez-y la définition YAML suivante. Si vous utilisez Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de `code`, `vi` ou `nano` comme si vous travailliez sur un système virtuel ou physique :
 
@@ -254,7 +255,7 @@ Pour voir l’application Azure Vote en action, ouvrez un navigateur web en util
 
 ![Application de vote déployée dans Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-Au moment de la création du cluster AKS, [Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-overview.md) a été activé afin de capturer les métriques d’intégrité des nœuds de cluster et des pods. Ces mesures sont disponibles dans le portail Azure.
+Au moment de la création du cluster AKS, [Azure Monitor pour conteneurs][azure-monitor-containers] a été activé afin de capturer les métriques d’intégrité des nœuds de cluster et des pods. Ces mesures sont disponibles dans le portail Azure.
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
@@ -287,7 +288,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: ../dev-spaces/index.yml
+[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
@@ -300,6 +301,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

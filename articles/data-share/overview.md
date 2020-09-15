@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511919"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433430"
 ---
 # <a name="what-is-azure-data-share"></a>Qu’est-ce qu’Azure Data Share ?
 
@@ -45,7 +45,7 @@ Les fournisseurs de données peuvent fournir aux consommateurs des mises à jour
 
 ![Flux du partage des données](media/data-share-flow.png)
 
-Quand un consommateur de données accepte un partage de données, il peut choisir le magasin de données où doivent arriver les données. Par exemple, si le fournisseur de données partage des données à l’aide du stockage Blob Azure, le consommateur de données peut recevoir ces données dans Azure Data Lake Store. De même, si le fournisseur de données partage des données à partir d’un Azure SQL Data Warehouse, le consommateur de données peut choisir s’il souhaite recevoir les données dans un Azure Data Lake Store, une Azure SQL Database ou un Azure SQL Data Warehouse. Dans le cas d’un partage à partir de sources SQL, le consommateur de données peut également choisir de recevoir des données au format Parquet ou CSV. 
+Quand un consommateur de données accepte un partage de données, il peut choisir le magasin de données où doivent arriver les données. Par exemple, si le fournisseur de données partage des données à l’aide du stockage Blob Azure, le consommateur de données peut recevoir ces données dans Azure Data Lake Store. De même, si le fournisseur de données partage des données à partir d’Azure Synapse Analytics (anciennement SQL Data Warehouse), le consommateur de données peut choisir s’il souhaite recevoir les données dans Azure Data Lake Store, Azure SQL Database ou Azure Synapse Analytics. Dans le cas d’un partage à partir de sources SQL, le consommateur de données peut également choisir de recevoir des données au format Parquet ou CSV. 
 
 Avec le partage sur place, les fournisseurs de données peuvent partager des données où elles résident sans les copier. Une fois la relation de partage établie par le biais du flux d’invitation, un lien symbolique est créé entre le magasin de données source du fournisseur de données et le magasin de données cible du consommateur de données. Le consommateur de données peut lire et interroger les données en temps réel à l’aide de son propre magasin de données. Les modifications apportées au magasin de données source sont immédiatement disponibles pour le consommateur de données. Le partage sur place est en préversion pour Azure Data Explorer.
 

@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 55d072492a1d90c6964935f2a79f73aacdceff21
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826770"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594371"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Démarrage rapide : Déployer le connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure
 
@@ -169,7 +169,10 @@ Déployez le [modèle d’application de surveillance continue des patients](htt
 > Chaque fois que vos appareils réels sont prêts, vous pouvez utiliser la même application IoT Central pour [intégrer vos appareils](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) et remplacer les simulateurs d’appareils. En outre, les données de vos appareils commencent automatiquement à circuler vers FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Connecter vos données IoT à l’aide de la fonctionnalité Connecteur Azure IoT pour FHIR (préversion)
-Une fois que vous avez déployé votre application IoT Central, vos deux appareils simulés prêts à l’emploi commencent à générer des données de télémétrie. Pour ce tutoriel, nous allons ingérer les données de télémétrie du simulateur *Smart Vitals Patch* dans FHIR via la fonctionnalité Connecteur Azure IoT pour FHIR. Pour exporter vos données IoT vers la fonctionnalité Connecteur Azure IoT pour FHIR, nous souhaitons [configurer une exportation de données continue au sein d’IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). Dans la page Exportation de données continue :
+> [!WARNING]
+> Le modèle de mappage d’appareil fourni dans ce guide est conçu pour fonctionner avec l’exportation de données (héritée) au sein d’IoT Central.
+
+Une fois que vous avez déployé votre application IoT Central, vos deux appareils simulés prêts à l’emploi commencent à générer des données de télémétrie. Pour ce tutoriel, nous allons ingérer les données de télémétrie du simulateur *Smart Vitals Patch* dans FHIR via la fonctionnalité Connecteur Azure IoT pour FHIR. Pour exporter vos données IoT vers la fonctionnalité Connecteur Azure IoT pour FHIR, nous souhaitons [configurer une exportation de données continue au sein d’IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). Dans la page Exportation de données continue :
 - Sélectionnez *Azure Event Hubs* comme destination d’exportation.
 - Sélectionnez *Utiliser une chaîne de connexion* pour le champ **Espace de noms Event Hubs**.
 - Fournissez la chaîne de connexion de la fonctionnalité Connecteur Azure IoT pour FHIR obtenue à l’étape précédente pour le champ **Chaîne de connexion**.
@@ -194,7 +197,7 @@ Pour supprimer directement une instance de la fonctionnalité Connecteur Azure I
 
 Dans ce guide de démarrage rapide, vous avez déployé la fonctionnalité Connecteur Azure IoT pour FHIR dans votre ressource API Azure pour FHIR. Pour en savoir plus sur le fonctionnalité Connecteur Azure IoT pour FHIR, sélectionnez l’une des étapes suivantes :
 
-Comprenez les différentes étapes du flux de données au sein de la fonctionnalité Connecteur Azure IoT pour FHIR.
+Appréhendez les différentes étapes du workflow dans le Connecteur Azure IoT pour FHIR.
 
 >[!div class="nextstepaction"]
 >[Flux de données du Connecteur Azure IoT pour FHIR](iot-data-flow.md)

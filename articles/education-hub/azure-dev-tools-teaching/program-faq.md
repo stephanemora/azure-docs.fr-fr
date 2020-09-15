@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100873"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567807"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Questions fréquentes (FAQ) sur Azure Dev Tools for Teaching
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Questions fréquentes à propos du Hub Education
 
 Cet article donne des réponses aux questions fréquemment posées sur Azure for Students, Azure for Students Starter et Azure Dev Tools for Teaching.
 
@@ -152,6 +152,11 @@ Les crédits de cours Azure couvrent uniquement l’utilisation à partir du mom
 Si vous examinez un abonnement spécifique dans le panneau Abonnements de votre portail Azure, une des propriétés indiquées est **Nom de l’offre**. Ce nom indique **Azure Sponsorship** s’il est connecté à vos crédits de cours. Si **Azure Sponsorship** ne s’affiche pas, contactez le support qui se chargera de la conversion.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
+
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>À qui s’adresse Microsoft Azure Dev Tools for Teaching ?
+
+Seuls les établissements d’enseignement ayant souscrit un contrat de licence en volume avec Microsoft peuvent s’inscrire à Azure Dev Tools for Teaching.  Si vous êtes actuellement un client Dev Tools for Teaching sans contrat de licence en volume, vous pouvez continuer à renouveler votre abonnement. Pour plus d’informations sur les contrats de licence en volume pour les établissements d’enseignement, consultez https://aka.ms/ees 
+
 
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Quels sont les produits inclus dans l’abonnement Azure Dev Tools for Teaching ?
 

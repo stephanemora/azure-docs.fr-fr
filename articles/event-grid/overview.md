@@ -3,12 +3,12 @@ title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116129"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436865"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -118,6 +118,6 @@ Azure Event Grid utilise un modèle de tarification de paie par événement, afi
 * [Utilisation de Logic Apps en tant que gestionnaire d’événements](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Didacticiel sur la génération d’une application à l’aide de Logic Apps pour réagir aux événements envoyés par Event Grid.
 * [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)  
-  Didacticiel qui utilise Azure Functions pour diffuser en continu des données à partir d’Event Hubs vers SQL Data Warehouse.
+  Tutoriel qui utilise Azure Functions pour diffuser en continu des données d’Event Hubs vers Azure Synapse Analytics.
 * [Référence de l'API REST Event Grid](/rest/api/eventgrid)  
   Fournit du contenu de référence pour la gestion des abonnements aux événements, du routage et du filtrage.

@@ -3,12 +3,12 @@ title: Présentation de l’extension de graphe multimédia – Azure
 description: Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un nœud d’extension de graphe.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716076"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569325"
 ---
 # <a name="media-graph-extension"></a>Extension de graphe multimédia
 
@@ -49,13 +49,14 @@ Par conséquent, utilisez un nœud de processeur d’extension gRPC lorsque :
 Les extensions de graphe multimédia vous permettent d’exécuter les modèles d’inférence de votre choix sur un runtime d’inférence disponible quelconque, comme ONNX, TensorFlow, PyTorch ou autres, dans votre propre conteneur Docker. L’extension personnalisée d’inférence doit être déployée en même temps que le module Live Video Analytics de périphérie pour optimiser les performances. Elle est alors appelée via le processeur d’extension HTTP ou le processeur d’extension gRPC inclus dans votre topologie de graphe. De plus, la fréquence des appels dans votre extension personnalisée peut être limitée par l’ajout facultatif d’un [processeur de détection de mouvement](media-graph-concept.md#motion-detection-processor) et d’un [processeur de filtre de fréquence d’images ](media-graph-concept.md#frame-rate-filter-processor) en amont du processeur d’extension multimédia.
 
 Le diagramme ci-dessous illustre le flux de données général :
- 
-![Flux de données](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="Service d’inférence d’IA":::
 
 ## <a name="samples"></a>Exemples
 
-Passez en revue quelques-uns de nos exemples de [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) pour Live Video Analytics. Ces notebooks fournissent des instructions pas à pas sur :
+Passez en revue quelques-uns de nos exemples de [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) pour Live Video Analytics. Ces notebooks fournissent des instructions pas à pas pour **les extensions de graphe multimédia** sur :
 
 * La création d’une image conteneur Docker d’un service d’extension
 * Le déploiement du service d’extension en tant que conteneur avec le conteneur Live Video Analytics
-* L’utilisation d’un graphe multimédia Live Video Analytics avec un client d’extension et son pointage vers le point de terminaison gRPC de l’extension
+* L’utilisation d’un graphe multimédia Live Video Analytics avec un client d’extension et son pointage vers le point de terminaison de l’extension (HTTP/gRPC)
