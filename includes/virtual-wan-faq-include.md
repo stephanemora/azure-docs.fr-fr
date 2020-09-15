@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304103"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570074"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -83,7 +83,7 @@ Il existe deux options pour ajouter des serveurs DNS pour les clients P2S. La pr
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Pour un VPN utilisateur (point à site), combien de clients sont pris en charge ?
 
-Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-20 jusqu’à 10 000 connexions. 
+Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-18 jusqu’à 10 000 connexions. 
 
 Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active et chacune des instances (dans ce cas, 2) prend en charge jusqu’à 500 connexions. Comme vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous planifiez 1 000 au lieu de 500 pour cette unité d’échelle. Il peut être nécessaire de traiter les instances. Au cours de cette opération, la connectivité pour les 500 supplémentaires peut être interrompue si vous avez dépassé le nombre de connexions recommandé. En outre, veillez à planifier les temps d’arrêt au cas où vous décideriez d’effectuer un scale-up ou un scale-down dans l’unité d’échelle, ou de modifier la configuration de point à site sur la passerelle VPN.
 

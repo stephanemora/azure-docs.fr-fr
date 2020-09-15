@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068603"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494291"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -22,9 +22,8 @@ Le seul prérequis est un abonnement Azure Speech. Si vous n’en avez pas, cons
 
 Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 
-1. Installez [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) ou [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
-3. Accédez au répertoire racine `spx-zips` que vous avez extrait du téléchargement, puis extrayez le sous-répertoire dont vous avez besoin (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64).
+1. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
+2. Accédez au répertoire racine `spx-zips` que vous avez extrait du téléchargement, puis extrayez le sous-répertoire dont vous avez besoin (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64).
 
 Dans l’invite de commandes, accédez à l’emplacement de votre répertoire, puis tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
@@ -53,11 +52,13 @@ Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 #### <a name="docker-install"></a>[Installation de Docker](#tab/dockerinstall)
 
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop pour votre plateforme <span class="docon docon-navigate-external x-hidden-focus"></span></a> doit être installé.
+
 Suivez la procédure ci-dessous pour installer l’interface CLI Speech dans un conteneur Docker :
 
-1. Installez et exécutez [Docker Desktop pour votre plateforme](https://www.docker.com/get-started).
 1. Dans une nouvelle invite de commandes ou un terminal, entrez cette commande : `docker pull msftspeech/spx`
-1. Entrez la commande suivante : Vous devriez voir des informations d’aide sur l’interface CLI Speech : `docker run -it --rm msftspeech/spx help`
+2. Entrez la commande suivante : Vous devriez voir des informations d’aide sur l’interface CLI Speech : `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Monter un répertoire dans le conteneur
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259062"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489899"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
 
@@ -40,7 +40,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ### <a name="share-from-a-sql-based-source"></a>Partage à partir d’une source SQL :
 
-* Une base de données Azure SQL ou un entrepôt de données Azure Synapse Analytics (antérieurement Azure SQL Data Warehouse) avec des tables et des vues que vous voulez partager.
+* Instance Azure SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse) avec les tables et les vues que vous voulez partager.
 * Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur.
 * Autorisation pour l’accès du partage de données à l’entrepôt de données. Pour ce faire, procédez comme suit : 
     1. Définissez-vous comme administrateur Azure Active Directory pour le serveur SQL Server.
@@ -113,7 +113,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
     ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
-1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure SQL Data Warehouse, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
+1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou d’Azure Synapse Analytics, vous êtes invité à entrer des informations d’identification SQL. Authentifiez-vous avec l’utilisateur que vous avez créé dans le cadre des prérequis.
 
     ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 

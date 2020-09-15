@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321088"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436254"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -35,7 +35,7 @@ Par exemple, une entreprise qui produit des jeux collecte des journaux d’activ
 
 Pour analyser ces journaux d’activité, l’entreprise doit utiliser des données de référence comme des informations sur le client, des informations sur les jeux et des informations sur la campagne marketing qui sont contenues dans un magasin de données local. L’entreprise souhaite donc ingérer des données de journal du magasin de données cloud et des données de référence du magasin de données local. 
 
-Ensuite, elle souhaite traiter les données à l’aide de Hadoop dans le cloud (Azure HDInsight). Elle souhaite publier les données de résultat dans un entrepôt de données cloud comme Azure SQL Data Warehouse ou un magasin de données local tel que SQL Server. L’entreprise souhaite exécuter ce flux de travail une fois par semaine. 
+Ensuite, elle souhaite traiter les données à l’aide de Hadoop dans le cloud (Azure HDInsight). Elle souhaite publier les données de résultat dans un entrepôt de données cloud comme Azure Synapse Analytics (anciennement SQL Data Warehouse) ou un magasin de données local tel que SQL Server. L’entreprise souhaite exécuter ce flux de travail une fois par semaine. 
 
 L’entreprise a besoin d’une plateforme où elle peut créer un flux de travail pouvant ingérer des données venant de magasins de données locales ou sur le cloud. L’entreprise doit également être en mesure de transformer ou de traiter des données à l’aide de services de calcul existants tels que Hadoop, et publier les résultats dans un magasin de données local ou sur le cloud pour les applications BI à consommer. 
 
@@ -47,7 +47,7 @@ Azure Data Factory est la plateforme pour ce genre de scénarios. Il s’agit d�
 
 - Traiter ou transformer les données à l’aide de services de calcul tels que Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning.
 
--  Publier des données de sortie vers des magasins de données tels que Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.  
+-  Publier des données de sortie sur des magasins de données comme Azure Synapse Analytics pour que des applications décisionnelles (BI) puissent les utiliser.  
 
 Il s’agit plus d’une plateforme d’extraction et de chargement (EL) et de transformation et chargement (TL) qu’une plateforme d’extraction, de transformation-et de chargement (ETL) traditionnelle. Les transformations traitent des données à l’aide de services de calcul plutôt qu’en ajoutant des colonnes dérivées, en comptant le nombre de lignes, en triant des données et ainsi de suite. 
 

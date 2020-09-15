@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : Tester un modèle avec des fichiers audio - Speech Studio'
+title: Tester un modèle avec des fichiers audio - Speech Studio
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez utiliser Speech Studio pour tester la reconnaissance vocale dans un fichier audio.
+description: Dans ce guide pratique, vous utilisez Speech Studio pour tester la reconnaissance de la voix dans un fichier audio.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391534"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565801"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Démarrage rapide : Tester un modèle à l’aide d’un fichier audio dans Speech Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Tester un modèle à l’aide d’un fichier audio dans Speech Studio
 
-Dans ce démarrage rapide, vous allez utiliser Speech Studio pour convertir en texte un fichier audio. Speech Studio vous permet de tester, de comparer, d’améliorer et de déployer des modèles de reconnaissance vocale à l’aide des textes associés, d’audio avec des transcriptions manuelles et des conseils de prononciation que vous fournissez.
+Dans ce guide pratique, vous utilisez Speech Studio pour convertir la voix d’un fichier audio en texte. Speech Studio vous permet de tester, de comparer, d’améliorer et de déployer des modèles de reconnaissance vocale à l’aide des textes associés, d’audio avec des transcriptions manuelles et des conseils de prononciation que vous fournissez.
 
 ## <a name="prerequisites"></a>Prérequis
 

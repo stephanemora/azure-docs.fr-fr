@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501954"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494266"
 ---
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -196,7 +196,7 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 * [Quel est le coût d’utilisation de la galerie d’images partagées ?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Quelle version d’API utiliser pour créer une galerie d’images partagées, une définition d’image et une version d’image ?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Quelle version d’API utiliser pour créer une machine virtuelle partagée ou un groupe de machines virtuelles identiques à partir de la version d’image ?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?]
+* [Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Comment lister toutes les ressources de galerie d’images partagées de différents abonnements ?
 

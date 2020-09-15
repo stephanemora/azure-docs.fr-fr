@@ -4,12 +4,12 @@ description: Découvrez comment configurer la reprise d’activité des machines
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130232"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442818"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
@@ -83,7 +83,11 @@ Installez l’agent sur chaque hôte Hyper-V contenant les machines virtuelles �
 Dans l’Assistant Installation de l’Agent Microsoft Azure Recovery Services, configurez les paramètres suivants :
 
 1. **Vérification de la configuration requise**. Sélectionnez **Suivant**. Tous les prérequis manquants sont installés automatiquement.
-1. **Paramètres d’installation**. Acceptez l’emplacement d’installation et l’emplacement du cache. Le lecteur de cache doit comporter au moins 5 Go d’espace de stockage. Nous recommandons un lecteur avec au moins 600 Go d’espace libre. Sélectionnez **Installer**.
+1. **Paramètres d’installation**. Acceptez l’emplacement d’installation. Sélectionnez **Installer**.
+
+    >[!NOTE]
+    >Pour Azure Site Recovery, l’**emplacement du cache** n’est pas obligatoire.
+
 1. **Installation**. Quand l’installation est terminée, sélectionnez **Fermer** pour quitter l’Assistant.
 
    ![Installer l'agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)

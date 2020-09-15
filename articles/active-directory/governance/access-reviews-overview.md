@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783669"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594337"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -45,7 +45,7 @@ Azure AD vous permet de collaborer avec des utilisateurs à l’intérieur de vo
 ## <a name="when-should-you-use-access-reviews"></a>Quand utiliser les révisions d’accès ?
 
 - **Trop d’utilisateurs dans des rôles privilégiés :** Il est judicieux de vérifier combien d’utilisateurs ont un accès d’administration, combien d’entre eux ont le rôle d’administrateur général, et s’il existe des invités ou des partenaires qui n’ont pas été supprimés après qu’une tâche d’administration leur a été attribuée. Vous pouvez recertifier les utilisateurs ayant fait l’objet d’une attribution de rôle dans les [rôles Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateurs généraux, ou [les rôles de ressources Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), comme les administrateur de l’accès utilisateur dans l’expérience [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Quand l’automatisation n’est pas possible :** Vous pouvez créer des règles pour l’appartenance dynamique sur les groupes de sécurité ou les groupes Office 365, mais que se passe-t-il si les données des ressources humaines ne se trouvent pas dans Azure AD, ou si des utilisateurs ont toujours besoin d’un accès après avoir quitté le groupe pour former les personnes qui les remplacent ? Vous pouvez alors créer une révision sur ce groupe pour que ceux qui ont encore besoin d’un accès puissent encore en bénéficier.
+- **Quand l’automatisation n’est pas possible :** Vous pouvez créer des règles pour l’appartenance dynamique sur les groupes de sécurité ou les groupes Microsoft 365, mais que se passe-t-il si les données des ressources humaines ne se trouvent pas dans Azure AD, ou si des utilisateurs ont toujours besoin d’un accès après avoir quitté le groupe pour entraîner les personnes qui les remplacent ? Vous pouvez alors créer une révision sur ce groupe pour que ceux qui ont encore besoin d’un accès puissent encore en bénéficier.
 - **Quand un groupe est utilisé pour un nouvel objectif :** Si vous avez un groupe qui va être synchronisé avec Azure AD, ou si vous prévoyez d’activer l’application Salesforce pour tout le monde dans le groupe de l’équipe commerciale, il est utile de demander au propriétaire du groupe de passer en revue l’appartenance au groupe avant d’utiliser le groupe dans un autre contenu à risques.
 - **Accès aux données critiques de l’entreprise :** pour certaines ressources, il peut être nécessaire à des fins d’audit de demander aux personnes en dehors du département informatique de se déconnecter régulièrement et de justifier la raison pour laquelle ils ont besoin d’un accès.
 - **Pour gérer la liste d’exceptions d’une stratégie :** Dans l’idéal, tous les utilisateurs doivent respecter les stratégies d’accès pour sécuriser l’accès aux ressources de votre organisation. Toutefois, certains scénarios métiers nécessitent que vous fassiez des exceptions. En tant qu’administrateur informatique, vous pouvez gérer cette tâche, éviter d’oublier les exceptions à la stratégie et fournir aux auditeurs la preuve que ces exceptions sont révisées régulièrement.
@@ -94,8 +94,10 @@ Voici quelques exemples de scénarios de licence pour vous permettre de détermi
 | Un administrateur crée une révision d’accès du groupe A comportant 75 utilisateurs et 1 propriétaire du groupe, et affecte le propriétaire du groupe en tant que réviseur. | 1 licence pour le propriétaire du groupe en tant que réviseur | 1 |
 | Un administrateur crée une révision d’accès du groupe B comportant 500 utilisateurs et 3 propriétaires de groupe, et affecte les 3 propriétaires du groupe en tant que réviseurs. | 3 licences pour chaque propriétaire du groupe en tant que réviseurs | 3 |
 | Un administrateur crée une révision d’accès du groupe B comportant 500 utilisateurs. Effectue une révision indépendante. | 500 licences pour chaque utilisateur en tant qu’auto-réviseurs | 500 |
-| Un administrateur crée une révision d’accès du groupe C comportant 50 utilisateurs membres et 25 utilisateurs invités. Effectue une révision indépendante. | 50 licences pour chaque utilisateur en tant qu’auto-réviseurs.<br/>(les utilisateurs invités sont traités dans le rapport 1 à 5 requis) | 50 |
-| Un administrateur crée une révision d’accès du groupe D comportant 6 utilisateurs membres et 108 utilisateurs invités. Effectue une révision indépendante. | 6 licences pour chaque utilisateur en tant qu’auto-réviseurs + 16 licences supplémentaires pour couvrir l’ensemble des 108 utilisateurs invités dans le ratio 1:5 exigé. 6 licences, qui couvrent 6\*5 = 30 utilisateurs invités. Pour les (108-6\*5) = 78 utilisateurs invités restants, 78/5 = 16 licences supplémentaires sont nécessaires. Ainsi, au total, 6 + 16 = 22 licences sont requises. | 22 |
+| Un administrateur crée une révision d’accès du groupe C comportant 50 utilisateurs membres et 25 utilisateurs invités. Effectue une révision indépendante. | 50 licences pour chaque utilisateur en tant qu’auto-réviseurs.* | 50 |
+| Un administrateur crée une révision d’accès du groupe D comportant 6 utilisateurs membres et 108 utilisateurs invités. Effectue une révision indépendante. | 6 licences pour chaque utilisateur en tant qu’auto-réviseurs. Les utilisateurs invités sont facturés par utilisateur actif mensuel (MAU). Aucune licence supplémentaire n’est requise. *  | - |
+
+\* Les tarifs des identités externes Azure AD (utilisateur invité) sont basés sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle remplace le modèle de facturation selon le rapport 1:5, qui autorise jusqu’à cinq utilisateurs invités pour chaque licence de Azure AD Premium disponible dans votre locataire. Lorsque votre locataire est lié à un abonnement et que vous utilisez des fonctionnalités d’identités externes pour collaborer avec des utilisateurs invités, vous êtes automatiquement facturé à l’aide du modèle basé MAU. Pour plus d’informations, consultez Modèle de facturation pour les identités externes Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

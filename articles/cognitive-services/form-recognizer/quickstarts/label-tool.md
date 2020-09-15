@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377810"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418957"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -225,7 +225,9 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
 > [!NOTE]
 > Consultez les règles suivantes pour la mise en forme des dates :
 > 
-> Les caractères suivants peuvent être utilisés comme délimiteurs de date JMA : `, - / . \`. L’espace blanc ne peut pas être utilisé comme délimiteur. Par exemple :
+> Vous devez spécifier un format (`dmy`, `mdy`, `ymd`) pour le fonctionnement de la mise en forme de la date.
+>
+> Les caractères suivants peuvent être utilisés comme délimiteurs de date : `, - / . \`. L’espace blanc ne peut pas être utilisé comme délimiteur. Par exemple :
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
 > * 1-1-2020
 > * 1-01-20
 >
-> Si une chaîne de date JMA contient huit chiffres, le délimiteur est facultatif :
+> Si une chaîne de date contient huit chiffres, le délimiteur est facultatif :
 > * 01012020
 > * 01 01 2020
 >
-> Le mois peut également être écrit sous sa forme complète ou abrégée. Si le nom est utilisé, les caractères de délimitation sont facultatifs :
+> Le mois peut également être écrit sous sa forme complète ou abrégée. Si le nom est utilisé, les caractères de délimitation sont facultatifs. Toutefois, ce format peut être reconnu moins précisément que d’autres.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020

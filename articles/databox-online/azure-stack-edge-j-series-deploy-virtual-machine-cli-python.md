@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255526"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500230"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge à l’aide d’Azure CLI et Python
 
@@ -60,13 +60,13 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
     2. Activez le calcul sur l’interface réseau. Azure Stack Edge crée et gère un commutateur virtuel correspondant à cette interface réseau.
 
-    Si vous décidez d’utiliser une autre interface réseau pour le calcul, assurez-vous d’effectuer les opérations suivantes :
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Supprimez toutes les machines virtuelles que vous avez déployées à l’aide d’Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Supprimez toutes les interfaces réseau virtuelles et le réseau virtuel associés à cette interface réseau.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Vous pouvez maintenant activer une autre interface réseau pour le calcul.
+    - You can now enable another network interface for compute.-->
 
 3. Vous avez créé et installé tous les certificats sur votre appareil Azure Stack Edge et dans le magasin approuvé de votre client. Appliquez la procédure décrite dans [Étape 2 : Créer et installer des certificats](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
@@ -342,7 +342,8 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Notez les valeurs `id` et `tenantId`, car elles correspondent à votre ID d’abonnement Azure Resource Manager et à l’ID de locataire Azure Resource Manager, respectivement, et elles seront utilisées lors de l’étape suivante.
+       
    Les variables d’environnement suivantes doivent être définies pour fonctionner en tant que *principal de service* :
 
    ```
@@ -352,7 +353,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Votre ID de locataire Azure Resource Manager, ID de client Azure Resource Manager et ID d’abonnement Azure Resource Manager sont tous codés en dur, et ont les mêmes valeurs sur tous les appareils Azure Stack Edge. La clé secrète client Azure Resource Manager est le mot de passe Azure Resource Manager que vous avez défini.
+   Votre ID de client Azure Resource Manager est codé en dur. Votre ID de locataire Azure Resource Manager et votre ID d’abonnement Azure Resource Manager sont présents dans la sortie de la commande `az login` que vous avez exécutée précédemment. La clé secrète client Azure Resource Manager est le mot de passe Azure Resource Manager que vous avez défini.
 
    Pour plus d’informations, consultez [Mot de passe Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 
@@ -379,7 +380,7 @@ Un script Python est fourni afin que vous puissiez créer une machine virtuelle.
 
 2. Lorsque le script s’exécute, le chargement du disque dur virtuel prend de 20 à 30 minutes. Pour afficher la progression de l’opération de chargement, vous pouvez utiliser l’Explorateur Stockage Azure ou AzCopy.
 
-    Voici un exemple de sortie d’une exécution réussie du script. Le script crée toutes les ressources au sein d’un groupe de ressources, utilise ces ressources pour créer une machine virtuelle, puis supprime le groupe de ressources, y compris toutes les ressources qu’il a créées.
+    Voici un exemple de sortie d’une exécution réussie du script. Le script crée toutes les ressources au sein d’un groupe de ressources, utilise ces ressources pour créer une machine virtuelle, puis supprime le groupe de ressources, notamment toutes les ressources qu’il a créées.
 
     
     ```powershell

@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752821"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434773"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Démarrage rapide : Création de votre première application web statique dans le portail Azure
 
-Azure Static Web Apps publie un site web dans un environnement de production en compilant les applications à partir d’un dépôt GitHub. Dans ce guide de démarrage rapide, vous déployez une application web dans Azure Static Web Apps à l’aide du portail.
+Azure Static Web Apps publie un site web dans un environnement de production en compilant les applications à partir d’un dépôt GitHub. Dans ce démarrage rapide, vous allez déployer une application web dans Azure Static Web Apps à partir du portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte d’essai gratuit](https://azure.microsoft.com/free).
 
@@ -56,38 +56,39 @@ Après vous être connecté à GitHub, entrez les informations relatives au dép
 1. Sélectionnez votre _organisation_ préférée.
 1. Sélectionnez **my-first-web-static-app** dans la liste déroulante _Référentiel_.
 1. Sélectionner **maître** dans la liste déroulante _Branche_.
-1. Sélectionnez le bouton **Suivant : Build >** (Suivant : générer >) pour modifier la configuration de la génération.
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Bouton Compilation suivante":::
 
 > [!NOTE]
 > En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
 
-1. Sous l’onglet _Générer_, ajoutez les détails de configuration spécifiques à votre framework front-end favori.
+1. Dans la section _Détails de build_, ajoutez les détails de configuration propres à votre framework front-end favori.
 
     # <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
-    - Désactivez la valeur par défaut dans la zone _Emplacement de l’application_.
-    - Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
-    - Désactivez la valeur par défaut de la zone _Emplacement de l’artefact d’application_.
+    1. Sélectionnez **Personnalisé** dans la liste déroulante _Build Presets_ (Présélections de build).
+    1. Désactivez la valeur par défaut dans la zone _Emplacement de l’application_.
+    1. Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
+    1. Laissez la zone _Emplacement de l’artefact de l’application_ vide.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Désactivez la valeur par défaut dans la zone _Emplacement de l’application_.
-    - Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
-    - Tapez **dist/angular-basic** dans la zone _Emplacement de l’artefact de l’application_.
+    1. Sélectionnez **Angular** dans la liste déroulante _Build Presets_ (Présélections de build).
+    1. Conservez la valeur par défaut dans la zone _Emplacement de l’application_.
+    1. Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
+    1. Tapez **dist/angular-basic** dans la zone _Emplacement de l’artefact de l’application_.
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Désactivez la valeur par défaut dans la zone _Emplacement de l’application_.
-    - Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
-    - Tapez **build** dans la zone _Emplacement de l’artefact de l’application_.
+    1. Sélectionnez **React** dans la liste déroulante _Build Presets_ (Présélections de build).
+    1. Conservez la valeur par défaut dans la zone _Emplacement de l’application_.
+    1. Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
+    1. Tapez **build** dans la zone _Emplacement de l’artefact de l’application_.
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Désactivez la valeur par défaut dans la zone _Emplacement de l’application_.
-    - Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
-    - Tapez **dist** dans la zone _Emplacement de l’artefact de l’application_.
+    1. Sélectionnez **Vue.js** dans la liste déroulante _Présélections de build_.
+    1. Conservez la valeur par défaut dans la zone _Emplacement de l’application_.
+    1. Désactivez la valeur par défaut de la zone _Emplacement de l’API_.
+    1. Conservez la valeur par défaut dans la zone _Emplacement de l’artefact de l’application_.
 
     ---
 

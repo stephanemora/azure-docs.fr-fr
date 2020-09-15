@@ -2,16 +2,16 @@
 title: Tutoriel - Exporter un modèle à partir du portail Azure
 description: Découvrez comment utiliser un modèle exporté pour procéder au développement de votre modèle.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497152"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650070"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutoriel : Utiliser un modèle exporté depuis le portail Azure
 
@@ -62,7 +62,7 @@ Ce modèle fonctionne bien pour le déploiement des comptes de stockage, mais vo
 
    La fonction d’exportation de modèle prend l’état actuel d’une ressource et génère un modèle pour le déployer. L’exportation d’un modèle peut être un moyen pratique d’obtenir rapidement le code JSON dont vous avez besoin pour déployer une ressource.
 
-1. Copiez la définition de **Microsoft.Web/serverfarms** et la définition de paramètre dans votre modèle.
+1. Regardez la définition de **Microsoft.Web/serverfarms** et la définition des paramètres dans le modèle exporté. Vous n’avez pas besoin de copier ces sections. Vous pouvez simplement utiliser ce modèle exporté comme exemple illustrant la façon dont vous souhaitez ajouter cette ressource à votre modèle.
 
     ![Modèle Resource Manager - Exporter le modèle - Modèle exporté](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Ce modèle fonctionne bien pour le déploiement des comptes de stockage, mais vo
 
 Le modèle exporté vous donne la majeure partie du code JSON dont vous avez besoin, mais vous devez le personnaliser pour votre modèle. Portez une attention particulière aux différences existant dans les paramètres et les variable,s entre votre modèle et le modèle exporté. Bien entendu, le processus d’exportation ignore les paramètres et les variables que vous avez déjà définis dans votre modèle.
 
-L’exemple suivant met en évidence les ajouts à opérer dans votre modèle. Il contient le code exporté, ainsi que quelques modifications. Tout d’abord, il modifie le nom du paramètre pour qu’il corresponde à votre convention de nommage. Ensuite, il utilise votre paramètre location pour l’emplacement du plan App Service. Enfin, il supprime **name** à l’intérieur de l’objet **properties**, car cette valeur est redondante avec la propriété **name** au niveau de la ressource.
+L’exemple suivant met en évidence les ajouts à opérer dans votre modèle. Il contient le code exporté, ainsi que quelques modifications. Tout d’abord, il modifie le nom du paramètre pour qu’il corresponde à votre convention de nommage. Ensuite, il utilise votre paramètre location pour l’emplacement du plan App Service. Enfin, il supprime certaines propriétés où la valeur par défaut convient.
 
 Copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 

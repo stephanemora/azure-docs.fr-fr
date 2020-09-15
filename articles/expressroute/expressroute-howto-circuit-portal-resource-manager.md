@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322135"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566260"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutoriel : Création et modification d’un circuit ExpressRoute
 
@@ -75,7 +75,10 @@ Vous pouvez créer un circuit ExpressRoute en sélectionnant l'option permettant
     > [!IMPORTANT]
     > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.
 
-    * La **référence SKU** détermine si un module complémentaire ExpressRoute local, ExpressRoute standard ou ExpressRoute premium est activé. Vous pouvez spécifier **Local** pour obtenir la référence SKU locale, **Standard** pour obtenir la référence SKU standard ou **Premium** pour le module complémentaire Premium.
+    * La **référence SKU** détermine si un module complémentaire ExpressRoute local, ExpressRoute standard ou ExpressRoute premium est activé. Vous pouvez spécifier **Local** pour obtenir la référence SKU locale, **Standard** pour obtenir la référence SKU standard ou **Premium** pour le module complémentaire Premium. Notez que vous pouvez changer la référence SKU pour activer le module complémentaire Premium.
+    > [!IMPORTANT]
+    > Vous ne pouvez pas remplacer la référence SKU de **Standard/Premium** par celle de **Local**.
+    
     * Le **modèle de facturation** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affec
 Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
 * Activer ou désactiver un module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
+
+> [!IMPORTANT]
+  > Le passage de la référence SKU de **Standard/Premium** à **Local** n’est pas pris en charge.
+
 * Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette.
 
   > [!IMPORTANT]

@@ -2,14 +2,14 @@
 author: ramonarguelles
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/29/2019
+ms.date: 08/14/2020
 ms.author: rgarcia
-ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b93243a537fafce6d865ec207b12dc2654cafd20
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72933469"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536253"
 ---
 Sélectionnez **Build**. Dans la boîte de dialogue qui s’ouvre, sélectionnez un dossier de destination pour exporter le projet Xcode.
 
@@ -18,22 +18,13 @@ Sélectionnez **Build**. Dans la boîte de dialogue qui s’ouvre, sélectionnez
 > [!NOTE]
 > Si une fenêtre vous demande de choisir remplacer ou ajouter, nous vous recommandons de sélectionner **Append** (Ajouter), car c’est plus rapide. Vous devez sélectionner **Replace** seulement si vous changez des ressources dans votre scène. (Par exemple, si vous ajoutez, supprimer ou changer des relations parent/enfant, ou si vous ajoutez, supprimer ou changer des propriétés.) Si vous changez seulement le code source, **Append** doit suffire.
 
-### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Convertir le projet Xcode en xcworkspace contenant les références Azure Spatial Anchors
+## <a name="open-the-xcode-project"></a>Ouvrir le projet Xcode
 
-Dans le dossier du projet Xcode exporté, exécutez cette commande dans le Terminal pour installer les CocoaPods nécessaires au projet :
-
-```bash
-pod install --repo-update
-```
-
-À présent, vous pouvez ouvrir `Unity-iPhone.xcworkspace` pour ouvrir le projet dans Xcode :
+Vous pouvez maintenant ouvrir `Unity-iPhone.xcodeproj` dans Xcode. Vous pouvez soit lancer Xcode et ouvrir le projet `Unity-iPhone.xcodeproj` exporté, soit lancer le projet dans Xcode en exécutant la commande suivante à partir de l’emplacement où vous avez exporté le projet :
 
 ```bash
-open ./Unity-iPhone.xcworkspace
+open ./Unity-iPhone.xcodeproj
 ```
-
-> [!NOTE]
-> Si vous rencontrez des problèmes avec CocoaPod après la mise à niveau vers macOS Catalina (10.15), consultez ces [étapes de dépannage](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015).
 
 Sélectionnez le nœud racine **Unity-iPhone** pour voir les paramètres du projet, puis sélectionnez l’onglet **General**.
 
@@ -41,7 +32,7 @@ Sous **Signing** (Signature), vérifiez que **Automatically manage signing** (G�
 
 Sous **Deployment Info**, assurez-vous que **Deployment Target** est défini sur `11.0`.
 
-### <a name="deploy-the-app-to-your-ios-device"></a>Déployer l’application sur votre appareil iOS
+## <a name="deploy-the-app-to-your-ios-device"></a>Déployer l’application sur votre appareil iOS
 
 Connectez l’appareil iOS au Mac et définissez le **schéma actif** sur votre appareil iOS.
 
@@ -50,6 +41,3 @@ Connectez l’appareil iOS au Mac et définissez le **schéma actif** sur votre 
 Sélectionnez **Build and then run the current scheme**.
 
 ![Déployer et exécuter](./media/spatial-anchors-unity/deploy-run.png)
-
-> [!NOTE]
-> Si l’erreur `library not found for -lPods-Unity-iPhone` s’affiche, vous avez probablement ouvert le fichier `.xcodeproj` à la place de `.xcworkspace`.

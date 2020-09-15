@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b2b35e21cf9c8650b9dcf95cbd199c56cc23783
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8f9ed14a0bcef346281c38146cbb2d9551633c15
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687302"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421518"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -12,7 +12,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 
 1. Dans Visual Studio Code, accédez à *src/edge*. Votre fichier  *.env* et quelques fichiers de modèle de déploiement s’affichent.
 
-    Le fichier deployment.grpcyolov3icpu.template.json référence le manifeste de déploiement pour l’appareil de périphérie. Il inclut des valeurs d’espace réservé. Le fichier .env inclut les valeurs de ces variables.
+    Le fichier deployment.grpcyolov3icpu.template.json référence le manifeste de déploiement pour le périphérique. Il inclut des valeurs d’espace réservé. Le fichier .env inclut les valeurs de ces variables.
 1. Accédez au dossier *src/cloud-to-device-console-app*. Ce dernier contient votre fichier *appsettings.json* et quelques autres fichiers :
     
     * c2d-console-app.csproj : fichier projet pour Visual Studio Code.
@@ -27,11 +27,54 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
  
     * Changez le lien vers la topologie de graphe :
     * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
-    * Sous GraphInstanceSet, modifiez le nom de la topologie de graphe pour le faire correspondre à la valeur du lien précédent :
+    * Sous GraphInstanceSet, modifiez le nom de la topologie de graphe pour qu’il corresponde à la valeur dans le lien précédent :
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Sous GraphTopologyDelete, modifiez le nom :
     * `"name"` : `"InferencingWithGrpcExtension"`
-    
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>Développez cette section pour voir comment le nœud MediaGraphGrpcExtension est implémenté dans la topologie.</summary>
+> <pre><code>
+> {
+>   "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+>   "name": "grpcExtension",
+>   "endpoint": {
+>       "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+>       "url": "${grpcExtensionAddress}",
+>       "credentials": {
+>           "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+>           "username": "${grpcExtensionUserName}",
+>           "password": "${grpcExtensionPassword}"
+>       }
+>   },
+>   "dataTransfer": {
+>       "mode": "sharedMemory",
+>       "SharedMemorySizeMiB": "5"
+>   },
+>   "image": {
+>       "scale": {
+>           "mode": "${imageScaleMode}",
+>           "width": "${frameWidth}",
+>           "height": "${frameHeight}"
+>       },
+>       "format": {
+>           "@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+>           "encoding": "${imageEncoding}",
+>           "quality": "${imageQuality}"
+>       }
+>   },
+>   "inputs": [
+>       {
+>           "nodeName": "motionDetection"
+>       }
+>   ]
+> }          
+> </code></pre>
+> </details>    
+> </p>
+
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Générez et déployez le manifeste de déploiement IoT Edge
 
 1. Cliquez avec le bouton droit sur le fichier *src/edge/* *deployment.grpcyolov3icpu.template.json*, puis sélectionnez **Générer un manifeste de déploiement IoT Edge**.
@@ -44,7 +87,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     Dans le cas contraire, en regard du volet **AZURE IOT HUB** dans l’angle en bas à gauche, sélectionnez l’icône **Autres actions**, puis sélectionnez **Définir la chaîne de connexion IoT Hub**. Vous pouvez copier la chaîne à partir du fichier *appsettings.json*. Ou, pour garantir que vous avez configuré le hub IoT approprié dans Visual Studio Code, utilisez la [commande Sélectionner IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     ![Chaîne de connexion IoT Hub](../../../media/quickstarts/iot-hub-connection-string-grpc.png)
-1. Cliquez avec le bouton droit sur *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json*, puis sélectionnez **Créer un déploiement pour un seul appareil**.
+1. Cliquez avec le bouton droit sur *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json* et sélectionnez **Créer un déploiement pour un seul appareil**.
 
     ![Créer un déploiement pour un seul appareil](../../../media/quickstarts/create-deployment-single-device-grpc.png)
 1. Quand vous êtes invité à sélectionner un appareil IoT Hub, sélectionnez **lva-sample-device**.
@@ -124,7 +167,7 @@ Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélect
     ```
     
     * Un appel à `GraphInstanceActivate` qui démarre l’instance de graphe et le flux vidéo.
-    * Un deuxième appel à `GraphInstanceList` qui montre que l’instance de graphe est dans l’état En cours d’exécution.
+    * Un deuxième appel à `GraphInstanceList` qui indique que l’instance de graphe est dans l’état En cours d’exécution.
 1. La sortie de la fenêtre **TERMINAL** s’interrompt avec l’invite Appuyez sur Entrée pour continuer. Ne sélectionnez pas encore Entrée. Faites défiler vers le haut pour voir les charges utiles de réponse JSON pour les méthodes directes que vous avez invoquées.
 1. Basculez vers la fenêtre **SORTIE** de Visual Studio Code. Les messages indiquant que le module Live Video Analytics sur IoT Edge effectue des envois à IoT Hub s’affichent. La section suivante de ce guide de démarrage rapide décrit ces messages.
 1. Le graphe multimédia continue à s’exécuter et à afficher les résultats. Le simulateur RTSP continue de boucler la vidéo source. Pour arrêter le graphe multimédia, retournez dans la fenêtre **TERMINAL**, puis sélectionnez Entrée.

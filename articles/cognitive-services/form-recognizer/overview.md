@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723557"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394395"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -48,6 +48,7 @@ Form Recognizer utilise l’[API de disposition](#layout-api) pour connaître le
 ## <a name="prebuilt-models"></a>Modèles prédéfinis
 
 Form Recognizer comporte aussi des modèles prédéfinis pour des types de formulaires uniques.
+
 ### <a name="prebuilt-receipt-model"></a>Modèle de ticket de caisse prédéfini
 Le modèle Prebuilt Receipt (Ticket de caisse prédéfini) permet de lire les tickets de caisse en anglais émis en Australie, au Canada, en Grande-Bretagne, en Inde et aux États-Unis&mdash;du type utilisé dans les restaurants, les stations-service, les commerces, etc. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du commerçant, le montant des taxes, les articles, les totaux, etc. En outre, le modèle de reçu préconstruit est entraîné pour reconnaître et retourner tout le texte d’un reçu. 
 
@@ -74,9 +75,11 @@ Suivez un guide de démarrage rapide pour commencer à extraire des données de 
     * [Effectuer l’entraînement sans étiquettes - cURL](quickstarts/curl-train-extract.md)
     * [Effectuer l’entraînement sans étiquettes - Python](quickstarts/python-train-extract.md)
     * [Effectuer l’entraînement avec des étiquettes - Python](quickstarts/python-labeled-data.md)
-  * Extraire les données des reçus de ventes aux États-Unis
+  * Extraire les données des reçus de ventes
     * [Extraire des données de reçu - cURL](quickstarts/curl-receipts.md)
     * [Extraire des données de reçu - Python](quickstarts/python-receipts.md)
+  * Extraire des données à partir de cartes de visite
+    * [Extraire des données de cartes de visite - Python](quickstarts/python-business-cards.md)
   * Extraire la structure du texte et des tableaux à partir de formulaires
     * [Extraire des données de disposition - Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Vous allez utiliser les API suivantes pour entraîner des modèles et extraire d
 | **Entraîner un modèle personnalisé**| Entraîner un nouveau modèle pour analyser vos formulaires avec 5 formulaires du même type. Définissez le paramètre _useLabelFile_ sur `true` pour effectuer l’entraînement avec des données étiquetées manuellement. |
 | **Analyser le formulaire** |Analysez un seul document transmis en tant que flux de données pour extraire du formulaire le texte, les paires clé/valeur et les tableaux avec votre modèle personnalisé.  |
 | **Analyser le reçu** |Analysez un document de reçu unique pour extraire les informations clés et les autres éléments textuels du reçu.|
+| **Analyser la carte de visite** |Analysez une carte de visite pour extraire du texte et des informations clés.|
 | **Analyser la disposition** |Analysez la disposition d’un formulaire pour extraire la structure du texte et des tableaux.|
 
 Explorez la [documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.

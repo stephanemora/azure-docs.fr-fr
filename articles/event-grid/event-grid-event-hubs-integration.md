@@ -1,18 +1,18 @@
 ---
 title: 'Tutoriel : Envoyer des données Event Hubs vers un entrepôt de données - Event Grid'
-description: 'Tutoriel : Décrit comment utiliser Azure Event Grid et Event Hubs pour migrer des données vers un entrepôt SQL Data Warehouse. Une fonction Azure est utilisée pour récupérer un fichier de capture.'
+description: 'Tutoriel : Explique comment utiliser Azure Event Grid et Event Hubs pour effectuer la migration des données vers Azure Synapse Analytics. Une fonction Azure est utilisée pour récupérer un fichier de capture.'
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007449"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435029"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données
-Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
+Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous montre comment utiliser Event Hubs avec Event Grid pour effectuer la migration de données Event Hubs capturées entre le stockage blob vers Azure Synapse Analytics (anciennement SQL Data Warehouse).
 
 ![Vue d’ensemble de l’application](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,12 +22,12 @@ Ce diagramme illustre le flux de travail de la solution que vous créez dans ce 
 2. Lorsque la capture de données est terminée, un événement est généré et envoyé à Azure Event Grid. 
 3. Event Grid transfert ces données d’événements à une application de fonction Azure.
 4. L’application de fonction utilise l’URL d’objet blob dans les données d’événement pour récupérer l’objet blob depuis le stockage. 
-5. L’application de fonction effectue la migration des données blob vers un entrepôt de données Azure SQL. 
+5. L’application de fonction effectue la migration des données blob vers Azure Synapse Analytics. 
 
 Dans cet article, vous procédez comme suit :
 
 > [!div class="checklist"]
-> * Utiliser un modèle Azure Resource Manager pour déployer l’infrastructure : hub d’événements, compte de stockage, application de fonction, entrepôt de données SQL.
+> * Utiliser un modèle Azure Resource Manager pour déployer l’infrastructure : un hub d’événements, un compte de stockage, une application de fonction ou une instance Synapse Analytics
 > * Créer une table dans l’entrepôt de données.
 > * Ajouter du code à l’application de fonction.
 > * S’abonner à l’événement. 
@@ -52,7 +52,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
 * Un plan App Service pour héberger l’application de fonction.
 * Application de fonction pour traiter l’événement
 * SQL Server pour héberger l’entrepôt de données
-* SQL Data Warehouse pour stocker les données migrées
+* Azure Synapse Analytics pour stocker les données migrées
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Lancer Azure Cloud Shell dans le portail Azure
 
@@ -97,7 +97,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
           "tags": null
         }
         ```
-2. Déployez toutes les ressources mentionnées dans la section précédente (hub d’événements, compte de stockage, application de fonction, entrepôt de données SQL) en exécutant la commande CLI suivante : 
+2. Déployez toutes les ressources mentionnées dans la section précédente (hub d’événements, compte de stockage, application de fonction, Azure Synapse Analytics) en exécutant la commande CLI suivante : 
     1. Copiez et collez la commande dans la fenêtre Cloud Shell. Vous pouvez également copier/coller la commande dans l’éditeur de votre choix, définir des valeurs, puis la copiez dans Cloud Shell. 
 
         ```azurecli
@@ -112,7 +112,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
         3. Nom du hub d’événements. Vous pouvez laisser la valeur telle quelle (hubdatamigration).
         4. Nom du serveur SQL.
         5. Nom de l’utilisateur SQL et mot de passe. 
-        6. Nom de l’entrepôt de données SQL.
+        6. Nom pour Azure Synapse Analytics
         7. Nom du compte de stockage. 
         8. Nom de l’application de fonction. 
     3.  Appuyez sur **Entrée** dans la fenêtre Cloud Shell pour exécuter la commande. Ce processus peut prendre un certain temps dans la mesure où vous créez beaucoup de ressources. Dans le résultat de la commande, assurez-vous qu’il n’y a eu aucun échec. 
@@ -131,7 +131,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
         ```
     2. Spécifiez un nom pour le **groupe de ressources**.
     3. Appuyez sur Entrée. 
-3. Déployez toutes les ressources mentionnées dans la section précédente (hub d’événements, compte de stockage, application de fonction, entrepôt de données SQL) en exécutant la commande suivante :
+3. Déployez toutes les ressources mentionnées dans la section précédente (hub d’événements, compte de stockage, application de fonction, Azure Synapse Analytics) en exécutant la commande suivante :
     1. Copiez et collez la commande dans la fenêtre Cloud Shell. Vous pouvez également copier/coller la commande dans l’éditeur de votre choix, définir des valeurs, puis la copiez dans Cloud Shell. 
 
         ```powershell
@@ -143,7 +143,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
         3. Nom du hub d’événements. Vous pouvez laisser la valeur telle quelle (hubdatamigration).
         4. Nom du serveur SQL.
         5. Nom de l’utilisateur SQL et mot de passe. 
-        6. Nom de l’entrepôt de données SQL.
+        6. Nom pour Azure Synapse Analytics
         7. Nom du compte de stockage. 
         8. Nom de l’application de fonction. 
     3.  Appuyez sur **Entrée** dans la fenêtre Cloud Shell pour exécuter la commande. Ce processus peut prendre un certain temps dans la mesure où vous créez beaucoup de ressources. Dans le résultat de la commande, assurez-vous qu’il n’y a eu aucun échec. 
@@ -162,13 +162,13 @@ Fermez Cloud Shell en sélectionnant le bouton **Cloud Shell** dans le portail (
 
     ![Ressources comprises dans le groupe de ressources](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Créer une table dans SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Créer une table dans Azure Synapse Analytics
 Créez une table dans votre entrepôt de données en exécutant le script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Pour exécuter le script, vous pouvez utiliser Visual Studio ou l’éditeur de requête dans le portail. Les étapes suivantes montrent comment utiliser l’éditeur de requête : 
 
 1. Dans la liste des ressources du groupe de ressources, sélectionnez votre **pool Synapse SQL (entrepôt de données)** . 
-2. Dans la page de l’entrepôt de données SQL, sélectionnez **Éditeur de requête (préversion)** dans le menu de gauche. 
+2. Dans la page Azure Synapse Analytics, sélectionnez **Éditeur de requêtes (préversion)** dans le menu de gauche. 
 
-    ![Page de l’entrepôt de données SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+    ![Page Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
 2. Entrez le nom d’**utilisateur** et le **mot de passe** du serveur SQL, puis sélectionnez **OK**. Vous aurez peut-être besoin d’ajouter l’adresse IP de votre client au pare-feu pour réussir à vous connecter à SQL Server. 
 
     ![Authentification SQL Server](media/event-grid-event-hubs-integration/sql-server-authentication.png)
@@ -258,7 +258,7 @@ Après la publication de la fonction, vous êtes prêt à vous abonner à l’é
         ![Créer un abonnement Event Grid](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Exécuter l’application pour générer des données
-Vous avez terminé de configurer votre hub d’événements, SQL Data Warehouse, l’application de fonction Azure et l’abonnement à un événement. Avant d’exécuter une application qui génère des données pour le hub d’événements, vous devez configurer certaines valeurs.
+Vous avez terminé de configurer votre hub d’événements, votre instance Azure Synapse Analytics,votre application de fonction Azure et votre abonnement à un événement. Avant d’exécuter une application qui génère des données pour le hub d’événements, vous devez configurer certaines valeurs.
 
 1. Dans le portail Azure, accédez à votre groupe de ressources comme précédemment. 
 2. Sélectionner l’espace de noms Event Hubs.

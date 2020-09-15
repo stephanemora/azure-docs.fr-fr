@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf56786656d830d2fea4c9e916f350fc392f5cf0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 583b7e685abfeb831787ca8d4066a29bdd9bb9f3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380301"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489326"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark de sécurité Azure
 
@@ -33,4 +33,21 @@ Pour plus d’informations sur cette norme de conformité, consultez [CIS Micros
 |Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Services de base de données |4.11 |Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ENABLED » pour le serveur de base de données MySQL |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+Pour voir comment les composants intégrés Azure Policy disponibles pour tous les services Azure correspondent à ce standard de conformité, consultez [Conformité réglementaire Azure Policy – HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+Pour plus d’informations sur cette norme de conformité, consultez [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+
+|Domain |ID du contrôle |Titre du contrôle |Policy<br /><sub>(Portail Azure)</sub> |Version de la stratégie<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Contrôle de connexion réseau |0809.01n2Organizational.1234 - 01.n |Le trafic réseau est contrôlé conformément à la stratégie de contrôle d’accès des organisations par le biais du pare-feu et d’autres restrictions réseau pour chaque point d’accès réseau ou interface managée du service de télécommunication externe. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Contrôle de connexion réseau |0810.01n2Organizational.5 - 01.n |Les informations transmises sont sécurisées et, au minimum, chiffrées sur les réseaux publics ouverts. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Contrôle de connexion réseau |0811.01n2Organizational.6 - 01.n |Les exceptions à la stratégie de flux de trafic sont documentées avec un besoin métier/mission de prise en charge, la durée de l’exception et sont examinées au moins une fois par an ; les exceptions à la stratégie de flux de trafic sont supprimées quand elles ne sont plus prises en charge par un besoin métier/mission explicite. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Contrôle de connexion réseau |0812.01n2Organizational.8 - 01.n |Les appareils distants qui établissent une connexion non distante ne sont pas autorisés à communiquer avec les ressources externes (distantes). |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Contrôle de connexion réseau |0814.01n1Organizational.12 - 01.n |La capacité des utilisateurs à se connecter au réseau interne est limitée à l’aide d’une stratégie de refus par défaut et d’autorisation par exception sur les interfaces managées conformément à la stratégie de contrôle d’accès et aux exigences des applications cliniques et métier. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Identification des risques liés à des parties externes |1418.05i1Organizational.8 - 05.i |L’identification des risques liés à l’accès d’une partie externe prend en compte un ensemble minimal de problèmes spécifiquement définis. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Sauvegarde |1617.09l1Organizational.23 - 09.l |Une définition formelle du niveau de sauvegarde nécessaire pour chaque système est établie et documentée, notamment la façon dont chaque système est restauré, l’étendue des données à mettre en image, la fréquence d’acquisition des images et la durée de conservation en fonction des exigences contractuelles, juridiques, réglementaires et métier pertinentes. |[La sauvegarde géoredondante doit être activée pour Azure Database pour MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Sauvegarde |1622.09l2Organizational.23 - 09.l |L’intégrité et la sécurité des copies de sauvegarde sont gérées pour garantir la disponibilité future, et les éventuels problèmes d’accessibilité liés aux copies de sauvegarde sont identifiés et atténués en cas de sinistre à l’échelle de la zone. |[La sauvegarde géoredondante doit être activée pour Azure Database pour MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Transactions en ligne |0948.09y2Organizational.3 - 09.y |Quand une autorité de confiance est utilisée (par exemple, pour l’émission et la gestion de signatures numériques et/ou de certificats numériques), la sécurité est intégrée et incorporée tout au long du processus de gestion des certificats/signatures de bout en bout. |[L’application de la connexion SSL doit être activée pour les serveurs de base de données MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 

@@ -2,14 +2,14 @@
 title: Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel
 description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fourni par Intel pour analyser le flux vidéo en direct provenant d’une caméra IP (simulée).
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950253"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567575"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
 
@@ -30,6 +30,7 @@ Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge, ainsi 
 > Lors de l’installation d’Azure IoT Tools, vous pouvez être invité à installer Docker. Vous pouvez ignorer cette invite.
 
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
+
 Quand vous configurez les ressources Azure, une courte vidéo d’un parking est copiée dans Azure sur la machine virtuelle Linux que vous utilisez comme appareil IoT Edge. Ce guide de démarrage rapide utilise le fichier vidéo pour simuler un flux en direct.
 
 Ouvrez une application comme le [lecteur multimédia VLC](https://www.videolan.org/vlc/). Sélectionnez Ctrl+N, puis collez un lien vers [la vidéo](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) pour démarrer la lecture. Vous voyez la séquence vidéo des véhicules sur le parking, la plupart d’entre eux garés et l’un d’eux en déplacement.
@@ -38,7 +39,8 @@ Dans ce guide de démarrage rapide, vous allez utiliser Live Video Analytics sur
 
 ## <a name="overview"></a>Vue d’ensemble
 
-![Vue d’ensemble](./media/use-intel-openvino-tutorial/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Vue d'ensemble":::
 
 Ce diagramme montre comment les signaux circulent dans ce guide de démarrage rapide. Un [module de périphérie](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simule une caméra IP hébergeant un serveur RTSP (Real-Time Streaming Protocol). Un nœud de [source RTSP](media-graph-concept.md#rtsp-source) récupère le flux vidéo à partir de ce serveur et envoie des images vidéo au nœud [processeur de filtre de fréquence d’images](media-graph-concept.md#frame-rate-filter-processor). Ce processeur limite la fréquence d’images du flux vidéo qui atteint le nœud [processeur d’extension HTTP](media-graph-concept.md#http-extension-processor). 
 
@@ -46,7 +48,7 @@ Le nœud d’extension HTTP joue le rôle d’un proxy. Il convertit les images 
 
 Ce didacticiel présente les procédures suivantes :
 
-1. Créer et déployer le graphe multimédia, et le modifier. 
+1. Créer et déployer le graphe multimédia, et le modifier.
 1. interpréter les résultats ;
 1. Supprimer des ressources.
 

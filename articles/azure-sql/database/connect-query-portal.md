@@ -13,17 +13,17 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 4dbbf8267b4a7a1ea280d16ee787c8ae6cd652c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267356"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441771"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser l’éditeur de requête du portail Azure pour interroger une base de données Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-L’éditeur de requête est un outil du portail Azure qui permet d’exécuter des requêtes SQL sur une base de données dans Azure SQL Database ou sur un entrepôt de données dans Azure SQL Data Warehouse. 
+L’éditeur de requête est un outil du portail Azure qui permet d’exécuter des requêtes SQL sur une base de données dans Azure SQL Database ou sur un entrepôt de données dans Azure Synapse Analytics. 
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’éditeur de requête pour exécuter des requêtes T-SQL (Transact-SQL) sur une base de données.
 

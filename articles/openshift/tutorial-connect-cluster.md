@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587852"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469114"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Se connecter à un cluster Azure Red Hat OpenShift 4
 
@@ -23,9 +23,9 @@ Dans la deuxième partie de ce tutoriel (qui en compte trois), vous allez vous c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les tutoriels précédents, un cluster Azure Red Hat OpenShift a été créé. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 – Créer un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+Dans les tutoriels précédents, un cluster Azure Red Hat OpenShift a été créé. Si vous n’avez pas effectué ces étapes et si vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 - Créer un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.6.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.6.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-L’exemple de sortie suivant montre que le mot de passe se trouve dans `kubeadminPassword`.
+L’exemple de sortie suivant montre ce que sera le mot de passe dans `kubeadminPassword`.
 
 ```json
 {
@@ -46,7 +46,7 @@ L’exemple de sortie suivant montre que le mot de passe se trouve dans `kubeadm
 }
 ```
 
-Vous pouvez exécuter la commande suivante pour trouver l’URL de la console de cluster, qui se présente comme ceci : `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Vous trouverez l’URL de la console de cluster en exécutant la commande suivante, qui se présente comme ceci : `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
 
 ```azurecli-interactive
  az aro show \

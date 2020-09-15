@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326439"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612170"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -78,7 +78,7 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 
 1. Sélectionnez **Créer un jeu de données** > **À partir du magasin de données**.
 1. Affectez un **Nom** à votre jeu de données.
-1. Choisissez **Fichier** en tant que **Type de jeu de données**.  
+1. Choisissez **Fichier** en tant que **Type de jeu de données**.  Seuls les types de jeux de données de fichier sont pris en charge.
 1. Sélectionnez le magasin de données.
 1. Si vos données se trouvent dans un sous-dossier de votre Stockage Blob, choisissez **Parcourir** pour sélectionner le chemin.
     * Ajoutez « /** » au chemin pour inclure tous les fichiers des sous-dossiers du chemin sélectionné.

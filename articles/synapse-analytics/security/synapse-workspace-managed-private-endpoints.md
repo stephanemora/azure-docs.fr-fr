@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070103"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459537"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -23,7 +23,7 @@ Cet article explique ce que sont les points de terminaison privés managés dans
 
 Les points de terminaison privés managés sont des points de terminaison privés créés sur le Réseau virtuel Microsoft Azure d’espace de travail managé qui établissent une liaison privée vers des ressources Azure. Azure Synapse gère ces points de terminaison privés à votre place.
 
-Azure Synapse prend en charge les liaisons privées. Une liaison privée vous permet d’accéder à des services Azure (tels que Stockage Azure, Azure Cosmos DB et Azure SQL Data Warehouse) et à des services clients/partenaires hébergés par Azure à partir de votre Réseau virtuel Azure en toute sécurité.
+Azure Synapse prend en charge les liaisons privées. Une liaison privée vous permet d’accéder à des services Azure (tels que Stockage Azure et Azure Cosmos DB) et à des services clients/partenaires hébergés par Azure à partir de votre Réseau virtuel Azure de manière sécurisée.
 
 Quand vous utilisez une liaison privée, le trafic entre votre Réseau virtuel et l’espace de travail transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 

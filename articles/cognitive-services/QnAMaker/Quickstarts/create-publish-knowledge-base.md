@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer, entraîner et publier une base de connaissa
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540752"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535847"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -89,7 +89,7 @@ Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et 
 
 ## <a name="publish-the-knowledge-base"></a>Publier la base de connaissances
 
-Quand vous publiez une base de connaissances, son contenu passe de l’index `test` à un index `prod` dans la Recherche Azure.
+Quand vous publiez une base de connaissances, son contenu passe de l’index `test` à un index `prod` dans Recherche Azure.
 
 ![Capture d’écran du déplacement du contenu de votre base de connaissances](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

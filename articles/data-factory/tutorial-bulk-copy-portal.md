@@ -1,6 +1,6 @@
 ---
 title: Copier des données en bloc à l’aide du portail Azure
-description: Découvrez comment utiliser Azure Data Factory et l’activité de copie pour copier en bloc les données d’une banque de données source dans une banque de données de destination.
+description: Utilisez Azure Data Factory et l’activité de copie pour copier en bloc les données d’un magasin de données source dans un magasin de données de destination.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081636"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442852"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 
@@ -45,7 +45,7 @@ Dans ce scénario, vous disposez d’un certain nombre de tables dans Azure SQL 
 ![Workflow](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * Le premier pipeline recherche la liste des tables à copier dans les banques de données du récepteur.  Vous pouvez également conserver une table de métadonnées qui répertorie toutes les tables à copier dans la banque de données du récepteur. Le pipeline déclenche ensuite un autre pipeline qui itère chaque table dans la base de données et effectue l’opération de copie de données.
-* Le second pipeline effectue la copie. Il prend la liste des tables comme paramètre. Pour chaque table de la liste, copiez la table spécifique d’Azure SQL Database dans la table correspondante d’Azure Synapse Analytics (anciennement SQL DW) à l’aide d’une [copie intermédiaire par le biais du Stockage Blob et de PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) pour obtenir de meilleurs résultats. Dans cet exemple, le premier pipeline passe la liste des tables comme valeur pour le paramètre. 
+* Le second pipeline effectue la copie. Il prend la liste des tables comme paramètre. Pour chaque table de la liste, copiez la table spécifique d’Azure SQL Database dans la table correspondante d’Azure Synapse Analytics (anciennement SQL DW) à l’aide d’une [copie intermédiaire par le biais du Stockage Blob et de PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) pour obtenir de meilleurs résultats. Dans cet exemple, le premier pipeline passe la liste des tables comme valeur pour le paramètre. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -62,7 +62,7 @@ Créez une base de données dans SQL Database avec l’exemple de données Adven
 
 **Préparez le magasin de données Azure Synapse Analytics (anciennement SQL DW) récepteur** :
 
-1. Si vous n’avez pas de magasin de données Azure Synapse Analytics (anciennement SQL DW), consultez l’article [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) pour savoir comment en créer un.
+1. Si vous n’avez pas d’espace de travail Azure Synapse Analytics (anciennement SQL DW), consultez l’article [Bien démarrer avec Azure Synapse Analytics](..\synapse-analytics\get-started.md) pour savoir comment en créer un.
 
 1. Créez les schémas de table correspondants dans Azure Synapse Analytics (anciennement SQL DW). Plus tard, vous utiliserez Azure Data Factory pour migrer/copier les données.
 

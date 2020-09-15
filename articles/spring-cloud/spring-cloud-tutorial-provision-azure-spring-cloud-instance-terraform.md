@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079190"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426348"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutoriel : Provisionner une instance Azure Spring Cloud avec Terraform
 
@@ -94,7 +94,7 @@ Dans cette section, vous allez utiliser différentes commandes Terraform pour ex
     terraform apply plan.out
     ```
 
-1. Pour vérifier les résultats sur le portail Azure, accédez au nouveau groupe de ressources. La nouvelle **instance Azure Cosmos DB** apparaît dans le nouveau groupe de ressources.
+1. Pour vérifier les résultats sur le portail Azure, accédez au nouveau groupe de ressources. La nouvelle instance d’**Azure Spring Cloud** s’affiche dans le nouveau groupe de ressources.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>Mettre à jour la configuration pour activer les journaux et les métriques
 

@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166040"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459383"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
 
@@ -155,7 +155,7 @@ Cette section utilise SSMS ([SQL Server Management Studio](/sql/ssms/download-sq
 
 Il n’est pas recommandé d’exécuter de grosses requêtes en étant connecté comme administrateur du serveur, car il utilise une [classe de ressources limitée](resource-classes-for-workload-management.md). Configurez [Isolation des charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) comme [dans les tutoriels](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
-SQL Data Warehouse utilise T-SQL comme langage de requête. Pour ouvrir une fenêtre de requête et exécuter des requêtes T-SQL, effectuez les étapes suivantes :
+Azure Synapse Analytics utilise T-SQL comme langage de requête. Pour ouvrir une fenêtre de requête et exécuter des requêtes T-SQL, effectuez les étapes suivantes :
 
 1. Cliquez avec le bouton droit sur **mySampleDataWarehouse**, puis sélectionnez **Nouvelle requête**. Une nouvelle fenêtre de requête s’ouvre.
 

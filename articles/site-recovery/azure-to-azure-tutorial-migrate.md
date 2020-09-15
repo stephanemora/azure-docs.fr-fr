@@ -2,18 +2,18 @@
 title: Déplacer des machines virtuelles Azure IaaS vers une autre région à l’aide d’Azure Site Recovery
 description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles IaaS Azure d’une région Azure à l’autre.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076106"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425923"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -88,7 +88,7 @@ Les étapes suivantes montrent comment préparer la machine virtuelle en vue du 
 1. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 1. Créez le groupe de ressources **ContosoRG**.
 1. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique dans la page de [détails de tarification Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Dans **Coffres Recovery Services**, sélectionnez **Vue d’ensemble** > **ContosoVMVault** >  **+Répliquer**.
+1. Dans **Coffres Recovery Services**, sélectionnez **Vue d’ensemble** > **ContosoVMVault** > **Éléments répliqués** >  **+Répliquer**.
 1. Dans **Source**, sélectionnez **Azure**.
 1. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 1. Sélectionnez le modèle de déploiement Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.

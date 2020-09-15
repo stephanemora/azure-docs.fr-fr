@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378970"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481373"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>S’authentifier auprès d’Azure Key Vault
 
 Azure Key Vault offre la possibilité de stocker des secrets et de contrôler leur distribution dans un référentiel cloud centralisé et sécurisé, ce qui évite d’avoir à stocker des informations d’identification dans les applications. Il suffit aux applications de s’authentifier auprès de Key Vault à l’exécution pour accéder à ces secrets.
 
-## <a name="app-identity-and-service-principals"></a>Identité de l’application et principaux de service
+## <a name="app-identity-and-security-principals"></a>Identité et principaux de sécurité des applications
 
 L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
 
@@ -40,7 +40,7 @@ Pour les applications, il existe deux façons d’obtenir un principal de servic
 
 * Si vous ne pouvez pas utiliser l’identité managée, **inscrivez** l’application auprès de votre locataire Azure AD (cf. [Démarrage rapide : Inscription d’une application avec la Plateforme d’identités Azure](/azure/active-directory/develop/quickstart-register-app)). L’inscription a également pour effet de créer un deuxième objet d’application qui identifie l’application sur tous les locataires.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>Attribution à un principal de service de l’autorisation d’accéder à Key Vault
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autoriser un principal de sécurité à accéder à Key Vault
 
 Key Vault fonctionne avec deux niveaux d’autorisation distincts :
 

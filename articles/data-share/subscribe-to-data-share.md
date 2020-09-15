@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268891"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489916"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -41,7 +41,7 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 ### <a name="receive-data-into-a-sql-based-target"></a>Recevoir des données dans une cible basée sur SQL :
 
 * Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur. 
-* Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à la base de données Azure SQL ou à l’entrepôt de données Azure SQL. Pour ce faire, procédez comme suit : 
+* Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à Azure SQL Database ou à Azure Synapse Analytics. Pour ce faire, procédez comme suit : 
     1. Définissez-vous comme administrateur Azure Active Directory pour le serveur SQL Server.
     1. Connectez-vous à la base de données ou à l’entrepôt de données Azure SQL avec Azure Active Directory.
     1. Utilisez l’Éditeur de requêtes (préversion) pour exécuter le script suivant afin d’ajouter l’identité managée Data Share en tant que « db_datareader, db_datawriter, db_ddladmin ». Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401076"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462613"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
@@ -39,8 +39,7 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 
 1. Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager que vous avez créé et cliquez sur le résultat lorsqu’il s’affiche.
 2. Dans le volet Traffic Manager, accédez à **Paramètres** -> **Points de terminaison**.
-3. Cliquez sur **Ajouter** pour afficher le volet **Ajouter un point de terminaison**.
-3. Cliquez sur **Ajouter** et dans le volet **Ajouter un point de terminaison** qui s’affiche, procédez comme suit :
+3. Cliquez sur **Ajouter**, puis dans le volet **Ajouter un point de terminaison** qui s’affiche, effectuez les actions suivantes :
 4. Sélectionnez **Type** en fonction du type de point de terminaison que vous ajoutez. Pour les profils de routage géographique utilisés en production, nous vous recommandons d’utiliser des types de point de terminaison imbriqués contenant un profil enfant avec plus d’un point de terminaison. Pour plus d’informations, consultez [FAQ sur les méthodes de routage du trafic géographique](traffic-manager-FAQs.md).
 5. Entrez un **Nom** pour ce point de terminaison.
 6. Certains champs de cette page varient selon le type de point de terminaison que vous ajoutez :

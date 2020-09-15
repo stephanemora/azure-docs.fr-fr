@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer une définition de stratégie personnalisée'
 description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044615"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649822"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutoriel : Créer une définition de stratégie personnalisée
 
@@ -73,7 +73,7 @@ Il existe plusieurs façons d’examiner un [modèle Resource Manager](../../../
 Pour rechercher des propriétés, le plus simple est d’examiner une ressource existante du même type. Vous pouvez aussi comparer les ressources déjà configurées avec le paramètre que vous voulez appliquer.
 Consultez la page **Exporter le modèle** (sous **Paramètres**) dans le portail Azure pour cette ressource spécifique.
 
-:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Page de modèle d’exportation sur la ressource existante" border="false":::
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Capture d’écran de la page Exporter le modèle sur une ressource existante dans le portail Azure." border="false":::
 
 Si la ressource est un compte de stockage, vous voyez un modèle semblable à cet exemple :
 
