@@ -318,33 +318,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Conception multi-DRM de référence
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analyser
-      href: media-services-analytics-overview.md
-      items:
-        - name: Analyser les supports à l’aide du portail Azure
-          href: media-services-portal-analyze.md
-        - name: "Traiter avec Indexer\_2"
-          href: media-services-process-content-with-indexer2.md
         - name: Traiter avec Indexer
           href: media-services-index-content.md
           items:
             - name: Présélection de tâches
               href: indexer-task-preset.md
-        - name: Traiter avec Face Detector
-          href: media-services-face-and-emotion-detection.md
-        - name: Traiter avec Motion Detector
-          href: media-services-motion-detection.md
         - name: Traiter avec Face Redactor
           href: media-services-face-redaction.md
           items:
             - name: Procédure pas à pas de Face Redactor
               href: media-services-redactor-walkthrough.md
-        - name: Traiter avec Video Thumbnails
-          href: media-services-video-summarization.md
-        - name: Traiter avec OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Traiter avec Content Moderator
-          href: media-services-content-moderation.md
     - name: Configurer la télémétrie
       href: media-services-telemetry-overview.md
       items:

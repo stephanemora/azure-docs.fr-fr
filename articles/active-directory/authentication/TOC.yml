@@ -21,7 +21,19 @@
   expanded: true
   items:
     - name: Méthodes d’authentification
-      href: concept-authentication-methods.md
+      items:
+        - name: Vue d’ensemble
+          href: concept-authentication-methods.md
+        - name: Application Microsoft Authenticator
+          href: concept-authentication-authenticator-app.md
+        - name: Jetons OATH
+          href: concept-authentication-oath-tokens.md
+        - name: Sans mot de passe
+          href: concept-authentication-passwordless.md
+        - name: Options de téléphone
+          href: concept-authentication-phone-options.md
+        - name: Questions de sécurité
+          href: concept-authentication-security-questions.md
     - name: Réinitialisation de mot de passe libre-service
       items:
         - name: Fonctionnement de la réinitialisation des mots de passe
@@ -46,8 +58,6 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Questions fréquentes (FAQ)
           href: multi-factor-authentication-faq.md
-    - name: Authentification sans mot de passe
-      href: concept-authentication-passwordless.md
     - name: Protection par mot de passe
       items:
         - name: Éliminer les mots de passe faibles dans le cloud

@@ -13,6 +13,8 @@
       href: invite-users.md
 - name: Tutoriels
   items:
+    - name: Connexion à Azure
+      href: connect-to-azure.md
     - name: Utiliser l’API Video Indexer
       href: video-indexer-use-apis.md
     - name: Connecteur Logic Apps
