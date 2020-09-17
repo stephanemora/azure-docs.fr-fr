@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237006"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016552"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Démarrage rapide : Créer un circuit ExpressRoute avec un peering privé en utilisant un modèle ARM
 
@@ -76,9 +76,9 @@ Pour rechercher d’autres modèles associés à ExpressRoute, consultez [Modèl
 
     Le nom du groupe de ressources est le nom du projet avec **rg** ajouté.
 
-Le déploiement du modèle prend environ 20 minutes. Une fois l’opération terminée, le résultat ressemble à ce qui suit :
+    Le déploiement du modèle prend environ 20 minutes. Une fois l’opération terminée, le résultat ressemble à ce qui suit :
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager ExpressRoute":::
 
 Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell, vous pouvez également utiliser le portail Azure, l’interface Azure CLI et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-portal.md).
 

@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069466"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561648"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Qu’est-ce que l’authentification unique ?
 
@@ -53,7 +53,7 @@ La façon d’implémenter l’authentification unique dépend de l’emplacemen
 > [!TIP]
 > Les applications hébergées dans le cloud sont également appelées applications SaaS (Software as a Service, logiciel en tant que service). 
 
-L’authentification unique pour les applications hébergées dans le cloud est simple. Vous indiquez au fournisseur d’identité qu’il est utilisé pour l’application. Ensuite, vous configurez l’application pour qu’elle approuve le fournisseur d’identité. Pour apprendre comment utiliser Azure AD en tant que fournisseur d'identité pour une application, consultez la [Série de démarrages rapides sur la gestion des applications](view-applications-portal.md).
+L’authentification unique pour les applications hébergées dans le cloud est simple. Vous indiquez au fournisseur d’identité qu’il est utilisé pour l’application. Ensuite, vous configurez l’application pour qu’elle approuve le fournisseur d’identité. Pour apprendre comment utiliser Azure AD en tant que fournisseur d'identité pour une application, consultez la [Série de démarrages rapides sur la gestion des applications](add-application-portal.md).
 
 > [!TIP]
 > Les termes cloud et Internet sont souvent utilisés de manière interchangeable. La raison à cela est liée aux diagrammes de réseau. Les grands réseaux informatiques sont souvent représentés sous la forme de nuages (clouds) dans les diagrammes, car il n’est pas possible d’en dessiner chaque composant. Internet étant le réseau le plus connu et, il est facile d’utiliser les termes de manière interchangeable. Cependant, tout réseau informatique peut être considéré comme un cloud.
