@@ -3,9 +3,11 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la Recherche cognitive Azure\_?"
+    - name: "Qu’est-ce que la Recherche cognitive\_?"
       href: search-what-is-azure-search.md
-    - name: Nouveautés
+    - name: Fonctionnalités de la Recherche cognitive
+      href: search-features-list.md
+    - name: Nouveautés de la Recherche cognitive
       href: whats-new.md
 - name: Démarrages rapides
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: API de recherche
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: API de gestion
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: API de recherche
+          href: /java/api/overview/azure/search-documents-readme
         - name: API de gestion
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: API de recherche
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: API de gestion
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: API de recherche
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: API de gestion
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Informations de référence sur le langage OData
       items:
         - name: Vue d’ensemble

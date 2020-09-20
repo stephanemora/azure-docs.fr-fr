@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption du cloud
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852342"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531693"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -18,7 +18,9 @@ Le blueprint de base du framework d’adoption de Microsoft Cloud pour Azure dé
 
 L’exemple de blueprint de base du framework d’adoption du cloud déploie dans Azure des ressources d’infrastructure recommandées que les organisations peuvent utiliser pour mettre en place les contrôles de base nécessaires à la gestion de leur parc cloud. Cet exemple déploie et applique des ressources, stratégies et modèles qui permettent à une organisation de commencer à utiliser Azure en toute confiance.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Base du framework d’adoption du cloud, image décrivant ce qui est installé conformément à ce que préconise le framework d’adoption du cloud en lien avec la création d’une base pour commencer à utiliser Azure" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Base du C A F, image décrivant ce qui est installé conformément aux instructions du C A F pour créer une base vous permettant de commencer à utiliser Azure." border="false":::
+   Décrit une architecture Azure qui est obtenue en déployant le blueprint Base C A F.  Il s’applique à un abonnement avec des groupes de ressources comprenant un compte de stockage pour stocker des journaux, Log Analytics configuré pour stocker dans le compte de stockage. Il décrit également Azure Key Vault configuré avec une configuration standard d’Azure Security Center. Toutes ces infrastructures de base sont accessibles avec Azure Active Directory et appliquées avec Azure Policy.     
+:::image-end:::
 
 Cette implémentation intègre plusieurs services Azure utilisés pour fournir une base sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 

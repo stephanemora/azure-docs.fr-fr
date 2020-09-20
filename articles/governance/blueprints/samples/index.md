@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031872"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530979"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -42,7 +42,8 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 
 ## <a name="samples-strategy"></a>Stratégie d’exemples
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Stratégie d’exemples de blueprint" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagramme montrant où des exemples de blueprint conviennent pour la complexité architecturale ou les exigences de conformité." border="false":::
+   Décrit un système de coordonnées dans lequel la complexité architecturale est sur l’axe X et les exigences de conformité sur l’axe Y.  À mesure que la complexité architecturale et les exigences de conformité augmentent, adoptez les exemples de blueprint standard du portail désigné dans la région E. Pour les clients qui commencent à utiliser Azure, tirez parti des blueprints Base et Zone d’atterrissage du Cloud Adoption Framework (C A F) désignés par les régions A et B. L’espace restant est attribué aux blueprints personnalisés créés par les clients et les partenaires des régions C, D et F. :::image-end:::
 
 Les blueprints de base et de zone d’accueil de migration du framework d’adoption du cloud partent du principe que le client prépare un abonnement propre existant pour la migration de ressources et de charges de travail locales vers Azure.
 (Région A et B dans la figure).  

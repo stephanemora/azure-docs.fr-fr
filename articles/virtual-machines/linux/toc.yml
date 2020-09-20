@@ -619,7 +619,7 @@
               href: disk-encryption-troubleshooting.md
             - name: FAQ relative au chiffrement de disque
               href: disk-encryption-faq.md
-            - name: Chiffrement de disque - version précédente (AAD)
+            - name: "Chiffrement de disque - version précédente (Azure\_AD)"
               items:
                 - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md
@@ -691,7 +691,7 @@
         - name: Utiliser le Bureau à distance
           href: use-remote-desktop.md
         - name: "Joindre la machine virtuelle à Azure\_Active\_Directory"
-          displayName: AAD
+          displayName: Azure AD
           items:
             - name: Red Hat Enterprise Linux
               href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -717,7 +717,7 @@
           href: instance-metadata-service.md
         - name: Obtenir les métriques d'utilisation avec REST
           href: metrics-vm-usage-rest.md
-    - name: Maintenance de la plateforme
+    - name: Contrôle de la maintenance
       items:
         - name: Notifications de maintenance
           items:
@@ -729,7 +729,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Contrôle de la maintenance
+        - name: Maintenance de la plateforme
           items:
             - name: Vue d’ensemble
               href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -741,6 +741,16 @@
               href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Événements planifiés
           href: scheduled-events.md
+        - name: Mises à niveau d’images de système d’exploitation de groupe de machines virtuelles identiques
+          items:
+            - name: Mises à niveau automatiques des systèmes d’exploitation
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Contrôle de la maintenance
+              items:
+                - name: Vue d’ensemble (préversion)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: PowerShell (préversion)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Superviser des machines virtuelles
       items:
         - name: Agents

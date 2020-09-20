@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: Découvrir les instances AWS
           href: tutorial-discover-aws.md
-        - name: Découvrir les serveurs importés
-          href: tutorial-discover-import.md
     - name: Évaluer
       items:
         - name: Évaluer les machines virtuelles VMware pour les migrer vers des machines virtuelles Azure
@@ -42,6 +40,8 @@
           href: tutorial-assess-physical.md
         - name: Évaluer des instances AWS pour la migration vers Azure
           href: tutorial-assess-aws.md
+        - name: Évaluer les serveurs importés
+          href: tutorial-discover-import.md
     - name: Migrer
       items:
         - name: Migrer des machines virtuelles VMware

@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud
 description: Vue d’ensemble et architecture de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud pour Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852308"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531676"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de zone d’accueil de migration du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -20,7 +20,9 @@ L’exemple de blueprint de [base du framework d’adoption du cloud](../caf-fou
 
 L’exemple de blueprint de zone d’accueil de migration du framework d’adoption du cloud déploie dans Azure des ressources d’infrastructure de base que les organisations peuvent utiliser pour préparer leur abonnement à accueillir la migration de machines virtuelles. Il aide également à mettre en place les contrôles de gouvernance nécessaires pour gérer leurs ressources cloud. Cet exemple déploie et applique des ressources, stratégies et modèles qui permettent à une organisation de commencer à utiliser Azure en toute confiance.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zone d’accueil de migration du framework d’adoption du cloud, image décrivant ce qui est installé conformément à ce que préconise le framework d’adoption du cloud en lien avec la zone d’accueil de migration" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zone d’atterrissage de migration C A F, image décrivant ce qui est installé conformément aux instructions du C A F pour la zone d’atterrissage initiale." border="false":::
+   Décrit une architecture Azure qui est obtenue en déployant le blueprint Migration C A F.  Il s’applique à un abonnement avec des groupes de ressources comprenant un réseau virtuel Azure, un compte de stockage pour stocker des journaux, Log Analytics configuré pour stocker dans le compte de stockage.  Il décrit également Azure Key Vault configuré et la configuration initiale d’Azure Migrate créée.  Toutes ces infrastructures de base sont accessibles avec Azure Active Directory.     
+:::image-end:::
 
 Cet environnement se compose de plusieurs services Azure utilisés pour fournir une gouvernance sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
 

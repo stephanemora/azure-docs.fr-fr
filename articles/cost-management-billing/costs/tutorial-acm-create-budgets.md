@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322277"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527137"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -106,7 +106,7 @@ Après avoir configuré le montant du budget, sélectionnez **Suivant** pour con
 
 Si vous voulez recevoir des e-mails, ajoutez azure-noreply@microsoft.com à votre liste d’expéditeurs approuvés afin que les e-mails ne soient pas placés dans votre dossier de courrier indésirable. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
 
-Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets).
+Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets). Si vous souhaitez envoyer une alerte par e-mail dans une autre langue, consultez [Paramètres régionaux pris en charge pour les e-mails d’alerte budgétaire](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 Les limites d’alerte prennent en charge une plage de 0,01 à 1 000 % du seuil budgétaire que vous avez spécifié.
 

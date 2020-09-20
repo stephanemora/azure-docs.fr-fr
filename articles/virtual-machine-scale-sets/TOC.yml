@@ -340,8 +340,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Mise en réseau pour les groupes identiques
           href: virtual-machine-scale-sets-networking.md
-        - name: Mises à niveau automatiques des systèmes d’exploitation
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Mises à niveau d’images de système d’exploitation
+          items:
+            - name: Mises à niveau automatiques des systèmes d’exploitation
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: Contrôle de la maintenance
+              items:
+                - name: Vue d’ensemble (préversion)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (préversion)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: Réparations automatiques des instances
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protection des instances

@@ -704,7 +704,7 @@
               href: cli-samples.md
     - name: API MongoDB
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce que l’API MongoDB dans Cosmos DB\_?"
               href: mongodb-introduction.md
@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: Résoudre les problèmes du message d’erreur Non autorisé
               href: troubleshoot-unauthorized.md
+            - name: Disponibilité des kits SDK dans les environnements multirégionaux
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Dépannage général du kit SDK .NET

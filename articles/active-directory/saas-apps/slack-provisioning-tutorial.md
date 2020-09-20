@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527823"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563027"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -81,7 +81,7 @@ Cette section vous guide à travers la connexion de votre instance d’Azure AD
 
 5. Sous la section **informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Slack s’ouvre dans une nouvelle fenêtre de navigateur.
 
-    ![Autorisation](media/slack-provisioning-tutorial/authorization.png)
+    ![La capture d’écran affiche le bouton Autoriser les informations d’identification administrateur.](media/slack-provisioning-tutorial/authorization.png)
 
 
 6. Dans la nouvelle fenêtre, connectez-vous à Slack à l’aide de votre compte d’administrateur d’équipe. Dans la boîte de dialogue d’autorisation qui s’affiche, sélectionnez l’équipe Slack pour laquelle vous souhaitez activer l’approvisionnement, puis sélectionnez **Autoriser**. Une fois cela terminé, revenez au portail Azure pour terminer la configuration de l’approvisionnement.
