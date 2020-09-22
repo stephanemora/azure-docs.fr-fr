@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75927871"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606684"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Créer un espace de noms dans le Portail Azure
 Pour commencer à utiliser des entités de messagerie Service Bus dans Azure, vous devez d’abord créer un espace de noms avec un nom unique dans Azure. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
@@ -53,10 +53,10 @@ Créer un espace de noms génère automatiquement une règle de signature d’ac
 2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
 3. Dans l’écran **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
    
-    ![informations de connexion](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![La capture d’écran montre la fenêtre Stratégies d’accès partagé avec une stratégie mise en évidence.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. Dans la fenêtre **Stratégie : RootManageSharedAccessKey**, cliquez sur le bouton Copier situé en regard de **Chaîne de connexion primaire**, pour copier la chaîne de connexion dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![La capture d’écran montre une stratégie S A S appelée RootManageSharedAccessKey, qui comprend des clés et des chaînes de connexion.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Répétez l’étape précédente, en copiant et collant la valeur de **Clé primaire** dans un emplacement temporaire pour l’utiliser ultérieurement.
 
 <!--Image references-->
