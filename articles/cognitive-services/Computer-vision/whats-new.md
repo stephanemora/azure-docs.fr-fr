@@ -8,22 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759204"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904099"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
 Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
 
+## <a name="september-2020"></a>Septembre 2020
+
+### <a name="spatial-analysis-container-preview"></a>Conteneur d’analyse spatiale en préversion
+
+Le [conteneur d’analyse spatiale](spatial-analysis-container.md) est maintenant en préversion. La fonctionnalité d’analyse spatiale de Vision par ordinateur vous permet d’analyser les vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. L’analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
+
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La préversion publique de l’API Lire v3.1 ajoute la reconnaissance optique de caractères (OCR) pour le japonais
+La préversion publique de l’API Lire v3.1 de Vision par ordinateur ajoute les fonctionnalités suivantes :
+* Reconnaissance optique de caractères (OCR) pour le japonais
+* Pour chaque ligne de texte, indiquez si l’apparence correspond à un style d’écriture manuscrite ou d’impression, ainsi qu’un score de confiance (langues latines uniquement).
+* Pour un document multipage, extrayez uniquement le texte des pages sélectionnées ou de la plage de pages.
+
+* Cette préversion de l’API Lire prend en charge le français, l’allemand, l’anglais, le chinois simplifié, l’espagnol, l’italien, le japonais, le néerlandais et le portugais.
+
+Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur la préversion publique 2 de l’API Lire v3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## <a name="july-2020"></a>Juillet 2020
 
-### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Ajout de la prise en charge du chinois simplifié à la préversion publique de l’API de lecture v3.1
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Préversion publique de l’API Lire v3.1 avec reconnaissance optique de caractères (OCR) pour le chinois simplifié
 La prise en charge du chinois simplifié est ajoutée à la préversion publique de l’API de lecture v3.1 de Vision par ordinateur.
 
 * Cette préversion de l’API de lecture prend en charge l’anglais, le néerlandais, le français, l’allemand, l’italien, le portugais, le chinois simplifié et l’espagnol.
@@ -31,7 +50,7 @@ La prise en charge du chinois simplifié est ajoutée à la préversion publique
 Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur la préversion publique de l’API de lecture v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [En savoir plus sur la préversion publique 1 de l’API Lire v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mai 2020
 L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des mises à jour de l’[API Lire](concept-recognizing-text.md) :

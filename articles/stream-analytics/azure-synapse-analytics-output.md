@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 5d281bf33542354e2904805deed2f1deaf2725a2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881898"
 ---
-# <a name="azure-synapse-analytics-output-from-azure-stream-analytics-preview"></a>Sortie Azure Synapse Analytics à partir d’Azure Stream Analytics (préversion)
+# <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Sortie Azure Synapse Analytics à partir d’Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anciennement SQL Data Warehouse) est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique du Big Data. 
 
@@ -44,4 +44,4 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager](quick-create-azure-resource-manager.md)
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-vs-code.md)
+* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-visual-studio-code.md)

@@ -3,12 +3,12 @@ title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533476"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975304"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -42,10 +42,10 @@ Les données qui sont disponibles pour la sauvegarde dépendent de là où est i
 
 ## <a name="modify-storage-replication"></a>Modifier la réplication du stockage
 
-Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md).
+Par défaut, les coffres utilisent le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Si le coffre est votre principal mécanisme de sauvegarde, nous vous suggérons d’utiliser l’option GRS.
-* Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) pour réduire les coûts de stockage Azure.
+* Vous pouvez utiliser le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) pour réduire les coûts de stockage Azure.
 
 Modifiez le type de réplication de stockage :
 

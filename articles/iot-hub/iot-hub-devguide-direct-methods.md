@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 55472f16cefeca3b00bea79e71aee5d6588528d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323058"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029067"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 
@@ -55,7 +55,7 @@ Maintenant, appelez une méthode directe à partir d’une application back-end.
 
 Les appels de méthode directe sur un appareil sont des appels HTTPS qui comprennent les éléments suivants :
 
-* l’*URI de demande* spécifique à l’appareil et la [version d’API](/rest/api/iothub/service/devicemethod/invokedevicemethod) :
+* l’*URI de demande* spécifique à l’appareil et la [version d’API](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html) :
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

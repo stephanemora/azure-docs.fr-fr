@@ -1,24 +1,24 @@
 ---
-title: Tutoriel pour activer l’appareil Azure Stack Edge avec GPU dans le portail Azure | Microsoft Docs
-description: Le tutoriel sur le déploiement d’un GPU Azure Stack Edge vous apprend à activer votre appareil physique.
+title: Tutoriel pour activer l’appareil Azure Stack Edge Pro avec GPU dans le portail Azure | Microsoft Docs
+description: Le tutoriel sur le déploiement d’un GPU Azure Stack Edge Pro vous apprend à activer votre appareil physique.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 88be4d9753e48f70dae5666e800a54209ed6ba3f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267936"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903498"
 ---
-# <a name="tutorial-activate-azure-stack-edge-with-gpu"></a>Tutoriel : Activer Azure Stack Edge avec GPU
+# <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Activer Azure Stack Edge Pro avec GPU
 
-Ce tutoriel explique comment activer votre appareil Azure Stack Edge avec un GPU embarqué en utilisant l’interface utilisateur web locale.
+Ce tutoriel explique comment activer votre appareil Azure Stack Edge Pro avec GPU embarqué en utilisant l’interface utilisateur web locale.
 
 Le processus d’activation peut prendre 5 minutes environ.
 
@@ -30,15 +30,15 @@ Ce didacticiel vous à présenté les point suivants :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer et d’activer votre appareil Azure Stack Edge avec GPU, vérifiez que :
+Avant de configurer et d’activer votre appareil Azure Stack Edge Pro avec GPU, vérifiez que :
 
 * Pour votre appareil physique : 
     
-    - Vous avez installé l’appareil physique, comme indiqué dans [Installer Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+    - Vous avez installé l’appareil physique, comme indiqué dans [Installer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
     - Vous avez configuré le réseau et les paramètres réseau de calcul comme détaillé dans [Configurer le réseau, le réseau de calcul et le proxy Web](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
     - Vous avez téléchargé votre propre certificat ou généré les certificats de l’appareil sur votre appareil si vous avez modifié le nom de l’appareil ou le domaine DNS via la page **Appareil**. Si vous n’avez pas effectué cette étape, vous verrez une erreur pendant l’activation de l’appareil, et l’activation sera bloquée. Pour plus d’informations, consultez la page [Configurer les certificats](azure-stack-edge-gpu-deploy-configure-certificates.md).
     
-* Vous disposez de la clé d’activation provenant du service Azure Stack Edge que vous avez créé pour gérer l’appareil Azure Stack Edge. Pour plus d’informations, consultez [Préparer le déploiement d’Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md).
+* Vous disposez de la clé d’activation provenant du service Azure Stack Edge que vous avez créé pour gérer l’appareil Azure Stack Edge Pro. Pour plus d’informations, consultez [Préparer le déploiement d’Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md).
 
 
 ## <a name="activate-the-device"></a>Activer l’appareil
@@ -48,7 +48,7 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge avec GPU, vé
 
     ![Page « Détails du cloud » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
-3. Dans le volet **Activer**, entrez la **Clé d’activation** que vous avez obtenue dans [Obtenir la clé d’activation pour Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
+3. Dans le volet **Activer**, entrez la **Clé d’activation** que vous avez obtenue dans [Obtenir la clé d’activation pour Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Sélectionnez **Appliquer**.
 
@@ -59,23 +59,25 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge avec GPU, vé
     
     ![Page « Détails du cloud » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
-    Sélectionnez **Télécharger le fichier de clé** et enregistrez le fichier *keys.json* dans un emplacement sûr en dehors de l’appareil. **Ce fichier de clé contient les clés de récupération pour le disque du système d’exploitation et les disques de données sur votre appareil**. Voici le contenu du fichier *keys.json* :
+    Sélectionnez **Télécharger et continuer** et enregistrez le fichier *device-serial-no.json* dans un emplacement sûr en dehors de l’appareil. **Ce fichier de clé contient les clés de récupération pour le disque du système d’exploitation et les disques de données sur votre appareil**. Ces clés peuvent être nécessaires pour récupérer le système à une date ultérieure.
+
+    Voici le contenu du fichier *json* :
 
         
     ```json
     {
-      "Id": "1ab3fe39-26e6-4984-bb22-2e02d3fb147e",
+      "Id": "<Device ID>",
       "DataVolumeBitLockerExternalKeys": {
-        "hcsinternal": "C086yg1DrPo0DuZB/a7hUh+kBWj804coJfBA9LDzZqw=",
-        "hcsdata": "8ohX9bG3YSZl9DZmZLkYl//L9dXi1XiQrqza+iSd64Q="
+        "hcsinternal": "<BitLocker key for data disk>",
+        "hcsdata": "<BitLocker key for data disk>"
       },
-      "SystemVolumeBitLockerRecoveryKey": "105347-156739-594473-151107-005082-252604-471955-439395",
-      "ServiceEncryptionKey": "oEwxNJeULzGRFt6DsLgcLw=="
+      "SystemVolumeBitLockerRecoveryKey": "<BitLocker key for system volume>",
+      "ServiceEncryptionKey": "<Azure service encryption key>"
     }
     ```
         
  
-    Le tableau suivant décrit les différentes clés ici :
+    Le tableau suivant décrit les différentes clés :
     
     |Champ  |Description  |
     |---------|---------|
@@ -99,7 +101,7 @@ Ce didacticiel vous à présenté les point suivants :
 > * Prérequis
 > * Activer l’appareil physique
 
-Pour savoir comment transférer des données avec votre appareil Azure Stack Edge, consultez :
+Pour savoir comment transférer des données avec votre appareil Azure Stack Edge Pro, consultez :
 
 > [!div class="nextstepaction"]
-> [Transférer des données avec Azure Stack Edge](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transférer des données avec Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-add-shares.md)

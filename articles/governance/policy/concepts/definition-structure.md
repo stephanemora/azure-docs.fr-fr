@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079028"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895378"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -17,7 +17,7 @@ Apprenez-en davantage sur les [conditions](#conditions).
 
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que les ressources soient marquées avec une balise particulière. Les ressources enfants héritent des attributions de stratégie. Si une attribution de stratégie est appliquée à un groupe de ressources, elle s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
-Le schéma de la définition de stratégie se trouve ici : [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+Le schéma de la définition de stratégie _policyRule_ se trouve ici : [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
@@ -206,8 +206,10 @@ Lors de la création d’une initiative ou d’une stratégie, il est important 
 
 Si l’emplacement de la définition est l’un ou l’autre élément suivant :
 
-- **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la stratégie.
-- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant l’abonnement.
+- **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la définition de stratégie.
+- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la définition de stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant chaque abonnement.
+
+Pour plus d’informations, consultez [Comprendre l’étendue d’Azure Policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Règle de stratégie
 
@@ -576,16 +578,16 @@ Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manag
 La fonction suivante est utilisable dans une règle de stratégie, mais diffère de l’utilisation dans un modèle Resource Manager :
 
 - `utcNow()` : contrairement à un modèle Resource Manager, cette propriété peut être utilisée en dehors de _defaultValue_.
-  - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
+  - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 Les fonctions suivantes sont disponibles uniquement dans les règles de stratégie :
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime** : [obligatoire] chaîne - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
-  - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
+  - **dateTime** : [obligatoire] - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »`yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+  - **numberOfDaysToAdd** : [obligatoire] - nombre entier de jours à ajouter.
 - `field(fieldName)`
   - **fieldName** : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
-  - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If
+  - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If.
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
@@ -619,7 +621,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 
   Utilisez l’[extension Azure Policy pour Visual Studio Code](../how-to/extension-for-vscode.md) afin d’afficher et de découvrir les alias des propriétés de ressources.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extension Azure Policy pour Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Capture d’écran de l’extension Azure Policy pour Visual Studio Code permettant de survoler une propriété afin d’afficher les noms d’alias." border="false":::
 
 - Azure Resource Graph
 

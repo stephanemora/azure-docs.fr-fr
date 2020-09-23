@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207513"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603830"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure
 Les instances de groupe identique peuvent choisir de recevoir des notifications d’arrêt de l’instance et de configurer un délai d’attente prédéfini pour l’opération d’arrêt. La notification d’arrêt est envoyée par le biais d’Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), qui fournit des notifications et un report des opérations ayant un impact, telles que le redémarrage et le redéploiement. La solution ajoute un autre événement (Terminate) à la liste de Scheduled Events, et le délai associé à l’événement d’arrêt dépend de la limite de délai spécifiée par les utilisateurs dans leurs configurations de modèle de groupe identique.
@@ -91,7 +91,7 @@ Utilisez l’applet de commande [Update-AzVmss](/powershell/module/az.compute/up
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 L’exemple ci-dessus active les notifications d’arrêt sur un groupe identique existant et définit un délai d’attente de 15 minutes pour l’événement d’arrêt.

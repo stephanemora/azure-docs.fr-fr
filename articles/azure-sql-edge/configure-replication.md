@@ -1,6 +1,6 @@
 ---
-title: Configurer la réplication sur Azure SQL Edge (préversion)
-description: Découvrez la configuration de la réplication sur Azure SQL Edge (préversion).
+title: Configurer la réplication sur Azure SQL Edge
+description: Découvrez la configuration de la réplication sur Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282770"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888422"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurer la réplication sur Azure SQL Edge (préversion) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Configurer la réplication sur Azure SQL Edge 
 
 Vous pouvez configurer une instance d’Azure SQL Edge en tant que titulaire d’un abonnement par émission de données pour la réplication transactionnelle unidirectionnelle ou la réplication de capture instantanée. Cette instance ne peut pas faire office de serveur de publication ou serveur de distribution pour une configuration de réplication transactionnelle. Notez qu’Azure SQL Edge ne prend pas en charge la réplication de fusion, la réplication d’égal à égal ou la publication Oracle.
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757640"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443056"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service (AKS)
 
@@ -162,7 +162,7 @@ az extension update --name aks-preview
 
 Configurez le cluster pour qu’il utilise l’image GPU spécialisée AKS lors de sa création. Utilisez l’indicateur `--aks-custom-headers` pour les nœuds de l’agent GPU sur votre nouveau cluster de manière à utiliser l’image GPU spécialisée AKS.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -173,7 +173,7 @@ Si vous souhaitez créer un cluster en utilisant des images AKS classiques, vous
 
 Configurez un nouveau pool de nœuds pour utiliser l’image GPU spécialisée AKS. Utilisez l’indicateur `--aks-custom-headers` pour les nœuds de l’agent GPU sur votre nouveau pool de nœuds de manière à utiliser l’image GPU spécialisée AKS.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -181,7 +181,7 @@ Si vous souhaitez créer un pool de nœuds à l’aide d’images AKS classiques
 
 > [!NOTE]
 > Si votre référence SKU GPU requiert des machines virtuelles de 2e génération, vous pouvez créer les éléments suivants :
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 

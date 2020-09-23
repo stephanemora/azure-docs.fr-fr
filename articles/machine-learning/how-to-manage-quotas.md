@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897410"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, vous allez découvrir les limites préconfigurées des ressources Azure pour votre abonnement [Azure Machine Learning](overview-what-is-azure-ml.md) et les quotas que vous pouvez gérer. Ces limites sont mises en place pour empêcher les dépassements de budget dus à des fraudes et respecter les contraintes de capacité Azure. 
 
@@ -99,8 +99,6 @@ Pour définir des quotas au niveau de l’espace de travail, accédez à n’imp
 
 
 > [!NOTE]
-> Il s’agit d’une fonctionnalité de l’édition Entreprise uniquement. Si vous disposez d’un espace de travail d’[édition De Base et Entreprise](overview-what-is-azure-ml.md#sku) dans votre abonnement, vous ne pouvez l’utiliser que pour définir des quotas sur vos espaces de travail Entreprise. Vos espaces de travail De base continueront d’avoir le quota de niveau d’abonnement, qui est le comportement par défaut.
->
 > Vous avez besoin d’autorisations de niveau d’abonnement pour définir le quota au niveau de l’espace de travail. Cela est appliqué afin que les propriétaires de l’espace de travail individuel ne modifient pas ou n’augmentent pas leurs quotas et ne commencent à empiéter sur les ressources réservées pour un autre espace de travail. Ainsi, un administrateur d’abonnement est mieux adapté à l’allocation et à la distribution de ces quotas entre les espaces de travail.
 
 

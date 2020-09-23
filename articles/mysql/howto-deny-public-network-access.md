@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f8156b01244012d78214f2ba8c49ed76dbceed6d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eb5c4e4c4dfb73b2f7c9dc9f2629296790790885
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896147"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Refus d’accès au réseau public dans Azure Database pour MySQL avec le portail Azure
 
@@ -33,13 +33,13 @@ Suivez les étapes ci-dessous pour définir le refus d’accès au réseau publi
 
 1. Dans **Refus d’accès au réseau public**, sélectionnez **Oui** afin d’activer le refus d’accès au réseau public pour votre serveur MySQL.
 
-    ![Azure Database pour MySQL - Refus d’accès réseau](./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="Azure Database pour MySQL - Refus d’accès réseau":::
 
 1. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 1. Une notification confirme que le paramètre de sécurité des connexions a bien été activé.
 
-    ![Azure Database pour MySQL - Refus d’accès réseau réussi](./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Azure Database pour MySQL - Refus d’accès réseau réussi":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897344"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, vous allez découvrir comment créer un espace de travail Azure Machine Learning à l’aide d’Azure CLI. Azure CLI fournit des commandes pour gérer les ressources Azure. L’extension Machine Learning de l’interface CLI fournit les commandes pour utiliser les ressources d’Azure Machine Learning.
 
@@ -109,9 +109,6 @@ Pour plus d’informations sur l’utilisation des groupes de ressources, consul
 
 Pour créer un nouvel espace de travail dans lequel les __services sont créés automatiquement__, utilisez la commande suivante :
 
-> [!TIP]
-> Les commandes de cette section créent un espace de travail d’édition de base. Pour créer un espace de travail d’entreprise, utilisez le commutateur `--sku enterprise` avec la commande `az ml workspace create`. Pour plus d’informations sur les éditions d’Azure Machine Learning, consultez [Présentation d’Azure Machine Learning](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -155,13 +152,13 @@ Si vous souhaitez restreindre l’accès à votre espace de travail à un résea
 * `--pe-vnet-name`: Réseau virtuel existant dans lequel créer le point de terminaison privé.
 * `--pe-subnet-name`: Nom du sous-réseau dans lequel créer le point de terminaison privé. La valeur par défaut est `default`.
 
-Pour plus d’informations sur l’utilisation d’un point de terminaison privé et d’un réseau virtuel avec votre espace de travail, consultez [Isolement réseau et confidentialité](how-to-enable-virtual-network.md).
+Pour plus d’informations sur l’utilisation d’un point de terminaison privé et d’un réseau virtuel avec votre espace de travail, consultez [Vue d’ensemble de l’isolement et la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clé gérée par le client et espace de travail High Business Impact
 
 Par défaut, les métriques et les métadonnées de l’espace de travail sont stockées dans une instance d’Azure Cosmos DB gérée par Microsoft. Les données sont chiffrées avec des clés managées par Microsoft. 
 
-Si vous créez une version __Enterprise__ d’Azure Machine Learning, vous pouvez utiliser l’option fournir votre propre clé. Cela crée l’instance d’Azure Cosmos DB qui stocke les métriques et les métadonnées dans votre abonnement Azure. Utilisez le paramètre `--cmk-keyvault` pour spécifier le coffre Azure Key Vault qui contient la clé, et `--resource-cmk-uri` pour spécifier l’URL de la clé dans le coffre.
+Au lieu d’utiliser la clé gérée par Microsoft, vous pouvez utiliser la clé de votre choix. Cela crée l’instance d’Azure Cosmos DB qui stocke les métriques et les métadonnées dans votre abonnement Azure. Utilisez le paramètre `--cmk-keyvault` pour spécifier le coffre Azure Key Vault qui contient la clé, et `--resource-cmk-uri` pour spécifier l’URL de la clé dans le coffre.
 
 > [!IMPORTANT]
 > Avant d’utiliser les paramètres `--cmk-keyvault` et `--resource-cmk-uri`, vous devez d’abord effectuer les actions suivantes :

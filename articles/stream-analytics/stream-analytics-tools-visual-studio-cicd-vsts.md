@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75354431"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903841"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
 Ce tutoriel explique comment configurer l’intégration et le déploiement continus pour un travail Azure Stream Analytics à l’aide d’Azure Pipelines. 
@@ -26,8 +26,12 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer un pipeline de mise en production dans Azure Pipelines
 > * Déployer et mettre à niveau une application automatiquement
 
+> [!NOTE]
+> The NuGet CI/CD est déconseillé. Pour plus d’informations sur la migration vers la dernière version de npm, consultez la [Vue d’ensemble de l’intégration et du déploiement continus.](cicd-overview.md)
+
 ## <a name="prerequisites"></a>Prérequis
-Avant de commencer, veillez à disposer des éléments qui suivent :
+
+Avant de commencer, vous devez avoir suivi les étapes ci-dessous :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installez [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) et les charges de travail **Développement Azure** ou **Stockage et traitement de données**.
@@ -63,9 +67,9 @@ Partagez les fichiers source de votre application dans un projet Azure DevOps po
     La publication du référentiel entraîne la création d’un projet dans votre organisation portant le même nom que le référentiel local. Pour créer le référentiel dans un projet existant, cliquez sur **Avancé** en regard de **Nom du référentiel**, puis sélectionnez un projet. Vous pouvez afficher votre code dans le navigateur en sélectionnant **See it on the web** (Le visualiser sur le web).
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurer la livraison continue avec Azure DevOps
-Un pipeline de build Azure Pipelines décrit un flux de travail qui se compose d’étapes de génération exécutées séquentiellement. En savoir plus sur [les pipelines de build Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+Un pipeline de build Azure Pipelines décrit un flux de travail qui se compose d’étapes de génération exécutées séquentiellement. En savoir plus sur [les pipelines de build Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
 
-Un pipeline de mise en production Azure Pipelines décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’ils sont utilisés ensemble, le pipeline de build et le pipeline de mise en production exécutent le flux de travail dans son ensemble, depuis les fichiers source jusqu’à l’exécution de l’application dans votre cluster. En savoir plus sur les [pipelines de mise en production](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) Azure Pipelines.
+Un pipeline de mise en production Azure Pipelines décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’ils sont utilisés ensemble, le pipeline de build et le pipeline de mise en production exécutent le flux de travail dans son ensemble, depuis les fichiers source jusqu’à l’exécution de l’application dans votre cluster. En savoir plus sur les [pipelines de mise en production](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Créer un pipeline de build
 Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -121,7 +125,7 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
     |Groupe de ressources  |  Entrez un nom de groupe de ressources.   |
     |Modèle  | [Chemin d’accès de votre solution]\bin\Debug\Deploy\\[Nom de votre projet].JobTemplate.json   |
     |Paramètres de modèle  | [Chemin d’accès de votre solution]\bin\Debug\Deploy\\[Nom de votre projet].JobTemplate.parameters.json   |
-    |Remplacer les paramètres du modèle  | Tapez les paramètres du modèle à remplacer dans la zone de texte. Exemple : – storageName fabrikam – adminUsername $(vmusername) - adminPassword $(password) – azureKeyVaultName $(fabrikamFibre). Cette propriété est facultative, mais votre build provoquera des erreurs si les paramètres clés ne sont pas remplacés.    |
+    |Remplacer les paramètres du modèle  | Tapez les paramètres du modèle à remplacer dans la zone de texte. Par exemple, `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. Cette propriété est facultative, mais votre build provoquera des erreurs si les paramètres clés ne sont pas remplacés.    |
     
     ![Définir les propriétés pour le déploiement du groupe de ressources Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -158,7 +162,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’utilisation des outils Azure Stream Analytics pour Visual Studio afin de configurer un processus de déploiement et d’intégration continus, passez à l’article relatif à la configuration d’un pipeline CI/CD :
+Pour en savoir plus sur l’utilisation des outils Azure Stream Analytics pour Visual Studio afin de configurer un processus de déploiement et d’intégration continus, consultez l’article relatif à la configuration d’un pipeline CI/CD :
 
 > [!div class="nextstepaction"]
 > [Intégrer et développer en continu avec les outils Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)
