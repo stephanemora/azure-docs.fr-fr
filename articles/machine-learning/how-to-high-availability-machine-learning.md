@@ -1,5 +1,5 @@
 ---
-title: Comment augmenter la résilience
+title: Résilience et haute disponibilité
 titleSuffix: Azure Machine Learning
 description: Découvrez comment rendre vos ressources Azure Machine Learning plus résistantes aux pannes à l’aide d’une configuration à haute disponibilité.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/16/2020
-ms.openlocfilehash: 9b298e10d3eb95bcb0ef525eb973259a3ab1dbbb
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/16/2020
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852541"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897524"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Augmentez la résilience d’Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, découvrez comment rendre vos ressources Microsoft Azure Machine Learning plus résilientes à l’aide de configurations à haute disponibilité. Vous pouvez configurer les services Azure dont dépend Azure Machine Learning pour la haute disponibilité. Cet article identifie les services que vous pouvez configurer pour la haute disponibilité, ainsi que les liens vers des informations supplémentaires sur la configuration de ces ressources.
 

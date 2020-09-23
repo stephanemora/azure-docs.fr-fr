@@ -3,7 +3,7 @@ title: Mettre à jour votre appareil StorSimple | Microsoft Docs
 description: Explique comment utiliser la fonctionnalité de mise à jour de StorSimple pour installer les mises à jour et les correctifs ordinaires et en mode Maintenance.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: twooley
-ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170084"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056549"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Mettre à jour votre appareil StorSimple 8000 Series
 > [!NOTE]

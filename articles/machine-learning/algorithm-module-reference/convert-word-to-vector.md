@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753886"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898604"
 ---
 # <a name="convert-word-to-vector-module"></a>Module Vectoriser des mots
 
-Cet article décrit comment utiliser le module Vectoriser des mots dans le concepteur Azure Machine Learning (préversion) pour effectuer les tâches suivantes :
+Cet article décrit comment utiliser le module Vectoriser des mots dans le concepteur Azure Machine Learning pour effectuer les tâches suivantes :
 
 - Appliquer différents modèles Word2Vec (Word2Vec, FastText, modèle préentraîné GloVe) sur le corpus de texte spécifié comme entrée.
 - Générer du vocabulaire avec des plongements lexicaux.
@@ -93,7 +93,7 @@ Le module a une sortie :
 
 + **Vocabulaire avec imbrications** : contient le vocabulaire généré, ainsi que le plongement lexical de chaque mot. Une dimension occupe une colonne.
 
-L’exemple suivant illustre le fonctionnement du module Vectoriser des mots. Il applique ce module avec les paramètres par défaut au jeu de données Wikipédia SP 500 prétraité fourni dans Azure Machine Learning (préversion).
+L’exemple suivant illustre le fonctionnement du module Vectoriser des mots. Il applique ce module avec les paramètres par défaut au jeu de données Wikipédia SP 500 prétraité fourni dans Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Jeu de données source
 
@@ -149,4 +149,4 @@ Cette section contient des détails, des conseils et des réponses à des questi
 
 Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 
-Pour obtenir la liste des erreurs spécifiques aux modules du concepteur (préversion), consultez les [codes d’erreur du Machine Learning](designer-error-codes.md).
+Pour obtenir la liste des erreurs spécifiques aux modules du concepteur, consultez les [codes d’erreur du Machine Learning](designer-error-codes.md).

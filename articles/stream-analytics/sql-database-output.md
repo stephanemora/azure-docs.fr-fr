@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d61cad0be25f5aa1a4c63bf3dc128196ad80fdad
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906221"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Sortie dans Azure SQL Database d’Azure Stream Analytics
 
-Vous pouvez utiliser [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Azure Stream Analytics écrivent dans une table existante dans SQL Database. Le schéma de table doit correspondre exactement aux champs et aux types dans la sortie de votre travail. Vous pouvez également spécifier [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) en tant que sortie via l’option de sortie SQL Database. Pour découvrir les moyens d’améliorer le débit d’écriture, consultez l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
+Vous pouvez utiliser [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Azure Stream Analytics écrivent dans une table existante dans SQL Database. Le schéma de table doit correspondre exactement aux champs et aux types dans la sortie de votre travail. Vous pouvez également spécifier [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) en tant que sortie via l’option de sortie SQL Database. Pour découvrir les moyens d’améliorer le débit d’écriture, consultez l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 Vous pouvez aussi utiliser [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) comme sortie. Vous devez [configurer un point de terminaison public dans SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
 
@@ -56,4 +56,4 @@ Vous pouvez configurer la taille maximale de message à l’aide du **Nombre max
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager](quick-create-azure-resource-manager.md)
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-vs-code.md)
+* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-visual-studio-code.md)

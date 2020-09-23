@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950015"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890009"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Déboguer et détecter un problème ParallelRunStep
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez découvrir comment déboguer et détecter un problème de la classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) à partir du [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
+Dans cet article, vous allez découvrir comment déboguer et détecter un problème de la classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) à partir du [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 ## <a name="testing-scripts-locally"></a>Tester les scripts localement
 
@@ -29,7 +29,7 @@ Consultez la [section Tester les scripts localement](how-to-debug-pipelines.md#d
 
 ## <a name="debugging-scripts-from-remote-context"></a>Déboguer les scripts à partir du contexte distant
 
-La transition du débogage d’un script de scoring localement au débogage d’un script de scoring dans un pipeline réel peut être difficile. Pour plus d’informations sur la recherche de vos journaux dans le portail, consultez la [section Pipelines de Machine Learning sur le débogage de scripts à partir d’un contexte distant](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). Les informations contenues dans cette section s’appliquent également à un ParallelRunStep.
+La transition du débogage d’un script de scoring localement au débogage d’un script de scoring dans un pipeline réel peut être difficile. Pour plus d’informations sur la recherche de vos journaux dans le portail, consultez la [section Pipelines de Machine Learning sur le débogage de scripts à partir d’un contexte distant](how-to-debug-pipelines.md). Les informations contenues dans cette section s’appliquent également à un ParallelRunStep.
 
 Par exemple, le fichier journal `70_driver_log.txt` contient des informations provenant du contrôleur qui lance le code ParallelRunStep.
 
@@ -90,7 +90,7 @@ def run(mini_batch):
 
 L’utilisateur peut passer des données de référence au script à l’aide du paramètre side_inputs de ParalleRunStep. Tous les jeux de données fournis en tant que side_inputs seront montés sur chaque nœud Worker. L’utilisateur peut récupérer l’emplacement du montage en passant l’argument.
 
-Construisez un [Jeu de données](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contenant les données de référence, et inscrivez-le auprès de votre espace de travail. Transmettez-le au paramètre `side_inputs` de votre `ParallelRunStep`. En outre, vous pouvez ajouter son chemin dans la section `arguments` pour accéder facilement à son chemin monté :
+Construisez un [Jeu de données](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) contenant les données de référence, et inscrivez-le auprès de votre espace de travail. Transmettez-le au paramètre `side_inputs` de votre `ParallelRunStep`. En outre, vous pouvez ajouter son chemin dans la section `arguments` pour accéder facilement à son chemin monté :
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -116,6 +116,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur le package [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). Consultez la [documentation](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) de référence pour la classe ParallelRunStep.
+* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur le package [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true). Consultez la [documentation](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) de référence pour la classe ParallelRunStep.
 
 * Suivez le [tutoriel avancé](tutorial-pipeline-batch-scoring-classification.md) sur l’utilisation des pipelines avec ParallelRunStep. Le tutoriel montre comment passer un autre fichier en tant qu’entrée de côté. 

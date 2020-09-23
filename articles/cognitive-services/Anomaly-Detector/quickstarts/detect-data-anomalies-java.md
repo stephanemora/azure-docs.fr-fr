@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243868"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905758"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies et Java
 
-Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes de détection de l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de séries chronologiques. Cette application Java envoie deux requêtes d’API contenant des données de séries chronologiques au format JSON, et obtient les réponses.
+Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes de détection de l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de séries chronologiques. Cette application Java envoie les demandes d’API contenant des données de série chronologique au format JSON et obtient les réponses.
 
 | Requête d’API                                        | Sortie de l’application                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Détecter des anomalies par lot                        | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour chaque point de données dans les données de la série chronologique, et les positions des anomalies détectées. |
-| Détecter l’état d’anomalie du dernier point de données | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour le dernier point de données dans les données de série chronologique.                                                                                                                                         |
+| Détecter l’état d’anomalie du dernier point de données | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour le dernier point de données dans les données de série chronologique.   |
+| Détecter les points de changement qui marquent les nouvelles tendances des données | Réponse JSON contenant les points de changement détectés dans les données de série chronologique. |
 
- Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Vous trouverez le code source de ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Vous trouverez le code source de ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,6 +57,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
     |---------|---------|
     |Détection par lot    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Détection sur le dernier point de données     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Détection des points de changement | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
@@ -91,6 +93,17 @@ Créez une méthode appelée `detectAnomaliesLatest()` pour détecter l’état 
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
+
+## <a name="detect-change-points-in-the-data"></a>Détecter les points de changement dans les données
+
+1. Créez une méthode appelée `detectChangePoints()` pour détecter les anomalies dans le jeu de données sous forme de lot. Appelez la méthode `sendRequest()` créée ci-dessus avec votre point de terminaison, l’URL, la clé d’abonnement et les données JSON. Obtenez le résultat et imprimez-le dans la console.
+
+2. Si la réponse contient un champ `code`, imprimez le code d’erreur et le message d’erreur.
+
+3. Sinon, recherchez les positions des points de changement dans le jeu de données. Le champ `isChangePoint` de la réponse contient une valeur booléenne indiquant si un point de données particulier est un point de changement de tendance. Obtenez le tableau JSON et effectuez-y une itération, en imprimant l’indice des valeurs `true`. Ces valeurs correspondent aux indices des points de changement de tendance, si de tels points sont trouvés.
+
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Charger vos données de série chronologique et envoyer la requête
 
 1. Dans la méthode Main de votre application, lisez le fichier JSON contenant les données qui seront ajoutées aux requêtes.
@@ -104,5 +117,6 @@ Créez une méthode appelée `detectAnomaliesLatest()` pour détecter l’état 
 Une réponse correcte est retournée au format JSON. Cliquez sur les liens ci-dessous pour afficher la réponse JSON sur GitHub :
 * [Exemple de réponse de détection par lots](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exemple de dernière réponse de détection de points](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exemple de réponse de détection de points de changement](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

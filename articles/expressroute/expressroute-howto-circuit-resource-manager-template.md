@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 73efae90f4403d1fbab3319ce0288761d3867340
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396163"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566175"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
 
@@ -63,7 +63,7 @@ Pour créer un circuit ExpressRoute en déployant un modèle :
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * Le **niveau SKU** détermine si un circuit ExpressRoute est [Local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Vous pouvez spécifier *Local*, *Standard ou *Premium*.
+   * Le **niveau SKU** détermine si un circuit ExpressRoute est [Local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Vous pouvez spécifier *Local*, *Standard ou *Premium*. Vous ne pouvez pas remplacer la référence SKU de *Standard/Premium* par celle de *Local*.
    * La **famille de références** détermine le type de facturation. Vous pouvez spécifier *Metereddata* pour définir un forfait de données limité et *Unlimiteddata* pour un forfait de données illimité. Vous pouvez changer le type de facturation de *Metereddata* en *Unlimiteddata*, mais que vous ne pouvez pas le changer de *Unlimiteddata* en *Metereddata*. Un circuit *local* est uniquement *Unlimiteddata*.
    * L’**Emplacement de peering** est l’emplacement physique où vous effectuez le peering auprès de Microsoft.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146728"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883210"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -51,7 +51,7 @@ Une ressource de calcul managée est créée et managée par Azure Machine Learn
 Vous pouvez créer des instances de calcul Azure Machine Learning ou des clusters de calcul depuis :
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portail Azure
-* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) et [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) du Kit de développement logiciel (SDK) Python
+* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) et [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) du Kit de développement logiciel (SDK) Python
 * [Kit de développement logiciel (SDK) R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (préversion)
 * Modèle Azure Resource Manager. Pour un exemple de modèle, consultez [Créer un modèle de calcul Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * [Extension de Machine Learning pour l’interface de ligne de commande Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +68,7 @@ Une fois créées, ces instances de calcul font automatiquement partie de votre 
 
 
 > [!NOTE]
-> Quand un cluster de calcul est inactif, il adapte son échelle automatiquement à 0 nœud, ce qui vous évite de payer quand il n’est pas utilisé.  Cependant, une *instance* de calcul est toujours activée et n’adapte pas son échelle automatiquement.  Vous devez [arrêter l’instance de calcul](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quand vous ne l’utilisez pas pour éviter des frais supplémentaires. 
+> Quand un cluster de calcul est inactif, il adapte son échelle automatiquement à 0 nœud, ce qui vous évite de payer quand il n’est pas utilisé.  Cependant, une *instance* de calcul est toujours activée et n’adapte pas son échelle automatiquement.  Vous devez [arrêter l’instance de calcul](concept-compute-instance.md#managing-a-compute-instance) quand vous ne l’utilisez pas pour éviter des frais supplémentaires. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
 

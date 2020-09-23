@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f32f6c4366aac1a39dbc1bc4af3b945e259b3280
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906131"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL avec PowerShell
 
@@ -201,7 +201,7 @@ Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - 
 
 1. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
 
-   ![configurer une nouvelle connexion](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="configurer une nouvelle connexion":::
 
     |    **Paramètre**    |           **Valeur suggérée**           |                      **Description**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |
@@ -237,4 +237,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Générer une chaîne de connexion avec PowerShell - Azure Database pour MySQL](connect-powershell.md)
+> [Créer une base de données Azure Database pour MySQL à l’aide de PowerShell](tutorial-design-database-using-powershell.md)

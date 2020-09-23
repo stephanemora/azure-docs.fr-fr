@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 167cfe6b8fb1394291866e51ec14ec91bf9035a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89183489"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504874"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Connecter des données à partir de Pare-feu Azure
 
@@ -40,7 +40,7 @@ En savoir plus sur la [supervision des journaux Pare-feu Azure](https://docs.mic
 
 1. Activez **Journaux de diagnostic** sur tous les pare-feu dont vous souhaitez connecter les journaux :
 
-    1. Sélectionnez le lien [Ouvrir la ressource Pare-feu Azure >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls).
+    1. Sélectionnez le lien **Ouvrir la ressource Pare-feu Azure >**.
 
     1. Dans le menu de navigation **Pare-feu**, sélectionnez **Paramètres de diagnostic**.
 

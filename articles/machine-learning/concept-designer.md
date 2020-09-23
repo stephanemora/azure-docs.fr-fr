@@ -1,5 +1,5 @@
 ---
-title: Générer des modèles Machine Learning avec le concepteur (préversion)
+title: Générer des modèles Machine Learning avec le concepteur
 titleSuffix: Azure Machine Learning
 description: En savoir plus sur les termes, les concepts et le workflow qui composent le concepteur pour Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012941"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883112"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
+
 
 Le concepteur Azure Machine Learning vous permet de connecter visuellement les [jeux de données](#datasets) et les [modules](#module) sur un canevas interactif afin de créer des modèles Machine Learning. Pour plus d'informations sur la prise en main du concepteur, consultez [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
 
@@ -114,7 +114,7 @@ Les pipelines publiés sont flexibles ; ils peuvent être utilisés pour effect
 
 Un pipeline publié s’exécute sur les ressources de calcul que vous définissez dans le brouillon de pipeline pour chaque module.
 
-Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que le Kit de développement logiciel (SDK).
+Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que le Kit de développement logiciel (SDK).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414585"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905132"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
 
@@ -96,7 +96,7 @@ Les sections suivantes explorent la plupart des typologies de réseau neuronal a
 
 ### <a name="feedforward-neural-network"></a>Réseau neuronal feedforward
 
-Le réseau neuronal feedforward est le type de réseau neuronal artificiel le plus basique. Dans un réseau feedforward, les informations circulent dans une seule direction, de la couche d’entrée vers la couche de sortie. Les réseaux neuronaux feedforward transforment une entrée en la faisant passer par une série de couches masquées. Chaque couche est constituée d’un ensemble de neurones, et est entièrement connectée à tous les neurones de la couche précédente. La dernière couche entièrement connectée (couche de sortie) représente les prédictions générées.
+Le réseau neuronal feedforward est le type de réseau neuronal artificiel le plus simple. Dans un réseau feedforward, les informations circulent dans une seule direction, de la couche d’entrée vers la couche de sortie. Les réseaux neuronaux feedforward transforment une entrée en la faisant passer par une série de couches masquées. Chaque couche est constituée d’un ensemble de neurones, et est entièrement connectée à tous les neurones de la couche précédente. La dernière couche entièrement connectée (couche de sortie) représente les prédictions générées.
 
 ### <a name="recurrent-neural-network"></a>Réseau de neurones récurrents
 

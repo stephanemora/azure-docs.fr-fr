@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d5343e6c21da4c30dc18c8692b41dd66eb9566a4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846698"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897358"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Créer, exécuter et supprimer des ressources Azure ML à l’aide de REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Il existe plusieurs façons de gérer vos ressources Azure ML. Vous pouvez utiliser le [portail](https://portal.azure.com/), l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Ou vous pouvez choisir l’API REST. L’API REST utilise des verbes HTTP de manière standard pour créer, récupérer, mettre à jour et supprimer des ressources. L’API REST fonctionne avec tout langage de programmation ou outil pouvant effectuer des requêtes HTTP. La structure simple de REST en fait souvent un bon choix dans les environnements de script et pour l’automatisation MLOps. 
+
+Il existe plusieurs façons de gérer vos ressources Azure ML. Vous pouvez utiliser le [portail](https://portal.azure.com/), l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Ou vous pouvez choisir l’API REST. L’API REST utilise des verbes HTTP de manière standard pour créer, récupérer, mettre à jour et supprimer des ressources. L’API REST fonctionne avec tout langage de programmation ou outil pouvant effectuer des requêtes HTTP. La structure simple de REST en fait souvent un bon choix dans les environnements de script et pour l’automatisation MLOps. 
 
 Dans cet article, vous apprendrez comment :
 
@@ -423,5 +423,5 @@ L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Explorez la [documentation complète de l’API REST AzureML](https://docs.microsoft.com/rest/api/azureml/).
-- Découvrez comment utiliser le studio et le concepteur pour [prédire le prix de voitures avec le concepteur (préversion)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Découvrez comment utiliser le concepteur pour [prédire le prix de voitures avec le concepteur](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Explorez [Azure Machine Learning avec des notebooks Jupyter](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

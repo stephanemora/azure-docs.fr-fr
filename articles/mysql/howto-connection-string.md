@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 289a33d6544e3b8930059ad58115673193a1c89b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850336"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905818"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Connexion d’applications à Azure Database pour MySQL
 Cette rubrique répertorie les types de chaînes de connexion pris en charge par Azure Database pour MySQL, ainsi que des modèles et des exemples. Vous pouvez avoir des paramètres et des réglages différents dans votre chaîne de connexion.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obtenir les détails de la chaîne de connexion dans le portail Azure
-Dans le [portail Azure](https://portal.azure.com), accédez à votre serveur Azure Database pour MySQL, puis cliquez sur **Chaînes de connexion** pour obtenir la liste des chaînes de votre instance : ![Le panneau Chaînes de connexion dans le portail Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+Dans le [portail Azure](https://portal.azure.com), accédez à votre serveur Azure Database pour MySQL, puis cliquez sur **Chaînes de connexion** pour obtenir la liste des chaînes de votre instance : :::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="Le panneau Chaînes de connexion dans le portail Azure":::
 
 La chaîne fournit des détails tels que le pilote, le serveur et d’autres paramètres de connexion de base de données. Modifiez ces exemples pour utiliser vos propres paramètres, tels que le nom de la base de données, le mot de passe, etc. Vous pouvez ensuite utiliser cette chaîne pour vous connecter au serveur à partir de votre code et de vos applications.
 

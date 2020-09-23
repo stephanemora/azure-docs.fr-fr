@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 31d3c95ffe94d6ff4ea6deee2fe87d3132e4550e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393222"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566141"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 
@@ -142,7 +142,7 @@ L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s p
 
 Assurez-vous que vous spécifiez le niveau de référence (SKU) et la famille de références corrects :
 
-* Le niveau SKU détermine si un circuit ExpressRoute est [local](expressroute-faqs.md#expressroute-local), standard ou [premium](expressroute-faqs.md#expressroute-premium). Vous pouvez définir sur *Local*, *Standard* ou *Premium*.
+* Le niveau SKU détermine si un circuit ExpressRoute est [local](expressroute-faqs.md#expressroute-local), standard ou [premium](expressroute-faqs.md#expressroute-premium). Vous pouvez définir sur *Local*, *Standard* ou *Premium*. Vous ne pouvez pas remplacer la référence SKU de *Standard/Premium* par celle de *Local*.
 * La famille de références détermine le type de facturation. Vous pouvez spécifier *Metereddata* pour définir un forfait de données limité et *Unlimiteddata* pour un forfait de données illimité. Vous pouvez changer le type de facturation de *Metereddata* en *Unlimiteddata*, mais que vous ne pouvez pas le changer de *Unlimiteddata* en *Metereddata*. Un circuit *local* est uniquement *Unlimiteddata*.
 
 
@@ -280,7 +280,7 @@ Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Ut
 
 Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez apporter les modifications suivantes sans temps d'arrêt :
 
-* Vous pouvez activer ou désactiver le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
+* Vous pouvez activer ou désactiver le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute. Le passage de la référence SKU de *Standard/Premium* à *Local* n’est pas pris en charge.
 * Vous pouvez augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. Cependant, la rétrogradation de la bande passante d'un circuit n'est pas prise en charge.
 * Vous pouvez remplacer le plan de mesure Données limitées par Données illimitées. Cependant, le remplacement du plan de mesure Données illimitées par Données limitées n’est pas pris en charge.
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.

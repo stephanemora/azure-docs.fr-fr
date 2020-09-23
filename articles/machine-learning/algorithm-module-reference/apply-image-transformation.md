@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898914"
 ---
 # <a name="apply-image-transformation"></a>Appliquer une transformation d’image 
 
-Cet article explique comment utiliser le module Apply Image Transformation dans le concepteur Azure Machine Learning (préversion) pour modifier un répertoire d’images d’entrée en fonction de la transformation d’image spécifiée.  
+Cet article explique comment utiliser le module Apply Image Transformation dans le concepteur Azure Machine Learning pour modifier un répertoire d’images d’entrée en fonction de la transformation d’image spécifiée.  
 
 Vous devez connecter un module [Init Image Transformation](init-image-transformation.md) (Lancer une transformation d’image) pour spécifier la transformation. Vous pouvez ensuite appliquer cette transformation au répertoire d’images d’entrée du module Apply Image Transformation.
 

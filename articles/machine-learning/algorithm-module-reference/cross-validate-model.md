@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898578"
 ---
 # <a name="cross-validate-model"></a>Modèle de validation croisée
 
-Cet article décrit comment utiliser le module Modèle de validation croisée dans le concepteur Azure Machine Learning (préversion). La *validation croisée* est une technique souvent utilisée en machine learning pour évaluer la variabilité d’un jeu de données et la fiabilité de tout modèle entraîné avec ces données.  
+Cet article décrit comment utiliser le module Modèle de validation croisée dans le concepteur Azure Machine Learning. La *validation croisée* est une technique souvent utilisée en machine learning pour évaluer la variabilité d’un jeu de données et la fiabilité de tout modèle entraîné avec ces données.  
 
 Le module Modèle de validation croisée prend comme entrée un jeu de données étiqueté ainsi qu’un modèle de classification ou de régression non entraîné. Il divise le jeu de données en un certain nombre de sous-ensembles (*échantillons*), crée un modèle sur chaque échantillon, puis retourne un jeu de statistiques de justesse pour chaque échantillon. En comparant les statistiques de justesse pour tous les replis, vous pouvez interpréter la qualité du jeu de données. Vous pouvez alors déterminer si le modèle est sensible aux variations des données.  
 
