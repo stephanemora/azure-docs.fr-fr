@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: Documentation Azure Advisor
+summary: Metrics Advisor est une plateforme de supervision de série chronologique qui fournit un ensemble d’API pour l’ingestion des données, la détection des anomalies et les diagnostics, sans avoir à connaître le machine learning.
+metadata:
+  title: Documentation Metrics Advisor - Tutoriels, informations de référence sur les API - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Metrics Advisor est une plateforme de supervision de série chronologique qui fournit un ensemble d’API pour l’ingestion des données, la détection des anomalies et les diagnostics, sans avoir à connaître le machine learning.
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: aahi
+  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928822"
+landingContent:
+- title: À propos de Metrics Advisor
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Metrics Advisor ?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Explorer le site de démonstration
+      url: quickstarts/explore-demo.md
+    - text: Superviser votre première métrique sur le web
+      url: quickstarts/web-portal.md
+    - text: Utiliser les API REST pour personnaliser votre solution
+      url: quickstarts/rest-api.md
+- title: Articles sur les procédures
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Intégrer vos données
+      url: how-tos/onboard-your-data.md
+    - text: Connecter différentes sources de flux de données
+      url: data-feeds-from-different-sources.md
+    - text: Gérer des flux de données
+      url: how-tos/manage-data-feeds.md
+    - text: Configurer des métriques et affiner la configuration de la détection
+      url: how-tos/configure-metrics.md
+    - text: Configurer des alertes et obtenir des notifications à l’aide d’un hook
+      url: how-tos/alerts.md
+    - text: Diagnostiquer un incident
+      url: how-tos/diagnose-incident.md
+    - text: Ajuster la détection des anomalies à l’aide de commentaires
+      url: how-tos/anomaly-feedback.md
+    - text: Créer un graphe de métriques
+      url: how-tos/metrics-graph.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Glossaire
+      url: glossary.md
+    - text: API Metrics Advisor
+      url: https://go.microsoft.com/fwlink/?linkid=2141634
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest

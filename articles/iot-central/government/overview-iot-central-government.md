@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016508"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972294"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Création de solutions pour le secteur public avec Azure IoT Central
 
@@ -72,12 +72,10 @@ Le modèle d’application Gestion connectée des déchets est constitué de com
 
 Prise en main avec le [didacticiel d’application Gestion connectée des déchets](./tutorial-connected-waste-management.md).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Essayez gratuitement l’un des modèles d’application pour le secteur public dans IoT Central pour [créer une application](https://apps.azureiotcentral.com/build/government)
 * Découvrez les [concepts de Suivi de la qualité de l’eau](./concepts-waterqualitymonitoring-architecture.md)
 * Découvrez les [concepts de Suivi de la consommation d’eau](./concepts-waterconsumptionmonitoring-architecture.md)
 * Découvrez les [concepts de Gestion connectée des déchets](./concepts-connectedwastemanagement-architecture.md)  
-* Découvrez IoT Central dans [vue d’ensemble d’IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
- 
+* Découvrez IoT Central dans [vue d’ensemble d’IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 
