@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: aa79d1ba2cba86bf3f381ff78fd630ce455128d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107867"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902759"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Redémarrer un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour MySQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
@@ -32,19 +32,19 @@ Les étapes suivantes redémarrent le serveur MySQL :
 
 2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, cliquez sur **Redémarrer**.
 
-   ![Azure Database pour MySQL - Vue d’ensemble - Bouton Redémarrer](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database pour MySQL - Vue d’ensemble - Bouton Redémarrer":::
 
 3. Cliquez sur **Oui** pour confirmer le redémarrage du serveur.
 
-   ![Azure Database pour MySQL - Confirmation du redémarrage](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database pour MySQL - Confirmation du redémarrage":::
 
 4. Remarquez que l’état du serveur passe à « Redémarrage en cours ».
 
-   ![Azure Database pour MySQL - État du redémarrage](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database pour MySQL - État du redémarrage":::
 
 5. Vérifiez que le redémarrage du serveur a réussi.
 
-   ![Azure Database pour MySQL - Réussite du redémarrage](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database pour MySQL - Réussite du redémarrage":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

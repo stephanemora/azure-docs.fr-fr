@@ -1,6 +1,6 @@
 ---
-title: Comprendre la mise en réseau Kubernetes sur un appareil Azure Stack Edge | Microsoft Docs
-description: Décrit le fonctionnement de la mise en réseau Kubernetes sur un appareil Azure Stack Edge.
+title: Comprendre la mise en réseau Kubernetes sur un appareil Azure Stack Edge Pro | Microsoft Docs
+description: Décrit le fonctionnement de la mise en réseau Kubernetes sur un appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 001304ad6eda27db2285aaa9ad8b28929e2a04f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899323"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Mise en réseau Kubernetes dans votre appareil Azure Stack Edge avec GPU
+# <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Mise en réseau Kubernetes dans votre appareil Azure Stack Edge Pro avec GPU
 
-Sur votre appareil Azure Stack Edge, un cluster Kubernetes est créé lorsque vous configurez le rôle de calcul. Une fois le cluster Kubernetes créé, les applications en conteneur peuvent être déployées sur le cluster Kubernetes dans des pods. Il existe des moyens distincts d’utiliser la mise en réseau pour les pods dans votre cluster Kubernetes. 
+Sur votre appareil Azure Stack Edge Pro, un cluster Kubernetes est créé lorsque vous configurez le rôle de calcul. Une fois le cluster Kubernetes créé, les applications en conteneur peuvent être déployées sur le cluster Kubernetes dans des pods. Il existe des moyens distincts d’utiliser la mise en réseau pour les pods dans votre cluster Kubernetes. 
 
-Cet article décrit la mise en réseau dans un cluster Kubernetes en général et spécifiquement dans le contexte de votre appareil Azure Stack Edge. 
+Cet article décrit la mise en réseau dans un cluster Kubernetes en général et spécifiquement dans le contexte de votre appareil Azure Stack Edge Pro. 
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 
@@ -59,9 +59,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## <a name="kubernetes-networking-on-azure-stack-edge"></a>Mise en réseau Kubernetes sur Azure Stack Edge
+## <a name="kubernetes-networking-on-azure-stack-edge-pro"></a>Mise en réseau Kubernetes sur Azure Stack Edge Pro
 
-Les serveurs DNS Calico, Metallb et Core sont tous les composants installés pour la mise en réseau sur votre appareil Azure Stack Edge. 
+Les serveurs DNS Calico, Metallb et Core sont tous les composants installés pour la mise en réseau sur votre appareil Azure Stack Edge Pro. 
 
 - **Calico** affecte une adresse IP à partir d’une plage d’adresses IP privées à chaque pod et configure la mise en réseau pour ces pods afin qu’un pod sur un nœud puisse communiquer avec le pod sur un autre nœud. 
 - **Metallb** s’exécute sur un pod dans le cluster et attribue l’adresse IP aux services de type équilibreur de charge. Les adresses IP de l’équilibreur de charge sont choisies dans la plage d’adresses IP de service fournie par le biais de l’interface utilisateur locale. 
@@ -80,8 +80,8 @@ L’attribution d’adresses IP est destinée aux :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour configurer la mise en réseau Kubernetes sur votre appareil, Azure Stack Edge, consultez :
+Pour configurer la mise en réseau Kubernetes sur votre appareil, Azure Stack Edge Pro, consultez :
 
-- [Exposez une application sans état en externe sur votre appareil Azure Stack Edge via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Exposez une application sans état en externe sur votre appareil Azure Stack Edge Pro via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Exposez une application sans état en externe sur votre appareil Azure Stack Edge via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Exposez une application sans état en externe sur votre appareil Azure Stack Edge Pro via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

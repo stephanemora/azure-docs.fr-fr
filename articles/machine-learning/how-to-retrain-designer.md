@@ -1,7 +1,7 @@
 ---
-title: Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
+title: Réentraîner des modèles à l’aide du concepteur Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment réentraîner des modèles avec des pipelines publiés dans le concepteur Azure Machine Learning (préversion).
+description: Découvrez comment réentraîner des modèles avec des pipelines publiés dans le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319624"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905671"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Réentraîner des modèles avec le concepteur Azure Machine Learning
+
 
 Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning. Vous allez utiliser des pipelines publiés pour automatiser votre flux de travail et définir des paramètres pour effectuer l’apprentissage de votre modèle sur de nouvelles données. 
 
@@ -32,16 +32,16 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail Azure Machine Learning la référence SKU Entreprise.
-* Complétez la partie 1 de cette série de procédures, [Transformer des données dans le concepteur](how-to-designer-transform-data.md).
+* Espace de travail Azure Machine Learning
+* Complétez la partie 1 de cette série de procédures, [Transformer des données dans le concepteur](how-to-designer-transform-data.md).
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-Cet article présuppose également que vous disposez d’une connaissance de base de la création de pipelines dans le concepteur. Pour une présentation guidée, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
+Cet article présuppose également que vous disposez de connaissances en matière de création de pipelines dans le concepteur. Pour une présentation guidée, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Exemple de pipeline
 
-Le pipeline utilisé dans cet article est une version modifiée de l’[Exemple 3 : Prédiction des revenus](samples-designer.md#classification). Le pipeline se sert du module [Importer des données](algorithm-module-reference/import-data.md) plutôt que de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
+Le pipeline utilisé dans cet article est une version modifiée d’un exemple de pipeline [Prédiction de revenus](samples-designer.md#classification) dans la page d’accueil du concepteur. Le pipeline se sert du module [Importer des données](algorithm-module-reference/import-data.md) plutôt que de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
 
 ![Capture d’écran montrant l’exemple de pipeline modifié avec une zone mettant en surbrillance le module Importer des données](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ Le concepteur enregistre toute la sortie du pipeline, dont des modèles formés,
 1. Vous pouvez trouver votre modèle dans **Autres sorties** ainsi que des journaux d’exécution.
 1. Vous pouvez également sélectionner l’icône **Afficher la sortie**. À partir de là, vous pouvez suivre l’instruction de la boîte de dialogue en accédant directement à votre magasin de données. 
 
-![Capture d’écran montrant comment télécharger le modèle formé](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran montrant comment télécharger le modèle formé](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publier un pipeline d’entraînement
 
@@ -101,9 +102,9 @@ Publiez un pipeline sur un point de terminaison de pipeline pour réutiliser fac
 
 À présente que vous disposez d’un pipeline d’apprentissage publié, vous pouvez l’utiliser pour ré-effectuer l’apprentissage de votre modèle sur de nouvelles données. Vous pouvez envoyer des exécutions à partir d’un point de terminaison de pipeline de l’espace de travail Studio ou par programmation.
 
-### <a name="submit-runs-by-using-the-designer"></a>Envoyer des exécutions à l’aide du concepteur
+### <a name="submit-runs-by-using-the-studio-portal"></a>Envoyer des exécutions à l’aide du portail du studio
 
-Suivez les étapes suivantes pour envoyer une exécution de point de terminaison de pipeline paramétré à partir du concepteur :
+Suivez les étapes suivantes pour envoyer une exécution de point de terminaison de pipeline paramétré à partir du portail du studio :
 
 1. Accédez à la page **Points de terminaison** de votre espace de travail Studio.
 1. Sélectionnez l’onglet **Points de terminaison de pipeline**. Sélectionnez votre point de terminaison de pipeline.

@@ -1,36 +1,85 @@
 ---
-title: Créer des utilisateurs - Azure Database pour MySQL
+title: Créer des bases de données et des utilisateurs Azure Database pour MySQL
 description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/2/2020
-ms.openlocfilehash: e3616e5f86c9f73eec8fceaca20f149ec1e09b9a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b79a0f21135e91ab72a4c8a9e604b84b67df0a9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902820"
 ---
-# <a name="create-users-in-azure-database-for-mysql-server"></a>Créer des utilisateurs dans un serveur Azure Database pour MySQL
+# <a name="create-databases-and-users-in-azure-database-for-mysql-server"></a>Créer des bases de données et des utilisateurs dans un serveur Azure Database pour MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Cet article décrit comment vous pouvez créer des utilisateurs dans un serveur Azure Database pour MySQL.
 
 > [!NOTE]
 > Communication sans biais
 >
-> Microsoft prend en charge un environnement diversifié et inclusif. Cet article contient des références au mot _esclave_. Le [guide de style pour la communication sans biais](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft reconnaît celui-ci comme un mot d’exclusion. Le mot est utilisé dans cet article par souci de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 Quand vous avez créé votre serveur Azure Database pour MySQL, vous avez fourni un nom d’utilisateur et un mot de passe pour la connexion en tant qu’administrateur du serveur. Pour plus d’informations, vous pouvez suivre le [Guide de démarrage rapide](quickstart-create-mysql-server-database-using-azure-portal.md). Vous pouvez localiser le nom d’utilisateur pour la connexion en tant qu’administrateur du serveur dans le portail Azure.
 
-L’utilisateur administrateur de serveur possède les privilèges suivants pour votre serveur : SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+L’utilisateur administrateur de serveur possède les privilèges suivants pour votre serveur : 
+
+   SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE,        REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+
 
 Une fois créé le serveur Azure Database pour MySQL, vous pouvez utiliser le premier compte utilisateur administrateur du serveur pour créer des utilisateurs supplémentaires et leur accorder un accès administrateur. Le compte administrateur du serveur peut être utilisé pour créer des utilisateurs possédant moins de privilèges et ayant accès à des schémas de base de données individuels.
 
 > [!NOTE]
 > Le privilège SUPER et le rôle DBA ne sont pas pris en charge. Pour comprendre ce qui n’est pas pris en charge dans le service, consultez les [privilèges](concepts-limits.md#privilege-support) dans l’article sur les limitations.
+
+## <a name="how-to-create-database-with-non-admin-user-in-azure-database-for-mysql"></a>Créer des utilisateurs de base de données avec un utilisateur non administrateur dans Azure Database pour MySQL
+
+1. Obtenez les informations de connexion et le nom d’utilisateur administrateur.
+   Pour vous connecter à votre serveur de base de données, il vous faut le nom de serveur complet et les informations d’identification de connexion d’administrateur. Vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page **Vue d’ensemble** ou sur la page **Propriétés** du serveur dans le portail Azure.
+
+2. Utilisez le compte et le mot de passe d’administrateur pour vous connecter à votre serveur de base de données. Utilisez votre outil client préféré, tel que MySQL Workbench, mysql.exe, HeidiSQL ou d’autres.
+   Si vous ne savez pas comment vous connecter, découvrez comment utiliser MySQL Workbench pour [connecter et interroger des données pour un serveur unique](./connect-workbench.md) ou [vous connecter et interroger des données pour un serveur flexible](./flexible-server/connect-workbench.md)
+
+3. Modifiez et exécutez le code SQL suivant. Remplacez la valeur de l’espace réservé `db_user` par votre nouveau nom d’utilisateur prévu, et la valeur de l’espace réservé `testdb` par le nom à attribuer à la base de données.
+
+   Cette syntaxe de code SQL crée une nouvelle base de données nommée testdb à titre d’exemple. Elle crée ensuite un nouvel utilisateur dans le service MySQL et accorde tous les privilèges au nouveau schéma de base de données (testdb.\*) pour cet utilisateur.
+
+   ```sql
+   CREATE DATABASE testdb;
+
+   CREATE USER 'db_user'@'%' IDENTIFIED BY 'StrongPassword!';
+
+   GRANT ALL PRIVILEGES ON testdb . * TO 'db_user'@'%';
+
+   FLUSH PRIVILEGES;
+   ```
+
+4. Vérifiez les privilèges accordés dans la base de données.
+
+   ```sql
+   USE testdb;
+
+   SHOW GRANTS FOR 'db_user'@'%';
+   ```
+
+5. Connectez-vous au serveur, en spécifiant la base de données désignée, à l’aide du nouveau nom d’utilisateur et mot de passe. Cet exemple montre la ligne de commande mysql. Cette commande vous invite à entrer le mot de passe pour le nom d’utilisateur. Indiquez votre propre nom de serveur, nom de base de données et nom d’utilisateur.
+
+# <a name="single-server"></a>[Serveur unique](#tab/single-server)
+
+   ```azurecli-interactive
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
+   ```
+# <a name="flexible-server"></a>[Serveur flexible](#tab/flexible-server)
+
+   ```azurecli-interactive
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
+   ```
+ ---
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Créer des utilisateurs administrateurs supplémentaires dans Azure Database pour MySQL
 
@@ -58,44 +107,10 @@ Une fois créé le serveur Azure Database pour MySQL, vous pouvez utiliser le pr
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## <a name="how-to-create-database-users-in-azure-database-for-mysql"></a>Créer des utilisateurs de base de données dans Azure Database pour MySQL
-
-1. Obtenez les informations de connexion et le nom d’utilisateur administrateur.
-   Pour vous connecter à votre serveur de base de données, il vous faut le nom de serveur complet et les informations d’identification de connexion d’administrateur. Vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page **Vue d’ensemble** ou sur la page **Propriétés** du serveur dans le portail Azure.
-
-2. Utilisez le compte et le mot de passe d’administrateur pour vous connecter à votre serveur de base de données. Utilisez votre outil client préféré, tel que MySQL Workbench, mysql.exe, HeidiSQL ou d’autres.
-   Si vous ne savez pas comment vous connecter, consultez [Utilisation de MySQL Workbench pour vous connecter et interroger des données](./connect-workbench.md).
-
-3. Modifiez et exécutez le code SQL suivant. Remplacez la valeur de l’espace réservé `db_user` par votre nouveau nom d’utilisateur prévu, et la valeur de l’espace réservé `testdb` par le nom à attribuer à la base de données.
-
-   Cette syntaxe de code SQL crée une nouvelle base de données nommée testdb à titre d’exemple. Elle crée ensuite un nouvel utilisateur dans le service MySQL et accorde tous les privilèges au nouveau schéma de base de données (testdb.\*) pour cet utilisateur.
-
-   ```sql
-   CREATE DATABASE testdb;
-
-   CREATE USER 'db_user'@'%' IDENTIFIED BY 'StrongPassword!';
-
-   GRANT ALL PRIVILEGES ON testdb . * TO 'db_user'@'%';
-
-   FLUSH PRIVILEGES;
-   ```
-
-4. Vérifiez les privilèges accordés dans la base de données.
-
-   ```sql
-   USE testdb;
-
-   SHOW GRANTS FOR 'db_user'@'%';
-   ```
-
-5. Connectez-vous au serveur, en spécifiant la base de données désignée, à l’aide du nouveau nom d’utilisateur et mot de passe. Cet exemple montre la ligne de commande mysql. Cette commande vous invite à entrer le mot de passe pour le nom d’utilisateur. Indiquez votre propre nom de serveur, nom de base de données et nom d’utilisateur.
-
-   ```azurecli-interactive
-   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
-   ```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs afin de leur permettre de se connecter : [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
+Ouvrez le pare-feu pour les adresses IP des machines des nouveaux utilisateurs afin de leur permettre de se connecter :
+- [Créer et gérer des règles de pare-feu sur un serveur unique](howto-manage-firewall-using-portal.md) 
+- [Créer et gérer des règles de pare-feu sur un serveur flexible](flexible-server/how-to-connect-tls-ssl.md)
 
 Pour plus d’informations sur la gestion des comptes d’utilisateurs, consultez la documentation du produit MySQL relative à la [gestion des comptes d’utilisateurs](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), à la [ syntaxe GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) et aux [privilèges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

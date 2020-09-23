@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907883"
 ---
 # <a name="init-image-transformation"></a>Lancer une transformation d’image
 
-Cet article explique comment utiliser le module **Init Image Transformation** dans le concepteur Azure Machine Learning (préversion), pour initialiser la transformation d’image afin de spécifier la façon dont vous souhaitez que l’image soit transformée.
+Cet article explique comment utiliser le module **Init Image Transformation** (Initialiser une transformation d’image) dans le concepteur Azure Machine Learning pour initialiser la transformation d’une image afin de spécifier la façon dont vous souhaitez que l’image soit transformée.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Comment configurer le module Init Image Transformation
 

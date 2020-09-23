@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420887"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907785"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
-Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans Azure Machine Learning Designer (préversion) afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
+Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans le concepteur Azure Machine Learning afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
 
 Le module de **recommandation Train Wide and Deep** lit un jeu de données composé de triplets utilisateur-élément-évaluation et, éventuellement, de certaines caractéristiques d'utilisateur et d'élément. Il retourne un générateur de recommandations Wide and Deep.  Vous pouvez ensuite utiliser le modèle formé pour générer des prédictions de note ou des recommandations à l’aide du module [Générateur de recommandations Score Wide and Deep](score-wide-and-deep-recommender.md).  
 
@@ -84,7 +84,7 @@ Par exemple, un jeu de caractéristiques d’éléments typique peut se présent
 
 ### <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 
-1.  Ajoutez le module **Générateur de recommandations Train Wide and Deep** à votre expérience dans le concepteur (préversion) et connectez-le aux données d’entraînement.  
+1.  Ajoutez le module **Générateur de recommandations Train Wide and Deep** à votre expérience dans le concepteur et connectez-le aux données d’entraînement.  
   
 2. Si vous disposez d’un jeu de données distinct de caractéristiques d’utilisateurs et/ou de caractéristiques d’éléments, connectez-le au module **Générateur de recommandations Train Wide and Deep**.  
   

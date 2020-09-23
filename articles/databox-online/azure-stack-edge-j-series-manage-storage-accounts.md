@@ -1,6 +1,6 @@
 ---
-title: Gestion des comptes de stockage GPU Azure Stack Edge | Microsoft Docs
-description: Décrit comment utiliser le portail Azure pour gérer les comptes de stockage sur votre instance Azure Stack Edge.
+title: Gestion des comptes de stockage sur Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit comment utiliser le portail Azure pour gérer un compte de stockage sur votre ressource Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254291"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904542"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Utiliser le portail Azure pour gérer les comptes de stockage Edge sur votre instance Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les comptes de stockage Edge sur votre ressource Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer les comptes de stockage Edge sur votre instance Azure Stack Edge. Vous pouvez gérer Azure Stack Edge par le biais du Portail Azure ou de l’interface utilisateur web locale. Utiliser le portail Azure pour ajouter ou supprimer des comptes de stockage Edge sur votre appareil.
+Cet article explique la gestion des comptes de stockage Edge sur votre ressource Azure Stack Edge Pro. Vous pouvez gérer la ressource Azure Stack Edge Pro par le biais du portail Azure ou de l’interface utilisateur web locale. Utiliser le portail Azure pour ajouter ou supprimer des comptes de stockage Edge sur votre appareil.
 
 ## <a name="about-edge-storage-accounts"></a>À propos des comptes de stockage Edge
 
-Vous pouvez transférer des données à partir de votre appareil Azure Stack Edge via les protocoles SMB, NFS ou REST. Pour transférer des données vers le stockage Blob à l’aide des API REST, vous devez créer des comptes de stockage Edge sur votre instance Azure Stack Edge. 
+Vous pouvez transférer des données depuis votre appareil Azure Stack Edge Pro via les protocoles SMB, NFS ou REST. Pour transférer des données vers le stockage Blob à l’aide des API REST, vous devez créer des comptes de stockage Edge sur votre instance Azure Stack Edge Pro. 
 
-Les comptes de stockage Edge que vous ajoutez sur l’appareil Azure Stack Edge sont mappés à des comptes de stockage Azure. Toutes les données écrites dans les comptes de stockage Edge sont automatiquement envoyées (push) vers le cloud.
+Les comptes de stockage Edge que vous ajoutez sur l’appareil Azure Stack Edge Pro sont mappés à des comptes de stockage Azure. Toutes les données écrites dans les comptes de stockage Edge sont automatiquement envoyées (push) vers le cloud.
 
 Un diagramme détaillant les deux types de comptes et la façon dont les données de chacun de ces comptes sont transmises à Azure est illustré ci-dessous :
 

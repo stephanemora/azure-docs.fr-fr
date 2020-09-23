@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 7637cc911ea2fbb950a18c2c8d91f5c3eaf02c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648783"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905086"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment déployer vos modèles à l’aide d’[Azure Machine Learning](overview-what-is-azure-ml.md) sur un FPGA Azure.
 
@@ -78,7 +78,7 @@ La **gamme de machines virtuelles Azure PBS** contient des FPGA Intel Arria 10. 
 
 ## <a name="deploy-models-on-fpgas"></a>Déployer des modèles sur des FPGA
 
-Vous pouvez déployer un modèle en tant que service web sur FGPA avec des [Modèles accélérés matériellement Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. L’inférence, ou notation du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production.
+Vous pouvez déployer un modèle en tant que service web sur FGPA avec des [Modèles accélérés matériellement Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. L’inférence, ou notation du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production.
 
 Le déploiement d’un modèle sur un FPGA implique les étapes suivantes :
 
@@ -121,7 +121,7 @@ Dans cet exemple, vous créez un graph TensorFlow pour prétraiter l’image en 
     ```
 ### <a name="1-define-the-tensorflow-model"></a>1. Définir le modèle TensorFlow
 
-Utilisez le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) pour créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse automatiquement la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau neuronal profond est déjà déployé pour s’exécuter sur le FPGA.
+Utilisez le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) pour créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse automatiquement la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau neuronal profond est déjà déployé pour s’exécuter sur le FPGA.
 
 1. Charger un espace de travail Azure Machine Learning
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782156"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907766"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
-Cet article décrit comment utiliser le module Optimiser les hyperparamètres du modèle dans le concepteur Azure Machine Learning (préversion). L’objectif est de déterminer les hyperparamètres optimaux pour un modèle Machine Learning. Le module génère et teste plusieurs modèles avec différentes combinaisons de paramètres. Il compare les métriques à tous les modèles pour obtenir les combinaisons de paramètres. 
+Cet article décrit comment utiliser le module Optimiser les hyperparamètres du modèle dans le concepteur Azure Machine Learning. L’objectif est de déterminer les hyperparamètres optimaux pour un modèle Machine Learning. Le module génère et teste plusieurs modèles avec différentes combinaisons de paramètres. Il compare les métriques à tous les modèles pour obtenir les combinaisons de paramètres. 
 
 Les termes *paramètre* et *hyperparamètre* peuvent prêter à confusion. Les *paramètres* du modèle sont ce que vous définissez dans le volet de droite du module. Ce module effectue essentiellement un *balayage de paramètres* sur les réglages de paramètres spécifiés. Il apprend un ensemble optimal d’_hyperparamètres_, qui peut être différent pour chaque arbre de décision, jeu de données ou méthode de régression. Le processus de recherche de la configuration optimale est parfois appelé *optimisation*. 
 

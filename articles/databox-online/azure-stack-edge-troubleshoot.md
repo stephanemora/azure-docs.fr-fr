@@ -1,6 +1,6 @@
 ---
-title: Utiliser le portail Azure pour résoudre des problèmes liés à Azure Stack Edge | Microsoft Docs
-description: Découvrez comment résoudre les problèmes liés à votre service Azure Stack Edge. Vous pouvez exécuter les diagnostics, collecter des informations pour le support et utiliser les journaux pour résoudre les problèmes.
+title: Utiliser le portail Azure pour résoudre des problèmes liés à Azure Stack Edge Pro | Microsoft Docs
+description: Découvrez comment résoudre les problèmes liés à votre service Azure Stack Edge Pro. Vous pouvez exécuter les diagnostics, collecter des informations pour le support et utiliser les journaux pour résoudre les problèmes.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134562"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903656"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Résoudre vos problèmes liés à Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Résoudre vos problèmes liés à Azure Stack Edge Pro
 
-Cet article explique comment résoudre des problèmes liés à votre solution Azure Stack Edge. 
+Cet article explique comment résoudre des problèmes liés à votre solution Azure Stack Edge Pro. 
 
 Dans cet article, vous apprendrez comment :
 
@@ -65,7 +65,7 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
 
       ![Se connecter pour afficher les contenus du partage](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Sélectionnez le _dossier Microsoft Azure Stack Edge_. Ce dossier comporte deux sous-dossiers :
+2. Sélectionnez le _dossier Microsoft Azure Stack Edge Pro_. Ce dossier comporte deux sous-dossiers :
 
     * dossier Upload contenant les fichiers journaux des erreurs de chargement ;
     * dossier Refresh stockant les fichiers journaux des erreurs d’actualisation.

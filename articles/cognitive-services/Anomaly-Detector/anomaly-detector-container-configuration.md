@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 29e790959e941abc133f95297dc09c951152a503
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593305"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903532"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
 
@@ -121,7 +121,7 @@ Les exemples Docker suivants s’appliquent au conteneur Détecteur d’anomalie
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -131,7 +131,7 @@ Les exemples Docker suivants s’appliquent au conteneur Détecteur d’anomalie
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information

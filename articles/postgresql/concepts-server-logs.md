@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392809"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902701"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -23,7 +23,7 @@ L’enregistrement d'audit est mis à disposition via une extension Postgres, pg
 ## <a name="configure-logging"></a>Configuration de la journalisation 
 Vous pouvez configurer la journalisation standard Postgres sur votre serveur avec les paramètres de journalisation. Sur chaque serveur Azure Database pour PostgreSQL, `log_checkpoints` et `log_connections` sont activés par défaut. Il existe d’autres paramètres que vous pouvez définir en fonction de vos besoins de journalisation : 
 
-![Azure Database pour PostgreSQL - Paramètres de journalisation](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Azure Database pour PostgreSQL - Paramètres de journalisation":::
 
 Pour en savoir plus sur les paramètres de journal Postgres, consultez les sections [Quand journaliser](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) et [Que journaliser](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) de la documentation Postgres. La plupart des paramètres de journalisation Postgres, mais pas tous, peuvent être configurés dans Azure Database pour PostgreSQL.
 

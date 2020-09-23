@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6724d8eb8df29ccfb033f5951ec56b7770e3c413
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607029"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903564"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Prise en charge des API dans Azure Static Web Apps (préversion) avec Azure Functions
 
@@ -20,19 +20,19 @@ Azure Static Web Apps fournit des points de terminaison d’API serverless via [
 
 - **Sécurité intégrée** avec accès direct aux données [d’authentification et d’autorisation basées sur les rôles](user-information.md).
 - **Routage transparent** qui met l’itinéraire _api_ à la disposition de l’application web en toute sécurité sans nécessiter de règles CORS personnalisées.
-- **Azure Functions** v3 compatible avec Node.js 12.
-- **Déclencheurs HTTP** et liaisons de sortie.
+- **Azure Functions** v3 compatible avec Node.js 12, .NET Core 3.1 et Python 3.8.
+- **Déclencheurs HTTP** et liaisons d’entrée/sortie.
 
 ## <a name="configuration"></a>Configuration
 
-Les points de terminaison d’API sont disponibles pour l’application web via l’itinéraire _api_. Bien que cet itinéraire soit résolu, vous pouvez contrôler le dossier dans lequel vous recherchez l’application Azure Functions associée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](github-actions-workflow.md#build-and-deploy) situé dans le dossier _. GitHub/workflows_ de votre référentiel.
+Les points de terminaison d’API sont disponibles pour l’application web via l’itinéraire _api_. Bien que cet itinéraire soit résolu, vous pouvez contrôler le dossier et le projet dans lequel vous recherchez l’application Azure Functions associée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](github-actions-workflow.md#build-and-deploy) situé dans le dossier _. GitHub/workflows_ de votre référentiel.
 
 ## <a name="constraints"></a>Contraintes
 
 Azure Static Web Apps fournit une API via Azure Functions. Les fonctionnalités d’Azure Functions sont axées sur un ensemble spécifique de fonctionnalités qui vous permettent de créer une API pour une application web et de permettre à celle-ci de se connecter à l’API en toute sécurité. Ces fonctionnalités sont fournies avec certaines contraintes, notamment :
 
 - Le préfixe d’itinéraire de l’API doit être _api_.
-- L’application de fonctions API doit être en JavaScript.
+- L’API doit être une application JavaScript, C# ou application Python Azure Functions.
 - Les règles de routage pour les fonctions d’API prennent uniquement en charge les [redirections](routes.md#redirects) et la [sécurisation](routes.md#securing-routes-with-roles) des itinéraires avec des rôles.
 - Les déclencheurs sont limités à [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Toutes les [liaisons](../azure-functions/functions-triggers-bindings.md#supported-bindings) d’entrée et de sortie sont prises en charge.

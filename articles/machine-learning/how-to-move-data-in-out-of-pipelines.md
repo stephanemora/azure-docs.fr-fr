@@ -10,16 +10,16 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 0b5674831aa09be2954595f851eb1dc93989bf75
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fa78ab00e337ee6f2a42e23a2899d79a09a7ea3d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904976"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Cet article fournit du code pour l’importation, la transformation et le déplacement de données entre les étapes d’un pipeline Azure Machine Learning. Pour obtenir une vue d’ensemble du fonctionnement des données dans Azure Machine Learning, consultez [Accéder aux données dans les services de stockage Azure](how-to-access-data.md). Pour plus d’informations sur les avantages et la structure des pipelines Azure Machine Learning, consultez [Présentation des pipelines Azure Machine Learning](concept-ml-pipelines.md).
 
@@ -33,7 +33,7 @@ Cette article vous explique comment :
 - Créer des objets `Dataset` à partir des `PipelineData` que vous souhaitez conserver
 
 > [!TIP]
-> Une expérience améliorée pour la transmission de données temporaires entre les étapes de pipeline et la conservation de vos données après des exécutions de pipeline est disponible dans les classes en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) et [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py).  Ces classes sont des fonctionnalités d’évaluation [expérimentales](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) susceptibles d’évoluer à tout moment.
+> Une expérience améliorée pour la transmission de données temporaires entre les étapes de pipeline et la conservation de vos données après des exécutions de pipeline est disponible dans les classes en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) et [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true).  Ces classes sont des fonctionnalités d’évaluation [expérimentales](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) susceptibles d’évoluer à tout moment.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -42,7 +42,7 @@ Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
+- Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
 
 - Un espace de travail Azure Machine Learning.
   
@@ -61,7 +61,7 @@ Vous devez disposer des éléments suivants :
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Utiliser des objets `Dataset` pour les données préexistantes 
 
-Le meilleur moyen d’ingérer des données dans un pipeline consiste à utiliser un objet [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py). Les objets `Dataset` représentent les données persistantes disponibles dans un espace de travail.
+Le meilleur moyen d’ingérer des données dans un pipeline consiste à utiliser un objet [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true). Les objets `Dataset` représentent les données persistantes disponibles dans un espace de travail.
 
 Il existe de nombreuses façons de créer et d’inscrire des objets `Dataset`. Les jeux de données tabulaires sont destinés à des données délimitées disponibles dans un ou plusieurs fichiers. Les jeux de données de fichier sont destinés à des données binaires (telles que des images) ou des données que vous allez analyser. La méthode la plus simple pour créer des objets `Dataset` consiste à utiliser des objets Blob existants dans le stockage de l’espace de travail ou à des URL publiques :
 
@@ -85,7 +85,7 @@ Une fois que vous avez créé une entrée nommée, vous pouvez choisir son mode 
 
 Pour passer un jeu de données à votre étape de pipeline :
 
-1. Utilisez `TabularDataset.as_named_inputs()` ou `FileDataset.as_named_input()` (pas de ’s’ à la fin) pour créer un objet `DatasetConsumptionConfig`
+1. Utilisez `TabularDataset.as_named_input()` ou `FileDataset.as_named_input()` (pas de ’s’ à la fin) pour créer un objet `DatasetConsumptionConfig`
 1. Utilisez `as_mount()` ou `as_download()` pour définir le mode d’accès
 1. Transmettez les jeux de données à vos étapes de pipeline à l’aide de l'argument `arguments` ou `inputs`
 
@@ -97,7 +97,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_inputs('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris').as_mount()]
 )
 ```
 
@@ -112,7 +112,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_inputs('train').as_download(), test.as_named_inputs('test').as_download()]
+    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
 )
 ```
 
@@ -127,8 +127,8 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_inputs('train').as_download()]
-    inputs=[test.as_named_inputs('test').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    inputs=[test.as_named_input('test').as_download()]
 )
 
 # In pipeline script
@@ -152,7 +152,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Utiliser `PipelineData` pour les données intermédiaires
 
-Tandis que les objets `Dataset` représentent des données persistantes, les objets [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) sont utilisés pour les données temporaires qui sont générées à partir des étapes de pipeline. Étant donné que la durée de vie d’un objet `PipelineData` est plus longue qu’une seule étape de pipeline, vous devez les définir dans le script de définition du pipeline. Lorsque vous créez un objet `PipelineData`, vous devez fournir un nom et un magasin de données où les données seront stockées. Transmettez vos objets `PipelineData` à votre `PythonScriptStep` en utilisant _les deux_ arguments `arguments` et `outputs` :
+Tandis que les objets `Dataset` représentent des données persistantes, les objets [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) sont utilisés pour les données temporaires qui sont générées à partir des étapes de pipeline. Étant donné que la durée de vie d’un objet `PipelineData` est plus longue qu’une seule étape de pipeline, vous devez les définir dans le script de définition du pipeline. Lorsque vous créez un objet `PipelineData`, vous devez fournir un nom et un magasin de données où les données seront stockées. Transmettez vos objets `PipelineData` à votre `PythonScriptStep` en utilisant _les deux_ arguments `arguments` et `outputs` :
 
 ```python
 
@@ -177,7 +177,7 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 ```
 
 > [!TIP]
-> Une expérience améliorée pour transmettre des données intermédiaires entre les étapes de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Une expérience améliorée pour transmettre des données intermédiaires entre les étapes de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 
 ### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Utiliser `PipelineData` comme sortie d’une étape d’apprentissage
@@ -193,7 +193,7 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-Si vous avez créé votre `PipelineData` avec l’argument `is_directory` défini sur `True`, il suffit d’effectuer l’appel à `os.makedirs()`, puis d’écrire tous les fichiers souhaités dans le chemin d’accès. Pour plus d’informations, consultez la documentation de référence de [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py).
+Si vous avez créé votre `PipelineData` avec l’argument `is_directory` défini sur `True`, il suffit d’effectuer l’appel à `os.makedirs()`, puis d’écrire tous les fichiers souhaités dans le chemin d’accès. Pour plus d’informations, consultez la documentation de référence de [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true).
 
 
 ### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Lire les `PipelineData` en tant qu’entrées pour les étapes non initiales
@@ -228,7 +228,7 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 La valeur d’une entrée `PipelineData` est le chemin d’accès à la sortie précédente. 
 
 > [!TIP]
-> Une expérience améliorée pour transmettre des données intermédiaires entre les étapes de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Une expérience améliorée pour transmettre des données intermédiaires entre les étapes de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 Si, comme indiqué précédemment, la première étape a écrit un seul fichier, sa consommation peut ressembler à ceci : 
 
@@ -250,7 +250,7 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 
 ```
 > [!TIP]
-> Une expérience améliorée pour la conservation de vos données intermédiaires en dehors de vos exécutions de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Une expérience améliorée pour la conservation de vos données intermédiaires en dehors de vos exécutions de pipeline est disponible avec la classe en préversion publique, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Pour obtenir un exemple de code qui utilise `OutputFileDatasetConfig`, consultez l’article expliquant comment [générer un pipeline ML à deux étapes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

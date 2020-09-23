@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: a3342a626a104dc5eb77ef4b01146a8943dae2d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ad8fd20d744f7aaa113b4c46f8ca0f05a6cc6951
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108071"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902831"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 
@@ -39,15 +39,15 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
 4. Sélectionnez **Ajouter un réplica**.
 
-   ![Azure Database pour MySQL - Réplication](./media/howto-read-replica-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database pour MySQL - Réplication":::
 
 5. Entrez un nom pour le serveur de réplica.
 
-    ![Azure Database pour MySQL - Nom du réplica](./media/howto-read-replica-portal/replica-name.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database pour MySQL - Nom du réplica":::
 
 6. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître.
 
-    ![Azure Database pour MySQL - Emplacement du réplica](./media/howto-read-replica-portal/replica-location.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database pour MySQL - Emplacement du réplica":::
 
    > [!NOTE]
    > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
@@ -59,7 +59,7 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
 Une fois le serveur réplica créé, il est affiché dans le panneau **Réplication**.
 
-   ![Azure Database pour MySQL - Répertorier les réplicas](./media/howto-read-replica-portal/list-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database pour MySQL - Répertorier les réplicas":::
 
 ## <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
 
@@ -74,15 +74,15 @@ Pour arrêter la réplication entre un serveur maître et un serveur réplica à
 
 3. Sélectionnez le serveur réplica pour lequel vous souhaitez arrêter la réplication.
 
-   ![Azure Database pour MySQL - Sélection du serveur pour lequel arrêter la réplication](./media/howto-read-replica-portal/stop-replication-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database pour MySQL - Sélection du serveur pour lequel arrêter la réplication":::
 
 4. Sélectionnez **Arrêter la réplication**.
 
-   ![Azure Database pour MySQL - Arrêter la réplication](./media/howto-read-replica-portal/stop-replication.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database pour MySQL - Arrêter la réplication":::
 
 5. Validez que vous voulez arrêter la réplication en cliquant sur **OK**.
 
-   ![Azure Database pour MySQL - Confirmation de l’arrêt de la réplication](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database pour MySQL - Confirmation de l’arrêt de la réplication":::
 
 ## <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 
@@ -94,15 +94,15 @@ Pour supprimer un serveur réplica en lecture du portail Azure, utilisez les ét
 
 3. Sélectionnez le serveur réplica que vous voulez supprimer.
 
-   ![Azure Database pour MySQL - Sélection du serveur réplica à supprimer](./media/howto-read-replica-portal/delete-replica-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database pour MySQL - Sélection du serveur réplica à supprimer":::
 
 4. Sélectionnez **Supprimer le réplica**.
 
-   ![Azure Database pour MySQL : Supprimer le réplica](./media/howto-read-replica-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database pour MySQL : Supprimer le réplica":::
 
 5. Tapez le nom du réplica, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.  
 
-   ![Azure Database pour MySQL - Confirmation de la suppression du réplica](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database pour MySQL - Confirmation de la suppression du réplica":::
 
 ## <a name="delete-a-master-server"></a>Supprimer un serveur maître
 
@@ -115,11 +115,11 @@ Pour supprimer un serveur maître du portail Azure, utilisez les étapes suivant
 
 2. Dans la **Vue d’ensemble**, sélectionnez **Supprimer**.
 
-   ![Azure Database pour MySQL - Supprimer le serveur maître](./media/howto-read-replica-portal/delete-master-overview.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database pour MySQL - Supprimer le serveur maître":::
 
 3. Tapez le nom du serveur maître, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.  
 
-   ![Azure Database pour MySQL - Supprimer le serveur maître](./media/howto-read-replica-portal/delete-master-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database pour MySQL - Supprimer le serveur maître":::
 
 ## <a name="monitor-replication"></a>Superviser la réplication
 
@@ -129,15 +129,15 @@ Pour supprimer un serveur maître du portail Azure, utilisez les étapes suivant
 
 3. Sélectionnez **Décalage de la réplication en secondes** dans la liste déroulante des métriques disponibles.
 
-   ![Sélectionner le décalage de la réplication](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Sélectionner le décalage de la réplication":::
 
 4. Sélectionnez l’intervalle de temps que vous voulez afficher. L’image ci-dessous sélectionne un intervalle de temps de 30 minutes.
 
-   ![Sélectionner un intervalle de temps](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Sélectionner un intervalle de temps":::
 
 5. Affichez le décalage de la réplication pour l’intervalle de temps sélectionné. L’image ci-dessous affiche les 30 dernières minutes.
 
-   ![Sélectionner un intervalle de temps](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Sélectionner un intervalle de temps":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

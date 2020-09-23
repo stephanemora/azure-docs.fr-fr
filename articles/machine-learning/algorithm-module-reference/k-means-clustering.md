@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553000"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907876"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
-Cet article décrit comment utiliser le module *Clustering k-moyennes* dans le concepteur Azure Machine Learning Studio (préversion) pour créer un modèle de clustering k-moyennes non formé. 
+Cet article décrit comment utiliser le module *Clustering k-moyennes* dans le concepteur Azure Machine Learning Studio pour créer un modèle de clustering k-moyennes non formé. 
  
 K-moyennes est l’un des algorithmes *non supervisé* les plus simples et les plus connus. Vous pouvez utiliser cet algorithme pour diverses tâches d’apprentissage automatique, telles que : 
 

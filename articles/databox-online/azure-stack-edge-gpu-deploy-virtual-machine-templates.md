@@ -1,6 +1,6 @@
 ---
-title: Déploiement de machines virtuelles sur un appareil Azure Stack Edge au moyen de modèles
-description: Explique comment créer et gérer des machines virtuelles sur un appareil Azure Stack Edge à l’aide de modèles.
+title: Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro au moyen de modèles
+description: Explique comment créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro à l’aide de modèles.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268157"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899714"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Déploiement de machines virtuelles sur un processeur GPU Azure Stack Edge au moyen de modèles
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU au moyen de modèles
 
-Ce tutoriel explique comment créer et gérer une machine virtuelle sur un appareil Azure Stack Edge à l’aide de modèles. Ces modèles sont des fichiers JSON (JavaScript Object Notation) qui définissent l’infrastructure et la configuration d’une machine virtuelle. Y sont spécifiées les ressources à déployer et les propriétés de ces ressources.
+Ce tutoriel explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide de modèles. Ces modèles sont des fichiers JSON (JavaScript Object Notation) qui définissent l’infrastructure et la configuration d’une machine virtuelle. Y sont spécifiées les ressources à déployer et les propriétés de ces ressources.
 
 Les modèles sont flexibles dans différents environnements, car ils peuvent prendre des paramètres en entrée à l’exécution à partir d’un fichier. La structure d’affectation de noms standard est `TemplateName.json` pour le modèle et `TemplateName.parameters.json` pour le fichier de paramètres. Pour plus d’informations sur les modèles ARM, consultez [En quoi consistent les modèles Azure Resource Manager ?](../azure-resource-manager/templates/overview.md).
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, nous allons utiliser des exemples de modèles pré-écrits pou
 
 ## <a name="vm-deployment-workflow"></a>Workflow du déploiement de machine virtuelle
 
-Pour déployer des machines virtuelles Azure Stack Edge sur plusieurs appareils, vous pouvez utiliser un seul disque dur virtuel préparé avec Sysprep pour tout votre parc et le même modèle pour le déploiement. Il suffit d’apporter simplement des modifications mineures aux paramètres de ce modèle pour chaque emplacement de déploiement (à la main comme ici ou bien programmatiquement). 
+Pour déployer des machines virtuelles Azure Stack Edge Pro sur plusieurs appareils, vous pouvez utiliser un seul disque dur virtuel préparé avec Sysprep pour tout votre parc, et le même modèle pour le déploiement. Il suffit d’apporter simplement des modifications mineures aux paramètres de ce modèle pour chaque emplacement de déploiement (à la main comme ici, ou bien par programme). 
 
 Voici une synthèse globale du workflow de déploiement à l’aide de modèles :
 
@@ -57,13 +57,13 @@ Voici une synthèse globale du workflow de déploiement à l’aide de modèles�
 
 ## <a name="device-prerequisites"></a>Prérequis liés à l’appareil
 
-Configurez ces prérequis sur votre appareil Azure Stack Edge.
+Configurez ces prérequis sur votre appareil Azure Stack Edge Pro.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>Prérequis pour le client
 
-Configurez ces prérequis sur le client qui sera utilisé pour accéder à l’appareil Azure Stack Edge.
+Configurez ces prérequis sur le client qui sera utilisé pour accéder à l’appareil Azure Stack Edge Pro.
 
 1. [Téléchargez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) si vous l’utilisez pour charger un disque dur virtuel. Vous pouvez également télécharger AzCopy pour cela. Vous devrez peut-être configurer TLS 1.2 sur votre ordinateur client si vous exécutez des versions antérieures d’AzCopy. 
 1. [Téléchargez les modèles de machine virtuelle et les fichiers de paramètres](https://aka.ms/ase-vm-templates) sur votre ordinateur client. Décompressez-les dans le répertoire qui vous servira de répertoire de travail.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Seuls les comptes de stockage locaux comme le stockage localement redondant (Standard_LRS ou Premium_LRS) peuvent être créés par le biais d’Azure Resource Manager. Pour créer des comptes de stockage hiérarchisés, consultez la procédure [Ajout de comptes de stockage à Azure Stack Edge et connexion à ces comptes](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Seuls les comptes de stockage locaux comme le stockage localement redondant (Standard_LRS ou Premium_LRS) peuvent être créés par le biais d’Azure Resource Manager. Pour créer des comptes de stockage hiérarchisés, consultez les étapes décrites dans [Ajouter des comptes de stockage à Azure Stack Edge Pro et se connecter à ces comptes](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Voici un exemple de sortie obtenue.
 
@@ -145,7 +145,7 @@ Vérifiez que vous avez déjà ajouté l’URI d’objet blob dans le fichier ho
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-Dans un environnement classique, votre DNS est configuré de sorte que tous les comptes de stockage pointent vers l’appareil Azure Stack Edge avec une entrée `*.blob.devicename.domainname.com` .
+Dans un environnement classique, votre DNS est configuré de telle sorte que tous les comptes de stockage pointent vers l’appareil Azure Stack Edge Pro avec une entrée `*.blob.devicename.domainname.com`.
 
 ### <a name="optional-install-certificates"></a>Installation des certificats (facultatif)
 
@@ -215,7 +215,7 @@ Copiez les images de disque à utiliser dans des objets blob de pages du compte 
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -245,11 +245,14 @@ Le fichier `CreateImageAndVnet.parameters.json` prend les paramètres suivants 
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -266,7 +269,7 @@ Le fichier `CreateImageAndVnet.parameters.json` prend les paramètres suivants 
     }
 ```
 
-Modifiez le fichier `CreateImageAndVnet.parameters.json` de façon à inclure les éléments suivants pour votre appareil Azure Stack Edge :
+Modifiez le fichier `CreateImageAndVnet.parameters.json` de façon à inclure les éléments suivants pour votre appareil Azure Stack Edge Pro :
 
 1. Indiquez le type de système d’exploitation correspondant au disque dur virtuel que vous allez charger : Windows ou Linux.
 
@@ -338,7 +341,7 @@ Modifiez le fichier `CreateImageAndVnet.parameters.json` de façon à inclure le
 Déployez le modèle `CreateImageAndVnet.json`. Ce modèle déploie les ressources de réseau virtuel et d’image qui serviront à créer les machines virtuelles à l’étape suivante.
 
 > [!NOTE]
-> Si vous recevez une erreur d’authentification lorsque vous déployez le modèle, ce peut être dû au fait que vos informations d’identification Azure ont expiré pour cette session. Réexécutez la commande `login-AzureRM` pour vous reconnecter à Azure Resource Manager sur votre appareil Azure Stack Edge.
+> Si vous recevez une erreur d’authentification lorsque vous déployez le modèle, ce peut être dû au fait que vos informations d’identification Azure ont expiré pour cette session. Réexécutez la commande `login-AzureRM` pour vous reconnecter à Azure Resource Manager sur votre appareil Azure Stack Edge Pro.
 
 1. Exécutez la commande suivante : 
     
@@ -434,7 +437,7 @@ Pour créer une machine virtuelle, utilisez le fichier de paramètres `CreateVM.
         }
 ```    
 
-Affectez les paramètres nécessaires de `CreateVM.parameters.json` pour votre appareil Azure Stack Edge.
+Affectez les paramètres nécessaires dans `CreateVM.parameters.json` pour votre appareil Azure Stack Edge Pro.
 
 1. Indiquez un nom unique, un nom d’interface réseau et un nom ipconfig. 
 1. Entrez un nom d’utilisateur, un mot de passe et une taille de machine virtuelle prise en charge.
@@ -501,7 +504,7 @@ Déployez le modèle de création de machine virtuelle `CreateVM.json`. Ce modè
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ Déployez le modèle de création de machine virtuelle `CreateVM.json`. Ce modè
         
         PS C:\07-30-2020>
     ```   
- 
+Vous pouvez également exécuter la commande `New-AzureRmResourceGroupDeployment` de façon asynchrone avec le paramètre `–AsJob`. Voici un exemple de sortie lorsque l’applet de commande s’exécute en arrière-plan. Vous pouvez ensuite interroger l’état du travail créé à l’aide de l’applet de commande `Get-Job`.
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Vérifiez que la machine virtuelle est correctement provisionnée. Exécutez la commande suivante :
 
     `Get-AzureRmVm`
@@ -555,11 +578,23 @@ Déployez le modèle de création de machine virtuelle `CreateVM.json`. Ce modè
 
 ## <a name="connect-to-a-vm"></a>Se connecter à une machine virtuelle
 
+Selon que vous avez créé une machine virtuelle Windows ou Linux, les étapes de connexion peuvent être différentes.
+
+### <a name="connect-to-windows-vm"></a>Se connecter à une machine virtuelle Windows
+
+Suivez ces étapes pour vous connecter à une machine virtuelle Windows.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Se connecter à une machine virtuelle Linux
+
+Suivez ces étapes pour vous connecter à une machine virtuelle Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -574,9 +609,9 @@ Ni les extensions, ni les groupes identiques, ni les groupes à haute disponibil
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

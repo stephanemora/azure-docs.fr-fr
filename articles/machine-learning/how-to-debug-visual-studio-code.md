@@ -5,20 +5,20 @@ description: Déboguer du code, des pipelines et des déploiements Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907100"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907623"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Découvrez comment déboguer des pipelines et des déploiements Azure Machine Learning de manière interactive à l’aide de Visual Studio Code (VS Code) et [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -37,7 +37,7 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
   * une instance de calcul de machine virtuelle Notebook se trouvant dans le réseau virtuel ;
   * une machine client disposant d’une connectivité réseau privée au réseau virtuel, par le biais d’un VPN ou via ExpressRoute.
 
-Pour plus d’informations sur l’utilisation d’un réseau virtuel Azure avec Azure Machine Learning, voir [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md).
+Pour plus d’informations sur l’utilisation d’un réseau virtuel Azure avec Azure Machine Learning, consultez [Vue d’ensemble de l’isolement et la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
 
 > [!TIP]
 > Bien qu’il soit possible de travailler avec des ressources Azure Machine Learning qui ne se trouvent pas derrière un réseau virtuel, il est recommandé d’utiliser un réseau virtuel.
@@ -109,7 +109,7 @@ Pour activer le débogage, apportez les modifications suivantes au(x) script(s) 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-L’exemple Python suivant montre un fichier `train.py` de base qui active le débogage :
+L’exemple Python suivant montre un fichier `train.py` simple qui active le débogage :
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -281,7 +281,7 @@ Enregistrez la valeur `ip_address`. Elles seront utilisées dans la section suiv
 Dans certains cas, vous devrez peut-être déboguer interactivement le code Python contenu dans votre modèle de déploiement. Par exemple, si le script d’entrée échoue pour une raison ne pouvant pas être déterminée par une journalisation supplémentaire. À l’aide de VS Code et de debugpy, vous pouvez attacher au code qui s’exécute dans le conteneur Docker.
 
 > [!IMPORTANT]
-> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la méthode [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Les déploiements de service web locaux nécessitent l’installation d’un Docker de travail sur votre système local. Pour plus d’informations sur l’utilisation de Docker, consultez la [documentation Docker](https://docs.docker.com/). Notez que, lorsque vous travaillez avec des instances de calcul, Docker est déjà installé.
 

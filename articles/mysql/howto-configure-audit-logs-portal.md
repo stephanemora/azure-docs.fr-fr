@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 508e2d229c067ac84d4c8d6338e658df8d3fa932
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2bd698d9513310571c0e8c53136f85c62532df43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905879"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit Azure Database pour MySQL dans le portail Azure
 
@@ -35,35 +35,35 @@ Activez et configurez l’enregistrement d’audit.
 1. Sélectionnez votre serveur Azure Database pour MySQL.
 
 1. Dans la section **Paramètres** dans l’encadré, sélectionnez **Paramètres du serveur**.
-    ![Paramètres du serveur](./media/howto-configure-audit-logs-portal/server-parameters.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Paramètres du serveur":::
 
 1. Mettez à jour le paramètre **audit_log_enabled** sur ON.
-    ![Activer les journaux d’audit](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Activer les journaux d’audit":::
 
 1. Sélectionnez les [types d’événements](concepts-audit-logs.md#configure-audit-logging) à enregistrer en mettant à jour le paramètre **audit_log_events**.
-    ![Événements du journal d’audit](./media/howto-configure-audit-logs-portal/audit-log-events.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Événements du journal d’audit":::
 
 1. Ajoutez des utilisateurs MySQL à exclure de l’enregistrement en mettant à jour le paramètre **audit_log_exclude_users**. Spécifiez les utilisateurs en fournissant leur nom d’utilisateur MySQL.
-    ![Utilisateurs à exclure du journal d’audit](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Utilisateurs à exclure du journal d’audit":::
 
 1. Une fois que vous avez modifié les paramètres, vous pouvez cliquer sur **Enregistrer**. Vous pouvez également **Abandonner** vos modifications.
-    ![Save](./media/howto-configure-audit-logs-portal/save-parameters.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::
 
 ## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic
 
 1. Dans la section **Supervision** dans la barre latérale, sélectionnez **Paramètres de diagnostic**.
 
-1. Cliquez sur « + Ajouter un paramètre de diagnostic » ![Ajouter un paramètre de diagnostic](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Cliquez sur « + Ajouter un paramètre de diagnostic » :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Ajouter un paramètre de diagnostic":::
 
 1. Entrez un nom de paramètre de diagnostic.
 
 1. Spécifiez les récepteurs de données auxquels envoyer les journaux d’audit (compte de stockage, hub d’événements et/ou espace de travail Log Analytics).
 
 1. Sélectionnez « MySqlAuditLogs » comme type de journal.
-![Configurer un paramètre de diagnostic](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configurer un paramètre de diagnostic":::
 
 1. Une fois que vous avez configuré les récepteurs de données auxquels envoyer les journaux d’audit, vous pouvez cliquer sur **Enregistrer**.
-![Enregistrer un paramètre de diagnostic](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Enregistrer un paramètre de diagnostic":::
 
 1. Accédez aux journaux d’audit en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
 
