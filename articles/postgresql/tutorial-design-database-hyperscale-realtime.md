@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Concevoir un tableau de bord en temps réel - Hyperscale (Citus) - Azure Database pour PostgreSQL'
-description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus).
+description: Ce tutoriel montre comment paralléliser un tableau de bord en temps avec Azure Database pour PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895239"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -226,6 +226,5 @@ Au cours des étapes précédentes, vous avez créé des ressources Azure dans u
 
 Dans ce tutoriel, vous avez appris à configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données. Vous avez vu comment interroger des données sous leur forme brute, à agréger régulièrement ces données, à interroger les tables agrégées et à faire expirer les données anciennes.
 
-Ensuite, découvrez les concepts de l’hyperscale.
-> [!div class="nextstepaction"]
-> [Types de nœuds de l’hyperscale](https://aka.ms/hyperscale-concepts)
+- En savoir plus sur les [types de nœuds](https://aka.ms/hyperscale-concepts) des groupes de serveurs
+- Déterminer la [taille initiale](howto-hyperscale-scaling.md#picking-initial-size) optimale pour votre groupe de serveurs

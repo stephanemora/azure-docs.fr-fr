@@ -3,12 +3,12 @@ title: Gérer les espaces de travail Azure Sentinel à grande échelle
 description: Apprenez à gérer efficacement Azure Sentinel sur les ressources client déléguées.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050809"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019731"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gérer les espaces de travail Azure Sentinel à grande échelle
 
@@ -65,7 +65,7 @@ Si vous gérez des ressources Azure Sentinel pour plusieurs clients, vous pouvez
 
 [Les classeurs Azure Monitor dans Azure Sentinel](../../sentinel/overview.md#workbooks) vous aident à visualiser et à surveiller les données de vos sources de données connectées pour obtenir des Insights. Vous pouvez utiliser les modèles de classeurs intégrés dans Azure Sentinel ou créer des classeurs personnalisés pour vos scénarios.
 
-Vous pouvez déployer des classeurs dans votre client gérant et créer des tableaux de bord à l’échelle pour surveiller et interroger les données des locataires clients. Pour plus d’informations, consultez l’article [Surveiller plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Notez que certaines fonctionnalités ne sont [pas prises en charge sur plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Vous pouvez déployer des classeurs dans votre client gérant et créer des tableaux de bord à l’échelle pour surveiller et interroger les données des locataires clients. Pour plus d’informations, consultez l’article [Surveiller plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 Vous pouvez également déployer des classeurs directement dans un locataire individuel que vous gérez pour des scénarios qui lui sont spécifiques.
 
@@ -76,8 +76,6 @@ Créez et enregistrez des requêtes d’analytique des journaux d’activité po
 ## <a name="use-automation-for-cross-workspace-management"></a>Utiliser l’automatisation pour la gestion inter-espaces de travail
 
 Vous pouvez utiliser l’automatisation pour gérer plusieurs espaces de travail Azure Sentinel et configurer des [requêtes de chasse](../../sentinel/hunting.md), des playbooks et des classeurs. Pour plus d’informations, consultez l’article [Gestion inter-espaces de travail à l’aide de l’automatisation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Notez que certaines fonctionnalités ne sont [actuellement pas prises en charge sur plusieurs espaces de travail](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Gérer la sécurité des environnements Office 365
 

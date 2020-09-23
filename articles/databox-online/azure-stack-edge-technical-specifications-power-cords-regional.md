@@ -1,23 +1,23 @@
 ---
-title: Spécifications techniques du cordon d’alimentation Microsoft Azure Stack Edge basées sur l’emplacement | Microsoft Docs
-description: En savoir plus sur les spécifications techniques de vos cordons d’alimentation Azure Stack Edge.
+title: Spécifications techniques du cordon d’alimentation Microsoft Azure Stack Edge Pro en fonction de la région | Microsoft Docs
+description: Découvrez les spécifications techniques de vos cordons d’alimentation Azure Stack Edge Pro.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: twooley
-ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903627"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Spécifications du cordon d’alimentation Azure Stack Edge
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Spécifications du cordon d’alimentation Azure Stack Edge Pro
 
-Votre appareil Azure Stack Edge aura besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
+Votre appareil Azure Stack Edge Pro aura besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
 
 ## <a name="supported-power-cords"></a>Cordons d’alimentation pris en charge
 
@@ -158,4 +158,4 @@ Vous pouvez utiliser le tableau suivant pour rechercher les spécifications de c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Spécifications techniques d’Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
+[Spécifications techniques d’Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)

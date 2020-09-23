@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888040"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configuration des données d’utilisation et de diagnostic Azure SQL Edge
 
@@ -61,6 +61,9 @@ group by data_source_type
 
 La collecte des données d’utilisation et de diagnostic sur Azure SQL Edge peut être désactivée à l’aide de l’une des méthodes ci-dessous.
 
+> [!NOTE]
+> Les données d’utilisation et de diagnostic ne peuvent pas être désactivées pour la version développeur.
+
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>Désactiver l’utilisation et les diagnostics à l’aide de variables d’environnement
 
 Pour désactiver la collecte des données d’utilisation et de diagnostics sur Azure SQL Edge, ajoutez la variable d’environnement suivante et affectez-lui la valeur `*False*`. Pour plus d’informations sur la configuration d’Azure SQL Edge à l’aide de variables d’environnement, consultez [Configurer à l’aide de variables d’environnement](configure.md#configure-by-using-environment-variables).
@@ -72,7 +75,7 @@ Pour désactiver la collecte des données d’utilisation et de diagnostics sur 
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Désactiver l’utilisation et les diagnostics à l’aide de dossiers mssql.conf
 
-Pour désactiver la collecte des données d’utilisation et de diagnostics sur Azure SQL Edge, ajoutez les fichiers suivants dans le fichier mssql. conf sur le lecteur de stockage persistant qui est mappé au dossier /var/opt/mssql/ dans le module SQL Edge. Pour plus d’informations sur la configuration d’Azure SQL Edge à l’aide du fichier mssql.conf, consultez [Configurer à l’aide du fichier mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+Pour désactiver la collecte des données d’utilisation et de diagnostics sur Azure SQL Edge, ajoutez les lignes suivantes dans le fichier mssql. conf sur le lecteur de stockage persistant qui est mappé au dossier /var/opt/mssql/ dans le module SQL Edge. Pour plus d’informations sur la configuration d’Azure SQL Edge à l’aide du fichier mssql.conf, consultez [Configurer à l’aide du fichier mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045312"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903823"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio Code
 
@@ -27,7 +27,7 @@ Un script Azure Stream Analytics est utilisé pour transformer des données d’
 
 ### <a name="start-local-testing"></a>Commencer les tests locaux
 
-Utilisez ce [Démarrage rapide](quick-create-vs-code.md) pour apprendre à créer un travail Stream Analytics à l’aide de Visual Studio Code ou [exporter un travail existant vers un projet local](visual-studio-code-explore-jobs.md). Les informations d’identification pour les entrées et les sorties sont automatiquement remplies pour les travaux exportés.
+Utilisez ce [Démarrage rapide](quick-create-visual-studio-code.md) pour apprendre à créer un travail Stream Analytics à l’aide de Visual Studio Code ou [exporter un travail existant vers un projet local](visual-studio-code-explore-jobs.md). Les informations d’identification pour les entrées et les sorties sont automatiquement remplies pour les travaux exportés.
 
 Si vous souhaitez tester la requête avec des données d’entrée locales, suivez ces [instructions](visual-studio-code-local-run.md). Si vous souhaitez effectuer un test avec une entrée dynamique, [configurez votre entrée](stream-analytics-add-inputs.md) et passez à l’étape suivante. 
 
@@ -59,7 +59,7 @@ Dans cette section, vous explorez les métriques disponibles pour chaque partie 
 3. Sélectionnez le nom de la source de données d’entrée dans la liste déroulante pour afficher les métriques d’entrée. La source d’entrée dans la capture d’écran ci-dessous est appelée *quotes*. Pour plus d’informations sur les métriques d’entrée, consultez [Présentation de la supervision des travaux Stream Analytics et des requêtes](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Métriques du diagramme de la tâche](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![Métriques d’entrée du diagramme de tâche](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Sélectionnez une étape de requête dans le diagramme de tâche ou sélectionnez le nom de l’étape dans la liste déroulante pour afficher les métriques au niveau de l’étape. Le délai en filigrane est la seule mesure de l’étape disponible.
 
@@ -108,7 +108,7 @@ Sélectionnez **Résumé de la tâche** en haut à droite du diagramme pour affi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio Code](quick-create-vs-code.md)
+* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio Code](quick-create-visual-studio-code.md)
 * [Explorer Azure Stream Analytics avec Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Tester des requêtes Stream Analytics localement avec des exemples de données à l’aide de Visual Studio Code](visual-studio-code-local-run.md)
 * [Tester des travaux Azure Stream Analytics localement avec une entrée en direct à l’aide de Visual Studio Code](visual-studio-code-local-run-live-input.md)

@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894768"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptatif dans Azure Security Center
 Découvrez comment configurer le renforcement du réseau adaptatif dans Azure Security Center.
+
+## <a name="availability"></a>Disponibilité
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Disponibilité générale (GA)|
+|Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
+|Rôles et autorisations obligatoires :|Autorisations en écriture sur les groupes de sécurité de la machine|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Qu’est-ce que le renforcement du réseau adaptatif ?
 L’application de [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) pour filtrer le trafic vers et depuis des ressources améliore votre posture de sécurité réseau. Il peut toutefois rester des cas dans lesquels le trafic réel qui transite via le groupe de sécurité réseau est un sous-ensemble des règles NSG définies. Dans ces cas, une amélioration supplémentaire de la posture de sécurité est possible en renforçant les règles NSG en fonction des modèles de trafic réel.
@@ -37,15 +46,6 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
 ![Vue du renforcement du réseau](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Disponibilité
-
-|Aspect|Détails|
-|----|:----|
-|État de sortie :|Disponibilité générale|
-|Prix :|Niveau standard|
-|Rôles et autorisations obligatoires :|Autorisations en écriture sur les groupes de sécurité de la machine|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Afficher les alertes et règles de renforcement du réseau adaptatif
@@ -56,7 +56,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
    * **Ressources non analysées** : Machines virtuelles dont l’algorithme de renforcement du réseau adaptatif ne peut pas être exécuté pour l’une des raisons suivantes :
       * **Les machines virtuelles sont des machines virtuelles Classic** : Seules les ressources Azure Resource Manager sont prises en charge.
       * **Les données disponibles sont insuffisantes** : Pour générer des suggestions de renforcement du trafic précises, Security Center requiert au moins 30 jours de données de trafic.
-      * **La machine virtuelle n’est pas protégée par la norme ASC** : Seules les machines virtuelles qui sont définies au niveau tarifaire Standard de Security Center sont éligibles pour cette fonctionnalité.
+      * **La machine virtuelle n’est pas protégée par Azure Defender** : Seules les machines virtuelles protégées avec [Azure Defender pour les serveurs](defender-for-servers-introduction.md) peuvent bénéficier de cette fonctionnalité.
 
      ![ressources non saines](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -106,14 +106,14 @@ Voici des instructions importantes relatives à la modification d’une règle d
 
 1. Pour modifier certains paramètres d’une règle, dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Modifier**.
 
-   ![modifier une règle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Modification d’une règle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. Dans la fenêtre **Modifier une règle**, mettez à jour les détails que vous souhaitez modifier, puis cliquez sur **Enregistrer**.
 
    > [!NOTE]
-   > Après avoir cliqué sur **Enregistrer**, vous avez modifié avec succès de la règle. *Toutefois, vous ne l’avez pas appliquée au groupe de sécurité réseau.* Pour l’appliquer, vous devez sélectionner la règle dans la liste, puis cliquez sur **Appliquer** (comme expliqué dans l’étape suivante).
+   > Après avoir cliqué sur **Enregistrer**, vous avez modifié avec succès de la règle. *Toutefois, vous ne l’avez pas appliquée au groupe de sécurité réseau.* Pour l’appliquer, vous devez sélectionner la règle dans la liste, puis sélectionnez **Appliquer** (comme expliqué dans l’étape suivante).
 
-   ![modifier une règle](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Sélection d’un enregistrement](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Pour appliquer la règle mise à jour, sélectionnez la règle mise à jour dans la liste, puis cliquez sur **Appliquer**.
 
@@ -150,4 +150,4 @@ Si nécessaire, vous pouvez supprimer une règle recommandée pour la session ac
 
 1. Dans l’onglet **Règles**, cliquez sur les trois points (…) à la fin de la ligne de la règle, puis cliquez sur **Supprimer**.  
 
-    ![règles de renforcement](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Suppression d'une règle](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

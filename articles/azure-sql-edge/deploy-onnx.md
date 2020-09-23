@@ -1,6 +1,6 @@
 ---
 title: Déployer et effectuer des prédictions avec ONNX
-description: Apprenez à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur Azure SQL Edge (préversion) ou Azure SQL Managed Instance (préversion), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
+description: Apprenez à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur Azure SQL Edge ou Azure SQL Managed Instance (préversion), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
 keywords: déployer SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886827"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Déployer et effectuer des prédictions avec un modèle ONNX
 
-Dans ce démarrage rapide, vous allez apprendre à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur [Azure SQL Edge (préversion)](onnx-overview.md) ou [Azure SQL Managed Instance (préversion)](../azure-sql/managed-instance/machine-learning-services-overview.md), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
+Dans ce démarrage rapide, vous allez apprendre à effectuer l’apprentissage d’un modèle, à le convertir en ONNX, à le déployer sur [Azure SQL Edge](onnx-overview.md) ou [Azure SQL Managed Instance (préversion)](../azure-sql/managed-instance/machine-learning-services-overview.md), puis à exécuter une fonction PREDICT native sur des données à l’aide du modèle ONNX chargé.
 
 Ce guide de démarrage rapide est basé sur **scikit-Learn** et utilise le jeu de données [Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-* Si vous n’utilisez pas Azure SQL Edge et que vous n’avez pas déployé de module Azure SQL Edge, procédez de la manière décrite dans [Déployer SQL Edge (préversion) à l’aide du portail Azure](deploy-portal.md).
+* Si vous n’utilisez pas Azure SQL Edge et que vous n’avez pas déployé de module Azure SQL Edge, procédez de la manière décrite dans [Déployer SQL Edge à l’aide du Portail Azure](deploy-portal.md).
 
 * Installez [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

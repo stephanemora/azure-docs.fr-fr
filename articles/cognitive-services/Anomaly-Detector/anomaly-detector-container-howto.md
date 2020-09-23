@@ -1,29 +1,31 @@
 ---
 title: Guide pratique pour installer et exécuter des conteneurs pour l’utilisation de l’API Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
-description: Utiliser les algorithmes avancés de l’API Détecteur d’anomalies pour identifier des anomalies dans vos données de série chronologique.
+description: Découvrez comment installer et utiliser un conteneur pour utiliser les algorithmes avancés de l’API Détecteur d’anomalies.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548529"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903560"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Installer et exécuter des conteneurs du Détecteur d’anomalies (préversion)
+# <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs Détecteur d’anomalies 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Le Détecteur d’anomalies présente la caractéristique de conteneur suivante :
 
 | Fonction | Fonctionnalités |
 |--|--|
-| Détecteur d’anomalies | <li> Détecte les anomalies en temps réel. <li> Détecte les anomalies tout au long de votre jeu de données par lots. <li> Déduit la plage normale attendue de vos données. <li> Prend en charge l’ajustement de la sensibilité de détection des anomalies pour mieux ajuster vos données. |
+| Détecteur d’anomalies | <li> Détecte les anomalies en temps réel. <li> Détecte les anomalies tout au long de votre jeu de données par lots. <li> Détecte les points de changement de tendance dans votre jeu de données par lots.<li> Déduit la plage normale attendue de vos données. <li> Prend en charge l’ajustement de la sensibilité de détection des anomalies pour mieux ajuster vos données. |
 
 Pour plus d’informations sur les API, consultez :
 * [En savoir plus sur le service API Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -67,7 +69,7 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 
 | Conteneur | Référentiel |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ Pour plus d’informations sur ces options, consultez [Configurer des conteneurs
 Dans cet article, vous avez découvert les concepts et le workflow du téléchargement, de l’installation et de l’exécution des conteneurs Détecteur d’anomalies. En résumé :
 
 * Détecteur d’anomalies fournit un conteneur Linux pour Docker, encapsulant la détection d’anomalies par lots ou en continu, l’inférence de plage attendue et le réglage de la sensibilité.
-* Les images conteneurs sont téléchargées à partir d’un registre Azure Container Registry privé pour obtenir un aperçu des conteneurs.
+* Les images de conteneurs sont téléchargées à partir d’un registre Azure Container Registry privé pour obtenir des conteneurs.
 * Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou le Kit de développement logiciel (SDK) pour appeler des opérations dans les conteneurs Détecteur d’anomalies en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
