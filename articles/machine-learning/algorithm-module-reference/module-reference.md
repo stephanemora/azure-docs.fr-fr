@@ -1,6 +1,6 @@
 ---
 title: Informations de référence sur les algorithmes et les modules
-description: En savoir plus sur les modules disponibles dans le concepteur Azure Machine Learning (préversion)
+description: En savoir plus sur les modules disponibles dans le concepteur Azure Machine Learning
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886397"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning (préversion)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning
 
-Ce contenu de référence présente l’arrière-plan technique de chacun des algorithmes d’apprentissage automatique et les modules disponibles dans le concepteur Azure Machine Learning (préversion).
+Ce contenu de référence présente le contexte technique de chacun des algorithmes et modules d'apprentissage automatique disponibles dans le concepteur Azure Machine Learning.
 
 Chaque module représente un ensemble de code qui peut s’exécuter indépendamment et effectuer une tâche de Machine Learning en fonction des entrées requises. Un module peut contenir un algorithme particulier ou effectuer une tâche de Machine Learning importante comme le remplacement de valeur manquante ou l’analyse statistique.
 

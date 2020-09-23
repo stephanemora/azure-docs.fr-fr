@@ -1,5 +1,5 @@
 ---
-title: Créer des ressources de calcul dans Studio
+title: Créer des calculs de formation et de déploiement (studio)
 titleSuffix: Azure Machine Learning
 description: Utilisez Studio pour créer des ressources de calcul d’entraînement et de déploiement (cibles de calcul) pour le Machine Learning.
 services: machine-learning
@@ -11,15 +11,14 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898109"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez découvrir comment créer et gérer des cibles de calcul dans Azure Machine Learning Studio.  Vous pouvez également créer et gérer des cibles de calcul avec :
 
@@ -119,6 +118,9 @@ Lors de la création du cluster de calcul ou de la modification de ses détails,
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>Clusters d’inférence
+
+> [!IMPORTANT]
+> L’utilisation du service Azure Kubernetes avec Azure Machine Learning offre plusieurs options de configuration. Certains scénarios, tels que la mise en réseau, nécessitent une installation et une configuration supplémentaires. Pour plus d’informations sur l’utilisation d’AKS avec Azure ML, consultez [Créer et attacher un cluster Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
 Créez ou attachez un cluster AKS (Azure Kubernetes service) pour l’inférence à grande échelle. Utilisez les [étapes ci-dessus](#portal-create) pour créer le cluster AKS.  Remplissez ensuite le formulaire comme suit :
 

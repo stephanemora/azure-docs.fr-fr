@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661416"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887391"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Pour les fonctionnalités nouvelles et d’évaluation, consultez [Notes de publ
 
 **Comment provisionner une instance managée SQL ?**
 
-Vous pouvez provisionner une instance à partir du [portail Azure](instance-create-quickstart.md), de [PowerShell](scripts/create-configure-managed-instance-powershell.md), d’[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) et de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+Vous pouvez provisionner une instance à partir du [Portail Azure](instance-create-quickstart.md), de [PowerShell](scripts/create-configure-managed-instance-powershell.md), d’[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) et de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Puis-je provisionner des instances managées dans un abonnement existant ?**
 
@@ -94,7 +94,7 @@ Il s’agit d’une limitation actuelle du composant sous-jacent qui vérifie le
 
 **Comment faire pour mettre à l’échelle mon instance managée ?**
 
-Vous pouvez mettre à l’échelle votre instance managée à partir du [portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Vous pouvez mettre à l’échelle votre instance gérée à partir du [Portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Puis-je déplacer mon instance managée d’une région vers une autre ?**
 
@@ -102,7 +102,7 @@ Oui, vous pouvez. Pour obtenir des instructions, consultez [Déplacer des ressou
 
 **Comment faire pour supprimer mon instance managée ?**
 
-Vous pouvez supprimer les instances managées via le portail Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou les [API REST Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Vous pouvez supprimer les instances gérées via le Portail Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou les [API REST Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Combien de temps faut-il pour créer ou mettre à jour une instance ou pour restaurer une base de données ?**
 
@@ -316,7 +316,7 @@ Pour cette raison, nous déconseillons fortement de se fier à l’immuabilité 
 
 **Managed Instance a-t-il un point de terminaison public ?**
 
-Oui. Managed Instance a un point de terminaison public qui est utilisé par défaut uniquement pour le management des services, mais un client peut également l’activer pour l’accès aux données. Pour plus d’informations, consultez [Utiliser SQL Managed Instance avec des points de terminaison publics](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Pour configurer un point de terminaison public, accédez à [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md).
+Oui. Managed Instance dispose d’un point de terminaison public qui est utilisé par défaut uniquement pour le management des services, mais un client peut également l’activer pour l’accès aux données. Pour plus d’informations, consultez [Utiliser SQL Managed Instance avec des points de terminaison publics](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Pour configurer un point de terminaison public, accédez à [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md).
 
 **Comment Managed Instance contrôle l’accès au point de terminaison public ?**
 
@@ -326,7 +326,7 @@ Les services de gestion et de déploiement se connectent à une instance gérée
 
 **Puis-je utiliser le point de terminaison public pour accéder aux données dans les bases de données Managed Instance ?**
 
-Oui. Le client doit activer l’accès aux données du point de terminaison public à partir du [portail Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell)/ARM et configurer NSG pour verrouiller l’accès au port de données (numéro de port 3342). Pour plus d’informations, consultez [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md) et [Utiliser Azure SQL Managed Instance en toute sécurité avec un point de terminaison public](public-endpoint-overview.md). 
+Oui. Le client doit activer l’accès aux données du point de terminaison public à partir du [Portail Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal) / [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell)/ARM et configurer NSG pour verrouiller l’accès au port de données (numéro de port 3342). Pour plus d’informations, consultez [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md) et [Utiliser Azure SQL Managed Instance en toute sécurité avec un point de terminaison public](public-endpoint-overview.md). 
 
 **Puis-je spécifier un port personnalisé pour un ou plusieurs terminaux de données SQL ?**
 
@@ -350,7 +350,7 @@ Afin d’atténuer les risques liés à l’exfiltration de données, il est rec
 - Accédez à l’instance avec un compte DBA à faibles privilèges.
 - Configurez l’accès au serveur de rebond (jumpbox) JIT pour le compte sysadmin.
 - Activez l’[audit SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) et intégrez-le à des mécanismes d’alerte.
-- Activez la [détection des menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) à partir de la suite [advanced data security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+- Activez [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) à partir de la suite [Azure Defender pour SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql).
 
 ## <a name="dns"></a>DNS
 
@@ -450,7 +450,7 @@ Vous bénéficiez de la même quantité d’espace de stockage de sauvegarde gra
 
 **Comment surveiller la facturation de ma consommation de stockage de sauvegarde ?**
 
-Vous pouvez surveiller le coût du stockage de sauvegarde via le portail Azure. Pour obtenir des instructions, consultez [Superviser le coût des sauvegardes automatisées](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+Vous pouvez surveiller le coût du stockage de sauvegarde via le Portail Azure. Pour obtenir des instructions, consultez [Superviser le coût des sauvegardes automatisées](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **Comment optimiser les coûts de stockage des sauvegardes sur une instance managée ?**
 

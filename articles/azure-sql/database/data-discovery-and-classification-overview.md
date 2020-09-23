@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004101"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886508"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,8 +30,6 @@ Vos données les plus sensibles peuvent inclure des informations commerciales, f
 - Contribuer à respecter les normes en matière de confidentialité des données et d’exigences pour la conformité réglementaire.
 - Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
-
-Découverte et classification des données fait partie de l’offre [Advanced Data Security](advanced-data-security.md) qui est un package unifié de fonctionnalités de sécurité Azure SQL avancées. Vous pouvez accéder à et gérer la découverte et la classification de données via la section centrale **SQL Advanced Data Security** de le portail Azure.
 
 > [!NOTE]
 > Pour plus d’informations sur SQL Server local, consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -79,31 +77,23 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Advanced Data Security** sous l’en-tête **Sécurité** du volet Azure SQL Database. Sélectionnez **Advanced Data Security**, puis sélectionnez la carte **Découverte et classification des données**.
+1. Accédez à **Découverte et classification des données** (Data Discovery & Classification) sous l’en-tête Sécurité du volet Azure SQL Database. L’onglet Vue d’ensemble contient un résumé de l’état actuel de la classification de la base de données. Le résumé comprend une liste détaillée de toutes les colonnes classifiées, que vous pouvez également filtrer pour afficher uniquement des parties de schéma, des types d’informations et des étiquettes spécifiques. Si vous n’avez pas encore classifié de colonne, [passez à l’étape 4](#step-4).
 
-   ![Volet Advanced Data Security dans le portail Azure](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Pour télécharger un rapport au format Excel, sélectionnez **Exporter** dans le menu supérieur du volet.
 
-3. Sur la page **Découverte et classification des données**, l’onglet **Vue d’ensemble** contient un résumé de l’état actuel de la classification de la base de données. Le résumé comprend une liste détaillée de toutes les colonnes classifiées, que vous pouvez également filtrer pour afficher uniquement des parties de schéma, des types d’informations et des étiquettes spécifiques. Si vous n’avez pas encore classifié de colonne, [passez à l’étape 5](#step-5).
-
-   ![Résumé de l’état actuel de la classification](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Pour télécharger un rapport au format Excel, sélectionnez **Exporter** dans le menu supérieur du volet.
-
-5. <a id="step-5"></a>Pour commencer à classer vos données, sélectionnez l’onglet **Classification** de la page **Découverte et classification des données**.
+1. <a id="step-4"></a>Pour commencer à classer vos données, sélectionnez l’onglet **Classification** de la page **Découverte et classification des données**.
 
     Le moteur de classification analyse votre base de données à la recherche de colonnes contenant des données potentiellement sensibles, et il fournit une liste de classifications de colonnes recommandées.
 
-6. Afficher et appliquer les recommandations de classification :
+1. Afficher et appliquer les recommandations de classification :
 
    - Pour afficher la liste des classifications de colonnes recommandées, sélectionnez le panneau de recommandations en bas du volet.
 
    - Pour accepter une recommandation associée à une colonne spécifique, sélectionnez la case dans la colonne de gauche de la ligne concernée. Pour marquer toutes les recommandations comme étant acceptées, activez la case à cocher la plus à gauche dans l’en-tête de table de recommandations.
 
-       ![Examiner et sélectionner dans la liste de recommandations de classification](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - Pour appliquer les recommandations sélectionnées, sélectionnez **Accepter les recommandations sélectionnées**.
 
-7. Vous pouvez aussi, en guise d’alternative, classifier manuellement des colonnes ou, en plus de la classification basée sur les recommandations :
+1. Vous pouvez aussi, en guise d’alternative, classifier manuellement des colonnes ou, en plus de la classification basée sur les recommandations :
 
    1. Sélectionnez **Ajouter une classification** dans le menu en haut du volet.
 
@@ -111,9 +101,7 @@ Une fois la stratégie au niveau de l’organisation définie, vous pouvez conti
 
    1. Sélectionnez **Ajouter une classification** en bas de la fenêtre contextuelle.
 
-      ![Sélectionner une colonne à classer](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. Pour terminer votre classification et étiqueter de manière permanente les colonnes de base de données avec les nouvelles métadonnées de classification, sélectionnez **Enregistrer** dans le menu en haut de la fenêtre.
+1. Pour terminer votre classification et étiqueter de manière permanente les colonnes de base de données avec les nouvelles métadonnées de classification, sélectionnez **Enregistrer** dans le menu en haut de la fenêtre.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Audit de l’accès aux données sensibles
 
@@ -191,6 +179,5 @@ Vous pouvez utiliser l’API REST pour gérer par programme les classifications 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur [Advanced Data Security](advanced-data-security.md).
 - Vous pouvez configurer [l’audit Azure SQL](../../azure-sql/database/auditing-overview.md) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
 - Pour une présentation incluant la découverte et la classification des données, consultez [Découverte, classification, étiquetage et protection des données SQL | Données exposées](https://www.youtube.com/watch?v=itVi9bkJUNc).

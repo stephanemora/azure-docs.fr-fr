@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496211"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889139"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
@@ -34,7 +34,7 @@ Pour visualiser et bénéficier d’une analyse de ce qui se passe dans votre en
 
 - La barre d’outils en haut vous indique combien d’événements vous avez reçus pendant la période sélectionnée et compare cette information au 24 heures précédentes. La barre d’outils vous informe sur ces événements, sur les alertes qui ont été déclenchées (le petit nombre représente le changement au cours des dernières 24 heures) et elle vous indique ensuite pour ces événements combien sont ouverts, en cours et fermés. Vérifiez s’il n’y a pas d’augmentation ou de réduction importante dans le nombre d’événements. En cas de réduction importante, cela peut être dû au fait qu’une connexion a arrêté d’envoyer des informations à Azure Sentinel. En cas d’augmentation, un événement suspect peut s’être produit. Vérifiez si vous voyez de nouvelles alertes.
 
-   ![Entonnoir Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Compteurs Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
 Le corps de la page de vue d’ensemble donne un aperçu de l’état de la sécurité de votre espace de travail :
 
@@ -42,14 +42,13 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 - **Événements potentiellement malveillants** : lorsque du trafic est détecté venant de sources considérées comme malveillantes, Azure Sentinel vous alerte sur la carte. Si vous voyez de l’orange, il s’agit de trafic entrant : quelqu’un tente d’accéder à votre organisation depuis une adresse IP malveillante connue. Si vous voyez une activité sortante (en rouge), cela signifie que des données de votre réseau sont diffusées hors de votre organisation vers une adresse IP malveillante connue.
 
-   ![Carte Azure Sentinel](./media/qs-get-visibility/map.png)
+   ![Carte de trafic malveillant](./media/qs-get-visibility/map.png)
 
-
-- **Incidents récents** : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associées aux incidents. Si vous voyez des pics soudains dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Azure ATP, il est possible que quelqu’un tente actuellement une attaque.
+- **Incidents récents** : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associées aux incidents. Si vous voyez des pics soudains dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Microsoft Defender for Identity (anciennement Azure ATP), il est possible que quelqu’un tente actuellement une attaque.
 
 - **Anomalies de source de données** : les analystes de données de Microsoft ont créé des modèles qui recherchent constamment les anomalies dans les données de vos sources de données. S’il n’y a pas d’anomalie, rien ne s’affiche. Si des anomalies sont détectées, vous devez allez voir ce qui s’est produit. Par exemple, cliquez sur le pic d’activité Azure. Vous pouvez cliquer sur le **graphique** pour voir quand le pic s’est produit, puis filtrer les activités qui se sont produites pendant cette période pour voir ce qui a provoqué le pic.
 
-   ![Carte Azure Sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Sources de données anormales](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Utiliser des classeurs intégrés<a name="dashboards"></a>
 
@@ -67,7 +66,7 @@ Les classeurs intégrés fournissent des données intégrées provenant de vos s
       ![Tableau de bord Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Vous pouvez personnaliser les classeurs en modifiant la requête principale ![bouton](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![bouton](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et y modifier la requête](../azure-monitor/log-query/get-started-portal.md). Vous pouvez sélectionner les points de suspension (...), puis **Personnaliser les données de la vignette** pour modifier le filtre de temps principal ou supprimer les vignettes spécifiques du classeur.
+Vous pouvez personnaliser les classeurs en modifiant la requête principale ![bouton modification de requête](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![Bouton Log Analytics](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et y modifier la requête](../azure-monitor/log-query/get-started-portal.md). Vous pouvez sélectionner les points de suspension (...), puis **Personnaliser les données de la vignette** pour modifier le filtre de temps principal ou supprimer les vignettes spécifiques du classeur.
 
 Pour plus d’informations sur l’utilisation des requêtes, consultez [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

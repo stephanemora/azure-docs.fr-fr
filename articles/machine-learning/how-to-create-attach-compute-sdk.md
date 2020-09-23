@@ -1,5 +1,5 @@
 ---
-title: Créer des ressources de calcul avec le kit de développement logiciel (SDK) Python
+title: Créer des calculs d’entraînement et de déploiement (Python)
 titleSuffix: Azure Machine Learning
 description: Utilisez le kit de développement logiciel (SDK) Python Azure Machine Learning pour créer des ressources de calcul d’entraînement et de déploiement (cibles de calcul) pour le Machine Learning.
 services: machine-learning
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147230"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898125"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle avec le kit SDK Python
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez utiliser le kit SDK Python Azure Machine Learning pour créer et gérer des cibles de calcul. Vous pouvez également créer et gérer des cibles de calcul avec :
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md). 
@@ -31,8 +29,16 @@ Dans cet article, vous allez utiliser le kit SDK Python Azure Machine Learning p
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui
-* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Limites
+
+* **Évitez de créer plusieurs attachements en même temps dans le même calcul** depuis votre espace de travail. Par exemple, évitez d’attacher un cluster AKS à un espace de travail en utilisant deux noms différents. Chaque nouvel attachement va supprimer le ou les attachements précédents.
+
+    Si vous voulez réattacher une cible de calcul, par exemple pour changer le protocole TLS ou un autre paramètre de configuration du cluster, vous devez d’abord supprimer l’attachement existant.
+
+* Certains des scénarios présentés dans ce document présentent la mention __préversion__. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Qu’est-ce qu’une cible de calcul ?
 
@@ -55,16 +61,33 @@ Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 * [Machines virtuelles distantes](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Cibles de calcul pour l’inférence
+
+Pour effectuer l’inférence, Azure Machine Learning crée un conteneur Docker qui héberge le modèle et les ressources associées nécessaires pour l’utiliser. Ce conteneur est ensuite utilisé dans l’un des scénarios de déploiement suivants :
+
+* En tant que __service web__ utilisé pour l’inférence en temps réel. Les déploiements de service web utilisent l’une des cibles de calcul suivantes :
+
+    * [Ordinateur local](#local)
+    * [Instance de calcul Azure Machine Learning](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (préversion). Les déploiements dans Azure Functions reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure Functions. Pour plus d’informations, consultez [Déployer un modèle Machine Learning sur Azure Functions (préversion)](how-to-deploy-functions.md).
+
+* En tant que point de terminaison d’__inférence en lots__ utilisé pour traiter occasionnellement des lots de données. L’inférence en lots utilise un [cluster de calcul Azure Machine Learning](#amlcompute).
+
+* Vers un __appareil IoT__ (préversion). Les déploiements vers un appareil IoT reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure IoT Edge. Pour plus d’informations, consultez [Déployer en tant que module IoT Edge (préversion)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Ordinateur local
 
-Lorsque vous utilisez votre ordinateur local pour l’entraînement, il n’est pas nécessaire de créer une cible de calcul.  Il vous suffit de [soumettre l’exécution d’entraînement](how-to-set-up-training-targets.md) à partir de votre ordinateur local.
+Lorsque vous utilisez votre ordinateur local pour l’**entraînement**, il n’est pas nécessaire de créer une cible de calcul.  Il vous suffit de [soumettre l’exécution d’entraînement](how-to-set-up-training-targets.md) à partir de votre ordinateur local.
+
+Lorsque vous utilisez votre ordinateur local pour l’**inférence**, Docker doit être installé. Pour effectuer le déploiement, utilisez [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) pour définir le port que le service web devra utiliser. Utilisez ensuite la procédure de déploiement normale décrite dans [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Cluster de calcul Azure Machine Learning
 
 Le cluster de calcul Azure Machine Learning est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds. La capacité de calcul est créée dans la région de votre espace de travail sous forme de ressource qui peut être partagée avec d’autres utilisateurs dans votre espace de travail. La cible de calcul monte en puissance automatiquement quand un travail est soumis, et peut être placée dans un réseau virtuel Azure. La cible de calcul s’exécute dans un environnement conteneurisé et empaquète les dépendances de votre modèle dans un [conteneur Docker](https://www.docker.com/why-docker).
 
-Vous pouvez utiliser une capacité de calcul Azure Machine Learning pour distribuer le processus d’entraînement sur un cluster de nœuds de capacité de calcul de CPU ou de GPU dans le cloud. Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Vous pouvez utiliser une capacité de calcul Azure Machine Learning pour distribuer un processus d’entraînement ou d’inférence en lots sur un cluster de nœuds de calcul de CPU ou de GPU dans le cloud. Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Capacité de calcul Azure Machine Learning comporte des limites par défaut, par exemple le nombre de cœurs qui peuvent être alloués. Pour plus d’informations, consultez [Gérer et demander des quotas pour les ressources Azure](how-to-manage-quotas.md).
 
@@ -87,7 +110,7 @@ Une Capacité de calcul Azure Machine Learning peut être réutilisée pour plus
 
     Vous pouvez également créer et attacher une ressource de capacité de calcul Azure Machine Learning persistante dans [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Une fois que vous avez attaché le calcul, l’étape suivante consiste à [soumettre l’exécution d’entraînement](how-to-set-up-training-targets.md).
+Une fois que vous avez attaché le calcul, l’étape suivante consiste à [soumettre la série de tests d’entraînement](how-to-set-up-training-targets.md) ou [exécuter l’inférence en lots](how-to-use-parallel-run-step.md).
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Réduire le coût de votre cluster de calcul
 
@@ -201,8 +224,15 @@ Les instances de calcul peuvent exécuter des travaux en toute sécurité dans u
         instance.wait_for_completion(show_output=True)
     ```
 
-À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](how-to-set-up-training-targets.md).
+À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’entraînement](how-to-set-up-training-targets.md) ou [déployer un modèle pour l’inférence](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instance
+
+Des instances Azure Container Instances (ACI) sont créées de façon dynamique lorsque vous déployez un modèle. Vous ne pouvez pas créer ou attacher des ACI à votre espace de travail de quelque autre manière que ce soit. Pour plus d’informations, consultez [Déployer un modèle dans Azure Container Instances](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Azure Kubernetes Service (AKS) propose différentes options de configuration lorsqu’il est utilisé conjointement à Azure Machine Learning. Pour plus d’informations, consultez [Créer et attacher Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Machines virtuelles distantes
 
@@ -240,6 +270,9 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
    ```
 
    Vous pouvez également attacher la machine DSVM (Data Science Virtual Machine) à votre espace de travail [à l’aide d’Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Ne créez pas plusieurs attachements en même temps dans la même machine virtuelle DSVM depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
 1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul Data Science Virtual Machine (DSVM). Docker et Conda sont utilisés pour créer et configurer l’environnement d’entraînement sur la DSVM.
 
@@ -285,6 +318,9 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
    ```
 
    Vous pouvez également attacher le cluster HDInsight à votre espace de travail [à l’aide d’Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Ne créez pas plusieurs attachements en même temps dans le même service HDInsight depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
 1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul HDI. 
 
@@ -332,6 +368,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Ne créez pas plusieurs attachements en même temps dans le même service Azure Batch depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -386,6 +425,9 @@ except ComputeTargetException:
 
 Si vous souhaitez obtenir un exemple plus détaillé, veuillez consulter un [exemple de notebook](https://aka.ms/pl-databricks) sur GitHub.
 
+> [!WARNING]
+> Ne créez pas plusieurs attachements en même temps dans le même service Azure Databricks depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics est une plateforme analytique de Big Data dans le cloud Azure. Il peut être utilisé comme cible de calcul avec un pipeline Azure Machine Learning.
@@ -436,8 +478,11 @@ except ComputeTargetException:
 
 Si vous souhaitez obtenir un exemple plus détaillé, veuillez consulter un [exemple de notebook](https://aka.ms/pl-adla) sur GitHub.
 
+> [!WARNING]
+> Ne créez pas plusieurs attachements en même temps dans le même service Azure Data Lake Analytics depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
+
 > [!TIP]
-> Les pipelines Azure Machine Learning peuvent uniquement fonctionner avec les données stockées dans le magasin de données par défaut du compte Data Lake Analytics. Si les données dont vous avez besoin se trouvent dans un magasin non défini par défaut, vous pouvez utiliser un [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) pour copier les données avant l’apprentissage.
+> Les pipelines Azure Machine Learning peuvent uniquement fonctionner avec les données stockées dans le magasin de données par défaut du compte Data Lake Analytics. Si les données dont vous avez besoin se trouvent dans un magasin non défini par défaut, vous pouvez utiliser un [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) pour copier les données avant l’apprentissage.
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 

@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079584"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893410"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez apprendre à gérer l’accès à un espace de travail Azure Machine Learning. Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview) vous permet de gérer l'accès aux ressources Azure. Les utilisateurs de votre instance Azure Active Directory se voient attribuer des rôles spécifiques qui leur permettent d'accéder aux ressources. Azure propose des rôles intégrés et permet de créer des rôles personnalisés.
 
@@ -135,7 +134,6 @@ Le tableau suivant résume les activités Azure Machine Learning et les autorisa
 | Activité | Étendue de niveau abonnement | Étendue de niveau groupe de ressources | Étendue de niveau espace de travail |
 | ----- | ----- | ----- | ----- |
 | Créer un espace de travail | Non requis | Propriétaire ou contributeur | s.o. (devient Propriétaire ou hérite d’un rôle d’étendue supérieur après la création) |
-| Mettre à jour l’édition de l’espace de travail | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/write` |
 | Demander un quota Amlcompute au niveau de l’abonnement ou définir le quota au niveau de l’espace de travail | Propriétaire, contributeur ou rôle personnalisé </br>autorisant `/locations/updateQuotas/action`</br> dans l’étendue de l’abonnement | Non autorisé | Non autorisé |
 | Créer un cluster de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
 | Créer une instance de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
 
     * Créer un espace de travail
     * Attribution de quotas au niveau d’un d’abonnement ou d’un espace de travail
-    * Mise à niveau de l’édition de l’espace de travail
 
     L’administrateur de l’espace de travail ne peut pas non plus créer un nouveau rôle. Il peut uniquement attribuer des rôles intégrés ou personnalisés existants au sein de l’étendue de son espace de travail :
 
@@ -415,11 +412,7 @@ Vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre 
 
 > [!NOTE]
 > Les mises à jour de rôle peuvent prendre entre 15 minutes et 1 heure pour s’appliquer à toutes les attributions de rôles de cette étendue.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. Puis-je définir un rôle qui empêche la mise à jour de l’édition de l’espace de travail ? 
 
-Oui, vous pouvez définir un rôle qui empêche la mise à jour de l’édition de l’espace de travail. Étant donné que la mise à jour de l’espace de travail est un appel PATCH sur l’objet de l’espace de travail, vous effectuez cette opération en plaçant l’action suivante dans le tableau `"NotActions"` de votre définition JSON : 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quelles sont les autorisations nécessaires pour effectuer des opérations de quota dans un espace de travail ? 
 
@@ -429,6 +422,6 @@ Vous avez besoin d’autorisations au niveau de l’abonnement pour effectuer un
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble de la sécurité d'entreprise](concept-enterprise-security.md)
-- [Exécuter en toute sécurité des expériences et des inférences/scores dans un réseau virtuel](how-to-enable-virtual-network.md)
+- [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
 - [Tutoriel : Entraîner des modèles](tutorial-train-models-with-aml.md)
 - [Opérations de fournisseur de ressources](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

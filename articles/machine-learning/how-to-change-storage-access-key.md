@@ -11,15 +11,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d511520e274af9c6dea3f443693249ede368fd99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387062"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893263"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Découvrez comment changer les clés d’accès des comptes Stockage Azure utilisées par Azure Machine Learning. Azure Machine Learning peut utiliser des comptes de stockage pour stocker des données ou des modèles formés.
 
@@ -32,7 +32,7 @@ Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’ac
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 * [L’extension CLI Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -141,4 +141,4 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’inscription des banques de données, consultez la documentation de référence de la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py).
+Pour plus d’informations sur l’inscription des banques de données, consultez la documentation de référence de la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true).

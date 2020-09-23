@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146774"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886325"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -110,7 +110,7 @@ Pour obtenir des exemples de configurations d’exécutions, consultez [Utiliser
 
 ### <a name="estimators"></a>Estimateurs
 
-Pour faciliter la formation de modèle avec des infrastructures populaires, la classe d’estimateurs vous permet de construire facilement des configurations d’exécution. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique pour envoyer des scripts d’apprentissage qui utilisent toute infrastructure de formation que vous choisissez (comme scikit-Learn).
+Pour faciliter la formation de modèle avec des infrastructures populaires, la classe d’estimateurs vous permet de construire facilement des configurations d’exécution. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) générique pour envoyer des scripts d’apprentissage qui utilisent toute infrastructure de formation que vous choisissez (comme scikit-Learn).
 
 Pour plus d’informations sur les estimateurs, consultez [Entraîner des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 
@@ -123,7 +123,9 @@ Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répert
 
 ### <a name="logging"></a>Journalisation
 
-Lorsque vous développez votre solution, utilisez le SDK Python Azure Machine Learning dans votre script Python pour journaliser les métriques arbitraires. Après l’exécution, interrogez les métriques pour vérifier si celle-ci a produit le modèle que vous souhaitez déployer.
+Azure Machine Learning journalise automatiquement les métriques d’exécution standard. Toutefois, vous pouvez également [utiliser le kit de développement logiciel (SDK) Python pour journaliser des métriques arbitraires](how-to-track-experiments.md).
+
+Il existe plusieurs façons de consulter vos journaux : surveiller l’état d’exécution en temps réel ou afficher les résultats après la fin. Pour plus d'informations, consultez [Surveiller et consulter les journaux d’exécution de ML](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Si vous avez activé la mise à l’échelle automatique, Azure met automatiquem
 
 Pour obtenir un exemple de déploiement de modèle en tant que service, consultez [Déployer un modèle de classification d’images dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Points de terminaison en temps réel
+
+Lorsque vous déployez un modèle entraîné dans le concepteur, vous pouvez [déployer le modèle en tant que point de terminaison en temps réel](tutorial-designer-automobile-price-deploy.md). Un point de terminaison en temps réel reçoit généralement une requête unique via le point de terminaison REST et retourne une prédiction en temps réel. Cela diffère du traitement par lots, qui traite plusieurs valeurs à la fois et enregistre les résultats après la fin dans un magasin de données.
+
+#### <a name="pipeline-endpoints"></a>Points de terminaison de pipeline
+
+Les points de terminaison de pipeline vous permettent d’appeler vos [pipelines ML](#ml-pipelines) par programme via un point de terminaison REST. Les points de terminaison de pipeline vous permettent d’automatiser vos workflows de pipeline.
+
+Un point de terminaison de pipeline est une collection de pipelines publiés. Cette organisation logique vous permet de gérer et d’appeler plusieurs pipelines à l’aide du même point de terminaison. Chaque pipeline publié dans un point de terminaison de pipeline est associé à une version. Vous pouvez sélectionner un pipeline par défaut pour le point de terminaison ou spécifier une version dans l’appel REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Points de terminaison de module IoT
 
 Un point de terminaison de module IoT déployé est un conteneur Docker qui inclut votre modèle, ainsi que le script ou l’application associés et toutes les dépendances supplémentaires. Vous déployez ces modules à l’aide d’Azure IoT Edge sur les périphériques en mode Edge.
@@ -212,12 +225,13 @@ Les étapes de pipeline sont réutilisables et peuvent être exécutées sans av
 
 ### <a name="studio"></a>Studio
 
-[Azure Machine Learning Studio](https://ml.azure.com) fournit une vue Web de tous les artefacts de votre espace de travail.  Vous pouvez afficher les résultats et les détails de vos jeux de données, expériences, pipelines, modèles et points de terminaison.  Vous pouvez également gérer les ressources de calcul et les magasins de données dans Studio.
+[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) fournit une vue Web de tous les artefacts de votre espace de travail.  Vous pouvez afficher les résultats et les détails de vos jeux de données, expériences, pipelines, modèles et points de terminaison.  Vous pouvez également gérer les ressources de calcul et les magasins de données dans Studio.
 
-Studio est également l’emplacement où vous accédez aux outils interactifs qui font partie d’Azure Machine Learning :
+Le studio est également l’emplacement où vous accédez aux outils interactifs qui font partie d’Azure Machine Learning :
 
-+ [Concepteur Azure Machine Learning (préversion)](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code
++ [Concepteur Azure Machine Learning](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code
 + Expérience Web pour le [Machine Learning automatisé](concept-automated-ml.md)
++ [Notebooks Azure Machine Learning](how-to-run-jupyter-notebooks.md) pour écrire et exécuter votre propre code sur des serveurs notebook Jupyter intégrés.
 + [Projets d’étiquetage des données](how-to-create-labeling-projects.md) pour créer, gérer et superviser des projets afin d’étiqueter vos données
 
 ### <a name="programming-tools"></a>Outils de programmation
@@ -226,8 +240,9 @@ Studio est également l’emplacement où vous accédez aux outils interactifs q
 > Les outils marqués (préversion) ci-dessous sont actuellement en préversion publique.
 > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interagissez avec le service dans un environnement R avec le [Kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (préversion).
++ Utilisez le [Concepteur Azure Machine Learning](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code. 
 + Utiliser l’[interface de ligne de commande d’Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) pour l’automatisation.
 + L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
 

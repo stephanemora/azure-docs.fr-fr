@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636124"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462732"
 ---
 # <a name="speech-service-for-telephony-data"></a>Service Speech pour les données de téléphonie
 
@@ -60,7 +60,7 @@ Il n’est pas rare que 35 % de la durée d’un appel de support soit dépourv
 
 ### <a name="translation"></a>Traduction
 
-Certaines entreprises expérimentent la fourniture de transcriptions traduites à partir d’appels de support en langues étrangères afin que les responsables des prestations puissent comprendre l’expérience de leurs clients à l’échelle mondiale. Nos capacités de [traduction](translation.md) sont inégalées. Nous pouvons traduire des données audio dans un format audio ou dans un format texte pour de nombreuses langues locales.
+Certaines entreprises expérimentent la fourniture de transcriptions traduites à partir d’appels de support en langues étrangères afin que les responsables des prestations puissent comprendre l’expérience de leurs clients à l’échelle mondiale. Nos capacités de [traduction](/azure/cognitive-services/speech-service/speech-translation) sont inégalées. Nous pouvons traduire des données audio dans un format audio ou dans un format texte pour de nombreuses langues locales.
 
 ### <a name="text-to-speech"></a>Synthèse vocale
 

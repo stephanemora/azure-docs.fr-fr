@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893577"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -158,7 +158,7 @@ Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audi
 > [!TIP]
 > Bien que certaines informations sur les modèles et les jeux de données soient capturées automatiquement, vous pouvez ajouter des informations supplémentaires à l’aide de __balises__. Lorsque vous recherchez des modèles inscrits et des jeux de données dans votre espace de travail, vous pouvez utiliser des balises comme filtre.
 >
-> L’association d’un jeu de données à un modèle inscrit est une étape facultative. Pour plus d’informations sur le référencement d’un jeu de données lors de l’inscription d’un modèle, consultez la référence de classe [Modèle](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py).
+> L’association d’un jeu de données à un modèle inscrit est une étape facultative. Pour plus d’informations sur le référencement d’un jeu de données lors de l’inscription d’un modèle, consultez la référence de classe [Modèle](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true).
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifier, automatiser et alerter sur des événements du cycle de vie ML
@@ -184,7 +184,7 @@ Il n’y a aucune réponse universelle à la question « Comment savoir si je d
 - Comparer les sorties de votre nouveau modèle à celles de votre ancien modèle
 - Utiliser des critères prédéfinis pour choisir de remplacer ou non votre ancien modèle 
 
-Un thème des étapes ci-dessus est que votre nouvel entraînement doit être automatisé et non ad hoc. Les [pipelines Azure Machine Learning](concept-ml-pipelines.md) sont une bonne réponse pour créer des workflows relatifs à la préparation des données, à l’entraînement, à la validation et au déploiement. Lisez [Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)](how-to-retrain-designer.md) pour voir comment les pipelines et le concepteur Azure Machine Learning s’intègrent dans un scénario de nouvel entraînement. 
+Un thème des étapes ci-dessus est que votre nouvel entraînement doit être automatisé et non ad hoc. Les [pipelines Azure Machine Learning](concept-ml-pipelines.md) sont une bonne réponse pour créer des workflows relatifs à la préparation des données, à l’entraînement, à la validation et au déploiement. Lisez [Reformer des modèles à l’aide du concepteur Azure Machine Learning](how-to-retrain-designer.md) pour voir comment les pipelines et le concepteur Azure Machine Learning s’intègrent dans un scénario de nouvelle formation. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatiser le cycle de vie ML 
 

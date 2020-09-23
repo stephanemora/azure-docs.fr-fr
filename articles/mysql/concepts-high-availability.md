@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bd2f7798ca02f4d6eab6d6d78d158a48bcccc010
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882552"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Haute disponibilité dans Azure Database pour MySQL
 Le service Azure Database pour MySQL offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Azure Database pour MySQL offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Azure Database pour MySQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
@@ -22,14 +22,14 @@ Azure Database pour MySQL convient pour l’exécution de bases de données stra
 
 | **Composant** | **Description**|
 | ------------ | ----------- |
-| <b>Serveur de base de données MySQL | Azure Database pour MySQL offre des fonctionnalités de sécurité, d’isolement, de protection des ressources et de redémarrage rapide pour les serveurs de base de données. Ces fonctionnalités facilitent des opérations telles que la mise à l’échelle et la récupération du serveur de base de données après une panne en quelques secondes. <br/> Les modifications de données dans le serveur de base de données se produisent généralement dans le contexte d’une transaction de base de données. Toutes les modifications de base de données sont enregistrées de façon synchrone sous la forme de journaux write-ahead log (ib_log) sur le service Stockage Azure qui est attaché au serveur de base de données. Au cours de processus de [point de contrôle](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) de base de données, les pages de données de la mémoire du serveur de base de données sont également vidées dans le stockage. |
+| <b>Serveur de base de données MySQL | Azure Database pour MySQL offre des fonctionnalités de sécurité, d’isolement, de protection des ressources et de redémarrage rapide pour les serveurs de base de données. Ces fonctionnalités facilitent des opérations telles que la mise à l’échelle et la récupération du serveur de base de données après une panne en quelques secondes. <br/> Les modifications de données dans le serveur de base de données se produisent généralement dans le contexte d’une transaction de base de données. Toutes les modifications de base de données sont enregistrées de façon synchrone sous la forme de journaux WAL (write-ahead log), ib_log, sur le Stockage Azure attaché au serveur de base de données. Au cours de processus de [point de contrôle](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) de base de données, les pages de données de la mémoire du serveur de base de données sont également vidées dans le stockage. |
 | <b>Stockage à distance | Tous les fichiers de données physiques et de journaux MySQL sont stockés sur le service Stockage Azure qui est architecturé pour stocker trois copies des données à l’intérieur d’une région afin de garantir la redondance, la disponibilité et la fiabilité des données. La couche de stockage est également indépendante du serveur de base de données. Elle peut être détachée d’un serveur de base de données défaillant et être rattachée à un nouveau serveur de base de données dans un délai de quelques secondes. En outre, le service Stockage Azure surveille constamment les erreurs de stockage. Toute altération de bloc détectée est automatiquement corrigée par l’instanciation d’une nouvelle copie du stockage. |
 | <b>Passerelle | La passerelle agit comme un proxy de base de données, achemine toutes les connexions clientes vers le serveur de base de données. |
 
 ## <a name="planned-downtime-mitigation"></a>Réduction des temps d’arrêt planifiés
 Azure Database pour MySQL est architecturé pour offrir une haute disponibilité pendant les opérations planifiées nécessitant un temps d’arrêt. 
 
-![vue de la mise à l’échelle élastique dans Azure MySQL](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="vue de la mise à l’échelle élastique dans Azure MySQL":::
 
 Voici quelques scénarios de maintenance planifiée :
 
@@ -46,7 +46,7 @@ Voici quelques scénarios de maintenance planifiée :
 Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues telles qu’un échec matériel sous-jacent, des problèmes de mise en réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue, un nouveau serveur de base de données est automatiquement approvisionné en quelques secondes. Le stockage étendu est automatiquement attaché au nouveau serveur de base de données. Le moteur MySQL effectue l’opération de récupération à l’aide des fichiers WAL et de base de données, puis ouvre le serveur de base de données pour permettre aux clients de se connecter. Les transactions non validées sont perdues et doivent être retentées par l’application. Bien qu’il ne soit pas possible d’éviter un temps d’arrêt non planifié, le service Azure Database pour MySQL réduit les temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine. 
 
 
-![affichage de la haute disponibilité dans Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="affichage de la haute disponibilité dans Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Temps d’arrêt non planifié : scénarios d’échec et récupération du service
 Voici quelques scénarios d’échec et comment le service Azure Database pour MySQL récupère automatiquement :
@@ -61,7 +61,7 @@ Voici quelques scénarios d’échec qui nécessitent une action de l’utilisat
 | **Scénario** | **Plan de récupération** |
 | ---------- | ---------- |
 | <b> Défaillance de région | Une défaillance de région est un événement rare. Toutefois, si vous avez besoin d’une protection contre une défaillance de région, vous pouvez configurer un ou plusieurs réplicas en lecture dans d’autres régions à des fins de récupération d’urgence (pour plus d’informations, consultez [cet article](howto-read-replicas-portal.md) sur la création et la gestion des réplicas en lecture). En cas de défaillance au niveau d’une région, vous pouvez promouvoir manuellement le réplica en lecture configuré sur l’autre région comme serveur de base de données de production. |
-| <b> Erreurs logiques/de l’utilisateur | La récupération d’erreurs de l’utilisateur, telles qu’une suppression accidentelle de tables ou une mise à jour incorrecte de données, implique l’exécution d’une [récupération jusqu’à une date et heure](concepts-backup.md) (PITR), en restaurant et récupérant les données jusqu’au moment où l’erreur s’est produite.<br> <br>  Si vous ne souhaitez restaurer qu’un sous-ensemble de bases de données ou de tables spécifiques plutôt que toutes les bases de données du serveur de base de données, vous pouvez restaurer celui-ci dans une nouvelle instance, exporter les tables via l’utilitaire [mysqldump](concepts-migrate-dump-restore.md), puis vous servir de l’utilitaire [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) pour restaurer ces tables dans votre base de données. |
+| <b> Erreurs logiques/de l’utilisateur | La récupération d’erreurs de l’utilisateur, telles qu’une suppression accidentelle de tables ou une mise à jour incorrecte de données, implique l’exécution d’une [récupération jusqu’à une date et heure](concepts-backup.md) (PITR), en restaurant et récupérant les données jusqu’au moment où l’erreur s’est produite.<br> <br>  Si vous ne souhaitez restaurer qu’un sous-ensemble des bases de données ou des tables en particulier plutôt que toutes les bases de données du serveur de base de données, vous pouvez restaurer celui-ci dans une nouvelle instance, exporter la ou les tables avec [mysqldump](concepts-migrate-dump-restore.md), puis utiliser [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) pour les restaurer dans votre base de données. |
 
 
 

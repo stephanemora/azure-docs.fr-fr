@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17e20048c4cb4de2be6fe36be100b472f0b8ee73
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60531030"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459961"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Notes de publication Update 1.2 pour votre appareil StorSimple série 8000
 
@@ -57,7 +57,7 @@ Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été
     Consultez le [guide de migration](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) pour en savoir plus sur la migration des données des appareils StorSimple série 5000-7000 vers les appareils de la série 8000. 
 * **Disponibilité sur le portail d’administration de Microsoft Azure** - StorSimple est désormais disponible sur le portail d’administration de Microsoft Azure. Consultez la section relative au [déploiement d’un appareil StorSimple sur le portail d’administration d’Azure](storsimple-deployment-walkthrough-gov.md).
 * **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
-* **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant des versions logicielles antérieures à Update 1 (Release, 0.1, 0.2 et 0.3) utilisent des versions des API de service de Microsoft Azure Storage antérieures au 17 juillet 2009. Comme indiqué dans l’ [annonce mise à jour du retrait des versions de service de Microsoft Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), ces API seront déconseillées le 1er août 2016. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 1er août 2016. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
+* **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant des versions logicielles antérieures à Update 1 (Release, 0.1, 0.2 et 0.3) utilisent des versions des API de service de Microsoft Azure Storage antérieures au 17 juillet 2009. Comme indiqué dans l’ [annonce mise à jour du retrait des versions de service de Microsoft Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016), ces API seront déconseillées le 1er août 2016. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 1er août 2016. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
 * **Prise en charge du stockage redondant dans une zone** - Avec la mise à niveau vers la dernière version des API Microsoft Azure Storage, les appareils StorSimple série 8000 prendront en charge le stockage redondant dans une zone, en plus du stockage localement redondant et du stockage géo-redondant. Pour en savoir plus sur le stockage redondant dans une zone, consultez cet [article sur les options de redondance dans Microsoft Azure Storage](../storage/common/storage-redundancy.md) .
 * **Expérience améliorée de déploiement initial et de mise à jour** - Dans cette version, les processus d’installation et de mise à jour ont été améliorés. L’installation via l’assistant de configuration permet désormais de signaler à l’utilisateur les paramétrages incorrects du pare-feu et les configuration réseau inappropriées. Des applets de commande de diagnostic supplémentaires ont été ajoutées, ceci pour vous permettre de résoudre les problèmes de mise en réseau de l’appareil. Pour en savoir plus sur ces applets de commande de diagnostic, consultez l’ [article sur le déploiement de la résolution des problèmes](storsimple-troubleshoot-deployment.md) .
 

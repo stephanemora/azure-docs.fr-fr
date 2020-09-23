@@ -5,14 +5,14 @@ author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 7d6f9d69f04444c01f35437e5300c3033daed5ea
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: db85774dd1cf1e7dd5a284182faf354004671618
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648443"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891772"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 et Dsv3
 
@@ -38,15 +38,15 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre max de cartes réseau|Bande passante réseau |
-|---|---|---|---|---|---|---|---|
-| Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2|1 000  |
-| Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2|2000  |
-| Standard_D8_v3  | 8  | 32  | 200  | 16 | 12000/187/93   | 4|4000  |
-| Standard_D16_v3 | 16 | 64  | 400  | 32 | 24000/375/187  | 8|8000  |
-| Standard_D32_v3 | 32 | 128 | 800  | 32 | 48000/750/375  | 8|16000 |
-| Standard_D48_v3 | 48 | 192 | 1200 | 32 | 96000/1000/500 | 8|24 000 |
-| Standard_D64_v3 | 64 | 256 | 1 600 | 32 | 96000/1000/500 | 8|30000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de cartes réseau/bande passante réseau max. |
+|---|---|---|---|---|---|---|
+| Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1 000  |
+| Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2 000  |
+| Standard_D8_v3  | 8  | 32  | 200  | 16 | 12000/187/93   | 4/4 000  |
+| Standard_D16_v3 | 16 | 64  | 400  | 32 | 24000/375/187  | 8/8 000  |
+| Standard_D32_v3 | 32 | 128 | 800  | 32 | 48000/750/375  | 8/16 000 |
+| Standard_D48_v3 | 48 | 192 | 1200 | 32 | 96000/1000/500 | 8/24 000 |
+| Standard_D64_v3 | 64 | 256 | 1 600 | 32 | 96000/1000/500 | 8/30 000 |
 
 ## <a name="dsv3-series"></a>Dsv3-series
 
@@ -64,15 +64,17 @@ Migration dynamique : Prise en charge
 
 Mises à jour avec préservation de la mémoire : Prise en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbit/s) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 3 200/48    | 2|1 000  |
-| Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8 000/64 (100)      | 6 400/96    | 2|2000  |
-| Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16 000/128 (200)    | 12 800/192  | 4|4000  |
-| Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32 000/256 (400)    | 25 600/384  | 8|8000  |
-| Standard_D32s_v3 | 32 | 128 | 256 | 32 | 64 000/512 (800)    | 51 200/768  | 8|16000 |
-| Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96 000/768 (1 200)   | 76 800/1152 | 8|24 000 |
-| Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128 000/1 024 (1 600) | 80 000/1 200 | 8|30000 |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit de stockage temporaire et débit maximal de rafale mis en cache : IOPS/Mo/s<sup>1</sup> | Débit du disque non mis en cache max. : IOPS/Mbits/s | Débit du disque maximal de rafale non mis en cache : IOPS/Mo/s<sup>1</sup> | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4 000/32 (50)       | 4 000/100    |3 200/48    | 4 000/100   | 2/1 000  |
+| Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8 000/64 (100)      | 8 000/200    |6 400/96    | 8 000/200   | 2/2 000  |
+| Standard_D8s_v3  | 8  | 32  | 64  | 16 | 16 000/128 (200)    | 16 000/400   |12 800/192  | 16 000/400  | 4/4 000  |
+| Standard_D16s_v3 | 16 | 64  | 128 | 32 | 32 000/256 (400)    | 32 000/800   |25 600/384  | 32 000/800  | 8/8 000  |
+| Standard_D32s_v3 | 32 | 128 | 256 | 32 | 64 000/512 (800)    | 64 000/1 600  |51 200/768  | 64 000/1 600 | 8/16 000 |
+| Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96 000/768 (1 200)   | 96 000/2 000  |76 800/1152 | 80 000/2 000 | 8/24 000 |
+| Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128 000/1 024 (1 600) | 128 000/2 000 |80 000/1 200 | 80 000/2 000 | 8/30 000 |
+
+<sup>1</sup> Les machines virtuelles de la série Dsv3 peuvent [augmenter via le mode rafale](linux/disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -84,10 +86,8 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 - [Optimisé pour le GPU](sizes-gpu.md)
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
-
-Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+- [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+- Pour plus d’informations sur les types de disques, consultez [Quels sont les types de disque disponibles dans Azure ?](disks-types.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

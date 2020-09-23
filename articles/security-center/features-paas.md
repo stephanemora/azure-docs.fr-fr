@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894783"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Couverture des fonctionnalités pour les services Azure PaaS <a name="paas-services"></a>
 
 Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Security Center pour les ressources Azure PaaS prises en charge.
 
-|Service|Recommandations (Gratuit)|Alertes de sécurité (Standard)|l'Évaluation des vulnérabilités (Standard)|
+|Service|Recommandations (Gratuit)|Alertes de sécurité (Azure Defender)|Évaluation des vulnérabilités (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Compte Azure Automation|✔|-|-|
@@ -41,7 +41,7 @@ Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Secur
 |Azure Database pour PostgreSQL*|✔|✔|-|
 |Espace de noms Azure Event Hubs|✔|-|-|
 |Application Azure Functions|✔|-|-|
-|Azure Key Vault|✔|✔ *|-|
+|Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
@@ -56,4 +56,4 @@ Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Secur
 
 \* Ces fonctionnalités sont actuellement prises en charge en préversion.
 
-\*\* Les recommandations Azure Active Directory (Azure AD) sont uniquement disponibles pour les abonnements Standard.
+\*\* Les recommandations Azure Active Directory (Azure AD) sont uniquement disponibles pour les abonnements avec Azure Defender activé.

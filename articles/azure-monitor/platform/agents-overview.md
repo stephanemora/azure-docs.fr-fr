@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
-ms.openlocfilehash: 3e11fb151cb8b8c2409a50973029070945867aed
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/02/2020
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290988"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033453"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -79,7 +79,7 @@ L’[agent Log Analytics](log-analytics-agent.md) collecte des données de surve
 Utilisez l’agent Log Analytics si vous avez besoin d’effectuer les opérations suivantes :
 
 * Collecter les journaux et les données de performances de machines physiques ou virtuelles dans ou hors Azure. 
-* Envoyer les données à un espace de travail Log Analytics pour tirer parti des fonctionnalités prises en charge par les [journaux Azure Monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) comme les [requêtes de journal](../log-query/log-query-overview.md).
+* Envoyer les données à un espace de travail Log Analytics pour tirer parti des fonctionnalités prises en charge par les [journaux Azure Monitor](data-platform-logs.md) comme les [requêtes de journal](../log-query/log-query-overview.md).
 * Utiliser [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md), qui vous permet de superviser vos machines virtuelles à grande échelle et qui supervise leurs processus et dépendances vis-à-vis d’autres ressources et processus externes.  
 * Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-intro.md) ou d’[Azure Sentinel](../../sentinel/overview.md).
 * Utiliser [Azure Automation Update Management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) pour offrir une gestion complète de vos machines virtuelles Azure.
@@ -148,7 +148,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Entreprise<br>(multisession inclus) et Pro  |   | X | X | X |
+| Windows 10 Entreprise<br>(multisession inclus) et Pro  | X | X | X | X |
 | Windows 8 Entreprise et Professionnel                             |   | X | X |   |
 | Windows 7 SP1                                            |   | X | X |   |
 
@@ -171,7 +171,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           | X | X |   |   |
 | Oracle Linux 6.4+                                        | X | X |   | X |
-| Red Hat Enterprise Linux Server 8                        | X | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        | X | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |

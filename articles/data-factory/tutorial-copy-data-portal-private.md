@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079453"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024415"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copier des données du stockage Blob Azure vers une base de données SQL de manière sécurisée en utilisant des points de terminaison privés
 
@@ -57,7 +57,7 @@ Préparez maintenant votre Stockage Blob et votre base de données SQL pour les 
 
 #### <a name="create-a-sink-sql-table"></a>Créer une table SQL de récepteur
 
-1. Utilisez le script SQL suivant pour créer la table **dbo.emp** dans votre base de données SQL :
+Utilisez le script SQL suivant pour créer la table **dbo.emp** dans votre base de données SQL :
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Préparez maintenant votre Stockage Blob et votre base de données SQL pour les 
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que l’option **Autoriser l’accès aux services Azure** est **ACTIVÉE** pour votre serveur SQL afin que Data Factory puisse écrire des données sur votre serveur SQL. Pour vérifier et activer ce paramètre, accédez à **Azure SQL Server** > **Vue d’ensemble** > **Définir le pare-feu du serveur**. Définissez l’option **Autoriser l’accès aux services Azure** sur **ACTIVÉE**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 À cette étape, vous allez créer une fabrique de données et démarrer l’interface utilisateur de Data Factory afin de créer un pipeline dans la fabrique de données.
@@ -187,7 +185,7 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 
 1. Accédez à la section **Points de terminaison privés managés**.
 
-1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
+1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
 
     ![Capture d’écran montrant Points de terminaison privés managés > bouton Nouveau](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
@@ -255,7 +253,7 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 
 1. Accédez à l’onglet **Gérer**.
 1. Accédez à la section **Points de terminaison privés managés**.
-1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
+1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
 
     ![Capture d’écran montrant Points de terminaison privés managés > bouton Nouveau](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
 
