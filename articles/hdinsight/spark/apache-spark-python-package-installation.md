@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873753"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060745"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
-
-> [!div class="op_single_selector"]
-> * [À l’aide de la commande magique de cellule](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [À l’aide d’une action de script](apache-spark-python-package-installation.md)
 
 HDInsight dispose de deux installations Python intégrées dans le cluster Spark, Anaconda Python 2.7 et Python 3.5. Certains clients peuvent avoir besoin de personnaliser l’environnement Python. Par exemple, en installant des packages Python externes ou une autre version de Python. Nous décrivons ici la meilleure pratique de gestion sûre d’environnements Python pour des clusters Apache Spark sur HDInsight.
 
@@ -132,7 +128,7 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
 
     4. Enregistrez les modifications, puis redémarrez les services affectés. Ces modifications nécessitent un redémarrage du service Spark2. L’interface utilisateur Ambari affiche un rappel de redémarrage obligatoire. Cliquez sur Redémarrer pour redémarrer tous les services affectés.
 
-        ![Modifier la configuration Spark via Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Redémarrer les services](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Si vous souhaitez utiliser le nouvel environnement virtuel créé sur Jupyter. Modifiez les configurations Jupyter et redémarrez Jupyter. Exécutez des actions de script sur tous les nœuds d’en-tête avec l’instruction ci-dessous pour associer Jupyter au nouvel environnement virtuel créé. Veillez à modifier le chemin d’accès au préfixe que vous avez spécifié pour votre environnement virtuel. Après l’exécution de cette action de script, redémarrez le service Jupyter via l’interface utilisateur Ambari pour rendre cette modification disponible.
 

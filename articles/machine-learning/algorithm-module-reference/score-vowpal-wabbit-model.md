@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898396"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Scorer un modèle Vowpal Wabbit
-Cet article explique comment utiliser le module **Score Vowpal Wabbit Model** dans le concepteur Azure Machine Learning (préversion) afin de générer des scores pour un ensemble de données d’entrée, à l’aide d’un modèle Vowpal Wabbit entraîné et déjà existant.  
+Cet article explique comment utiliser le module **Score Vowpal Wabbit Model** dans le concepteur Azure Machine Learning afin de générer des scores pour un ensemble de données d’entrée, à l’aide d’un modèle Vowpal Wabbit entraîné et déjà existant.  
 
 Ce module fournit la dernière version du framework Vowpal Wabbit, la version 8.8.1. Utilisez ce module pour scorer les données à l’aide d’un modèle entraîné enregistré au format VW version 8.  
 

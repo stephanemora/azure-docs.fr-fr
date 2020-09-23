@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182001"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506608"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -114,10 +114,10 @@ Vous pouvez déployer MABS sur une machine virtuelle Azure Stack pour gérer la 
 Le serveur DPM/MABS doit accéder à ces URL :
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.MicrosoftAzure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 

@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018057"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889969"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article explique comment dépanner et déboguer des [pipelines d’apprentissage automatique](concept-ml-pipelines.md) dans le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [Concepteur Azure Machine Learning (préversion)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines d’apprentissage automatique](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) et le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer). Vous trouverez des informations sur la manière d’effectuer les opérations suivantes :
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 
@@ -33,7 +32,7 @@ Le tableau suivant présente les problèmes courants qui se produisent pendant l
 | Erreurs ambiguës liées aux cibles de calcul | Essayez de supprimer et recréer les cibles de calcul. La recréation de cibles de calcul est rapide et peut résoudre certains problèmes temporaires. |
 | Le pipeline ne réutilise pas les étapes | La réutilisation d’étape est activée par défaut, mais vérifiez que vous ne l’avez pas désactivée dans une étape du pipeline. Si la réutilisation est désactivée, le paramètre `allow_reuse` de l’étape est défini sur `False`. |
 | Le pipeline se réexécute inutilement | Pour faire en sorte que les étapes ne se réexécutent que lorsque leurs données ou scripts sous-jacents changent, découplez les répertoires de votre code source pour chaque étape. Si vous utilisez le même répertoire source pour plusieurs étapes, des réexécutions inutiles peuvent se produire. Utilisez le paramètre `source_directory` sur un objet d’étape de pipeline pour pointer vers votre répertoire isolé pour cette étape, et vérifiez que vous n’utilisez pas le même chemin `source_directory` pour plusieurs étapes. |
-
+| Étape ralentissant les époques d’apprentissage ou tout autre comportement de bouclage | Essayez de faire basculer les écritures de fichier, notamment a journalisation, de `as_mount()` à `as_upload()`. Le mode **montage** utilise un système de fichiers virtualisé distant et charge l’intégralité du fichier chaque fois qu’il y est ajouté. |
 
 ## <a name="debugging-techniques"></a>Techniques de débogage
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Recherche et lecture de fichiers journaux de pipeline
-
-Le fichier journal `70_driver_log.txt` contient : 
-
-* Toutes les instructions imprimées pendant l’exécution de votre script
-* La rapport des appels de procédure du script 
-
-Pour trouver ce fichier journal (et d’autres) sur le portail, commencez par cliquer sur l’exécution de pipeline dans votre espace de travail.
-
-![Page listant les exécutions de pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Accédez à la page des détails d’exécutions de pipeline.
-
-![Page des détails d’exécutions de pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Cliquez sur le module correspondant à l’étape. Accédez à l’onglet **Journaux**. D’autres journaux renseignent sur le processus de génération d’images de votre environnement et les scripts de préparation d’étape.
-
-![Onglet Journal dans la page des détails d’exécutions de pipeline](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Les exécutions des *pipelines publiés* se trouvent sous l’onglet **Points de terminaison** dans votre espace de travail. Les exécutions des *pipelines non publiés* se trouvent sous **Expériences** ou **Pipelines**.
-
-Pour plus d’informations sur la journalisation et le suivi à partir d’une classe `ParallelRunStep`, consultez [Déboguer et dépanner ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Journalisation dans le concepteur Azure Machine Learning (préversion)
+## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
 
 Pour les pipelines créés dans le concepteur, vous trouverez le fichier **70_driver_log** dans la page de création ou dans la page des détails d’exécutions de pipeline.
 
@@ -148,7 +123,7 @@ Quand vous publiez une exécution de pipeline en restant dans la page de créati
 1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
 1. Développez le volet droit, puis sélectionnez le fichier **70_driver_log.txt** pour afficher le fichier dans le navigateur. Vous pouvez également télécharger les journaux localement.
 
-    ![Volet de sortie développé dans le concepteur](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Volet de sortie développé dans le concepteur](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obtenir des journaux à partir des exécutions de pipeline
 
@@ -174,6 +149,6 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur les packages [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) et [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
+* Consultez les informations de référence sur le SDK pour obtenir de l’aide sur les packages [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) et [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true).
 
 * Consultez la liste des [exceptions et codes d’erreur du concepteur](algorithm-module-reference/designer-error-codes.md).

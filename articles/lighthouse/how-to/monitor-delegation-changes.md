@@ -1,14 +1,14 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589739"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567603"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -48,6 +48,9 @@ Une fois que vous avez élevé votre accès, vous pouvez attribuer les autorisat
 - Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
 - [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitez les utilisateurs habilités à agir pour le compte du principal de service.
+
+> [!NOTE]
+> Vous pouvez également attribuer le rôle intégré Lecteur d’analyse Azure à l’étendue racine à des utilisateurs individuels ou à des groupes d’utilisateurs. Cela peut être utile si vous souhaitez qu’un utilisateur soit en mesure d’[afficher les informations de délégation directement dans le Portail Azure](#view-delegation-changes-in-the-azure-portal). Si vous procédez ainsi, sachez qu’il s’agit d’un niveau d’accès large qui doit être limité au moins d’utilisateurs possible.
 
 Utilisez l’une des méthodes suivantes pour effectuer les attributions au niveau de l’étendue racine.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Afficher les modifications de délégation dans le Portail Azure
+
+Les utilisateurs qui ont été affectés au rôle intégré Lecteur d’analyse Azure au niveau de l’étendue racine peuvent afficher les modifications de délégation directement dans le Portail Azure.
+
+1. Accédez à la page **Mes clients**, puis sélectionnez **Journal d’activité** dans le menu de navigation de gauche.
+1. Assurez-vous qu’**Activité du répertoire** est sélectionné dans le filtre près du haut de l’écran.
+
+Une liste des modifications de délégation s’affiche. Vous pouvez sélectionner **Modifier les colonnes** pour afficher ou masquer les éléments **État**, **Catégorie d’événement**, **Heure**, **Horodatage**, **Abonnement**, **Événement initié par**, **Groupe de ressources**, **Type de ressource** et les valeurs des **Ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

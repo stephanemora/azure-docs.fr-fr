@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905790"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validation du chiffrement des données pour Azure Database pour MySQL
 
@@ -37,7 +37,7 @@ Cet article vous permet de vérifier que le chiffrement des données à l’aide
 
 2. Sur le portail Azure, si vous pouvez vous assurer que la clé de chiffrement est définie, les données sont chiffrées à l’aide de la clé du client utilisée dans le portail Azure.
 
-  ![Vue d’ensemble de la stratégie d’accès](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Vue d’ensemble de la stratégie d’accès":::
 
 ### <a name="from-cli"></a>À partir de l’interface CLI
 

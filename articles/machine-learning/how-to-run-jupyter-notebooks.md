@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 7448da5149bb859f25de2110aa929a40f872c26b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378897"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897378"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Découvrez comment exécuter vos blocs-notes Jupyter directement dans votre espace de travail dans Azure Machine Learning Studio. En plus de la possibilité de lancer [Jupyter](https://jupyter.org/) ou [JupyterLab](https://jupyterlab.readthedocs.io), vous pouvez modifier et exécuter vos blocs-notes sans quitter l’espace de travail.
 
@@ -92,7 +92,7 @@ Apprenez-en davantage sur le [clonage des dépôts Git dans le système de fichi
 
 ### <a name="share-notebooks-and-other-files"></a>Partager des blocs-notes et d’autres fichiers
 
-Copiez et collez l’URL pour partager un bloc-notes ou un fichier.  Seuls les autres utilisateurs de l’espace de travail pourront accéder à cette URL.  Apprenez-en davantage sur l’[octroi d’accès à votre espace de travail](how-to-assign-roles.md).
+Copiez et collez l’URL pour partager un bloc-notes ou un fichier.  Seuls les autres utilisateurs de l’espace de travail peuvent accéder à cette URL.  Apprenez-en davantage sur l’[octroi d’accès à votre espace de travail](how-to-assign-roles.md).
 
 ## <a name="edit-a-notebook"></a>Exécuter un bloc-notes
 
@@ -109,6 +109,22 @@ Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’ou
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Ces fonctionnalités vous aident à en savoir plus sur le code que vous utilisez, à suivre les paramètres que vous entrez et à ajouter des appels aux propriétés et aux méthodes avec seulement quelques séquences de touches.  
 
 Lorsque vous entrez du code, utilisez Ctrl + Espace pour déclencher IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Nettoyer votre notebook (préversion)
+
+> [!IMPORTANT]
+> La fonctionnalité Gather (Assembler) est actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Au cours de la création d’un notebook, vous récupérez généralement les cellules que vous avez utilisées pour l’exploration des données ou le débogage. La fonctionnalité *Gather (Assembler)* vous permet de créer un notebook propre sans ces cellules superflues.
+
+1. Exécutez toutes les cellules de votre notebook.
+1. Sélectionnez la cellule qui contient le code que vous souhaitez que le nouveau notebook exécute. Par exemple, le code qui soumet une expérience ou le code qui inscrit un modèle.
+1. Sélectionnez l’icône **Gather (Assembler)** qui apparaît dans la barre d’outils de la cellule.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Capture d’écran : sélectionner l’icône Gather (Assembler)":::
+1. Entrez le nom de votre nouveau notebook « assemblé ».  
+
+Le nouveau notebook contient uniquement des cellules de code, ainsi que toutes les cellules requises pour produire les mêmes résultats que ceux obtenus dans la cellule que vous avez sélectionnée pour l’assemblage.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Enregistrement et point de contrôle d’un bloc-notes
 
@@ -157,7 +173,7 @@ Vous seul pouvez voir et utiliser les instances de calcul que vous créez.  Vos 
 
 ### <a name="view-logs-and-output"></a>Afficher les journaux et la sortie
 
-Utilisez des [widgets de bloc-notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
+Utilisez des [widgets de bloc-notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) pour afficher la progression de l’exécution et les journaux. Un widget est asynchrone et fournit des mises à jour jusqu’à ce que l’apprentissage se termine. Les widgets d’Azure Machine Learning sont également pris en charge dans Jupyter et JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Modifier l’environnement du bloc-notes
 
@@ -172,7 +188,7 @@ Ces actions ne modifient pas l’état du bloc-notes ou les valeurs des variable
 
 Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes et toutes les variables dans celui-ci.
 
-|Action  |Résultats  |
+|Action  |Résultat  |
 |---------|---------| --------|
 | Modifier le noyau | Le bloc-notes utilise le nouveau noyau. |
 | Changer d’instance de calcul    |     Le bloc-notes utilise automatiquement la nouvelle instance de calcul. |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804350"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594813"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
@@ -20,12 +20,11 @@ Vous pouvez utiliser le portail Azure pour créer une [passerelle d’applicatio
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer un certificat auto-signé
-> * Configurer un réseau
-> * Créer une passerelle d’application avec le certificat
-> * Ajouter un écouteur et une règle de redirection
-> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
+* Créer un certificat auto-signé
+* Configurer un réseau
+* Créer une passerelle d’application avec le certificat
+* Ajouter un écouteur et une règle de redirection
+* Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

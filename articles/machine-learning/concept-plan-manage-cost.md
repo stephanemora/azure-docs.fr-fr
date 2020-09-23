@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898229"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planifier et gérer les coûts d’Azure Machine Learning
 
@@ -49,7 +49,7 @@ La capture d’écran suivante montre l’estimation des coûts effectuée par l
 
 À mesure que vous ajoutez de nouvelles ressources dans votre espace de travail, revenez à cette calculatrice et ajoutez la même ressource ici pour mettre à jour vos estimations de coûts.
 
-Bien que l’édition Enterprise soit en préversion, il n’y a pas de supplément ML. Lorsque l’édition Enterprise deviendra globalement disponible, elle présentera un supplément (pour la formation et l’inférence).  Pour plus d’informations, consultez [Tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Pour plus d’informations, consultez [Tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## <a name="get-cost-alerts"></a>Obtenir des alertes de coût
 
@@ -84,9 +84,9 @@ Vous pouvez également configurer la durée d’inactivité du nœud avant l’e
 + Si vous effectuez une expérimentation moins itérative, réduisez ce délai pour réduire les coûts.
 + Si vous effectuez une expérimentation de développement/test hautement itérative, vous devrez peut-être augmenter la durée pour ne pas avoir à payer des mises à l’échelle constantes après chaque modification apportée à votre environnement ou script d’entraînement.
 
-Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) et de l’interface [CLI AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Les clusters AmlCompute peuvent être configurés pour répondre aux besoins fluctuants de votre charge de travail dans le portail Azure, à l’aide de la [classe SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) et de l’interface [CLI AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute) avec les [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
-```azure cli
+```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 

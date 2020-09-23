@@ -3,12 +3,12 @@ title: Configurer l’accès au registre public
 description: Configurez des règles IP pour activer l’accès à un registre de conteneurs Azure à partir de certaines IP publiques ou plages d’adresses.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660923"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488760"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurer des règles de réseau IP public
 
@@ -17,6 +17,8 @@ Par défaut, un registre de conteneurs Azure accepte les connexions via Internet
 Les règles de réseau IP sont configurées sur le point de terminaison du registre public. Les règles de réseau IP ne s’appliquent pas aux points de terminaison privés configurés avec [Azure Private Link](container-registry-private-link.md).
 
 La configuration des règles d’accès IP est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="access-from-selected-public-network---cli"></a>Accès à partir du réseau public sélectionné (CLI)
 

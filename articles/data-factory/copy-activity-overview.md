@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534343"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440590"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -249,7 +249,7 @@ Cette fonctionnalité est prise en charge lors de la copie de données à partir
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) ](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics (anciennement SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Créer des tables de récepteur](media/copy-activity-overview/create-sink-table.png)

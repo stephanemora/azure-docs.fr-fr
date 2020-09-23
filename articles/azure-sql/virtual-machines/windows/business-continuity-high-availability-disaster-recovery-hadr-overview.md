@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: b81af3e89a3226757c5bf7668a06701c35831072
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3b18582cdb34708c379725d361d1fcc5e608ae38
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962711"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462749"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -148,7 +148,7 @@ Pour plus d’informations sur la connectivité client, consultez :
 
 * [Utilisation de mots clés de chaîne de connexion avec SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Connecter des clients à une session de mise en miroir de bases de données (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Écouteurs de groupe de disponibilité, connectivité client et basculement d’application (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Utilisation de chaînes de connexion de mise en miroir de bases de données avec des groupes de disponibilité](https://technet.microsoft.com/library/hh213417.aspx)
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836003"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904735"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 
@@ -29,7 +29,7 @@ Types d’alertes :
 
 * Analyse comportementale de la machine virtuelle (VMBA)
 * Analyse du réseau
-* Analyse de SQL Database et SQL Data Warehouse
+* Analyse de SQL Database ou d’Azure Synapse Analytics (anciennement SQL Data Warehouse)
 * Informations contextuelles
 
 En fonction des types d’alertes, les clients peuvent collecter les informations nécessaires pour enquêter sur l’alerte à l’aide des ressources suivantes :
@@ -132,7 +132,7 @@ Si vous rencontrez des problèmes de chargement du tableau de bord de Security C
 
 ## <a name="contacting-microsoft-support"></a>Contacter le support Microsoft
 
-Vous pouvez identifier certains problèmes en suivant les recommandations fournies dans cet article, tandis que d’autres problèmes sont documentés dans la [page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-security-center.html) publique de Security Center. Toutefois, si vous avez encore besoin d’aide pour résoudre votre problème, vous pouvez ouvrir une nouvelle demande de support à l’aide du **portail Azure**, comme indiqué ci-dessous :
+Vous pouvez identifier certains problèmes en suivant les recommandations fournies dans cet article, tandis que d’autres problèmes sont documentés dans la [page Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-security-center.html) publique de Security Center. Toutefois, si vous avez encore besoin d’aide pour résoudre votre problème, vous pouvez ouvrir une nouvelle demande de support à l’aide du **portail Azure**, comme indiqué ci-dessous :
 
 ![Support Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -151,4 +151,4 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md)
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ d’Azure Security Center](faq-general.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502730"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595816"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt TLS à l’aide de l’interface CLI Azure
 
@@ -21,11 +21,10 @@ Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](over
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer un certificat auto-signé
-> * Configurer un réseau
-> * Créer une passerelle d’application avec le certificat
-> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
+* Créer un certificat auto-signé
+* Configurer un réseau
+* Créer une passerelle d’application avec le certificat
+* Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
 Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure PowerShell](tutorial-ssl-powershell.md).
 

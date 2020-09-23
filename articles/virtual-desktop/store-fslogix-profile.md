@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009407"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568691"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -51,7 +51,7 @@ Pour en savoir plus sur les conteneurs de profil FSLogix, les disques de profil 
 
 Si vous êtes prêt à créer vos propres conteneurs de profil FSLogix, prenez en main l’un de ces tutoriels :
 
-- [Bien démarrer avec les conteneurs de profils FSLogix sur Azure Files dans Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Bien démarrer avec les conteneurs de profils FSLogix sur Azure Files dans Windows Virtual Desktop](create-file-share.md)
 - [Créer un conteneur de profils FSLogix pour un pool d’hôtes à l’aide d’Azure NetApp Files](create-fslogix-profile-container.md)
 - Les instructions de l’article [Déployer un serveur de fichiers scale-out avec des espaces de stockage direct à deux nœuds pour le stockage UPD dans Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) s’appliquent également lorsque vous utilisez un conteneur de profil FSLogix à la place d’un disque de profil utilisateur
 

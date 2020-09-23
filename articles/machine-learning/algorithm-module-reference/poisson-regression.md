@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905251"
 ---
 # <a name="poisson-regression"></a>Régression de Poisson
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour créer un modèle de régression de Poisson dans un pipeline. La régression de Poisson est destinée à prédire des valeurs numériques, en général des nombres. Par conséquent, vous devez utiliser ce module pour créer votre modèle de régression uniquement si les valeurs que vous essayez de prédire répondent aux conditions suivantes :
 
@@ -49,7 +49,7 @@ La régression de Poisson est un type d'analyse de régression généralement ut
 
 ## <a name="how-to-configure-poisson-regression"></a>Comment configurer la régression de Poisson
 
-1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur (préversion). Vous le trouverez sous **Algorithmes de Machine Learning**, dans la catégorie **Régression**.
+1. Ajoutez le module **Régression de poisson** à votre pipeline dans le Concepteur. Vous le trouverez sous **Algorithmes de Machine Learning**, dans la catégorie **Régression**.
 
 2. Ajoutez un jeu de données qui contient les données d’apprentissage du bon type. 
 

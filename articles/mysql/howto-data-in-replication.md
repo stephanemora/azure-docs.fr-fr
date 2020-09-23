@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903994"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
@@ -105,15 +105,15 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    Pour créer le rôle de réplication dans MySQL Workbench, ouvrez le panneau **Utilisateurs et privilèges** à partir du panneau **Gestion**. Cliquez ensuite sur **Ajouter un compte**. 
  
-   ![Utilisateurs et privilèges](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Utilisateurs et privilèges":::
 
    Tapez le nom d’utilisateur dans le champ **Nom de connexion**. 
 
-   ![Synchroniser l’utilisateur](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Synchroniser l’utilisateur":::
  
    Cliquez sur le panneau **Rôles administratifs**, puis sélectionnez **Subordonné de réplication** dans la liste **Privilèges globaux**. Cliquez ensuite sur **Appliquer** pour créer le rôle de réplication.
 
-   ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Subordonné de réplication":::
 
 1. Définir le serveur maître en mode en lecture seule
 
@@ -133,7 +133,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    ```
    Les résultats doivent être comme suit. Assurez-vous de noter le nom du fichier binaire, tel qu’il sera utilisé lors des étapes ultérieures.
 
-   ![Résultats de l’état récapitulatif](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Résultats de l’état récapitulatif":::
  
 ## <a name="dump-and-restore-master-server"></a>Vider et restaurer le serveur maître
 
