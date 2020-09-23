@@ -1,6 +1,6 @@
 ---
-title: Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge via Azure PowerShell
-description: Décrit comment créer et gérer des machines virtuelles sur un appareil GPU Azure Stack Edge à l’aide d’Azure PowerShell.
+title: Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU via Azure PowerShell
+description: Décrit comment créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro avec GPU à l’aide d’Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890705"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge via Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU via Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-Ce tutoriel explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge avec Azure PowerShell.
+Ce tutoriel explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell.
 
 ## <a name="vm-deployment-workflow"></a>Workflow du déploiement de machine virtuelle
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Seuls les comptes de stockage locaux comme le stockage localement redondant (Standard_LRS ou Premium_LRS) peuvent être créés par le biais d’Azure Resource Manager. Pour créer des comptes de stockage hiérarchisés, consultez les étapes décrites dans [Ajouter des comptes de stockage à votre Azure Stack Edge et s’y connecter](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Seuls les comptes de stockage locaux comme le stockage localement redondant (Standard_LRS ou Premium_LRS) peuvent être créés par le biais d’Azure Resource Manager. Pour créer des comptes de stockage hiérarchisés, consultez les étapes décrites dans [Ajouter des comptes de stockage à Azure Stack Edge Pro et se connecter à ces comptes](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Voici un exemple de sortie obtenue.
 
@@ -193,7 +193,7 @@ Si vous utilisez *https*, vous devez installer les certificats appropriés sur v
 
 Copiez les images de disque à utiliser dans des objets blob de pages dans le compte de stockage local que vous avez créé lors des étapes précédentes. Vous pouvez utiliser un outil comme [AzCopy](../storage/common/storage-use-azcopy-v10.md) pour charger le disque dur virtuel sur le compte de stockage que vous avez créé lors des étapes précédentes. 
 
-Avant d’utiliser l’outil AzCopy, vérifiez qu’il est [correctement configuré](#configure-azcopy) pour une utilisation avec la version de l’API REST de stockage blob que vous utilisez avec votre appareil Azure Stack Edge.
+Avant d’utiliser l’outil AzCopy, vérifiez qu’il est [correctement configuré](#configure-azcopy) pour être utilisé avec la version de l’API REST du stockage Blob que vous utilisez avec votre appareil Azure Stack Edge Pro.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -220,8 +220,8 @@ Créez un disque managé à partir du disque dur virtuel chargé.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 Voici un exemple de sortie obtenue : 
-
-$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -408,33 +408,48 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>Se connecter à une machine virtuelle
 
-Connectez-vous à la machine virtuelle à l’aide de l’adresse IP privée que vous avez transmise lors de la création de la machine virtuelle.
+Selon que vous avez créé une machine virtuelle Windows ou Linux, les étapes de connexion peuvent être différentes.
 
-Ouvrez une session SSH pour vous connecter avec l’adresse IP.
+### <a name="connect-to-linux-vm"></a>Se connecter à une machine virtuelle Linux
+
+Suivez ces étapes pour vous connecter à une machine virtuelle Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Se connecter à une machine virtuelle Windows
+
+Suivez ces étapes pour vous connecter à une machine virtuelle Windows.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-À l’invite, indiquez le mot de passe que vous avez utilisé lors de la création de la machine virtuelle.
+When prompted, provide the password that you used when creating the VM.
 
-Si vous avez besoin de fournir la clé SSH, utilisez cette commande.
+If you need to provide the SSH key, use this command.
 
 ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-Si vous avez utilisé une adresse IP publique lors de la création de la machine virtuelle, vous pouvez l’utiliser pour vous connecter à la machine virtuelle. Pour obtenir l’adresse IP publique : 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-Dans cet exemple, l’adresse IP publique sera la même que l’adresse IP privée que vous avez transmise lors de la création de l’interface réseau virtuelle.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>Gérer la machine virtuelle
 
-La section suivante décrit quelques-unes des opérations courantes liées à la machine virtuelle que vous allez créer sur votre appareil Azure Stack Edge.
+La section suivante décrit quelques-unes des opérations courantes liées à la machine virtuelle que vous allez créer sur votre appareil Azure Stack Edge Pro.
 
 ### <a name="list-vms-running-on-the-device"></a>Lister les machines virtuelles en cours d’exécution sur l’appareil
 
-Pour retourner la liste de toutes les machines virtuelles en cours d’exécution sur votre appareil Azure Stack Edge, exécutez la commande suivante.
+Pour retourner la liste de toutes les machines virtuelles en cours d’exécution sur votre appareil Azure Stack Edge Pro, exécutez la commande suivante.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -487,7 +502,7 @@ Pour plus d’informations sur cette applet de commande, accédez à [Remove-Azu
 
 La taille de machine virtuelle détermine la quantité de ressources de calcul, comme le processeur, le processeur graphique (GPU) et la mémoire, qui sont mises à la disposition de la machine virtuelle. Les machines virtuelles doivent être créées avec une taille adaptée à la charge de travail. Même si toutes les machines vont s’exécuter sur le même matériel, leur taille ont des limites différentes pour l’accès au disque, ce qui peut vous aider à gérer l’accès global au disque sur toutes vos machines virtuelles. Si une charge de travail augmente, une machine virtuelle existante peut également être redimensionnée.
 
-La création des machines virtuelles de la série Standard Dv2 suivantes est prise en charge sur un appareil Azure Stack Edge.
+La création des machines virtuelles suivantes de la série Standard Dv2 est prise en charge sur un appareil Azure Stack Edge Pro.
 
 ### <a name="dv2-series"></a>Série Dv2
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
@@ -532,9 +547,9 @@ L’extension, les groupes identiques, les groupes à haute disponibilité et le
 
 ## <a name="configure-azcopy"></a>Configurer AzCopy
 
-Quand vous installez la dernière version de l’outil AzCopy, vous devez configurer AzCopy pour veiller à ce qu’il correspond à la version de l’API REST de stockage blob de votre appareil Azure Stack Edge.
+Quand vous installez la dernière version de l’outil AzCopy, vous devez la configurer pour veiller à ce qu’elle corresponde à la version de l’API REST du stockage Blob de votre appareil Azure Stack Edge Pro.
 
-Sur le client utilisé pour accéder à votre appareil Azure Stack Edge, configurez une variable globale qui correspond à la version de l’API REST de stockage blob.
+Sur le client utilisé pour accéder à votre appareil Azure Stack Edge Pro, configurez une variable globale qui correspond à la version de l’API REST du stockage Blob.
 
 ### <a name="on-windows-client"></a>Sur un client Windows 
 

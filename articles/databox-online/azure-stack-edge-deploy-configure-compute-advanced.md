@@ -1,6 +1,6 @@
 ---
-title: Tutoriel pour filtrer et analyser des données pour un déploiement avancé avec le rôle de calcul sur Azure Stack Edge | Microsoft Docs
-description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge et l’utiliser pour transformer des données à destination d’un flux de déploiement avancé avant de les envoyer à Azure.
+title: Tutoriel pour filtrer et analyser des données pour un déploiement avancé avec le rôle de calcul sur Azure Stack Edge Pro | Microsoft Docs
+description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge Pro et l’utiliser pour transformer des données à destination d’un flux de déploiement avancé avant de les envoyer à Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080491"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903691"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge pour un flux de déploiement avancé
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro pour un flux de déploiement avancé
 
-Ce tutoriel explique comment configurer un rôle de calcul pour un flux de déploiement avancé sur votre appareil Azure Stack Edge. Une fois que vous avez configuré le rôle de calcul, Azure Stack Edge peut transformer des données avant de les envoyer à Azure.
+Ce tutoriel explique comment configurer un rôle de calcul pour un flux de déploiement avancé sur votre appareil Azure Stack Edge Pro. Une fois que vous avez configuré le rôle de calcul, Azure Stack Edge Pro peut transformer des données avant de les envoyer à Azure.
 
 Le calcul peut être configuré pour le flux d’un déploiement simple ou avancé sur votre appareil.
 
@@ -43,14 +43,14 @@ Dans ce tutoriel, vous allez apprendre à :
  
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge, vérifiez que :
+Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, vérifiez que :
 
-- Vous avez activé votre appareil Azure Stack Edge, comme décrit dans [Connecter, configurer et activer Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Vous avez activé votre appareil Azure Stack Edge Pro, comme décrit dans [Connecter, configurer et activer Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurer le calcul
 
-Pour configurer le calcul sur votre appareil Azure Stack Edge, vous allez créer une ressource IoT Hub.
+Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
 
 1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
 
@@ -150,9 +150,9 @@ Pour le déploiement avancé dans ce tutoriel, vous aurez besoin de deux partage
 
 ## <a name="add-a-module"></a>Ajouter un module
 
-Il n’existe aucun module personnalisé sur cet appareil Edge. Vous pouvez ajouter un module prédéfini ou personnalisé. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Il n’existe aucun module personnalisé sur cet appareil Edge. Vous pouvez ajouter un module prédéfini ou personnalisé. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
+Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
 1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules**, sélectionnez le type de scénario **Avancé**. Sélectionnez **Accéder à IoT Hub**.
 
@@ -175,7 +175,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
 4. Sous **Ajouter des modules**, effectuez les étapes suivantes :
 
     1. Entrez le nom, l’adresse, le nom d’utilisateur et le mot de passe dans les paramètres du registre de conteneurs du module personnalisé.
-    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Deployment modules** (Modules de déploiement), sélectionnez **IoT Edge module** (Module IoT Edge). Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre appareil Azure Stack Edge.
+    Le nom, l’adresse et les informations d’identification indiquées sont utilisées pour récupérer des modules avec une URL correspondante. Pour déployer ce module, sous **Deployment modules** (Modules de déploiement), sélectionnez **IoT Edge module** (Module IoT Edge). Ce module IoT Edge est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre appareil Azure Stack Edge Pro.
 
         ![Page Définir des modules](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -183,7 +183,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
      
         |Champ  |Valeur  |
         |---------|---------|
-        |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre Azure Stack Edge.        |
+        |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur l’appareil IoT Edge associé à votre Azure Stack Edge Pro.        |
         |URI d’image     | URI d’image de l’image conteneur associée pour le module.        |
         |Informations d’identification obligatoires     | Si cette case est cochée, le nom d’utilisateur et le mot de passe sont utilisés pour récupérer les modules avec une URL correspondante.        |
     
@@ -270,7 +270,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Ajouter un module de calcul
 > * Vérifier la transformation des données et transférer
 
-Pour savoir comment gérer votre appareil Azure Stack Edge, consultez :
+Pour savoir comment gérer votre appareil Azure Stack Edge Pro, consultez :
 
 > [!div class="nextstepaction"]
-> [Administrer un appareil Azure Stack Edge avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Administrer un appareil Azure Stack Edge Pro avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)

@@ -1,6 +1,6 @@
 ---
-title: Se connecter à un appareil Microsoft Azure Stack Edge et le gérer via l’interface Windows PowerShell | Microsoft Docs
-description: Décrit comment se connecter à un appareil Azure Stack Edge et le gérer via l’interface Windows PowerShell.
+title: Se connecter à un appareil Microsoft Azure Stack Edge Pro et le gérer via l’interface Windows PowerShell | Microsoft Docs
+description: Décrit comment se connecter à un appareil Azure Stack Edge Pro et le gérer via l’interface Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313196"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894423"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge Pro via Windows PowerShell
 
-La solution Azure Stack Edge vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
+La solution Azure Stack Edge Pro vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge Pro. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
 
 Cet article traite des tâches que vous effectuez à l’aide de l’interface PowerShell. 
 
@@ -94,4 +94,4 @@ Pour quitter la session PowerShell à distance, fermez la fenêtre PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Déployez [Azure Stack Edge](azure-stack-edge-deploy-prep.md) sur le portail Azure.
+- Déployer [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) sur le portail Azure.

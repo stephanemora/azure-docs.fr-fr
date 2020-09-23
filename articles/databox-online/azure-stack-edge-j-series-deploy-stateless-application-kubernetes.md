@@ -1,6 +1,6 @@
 ---
-title: Déployer une application sans état Kubernetes sur un appareil Azure Stack Edge avec GPU à l’aide de kubectl | Microsoft Docs
-description: Décrit comment créer et gérer un déploiement d’application sans état Kubernetes à l’aide de kubectl sur un appareil Microsoft Azure Stack Edge.
+title: Déployer une application sans état Kubernetes sur un appareil Azure Stack Edge Pro avec GPU à l’aide de kubectl | Microsoft Docs
+description: Décrit comment créer et gérer un déploiement d’application sans état Kubernetes à l’aide de kubectl sur un appareil Microsoft Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890738"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge avec GPU
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
 Cet article explique comment déployer une application sans état à l’aide des commandes kubectl sur un cluster Kubernetes existant. Cet article vous guide également tout au long du processus de création et de configuration de pods dans votre application sans état.
 
@@ -23,13 +23,13 @@ Cet article explique comment déployer une application sans état à l’aide de
 
 Avant de pouvoir créer un cluster Kubernetes et d’utiliser l’outil de ligne de commande `kubectl`, vous devez vous assurer que :
 
-- Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge à 1 nœud.
+- Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
 
-- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Le calcul est activé sur l’appareil Azure Stack Edge. Pour activer le calcul, accédez à la page **Calcul** de l’interface utilisateur locale de l’appareil. Puis sélectionnez une interface réseau que vous souhaitez activer pour le calcul. Sélectionnez **Activer**. L’activation du calcul entraîne la création d’un commutateur virtuel sur votre appareil sur cette interface réseau. Pour plus d’informations, consultez [Activer le réseau de calcul sur Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Le calcul est activé sur l’appareil Azure Stack Edge Pro. Pour activer le calcul, accédez à la page **Calcul** de l’interface utilisateur locale de l’appareil. Puis sélectionnez une interface réseau que vous souhaitez activer pour le calcul. Sélectionnez **Activer**. L’activation du calcul entraîne la création d’un commutateur virtuel sur votre appareil sur cette interface réseau. Pour plus d’informations, consultez [Activer le réseau de calcul sur Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Votre appareil Azure Stack Edge a un serveur de cluster Kubernetes version v1.9 ou ultérieure en cours d’exécution. Pour plus d’informations, consultez [Créer et gérer un cluster Kubernetes sur un appareil Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- Votre appareil Azure Stack Edge Pro a un serveur de cluster Kubernetes version v1.9 ou ultérieure en cours d’exécution. Pour plus d’informations, consultez [Créer et gérer un cluster Kubernetes sur un appareil Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - Vous avez installé `kubectl`.
 
@@ -43,7 +43,7 @@ Avant de commencer, vous devez disposer des éléments suivants :
 4. Une configuration utilisateur enregistrée dans `C:\Users\<username>\.kube`.
 5. `kubectl` installé.
 
-Vous pouvez maintenant commencer à exécuter et gérer des déploiements d’applications sans état sur un appareil Azure Stack Edge. Avant de commencer à utiliser `kubectl`, vous devez vérifier que vous disposez de la version appropriée de `kubectl`.
+Vous pouvez maintenant commencer à exécuter et gérer des déploiements d’applications sans état sur un appareil Azure Stack Edge Pro. Avant de commencer à utiliser `kubectl`, vous devez vérifier que vous disposez de la version appropriée de `kubectl`.
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Vérifiez que vous disposez de la version appropriée de kubectl et effectuez la configuration
 
@@ -109,7 +109,7 @@ Un Pod est l’unité d’exécution de base d’une application Kubernetes, l�
 
 Le type d’application sans état que vous créez est un déploiement de serveur web nginx.
 
-Toutes les commandes kubectl que vous utilisez pour créer et gérer des déploiements d’application sans état doivent spécifier l’espace de noms associé à la configuration. Vous avez créé l’espace de noms lors de la connexion au cluster sur l’appareil Azure Stack Edge dans le tutoriel [Créer et gérer un cluster Kubernetes sur un appareil Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md) avec `New-HcsKubernetesNamespace`.
+Toutes les commandes kubectl que vous utilisez pour créer et gérer des déploiements d’application sans état doivent spécifier l’espace de noms associé à la configuration. Vous avez créé l’espace de noms lors de la connexion au cluster sur l’appareil Azure Stack Edge Pro dans le tutoriel [Créer et gérer un cluster Kubernetes sur un appareil Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md) avec `New-HcsKubernetesNamespace`.
 
 Pour spécifier l’espace de noms dans une commande kubectl, utilisez `kubectl <command> -n <namespace-string>`.
 
