@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate pour Hyper-V
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929921"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087148"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V
 
@@ -59,7 +59,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du disque dur virtuel
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  Pour la version 2.19.11.12 de l’appliance, le code de hachage généré doit correspondre à ces [paramètres](./tutorial-assess-hyper-v.md#verify-security).
+
 
 
 
@@ -106,19 +106,19 @@ Configurez l’appliance pour la première fois.
       - Cliquez sur **Configurer le proxy**, puis spécifiez l'adresse du proxy (sous la forme http://ProxyIPAddress ou http://ProxyFQDN) ) et le port d'écoute.
       - Spécifiez les informations d’identification si le proxy nécessite une authentification.
       - Seuls les proxys HTTP sont pris en charge.
-      - Si vous avez ajouté les détails du proxy ou désactivé le proxy et/ou l'authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
+      - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte des machines virtuelles fonctionne correctement.
     - **Installer les mises à jour** : Azure Migrate Server Assessment vérifie que les dernières mises à jour sont installées sur l'appliance. Au terme de la vérification, vous pouvez cliquer sur **Afficher les services de l'appliance** pour voir l'état et les versions des composants exécutés sur l'appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n'avez pas la clé, accédez à **Server Assessment > Détecter > Gérer les appliances existantes**, sélectionnez le nom d'appliance que vous avez indiqué au moment de la génération de la clé et copiez la clé correspondante.
-1. Cliquez sur **Connexion**. Une invite de connexion Azure s'ouvre dans un nouvel onglet du navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
+1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Évaluation de serveur > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Cliquez sur **Connexion**. Une invite de connexion Azure s’ouvre dans un nouvel onglet du navigateur. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
 1. Sous le nouvel onglet, connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure.
    
    La connexion avec un code PIN n’est pas prise en charge.
-3. Une fois connecté, revenez à l'application web. 
-4. Si le compte d'utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-hyper-v.md#prepare-azure) adéquates sur les ressources Azure créées au moment de la génération de la clé, l'inscription de l'appliance est lancée.
+3. Une fois la connexion établie, revenez à l’application web. 
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-hyper-v.md#prepare-azure) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
 
 

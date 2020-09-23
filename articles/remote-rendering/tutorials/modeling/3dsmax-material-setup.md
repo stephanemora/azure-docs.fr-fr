@@ -1,16 +1,16 @@
 ---
 title: Configurer des matériaux au rendu physique réaliste dans 3ds Max
 description: Explique comment configurer des matériaux au rendu physique réaliste (matériaux PBR) dans 3ds Max et comment les exporter au format FBX.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078033"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084462"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutoriel : Configurer des matériaux PBR dans 3ds Max
 

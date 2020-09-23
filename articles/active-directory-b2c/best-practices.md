@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254489"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084309"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggestions et bonnes pratiques pour Azure Active Directory B2C
 
@@ -56,7 +56,6 @@ Au cours de la phase d’implémentation, tenez compte des suggestions suivantes
 | En savoir plus sur la résolution des problèmes liés à Azure AD B2C | Découvrez comment [résoudre les problèmes de stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) au cours du développement. Découvrez à quoi ressemble un flux d’authentification normal et utilisez des outils pour découvrir les anomalies et les erreurs. Par exemple, utilisez [Application Insights](troubleshoot-with-application-insights.md) pour passer en revue les journaux de sortie des parcours utilisateur. |
 | Tirer parti de notre bibliothèque de modèles de stratégie personnalisés éprouvés | Recherchez des [exemples](https://github.com/azure-ad-b2c/samples) pour plusieurs parcours utilisateur de gestion des accès et des identités des clients Azure AD B2C améliorés. |
 
-
 ## <a name="testing"></a>Test
 
 Testez et automatisez votre implémentation d’Azure AD B2C.
@@ -79,11 +78,10 @@ Gérez votre environnement Azure AD B2C.
 |--|--|
 | Créer plusieurs environnements | Pour faciliter le déploiement et le fonctionnement, créez des environnements distincts pour le développement, les tests, la pré-production et la production. Créez des locataires Azure AD B2C pour chacun d’eux. |
 | Utiliser la gestion de version pour vos stratégies personnalisées | Envisagez d’utiliser GitHub, Azure Repos ou un autre système de gestion de versions basé sur le cloud pour vos stratégies personnalisées Azure AD B2C. |
-| Utiliser l’API Microsoft Graph pour automatiser la gestion de vos locataires B2C | API Microsoft Graph :<br/>Gérer [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (stratégies personnalisées)<br/>[Clés](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Flux d’utilisateurs](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Utiliser l’API Microsoft Graph pour automatiser la gestion de vos locataires B2C | API Microsoft Graph :<br/>Gérer [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (stratégies personnalisées)<br/>[Clés](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Flux d’utilisateurs](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Intégrer à Azure DevOps | Un [pipeline CI/CD](deploy-custom-policies-devops.md) permet de déplacer facilement du code entre différents environnements et garantit la préparation de la production à tout moment.   |
 | Intégrer à Azure Monitor | Les [événements des journaux d’audit](view-audit-logs.md) sont uniquement conservés pendant sept jours. [Intégrez à Azure Monitor](azure-monitor.md) pour conserver les journaux pour les utiliser sur le long terme ou les intégrer à des outils de gestion d’événements et d’informations de sécurité tiers pour obtenir des insights sur votre environnement. |
 | Alertes et supervision actives de la configuration | [Suivez le comportement des utilisateurs](active-directory-b2c-custom-guide-eventlogger-appins.md) dans Azure AD B2C à l’aide d’Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Mises à jour de support et d’état
 

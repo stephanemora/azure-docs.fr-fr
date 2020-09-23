@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121253"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085312"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -385,7 +385,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Ajoutez du code à *index.js*. Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
+1. Ajoutez du code à *index.js*. Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
 
    Quand l’utilisateur sélectionne le bouton de recherche, ou tape une localisation dans la zone de recherche puis appuie sur Entrée, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays/régions à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
@@ -935,7 +935,7 @@ Ce tutoriel vous apprend à créer un localisateur de magasin simple à l’aide
 > * Ajoutez la possibilité de [définir des filtres](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Ajoutez la possibilité de spécifier une valeur de recherche initiale en utilisant une chaîne de requête. Quand vous incluez cette option dans votre localisateur de magasin, les utilisateurs peuvent ajouter les recherches aux favoris et les partager. Elle offre aussi un moyen simple de transférer les recherches de la page active vers une autre.  
 > * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
 
 > [!div class="nextstepaction"]
 > [Afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

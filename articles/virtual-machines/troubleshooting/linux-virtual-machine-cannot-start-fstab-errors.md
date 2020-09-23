@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509050"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441661"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Résoudre les problèmes de démarrage de machine virtuelle Linux dus à des erreurs fstab
 
@@ -107,7 +107,7 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 ### <a name="using-single-user-mode"></a>Utilisation du mode mono-utilisateur
 
 1. Connectez-vous à la [console série](./serial-console-linux.md).
-2. Utiliser la console série pour passer en mode mono-utilisateur [mode mono-utilisateur](../linux/serial-console-grub-single-user-mode.md)
+2. Utiliser la console série pour passer en mode mono-utilisateur [mode mono-utilisateur](serial-console-grub-single-user-mode.md)
 3. Une fois que la machine virtuelle a démarré en mode mono-utilisateur. Ouvrez le fichier fstab dans l’éditeur de texte de votre choix. 
 
    ```

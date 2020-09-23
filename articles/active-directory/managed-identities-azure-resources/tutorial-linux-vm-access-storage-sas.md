@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260235"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968772"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure à l’aide d’informations d’identification SAP
 
@@ -154,7 +154,7 @@ echo "This is a test file." > test.txt
 
 Ensuite, authentifiez-vous à l’aide de la commande `az storage` de l’interface de ligne de commande en utilisant les informations d’identification SAP, puis chargez le fichier dans le conteneur d’objets blob. Pour cette étape, vous devez [installer la dernière version d’Azure CLI](/cli/azure/install-azure-cli) sur votre machine virtuelle, si ce n’est déjà fait.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -176,7 +176,7 @@ Vous pouvez également télécharger le fichier à l’aide d’Azure CLI et vou
 
 Demande : 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

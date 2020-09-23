@@ -1,21 +1,21 @@
 ---
-title: Exécution d’un script Python dans le concepteur (préversion)
+title: Exécuter un script Python dans le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser Python dans le concepteur Azure Machine Learning (préversion) pour transformer les données.
+description: Découvrez comment utiliser Python dans le concepteur Azure Machine Learning pour transformer des données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 02/28/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 7cb6fc0f4f2c2d3f57588d8ef0412177f612ee02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853124"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897737"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Exécuter du code Python dans le concepteur Azure Machine Learning
 

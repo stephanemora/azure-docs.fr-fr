@@ -2,17 +2,17 @@
 title: 'Passerelle VPN Azure : Résoudre les problèmes de connexion point à site : Clients Mac OS X'
 description: Découvrez comment résoudre les problèmes de connectivité point à site à partir de Mac OS X à l’aide du client VPN natif et d’IKEv2.
 services: vpn-gateway
-author: kumudD
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 58250980081388b78ebb32fb01b84beb8d86c1c2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030659"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442800"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Résoudre les problèmes de connexion VPN point à site à partir de clients Mac OS X
 

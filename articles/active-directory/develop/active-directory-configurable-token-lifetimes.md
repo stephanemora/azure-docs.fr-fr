@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115864"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085601"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la Plateforme d’identité Microsoft (préversion)
 
@@ -90,8 +90,8 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |90 jours |10 minutes |90 jours |
 | Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |180 jours<sup>1</sup> |
+| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |180 jours<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
 * <sup>2</sup>Pour s’assurer que le client web Microsoft Teams fonctionne, il est recommandé de conserver AccessTokenLifetime sur une durée supérieure à 15 minutes pour Microsoft Teams.

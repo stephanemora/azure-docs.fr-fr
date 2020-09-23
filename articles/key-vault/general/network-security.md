@@ -7,15 +7,15 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536053"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087390"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
@@ -27,7 +27,6 @@ Cet article fournit des instructions détaillées pour configurer les pare-feux 
 > [!NOTE]
 > Notez les limitations de configuration suivantes :
 > * Un maximum de 127 règles de réseau virtuel et 127 règles IPv4 sont autorisées. 
-> * Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Au lieu de cela, configurez ces plages avec des règles d’adresses IP individuelles.
 > * Les règles de réseau IP sont autorisées uniquement pour les adresses IP publiques. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par **10.** , **172.16-31.** et **192.168.** . 
 > * Seules les adresses IPv4 sont prises en charge pour le moment.
 

@@ -10,16 +10,16 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306415"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897441"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interprétabilité : explications des modèles en machine learning automatisé (version préliminaire)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Cet article explique comment obtenir des explications pour le Machine Learning (ML) automatisé dans Azure Machine Learning. Le ML automatisé vous aide à comprendre l’importance des caractéristiques traitées. 
 
@@ -39,6 +39,14 @@ Dans cet article, vous apprendrez comment :
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interprétabilité pendant l’entraînement pour le meilleur modèle
 
 Récupérez l’explication à partir de `best_run`, qui inclut des explications pour les caractéristiques traitées.
+
+> [!Warning]
+> L’interprétation, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision de ML automatique, qui recommandent les algorithmes suivants comme meilleur modèle : 
+> * ForecastTCN
+> * Moyenne 
+> * Naive
+> * Moyenne saisonnière 
+> * Naive saisonnière
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Télécharger l’importance des caractéristiques d’ingénierie à partir de la boutique d’artefacts
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Interprétabilité pendant l’inférence
+## <a name="interpretability-during-inference"></a>Interprétabilité pendant l’inférence
 
 Dans cette section, vous allez apprendre à rendre un modèle de ML automatisé opérationnel avec l’explicatif qui a été utilisé pour calculer les explications dans la section précédente.
 

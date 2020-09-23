@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885155"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440947"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Application de bureau qui appelle des API web : Inscription d'application
 
@@ -28,7 +28,7 @@ Les types de compte pris en charge dans une application de bureau dépendent de 
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Audience pour l’acquisition de jetons interactive
 
-Si votre application de bureau utilise l’authentification interactive, vous pouvez connecter des utilisateurs depuis n’importe quel [type de compte](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Si votre application de bureau utilise l’authentification interactive, vous pouvez connecter des utilisateurs depuis n’importe quel [type de compte](quickstart-register-app.md).
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Audience pour les flux silencieux d’application de bureau
 
@@ -41,7 +41,7 @@ Si votre application de bureau utilise l’authentification interactive, vous po
 Les URI de redirection à utiliser dans une application de bureau dépendent du flux que vous voulez utiliser.
 
 - Si vous utilisez l’authentification interactive ou le flux de code d’appareil, utilisez `https://login.microsoftonline.com/common/oauth2/nativeclient`. Pour obtenir cette configuration, sélectionnez l’URL correspondante dans la section **Authentification** pour votre application.
-  
+
   > [!IMPORTANT]
   > Aujourd’hui, MSAL.NET utilise une autre URI de redirection par défaut dans les applications de bureau qui s’exécutent sur Windows (`urn:ietf:wg:oauth:2.0:oob`). À l’avenir, nous voulons changer cela, et vous conseillons donc d’utiliser `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
