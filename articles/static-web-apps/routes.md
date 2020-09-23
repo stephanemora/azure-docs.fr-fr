@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518773"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906776"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Itinéraires dans Azure Static Web Apps - Préversion
 
@@ -32,7 +32,7 @@ Pour obtenir des détails, consultez [l’exemple de fichier de routage](#exampl
 
 Le fichier _routes.json_ doit exister à la racine du dossier de l’artefact de build de l’application. Si votre application web comprend une étape de compilation qui copie les fichiers compilés d’un dossier donné vers votre dossier d’artefacts de build, le fichier _routes.json_ doit exister dans ce dossier.
 
-Le tableau suivant répertorie l’emplacement approprié pour placer votre fichier _routes.json_ pour un certain nombre de bibliothèques et de frameworks JavaScript frontaux.
+Le tableau suivant liste l’emplacement approprié pour placer votre fichier _routes.json_ pour un certain nombre de bibliothèques et de frameworks front-end.
 
 |Framework/bibliothèque | Emplacement  |
 |---------|----------|
@@ -40,6 +40,9 @@ Le tableau suivant répertorie l’emplacement approprié pour placer votre fich
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
+| Blazor  | _wwwroot_ |
+
+Le tableau ci-dessus est uniquement représentatif de quelques bibliothèques et frameworks compatibles avec Azure Static Web Apps. Pour plus d’informations, consultez [Configurer des bibliothèques et des frameworks front-end](./front-end-frameworks.md).
 
 ## <a name="defining-routes"></a>Définition des itinéraires
 
@@ -106,7 +109,7 @@ Vous pouvez également sécuriser les itinéraires avec des caractères généri
 
 ## <a name="fallback-routes"></a>Itinéraires de secours
 
-Les frameworks ou les bibliothèques JavaScript s’appuient souvent sur le routage côté client pour la navigation dans les applications web. Ces règles d’acheminement côté client mettent à jour l’emplacement de la fenêtre du navigateur sans effectuer de demande au serveur. Si vous actualisez la page ou si vous accédez directement aux emplacements générés par les règles d’acheminement côté client, un itinéraire de secours côté serveur est requis pour servir la page HTML appropriée.
+Les applications monopages, qu’elles utilisent des bibliothèques ou des frameworks JavaScript front-end, ou des plateformes WebAssembly comme Blazor, s’appuient souvent sur le routage côté client pour la navigation dans les applications web. Ces règles d’acheminement côté client mettent à jour l’emplacement de la fenêtre du navigateur sans effectuer de demande au serveur. Si vous actualisez la page ou si vous accédez directement aux emplacements générés par les règles d’acheminement côté client, un itinéraire de secours côté serveur est requis pour servir la page HTML appropriée.
 
 Voici un exemple classique d’itinéraire de secours :
 
@@ -186,6 +189,9 @@ Les considérations suivantes sont importantes quand vous utilisez des types MIM
 
 - Les clés ne peuvent pas être de type Null ou vides, ni contenir plus de 50 caractères
 - Les valeurs ne peuvent pas être de type Null ou vides, ni contenir plus de 1 000 caractères
+
+> [!NOTE]
+> Comme Static Web Apps comprend les applications Blazor et les types MIME attendus pour les fichiers WASM et DLL, vous n’avez pas besoin d’ajouter des mappages pour eux.
 
 ## <a name="default-headers"></a>En-têtes par défaut
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134516"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906473"
 ---
 # <a name="server-group-size"></a>Taille de groupe de serveurs
 
@@ -40,9 +40,9 @@ Azure Database pour PostgreSQL – Hyperscale (Citus) est capable d’effectuer 
 
 ### <a name="add-worker-nodes"></a>Ajouter des nœuds Worker
 
-Pour ajouter des nœuds, accédez à l’onglet **Configurer** dans votre groupe de serveurs Hyperscale (Citus).  Faites coulisser le curseur **Nombre de nœuds Worker** pour modifier la valeur.
+Pour ajouter des nœuds, accédez à l’onglet **Calcul + stockage** dans votre groupe de serveurs Hyperscale (Citus).  Faites coulisser le curseur **Nombre de nœuds Worker** pour modifier la valeur.
 
-![Curseurs de ressources](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Curseurs de ressources":::
 
 Cliquez sur le bouton **Enregistrer** pour que la valeur modifiée prenne effet.
 

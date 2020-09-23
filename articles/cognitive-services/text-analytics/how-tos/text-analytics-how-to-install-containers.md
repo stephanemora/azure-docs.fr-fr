@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545656"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906126"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
 > [!NOTE]
 > * Le conteneur Analyse des sentiments v3 est désormais en disposition générale. Les conteneurs Extraction de phrases clés et Détection de langue sont disponibles sous la forme d’une préversion publique non contrôlée.
 > * Les fonctionnalités Liaison d’entités et Reconnaissance d'entité nommée ne sont actuellement pas disponibles en tant que conteneurs.
-> * Actuellement, vous ne serez pas facturé pour l’utilisation des conteneurs Analyse de texte pour l’intégrité.
+> * L’accès à l’analyse de texte pour le conteneur d’intégrité requiert un [formulaire de demande](https://aka.ms/cognitivegate). Actuellement, vous ne serez pas facturé pour son utilisation.
+> * Les emplacements de l’image du conteneur peuvent avoir été modifiés récemment. Lisez cet article pour voir l’emplacement mis à jour de ce conteneur.
 
 Les conteneurs vous permettent d’exécuter les API d’analyse de texte dans votre propre environnement et sont très utiles pour répondre à vos besoins spécifiques en matière de sécurité et de gouvernance des données. Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. 
 

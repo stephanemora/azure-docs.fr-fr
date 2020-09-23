@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906687"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans ce tutoriel avancé, vous allez découvrir comment créer un pipeline Azure Machine Learning pour exécuter un travail de scoring par lots. Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme. 
 
-L’exemple utilise un modèle de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné implémenté dans Tensorflow pour classifier les images sans étiquette. [En savoir plus sur les pipelines Machine Learning](concept-ml-pipelines.md).
+Dans ce tutoriel avancé, vous allez découvrir comment créer un [pipeline Azure Machine Learning](concept-ml-pipelines.md) pour exécuter un travail de scoring par lots. Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme. 
+
+L’exemple utilise un modèle de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné implémenté dans Tensorflow pour classifier les images sans étiquette. 
 
 Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0718151039d88ffb76a07ce082c08fb011dab88b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652374"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061600"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutoriel : Déplacer des ressources Azure SQL Database dans une autre région
 
@@ -77,7 +77,6 @@ Sélectionnez les ressources que vous souhaitez déplacer.
 
 3. Dans **Déplacer des ressources** > **Source + destination**, sélectionnez l’abonnement et la région sources.
 4. Dans **Destination**, sélectionnez la région vers laquelle vous souhaitez déplacer les ressources. Cliquez ensuite sur **Suivant**.
-5. Dans **Région des métadonnées**, sélectionnez l’emplacement où vous voulez stocker les métadonnées relatives aux ressources que vous déplacez. Un groupe de ressources est créé spécifiquement à cet effet. Cliquez ensuite sur **Suivant**.
 
     ![Page de sélection de la région source et de la région de destination](./media/tutorial-move-region-sql/source-target.png)
 
@@ -227,7 +226,7 @@ Commencez à déplacer les bases de données.
 Après le déplacement initial, vous pouvez décider si vous souhaitez valider le déplacement ou l’abandonner. 
 
 - **Abandonner** : vous pouvez abandonner un déplacement si vous effectuez un test et que vous ne souhaitez pas déplacer réellement la ressource source. Si vous abandonnez le déplacement, la ressource reviendra à l’état **Lancement du déplacement en attente**.
-- **Valider** : La validation termine le déplacement vers la région cible. Après sa validation, une ressource source se présente avec l’état de **Suppression de la source en attente**, et vous pouvez décider si vous souhaitez la supprimer.
+- **Valider** : La validation termine le déplacement vers la région cible. Après sa validation, une ressource source se présente avec l’état de **Suppression de la source en attente**, et vous pouvez décider si vous voulez la supprimer.
 
 
 ## <a name="discard-the-move"></a>Abandonner le déplacement 

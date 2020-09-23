@@ -1,18 +1,18 @@
 ---
 title: Gérer les cartes réseau pour la récupération d'urgence locale avec Azure Site Recovery
 description: Décrit comment gérer les interfaces réseau pour la reprise d’activité de machines locales sur Azure avec Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
-ms.author: mayg
-ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: 4dad7f76edf34782131c7c844978763cda53acc7
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129886"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068113"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gérer des interfaces réseau de machines virtuelles pour la récupération d'urgence en local sur Azure
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887652"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -126,7 +126,7 @@ La restauration de sauvegardes natives (fichiers .bak) issues d’une instance S
 
 Le diagramme suivant fournit une vue d’ensemble du processus :
 
-![flux de migration](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![Le diagramme affiche SQL Server avec une flèche intitulée SAUVEGARDE / Télécharger vers l’URL qui passe à Azure Storage, et une deuxième flèche intitulée RESTAURER à partir de l’URL qui circule du stockage Azure vers une Managed Instance de SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 Le tableau suivant fournit des informations supplémentaires sur les méthodes que vous pouvez utiliser en fonction de la version de SQL Server source que vous exécutez :
 
@@ -198,7 +198,7 @@ Même si vous n’effectuez aucune modification dans Managed Instance lors de la
 
 Par exemple, vous n’êtes pas obligé de créer des sauvegardes sur une instance gérée : le service les effectue pour vous automatiquement. Vous n’avez plus à vous soucier de la planification, de l’exécution et de la gestion des sauvegardes. Une instance SQL Managed Instance vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](../database/recovery-using-backups.md#point-in-time-restore). De plus, vous n’avez pas à vous soucier de la configuration de la [haute disponibilité](../database/high-availability-sla.md) car elle est intégrée.
 
-Pour renforcer la sécurité, prévoyez d’utiliser l’[authentification Azure Active Directory](../database/security-overview.md), l’[audit](auditing-configure.md), la [détection des menaces](../database/advanced-data-security.md), la [sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) et le [masquage dynamique des données](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Pour renforcer la sécurité, prévoyez d’utiliser l’[authentification Azure Active Directory](../database/security-overview.md), l’[audit](auditing-configure.md), la [détection des menaces](../database/azure-defender-for-sql.md), la [sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) et le [masquage dynamique des données](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 En plus des fonctionnalités avancées en matière de sécurité et de gestion, l’instance gérée fournit un ensemble d’outils perfectionnés pouvant vous aider dans la [supervision et l’optimisation de votre charge de travail](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) vous permet d’analyser un vaste ensemble d’instances gérées et de centraliser la supervision d’un grand nombre d’instances et de bases de données. Dans l’instance gérée, le [réglage automatique](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) surveille en permanence les performances de vos statistiques d’exécution du plan SQL, et résout automatiquement les problèmes de performances identifiés.
 

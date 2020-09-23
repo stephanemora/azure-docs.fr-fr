@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: ee3808684ab2548999d71fe0d31fa9a160cd9347
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200058"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986629"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recommandations de sécurité pour Stockage File d’attente
 
@@ -30,7 +30,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
 | Utiliser le Modèle de déploiement Azure Resource Manager | Créez des comptes de stockage en utilisant le Modèle de déploiement Azure Resource Manager pour les améliorations de sécurité importantes, notamment les fonctionnalités de contrôle d’accès (RBAC) et d’audit de premier plan, le déploiement et la gouvernance basés sur Resource Manager, l’accès aux identités managées, l’accès pour Azure Key Vault pour les secrets, et l’authentification et l’autorisation basées sur Azure AD pour l’accès aux données et aux ressources de Stockage Azure. Si possible, migrez les comptes de stockage existants qui utilisent le Modèle de déploiement classique pour qu’ils utilisent Azure Resource Manager. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
-| Activez Advanced Threat Protection pour tous vos comptes de stockage | La protection avancée contre les menaces pour Stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées dans Azure Security Center quand des anomalies se produisent dans des activités ; elles sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de remédier aux menaces. Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](../common/storage-advanced-threat-protection.md). | [Oui](../../security-center/security-center-sql-service-recommendations.md) |
+| Activez Advanced Threat Protection pour tous vos comptes de stockage | La protection avancée contre les menaces pour Stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées dans Azure Security Center quand des anomalies se produisent dans des activités ; elles sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de remédier aux menaces. Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](../common/azure-defender-storage-configure.md). | [Oui](../../security-center/security-center-sql-service-recommendations.md) |
 | Limiter les jetons de signature d’accès partagé (SAS) aux seules connexions HTTPS | Le fait d’exiger HTTPS lorsqu’un client utilise un jeton SAS pour accéder à des données de file d’attente permet de réduire le risque d’écoute. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès

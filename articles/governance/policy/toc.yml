@@ -86,12 +86,18 @@
     - name: Comprendre les effets
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Étendue
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: Structure d’initiative
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: Structure d’attribution
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Structure d’exemption
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: Évaluer l’impact d’une nouvelle stratégie
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md

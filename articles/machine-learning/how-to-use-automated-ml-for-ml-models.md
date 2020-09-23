@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904965"
+ms.locfileid: "90985575"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -86,7 +86,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
             
         Sélectionnez **Next** (Suivant).
 
-    1. Le formulaire **Confirmer les détails** est un résumé des informations précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**. Vous avez également la possibilité de créer un profil de données pour votre jeu de données à l’aide d’un calcul activé pour le profilage. En savoir plus sur le [profilage des données](#profile).
+    1. Le formulaire **Confirmer les détails** est un résumé des informations précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**. Vous avez également la possibilité de créer un profil de données pour votre jeu de données à l’aide d’un calcul activé pour le profilage. En savoir plus sur le [profilage des données](how-to-connect-data-ui.md#profile).
 
         Sélectionnez **Suivant**.
 1. Sélectionnez votre jeu de données récemment créé une fois qu’il apparaît. Vous pouvez également afficher un aperçu du jeu de données et des exemples de statistiques. 
@@ -111,7 +111,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
     Sélectionnez **Create** (Créer). La création d’un calcul peut prendre quelques minutes.
 
     >[!NOTE]
-    > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d’informations, consultez la section sur le [profilage des données](#profile)).
+    > Le nom de votre calcul indique si le *profilage est activé* pour le calcul que vous sélectionnez/créez. (Pour plus d’informations, consultez la section sur le [profilage des données](how-to-connect-data-ui.md#profile)).
 
     Sélectionnez **Suivant**.
 
@@ -144,32 +144,6 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
 1. (Facultatif) Afficher les paramètres de caractérisation : si vous choisissez d’activer **Caractérisation automatique** dans le formulaire **Paramètres de configuration supplémentaires** formulaire, les techniques caractérisation par défaut sont appliquées. Dans **Afficher les paramètres de caractérisation**, vous pouvez modifier ces valeurs par défaut et les personnaliser en conséquence. Découvrez comment [personnaliser la caractérisation](#customize-featurization). 
 
     ![Formulaire de type de tâche Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>Profilage des données et résumé des statistiques
-
-Vous pouvez obtenir un vaste éventail de statistiques de synthèse dans votre jeu de données afin de vérifier si ce dernier est prêt pour le Machine Learning. Les colonnes non numériques incluent uniquement des statistiques de base telles que min, max et nombre d’erreurs. Les colonnes numériques vous permettent également de consulter les statistiques et quantiles estimés. Plus précisément, notre profil de données inclut :
-
->[!NOTE]
-> Les entrées vides apparaissent pour les fonctionnalités avec types non pertinents.
-
-Statistique|Description
-------|------
-Fonctionnalité| Nom de la colonne en cours de synthèse.
-Profil| Visualisation en ligne en fonction du type déduit. Par exemple, les chaînes, valeurs booléennes et dates incluront des nombres de valeurs, et les décimales (valeurs numériques) des histogrammes approximatifs. Cela vous permet de vous faire une idée rapide de la distribution des données.
-Distribution des types| Nombre de valeurs en ligne de types au sein d’une colonne. Les valeurs Null ont un type propre et dès lors, cette visualisation est utile pour détecter les valeurs impaires ou manquantes.
-Type|Type déduit de la colonne. Les valeurs possibles incluent : chaînes, valeurs booléennes, dates et décimales.
-Min| Valeur minimale de la colonne. Les entrées vides apparaissent pour les fonctionnalités dont le type n’a pas d'ordre inhérent (valeurs booléennes, par exemple).
-Max| Valeur maximale de la colonne. 
-Count| Nombre total d’entrées manquantes et non manquantes de la colonne.
-Non manquant| Nombre d’entrées dans la colonne qui ne sont pas manquantes. Les chaînes vides et les erreurs sont traitées en tant que valeurs et donc n’entrent pas dans « Non manquant ».
-Quantiles| Valeurs approximatives à chaque quantile pour donner une idée de la distribution des données.
-Moyenne| Moyenne arithmétique ou moyenne de la colonne.
-Écart standard| Mesure de la dispersion ou de la variation des données de cette colonne.
-Variance| Mesure jusqu’où les données de cette colonne sont déployées par rapport à leur valeur moyenne. 
-Asymétrie| Mesure de la différence entre les données de cette colonne et une distribution normale.
-Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
 
 ## <a name="customize-featurization"></a>Personnaliser la caractérisation
 

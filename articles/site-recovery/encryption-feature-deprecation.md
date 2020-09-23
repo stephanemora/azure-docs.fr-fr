@@ -2,18 +2,18 @@
 title: Dépréciation de la fonctionnalité de chiffrement de données Azure Site Recovery | Microsoft Docs
 description: Détails concernant la fonctionnalité de chiffrement de données Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: rajanaki
-ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sharrai
+ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086181"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426314"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Dépréciation de la fonctionnalité de chiffrement de données Site Recovery
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526501"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436185"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Résoudre les problèmes de démarrage de machine virtuelle Linux dus à des erreurs de système de fichiers
 
@@ -83,7 +83,7 @@ Pour résoudre ce problème, démarrez la machine virtuelle en mode d’urgence 
 
    > [!Note]
    > Pour plus d’informations sur l’utilisation de la console série pour Linux, consultez :
-   > * [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](../linux/serial-console-grub-single-user-mode.md)
+   > * [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md)
    > * [Utiliser la console série pour les appels SysRq et NMI](./serial-console-nmi-sysrq.md)
 
 2. Sélectionnez l’icône du bouton d’alimentation, puis sélectionnez Redémarrer la machine virtuelle. (Si la console série n’est pas activée ou n’est pas connectée correctement, le bouton ne s’affiche pas.)

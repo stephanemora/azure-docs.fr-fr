@@ -1,19 +1,19 @@
 ---
 title: Vérification de l’état des travaux Azure Import/Export - v1 | Microsoft Docs
 description: Découvrez comment utiliser les fichiers journaux créés par le travail d’importation ou d’exportation pour connaître l’état du travail.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/26/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9093af25e621b3ab9a60d9894f0a875340fda45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525667"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056320"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Vérification de l’état des travaux Azure Import/Export avec les copies des fichiers journaux
 Lorsque le service Microsoft Azure Import/Export traite les lecteurs associés à un travail d’importation ou d’exportation, il écrit les fichiers journaux de copie dans le compte de stockage utilisé pour importer ou exporter des objets blob. Le fichier journal contient l’état détaillé de chaque fichier importé ou exporté. Le service retourne l’URL de chaque fichier journal de copie lorsque vous interrogez l’état d’un travail terminé. Pour plus d’informations, consultez [Obtenir un travail](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  

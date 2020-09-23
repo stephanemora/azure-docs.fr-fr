@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906519"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -30,7 +30,7 @@ La vue [Analyse des performances des requêtes](concepts-query-performance-insig
 
 Sur la page du portail de votre serveur Azure Database pour PostgreSQL, sélectionnez **Analyse des performances des requêtes** sous la section **Performances intelligentes** de la barre de menus.
 
-![Requêtes longues d’analyse des performances des requêtes](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Requêtes longues d’analyse des performances des requêtes":::
 
 L’onglet **Requêtes longues** montre les 5 requêtes dont la durée moyenne d’exécution est la plus longue, agrégées par intervalles de 15 minutes. Vous pouvez afficher plus de requêtes en faisant une sélection dans la liste déroulante **Nombre de requêtes**. Quand vous faites cela, les couleurs du graphique peuvent changer pour un ID de requête spécifique.
 
@@ -40,7 +40,7 @@ Le tableau sous le graphique fournit plus d’informations sur les requêtes lon
 
 Sélectionnez l’onglet **Statistiques sur les attentes** pour voir les visualisations correspondantes sur les temps d’attente dans le serveur.
 
-![Statistiques sur les attentes de l’analyse des performances des requêtes](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Statistiques sur les attentes de l’analyse des performances des requêtes":::
 
 ## <a name="considerations"></a>Considérations
 * Query Performance Insight n’est pas disponible pour les [réplicas en lecture](concepts-read-replicas.md).

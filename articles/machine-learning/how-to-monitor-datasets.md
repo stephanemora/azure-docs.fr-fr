@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 270e93302a90c458ccbdfdc4d2ced8f0d3c263af
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319675"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905142"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > La détection de la dérive de données sur les jeux de données est actuellement en préversion publique.
@@ -38,15 +38,12 @@ Un [jeu de données Azure Machine learning](how-to-create-register-datasets.md) 
 
 Vous pouvez afficher les métriques de dérive des données avec le kit de développement logiciel (SDK) Python ou dans Azure Machine Learning Studio.  Les autres métriques et insights sont disponibles par le biais de la ressource [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associée à l’espace de travail Azure Machine Learning.
 
-> [!Important]
-> La surveillance de la dérive des données avec le kit SDK est disponible dans toutes les éditions. Cependant, la surveillance des données dérivées par le studio sur le web est uniquement disponible avec l'édition Enterprise.
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour créer et utiliser des analyses de jeux de données, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
-* Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), qui inclut le paquet azureml-datasets.
+* Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), qui inclut le paquet azureml-datasets.
 * Données structurées (tabulaires) avec un horodatage spécifié dans le chemin d’accès du fichier, le nom de fichier ou la colonne dans les données.
 
 ## <a name="what-is-data-drift"></a>Qu’est-ce qu’une dérive de données ?
@@ -105,7 +102,7 @@ Le jeu de données cible doit avoir la caractéristique `timeseries` définie su
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Kit SDK Python
 
-Dans la classe [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
+Dans la classe [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-), la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) définit la colonne timestamp du jeu de données.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -132,10 +129,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Pour obtenir un exemple complet d’utilisation de la caractéristique `timeseries` de jeux de données, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou la [documentation du SDK des jeux de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Si vous créez votre jeu de données à l’aide de Azure Machine Learning Studio, assurez-vous que le chemin d’accès à vos données contient des informations d’horodatage, incluez tous les sous-dossiers avec des données et définissez le format de partition.
 
@@ -209,15 +205,13 @@ monitor = monitor.enable_schedule()
 Pour obtenir un exemple complet de configuration d’un jeu de données et d’un détecteur de dérive de données `timeseries`, consultez notre [exemple de notebook](https://aka.ms/datadrift-notebook).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a>Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-Pour configurer des alertes sur votre analyse de jeu de données, l’espace de travail qui contient le jeu de données pour lequel vous souhaitez créer une analyse doit disposer des fonctionnalités Enterprise Edition.
+1. Accédez à la [page d’accueil du studio](https://ml.azure.com).
+1. Sélectionnez l’onglet **Jeux de données** à gauche. 
+1. Sélectionnez **Analyses de jeu de données**.
+   ![Liste des analyses](./media/how-to-monitor-datasets/monitor-list.png)
 
-Après avoir vérifié que l’espace de travail est fonctionnel, accédez à la [page d’accueil de Studio](https://ml.azure.com), puis sélectionnez l’onglet **Jeux de données** sur la gauche. Sélectionnez **Analyses de jeu de données**.
-
-![Liste des analyses](./media/how-to-monitor-datasets/monitor-list.png)
-
-Cliquez sur le bouton **+Créer une analyse**, puis passez à la prochaine étape de l’assistant en cliquant sur **Suivant**.  
+1. Cliquez sur le bouton **+Créer une analyse**, puis passez à la prochaine étape de l’assistant en cliquant sur **Suivant**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Créer un assistant d'analyse":::
 
