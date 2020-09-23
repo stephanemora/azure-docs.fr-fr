@@ -1,6 +1,6 @@
 ---
-title: Définir un mot de passe Azure Resource Manager sur votre appareil GPU Azure Stack Edge
-description: Décrit comment se connecter à l’infrastructure Azure Resource Manager s’exécutant sur votre GPU Azure Stack Edge à l’aide d’Azure PowerShell.
+title: Définir un mot de passe Azure Resource Manager sur votre appareil Azure Stack Edge Pro avec GPU
+description: Décrit comment se connecter à l’infrastructure Azure Resource Manager s’exécutant sur votre Azure Stack Edge Pro avec GPU à l’aide d’Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904490"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Définir un mot de passe Azure Resource Manager sur un appareil GPU Azure Stack Edge
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Définir un mot de passe Azure Resource Manager sur un appareil Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ La procédure permettant de définir le mot de passe peut être différente selo
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Utilisez les chaînes sécurisées générées ci-dessus comme paramètres dans la cmdlet Set-AzDataBoxEdgeUser pour réinitialiser le mot de passe. Utilisez le même groupe de ressources que celui utilisé lors de la création de la ressource Azure Stack Edge/Data Box Gateway.
+    Utilisez les chaînes sécurisées générées ci-dessus comme paramètres dans la cmdlet Set-AzDataBoxEdgeUser pour réinitialiser le mot de passe. Utilisez le même groupe de ressources que celui utilisé lors de la création de la ressource Azure Stack Edge Pro/Data Box Gateway.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

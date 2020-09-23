@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278137"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905470"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
 Dans Azure Security Center, il existe une variété d’alertes pour les nombreux types de ressources. Security Center génère des alertes pour les ressources déployées sur Azure et pour les ressources déployées sur les environnements cloud hybride et locaux.
 
-Les alertes de sécurité sont déclenchées par des détections avancées et sont disponibles uniquement dans le niveau Standard d’Azure Security Center. Un essai gratuit est disponible. Vous pouvez procéder à une mise à niveau à partir de la page **Tarification et paramètres**. En savoir plus sur la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Les alertes de sécurité sont déclenchées par des détections avancées et sont disponibles uniquement avec Azure Defender. Un essai gratuit est disponible. Vous pouvez procéder à une mise à niveau à partir de la page **Tarification et paramètres**. En savoir plus sur la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="respond-to-todays-threats"></a>Répondre aux menaces actuelles <a name="respond-threats"> </a>
 
@@ -45,7 +45,7 @@ Un **incident de sécurité** est une collection d’alertes apparentées, par o
 
 ## <a name="how-does-security-center-detect-threats"></a>Comment Security Center détecte-t-il les menaces ? <a name="detect-threats"> </a>
 
-Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nouvelles menaces. Grâce à la présence mondiale de Microsoft sur le cloud et localement, ils ont accès à un vaste jeu de télémétrie. La collection diverse et étendue de jeux de données permet de détecter de nouveaux modèles et de nouvelles tendances d’attaques dans ses produits locaux destinés au consommateur et aux entreprises, ainsi que dans ses services en ligne. Par conséquent, Azure Security Center peut rapidement mettre à jour ses algorithmes de détection, puisque les pirates sont à l’origine d’attaques innovantes de plus en plus sophistiquées. Cette approche permet de faire face à des menaces en pleine mutation.
+Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nouvelles menaces. Grâce à notre présence mondiale sur le cloud et localement, nous avons accès à un vaste jeu de télémétrie. Cette collection diverse et étendue de jeux de données nous permet de détecter de nouveaux modèles et de nouvelles tendances d’attaques dans nos produits locaux destinés au consommateur et aux entreprises, ainsi que dans nos services en ligne. Par conséquent, Azure Security Center peut rapidement mettre à jour ses algorithmes de détection, puisque les pirates sont à l’origine d’attaques innovantes de plus en plus sophistiquées. Cette approche permet de faire face à des menaces en pleine mutation.
 
 Pour détecter les menaces réelles et réduire le nombre de faux positifs, Security Center collecte, analyse et intègre automatiquement les données de journaux provenant de vos ressources Azure et du réseau. Cela fonctionne également avec les solutions de partenaires connectées, comme les solutions de pare-feu et de protection de point de terminaison. Security Center analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces.
 
@@ -90,6 +90,5 @@ Ces efforts combinés aboutissent à de nouvelles détections et à des amélior
 
 Cet article vous a présenté les différents types d’alertes disponibles dans Azure Security Center. Pour plus d'informations, consultez les pages suivantes :
 
-* [Protection contre les menaces dans Azure Security Center](threat-protection.md) : vous y trouverez une brève description des sources des alertes de sécurité qui s’affichent dans Azure Security Center. 
-* [Alertes de sécurité dans le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) : en plus d’être disponibles sur le Portail Azure ou programmatiquement, les alertes et les incidents de sécurité sont audités en tant qu’événements dans le **Journal d’activité Azure**. Pour plus d’informations sur le schéma d’événement, consultez [Alertes de sécurité dans le journal d’activité Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
+- [Alertes de sécurité dans le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) : en plus d’être disponibles sur le Portail Azure ou programmatiquement, les alertes et les incidents de sécurité sont audités en tant qu’événements dans le **Journal d’activité Azure**. Pour plus d’informations sur le schéma d’événement, consultez [Alertes de sécurité dans le journal d’activité Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 

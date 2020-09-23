@@ -1,14 +1,14 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044190"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905964"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -18,8 +18,7 @@ Les cas d’usage courants pour Azure Policy incluent la mise en œuvre de la go
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Policy évalue les ressources dans Azure en comparant les propriétés de ces ressources aux règles d’entreprise. Ces règles d’entreprise, décrites au [format JSON](./concepts/definition-structure.md), sont appelées [définitions de stratégie](#policy-definition). Pour simplifier la gestion, plusieurs règles d’entreprise peuvent être regroupées pour former une [initiative de stratégie](#initiative-definition) (parfois appelée _policySet_). Une fois que vos règles d’entreprise ont été formées, l’initiative ou la définition de stratégie est [affectée](#assignments) à n’importe quelle étendue de ressources prise en charge par Azure, comme des [groupes d’administration](../management-groups/overview.md), des abonnements, des [groupes de ressources](../../azure-resource-manager/management/overview.md#resource-groups) ou des ressources individuelles. L’affectation s’applique à toutes les ressources au sein de l’[étendue](../../azure-resource-manager/management/overview.md#understand-scope) de cette affectation.
-Des sous-étendues peuvent être exclues, si nécessaire.
+Azure Policy évalue les ressources dans Azure en comparant les propriétés de ces ressources aux règles d’entreprise. Ces règles d’entreprise, décrites au [format JSON](./concepts/definition-structure.md), sont appelées [définitions de stratégie](#policy-definition). Pour simplifier la gestion, plusieurs règles d’entreprise peuvent être regroupées pour former une [initiative de stratégie](#initiative-definition) (parfois appelée _policySet_). Une fois que vos règles d’entreprise ont été formées, l’initiative ou la définition de stratégie est [affectée](#assignments) à n’importe quelle étendue de ressources prise en charge par Azure, comme des [groupes d’administration](../management-groups/overview.md), des abonnements, des [groupes de ressources](../../azure-resource-manager/management/overview.md#resource-groups) ou des ressources individuelles. L’affectation s’applique à toutes les ressources au sein de l’[étendue Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de cette affectation. Des sous-étendues peuvent être exclues, si nécessaire. Pour plus d’informations, consultez [Étendue d’Azure Policy](./concepts/scope.md).
 
 Azure Policy utilise un [format JSON](./concepts/definition-structure.md) afin de former la logique utilisée par l’évaluation pour déterminer si une ressource est conforme ou non. Les définitions incluent des métadonnées et la règle de stratégie. La règle définie peut utiliser des fonctions, des paramètres, des opérateurs logiques, des conditions et des [alias](./concepts/definition-structure.md#aliases) de propriété afin d’établir une correspondance exacte au scénario de votre choix. La règle de stratégie détermine quelles ressources de l’étendue de l’affectation sont évaluées.
 

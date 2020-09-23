@@ -1,5 +1,5 @@
 ---
-title: Détermination du type d’application – Hyperscale (Citus) – Azure Database pour PostgreSQL
+title: Déterminer le type d’application – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Identifier votre application pour une modélisation des données distribuée efficace
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0daed8e9bba247ae3d4e320e4a02cc2b1b26dbec
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895955"
 ---
 # <a name="determining-application-type"></a>Détermination du type d’application
 

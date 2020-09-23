@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475241"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032025"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Utiliser les modèles IoT Plug-and-Play dans une solution IoT
 
@@ -40,7 +40,7 @@ Une solution peut obtenir l’ID de modèle de l’appareil IoT Plug-and-Play à
 
 ### <a name="get-device-twin-api"></a>API Obtenir un jumeau d’appareil
 
-La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
+La solution peut utiliser l’API [Obtenir un jumeau d’appareil](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) pour récupérer l’ID de modèle de l’appareil IoT Plug-and-Play.
 
 Dans l’extrait de code suivant de réponse de jumeau d’appareil, `modelId` contient l’ID de modèle d’un appareil IoT Plug-and-Play :
 

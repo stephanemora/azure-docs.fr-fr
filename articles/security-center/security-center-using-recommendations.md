@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783229"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904670"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
+
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
 
 Security Center exécute automatiquement des analyses en continu pour examiner l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires. Security Center met à jour ses recommandations dans les 24 heures, avec les exceptions suivantes :
@@ -40,7 +41,7 @@ David, de la sécurité informatique de Contoso, a déjà choisi d’intégrer S
 
 Security Center analyse automatiquement l’état de sécurité des ressources Azure de Contoso avant d’appliquer les stratégies de sécurité par défaut. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des **recommandations** en fonction des contrôles définis dans la stratégie de sécurité. 
 
-David exécute le niveau standard d’Azure Security sur tous ses abonnements pour obtenir l’intégralité des recommandations et des fonctionnalités de sécurité disponibles. Jeff intègre également tous ses serveurs locaux existants qui n’ont pas encore migré vers le cloud pour pouvoir tirer parti de la prise en charge hybride de Security Center sur l’ensemble de ses serveurs [Windows](quick-onboard-windows-computer.md) et [Linux](quick-onboard-linux-computer.md).
+David exécute Azure Security avec Azure Defender activé, parmi tous ses abonnements, pour obtenir la suite complète de suggestions et de fonctionnalités de sécurité disponibles. Jeff intègre également tous les serveurs locaux existants qui n’ont pas encore été migrés vers le Cloud, afin qu’ils puissent tirer parti de la prise en charge hybride de Security Center sur leurs serveurs [Windows et Linux](quickstart-onboard-machines.md).
 
 Jeff est propriétaire d’une charge de travail cloud. Il est chargé d’appliquer des contrôles de sécurité conformément aux stratégies de sécurité de Contoso. 
 
@@ -59,13 +60,18 @@ Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à
 
 3. Jeff doit déterminer quelles recommandations gérer en premier. Jeff clique donc sur le degré de sécurisation et commence à gérer les recommandations selon l’amélioration qu’elles apportent à son [degré de sécurisation](secure-score-security-controls.md).
 
-4. Étant donné que Jeff a un grand nombre de machines virtuelles et serveurs connectés, il décide de se concentrer sur **Compute et applications**.
+4. Jeff ayant beaucoup de machines virtuelles connectées, Jeff décide de se concentrer sur ses machines dans [inventaire des ressources](asset-inventory.md).
 
-5. Quand il clique sur **Compute et applications**, il voit la liste des recommandations et les gère en fonction de leur impact sur le degré de sécurisation.
+5. Lorsque Jeff ouvre l’inventaire des ressources, une liste de suggestions s’affiche. Jeff les gère en fonction de l’impact sur le score sécurisé.
 
 6. Jeff a de nombreuses machines virtuelles accessibles sur Internet. Étant donné que leurs ports sont exposés, il craint qu’un attaquant ne prenne le contrôle des serveurs. Jeff choisit donc d’utiliser [**l’accès juste-à-temps aux machines virtuelles**](security-center-just-in-time.md).
 
 Jeff continue de parcourir les recommandations de priorité élevée et moyenne et choisit de les appliquer ou pas. Pour chaque recommandation, il examine les informations détaillées fournies par Security Center pour se faire une idée des ressources impactées, de l’impact du degré de sécurisation, de la signification de chaque recommandation et des étapes à suivre pour atténuer chaque problème.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Appliquer des suggestions pour empêcher les configurations incorrectes de sécurité
+
+Pour vous assurer que les utilisateurs ne créent pas de ressources qui ont un impact négatif sur le score de Jeff, ils configurent les options appliquer et refuser sur les suggestions les plus importantes pour eux. Pour plus d’informations, consultez [Empêcher des configurations incorrectes avec des recommandations Appliquer/Refuser](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Conclusion
 Superviser les recommandations dans Security Center vous permet d’éliminer les failles de sécurité avant qu’une attaque ne se produise. Quand vous appliquez les recommandations, votre degré de sécurisation et la posture de sécurité de vos charges de travail s’améliorent. Security Center détecte automatiquement les nouvelles ressources que vous déployez, les évalue par rapport à votre stratégie de sécurité et fournit de nouvelles recommandations pour les sécuriser.

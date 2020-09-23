@@ -6,16 +6,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694903"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469981"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Créer un locataire Azure AD pour Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift nécessite un locataire [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) pour créer votre cluster. Un *locataire* est une instance Azure AD dédiée reçue par une organisation ou un développeur d’applications lorsque l’un ou l’autre crée une relation avec Microsoft en s’inscrivant à Azure, Microsoft Intune ou Microsoft 365. Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de ses propres identités professionnelles et scolaires et de ses propres inscriptions d’application.
+Microsoft Azure Red Hat OpenShift nécessite un locataire [Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) pour créer votre cluster. Un *locataire* est une instance Azure AD dédiée reçue par une organisation ou un développeur d’applications lorsque l’un ou l’autre crée une relation avec Microsoft en s’inscrivant à Azure, Microsoft Intune ou Microsoft 365. Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de ses propres identités professionnelles et scolaires et de ses propres inscriptions d’application.
 
 Si vous ne disposez pas d’un locataire Azure AD, suivez ces instructions pour en créer un.
 
@@ -39,7 +39,7 @@ Pour créer un locataire :
 
 ## <a name="resources"></a>Ressources
 
-Consultez la [documentation Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) pour plus d’informations sur les [locataires Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Consultez la [documentation Azure Active Directory](../active-directory/index.yml) pour plus d’informations sur les [locataires Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
-ms.openlocfilehash: 766245dcfe42c16106df6beed938fe2f04af05cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286658"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468655"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Vous pouvez accéder à Cloud Shell de trois façons :
 
     ![Icône permettant de lancer Cloud Shell à partir du portail Azure](media/overview/portal-launch-icon.png)
 
-- **Extraits de code** : Sur [docs.microsoft.com](https://docs.microsoft.com) et [Microsoft Learn](https://docs.microsoft.com/learn/), sélectionnez le bouton **Essayer** qui s’affiche avec les extraits de code Azure CLI et Azure PowerShell :
+- **Extraits de code** : Sur [docs.microsoft.com]() et [Microsoft Learn](/learn/), sélectionnez le bouton **Essayer** qui s’affiche avec les extraits de code Azure CLI et Azure PowerShell :
 
     ```azurecli-interactive
     az account show
@@ -87,8 +87,8 @@ Cloud Shell est un outil flexible qui s’utilise à partir de :
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentation d’Azure CLI](https://docs.microsoft.com/cli/azure)
-* [Documentation d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+* [Documentation d’Azure CLI](/cli/azure)
+* [Documentation d’Azure PowerShell](/powershell/azure/)
 * [Application mobile Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extension Azure Account pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -111,7 +111,7 @@ Apprenez à monter un [compte de stockage nouveau ou existant](persisting-shell-
 * Cloud Shell rend $HOME persistant en conservant une image de 5 Go dans votre partage de fichiers
 * Les autorisations sont définies en tant qu’utilisateur Linux standard dans Bash
 
-En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell](features-powershell.md).
+En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell](./features.md).
 
 ## <a name="pricing"></a>Tarifs
 

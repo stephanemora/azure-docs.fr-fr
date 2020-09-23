@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898460"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>Détection d’anomalie reposant sur l’ACP
 
-Cet article explique comment utiliser le module Détection d’anomalie reposant sur l’ACP dans le concepteur Azure Machine Learning (préversion) pour créer un modèle de détection d’anomalie basé sur l’analyse en composantes principales (ACP).
+Cet article explique comment utiliser le module Détection d’anomalie reposant sur l’ACP dans le concepteur Azure Machine Learning pour créer un modèle de détection d’anomalie basé sur l’analyse en composantes principales (ACP).
 
 Ce module vous aide à créer un modèle dans des scénarios où il est facile d’obtenir des données d’entraînement à partir d’une classe, telles que des transactions valides, mais difficile d’obtenir suffisamment d’exemples d’anomalies ciblées. 
 
@@ -109,4 +109,4 @@ Pour chaque nouvelle entrée, le détecteur d’anomalies calcule d’abord sa p
 
 Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 
-Pour obtenir la liste des erreurs spécifiques aux modules du concepteur, consultez [Exceptions et codes d’erreur du concepteur (préversion)](designer-error-codes.md).
+Pour obtenir la liste des erreurs spécifiques aux modules du concepteur, consultez [Exceptions et codes d’erreur du concepteur](designer-error-codes.md).

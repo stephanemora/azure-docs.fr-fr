@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 95e2b268da0785816423ec1ee9c8e31730d48ed8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854107"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470049"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Créer une restauration d’application de cluster Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez préparer votre environnement pour créer une resta
 > * Configurer les composants requis et installer les outils nécessaires
 > * Créer une restauration d’application Azure Red Hat OpenShift 4
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.6.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel demande au minimum la version 2.6.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -68,5 +68,3 @@ Dans cet article, une application de cluster Azure Red Hat OpenShift 4 a été 
 Passez à l’article suivant pour en savoir plus sur les ressources prises en charge par Azure Red Hat OpenShift 4.
 
 * [Ressources prises en charge pour Azure Red Hat OpenShift v4](supported-resources.md)
-
-

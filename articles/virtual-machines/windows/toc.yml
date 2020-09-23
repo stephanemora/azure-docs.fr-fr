@@ -872,6 +872,8 @@
               href: attach-disk-ps.md
             - name: Portail Azure
               href: attach-managed-disk-portal.md
+        - name: Changer le niveau de disque
+          href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Détacher un disque
           href: detach-disk.md
         - name: Déployer des disques avec un modèle ARM

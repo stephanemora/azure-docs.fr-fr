@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: db0e2f90ee45d4e1c0173cbc037084793a66e149
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449983"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898522"
 ---
 # <a name="densenet"></a>DenseNet
 
-Cet article explique comment utiliser le module **DenseNet** dans le concepteur Azure Machine Learning (préversion) pour créer un modèle de classification d’images à l’aide de l’algorithme Densenet.  
+Cet article explique comment utiliser le module **DenseNet** dans le concepteur Azure Machine Learning pour créer un modèle de classification d’images à l’aide de l’algorithme Densenet.  
 
 Cet algorithme de classification est une méthode d’apprentissage supervisé qui nécessite un jeu de données étiqueté. Consultez le module [Convert to Image Directory](convert-to-image-directory.md) (Convertir en répertoire d’images) pour obtenir des instructions sur l’obtention d’un répertoire d’images étiquetées. Pour entraîner le modèle, indiquez ce dernier ainsi que le répertoire d’images étiquetées en tant qu’entrées du module [Train Pytorch Model](train-pytorch-model.md). Vous pouvez ensuite utiliser le modèle entraîné pour prédire les valeurs des nouveaux exemples d’entrée à l’aide du module [Score Image Model](score-image-model.md).
 

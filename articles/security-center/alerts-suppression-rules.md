@@ -1,40 +1,38 @@
 ---
 title: Suppression des faux positifs ou autres alertes de sécurité indésirables dans Azure Security Center à l’aide de règles de suppression d’alerte
-description: Cet article explique comment utiliser les règles de suppression d’Azure Security Center pour masquer les alertes de sécurité indésirables.
+description: Cet article explique comment utiliser les règles de suppression d’Azure Security Center pour masquer les alertes d’Azure Defender indésirables.
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 05/04/2020
+ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0d4c2ddc6b18d2f6767fb3a2761bc6a247e101a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904894"
 ---
-# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Supprimer les alertes de la protection contre les menaces d’Azure Security Center
+# <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
-Cette page explique comment utiliser les règles de suppression d’alerte pour supprimer les faux positifs ou autres alertes de sécurité indésirables dans Azure Security Center.
+Cette page explique comment utiliser les règles de suppression d’alerte pour supprimer les faux positifs ou autres alertes de sécurité indésirables envoyées par Azure Defender.
 
 ## <a name="availability"></a>Disponibilité
 
 |Aspect|Détails|
 |----|:----|
 |État de sortie :|PRÉVERSION|
-|Prix :|Niveau gratuit<br>(La plupart des alertes de sécurité sont uniquement destinées au niveau Standard.)|
+|Prix :|Gratuit<br>(La plupart des alertes de sécurité sont uniquement disponibles avec Azure Defender)|
 |Rôles et autorisations obligatoires :|**L’Administrateur de la sécurité** et le **Propriétaire** peuvent créer/supprimer des règles.<br>Le **Lecteur de sécurité** et le **Lecteur** peuvent consulter les règles.|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
 
-
-
 ## <a name="what-are-suppression-rules"></a>Que sont les règles de suppression ?
 
-Les composants de protection contre les menaces d’Azure Security Center détectent les menaces dans n’importe quelle zone de votre environnement et génèrent des alertes de sécurité.
+Les différents plans Azure Defender détectent les menaces dans n’importe quelle zone de votre environnement et génèrent des alertes de sécurité.
 
 Quand une alerte n’est pas intéressante ni pertinente, il est possible de la masquer manuellement. Vous pouvez également utiliser la fonctionnalité de règles de suppression pour ignorer automatiquement les alertes similaires à l’avenir. En règle générale, une règle de suppression sert à :
 
@@ -45,16 +43,15 @@ Quand une alerte n’est pas intéressante ni pertinente, il est possible de la 
 Les règles de suppression définissent les critères en fonction desquels les alertes doivent être automatiquement ignorées.
 
 > [!CAUTION]
-> La suppression des alertes de sécurité réduit la protection contre les menaces de Security Center. Vérifiez soigneusement l’impact potentiel d’une règle de suppression et surveillez-la au fil du temps.
+> La suppression des alertes de sécurité réduit la protection contre les menaces d’Azure Defender. Vérifiez soigneusement l’impact potentiel d’une règle de suppression et surveillez-la au fil du temps.
 
-![Créer une règle de suppression d’alerte](media\alerts-suppression-rules\create-suppression-rule.gif)
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Créer une règle de suppression d’alerte":::
 
 ## <a name="create-a-suppression-rule"></a>Créer une règle de suppression
 
 Il existe plusieurs façons de créer des règles permettant de supprimer les alertes de sécurité indésirables :
 
 - Pour supprimer des alertes au niveau du groupe d’administration, utilisez Azure Policy.
-
 - Pour supprimer des alertes au niveau de l’abonnement, vous pouvez utiliser le Portail Azure ou l’API REST (cf. ci-dessous).
 
 Les règles de suppression ne peuvent masquer que les alertes qui ont déjà été déclenchées sur les abonnements sélectionnés.
@@ -72,39 +69,32 @@ Pour créer une règle directement sur le Portail Azure :
         ![Bouton Créer une règle de suppression**](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. Dans le volet de nouvelle règle de suppression, entrez les détails de la nouvelle règle.
-
-    - Votre règle peut ignorer l’alerte sur **toutes les ressources** ; vous ne recevrez alors plus aucune alerte de ce type. 
-    
+    - Votre règle peut ignorer l’alerte sur **toutes les ressources** ; vous ne recevrez alors plus aucune alerte de ce type.     
     - Votre règle peut ignorer l'alerte **selon des critères spécifiques**, c’est-à-dire lorsqu’elle est associée à une adresse IP, un nom de processus, un compte d’utilisateur, une ressource Azure ou un emplacement spécifique.
 
     > [!TIP]
     > Si vous avez ouvert la page de nouvelle règle à partir d’une alerte spécifique, l’alerte et l’abonnement sont automatiquement configurés dans la nouvelle règle. Si vous avez utilisé le lien **Créer une règle de suppression**, les abonnements sélectionnés correspondent au filtre actuel sur le portail.
 
     [![Volet de création d’une règle de suppression](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
-
 1. Entrez les détails de la règle :
-
     - **Nom** : nom de la règle. Les noms de règles doivent commencer par une lettre ou un chiffre, comporter entre 2 et 50 caractères, et ne contenir aucun symbole autre que des tirets (-) ou des traits de soulignement (_). 
     - **État** : activé ou désactivé.
     - **Raison** : sélectionnez l’une des raisons prédéfinies ou « autre » si elles ne répondent pas à vos besoins.
     - **Date d’expiration** : date et heure de fin de la règle. Les règles peuvent s’exécuter pendant six mois maximum.
-
 1. Si vous le souhaitez, testez la règle à l’aide du bouton **Simuler** pour voir combien d’alertes auraient été ignorées si cette règle avait été active.
-
 1. Enregistrez la règle. 
+
 
 ## <a name="edit-a-suppression-rules"></a>Modifier les règles de suppression
 
 Pour modifier une règle que vous avez créée, accédez à la page des règles de suppression.
 
 1. Sur la page des alertes de sécurité de Security Center, sélectionnez le lien **Règles de suppression** qui se trouve en haut.
-
 1. La page règles de suppression s’ouvre avec toutes les règles des abonnements sélectionnés.
 
     [![Liste des règles de suppression](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. Pour modifier une seule règle, ouvrez le menu points de suspension (…) de la règle, puis sélectionnez **Modifier**.
-
 1. Apportez les modifications nécessaires, puis sélectionnez **Appliquer**. 
 
 ## <a name="delete-a-suppression-rule"></a>Supprimer une règle de suppression
@@ -112,13 +102,9 @@ Pour modifier une règle que vous avez créée, accédez à la page des règles 
 Pour supprimer une ou plusieurs des règles que vous avez créées, accédez à la page des règles de suppression.
 
 1. Sur la page des alertes de sécurité de Security Center, sélectionnez le lien **Règles de suppression** qui se trouve en haut.
-
 1. La page règles de suppression s’ouvre avec toutes les règles des abonnements sélectionnés.
-
 1. Pour supprimer une seule règle, ouvrez le menu points de suspension (…) de la règle, puis sélectionnez **Supprimer**.
-
 1. Pour supprimer plusieurs règles, cochez les cases correspondantes, puis sélectionnez **Supprimer**.
-
     ![Suppression d’une ou plusieurs règles de suppression](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="view-suppressed-alerts"></a>Afficher les alertes supprimées
@@ -160,7 +146,6 @@ Pour plus d’informations et des exemples d’utilisation, consultez la [docume
 
 Cet article a décrit les règles de suppression d’Azure Security Center qui ignorent automatiquement les alertes indésirables.
 
-Pour plus d’informations sur les alertes de sécurité dans Azure Security Center, consultez les pages suivantes :
+Pour plus d’informations sur les alertes de sécurité d’Azure Defender, consultez les pages suivantes :
 
-- [Alertes de sécurité et chaîne de frappe intentionnelle](alerts-reference.md) : guide de référence des alertes de sécurité possibles du module de protection contre les menaces d’Azure Security Center.
-- [Protection contre les menaces dans Azure Security Center](threat-protection.md) : description des nombreux aspects de l’environnement qui sont surveillés par le module de protection contre les menaces de Azure Security Center.
+- [Alertes de sécurité et chaîne de destruction d’intention](alerts-reference.md) : Guide de référence sur les alertes de sécurité envoyées par Azure Defender.

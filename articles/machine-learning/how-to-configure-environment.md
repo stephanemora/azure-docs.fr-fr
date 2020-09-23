@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 4ccf89a4dcb2c91cfdd96b20d74b7f31596b6249
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144887"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898274"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, vous allez découvrir comment configurer un environnement de développement pour qu’il fonctionne avec Azure Machine Learning. Azure Machine Learning est indépendant de toute plateforme. La seule exigence matérielle pour votre environnement de développement est Python 3. Un environnement isolé comme Anaconda ou Virtualenv est également recommandé.
 
@@ -61,7 +61,7 @@ Vous n’avez rien à installer ou à configurer pour une instance de calcul.  c
 
 Pour en savoir plus sur les instances de calcul, notamment comment installer des paquets, consultez [instances de calcul](concept-compute-instance.md).
 
-Pour mettre fin à la facturation des frais de calcul, [arrêtez l’instance de calcul](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+Pour mettre fin à la facturation des frais de calcul, [arrêtez l’instance de calcul](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 
@@ -185,7 +185,7 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes. Pour plus d'informations sur les options d'installation, consultez le [guide d'installation](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+   L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes. Pour plus d'informations sur les options d'installation, consultez le [guide d'installation](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 1. Installez d’autres packages pour votre expérimentation d’apprentissage automatique.
 
@@ -361,7 +361,7 @@ Pour utiliser ce fichier à partir de votre code, utilisez `ws=Workspace.from_co
 
 Il existe trois façons de créer le fichier de configuration :
 
-* **Utilisez [WS. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : pour écrire un fichier *config.json*. Ce fichier contient les informations de configuration pour votre espace de travail. Vous pouvez télécharger ou copier le fichier *config.json* dans d’autres environnements de développement.
+* **Utilisez [WS. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)** : pour écrire un fichier *config.json*. Ce fichier contient les informations de configuration pour votre espace de travail. Vous pouvez télécharger ou copier le fichier *config.json* dans d’autres environnements de développement.
 
 * **Téléchargez le fichier** : Dans le [portail Azure](https://ms.portal.azure.com), sélectionnez **Télécharger config.json** à partir de la section **Vue d’ensemble** de votre espace de travail.
 
@@ -389,4 +389,4 @@ Il existe trois façons de créer le fichier de configuration :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Entraîner un modèle](tutorial-train-models-with-aml.md) sur Azure Machine Learning avec le jeu de données MNIST
-- Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)

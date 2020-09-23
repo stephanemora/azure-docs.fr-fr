@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005953"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904993"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, vous allez apprendre à surveiller les exécutions d’Azure Machine Learning et à en consulter les journaux. Avant de pouvoir afficher les journaux, vous devez les activer. Pour plus d’informations, consultez [Activer la journalisation dans les exécutions de formation d’Azure ML](how-to-track-experiments.md).
 
@@ -58,7 +58,7 @@ Une fois l’exécution terminée, elle n’est plus affichée dans cette page. 
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Surveiller les exécutions avec le widget Jupyter Notebook
 
-Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
+Lorsque vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
 
 Affichez le widget Jupyter en attendant la fin de l’exécution.
     
@@ -129,7 +129,7 @@ Utilisez les méthodes suivantes dans les API de journalisation pour influencer 
 
 Essayez de suivre les étapes suivantes pour savoir comment utiliser Azure Machine Learning :
 
-* Découvrez comment [suivre les expériences et activer les journaux dans le concepteur Azure Machine Learning (version préliminaire)](how-to-track-designer-experiments.md).
+* Découvrez comment [suivre les expériences et activer les journaux dans le concepteur Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Examinez un exemple d’inscription et de déploiement du meilleur modèle dans le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).
 

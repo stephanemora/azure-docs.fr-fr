@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882877"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutoriel : utiliser Video Indexer avec Logic Apps et Power Automate
 
@@ -21,12 +21,15 @@ L’[API REST Video Indexer v2](https://api-portal.videoindexer.ai/docs/services
 
 Pour faciliter encore davantage l’intégration, nous prenons en charge les connecteurs [Logic Apps](https://azure.microsoft.com/services/logic-apps/) et [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) qui sont compatibles avec notre API. Vous pouvez utiliser les connecteurs pour configurer des workflows personnalisés afin d’indexer et d’extraire efficacement des insights à partir d’une grande quantité de fichiers vidéo et audio, sans écrire une seule ligne de code. De plus, l’utilisation des connecteurs pour l’intégration offre une meilleure visibilité de l’intégrité de votre workflow et un moyen simple de le déboguer.  
 
-Pour vous aider à bien démarrer avec les connecteurs Video Indexer, nous allons examiner pas à pas un exemple de solution Logic Apps et Power Automate que vous pouvez configurer. 
+Pour vous aider à bien démarrer avec les connecteurs Video Indexer, nous allons examiner pas à pas un exemple de solution Logic Apps et Power Automate que vous pouvez configurer. Ce tutoriel montre comment configurer des flux à l’aide de Logic Apps.
 
-Dans ce tutoriel, vous allez apprendre à :
+Le scénario « Charger et indexer votre vidéo automatiquement » abordé dans ce tutoriel est constitué de deux flux différents qui fonctionnent ensemble. 
+* Le premier flux est déclenché quand un objet blob est ajouté ou modifié dans un compte Stockage Azure. Il charge le nouveau fichier vers Video Indexer avec une URL de rappel pour envoyer une notification une fois l’opération d’indexation terminée. 
+* Le deuxième flux est déclenché en fonction de l’URL de rappel ; il enregistre les insights extraites dans un fichier JSON dans Stockage Azure. Cette approche à deux flux est utilisée pour prendre en charge le chargement asynchrone et l’indexation des fichiers volumineux de manière efficace. 
+
+Ce tutoriel utilise une application logique pour montrer comment :
 
 > [!div class="checklist"]
-> * Charger et indexer votre vidéo automatiquement.
 > * Configurer le flux de chargement de fichier.
 > * Configurer le flux d’extraction JSON.
 
@@ -34,19 +37,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, vous aurez également besoin d’un compte Video Indexer ainsi que d’un accès aux API par le biais de la clé API. 
+* Pour commencer, vous avez besoin d’un compte Video Indexer ainsi que d’un [accès aux API via la clé API](video-indexer-use-apis.md). 
+* Vous aurez aussi besoin d’un compte Stockage Azure. Prenez note de la clé d’accès de votre compte de stockage. Créez deux conteneurs : un pour stocker les vidéos et un pour stocker les insights générées par Video Indexer.  
+* Ensuite, vous devrez ouvrir deux flux distincts sur Logic Apps ou Power Automate (selon ce que vous utilisez). 
 
-Vous aurez aussi besoin d’un compte Stockage Azure. Prenez note de la clé d’accès de votre compte de stockage. Créez deux conteneurs : un pour stocker les vidéos et un pour stocker les insights générées par Video Indexer.  
+## <a name="set-up-the-first-flow---file-upload"></a>Configurer le premier flux – chargement de fichier   
 
-Ensuite, vous devrez ouvrir deux flux distincts sur Logic Apps ou Power Automate (selon ce que vous utilisez).  
-
-## <a name="upload-and-index-your-video-automatically"></a>Charger et indexer votre vidéo automatiquement. 
-
-Ce scénario se compose de deux flux différents qui fonctionnent ensemble. Le premier flux est déclenché quand un objet blob est ajouté ou modifié dans un compte Stockage Azure. Il charge le nouveau fichier vers Video Indexer avec une URL de rappel pour envoyer une notification une fois l’opération d’indexation terminée. Le deuxième flux est déclenché en fonction de l’URL de rappel ; il enregistre les insights extraites dans un fichier JSON dans Stockage Azure. Cette approche à deux flux est utilisée pour prendre en charge le chargement asynchrone et l’indexation des fichiers volumineux de manière efficace. 
-
-### <a name="set-up-the-file-upload-flow"></a>Configurer le flux de chargement de fichier 
-
-Le premier flux est déclenché chaque fois qu’un objet blob est ajouté à votre conteneur Stockage Azure. Une fois déclenché, ce flux crée un URI SAS que vous pouvez utiliser pour charger et indexer la vidéo dans Video Indexer. Commencez par créer le flux suivant. 
+Le premier flux est déclenché chaque fois qu’un objet blob est ajouté à votre conteneur Stockage Azure. Une fois déclenché, ce flux crée un URI SAS que vous pouvez utiliser pour charger et indexer la vidéo dans Video Indexer. Dans cette section, vous allez créer le flux suivant. 
 
 ![Flux de chargement de fichier](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,15 +53,17 @@ Pour configurer le premier flux, vous devez fournir votre clé API Video Indexer
 
 ![Nom de la connexion et clé API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Une fois que vous pouvez vous connecter à vos comptes Stockage Azure et Video Indexer, accédez au déclencheur « Quand un objet blob est ajouté ou modifié » et sélectionnez le conteneur dans lequel vous placerez vos fichiers vidéo. 
+Une fois que vous pouvez vous connecter à vos comptes de stockage Azure et Video Indexer, recherchez et choisissez le déclencheur « Quand un blob est ajouté ou modifié » dans le **Concepteur Logic Apps**. Sélectionnez le conteneur dans lequel vous allez placer vos fichiers vidéo. 
 
-![Conteneur](./media/logic-apps-connector-tutorial/container.png)
+![La capture d’écran montre la boîte de dialogue Quand un blob est ajouté ou modifié, dans laquelle vous pouvez sélectionner un conteneur.](./media/logic-apps-connector-tutorial/container.png)
 
-Ensuite, accédez à l’action « Créer l’URI SAP par chemin d’accès », puis sélectionnez Liste de chemins de fichiers parmi les options Contenu dynamique.  
+Ensuite, recherchez et sélectionnez l’action « Créer l’URI SAP par chemin ». Dans la boîte de dialogue de l’action, sélectionnez Liste de chemins de fichiers parmi les options de contenu dynamique.  
+
+Ajoutez également un nouveau paramètre « Protocole d’accès partagé ». Choisissez HttpsOnly comme valeur du paramètre.
 
 ![URI SAS par chemin](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Renseignez [l’emplacement et l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton de compte Video Indexer.
+Renseignez [l’emplacement](regions.md) et [l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton du compte Video Indexer.
 
 ![Obtenir le jeton d’accès au compte](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -78,7 +77,7 @@ Vous pouvez utiliser la valeur par défaut pour les autres paramètres ou les d�
 
 Cliquez sur « Enregistrer ». Nous allons maintenant passer à la configuration du deuxième flux, afin d’extraire les insights une fois le chargement et l’indexation terminés. 
 
-## <a name="set-up-the-json-extraction-flow"></a>Configurer le flux d’extraction JSON 
+## <a name="set-up-the-second-flow---json-extraction"></a>Configurer le second flux – extraction JSON  
 
 L’achèvement du chargement et de l’indexation à partir du premier flux enverra une requête HTTP avec l’URL de rappel correcte pour déclencher le second flux. Ensuite, ce flux récupère les insights générées par Video Indexer. Dans cet exemple, il stocke la sortie de votre travail d’indexation dans votre Stockage Azure.  Toutefois, c’est vous qui décidez de ce que vous pouvez faire avec la sortie.  
 
@@ -90,7 +89,7 @@ Pour configurer ce flux, vous devez fournir à nouveau votre clé API Video Inde
 
 Pour votre déclencheur, vous verrez un champ d’URL HTTP POST. L’URL ne sera générée qu’une fois que vous aurez enregistré votre flux ; toutefois, vous en aurez besoin à un moment donné. Nous y reviendrons. 
 
-Renseignez [l’emplacement et l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton de compte Video Indexer.  
+Renseignez [l’emplacement](regions.md) et [l’ID de votre compte](./video-indexer-use-apis.md#account-id) pour obtenir le jeton du compte Video Indexer.  
 
 Accédez à l’action « Obtenir un index vidéo » et renseignez les paramètres requis. Pour ID vidéo, spécifiez l’expression suivante : triggerOutputs()['queries']['id'] 
 
@@ -104,13 +103,13 @@ Accédez à l’action « Créer un objet blob » et sélectionnez le chemin d
 
 Cette expression prend la sortie de l’action « Obtenir un index vidéo » à partir de ce flux. 
 
-Cliquez sur « Enregistrer le flux ». 
+Cliquez sur **Enregistrer le flux**. 
 
 Une fois le flux enregistré, une URL HTTP POST est créée dans le déclencheur. Copiez l’URL à partir du déclencheur. 
 
 ![Enregistrer le déclencheur d’URL](./media/logic-apps-connector-tutorial/save-url-trigger.png)
 
-À présent, revenez au premier flux et collez l’URL dans l’action « Charger une vidéo et indexer » pour le paramètre URL de rappel. 
+À présent, revenez au premier flux et collez l’URL dans l’action « Charger une vidéo et indexer » pour le paramètre d’URL de rappel. 
 
 Vérifiez que les deux flux sont enregistrés, et voilà, tout est prêt ! 
 

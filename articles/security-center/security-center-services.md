@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: c4f3ccce03f91b0567980d55b59bfb15d6985bb7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299743"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904716"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -28,23 +28,23 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 ### <a name="windows-machines"></a>[**Machines Windows**](#tab/features-windows)
 
-|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
-|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Standard|
-|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](threat-protection.md)|✔|✔|✔|Standard|
-|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Standard|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
-|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
+|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](alerts-reference.md)|✔|✔|✔|Oui|
+|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|Oui|
+|[Alertes de sécurité réseau](other-threat-protections.md#network-layer)|✔|✔|-|Oui|
+|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Oui|
+|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Oui|
+|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Oui|
+|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Oui|
+|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Oui|
+|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
+|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
+|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Oui|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
 |Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
 |Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
@@ -52,22 +52,22 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 ### <a name="linux-machines"></a>[**Machines Linux**](#tab/features-linux)
 
-|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
-|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standard|
-|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Standard|
-|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Standard|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Standard|
+|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Oui|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
+|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Oui|
+|[Alertes de sécurité réseau](other-threat-protections.md#network-layer)|✔|✔|-|Oui|
+|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Oui|
+|[Évaluation native des vulnérabilités](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Oui|
+|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|Oui|
+|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|Oui|
+|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|Oui|
+|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
+|[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
+|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Oui|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Gratuit<br><br>Non-Azure : Oui|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuit|
 |Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
 |Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
@@ -77,7 +77,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 
 > [!TIP]
->Pour expérimenter les fonctionnalités uniquement disponibles dans le niveau tarifaire standard, les utilisateurs du niveau gratuit peuvent s’inscrire à un essai de 30 jours. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/security-center/).
+>Pour expérimenter les fonctionnalités disponibles uniquement avec Azure Defender, vous pouvez vous inscrire à une version d’évaluation de 30 jours. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="supported-endpoint-protection-solutions"></a>Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
