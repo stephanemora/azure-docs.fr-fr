@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Database for MariaDB
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Database for MariaDB. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26b4e00f36596dc837f0bb1adfd622eed827de8a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2e17d41d10c56d4f97463c51a6bcca6093d057b7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974932"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Définitions intégrées d’Azure Policy destinées à Azure Database for MariaDB
 
 Cette page constitue un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Database for MariaDB. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
 

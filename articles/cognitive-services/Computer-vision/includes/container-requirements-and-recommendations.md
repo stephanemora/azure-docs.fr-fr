@@ -8,23 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c62044582cb488a5ef2d20b3f407c0865b3994ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bffdb7b33fc7da38b6985edc3948b848f417a497
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982076"
 ---
 > [!NOTE]
 > Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total.
 
 Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Lire.
 
-| Conteneur | Minimum | Recommandé |TPS<br>(Minimum, maximum)|
-|-----------|---------|-------------|--|
-| Lire | 1 cœur, 8 Go de mémoire, 0,24 TPS | 8 cœurs, 16 Go de mémoire, 1,17 TPS | 0,24 ; 1,17 |
+| Conteneur | Minimum | Recommandé |
+|-----------|---------|-------------|
+| Read 3.0-preview | 8 cœurs, 16 Go de mémoire | 8 cœurs, 24 Go de mémoire |
+| Read 3.1-preview | 8 cœurs, 16 Go de mémoire | 8 cœurs, 24 Go de mémoire |
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* TPS - transactions par seconde.
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.

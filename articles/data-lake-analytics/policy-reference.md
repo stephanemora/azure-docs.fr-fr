@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Data Lake Analytics
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Data Lake Analytics. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 07/10/2020
+ms.date: 09/10/2020
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 06c7a736db29c579700ffc4e8b42fcd84afd7b76
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 33dbe7f6588abb300a80c85fafb32c1a3031798d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300438"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004882"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Définitions intégrées d’Azure Policy pour Azure Data Lake Analytics
 
 Cette page est un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Data Lake Analytics. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-data-lake-analytics"></a>Service Analytique Azure Data Lake
 

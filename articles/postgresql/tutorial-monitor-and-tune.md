@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74774735"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895082"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutoriel : Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 
@@ -40,7 +40,7 @@ Le [Magasin des requêtes](concepts-query-store.md) capture un historique des st
 
 4. Définissez **pg_qs.query_capture_mode** sur **TOP** pour démarrer la collecte des données de performances des requêtes. Définissez **pgms_wait_sampling.query_capture_mode** sur **ALL** pour démarrer la collecte des statistiques d’attente. Enregistrez.
    
-   ![Paramètres du serveur de magasin des requêtes](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Paramètres du serveur de magasin des requêtes":::
 
 5. Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données **azure_sys**.
 
@@ -52,7 +52,7 @@ La vue [Analyse des performances des requêtes](concepts-query-performance-insig
 
 2. L’onglet **Requêtes longues** montre les 5 requêtes dont la durée moyenne d’exécution est la plus longue, agrégées par intervalles de 15 minutes. 
    
-   ![Page d’accueil de l’analyse des performances des requêtes](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Page d’accueil de l’analyse des performances des requêtes":::
 
    Vous pouvez afficher plus de requêtes en faisant une sélection dans la liste déroulante **Nombre de requêtes**. Quand vous faites cela, les couleurs du graphique peuvent changer pour un ID de requête spécifique.
 
@@ -64,7 +64,7 @@ La vue [Analyse des performances des requêtes](concepts-query-performance-insig
 
 6. Sélectionnez l’onglet **Statistiques sur les attentes** pour voir les visualisations correspondantes sur les temps d’attente dans le serveur.
    
-   ![Statistiques sur les attentes de l’analyse des performances des requêtes](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Statistiques sur les attentes de l’analyse des performances des requêtes":::
 
 ### <a name="permissions"></a>Autorisations
 Les autorisations **Propriétaire** ou **Contributeur** sont nécessaires pour voir le texte des requêtes dans l’analyse des performances des requêtes. Un **Lecteur** peut voir les graphiques et les tableaux, mais pas le texte des requêtes.
@@ -75,7 +75,7 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 1. Ouvrez **Recommandations sur les performances** à partir de la section **Support + dépannage** de la barre de menus sur la page du portail Azure pour votre serveur PostgreSQL.
    
-   ![Page d’accueil des recommandations sur les performances](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Page d’accueil des suggestions sur les performances":::
 
 2. Sélectionnez **Analyser** et choisissez une base de données. Ceci démarre l’analyse.
 
@@ -85,7 +85,7 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 5. Une recommandation montre des informations sur les éléments **Base de données**, **Table**, **Colonne** et **Taille de l’index** pertinents.
 
-   ![Résultat des recommandations sur les performances](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Résultat des recommandations sur les performances":::
 
 6. Pour implémenter la recommandation, copiez le texte de la requête et exécutez-le à partir du client de votre choix.
 

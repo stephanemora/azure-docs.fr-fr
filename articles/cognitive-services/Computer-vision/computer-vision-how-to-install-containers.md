@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 819fc27d3b50245975192622ad969b53605c1acd
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 43fad8d09c069f5e054634fb46f40e63047d5426
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378472"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888311"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 
+[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
+
 Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Vision par ordinateur.
 
-Un seul conteneur Docker, *Lire*, est disponible pour Vision par ordinateur. Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’API [Read](concept-recognizing-text.md#read-api).
+Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’API [Read](concept-recognizing-text.md#read-api).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 
@@ -36,9 +38,9 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs 
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
 |Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
 
-## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
+## <a name="request-approval-to-run-the-container"></a>Demande d’approbation pour l’exécution du conteneur
 
-Complétez et envoyez le [formulaire de demande](https://aka.ms/cognitivegate) pour demander l’accès au conteneur. 
+Complétez le [formulaire de demande](https://aka.ms/cognitivegate) et envoyez-le afin d’obtenir l’approbation d’exécuter le conteneur. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -55,6 +57,7 @@ L’ordinateur **hôte** est l’ordinateur qui exécute le conteneur docker. L�
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > L’ordinateur hôte doit *obligatoirement* prendre en charge AVX2. Le conteneur ne fonctionnera *pas* correctement sans prise en charge AVX2.
 
@@ -68,15 +71,26 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
-| Lire | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
+| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
 ### <a name="docker-pull-for-the-read-container"></a>Commande docker pull du conteneur Lire
 
+# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 ```
+
+# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+```
+
+---
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -93,9 +107,11 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 [Exemples ](computer-vision-resource-container-config.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
+# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+
 ```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-containerpreview.azurecr.io/microsoft/cognitive-services-read \
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -104,14 +120,45 @@ ApiKey={API_KEY}
 Cette commande :
 
 * Exécute un conteneur Lire à partir de l’image conteneur.
-* Alloue 8 cœurs de processeur et 16 gigaoctets (Go) de mémoire.
+* Alloue 8 cœurs de processeur et 18 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
+# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+Cette commande :
+
+* Exécute un conteneur Lire à partir de l’image conteneur.
+* Alloue 8 cœurs de processeur et 18 gigaoctets (Go) de mémoire.
+* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
+* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
+---
+
 
 D’autres [exemples](./computer-vision-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
+
+Si vous avez besoin d’un débit plus élevé (par exemple, pour le traitement de fichiers multipages), vous pouvez envisagez de déployer plusieurs conteneurs v3.0 ou v3.1 [sur un cluster Kubernetes](deploy-computer-vision-on-premises.md), en utilisant le [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create) et la [File d’attente Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+
+Si vous utilisez le stockage Azure pour stocker des images à traiter, vous pouvez créer une [chaîne de connexion](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) que vous utiliserez lors de l’appel du conteneur.
+
+Pour rechercher votre chaîne de connexion :
+
+1. Sur le Portail Azure, accédez à **Comptes de stockage** et recherchez votre compte.
+2. Dans la liste de navigation de gauche, cliquez sur **Clés d’accès**.
+3. Votre chaîne de connexion se trouve sous **Chaîne de connexion**.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -123,11 +170,15 @@ D’autres [exemples](./computer-vision-resource-container-config.md#example-doc
 
 Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
 
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d’accès à Swagger est visible à l’adresse `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
 
 ### <a name="asynchronous-read"></a>Lecture asynchrone
 
-Vous pouvez utiliser conjointement les opérations `POST /vision/v2.0/read/core/asyncBatchAnalyze` et `GET /vision/v2.0/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
+
+# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+
+Vous pouvez utiliser conjointement les opérations `POST /vision/v3.1/read/analyze` et `GET /vision/v3.1/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
+
 
 À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
 
@@ -137,8 +188,8 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 
 ```http
  content-length: 0
- date: Fri, 13 Sep 2019 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ date: Fri, 04 Sep 2020 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v3.1/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
  server: Kestrel
 ```
 
@@ -146,102 +197,159 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 
 ```json
 {
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 2.42,
-      "width": 502,
-      "height": 252,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
-          "text": "Tabs VS",
-          "words": [
-            {
-              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
-              "text": "Tabs",
-              "confidence": "Low"
+  "status": "succeeded",
+  "createdDateTime": "2020-09-02T10:30:14Z",
+  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "analyzeResult": {
+    "version": "3.1.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 2.12,
+        "width": 502,
+        "height": 252,
+        "unit": "pixel",
+        "language": "",
+        "lines": [
+          {
+            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "text": "Tabs vs",
+            "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.999
             },
-            {
-              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
-              "text": "VS"
-            }
-          ]
-        },
-        {
-          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
-          "text": "Spaces",
-          "words": [
-            {
-              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
-              "text": "Spaces"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+            "words": [
+              {
+                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "text": "Tabs",
+                "confidence": 0.981
+              },
+              {
+                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "text": "vs",
+                "confidence": 0.958
+              }
+            ]
+          },
+          {
+            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "text": "paces",
+            "appearance": {
+              "style": "print",
+              "styleConfidence": 0.603
+            },
+            "words": [
+              {
+                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "text": "paces",
+                "confidence": 0.918
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
-### <a name="synchronous-read"></a>Lecture synchrone
+# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Vous pouvez utiliser l’opération `POST /vision/v2.0/read/core/Analyze` pour lire de façon synchrone une image. C’est uniquement lorsque l’image est lue dans son intégralité que l’API retourne une réponse JSON. La seule exception à ceci est si une erreur se produit. Lorsqu’une erreur se produit, le code JSON suivant est retourné :
+Vous pouvez utiliser conjointement les opérations `POST /vision/v3.0/read/analyze` et `GET /vision/v3.0/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
+
+À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
+
+![Tabulations et espaces](media/tabs-vs-spaces.png)
+
+Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d’état **HTTP 202**. Dans la réponse, un en-tête `operation-location` contient le point de terminaison de résultat de la requête.
+
+```http
+ content-length: 0
+ date: Fri, 04 Sep 2020 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+`operation-location` est l’URL complète qui est accessible via HTTP GET. Voici la réponse JSON à l’exécution de l’URL `operation-location` à partir de l’image précédente :
 
 ```json
 {
-    status: "Failed"
+  "status": "succeeded",
+  "createdDateTime": "2020-09-02T10:24:49Z",
+  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 2.12,
+        "width": 502,
+        "height": 252,
+        "unit": "pixel",
+        "language": "",
+        "lines": [
+          {
+            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "text": "Tabs vs",
+            "words": [
+              {
+                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "text": "Tabs",
+                "confidence": 0.981
+              },
+              {
+                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "text": "vs",
+                "confidence": 0.958
+              }
+            ]
+          },
+          {
+            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "text": "paces",
+            "words": [
+              {
+                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "text": "paces",
+                "confidence": 0.918
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
-L’objet de réponse JSON contient le même graphe d’objets que la version asynchrone. Si vous êtes un utilisateur JavaScript et visez la cohérence des types, vous pouvez utiliser les types suivants pour caster la réponse JSON en un objet `AnalyzeResult`.
+---
 
-```typescript
-export interface AnalyzeResult {
-    status: Status;
-    recognitionResults?: RecognitionResult[] | null;
-}
+> [!IMPORTANT]
+> Si vous déployez plusieurs conteneurs de lecture derrière un équilibreur de charge, par exemple, sous Docker Compose ou Kubernetes, vous devez disposer d’un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
 
-export enum Status {
-    NotStarted = 0,
-    Running = 1,
-    Failed = 2,
-    Succeeded = 3
-}
+### <a name="synchronous-read"></a>Lecture synchrone
 
-export enum Unit {
-    Pixel = 0,
-    Inch = 1
-}
+Vous pouvez utiliser l’opération suivante pour lire une image en mode synchrone. 
 
-export interface RecognitionResult {
-    page?: number | null;
-    clockwiseOrientation?: number | null;
-    width?: number | null;
-    height?: number | null;
-    unit?: Unit | null;
-    lines?: Line[] | null;
-}
+# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
-export interface Line {
-    boundingBox?: number[] | null;
-    text: string;
-    words?: Word[] | null;
-}
+`POST /vision/v3.1/read/syncAnalyze` 
 
-export enum Confidence {
-    High = 0,
-    Low = 1
-}
+# <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
-export interface Word {
-  boundingBox?: number[] | null;
-  text: string;
-  confidence?: Confidence | null;
+`POST /vision/v3.0/read/SyncAnalyze`
+
+---
+
+C’est uniquement lorsque l’image est lue dans son intégralité que l’API retourne une réponse JSON. La seule exception à ceci est si une erreur se produit. Lorsqu’une erreur se produit, le code JSON suivant est retourné :
+
+```json
+{
+    "status": "Failed"
 }
 ```
+
+L’objet de réponse JSON contient le même graphe d’objets que la version asynchrone. Si vous êtes un utilisateur JavaScript et visez la cohérence des types, vous pouvez envisager d’utiliser TypeScript pour caster la réponse JSON.
 
 Pour obtenir un exemple de cas d’utilisation, consultez <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">ce bac à sable TypeScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>, puis sélectionnez **Exécuter** pour vous rendre compte de sa facilité d’utilisation.
 

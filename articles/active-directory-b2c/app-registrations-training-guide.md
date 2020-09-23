@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116541"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433906"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nouvelle expérience d’inscriptions d’applications pour Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Vous pouvez accéder à la nouvelle expérience en accédant à **Inscriptions d
 L’expérience d’inscriptions d’applications Azure AD B2C est basée sur l’[expérience générale d’inscriptions d’applications](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) pour tout locataire Azure AD, mais elle est personnalisée pour les locataires Azure AD B2C.
 
 ## <a name="whats-not-changing"></a>Ce qui ne change pas
-- Vos applications et les configurations associées peuvent être trouvées telles quelles dans la nouvelle expérience. Vous n’avez pas besoin de réinscrire les applications et les utilisateurs de vos applications n’ont pas besoin de se reconnecter. 
+- Vos applications et les configurations associées peuvent être trouvées telles quelles dans la nouvelle expérience. Vous n’avez pas besoin de réinscrire les applications et les utilisateurs de vos applications n’ont pas besoin de se reconnecter.
 
 > [!NOTE]
 > Pour afficher toutes les applications que vous avez créées précédemment, accédez au panneau **Inscriptions d’applications** et sélectionnez l’onglet **Toutes les applications**. Cela permet d’afficher les applications créées dans l’expérience héritée et la nouvelle expérience, ainsi que celles créées dans le service Azure AD.
@@ -43,7 +43,7 @@ L’expérience d’inscriptions d’applications Azure AD B2C est basée sur l�
 
 -   L’**inscription d’applications combinée** vous permet d’inscrire rapidement une application, qu’il s’agisse d’une application orientée client ou d’une application visant à accéder à Microsoft Graph.
 
-- Le volet **Points de terminaison** vous permet d’identifier rapidement les points de terminaison appropriés pour votre scénario, notamment la configuration OpenID Connect, les métadonnées SAML, l’API Microsoft Graph et les [points de terminaison de flux d’utilisateurs OAuth 2.0](tokens-overview.md#endpoints). 
+- Le volet **Points de terminaison** vous permet d’identifier rapidement les points de terminaison appropriés pour votre scénario, notamment la configuration OpenID Connect, les métadonnées SAML, l’API Microsoft Graph et les [points de terminaison de flux d’utilisateurs OAuth 2.0](tokens-overview.md#endpoints).
 
 - **Autorisations de l’API** et **Exposer une API** permettent une gestion plus étendue de l’étendue, des permissions et du consentement. Désormais, vous pouvez également attribuer des autorisations MS Graph et Azure AD Graph à une application.
 
@@ -57,7 +57,7 @@ Dans la nouvelle expérience, vous sélectionnez un type de compte de support pa
 - Comptes dans un annuaire organisationnel (tout annuaire Azure AD – Multilocataire).
 - Comptes dans un annuaire organisationnel ou un fournisseur d’identité. Pour l’authentification des utilisateurs auprès d’Azure AD B2C.
 
-Pour comprendre les différents types de comptes, sélectionnez **M’aider à choisir** dans l’expérience de création. 
+Pour comprendre les différents types de comptes, sélectionnez **M’aider à choisir** dans l’expérience de création.
 
 Dans l’expérience héritée, les applications étaient toujours créées en tant qu’applications orientées client. Pour ces applications, le type de compte est défini sur **Comptes dans un annuaire organisationnel ou un fournisseur d’identité. Pour l’authentification des utilisateurs auprès d’Azure AD B2C**.
 > [!NOTE]
@@ -68,9 +68,9 @@ Vous pouvez également recourir à cette option pour utiliser Azure AD B2C en ta
 ## <a name="applications-for-devops-scenarios"></a>Applications pour les scénarios DevOps
 Vous pouvez utiliser les autres types de comptes pour créer une application permettant de gérer vos scénarios DevOps, par exemple en utilisant Microsoft Graph pour charger des stratégies Identity Experience Framework ou approvisionner des utilisateurs. Découvrez [comment inscrire une application Microsoft Graph pour gérer les ressources Azure AD B2C](microsoft-graph-get-started.md).
 
-Vous ne verrez peut-être pas toutes les autorisations de Microsoft Graph, car la plupart de ces autorisations ne s’appliquent pas aux utilisateurs consommateurs d’Azure B2C. [En savoir plus sur la gestion des utilisateurs à l’aide de Microsoft Graph](manage-user-accounts-graph-api.md).  
+Vous ne verrez peut-être pas toutes les autorisations de Microsoft Graph, car la plupart de ces autorisations ne s’appliquent pas aux utilisateurs consommateurs d’Azure B2C. [En savoir plus sur la gestion des utilisateurs à l’aide de Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consentement administrateur et étendues offline_access+openid  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consentement administrateur et étendues offline_access+openid
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 L’étendue **openid** est nécessaire pour qu’Azure AD B2C puisse connecter des utilisateurs à une application. L’étendue **offline_access** est nécessaire pour émettre des jetons d’actualisation pour un utilisateur. Ces étendues ont été ajoutées précédemment et ont reçu le consentement administrateur par défaut. À présent, vous pouvez facilement ajouter des autorisations pour ces étendues pendant le processus de création en vous assurant que l’option **Accorder le consentement administrateur aux autorisations openid et offline_access** est sélectionnée. Sinon, les autorisations de Microsoft Graph peuvent être ajoutées avec le consentement administrateur dans les paramètres **Autorisations de l’API** pour une application existante.
@@ -78,11 +78,11 @@ L’étendue **openid** est nécessaire pour qu’Azure AD B2C puisse connecter 
 En savoir plus sur [les autorisations et le consentement](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plateformes/Authentification : URL de réponse/URl de redirection
-Dans l’expérience héritée, les différents types de plateformes étaient gérés sous **Propriétés** en tant qu’URL de réponse pour les API/applications web et en tant qu’URI de redirection pour les clients natifs. Les « clients natifs » sont également appelés « clients publics » et incluent des applications pour iOS, macOS, Android et d’autres types d’applications mobiles et de bureau. 
+Dans l’expérience héritée, les différents types de plateformes étaient gérés sous **Propriétés** en tant qu’URL de réponse pour les API/applications web et en tant qu’URI de redirection pour les clients natifs. Les « clients natifs » sont également appelés « clients publics » et incluent des applications pour iOS, macOS, Android et d’autres types d’applications mobiles et de bureau.
 
-Dans la nouvelle expérience, les URL de réponse et les URI de redirection sont tous deux appelés URI de redirection et se trouvent dans la section **Authentification** d’une application. Les inscriptions d’applications ne se limitent pas aux applications web ou natives. Vous pouvez utiliser le même processus d’inscription d’applications pour tous ces types de plateformes en inscrivant les URI de redirection correspondants. 
+Dans la nouvelle expérience, les URL de réponse et les URI de redirection sont tous deux appelés URI de redirection et se trouvent dans la section **Authentification** d’une application. Les inscriptions d’applications ne se limitent pas aux applications web ou natives. Vous pouvez utiliser le même processus d’inscription d’applications pour tous ces types de plateformes en inscrivant les URI de redirection correspondants.
 
-Les URI de redirection doivent être associés à un type d’application, qu’elle soit web ou publique (mobile et de bureau). [En savoir plus sur les URI de redirection](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Les URI de redirection doivent être associés à un type d’application, qu’elle soit web ou publique (mobile et de bureau). [En savoir plus sur les URI de redirection](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 

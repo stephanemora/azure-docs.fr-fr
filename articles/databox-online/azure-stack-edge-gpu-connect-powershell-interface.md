@@ -1,23 +1,23 @@
 ---
-title: Se connecter à un appareil Microsoft Azure Stack Edge et le gérer via l’interface Windows PowerShell | Microsoft Docs
-description: Décrit comment se connecter à un appareil Azure Stack Edge et le gérer via l’interface Windows PowerShell.
+title: Se connecter à un appareil Microsoft Azure Stack Edge Pro et le gérer via l’interface Windows PowerShell | Microsoft Docs
+description: Décrit comment se connecter à un appareil Azure Stack Edge Pro et le gérer via l’interface Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b654c45fa35047e874103ff84655c268f77aa24
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294881"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903516"
 ---
-# <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge avec GPU via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gérer un appareil Azure Stack Edge Pro avec GPU via Windows PowerShell
 
-La solution Azure Stack Edge vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
+La solution Azure Stack Edge Pro vous permet de traiter des données et de les envoyer à Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Azure Stack Edge Pro. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
 
 Cet article se concentre sur la façon dont vous pouvez vous connecter à l’interface PowerShell de l’appareil et les tâches que vous pouvez effectuer à l’aide de cette interface. 
 
@@ -84,11 +84,11 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
 
 ## <a name="enable-multi-process-service-mps"></a>Activer un service multiprocessus (MPS)
 
-Un service multiprocessus (MPS) sur les GPU Nvidia fournit un mécanisme dans lequel les GPU peuvent être partagés par plusieurs tâches, où chaque tâche est se voit attribuer un certain pourcentage des ressources du GPU. Pour activer un MPS sur votre appareil Azure Stack Edge, procédez comme suit :
+Un service multiprocessus (MPS) sur les GPU Nvidia fournit un mécanisme dans lequel les GPU peuvent être partagés par plusieurs tâches, où chaque tâche est se voit attribuer un certain pourcentage des ressources du GPU. MPS est une fonctionnalité en préversion sur votre appareil Azure Stack Edge Pro avec GPU. Pour activer MPS sur votre appareil, procédez comme suit :
 
 1. Avant de commencer, assurez-vous que : 
 
-    1. Vous avez configuré et [Activé votre appareil Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md) avec une ressource Azure Stack Edge/Data Box Gateway dans Azure.
+    1. Vous avez configuré et [Activé votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md) avec une ressource Azure Stack Edge Pro/Data Box Gateway dans Azure.
     1. Vous avez [Configuré le calcul sur cet appareil dans le portail Azure](azure-stack-edge-deploy-configure-compute.md#configure-compute).
     
 1. [Connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface).
@@ -121,9 +121,37 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
     - `FullLogCollection`: Ce paramètre garantit que le package de journaux contiendra tous les journaux de calcul. Par défaut, le package de journaux contient uniquement un sous-ensemble des journaux.
 
 
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Modifier des sous-réseaux de pod et de service Kubernetes
+
+Par défaut, Kubernetes sur votre appareil Azure Stack Edge utilise des sous-réseaux 172.27.0.0/16 et 172.28.0.0/16 respectivement pour le pod et le service. Si ces sous-réseaux sont déjà utilisés dans votre réseau, vous pouvez exécuter la cmdlet `Set-HcsKubeClusterNetworkInfo` pour les modifier.
+
+Vous souhaitez effectuer cette configuration avant de configurer le calcul à partir du portail Azure, car le cluster Kubernetes est créé au cours de cette étape.
+
+1. Connectez-vous à l’interface PowerShell de l’appareil.
+1. À partir de l’interface PowerShell de l’appareil, exécutez :
+
+    `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
+
+    Remplacez la valeur <subnet details> par la plage de sous-réseau que vous souhaitez utiliser. 
+
+1. Une fois que vous avez exécuté cette commande, vous pouvez utiliser la commande `Get-HcsKubeClusterNetworkInfo` pour vérifier que les sous-réseaux de pod et de service ont été modifiés.
+
+Voici un exemple de sortie pour cette commande.
+
+```powershell
+[10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
+[10.100.10.10]: PS>Get-HcsKubeClusterNetworkInfo
+
+Id                                   PodSubnet    ServiceSubnet
+--                                   ---------    -------------
+6dbf23c3-f146-4d57-bdfc-76cad714cfd1 10.96.0.1/16 10.97.0.1/16
+[10.100.10.10]: PS>
+```
+
+
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Déboguer les problèmes Kubernetes liés à IoT Edge
 
-Lorsque le cluster Kubernetes est créé, deux espaces de noms système sont créés : `iotedge` et `azure-arc`.  
+<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
 
 <!--### Create config file for system namespace
 
@@ -157,11 +185,67 @@ users:
 
 [10.100.10.10]: PS>
 ```
+-->
 
-On an Azure Stack Edge device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
+Sur un appareil Azure Stack Edge Pro sur lequel le rôle de calcul est configuré, vous pouvez dépanner ou surveiller l’appareil à l’aide de deux jeux de commandes distincts.
+
+- À l’aide des commandes `iotedge`. Ces commandes sont disponibles pour les opérations de base pour votre appareil.
+- À l’aide des commandes `kubectl`. Ces commandes sont disponibles pour un ensemble complet d’opérations pour votre appareil.
+
+Pour exécuter les jeux de commandes ci-dessus, vous devez [vous connecter à l’interface PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Utiliser les commandes `iotedge`
+
+Pour afficher la liste des commandes disponibles, [connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface) et utilisez la fonction `iotedge`.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                           
+Usage: iotedge COMMAND
+
+Commands:
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+Le tableau ci-après contient une brève description des commandes disponibles pour `iotedge` :
+
+|command  |Description |
+|---------|---------|
+|`list`     | Faire la liste des modules         |
+|`logs`     | Extraire les journaux d’un module        |
+|`restart`     | Arrêter et redémarrer un module         |
+
+
+Pour répertorier tous les modules en cours d’exécution sur votre appareil, utilisez la commande `iotedge list`.
+
+Voici un exemple de sortie de cette commande. Cette commande répertorie tous les modules, la configuration associée et les adresses IP externes associées aux modules. Par exemple, vous pouvez accéder à l’application **WebServer** à l’adresse URL `https://10.128.44.244`. 
+
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME                   STATUS  DESCRIPTION CONFIG                                             EXTERNAL-IP
+----                   ------  ----------- ------                                             -----
+gettingstartedwithgpus Running Up 10 days  mcr.microsoft.com/intelligentedge/solutions:latest
+iotedged               Running Up 10 days  azureiotedge/azureiotedge-iotedged:0.1.0-beta10    <none>
+edgehub                Running Up 10 days  mcr.microsoft.com/azureiotedge-hub:1.0             10.128.44.243
+edgeagent              Running Up 10 days  azureiotedge/azureiotedge-agent:0.1.0-beta10
+webserverapp           Running Up 10 days  nginx:stable                                       10.128.44.244
+
+[10.100.10.10]: PS>
+```
+
+
+### <a name="use-kubectl-commands"></a>Utiliser des commandes kubectl
+
+Sur un appareil Azure Stack Edge Pro pour lequel le rôle de calcul est configuré, toutes les commandes `kubectl` sont disponibles pour surveiller ou dépanner les modules. Pour afficher la liste des commandes disponibles, exécutez `kubectl --help` à partir de la fenêtre Commande.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
+
 kubectl controls the Kubernetes cluster manager.
 
 Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
@@ -183,10 +267,10 @@ Use "kubectl options" for a list of global command-line options (applies to all 
 C:\Users\myuser>
 ```
 
-For a comprehensive list of the `kubectl` commands, go to [`kubectl` cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).-->
+Pour obtenir la liste complète des commandes `kubectl`, accédez à l’[`kubectl` aide-mémoire](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 
-### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Pour faire en sorte que l’adresse IP d’un service ou d’un module soit exposée en dehors du cluster Kubernetes
+#### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Pour faire en sorte que l’adresse IP d’un service ou d’un module soit exposée en dehors du cluster Kubernetes
 
 Pour obtenir l’adresse IP d’un service d’équilibrage de charge ou de modules exposés en dehors de Kubernetes, exécutez la commande suivante :
 
@@ -207,7 +291,7 @@ webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP    
 L’adresse IP dans la colonne IP externe correspond au point de terminaison externe pour le service ou le module. Vous pouvez également [Récupérer l’adresse IP externe dans le tableau de bord Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules).
 
 
-### <a name="to-check-if-module-deployed-successfully"></a>Pour vérifier si le module a été déployé avec succès
+#### <a name="to-check-if-module-deployed-successfully"></a>Pour vérifier si le module a été déployé avec succès
 
 Les modules de calcul sont des conteneurs avec une logique métier implémentée. Un pod Kubernetes peut avoir plusieurs conteneurs en cours d’exécution. 
 
@@ -311,7 +395,7 @@ Events:          <none>
 [10.100.10.10]: PS>
 ```
 
-### <a name="to-get-container-logs"></a>Pour obtenir les journaux d’activité de conteneur
+#### <a name="to-get-container-logs"></a>Pour obtenir les journaux d’activité de conteneur
 
 Pour obtenir les journaux d’un module, exécutez la commande suivante à partir de l’interface PowerShell de l’appareil :
 
@@ -341,10 +425,12 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
+
+
 ## <a name="exit-the-remote-session"></a>Fermeture de la session à distance
 
 Pour quitter la session PowerShell à distance, fermez la fenêtre PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Déployez [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) sur le portail Azure.
+- Déployer [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) sur le portail Azure.

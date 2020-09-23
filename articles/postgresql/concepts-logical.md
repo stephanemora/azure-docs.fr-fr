@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903898"
 ---
 # <a name="logical-decoding"></a>Décodage logique
  
@@ -52,11 +52,11 @@ Le serveur doit être redémarré après une modification de ce paramètre. En i
 
 1. Définissez la prise en charge de la réplication Azure sur **logique**. Sélectionnez **Enregistrer**.
 
-   ![Azure Database pour PostgreSQL - Réplication - Prise en charge de la réplication Azure](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database pour PostgreSQL - Réplication - Prise en charge de la réplication Azure":::
 
-2. Redémarrez le serveur pour appliquer les modifications en sélectionnant **Oui**.
+2. Redémarrez le serveur pour appliquer le changement en sélectionnant **Oui**.
 
-   ![Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database pour PostgreSQL - Réplication - Confirmer le redémarrage":::
 
 
 ## <a name="start-logical-decoding"></a>Démarrer le décodage logique

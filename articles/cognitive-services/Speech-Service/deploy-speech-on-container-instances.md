@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 610d5ce095097a31ee92c67f0112d1657424858e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a85086ea8d969dc70f4cd24b25a00765da285eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878746"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425804"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Déployer le conteneur du service Speech dans Azure Container Instances
 
@@ -25,7 +25,7 @@ Découvrez comment déployer le conteneur [Service Speech](speech-container-howt
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
-Vous devez d’abord compléter et envoyer le [formulaire de demande de conteneurs Cognitive Services Speech](https://aka.ms/speechcontainerspreview/) pour demander l’accès au conteneur. 
+Vous devez d’abord compléter et envoyer le [formulaire de demande de conteneurs Cognitive Services Speech](https://aka.ms/csgate/) pour demander l’accès au conteneur. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

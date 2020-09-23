@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 055a3e9ec360e5b2c29cedd0f26c976c269f92bb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400617"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425634"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -56,7 +56,7 @@ Par exemple : `https://amsv3account-usw22.streaming.media.azure.net/00000000-00
 
 Les transcriptions en direct prennent désormais en charge 19 langues et 8 régions.
 
-## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protection de votre contenu avec Media Services et Azure AD
+### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protection de votre contenu avec Media Services et Azure AD
 
 Nous avons publié un tutoriel intitulé [Protection de contenu de bout en bout avec Azure AD](./azure-ad-content-protection.md).
 

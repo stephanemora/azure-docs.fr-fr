@@ -1,23 +1,23 @@
 ---
-title: Utiliser le Portail Azure pour résoudre des problèmes de commandes liés à Azure Stack Edge | Microsoft Docs
-description: Décrit comment résoudre des problèmes de commandes liés à Azure Stack Edge.
+title: Utiliser le Portail Azure pour résoudre des problèmes de commandes liés à Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment résoudre des problèmes de commandes liés à Azure Stack Edge Pro.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: twooley
-ms.openlocfilehash: 226274c52610e24c305400d77dc7737d32c2b722
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903630"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Résoudre vos problèmes de commandes liés à Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Résoudre vos problèmes de commandes liés à Azure Stack Edge Pro
 
-Cet article décrit comment résoudre des problèmes de commandes liés à Azure Stack Edge.
+Cet article décrit comment résoudre des problèmes de commandes liés à Azure Stack Edge Pro.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -59,7 +59,7 @@ Pour plus d’informations, consultez [Inscrire les fournisseurs de ressources](
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft.DataBoxEdge non inscrit pour l’abonnement
 
-**Erreur :** Dans Portail Azure, vous sélectionnez un abonnement à utiliser pour Azure Stack Edge ou Data Box Gateway et vous recevez l’erreur suivante :
+**Erreur :** Dans le portail Azure, vous sélectionnez un abonnement à utiliser pour Azure Stack Edge Pro ou Data Box Gateway et vous recevez l’erreur suivante :
 
 *Fournisseur(s) de ressources : Microsoft.DataBoxEdge n’est pas inscrit pour l’abonnement &lt;nom d’abonnement&gt; et vous ne disposez pas des autorisations pour inscrire un fournisseur de ressources pour l’abonnement &lt;nom d’abonnement&gt;* .
 
@@ -75,4 +75,4 @@ La *ressource &lt;nom de ressource&gt; a été rejetée par la stratégie. (Code
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [Résoudre vos problèmes liés à Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Découvrez comment [Résoudre vos problèmes liés à Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
