@@ -184,6 +184,8 @@
       items:
         - name: Configurer BGP pour une passerelle VPN
           items:
+            - name: Portail Azure
+              href: bgp-howto.md
             - name: Azure PowerShell
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: Azure CLI
@@ -228,6 +230,8 @@
           href: create-zone-redundant-vnet-gateway.md
     - name: "Configurer des stratégies\_IPsec/IKE sur des connexions"
       items:
+        - name: Portail Azure
+          href: ipsec-ike-policy-howto.md
         - name: PowerShell
           href: vpn-gateway-ipsecikepolicy-rm-powershell.md
     - name: Configurer des connexions entre deux passerelles actives
