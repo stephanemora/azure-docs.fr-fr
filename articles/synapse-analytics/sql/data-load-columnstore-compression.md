@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797579"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032960"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Optimiser la qualité du rowgroup pour améliorer le niveau de performance de l’index columnstore
 
@@ -68,9 +68,6 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
-
->[!TIP]
-> Pour de meilleures performances dans Synapse SQL, envisagez d’utiliser **sys.pdw_permanent_table_mappings** au lieu de **sys.pdw_table_mappings** sur les tables utilisateur permanentes. Pour plus d’informations, consultez **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 trim_reason_desc indique si le rowgroup a été découpé (trim_reason_desc = NO_TRIM signifie qu’aucun découpage n’a été effectué et que la qualité du rowgroup est optimale). Les raisons suivantes indiquent un découpage prématuré du rowgroup :
 

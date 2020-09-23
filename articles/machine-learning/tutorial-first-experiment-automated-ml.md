@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896455"
+ms.locfileid: "90976645"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 
@@ -242,7 +242,7 @@ Dans ce tutoriel sur le machine learning automatisé, vous avez utilisé l’int
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
 + Découvrez-en plus sur la [caractérisation](how-to-configure-auto-features.md#featurization).
-+ En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile).
++ En savoir plus sur le [profilage des données](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

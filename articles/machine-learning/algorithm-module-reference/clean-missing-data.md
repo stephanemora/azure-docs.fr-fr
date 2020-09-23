@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898832"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour supprimer, remplacer ou déduire des valeurs manquantes. 
 

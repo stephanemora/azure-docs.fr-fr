@@ -1,6 +1,6 @@
 ---
-title: Installer une mise à jour sur un appareil Azure Stack Edge avec GPU | Microsoft Docs
-description: Décrit comment appliquer des mises à jour à l’aide du portail Azure et de l’interface utilisateur web locale l’appareil Azure Stack Edge avec GPU et le cluster Kubernetes sur l’appareil
+title: Installer une mise à jour sur un appareil Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour appliquer des mises à jour sur un appareil Azure Stack Edge Pro avec GPU et le cluster Kubernetes associé sur l’appareil
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268242"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899513"
 ---
-# <a name="update-your-azure-stack-edge-with-gpu"></a>Mettre à jour votre appareil Azure Stack Edge avec GPU 
+# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Mettre à jour votre appareil Azure Stack Edge Pro avec GPU 
 
-Cet article décrit les étapes à effectuer pour installer des mises à jour sur votre instance Azure Stack Edge avec GPU à l’aide de l’interface utilisateur web locale et du portail Azure. Vous appliquez les mises à jour logicielles ou les correctifs logiciels pour maintenir à jour votre appareil Azure Stack Edge et le cluster Kubernetes associé sur l’appareil. 
+Cet article décrit les étapes à effectuer pour installer des mises à jour sur votre appareil Azure Stack Edge Pro avec GPU en utilisant le portail Azure et l’interface utilisateur web locale. Vous appliquez les mises à jour logicielles ou les correctifs logiciels pour maintenir à jour votre appareil Azure Stack Edge Pro et le cluster Kubernetes associé sur l’appareil. 
 
 > [!IMPORTANT]
 > - La mise à jour **2008** correspond à la version logicielle **2.1.1328.1904** de votre appareil. Pour plus d’informations sur cette mise à jour, consultez les [notes de publication](azure-stack-edge-gpu-2008-release-notes.md).
 >
-> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour nécessite que vous appliquiez deux mises à jour séquentiellement. Tout d’abord, vous appliquez les mises à jour logicielles de l’appareil, puis celles de Kubernetes. Étant donné que l’appareil Azure Stack Edge est un appareil à nœud unique, les E/S en cours sont interrompues et votre appareil subit un temps d’arrêt pouvant atteindre 30 minutes pour la mise à jour de son logiciel.
+> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour nécessite que vous appliquiez deux mises à jour séquentiellement. Tout d’abord, vous appliquez les mises à jour logicielles de l’appareil, puis celles de Kubernetes. Étant donné que l’appareil Azure Stack Edge Pro est un appareil mononœud, les E/S en cours sont interrompues et votre appareil subit un temps d’arrêt pouvant atteindre 30 minutes pour la mise à jour de son logiciel.
 
 Pour installer les mises à jour sur votre appareil, vous devez d’abord configurer l’emplacement du serveur de mise à jour. Une fois le serveur de mise à jour configuré, vous pouvez appliquer les mises à jour par le biais de l’interface utilisateur du portail Azure ou de l’interface utilisateur web locale.
 
@@ -159,9 +159,9 @@ Effectuez les étapes suivantes pour télécharger la mise à jour à partir du 
 
     ![Rechercher dans le catalogue](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. Dans la zone de recherche du catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif ou des mots clés relatifs à la mise à jour que vous souhaitez télécharger. Par exemple, entrez **Azure Stack Edge**, puis cliquez sur **Rechercher**.
+2. Dans la zone de recherche du catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif ou des mots clés relatifs à la mise à jour que vous souhaitez télécharger. Par exemple, entrez **Azure Stack Edge Pro**, puis cliquez sur **Rechercher**.
    
-    La liste des mises à jour s’affiche : **Azure Stack Edge 2006**.
+    La liste des mises à jour s’affiche : **Azure Stack Edge Pro 2006**.
    
     ![Rechercher dans le catalogue](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
@@ -215,4 +215,4 @@ Cette procédure prend environ 20 minutes. Effectuez les opérations suivantes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’[administration des appareils Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+En savoir plus sur l’[administration des appareils Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

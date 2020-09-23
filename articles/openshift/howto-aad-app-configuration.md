@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382914"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470083"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Intégration d’Azure Active Directory pour Azure Red Hat OpenShift
 
@@ -86,9 +86,9 @@ Générez une clé secrète client pour authentifier votre application sur Azure
 
 ![Capture d’écran du volet Certificats et clés secrètes](./media/howto-create-tenant/create-key.png)
 
-Pour plus d’informations sur les objets Azure Application, veuillez consulter [Objets application et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Pour plus d’informations sur les objets Azure Application, veuillez consulter [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Pour plus d’informations sur la création d’une application Azure AD, consultez [Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Pour plus d’informations sur la création d’une application Azure AD, consultez [Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Ajouter des autorisations d’API
 
@@ -110,12 +110,12 @@ Pour plus d’informations sur la création d’une application Azure AD, consul
 > [!IMPORTANT]
 > La synchronisation du groupe d’administrateurs de cluster fonctionne uniquement lorsque l’autorisation a pas été accordée. Vous verrez un cercle vert avec une coche et un message « Autorisations accordées pour *Nom de l’abonnement* » dans la colonne *Consentement de l’administrateur requis*.
 
-Pour plus d’informations sur la gestion des administrateurs et d’autres rôles, consultez [Ajout ou modification des administrateurs d’abonnements Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Pour plus d’informations sur la gestion des administrateurs et d’autres rôles, consultez [Ajout ou modification des administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Ressources
 
-* [Objets d’applications et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Objets d’applications et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

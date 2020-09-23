@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192740"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905165"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Générateur de recommandations Score Wide and Deep
 
-Cet article explique comment utiliser le module de **Recommandation Score Wide and Deep** dans Azure Machine Learning Designer (préversion) pour créer des prédictions basées sur un modèle de recommandation formé, sur la base de la formation Wide and Deep Google.
+Cet article explique comment utiliser le module de **Recommandation Score Wide and Deep** dans le concepteur Azure Machine Learning pour créer des prédictions basées sur un modèle de recommandation formé, sur la base de la formation Wide and Deep Google.
 
 Le générateur de recommandations Wide and Deep peut générer deux différents types de prédictions :
 

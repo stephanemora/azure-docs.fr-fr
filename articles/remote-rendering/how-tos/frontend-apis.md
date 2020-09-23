@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003522"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024058"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Utiliser les API Azure Frontend pour l’authentification
 
 Cette section décrit comment utiliser l’API pour l’authentification et la gestion des sessions.
 
 > [!CAUTION]
-Les fonctions décrites dans ce chapitre émettent des appels REST sur le serveur en interne. Comme pour tous les appels REST, une fréquence trop élevée d’envoi de ces commandes entraîne une limitation du serveur, et finit par retourner un échec. Dans ce cas, la valeur du membre `SessionGeneralContext.HttpResponseCode` est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
+> Les fonctions décrites dans ce chapitre émettent des appels REST sur le serveur en interne. Comme pour tous les appels REST, une fréquence trop élevée d’envoi de ces commandes entraîne une limitation du serveur, et finit par retourner un échec. Dans ce cas, la valeur du membre `SessionGeneralContext.HttpResponseCode` est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo

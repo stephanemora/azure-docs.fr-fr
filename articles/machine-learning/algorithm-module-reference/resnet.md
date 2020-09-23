@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450103"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905193"
 ---
 # <a name="resnet"></a>ResNet
 
-Cet article explique comment utiliser le module **ResNet** dans le concepteur Azure Machine Learning (préversion) pour créer un modèle de classification d’images à l’aide de l’algorithme ResNet.  
+Cet article explique comment utiliser le module **ResNet** dans le concepteur Azure Machine Learning pour créer un modèle de classification d’images à l’aide de l’algorithme ResNet.  
 
 Cet algorithme de classification est une méthode d’apprentissage supervisé qui nécessite un jeu de données étiqueté. Consultez le module [Convert to Image Directory](convert-to-image-directory.md) (Convertir en répertoire d’images) pour plus d’informations sur l’obtention d’un répertoire d’images étiquetées. Pour entraîner un modèle, indiquez ce dernier ainsi qu’un répertoire d’images étiquetées en tant qu’entrées du module [Train Pytorch Model](train-pytorch-model.md). Vous pouvez ensuite utiliser le modèle entraîné pour prédire les valeurs des nouveaux exemples d’entrée à l’aide du module [Score Image Model](score-image-model.md).
 

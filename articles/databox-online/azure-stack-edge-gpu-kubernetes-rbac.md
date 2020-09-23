@@ -1,6 +1,6 @@
 ---
-title: Comprendre le contrôle d’accès en fonction du rôle Kubernetes sur les appareils Azure Stack Edge | Microsoft Docs
-description: Décrit comment le contrôle d’accès en fonction du rôle Kubernetes se produit sur un appareil Azure Stack Edge.
+title: Comprendre le contrôle d’accès en fonction du rôle Kubernetes sur les appareils Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment le contrôle d’accès en fonction du rôle Kubernetes se produit sur un appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318962"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899285"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Contrôle d’accès en fonction du rôle Kubernetes sur votre appareil Azure Stack Edge avec GPU
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Contrôle d’accès en fonction du rôle Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
 
-Sur votre appareil Azure Stack Edge, quand vous configurez le rôle de calcul, un cluster Kubernetes est créé. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes pour limiter l’accès aux ressources de cluster sur votre appareil.
+Sur votre appareil Azure Stack Edge Pro, quand vous configurez le rôle de calcul, un cluster Kubernetes est créé. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes pour limiter l’accès aux ressources de cluster sur votre appareil.
 
-Cet article fournit une vue d’ensemble du système RBAC fourni par Kubernetes et explique comment Kubernetes RBAC est implémenté sur votre appareil Azure Stack Edge. 
+Cet article fournit une vue d’ensemble du système RBAC fourni par Kubernetes et explique comment Kubernetes RBAC est implémenté sur votre appareil Azure Stack Edge Pro. 
 
 ## <a name="rbac-for-kubernetes"></a>RBAC pour Kubernetes
 
@@ -34,7 +34,7 @@ Les ressources Kubernetes, telles que les pods et les déploiements, sont regrou
 
 Les espaces de noms sont destinés à être utilisés dans les environnements où de nombreux utilisateurs sont répartis entre plusieurs équipes ou projets. Pour plus d’informations, consultez la section [Espace de noms Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
-Votre appareil Azure Stack Edge a les espaces de noms suivants :
+Votre appareil Azure Stack Edge Pro a les espaces de noms suivants :
 
 - **Espace de noms du système** : espace de noms où se trouvent les principales ressources, telles que les fonctionnalités réseau, comme le DNS et le proxy, ou bien le tableau de bord Kubernetes. En règle générale, vous ne déployez pas vos propres applications dans cet espace de noms. Utilisez cet espace de noms pour déboguer tous les problèmes de cluster Kubernetes. 
 
@@ -73,9 +73,9 @@ Kubernetes offre le concept de rôle et de liaison de rôle pour vous permettre 
 
 Cette approche vous permet de séparer logiquement un cluster Kubernetes unique, avec des utilisateurs uniquement capable d’accéder aux ressources d’application dans leur espace de noms attribué. 
 
-## <a name="rbac-on-azure-stack-edge"></a>RBAC sur Azure Stack Edge
+## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC sur Azure Stack Edge Pro
 
-Dans l’implémentation actuelle de RBAC, Azure Stack Edge vous permet d’effectuer les actions suivantes à partir d’une instance d’exécution PowerShell restreinte :
+Dans l’implémentation actuelle de RBAC, Azure Stack Edge Pro vous permet d’effectuer les actions suivantes à partir d’une instance d’exécution PowerShell restreinte :
 
 - Créer des espaces de noms.  
 - Créez des utilisateurs supplémentaires.
@@ -83,11 +83,11 @@ Dans l’implémentation actuelle de RBAC, Azure Stack Edge vous permet d’effe
 - Obtenez le fichier `kubeconfig` avec les informations permettant d’accéder au cluster Kubernetes.
 
 
-L’appareil Azure Stack Edge possède plusieurs espaces de noms système, et vous pouvez créer des espaces de noms utilisateur avec des fichiers `kubeconfig` pour accéder à ces espaces de noms. Les utilisateurs disposent d’un contrôle total sur ces espaces de noms et peuvent créer ou modifier des utilisateurs, ou accorder l’accès aux utilisateurs. Seul l’administrateur de cluster dispose d’un accès complet aux espaces de noms système et aux ressources sur l’ensemble du cluster. Un `aseuser` dispose d’un accès en lecture seule aux espaces de noms système.
+L’appareil Azure Stack Edge Pro possède plusieurs espaces de noms système, et vous pouvez créer des espaces de noms utilisateur avec des fichiers `kubeconfig` pour accéder à ces espaces de noms. Les utilisateurs disposent d’un contrôle total sur ces espaces de noms et peuvent créer ou modifier des utilisateurs, ou accorder l’accès aux utilisateurs. Seul l’administrateur de cluster dispose d’un accès complet aux espaces de noms système et aux ressources sur l’ensemble du cluster. Un `aseuser` dispose d’un accès en lecture seule aux espaces de noms système.
 
-Voici un diagramme qui illustre l’implémentation de RBAC sur les appareils Azure Stack Edge.
+Voici un diagramme qui illustre l’implémentation de RBAC sur les appareils Azure Stack Edge Pro.
 
-![RBAC sur votre appareil Azure Stack Edge](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![RBAC sur appareil Azure Stack Edge Pro](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 Dans ce diagramme, Alice, Bob et Chuck ont accès uniquement aux espaces de noms utilisateur affectés, qui dans ce cas sont `ns1`, `ns2` et `ns3` respectivement. Au sein de ces espaces de noms, ils disposent d’un accès administrateur. En revanche, l’administrateur de cluster dispose d’un accès administrateur aux espaces de noms système et aux ressources sur l’ensemble du cluster.
 
@@ -109,10 +109,10 @@ Vous pouvez utiliser des commandes `kubectl` pour créer des espaces de noms et 
 
 5. Installez `kubectl` et commencez à déployer des applications dans `kubectl`. 
 
-Pour obtenir des instructions pas à pas détaillées, consultez [Accéder au cluster Kubernetes via kuebctl sur votre appareil Edge Azure Stack](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+Pour obtenir des instructions pas à pas détaillées, consultez [Accéder au cluster Kubernetes via kuebctl sur votre appareil Edge Azure Stack Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
-Lorsque vous travaillez avec des espaces de noms et des utilisateurs sur vos appareils Azure Stack Edge, les avertissements suivants s’appliquent :
+Lorsque vous travaillez avec des espaces de noms et des utilisateurs sur vos appareils Azure Stack Edge Pro, les avertissements suivants s’appliquent :
 
 - Vous n’êtes pas autorisé à effectuer des opérations comme créer des utilisateurs, accorder ou révoquer l’accès à l’espace de noms à l’utilisateur pour tous les espaces de noms système. Les exemples d’espaces de noms système incluent `kube-system`, `metallb-system`, `kubernetes-dashboard`, `default`, `kube-node-lease` et `kube-public`. Les espaces de noms système incluent également les espaces de noms réservés pour les types de déploiement tels que `iotedge` (espace de noms IoT Edge) et `azure-arc` (espace de noms Azure Arc).
 - Vous pouvez créer des espaces de noms utilisateur et, dans ces espaces de noms, créer des utilisateurs supplémentaires et accorder ou révoquer l’accès à l’espace de noms à ces utilisateurs.

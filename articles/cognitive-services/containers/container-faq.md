@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701813"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900055"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -22,11 +22,16 @@ ms.locfileid: "83701813"
 
 **Q : Qu’est-ce qui est disponible ?**
 
-**R :** Les conteneurs Azure Cognitive Services permettent aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la mise en conteneur. Certains conteneurs sont disponibles sous la forme d’une préversion contrôlée, dont l’accès peut nécessiter une application. D’autres conteneurs sont disponibles publiquement en préversion non contrôlée, ou sont mises en disponibilité générale. Pour obtenir la liste complète des conteneurs et leur disponibilité, consultez l’article [Prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). 
+**R :** Les conteneurs Azure Cognitive Services permettent aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la mise en conteneur. Certains conteneurs sont disponibles sous la forme d’une préversion contrôlée, dont l’accès peut nécessiter une application. D’autres conteneurs sont disponibles publiquement en préversion non contrôlée, ou sont mises en disponibilité générale. Pour obtenir la liste complète des conteneurs et leur disponibilité, consultez l’article [Prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Vous pouvez également afficher les conteneurs dans le [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **Q : Existe-t-il des différences entre le cloud Cognitive Services et les conteneurs Cognitive Services ?**
 
 **R :** Les conteneurs Cognitive Services sont une alternative au cloud Cognitive Services. Les conteneurs offrent les mêmes fonctionnalités que les services cloud correspondants. Les clients peuvent déployer les conteneurs localement ou dans Azure. La technologie IA de base, les niveaux tarifaires, les clés API et la signature d’API sont les mêmes pour le conteneur et les services cloud correspondants. Voici [les fonctionnalités des conteneurs et leurs avantages](../cognitive-services-container-support.md#features-and-benefits) par rapport aux services cloud équivalents.
+
+**Q : Comment accéder à et utiliser un conteneur de préversion limitée ?**
+
+**R :** Précédemment, les conteneurs de préversion contrôlés étaient hébergés sur le référentiel `containerpreview.azurecr.io`. À compter du 22 septembre 2020, ces conteneurs sont hébergés sur Microsoft Container Registry. Il n’est par ailleurs pas nécessaire d’utiliser la commande docker login pour les télécharger. Vous pouvez exécuter un conteneur de préversion limitée si votre ressource Azure a été créée avec l’ID d’abonnement Azure approuvé. Vous ne pourrez pas exécuter le conteneur si votre abonnement Azure n’a pas été approuvé après avoir rempli le [formulaire de demande](https://aka.ms/csgate).
+
 
 **Q : Des conteneurs seront-ils disponibles pour tous les services Cognitive Services et quels sont les ensembles de conteneurs à venir ?**
 
@@ -76,6 +81,22 @@ Nous ne testons pas les conteneurs avec OpenShift, mais en général, les conten
 **Q : Comment indiquer des commentaires sur le produit et suggérer des fonctionnalités ?**
 
 **R :** Les clients sont encouragés à [exprimer publiquement leurs préoccupations](https://cognitive.uservoice.com/) et à voter pour d’autres personnes qui ont signalé des problèmes potentiels se chevauchant. L’outil UserVoice peut être utilisé à la fois pour fournir des commentaires sur les produits et suggérer des fonctionnalités.
+
+**Q : Quels sont les messages d’état et les erreurs que les conteneurs Cognitive Services renvoient ?**
+
+**R :** Consultez le tableau suivant pour obtenir la liste des messages d’état et des erreurs.
+
+|Statut  | Description  |
+|---------|---------|
+| `Valid` | Votre clé d’API est valide, aucune action n’est nécessaire. |
+| `Invalid` |   Votre clé d’API n’est pas valide. Vous devez fournir une clé d’API valide pour exécuter le conteneur. Recherchez votre clé d’API et votre région de service dans la section **Clés et points de terminaison** de votre ressource Azure Cognitive Services, dans le portail Azure. |
+| `Mismatch` | Vous avez fourni une clé API ou un point de terminaison pour un autre type de ressource Cognitive Services. Recherchez votre clé d’API et votre région de service dans la section **Clés et points de terminaison** de votre ressource Azure Cognitive Services. |
+| `CouldNotConnect` | Le conteneur n’a pas pu se connecter au point de terminaison de facturation. Vérifiez la valeur `Retry-After` et attendez que cette période se termine avant d’effectuer des requêtes supplémentaires. |
+| `OutOfQuota` | La clé d’API est hors quota. Vous pouvez soit mettre à niveau votre niveau tarifaire, soit attendre qu’un quota supplémentaire soit rendu disponible. Recherchez votre niveau dans la section **niveau tarifaire** de votre ressource Azure Cognitive Services, dans le portail Azure. |
+| `BillingEndpointBusy` | Le point de terminaison de facturation est actuellement occupé. Vérifiez la valeur `Retry-After` et attendez que cette période se termine avant d’effectuer des requêtes supplémentaires. |
+| `ContainerUseUnauthorized` | La clé d’API fournie n’est pas autorisée à être utilisée avec ce conteneur. Vous utilisez probablement un conteneur limité. Vous devez donc vous assurer que votre ID d’abonnement Azure est approuvé en envoyant une [demande en ligne](https://aka.ms/csgate). |
+| `Unknown` | Le serveur ne peut pas traiter les demandes de facturation pour le moment. |
+
 
 **Q : Qui dois-je contacter pour obtenir de l’aide ?**
 

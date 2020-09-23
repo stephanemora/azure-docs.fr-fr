@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612637"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441746"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -67,7 +67,7 @@ Le Bureau à distance code tous les graphiques rendus par les applications et le
 
 2. Maintenant que les stratégies de groupe ont été modifiées, forcez une mise à jour de la stratégie de groupe. Ouvrez l’invite de commandes et tapez :
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Si vous utilisez souvent des applications qui produisent un contenu à fréquenc
 1. Sélectionnez la stratégie **Prioriser le mode H.264/AVC 444 Graphics pour les connexions Bureau à distance** et définissez-la sur **Activé** pour forcer le codec H.264/AVC 444 dans la session à distance.
 2. Maintenant que les stratégies de groupe ont été modifiées, forcez une mise à jour de la stratégie de groupe. Ouvrez l’invite de commandes et tapez :
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

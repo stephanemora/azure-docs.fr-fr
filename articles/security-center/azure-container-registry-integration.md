@@ -10,33 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1335b1034304b7efe2b113f7ff2d2927fea41638
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056599"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977367"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Analyse d’images Azure Container Registry par Security Center
 
 Azure Container Registry (ACR) est un service de registre Docker privé et géré qui stocke et gère vos images conteneurs pour les déploiements Azure dans un registre central. Il est basé sur le registre Docker open source 2.0.
 
-Si vous êtes sur le niveau standard d’Azure Security Center, vous pouvez ajouter le pack de registres de conteneurs. Cette fonctionnalité facultative apporte une meilleure visibilité des vulnérabilités des images de vos registres basés sur Azure Resource Manager. Activez ou désactivez le pack au niveau de l’abonnement pour couvrir tous les registres d’un abonnement. Cette fonctionnalité est facturée par image, comme indiqué dans la [page des tarifs](security-center-pricing.md). L’activation du pack de registres de conteneur garantit que Security Center est prêt à analyser les images qui sont envoyées au registre. 
-
-## <a name="availability"></a>Disponibilité
-
-|Aspect|Détails|
-|----|:----|
-|État de sortie :|Disponibilité générale|
-|Prix :|Niveau standard|
-|Registres et images pris en charge :|![Oui](./media/icons/yes-icon.png) Registres Azure Container Registry hébergés sur Linux qui sont accessibles à partir de l’Internet public et qui fournissent un accès à l’interpréteur de commandes.<br>![Non](./media/icons/no-icon.png) Registres Azure Container Registry hébergés sur Windows.<br>![No](./media/icons/no-icon.png) Registres « privés » : Security Center exige que vos registres soient accessibles à partir de l’Internet public. Security Center ne peut actuellement pas se connecter à des registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link, ni les analyser.<br>![Non](./media/icons/no-icon.png) Images super-minimalistes, telles que les images [de base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.|
-|Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
-|||
-
-
+Activez **Azure Defender pour les registres de conteneurs** afin de profiter d’une meilleure visibilité des vulnérabilités des images de vos registres basés sur Azure Resource Manager. Activez ou désactivez le plan au niveau de l’abonnement pour couvrir tous les registres d’un abonnement. Cette fonctionnalité est facturée par image, comme indiqué dans la [page des tarifs](security-center-pricing.md). L’activation d’Azure Defender garantit que Security Center est prêt à analyser les images qui sont envoyées au registre. 
 
 
 ## <a name="when-are-images-scanned"></a>Quand les images sont-elles analysées ?
@@ -74,7 +61,7 @@ Les analyses d’images sont déclenchées à chaque envoi (push).
 Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). De plus, vous pouvez utiliser Azure Resource Graph (ARG), l’API de type Kusto pour toutes vos ressources : une requête peut extraire une analyse spécifique.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quels sont les types de registres analysés ? Quels types sont facturés ?
-La [section Disponibilité](#availability) répertorie les types de registres de conteneurs pris en charge par le pack de registres de conteneurs. 
+La section Disponibilité répertorie les types de registres de conteneurs pris en charge par Azure Defender pour les registres de conteneurs. 
 
 Si des registres qui ne sont pas pris en charge sont connectés à votre abonnement Azure, ils ne seront pas analysés et ne vous seront pas facturés.
 
@@ -87,4 +74,4 @@ Pour en savoir plus sur les fonctionnalités de sécurité des conteneurs de Sec
 
 * [Intégration à Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Protection des machines virtuelles](security-center-virtual-machine-protection.md) : décrit les recommandations de Security Center
+

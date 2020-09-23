@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883547"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les partages de votre service Azure Data Box Gateway 
 
@@ -50,7 +50,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 5. Choisissez le **service de stockage** d’objet blob de blocs, d’objet blob de pages ou de fichier. Le type de service choisi varie selon le format dans lequel vous souhaitez que les données résident dans Azure. Par exemple, dans cette instance, nous voulons que les données résident en tant qu’objets blob de blocs dans Azure. C’est pourquoi nous sélectionnons **Objet blob de blocs**. Si vous choisissez **Objet blob de pages**, vous devez vous assurer que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
 
    > [!IMPORTANT]
-   > Vérifiez que le compte de stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Vérifiez que le compte de stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge Pro ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Cette étape varie selon que vous créez un partage SMB ou NFS.
     - **Si vous créez un partage SMB** : dans le champ **All privilege local user** (Utilisateur local avec tous les privilèges), choisissez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, indiquez un **nom d’utilisateur**, un **mot de passe**, puis confirmez le mot de passe. Cela affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2092a1aa3d5157db0392397e86553c5cc9da9de2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883795"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -55,7 +55,7 @@ Des machines virtuelles sont également créées dans un abonnement client dans 
 
 Les machines virtuelles s’exécutant dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-La protection des machines virtuelles résidant dans Azure Stack est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack, consultez [Intégrer vos machines virtuelles Azure Stack à Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+La protection des machines virtuelles résidant dans Azure Stack est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack, consultez [Intégrer vos machines virtuelles Azure Stack à Security Center](quickstart-onboard-machines.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
