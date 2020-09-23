@@ -1,6 +1,6 @@
 ---
-title: Tutoriel pour filtrer et analyser des données avec le rôle de calcul sur Azure Stack Edge avec GPU | Microsoft Docs
-description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge avec GPU et l’utiliser pour transformer des données avant de les envoyer à Azure.
+title: Tutoriel expliquant comment filtrer et analyser des données avec le rôle de calcul sur Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Apprenez à configurer le rôle de calcul sur Azure Stack Edge Pro avec GPU et à l'utiliser pour transformer des données avant de les envoyer à Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293548"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903170"
 ---
-# <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge avec GPU
+# <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Ce didacticiel explique comment configurer un rôle de calcul et créer un cluster Kubernetes sur votre appareil Azure Stack Edge. 
+Ce tutoriel vous explique comment configurer un rôle de calcul et créer un cluster Kubernetes sur votre appareil Azure Stack Edge Pro. 
 
 Cette procédure peut prendre environ 20 à 30 minutes.
 
@@ -34,16 +34,16 @@ Dans ce tutoriel, vous allez apprendre à :
  
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge, vérifiez que :
+Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, vérifiez que :
 
-- Vous avez activé votre appareil Azure Stack Edge, comme décrit dans [Activer Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Vous avez activé votre appareil Azure Stack Edge Pro, comme décrit dans [Activer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Assurez-vous que vous avez suivi les instructions dans [Activer le réseau de calcul](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) et :
     - Vous avez activé une interface réseau pour le calcul.
     - Affecté des adresses IP de nœud Kubernetes et adresses IP de service externe Kubernetes.
 
 ## <a name="configure-compute"></a>Configurer le calcul
 
-Pour configurer le calcul sur votre appareil Azure Stack Edge, vous allez créer une ressource IoT Hub via le portail Azure.
+Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub via le portail Azure.
 
 1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
 
@@ -72,17 +72,17 @@ Pour configurer le calcul sur votre appareil Azure Stack Edge, vous allez créer
     ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que le hub IOT soit associé à l’appareil Azure Stack Edge, le hub IOT est créé mais n’est pas affiché dans la configuration de calcul. 
+    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que l'instance d'IoT Hub soit associée à l'appareil Azure Stack Edge Pro, l'instance d'IoT Hub est créée mais elle n'apparaît pas dans la configuration du calcul. 
     
 Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
 
 La configuration du calcul en arrière-plan peut prendre 20-30 minutes, le temps que les machines virtuelles et le cluster Kubernetes soient créés. 
 
-Une fois que vous avez correctement configuré le calcul dans le portail Azure, un cluster Kubernetes et un utilisateur par défaut associé à l’espace de noms IoT (un espace de noms système contrôlé par Azure Stack Edge) existent. 
+Une fois le calcul correctement configuré sur le portail Azure, un cluster Kubernetes et un utilisateur par défaut associé à l'espace de noms IoT (espace de noms système contrôlé par Azure Stack Edge Pro) sont disponibles. 
 
 ## <a name="get-kubernetes-endpoints"></a>Obtenir les points de terminaison Kubernetes
 
-Pour configurer un client pour accéder au cluster Kubernetes, vous avez besoin du point de terminaison Kubernetes. Procédez comme suit pour récupérer le point de terminaison de l’API Kubernetes à partir de l’interface utilisateur locale de votre appareil Azure Stack Edge.
+Pour configurer un client pour accéder au cluster Kubernetes, vous avez besoin du point de terminaison Kubernetes. Procédez comme suit pour récupérer le point de terminaison de l'API Kubernetes à partir de l'interface utilisateur locale de votre appareil Azure Stack Edge Pro.
 
 1. Dans l’interface utilisateur web locale de votre appareil, accédez à la page **Appareils**.
 2. Sous **Points de terminaison de l’appareil**, copiez le point de terminaison du **service d’API Kubernetes**. Ce point de terminaison est une chaîne au format suivant : `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
@@ -117,7 +117,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Obtenir les points de terminaison Kubernetes
 
 
-Pour savoir comment gérer votre appareil Azure Stack Edge, consultez :
+Pour savoir comment administrer votre appareil Azure Stack Edge Pro, consultez :
 
 > [!div class="nextstepaction"]
-> [Administrer un appareil Azure Stack Edge avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Administrer un appareil Azure Stack Edge Pro via l'interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)

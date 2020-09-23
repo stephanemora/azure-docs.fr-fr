@@ -1,6 +1,6 @@
 ---
-title: Remplacer votre appareil Azure Stack Edge | Microsoft Docs
-description: Décrit comment obtenir un appareil Azure Stack Edge de remplacement.
+title: Remplacer votre appareil Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment obtenir un appareil Azure Stack Edge Pro de remplacement.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 5d5e8cc3a959c7800019107d2c682e144449b46c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893893"
 ---
-# <a name="replace-your-azure-stack-edge-device"></a>Remplacer votre appareil Azure Stack Edge
+# <a name="replace-your-azure-stack-edge-pro-device"></a>Remplacer votre appareil Azure Stack Edge Pro
 
-Cet article explique comment obtenir un appareil Azure Stack Edge de remplacement. Un appareil de remplacement est nécessaire lorsque l’appareil existant présente une défaillance matérielle ou a besoin d’une mise à niveau. 
+Cet article explique comment obtenir un appareil Azure Stack Edge Pro de remplacement. Un appareil de remplacement est nécessaire lorsque l’appareil existant présente une défaillance matérielle ou a besoin d’une mise à niveau. 
 
 
 Dans cet article, vous apprendrez comment :
@@ -33,7 +33,7 @@ Dans cet article, vous apprendrez comment :
 
 Si votre appareil existant présente une défaillance matérielle, ouvrez un ticket de support. Le support Microsoft déterminera qu’une unité de remplacement de champ (FRU) n’est pas disponible pour cette instance ou que l’appareil a besoin d’une mise à niveau matérielle. Dans les deux cas, le support commandera un appareil de remplacement.
 
-1. Ouvrez un ticket de support auprès du Support Microsoft indiquant que vous souhaitez retourner l’appareil. Sélectionnez le type de problème **Matériel Azure Stack Edge**.
+1. Ouvrez un ticket de support auprès du Support Microsoft indiquant que vous souhaitez retourner l’appareil. Sélectionnez le type de problème **Matériel Azure Stack Edge Pro**.
 
     ![Ouverture d’un ticket de support](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -47,7 +47,7 @@ Pour créer une ressource, effectuez les étapes suivantes.
 
 1. Suivez les étapes décrites dans [Créer une ressource](azure-stack-edge-deploy-prep.md#create-a-new-resource) pour créer une ressource pour l’appareil de remplacement. 
 
-2. Veillez à activer la case à cocher **Je possède un appareil Azure Stack Edge**. 
+2. Veillez à activer la case à cocher **Je possède un appareil Azure Stack Edge Pro**. 
 
     ![Ressource pour l’appareil de remplacement](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -71,4 +71,4 @@ Suivez toutes les étapes pour retourner l’appareil d’origine :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [retourner un appareil Azure Stack Edge](azure-stack-edge-return-device.md).
+- Découvrez comment [retourner un appareil Azure Stack Edge Pro](azure-stack-edge-return-device.md).

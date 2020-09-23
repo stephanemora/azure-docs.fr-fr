@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes liés aux certificats avec Azure Stack Edge avec GPU | Microsoft Docs
-description: Décrit la résolution des erreurs de certificat avec les appareils Azure Stack Edge avec GPU.
+title: Résolution des problèmes liés aux certificats avec Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit la résolution des erreurs de certificat avec les appareils Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 05338fb70bfa390ff3bd9e14e938edeb40938aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891323"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Résolution des erreurs de certificat
 
-L’article explique comment résoudre les erreurs de certificat courantes lors de l’installation de certificats sur votre appareil Azure Stack Edge.
+L’article explique comment résoudre les erreurs de certificat courantes lors de l’installation de certificats sur votre appareil Azure Stack Edge Pro.
 
 ## <a name="common-certificate-errors"></a>Erreurs de certificat courantes
 
