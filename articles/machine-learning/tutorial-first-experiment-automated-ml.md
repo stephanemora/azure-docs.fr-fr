@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047822"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896455"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Dans ce tutoriel, vous allez découvrir comment créer un modèle de classification de base sans écrire une seule ligne de code, en utilisant le machine learning automatisé d’Azure Machine Learning Studio. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
 
->[!IMPORTANT]
-> L’expérience de machine learning automatisé dans Azure Machine Learning Studio est en préversion. Certaines fonctionnalités peuvent ne pas être prises en charge ou avoir des capacités limitées.
+Dans ce tutoriel, vous allez découvrir comment créer un modèle de classification simple sans écrire une seule ligne de code, en utilisant le machine learning automatisé d’Azure Machine Learning Studio. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
 
 Avec le machine learning automatisé, vous pouvez automatiser des tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
 
@@ -47,9 +44,9 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le service. 
 
-Créez un espace de travail **Édition Entreprise** via le portail Azure, une console web pour la gestion de vos ressources Azure.
+Créez un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Prenez note de votre **espace de travail** et de votre **abonnement**. Vous en aurez besoin pour être sûr de créer votre expérience au bon endroit. 

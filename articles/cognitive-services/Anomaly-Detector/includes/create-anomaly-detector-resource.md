@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025167"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Créer une ressource Détecteur d’anomalies
 
@@ -28,7 +28,6 @@ ms.locfileid: "80875109"
     |Location|Sélectionnez n’importe quel emplacement disponible et proche|
     |Niveau de tarification|`F0` - le niveau tarifaire minimal|
     |Groupe de ressources|Sélectionner un groupe de ressources disponible|
-    |Case de confirmation de préversion (obligatoire)|Indique si vous avez lu l’avis relatif à la **Préversion**|
 
 1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources
 1. Collectez le `endpoint` configuré et une clé d’API :

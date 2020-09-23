@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311566"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434535"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -32,7 +32,7 @@ Pour les applications basées sur MSAL.js 1.0 et 2.0, commencez par suivre les �
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Si votre compte a accès à plusieurs locataires, sélectionnez le filtre **Répertoire + abonnement** dans le menu supérieur, puis choisissez le locataire qui doit contenir l’inscription d’application que vous allez créer.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
-1. Sélectionnez **Nouvelle inscription**, entrez un **Nom** pour l’application, puis choisissez les **Types de comptes pris en charge** pour celle-ci. N’entrez **PAS** d’**URI de redirection**. Pour obtenir une description des différents types de comptes, consultez [Inscrire une nouvelle application à l’aide du portail Azure](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Sélectionnez **Nouvelle inscription**, entrez un **Nom** pour l’application, puis choisissez les **Types de comptes pris en charge** pour celle-ci. N’entrez **PAS** d’**URI de redirection**. Pour obtenir une description des différents types de comptes, consultez [Inscrire une nouvelle application à l’aide du portail Azure](quickstart-register-app.md).
 1. Sélectionnez **Inscrire** pour l’inscription d’application.
 
 Ensuite, configurez l’inscription d’application avec un **URI de redirection** pour spécifier l’emplacement vers où la plateforme d’identité Microsoft doit rediriger le client, ainsi que tous les jetons de sécurité. Suivez les étapes appropriées pour la version de MSAL.js que vous utilisez dans votre application :

@@ -4,15 +4,15 @@ description: En savoir plus sur les étapes requises pour activer les nouvelles 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783839"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894536"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Ressources Application Insights basées sur un espace de travail (préversion)
+# <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
 Les ressources basées sur un espace de travail prennent en charge l’intégration complète entre Application Insights et Log Analytics. Vous pouvez maintenant choisir d’envoyer votre télémétrie Application Insights à un espace de travail Log Analytics commun, ce qui vous permet d’accéder entièrement à toutes les fonctionnalités de Log Analytics tout en conservant les journaux des applications, des infrastructures et des plateformes dans un emplacement consolidé unique.
 
@@ -21,7 +21,19 @@ Cela permet également de disposer d’un contrôle d’accès en fonction du r�
 > [!NOTE]
 > L’ingestion et la conservation des données pour les ressources Application Insights basées sur un espace de travail sont facturées dans l’espace de travail Log Analytics où se trouvent les données. [En savoir plus]( ./pricing.md#workspace-based-application-insights) sur la facturation des ressources Application Insights basées sur un espace de travail.
 
-Pour tester la nouvelle expérience, connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressource Application Insights :
+## <a name="new-capabilities"></a>Nouvelles fonctionnalités
+
+Les Application Insights basées sur l’espace de travail vous permettent de tirer profit des dernières fonctionnalités d’Azure Monitor et Log Analytics, y compris :
+
+* [Les clés gérées par le client (CMK)](../platform/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
+* [Azure Private Link](../platform/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
+* [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
+* Les [niveaux de réservation de capacité](../platform/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
+* Ingestion plus rapide des données via l’ingestion de diffusion en continu Log Analytics.
+
+## <a name="create-workspace-based-resource"></a>Créer une ressource basée sur un espace de travail
+
+Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressource Application Insights :
 
 ![Ressource Application Insights basée sur un espace de travail](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ Une fois votre ressource créée, les informations correspondantes de l’espace
 Le fait de cliquer sur le texte du lien bleu vous permet d’accéder à l’espace de travail Log Analytics associé dans lequel vous pouvez tirer parti du nouvel environnement de requête de l’espace de travail unifié.
 
 > [!NOTE]
-> Nous proposons toujours une compatibilité descendante complète pour vos classeurs, alertes basées sur les journaux et requêtes de ressources Application Insights classiques au sein de l’expérience Application Insights. Pour interroger/afficher [le nouveau schéma ou la nouvelle structure de table basé sur un espace de travail](apm-tables.md), vous devez d’abord accéder à votre espace de travail Log Analytics. Pendant la préversion, la sélection de **Journaux** dans les volets d’Application Insights vous donne accès à l’expérience de requête Application Insights classique.
+> Nous proposons toujours une compatibilité descendante complète pour vos classeurs, alertes basées sur les journaux et requêtes de ressources Application Insights classiques au sein de l’expérience Application Insights. Pour interroger/afficher [le nouveau schéma ou la nouvelle structure de table basé sur un espace de travail](apm-tables.md), vous devez d’abord accéder à votre espace de travail Log Analytics. La sélection de **Journaux (Analytics)** dans les volets d’Application Insights vous donne accès à l’expérience de requête Application Insights classique.
 
 ## <a name="copy-the-connection-string"></a>Copier la chaîne de connexion
 
@@ -185,14 +197,6 @@ La commande PowerShell `New-AzApplicationInsights` ne prend pas actuellement en 
 
 ```
 
-## <a name="new-capabilities"></a>Nouvelles fonctionnalités
-
-Les Application Insights basées sur l’espace de travail vous permettent de tirer profit de toutes les dernières fonctionnalités d’Azure Monitor, y compris :
-
-* [Les clés gérées par le client (CMK)](../platform/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
-* [Azure Private Link](../platform/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
-* [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modification de l’espace de travail associé
 
 Une fois qu’une ressource Application Insights basée sur l’espace de travail a été créée, vous pouvez modifier l’espace de travail Log Analytics associé.
@@ -207,8 +211,3 @@ La fonctionnalité héritée d’exportation continue n’est pas prise en charg
 
 * [Exploration des mesures](../platform/metrics-charts.md)
 * [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

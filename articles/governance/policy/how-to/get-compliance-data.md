@@ -1,14 +1,14 @@
 ---
 title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054650"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895423"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -30,11 +30,13 @@ Les résultats d’un cycle d’évaluation terminé sont disponibles dans le fo
 
 Différents événements permettent d’évaluer les stratégies et initiatives assignées :
 
-- Affectation d’une nouvelle stratégie ou initiative à une étendue. Il faut environ 30 minutes pour que l’affectation soit appliquée à l’étendue définie. Une fois celle-ci appliquée, le cycle d’évaluation commence pour les ressources de cette étendue compte tenu de la nouvelle stratégie ou initiative ; de plus, selon les effets utilisés par la stratégie ou l’initiative, les ressources sont marquées comme conformes ou non conformes. Une stratégie ou une initiative volumineuse évaluée par rapport à une grande étendue de ressources peut prendre du temps. Par conséquent, il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
+- Affectation d’une nouvelle stratégie ou initiative à une étendue. Il faut environ 30 minutes pour que l’affectation soit appliquée à l’étendue définie. Une fois celle-ci appliquée, le cycle d’évaluation commence pour les ressources de cette étendue compte tenu de la nouvelle stratégie ou initiative ; de plus, selon les effets utilisés par la stratégie ou l’initiative, les ressources sont marquées comme conformes, non conformes ou exemptées. Une stratégie ou une initiative volumineuse évaluée par rapport à une grande étendue de ressources peut prendre du temps. Par conséquent, il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
 
 - Mise à jour d’une stratégie ou initiative déjà assignée à une étendue. Dans ce scénario, le cycle et le temps d’évaluation sont les mêmes que pour le cas d’une nouvelle affectation à une étendue.
 
 - Déploiement ou mise à jour d’une ressource dans une étendue avec une assignation via Azure Resource Manager, l’API REST ou un kit SDK pris en charge. Dans ce scénario, l’événement d’effet (ajout, audit, refus, déploiement) et l’état de conformité deviennent disponibles dans le portail et les Kits de développement logiciel (SDK) environ 15 minutes plus tard. Cet événement n’entraîne pas une évaluation des autres ressources.
+
+- Une [exemption de stratégie](../concepts/exemption-structure.md) est créée, mise à jour ou supprimée. Dans ce scénario, l’affectation correspondante est évaluée pour l’étendue d’exemption définie.
 
 - Cycle d’évaluation de conformité standard. Les affectations sont automatiquement réévaluées une fois par tranche de 24 heures. L’évaluation d’une stratégie ou d’une initiative volumineuse peut prendre un temps. Il est donc impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Principe de fonctionnement de la conformité
 
-Dans une affectation, une ressource est dite **Non conforme** si elle ne respecte pas les règles de l’initiative ou de la stratégie.
-Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant :
+Dans une affectation, une ressource est dite **Non conforme** si elle ne respecte pas les règles de l’initiative ou de la stratégie et n’est pas _exemptée_. Le tableau suivant montre comment les différents effets des stratégies fonctionnent avec l’évaluation des conditions pour l’état de conformité résultant :
 
 | État de la ressource | Résultat | Évaluation de la stratégie | État de conformité |
 | --- | --- | --- | --- |
@@ -137,29 +138,33 @@ Le tableau suivant montre comment les différents effets des stratégies fonctio
 | Nouveau | Audit, AuditIfNotExist\* | True | Non conforme |
 | Nouveau | Audit, AuditIfNotExist\* | False | Conforme |
 
-\* Les effets Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE.
-Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
+\* Les effets Modify, Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE. Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
 
 Supposons, par exemple, que vous disposiez d’un groupe de ressources (ContosoRG), comprenant des comptes de stockage (en rouge) qui sont exposés sur des réseaux publics.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Comptes de stockage exposés sur des réseaux publics" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagramme de comptes de stockage exposés sur des réseaux publics dans le groupe de ressources Contoso R G." border="false":::
+   Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G.  Les comptes de stockage un et trois sont en bleu, tandis que les comptes de stockage deux, quatre et cinq sont en rouge.
+:::image-end:::
 
-Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme**.
+Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage inclus et non exemptés du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme**.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Audit des comptes de stockage non conformes" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramme de la conformité de compte de stockage dans le groupe de ressources Contoso R G." border="false":::
+   Diagramme montrant des images pour cinq comptes de stockage dans le groupe de ressources Contoso R G. Des coches vertes apparaissent désormais en dessous des comptes de stockage un et trois, tandis que des signes d’avertissement rouges apparaissent désormais sous les comptes de stockage deux, quatre et cinq.
+:::image-end:::
 
-Outre les états **Conforme** et **Non conforme**, les stratégies et les ressources peuvent avoir trois autres états :
+Outre les états **Conforme** et **Non conforme**, les stratégies et les ressources peuvent avoir quatre autres états :
 
-- **En conflit** : Il existe deux ou stratégies ou plus avec des règles en conflit. Par exemple, deux stratégies ajoutent la même balise avec des valeurs différentes.
+- **Exempté** : La ressource se trouve dans l’étendue d’une affectation, mais a une [exemption définie](../concepts/exemption-structure.md).
+- **En conflit** : Il existe deux définitions de stratégie ou plus avec des règles en conflit. Par exemple, deux définitions de stratégie ajoutent la même balise avec des valeurs différentes.
 - **Non démarré** : Le cycle d’évaluation n’a pas démarré pour la stratégie ou la ressource.
 - **Non inscrit** : Le fournisseur de ressources Azure Policy n’a pas été inscrit ou le compte connecté n’est pas autorisé à lire les données de conformité.
 
-La Azure Policy utilise les champs **type** et **nom** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme** ou **Non conforme**. Si le champ **type** ou **nom** est la seule propriété dans la définition de règle de stratégie, toutes les ressources sont considérées comme applicables et sont évaluées.
+La Azure Policy utilise les champs **type** et **nom** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme**, **Non conforme** ou **Exempté**. Si le champ **type** ou **nom** est la seule propriété dans la définition, toutes les ressources incluses et non exemptées sont considérées comme applicables et sont évaluées.
 
-Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** par le _nombre total de ressources_.
-Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**. La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
+Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** et **exemptées** par le _nombre total de ressources_. Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes**, **exemptées** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** ou **exemptées** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**.
+La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemple de conformité à la stratégie à partir de la page Conformité" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Capture d’écran des détails de conformité à la stratégie dans la page Conformité." border="false":::
 
 > [!NOTE]
 > La conformité réglementaire dans Azure Policy est une fonctionnalité en version préliminaire. Les propriétés de conformité du Kit de développement logiciel (SDK) et des pages dans le portail sont différentes pour les initiatives activées. Pour plus d’informations, voir [Conformité réglementaire](../concepts/regulatory-compliance.md)
@@ -168,11 +173,11 @@ Le _nombre total de ressources_ est défini comme étant la somme des ressources
 
 Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie**, l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours. La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Exemple d’une page Conformité Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Capture d’écran de la page Conformité, des options de filtrage et des détails." border="false":::
 
-Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En cliquant sur une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
+Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En sélectionnant une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Exemple d’une page Détails de conformité Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Capture d’écran de la page Détails de conformité, y compris les nombres et les détails de conformité des ressources." border="false":::
 
 La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
 Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
@@ -180,15 +185,15 @@ Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés 
 > [!NOTE]
 > Pour une stratégie du moteur AKS, la ressource indiquée est le groupe de ressources.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Exemple d’événements Conformité Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Capture d’écran de l’onglet Événements sur la page Détails de conformité." border="false":::
 
 Pour les ressources du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), dans l’onglet **Conformité des ressources**, la sélection de la ressource ou un clic droit sur la ligne et la sélection de l’option **Afficher les détails de la conformité** ouvre les détails de conformité du composant. Cette page propose également des onglets pour afficher les stratégies attribuées à cette ressource, les événements, les événements de composant et l’historique des modifications.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Exemple de détails de la conformité des composants Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Capture d’écran de l’onglet Conformité des composants et des détails de conformité pour une affectation de mode de fournisseur de ressources." border="false":::
 
 Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Exemple de journal d’activité Conformité Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Capture d’écran du journal d’activité pour les activités et évaluations Azure Policy." border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendre la non-conformité
 
@@ -639,7 +644,7 @@ Trent Baker
 
 Si vous avez un espace de travail [Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) dans lequel `AzureActivity` de la solution [Activity Log Analytics](../../../azure-monitor/platform/activity-log.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes à partir du cycle d’évaluation en utilisant de simples Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformité Azure Policy à l’aide de journaux d’activité Azure Monitor" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Capture d’écran des journaux Azure Monitor montrant les actions Azure Policy dans la table AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
