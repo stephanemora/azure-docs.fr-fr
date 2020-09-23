@@ -7,13 +7,16 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 92b28b89d181de368ef1e39eb695be2e1fad6c37
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom:
+- mqtt
+- device-developer
+- devx-track-javascript
+ms.openlocfilehash: 7eba6adffcdd3dab3263e82faf51ac90bae79b89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423520"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968162"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central (Node.js)
 
@@ -335,12 +338,12 @@ Vous pouvez voir comment l’appareil répond aux commandes et aux mises à jour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil à l’aide de Node.js, les prochaines étapes suggérées sont les suivantes :
-
-* Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
-* Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
-
 Si vous préférez suivre l’ensemble des tutoriels IoT Central et en savoir plus sur la création d’une solution IoT Central, consultez :
 
 > [!div class="nextstepaction"]
 > [Créer un modèle d’appareil de passerelle](./tutorial-define-gateway-device-type.md)
+
+En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil à l’aide de Node.js, les prochaines étapes suggérées sont les suivantes :
+
+* Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
+* Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.

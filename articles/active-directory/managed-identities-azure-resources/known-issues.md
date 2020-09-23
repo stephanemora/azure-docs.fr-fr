@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260218"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969149"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260218"
 > [!NOTE]
 > Identités managées pour les ressources Azure est le nouveau nom du service anciennement nommé Managed Service Identity (MSI).
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Comment trouver les ressources qui ont une identité managée ?
 
 Vous pouvez obtenir la liste des ressources qui ont une identité managée affectée par le système en exécutant la commande Azure CLI suivante : 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>Les identités managées ont-elles un objet de sauvegarde d’application ?
 
@@ -72,8 +70,6 @@ La limite de sécurité de l’identité est la ressource à laquelle elle est j
 - Si l’identité managée affectée par le système n’est pas activée et qu’il n’existe qu’une seule identité managée affectée par l’utilisateur, IMDS utilise par défaut l’identité managée affectée par ce seul utilisateur. 
 - Si l’identité managée affectée par le système n’est pas activée et qu’il existe plusieurs identités managées affectées par l’utilisateur, la spécification d’une identité managée dans la requête est obligatoire.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Les identités managées sont-elles recréées automatiquement si je déplace un abonnement vers un autre répertoire ?
 
 Non. Si vous déplacez un abonnement vers un autre répertoire, vous devez les recréer manuellement et accorder à nouveau les attributions de rôle Azure.
@@ -88,7 +84,6 @@ Non. Les identités managées ne prennent actuellement pas en charge les scénar
 
 - Identité managée affectée par le système : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tel que le [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identité managée affectée par l’utilisateur : Vous avez besoin d’autorisations en écriture sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. En plus de l’attribution de rôle [Opérateur d’identités managées](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sur l’identité managée.
-
 
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -112,7 +107,7 @@ Si vous déplacez une machine virtuelle en cours d’exécution, elle continue d
 Déclenchez une mise à jour sur la machine virtuelle afin qu’elle obtienne les valeurs correctes pour les identités managées pour les ressources Azure. Vous pouvez modifier les propriétés d’une machine virtuelle pour mettre à jour la référence à l’identité des identités managées pour les ressources Azure. Par exemple, vous pouvez définir une nouvelle valeur de balise sur la machine virtuelle avec la commande suivante :
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 Cette commande définit une nouvelle balise « fixVM » avec une valeur de 1 sur la machine virtuelle. 
@@ -124,8 +119,6 @@ Une fois la machine virtuelle démarrée, la balise peut être supprimée en uti
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transfert d’un abonnement entre des répertoires Azure AD
 
