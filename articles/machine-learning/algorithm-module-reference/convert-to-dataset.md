@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456588"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898703"
 ---
 # <a name="convert-to-dataset"></a>Convertir en jeu de données
 
-Cet article explique comment utiliser le module Convertir en jeu de données du concepteur Azure Machine Learning (préversion) pour convertir des données d’un pipeline au format interne du concepteur.
+Cet article explique comment utiliser le module Convertir en jeu de données du concepteur Azure Machine Learning pour convertir des données d’un pipeline au format interne du concepteur.
   
 La conversion n’est pas obligatoire dans la plupart des cas. Azure Machine Learning convertit implicitement les données au format de jeu de données natif quand une opération est effectuée sur les données. 
 
@@ -35,7 +35,7 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
 
 2. Connectez-le à n’importe quel module qui génère un jeu de données.   
 
-    Tant que les données sont [tabulaires](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), vous pouvez les convertir en jeu de données. Cela inclut les données chargées via le module [Importer des données](import-data.md), les données créées via le module [Entrer des données manuellement](enter-data-manually.md) ou les jeux de données transformés via le module [Appliquer une transformation](apply-transformation.md).
+    Tant que les données sont [tabulaires](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), vous pouvez les convertir en jeu de données. Cela inclut les données chargées via le module [Importer des données](import-data.md), les données créées via le module [Entrer des données manuellement](enter-data-manually.md) ou les jeux de données transformés via le module [Appliquer une transformation](apply-transformation.md).
 
 3.  Dans la liste déroulante **Action**, indiquez si vous souhaitez effectuer un nettoyage des données avant d’enregistrer le jeu de données :  
   

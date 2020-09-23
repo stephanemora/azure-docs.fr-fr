@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de connexion liés à l’agent Serveurs avec Azure Arc (préversion)
-description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec Serveurs avec Azure Arc (préversion) lors de la tentative de connexion au service.
-ms.date: 07/20/2020
+title: Résoudre les problèmes de connexion liés à l’agent Serveurs activés par Azure Arc
+description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec des Serveurs activés par Azure Arc (préversion) lors de la tentative de connexion au service.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213548"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900675"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l'agent Connected Machine
 
-Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l’agent Connected Machine de Serveurs avec Azure Arc (préversion) pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [Présentation de Serveurs avec Arc](./overview.md).
+Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l’agent Connected Machine de Serveurs activés par Azure Arc pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [Présentation de Serveurs avec Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Journal d'activité détaillé de l'agent
 

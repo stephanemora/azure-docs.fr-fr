@@ -1,6 +1,6 @@
 ---
-title: Déployer l’application PHP Guestbook sur Kubernetes avec Arc sur un appareil Azure Stack Edge avec GPU | Microsoft Docs
-description: Décrit comment déployer une application sans état PHP Guestbook avec Redis en utilisant GitOps sur un cluster Kubernetes avec Arc de votre appareil Azure Stack Edge.
+title: Déployer l’application PHP Guestbook sur Kubernetes avec Arc sur un appareil Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit comment déployer une application sans état PHP Guestbook avec Redis en utilisant GitOps sur un cluster Kubernetes avec Arc de votre appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319290"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899550"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Déployer une application sans état PHP Guestbook avec Redis sur un cluster Kubernetes avec Arc sur Azure Stack Edge avec GPU.
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Déployer une application sans état PHP Guestbook avec Redis sur un cluster Kubernetes avec Arc sur Azure Stack Edge Pro avec GPU
 
 Cet article explique comment créer et déployer une simple application web multiniveau à l’aide de Kubernetes et d’Azure Arc. Cet exemple est constitué des composants suivants :
 
@@ -23,9 +23,9 @@ Cet article explique comment créer et déployer une simple application web mult
 - plusieurs instances Redis répliquées pour servir les lectures ;
 - plusieurs instances frontales web.
 
-Le déploiement s’effectue à l’aide de GitOps sur le cluster Kubernetes avec Arc sur votre appareil Azure Stack Edge. 
+Le déploiement s’effectue à l’aide de GitOps sur le cluster Kubernetes avec Arc sur votre appareil Azure Stack Edge Pro. 
 
-Cette procédure est destinée aux personnes qui ont examiné les [charges de travail Kubernetes sur un appareil Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md) et connaissent les concepts de [Kubernetes avec Azure Arc (préversion)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Cette procédure est destinée aux personnes qui ont examiné les [charges de travail Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) et connaissent les concepts de [Kubernetes avec Azure Arc (préversion)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -34,30 +34,30 @@ Avant de pouvoir déployer l’application sans état, assurez-vous d’avoir re
 
 ### <a name="for-device"></a>Pour l’appareil
 
-1. Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge à 1 nœud.
+1. Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
     1. L’appareil est activé. Voir [Activer l’appareil](azure-stack-edge-gpu-deploy-activate.md).
     1. Le rôle de calcul est configuré sur l’appareil via le portail Azure et l’appareil dispose d’un cluster Kubernetes. Voir [Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. Vous avez activé Azure Arc sur le cluster Kubernetes existant sur votre appareil, et vous disposez d’une ressource Azure Arc correspondante dans le portail Azure. Pour obtenir des instructions détaillées, consultez [Activer Azure Arc sur un appareil Azure Stack Edge](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
+1. Vous avez activé Azure Arc sur le cluster Kubernetes existant sur votre appareil, et vous disposez d’une ressource Azure Arc correspondante dans le portail Azure. Pour obtenir des instructions détaillées, consultez [Activer Azure Arc sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
 
 ### <a name="for-client-accessing-the-device"></a>Pour un client accédant à l’appareil
 
-1. Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge.
+1. Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge Pro.
   
     - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Vous pouvez également utiliser un autre client avec un [système d’exploitation pris en charge](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). Cet article décrit la procédure à utiliser avec un client Windows. 
     
-1. Vous avez terminé la procédure décrite dans [Accéder au cluster Kubernetes sur un appareil Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Vous avez :
+1. Vous avez terminé la procédure décrite dans [Accéder au cluster Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Vous avez :
     
     - Installé `kubectl` sur le client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Assurez-vous que la version du client `kubectl` n’est pas décalée de plus d’une version par rapport à la version maître de Kubernetes fonctionnant sur votre appareil Azure Stack Edge. 
+    - Assurez-vous que la version du client `kubectl` n’est pas décalée de plus d’une version par rapport à la version principale de Kubernetes exécutée sur votre appareil Azure Stack Edge Pro. 
       - Utilisez `kubectl version` pour vérifier la version de kubectl en cours d’exécution sur le client. Prenez note de la version complète.
-      - Dans l’interface utilisateur locale de votre appareil Azure Stack Edge, accédez à **Vue d’ensemble** et notez le numéro du logiciel Kubernetes. 
+      - Dans l’interface utilisateur locale de votre appareil Azure Stack Edge Pro, accédez à **Vue d’ensemble** et notez le numéro de version du logiciel Kubernetes. 
       - Vérifiez la compatibilité de ces deux versions à partir du mappage fourni dans la version Kubernetes prise en charge <!--insert link-->.
 
-1. Vous disposez d’une [configuration GitOps que vous pouvez utiliser pour exécuter un déploiement d’Azure Arc](https://github.com/kagoyal/dbehaikudemo). Dans cet exemple, vous allez utiliser les fichiers `yaml` suivants pour opérer le déploiement sur votre appareil Azure Stack Edge.
+1. Vous disposez d’une [configuration GitOps que vous pouvez utiliser pour exécuter un déploiement d’Azure Arc](https://github.com/kagoyal/dbehaikudemo). Dans cet exemple, vous allez utiliser les fichiers `yaml` suivants pour opérer le déploiement sur votre appareil Azure Stack Edge Pro.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrir comment [Utiliser le tableau de bord Kubernetes pour surveiller les déploiements sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+Découvrir comment [Utiliser le tableau de bord Kubernetes pour surveiller les déploiements sur votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)

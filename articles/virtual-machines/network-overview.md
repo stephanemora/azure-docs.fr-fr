@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe1cdf738162fe5c4492ff0585f057256153a838
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835610"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561412"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Réseaux virtuels et machines virtuelles dans Azure 
 
@@ -147,7 +147,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un éq
 | Portail Azure | Vous pouvez [équilibrer la charge du trafic interne avec un équilibreur de charge sur le portail Azure](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Pour fournir une adresse IP privée dans le sous-réseau du réseau, utilisez [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) avec le paramètre **-PrivateIpAddress**. Utilisez [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) pour créer la configuration du pool d’adresses principal. Utilisez [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) pour créer des règles NAT de trafic entrant associées à la configuration IP frontale que vous avez créée. Utilisez [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) pour créer les sondes dont vous avez besoin. Utilisez [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) pour créer la configuration d’équilibrage de charge. Utilisez [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) pour créer l’équilibrage de charge.|
 | [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Utilisez la commande [az network lb create](/cli/azure/network/lb) pour créer la configuration d’équilibrage de charge initiale. Pour définir l’adresse IP privée, utilisez [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) avec le paramètre **--private-ip-address**. Utilisez [az network lb address-pool create](/cli/azure/network/lb/address-pool) pour ajouter la configuration du pool d’adresses principal. Utilisez [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) pour ajouter des règles de traduction d’adresses réseau. Utilisez [az network lb rule create](/cli/azure/network/lb/rule) pour ajouter les règles d’équilibrage de charge. Utilisez [az network lb probe create](/cli/azure/network/lb/probe) pour ajouter les sondes.|
-| [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Utilisez [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
+| [Modèle](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Utilisez [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
 
 ### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles 
 

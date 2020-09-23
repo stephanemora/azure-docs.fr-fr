@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076387"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901086"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutoriel : Répondre à des incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Dans ce didacticiel, vous apprendrez à :
@@ -32,7 +32,7 @@ Security center analyse continuellement vos charges de travail de cloud hybride 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-Pour parcourir les fonctionnalités couvertes dans ce tutoriel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
+Pour parcourir les fonctionnalités couvertes dans ce tutoriel, vous devez avoir activé Azure Defender. Vous pouvez essayer gratuitement Azure Defender. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le guide de démarrage rapide [Bien démarrer avec Security Center](security-center-get-started.md) vous guide tout au long de la procédure de mise à niveau.
 
 ## <a name="scenario"></a>Scénario
 Contoso a récemment migré une partie de ses ressources locales dans Azure, notamment certaines bases de données SQL et charges de travail métier reposant sur des machines virtuelles. L’équipe principale de réponse aux incidents de sécurité informatique (CSIRT) de Contoso rencontre aujourd’hui des difficultés pour étudier les problèmes de sécurité car les renseignements sur la sécurité ne sont pas intégrés à leurs outils actuels de réponse aux incidents. Cette absence d’intégration pose un problème durant l’étape de détection (trop de faux positifs) et durant les étapes d’évaluation et de diagnostic. Dans le cadre de la migration, l’équipe a décidé d’opter pour Security Center pour l’aider à résoudre ce problème.
@@ -68,13 +68,13 @@ Security Center fournit une vue unifiée de toutes les alertes de sécurité. Le
 
    ![Alertes de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Dans la liste des alertes, cliquez sur un incident de sécurité, qui est un ensemble d’alertes, pour en savoir plus sur cet incident. **Incident de sécurité détecté** s’ouvre.
+2. Dans la liste des alertes, sélectionnez un incident de sécurité, qui est une collection d’alertes, pour en savoir plus sur cet incident. **Incident de sécurité détecté** s’ouvre.
 
-   ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incident de sécurité détecté](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Dans cet écran, la description de l’incident de sécurité est affichée au-dessus, ainsi que la liste des alertes faisant parties de l’incident. Cliquez sur l’alerte sur laquelle vous souhaitez approfondir vos recherches et obtenir plus d’informations.
 
-   ![Incident de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Détails de l’alerte de l’incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    Le type d’alerte peut varier, lisez [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) pour plus d’informations sur le type d’alerte, ainsi que les étapes de correction possibles. Pour les alertes qui peuvent être ignorées en toute sécurité, vous pouvez cliquer avec le bouton droit sur l’alerte et sélectionnez l’option **Ignorer** :
 
@@ -99,13 +99,12 @@ Pour effectuer une recherche, ouvrez le tableau de bord **Security Center**, cli
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez de suivre les tutoriels et les guides de démarrage rapide suivants, conservez le niveau Standard et gardez le provisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les tutoriels et guides de démarrage rapide suivants, maintenez activés le provisionnement automatique et Azure Defender. Si vous n’envisagez pas de continuer ou si vous voulez désactiver Azure Defender :
 
-1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
-3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour changer d’abonnement et passer du niveau standard au niveau Gratuit.
-5. Sélectionnez **Enregistrer**.
+1. Revenez au menu principal de Security Center et sélectionnez **Tarifs et paramètres**.
+1. Sélectionnez l’abonnement pour lequel vous souhaitez passer à une version antérieure.
+1. Définissez **Azure Defender** sur Off (désactivé).
+1. Sélectionnez **Enregistrer**.
 
 Si vous voulez désactiver l’approvisionnement automatique :
 
