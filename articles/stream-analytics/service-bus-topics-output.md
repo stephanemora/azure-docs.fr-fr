@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 71a41a3a8d137fdf9d4f41c975e7be6c148078e1
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ef5802d0c5e35b9c12db1f40782ba5f190ad1883
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907193"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Sortie des rubriques Service Bus à partir d’Azure Stream Analytics
 
@@ -49,7 +49,7 @@ Vous pouvez joindre des colonnes de requête en tant que propriétés de l’uti
 
 ## <a name="system-properties"></a>Propriétés système
 
-Vous pouvez attacher des colonnes de requête en tant que [propriétés système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) à vos messages sortants de file d’attente ou de rubrique Service Bus. Ces colonnes ne sont pas placées dans la charge utile ; au lieu de cela, la [propriété système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondante est renseignée avec les valeurs de la colonne de requête.
+Vous pouvez attacher des colonnes de requête en tant que [propriétés système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à vos messages sortants de file d’attente ou de rubrique Service Bus. Ces colonnes ne sont pas placées dans la charge utile ; au lieu de cela, la [propriété système](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondante est renseignée avec les valeurs de la colonne de requête.
 Les propriétés système suivantes sont prises en charge : `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Les valeurs de chaîne de ces colonnes sont analysées en tant que type de valeur de propriété système correspondante et les échecs d’analyse sont traités comme des erreurs de données.
@@ -76,4 +76,4 @@ Cela définit le `MessageId` sur les messages de la file d’attente Service bus
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager](quick-create-azure-resource-manager.md)
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-vs-code.md)
+* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-visual-studio-code.md)

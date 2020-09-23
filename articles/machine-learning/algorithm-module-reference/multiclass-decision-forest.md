@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9e8798ea1c03ebf4c0d08adfbf5a0ee0755164a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e22881a904ed33214e90604d71489d8691fe820b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137805"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883255"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module Forêt d’arbres de décision multiclasse
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Ce module vous permet de créer un modèle Machine Learning basé sur l’algorithme de *forêt d’arbres de décision*. Une forêt d’arbres de décision est un modèle d’ensemble qui génère rapidement une série d’arbres de décision, tout en apprenant grâce à des données avec balises.
 

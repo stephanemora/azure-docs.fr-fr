@@ -1,6 +1,6 @@
 ---
-title: Spécifications techniques et conformité de Microsoft Azure Stack Edge | Microsoft Docs
-description: En savoir plus sur les spécifications techniques et la conformité de votre Azure Stack Edge
+title: Spécifications techniques et conformité de Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: Découvrir les spécifications techniques et la conformité de votre ressource Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652036"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883447"
 ---
-# <a name="azure-stack-edge-technical-specifications"></a>Spécifications techniques d’Azure Stack Edge
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Spécifications techniques d’Azure Stack Edge Pro
 
-Les composants matériels de l’appareil Microsoft Azure Stack Edge sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales.
+Les composants matériels de l’appareil Microsoft Azure Stack Edge Pro sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales.
 
 ## <a name="compute-memory-specifications"></a>Spécifications de calcul et de mémoire
 
-L’appareil Azure Stack Edge présente les spécifications suivantes en matière de calcul et de mémoire :
+L’appareil Azure Stack Edge Pro présente les spécifications suivantes en matière de calcul et de mémoire :
 
 | Caractéristique           | Valeur                  |
 |-------------------------|----------------------------|
@@ -30,7 +30,7 @@ L’appareil Azure Stack Edge présente les spécifications suivantes en matièr
 
 ## <a name="fpga-specifications"></a>Spécifications FPGA
 
-Pour les scénarios de Machine Learning, chaque appareil Azure Stack Edge dispose d’un FPGA (Field Programmable Gate Array).
+Pour les scénarios de Machine Learning (ML), chaque appareil Azure Stack Edge Pro dispose d’un FPGA (Field Programmable Gate Array).
 
 | Caractéristique           | Valeur                  |
 |-------------------------|----------------------------|
@@ -38,7 +38,7 @@ Pour les scénarios de Machine Learning, chaque appareil Azure Stack Edge dispos
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications des blocs d’alimentation
 
-L’appareil Azure Stack Edge a deux blocs d’alimentation de 100-240 V avec des ventilateurs à hautes performances. Les deux blocs d’alimentation fournissent une alimentation redondante. En cas de défaillance d’un blocs d’alimentation, l’appareil continue à fonctionner normalement sur l’autre bloc jusqu’au remplacement du module défaillant. Le tableau suivant liste les spécifications techniques des blocs d’alimentation.
+L’appareil Azure Stack Edge Pro est équipé de deux blocs d’alimentation de 100-240 V avec des ventilateurs hautes performances. Les deux blocs d’alimentation fournissent une alimentation redondante. En cas de défaillance d’un blocs d’alimentation, l’appareil continue à fonctionner normalement sur l’autre bloc jusqu’au remplacement du module défaillant. Le tableau suivant liste les spécifications techniques des blocs d’alimentation.
 
 | Caractéristique           | Bloc d’alimentation de 750 W                  |
 |-------------------------|----------------------------|
@@ -47,18 +47,18 @@ L’appareil Azure Stack Edge a deux blocs d’alimentation de 100-240 V avec d
 | Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
 | Enfichable à chaud           | Oui                        |
 
-### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Spécifications du cordon d’alimentation d’Azure Stack Edge par région
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Spécifications du cordon d’alimentation d’Azure Stack Edge Pro par région
 
-Votre appareil Azure Stack Edge a besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
-Pour voir les spécifications techniques de tous les cordons d’alimentation pris en charge, consultez [Spécifications du cordon d’alimentation d’Azure Stack Edge par région](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Votre appareil Azure Stack Edge Pro a besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
+Pour voir les spécifications techniques de tous les cordons d’alimentation pris en charge, consultez [Spécifications du cordon d’alimentation d’Azure Stack Edge Pro par région](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## <a name="network-interface-specifications"></a>Spécifications de l’interface réseau
 
-Votre appareil Azure Stack Edge dispose de 6 interfaces réseau : PORT1 à PORT6.
+Votre appareil Azure Stack Edge Pro dispose de 6 interfaces réseau : PORT1 à PORT6.
 
 | Caractéristique           | Description                 |
 |-------------------------|----------------------------|
@@ -66,7 +66,7 @@ Votre appareil Azure Stack Edge dispose de 6 interfaces réseau : PORT1 à POR
 
 ## <a name="storage-specifications"></a>Spécifications de stockage
 
-Les appareils Azure Stack Edge ont 9 disques SSD NVMe de 2,5", chacun avec une capacité de 1,6 To. Un de ces disques SSD est dédié au système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
+Les appareils Azure Stack Edge Pro sont dotés de 9 disques SSD NVMe de 2,5", chacun d’une capacité de 1,6 To. Un de ces disques SSD est dédié au système d’exploitation, les huit autres étant des disques de données. La capacité utilisable totale pour l’appareil est d’environ 12,5 To. Le tableau suivant présente les détails de la capacité de stockage de l’appareil.
 
 |     Caractéristique                          |     Valeur             |
 |--------------------------------------------|-----------------------|
@@ -146,4 +146,4 @@ Cette section présente les caractéristiques liées à l’environnement du bo�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer votre Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Déployer votre Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

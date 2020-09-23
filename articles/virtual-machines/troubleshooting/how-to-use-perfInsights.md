@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526637"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088559"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Comment utiliser PerfInsights dans Azure
 
@@ -165,7 +165,15 @@ Tests de charge de travail d’E/S Diskspd (disque de système d’exploitation 
 
 -  Cet outil doit être exécuté sur la machine virtuelle qui présente le problème de performances. 
 
--  Les systèmes d’exploitation pris en charge sont les suivants : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016 ; Windows 8.1 et Windows 10.
+-  Les systèmes d’exploitation pris en charge sont les suivants :
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Problèmes possibles lorsque vous exécutez l’outil sur des machines virtuelles de production
 

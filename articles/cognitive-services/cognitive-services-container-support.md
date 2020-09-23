@@ -1,5 +1,5 @@
 ---
-title: Support pour les conteneurs
+title: Conteneurs Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment les conteneurs Docker peuvent faire bénéficier vos données de Cognitive Services.
 services: cognitive-services
@@ -8,22 +8,20 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 9/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 501cdde95cfdf0277fe3e260e8cc929664af257e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321433"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906984"
 ---
-# <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
+# <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
-![Informations juridiques ](./media/cognitive-services-container-support/banner.png)
-<!--
-> [!IMPORTANT]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
--->
+> [!WARNING]
+> Le 11 juin 2020, Microsoft a annoncé qu’il ne vendra pas de technologie de reconnaissance faciale aux services de police des États-Unis tant qu’un règlement strict fondé sur les droits de l’homme n’aura pas été promulgué. Par conséquent, les clients ne doivent pas utiliser les fonctionnalités de reconnaissance faciale ni les fonctionnalités comprises dans les services Azure comme Visage ou Video Indexer, s’ils représentent, ou autorisent l’utilisation de ces services par ou pour, un service de police des États-Unis.
+
 La prise en charge des conteneurs dans Azure Cognitive Services permet aux développeurs d’utiliser les mêmes API riches que celles disponibles dans Azure, et permet une flexibilité sur l’emplacement de déploiement et de stockage des services fournis avec les [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services, dont des composants de :
 
 > [!div class="checklist"]
@@ -56,20 +54,21 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 
 | Service | Niveau tarifaire pris en charge | Conteneur | Description |
 |--|--|--|--|
-| [Détecteur d’anomalies][ad-containers] | F0, S0 | **Détecteur d’anomalies** | L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès][request-access] |
+| [Détecteur d’anomalies][ad-containers] | F0, S0 | **Détecteur d’anomalies** ([image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique.<br>[Demander l’accès][request-access] |
 | [Vision par ordinateur][cv-containers] | F0, S1 | **Lire** | Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur Lire détecte le *texte manuscrit* dans les images et prend en charge les documents PDF/TIFF/multipage.<br/><br/>**Important :** Le conteneur Lire prend uniquement en charge l’anglais. |
 | [Visage][fa-containers] | F0, S0 | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès][request-access] |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application. |
-| [API Speech Service][sp-containers-stt] | F0, S0 | **Reconnaissance vocale** | Retranscrit une voix en un texte de façon continue et en temps réel. |
-| [API Speech Service][sp-containers-cstt] | F0, S0 | **Reconnaissance vocale personnalisée** | Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé. |
-| [API Speech Service][sp-containers-tts] | F0, S0 | **Synthèse vocale** | Convertit le texte en paroles naturelles. |
-| [API Speech Service][sp-containers-ctts] | F0, S0 | **Synthèse vocale personnalisée** | Convertit le texte en paroles naturelles à l’aide d’un modèle personnalisé. |
-| [API Speech Service][sp-containers-ntts] | F0, S0 | **Synthèse vocale neuronale** | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. |
+| [API Speech Service][sp-containers-stt] | F0, S0 | **Reconnaissance vocale** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Retranscrit une voix en un texte de façon continue et en temps réel. |
+| [API Speech Service][sp-containers-cstt] | F0, S0 | **Reconnaissance vocale personnalisée** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Retranscrit une voix en un texte de façon continue et en temps réel à l’aide d’un modèle personnalisé. |
+| [API Speech Service][sp-containers-tts] | F0, S0 | **Synthèse vocale** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Convertit le texte en paroles naturelles. |
+| [API Speech Service][sp-containers-ctts] | F0, S0 | **Synthèse vocale personnalisée** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Convertit le texte en paroles naturelles à l’aide d’un modèle personnalisé. |
+| [API Speech Service][sp-containers-ntts] | F0, S0 | **Synthèse vocale neuronale** ([image](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. |
 | [Analyse de texte][ta-containers-keyphrase] | F0, S | **Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 | [Analyse de texte][ta-containers-language] | F0, S | **Détection de la langue** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Détecter la langue (parmi 120 langues maximum) dans laquelle le texte d’entrée est rédigé et générer un code de langue unique pour chaque document envoyé dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
 | [Analyse de texte][ta-containers-sentiment] | F0, S | **Analyse des sentiments v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette version d’Analyse des sentiments renvoie des étiquettes de sentiment (par exemple, *positif* ou *négatif*) pour chaque document et phrase qu’elle contient. |
 | [Analyse de texte][ta-containers-health] | F0, S | **Analyse de texte pour la santé** | Extraire et étiqueter des informations médicales à partir de textes cliniques non structurés. |
+| [Analyse spatiale][spa-containers] | S0 | **Analyse spatiale** | Extraire et étiqueter des informations médicales à partir de textes cliniques non structurés. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -129,10 +128,12 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

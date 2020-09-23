@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907171"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -30,7 +30,7 @@ Stream Analytics prend en charge la compression pour toutes les sources d’entr
 
 ## <a name="create-edit-or-test-inputs"></a>Créer, modifier ou tester les entrées
 
-Vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) et [Visual Studio Code](quick-create-vs-code.md) pour ajouter et afficher ou modifier des entrées existantes de votre travail de diffusion en continu. Vous pouvez également tester les connexions d’entrée et [tester les requêtes](stream-analytics-manage-job.md#test-your-query) à partir d’exemples de données du Portail Azure, de [Visual Studio](stream-analytics-vs-tools-local-run.md) et de [Visual Studio Code](visual-studio-code-local-run.md). Lorsque vous écrivez une requête, vous répertoriez l’entrée dans la clause FROM. Vous pouvez obtenir la liste des entrées disponibles à partir de la page **Requête** du portail. Si vous souhaitez utiliser plusieurs entrées, vous pouvez les `JOIN` ou écrire plusieurs requêtes `SELECT`.
+Vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) et [Visual Studio Code](quick-create-visual-studio-code.md) pour ajouter et afficher ou modifier des entrées existantes de votre travail de diffusion en continu. Vous pouvez également tester les connexions d’entrée et [tester les requêtes](stream-analytics-manage-job.md#test-your-query) à partir d’exemples de données du Portail Azure, de [Visual Studio](stream-analytics-vs-tools-local-run.md) et de [Visual Studio Code](visual-studio-code-local-run.md). Lorsque vous écrivez une requête, vous répertoriez l’entrée dans la clause FROM. Vous pouvez obtenir la liste des entrées disponibles à partir de la page **Requête** du portail. Si vous souhaitez utiliser plusieurs entrées, vous pouvez les `JOIN` ou écrire plusieurs requêtes `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Diffuser en continu des données depuis Event Hubs

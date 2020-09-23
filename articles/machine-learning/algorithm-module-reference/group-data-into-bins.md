@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907043"
 ---
 # <a name="group-data-into-bins-module"></a>Module Grouper des données dans des compartiments
 
-Cet article explique comment utiliser le module Grouper des données dans des compartiments dans le concepteur Azure Machine Learning Designer (préversion) pour regrouper des nombres ou modifier la distribution de données continues.
+Cet article explique comment utiliser le module Grouper des données dans des compartiments dans le concepteur Azure Machine Learning Designer pour regrouper des nombres ou modifier la distribution de données continues.
 
 Le module Grouper des données dans des compartiments prend en charge plusieurs options de compartimentage des données. Vous pouvez modifier la manière dont les bords des compartiments sont définis et celle dont les valeurs sont réparties dans les compartiments. Vous pouvez par exemple :  
 
@@ -50,7 +50,7 @@ Compte il existe un grand nombre de façons, toutes personnalisables, de regroup
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Comment configurer le module Grouper des données dans des compartiments
 
-1. Ajoutez le module **Grouper des données dans des compartiments** à votre pipeline dans le concepteur (préversion). Ce module se trouve dans la catégorie **Transformation de données**.
+1. Ajoutez le module **Grouper des données dans des compartiments** à votre pipeline dans le concepteur. Ce module se trouve dans la catégorie **Transformation de données**.
 
 2. Connectez le jeu de données contenant des données numériques à compartimenter. La quantification ne peut être appliquée qu’à des colonnes contenant des données numériques. 
 

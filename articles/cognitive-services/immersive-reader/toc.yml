@@ -1,14 +1,9 @@
 - name: Documentation du lecteur immersif
   href: index.yml
-- name: Vue d’ensemble
-  items:
-    - name: "Qu’est-ce que le lecteur immersif\_?"
-      href: Overview.md
-- name: Démarrages rapides
-  expanded: true
-  items:
-    - name: Utilisation de la bibliothèque de client
-      href: ./quickstarts/client-libraries.md
+- name: "Qu’est-ce que le lecteur immersif\_?"
+  href: Overview.md
+- name: Démarrage rapide
+  href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Lancer le Lecteur immersif (Android)

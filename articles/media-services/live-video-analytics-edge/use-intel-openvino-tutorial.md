@@ -4,18 +4,21 @@ description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fou
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906606"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
 
-Ce tutoriel montre comment utiliser l’extension IA OpenVINO™ Model Server d’Intel pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée). Vous verrez comment ce serveur d’inférence vous donne accès à des modèles pour la détection d’objets (une personne, un véhicule ou un vélo) et à un modèle pour la classification des véhicules. Un sous-ensemble d’images du flux vidéo en direct est envoyé à ce serveur d’inférence, et les résultats sont envoyés au hub IoT Edge. 
+Ce tutoriel montre comment utiliser l’extension IA OpenVINO™ Model Server d’Intel pour analyser un flux vidéo en direct provenant d’une caméra IP (simulée). Vous verrez comment ce serveur d’inférence vous donne accès à des modèles pour la détection d’objets (une personne, un véhicule ou un vélo) et à un modèle pour la classification des véhicules. Un sous-ensemble d’images du flux vidéo en direct est envoyé à ce serveur d’inférence, et les résultats sont envoyés au hub IoT Edge.
 
-Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge, ainsi qu’un flux vidéo en direct simulé. Il est basé sur l’exemple de code écrit en C# et s’appuie sur le guide de démarrage rapide [Détecter les événements de mouvement et d’émission](detect-motion-emit-events-quickstart.md). 
+Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge, ainsi qu’un flux vidéo en direct simulé. Il est basé sur l’exemple de code écrit en C# et s’appuie sur le guide de démarrage rapide [Détecter les événements de mouvement et d’émission](detect-motion-emit-events-quickstart.md).
+
+> [!NOTE]
+> Ce didacticiel nécessite l’utilisation d’un ordinateur x86-64 comme appareil de périphérie.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +43,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser Live Video Analytics sur
 ## <a name="overview"></a>Vue d’ensemble
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Vue d'ensemble":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Vue d'ensemble":::
 
 Ce diagramme montre comment les signaux circulent dans ce guide de démarrage rapide. Un [module de périphérie](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simule une caméra IP hébergeant un serveur RTSP (Real-Time Streaming Protocol). Un nœud de [source RTSP](media-graph-concept.md#rtsp-source) récupère le flux vidéo à partir de ce serveur et envoie des images vidéo au nœud [processeur de filtre de fréquence d’images](media-graph-concept.md#frame-rate-filter-processor). Ce processeur limite la fréquence d’images du flux vidéo qui atteint le nœud [processeur d’extension HTTP](media-graph-concept.md#http-extension-processor). 
 
@@ -53,6 +56,7 @@ Ce didacticiel présente les procédures suivantes :
 1. Supprimer des ressources.
 
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>À propos de l’extension IA OpenVINO™ Model Server d’Intel
+
 La distribution Intel® du [kit de ressources OpenVINO™](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (inférence visuelle ouverte et optimisation de réseau neuronal) est un kit logiciel gratuit qui permet aux développeurs et aux scientifiques des données d’accélérer les charges de travail de vision par ordinateur, de rationaliser l’inférence et les déploiements de deep learning, et de bénéficier d’exécutions simples et hétérogènes sur toutes les plateformes Intel®, de la périphérie au cloud. Elle comprend le kit de ressources de déploiement deep learning d’Intel® avec optimiseur de modèle et moteur d’inférence, ainsi que le référentiel [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) qui comprend plus de 40 modèles pré-entraînés et optimisés.
 
 Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à l’[extension IA OpenVINO™ Model Server d’Intel](https://aka.ms/lva-intel-ovms), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. Ce module de serveur d’inférence contient OpenVINO™ Model Server (OVMS), un serveur d’inférence tirant parti du kit de ressources OpenVINO™, hautement optimisé pour les charges de travail de vision par ordinateur et développé pour les architectures Intel®. Une extension a été ajoutée à OVMS pour faciliter l’échange de trames vidéo et de résultats d’inférence entre le serveur inférence et le module Live Video Analytics sur IoT Edge, ce qui vous permet d’exécuter n’importe quel modèle de boîte à outils OpenVINO™ pris en charge (vous pouvez personnaliser le module de serveur d’inférence en modifiant le [code](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Vous pouvez de plus choisir parmi la large gamme de mécanismes d’accélération fournis par le matériel Intel®. notamment les processeurs (Atom, Core, Xeon), FPGA et VPU.

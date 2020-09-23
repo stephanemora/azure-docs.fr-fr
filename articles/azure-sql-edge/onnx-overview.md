@@ -1,6 +1,6 @@
 ---
-title: Machine Learning et IA avec ONNX dans Azure SQL Edge (préversion)
-description: Dans Azure SQL Edge (préversion), l’apprentissage automatique prend en charge les modèles au format ONNX (Open Neural Network Exchange). ONNX est un format ouvert que vous pouvez utiliser pour échanger des modèles entre plusieurs infrastructures et outils de Machine Learning.
+title: Machine Learning et IA avec ONNX dans Azure SQL Edge
+description: Dans Azure SQL Edge, l’apprentissage automatique prend en charge les modèles au format ONNX (Open Neural Network Exchange). ONNX est un format ouvert que vous pouvez utiliser pour échanger des modèles entre plusieurs infrastructures et outils de Machine Learning.
 keywords: déployer SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368054"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907143"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine Learning et intelligence artificielle avec ONNX dans SQL Edge (préversion)
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine Learning et IA avec ONNX dans SQL Edge
 
-Dans Azure SQL Edge (préversion), l’apprentissage automatique prend en charge les modèles au format [ONNX (Open Neural Network Exchange)](https://onnx.ai/). ONNX est un format ouvert que vous pouvez utiliser pour échanger des modèles entre plusieurs [infrastructures et outils de Machine Learning](https://onnx.ai/supported-tools).
+Dans Azure SQL Edge, l’apprentissage automatique prend en charge les modèles au format [ONNX (Open Neural Network Exchange)](https://onnx.ai/). ONNX est un format ouvert que vous pouvez utiliser pour échanger des modèles entre plusieurs [infrastructures et outils de Machine Learning](https://onnx.ai/supported-tools).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -55,4 +55,4 @@ Les entrées de modèle doivent être structurées afin que chaque entrée du mo
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Déployer SQL Edge via le portail Azure](deploy-portal.md)
-- [Déployer un modèle ONNX sur Azure SQL Edge (préversion) ](deploy-onnx.md)
+- [Déployer un modèle ONNX sur Azure SQL Edge ](deploy-onnx.md)

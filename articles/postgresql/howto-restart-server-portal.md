@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 4bd5b2d3715376aaca689c4589c3aab41a78f514
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d25c8908b46608ac64bcf135404a070740413fe0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120906"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907374"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Redémarrer une instance d'Azure Database pour PostgreSQL - Single Server à l'aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour PostgreSQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
@@ -32,19 +32,19 @@ Les étapes suivantes redémarrent le serveur PostgreSQL :
 
 2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, cliquez sur **Redémarrer**.
 
-   ![Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Redémarrer](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Redémarrer":::
 
 3. Cliquez sur **Oui** pour confirmer le redémarrage du serveur.
 
-   ![Azure Database pour PostgreSQL - Confirmation du redémarrage](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database pour PostgreSQL - Confirmation du redémarrage":::
 
 4. Remarquez que l’état du serveur passe à « Redémarrage en cours ».
 
-   ![Azure Database pour PostgreSQL - État du redémarrage](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database pour PostgreSQL - État du redémarrage":::
 
 5. Vérifiez que le redémarrage du serveur a réussi.
 
-   ![Azure Database pour PostgreSQL - Réussite du redémarrage](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database pour PostgreSQL - Réussite du redémarrage":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

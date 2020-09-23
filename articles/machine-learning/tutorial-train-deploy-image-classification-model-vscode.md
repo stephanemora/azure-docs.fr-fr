@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906704"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code (préversion)
 
@@ -61,7 +61,7 @@ La première chose à faire pour générer une application dans Azure Machine Le
 1. Sélectionnez **Créer un groupe de ressources**. 
 1. Nommez votre groupe de ressources « TeamWorkspace-rg » et appuyez sur **Entrée**. 
 1. Choisissez un emplacement pour votre espace de travail. Nous vous recommandons de choisir un emplacement le plus proche possible de celui où vous comptez déployer votre modèle. Par exemple, « USA Ouest 2 ».
-1. Quand vous êtes invité à sélectionner le type d’espace de travail, sélectionnez **De base** pour créer un espace de travail De base. Pour plus d’informations sur les différentes offres d’espace de travail, consultez [Vue d’ensemble d’Azure Machine Learning](./overview-what-is-azure-ml.md#sku).
+1. Lorsque vous êtes invité à sélectionner le type d’espace de travail, choisissez **De base**.
 
 À ce stade, une demande est envoyée à Azure afin de créer un nouvel espace de travail dans votre compte. Après quelques minutes, le nouvel espace de travail apparaît dans votre nœud d’abonnement. 
 
@@ -413,5 +413,5 @@ Pour déployer un service web en tant qu’ACI :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une procédure détaillée sur l’apprentissage automatique avec Azure Machine Learning en dehors de Visual Studio Code, consultez le [tutoriel : Former des modèles avec Azure Machine Learning](tutorial-train-models-with-aml.md).
-* Pour une procédure détaillée sur la modification, l’exécution et le débogage de code localement, consultez le [didacticiel Python Hello World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* Pour une procédure détaillée sur la modification, l’exécution et le débogage de code localement, consultez le [tutoriel Python Hello World](https://code.visualstudio.com/docs/Python/Python-tutorial).
 

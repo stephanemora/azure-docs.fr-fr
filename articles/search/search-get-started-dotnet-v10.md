@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002434"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462086"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Démarrage rapide : Créer un index de recherche à l’aide de la bibliothèque de client Microsoft.Azure.Search v10
 
@@ -27,7 +27,7 @@ Pour les nouvelles solutions, nous vous recommandons d’utiliser la nouvelle bi
 
 Générez une application console .NET Core en C#, qui crée, charge et interroge un index Recherche cognitive Azure à l’aide de Visual Studio et des [bibliothèques de client Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
-Cet article explique comment créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10).
+Cet article explique comment créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
 > [!NOTE]
 > Le code de démonstration présent dans cet article utilise les méthodes synchrones du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure version 10 par simplicité. Toutefois, pour les scénarios de production, nous recommandons d’utiliser les méthodes asynchrones dans vos propres applications pour les rendre scalables et réactives. Par exemple, vous pouvez utiliser `CreateAsync` et `DeleteAsync` au lieu de `Create` et `Delete`.
@@ -107,9 +107,9 @@ Cette étape est requise pour produire une sortie significative dans la console.
 
 1. Ajoutez deux définitions de classe vides à votre projet : Address.Methods.cs, Hotel.Methods.cs
 
-1. Dans Address.Methods.cs, remplacez le contenu par défaut par le code suivant, [lignes 1 à 25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. Dans Address.Methods.cs, remplacez le contenu par défaut par le code suivant, [lignes 1 à 25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. Dans Hotel.Methods.cs, copiez les [lignes 1 à 68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
+1. Dans Hotel.Methods.cs, copiez les [lignes 1 à 68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 - Créer un index
 

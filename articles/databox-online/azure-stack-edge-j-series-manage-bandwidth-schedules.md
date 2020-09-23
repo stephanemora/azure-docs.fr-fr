@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge avec GPU – Gérer les planifications de bande passante | Microsoft Docs
-description: Explique comment utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Stack Edge avec GPU.
+title: Azure Stack Edge Pro avec GPU – Gérer les planifications de bande passante | Microsoft Docs
+description: Explique comment utiliser le portail Azure pour gérer les planifications de bande passante sur votre appareil Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890661"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Stack Edge avec GPU 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre appareil Azure Stack Edge Pro avec GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer les planifications de bande passante sur votre ressource Azure Stack Edge. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
+Cet article explique comment gérer les planifications de bande passante sur votre ressource Azure Stack Edge Pro. Les planifications de bande passante vous permettent de configurer l’utilisation de la bande passante réseau sur plusieurs planifications selon le moment de la journée. Ces planifications sont applicables aux opérations de chargement et de téléchargement entre votre appareil et le cloud.
 
-Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Azure Stack Edge via le portail Azure.
+Vous pouvez ajouter, modifier ou supprimer des planifications de bande passante pour votre ressource Azure Stack Edge Pro via le portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -73,7 +73,7 @@ Pour modifier une planification de bande passante, procédez comme suit.
 
 ## <a name="delete-a-schedule"></a>Supprimer une planification
 
-Effectuez les étapes suivantes pour supprimer une planification de bande passante associée à votre appareil Azure Stack Edge.
+Effectuez les étapes suivantes pour supprimer une planification de bande passante associée à votre appareil Azure Stack Edge Pro.
 
 1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Bande passante**.  
 
