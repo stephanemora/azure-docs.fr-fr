@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d6c7ba255b0dcec280d05eab36be71b8c9a726ae
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004651"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086553"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
@@ -58,7 +58,7 @@ L’exemple suivant restitue une couche de symboles à l’aide du modèle d’i
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de symboles avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de symboles avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>Couche de symboles avec un modèle d’icône intégré</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ L’exemple suivant restitue une ligne rose sur la carte et utilise une couche d
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de lignes avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Couche de lignes avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>Couche de lignes avec un modèle d’icône intégré</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -85,7 +85,7 @@ L’exemple suivant restitue une couche de polygones à l’aide du modèle d’
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Remplir un polygone avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Remplir un polygone avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Remplir un polygone avec un modèle d’icône intégré</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -100,7 +100,7 @@ L’exemple suivant utilise le modèle `marker-arrow` avec le rouge comme couleu
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Marqueur HTML avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Marqueur HTML avec un modèle d’icône intégré" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>Marqueur HTML avec un modèle d’icône intégré</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -138,7 +138,7 @@ L’exemple suivant montre comment prendre un modèle SVG et l’ajouter au SDK 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Ajouter un modèle d’icône personnalisé à l’espace de noms atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Ajouter un modèle d’icône personnalisé à l’espace de noms atlas" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Ajouter un modèle d’icône personnalisé à l’espace de noms atlas</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -505,7 +505,7 @@ Avec l’outil suivant, vous pouvez restituer les différents modèles d’image
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Options des modèles d’icône" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Options des modèles d’icône" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Options des modèles d’icône</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -517,7 +517,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 > [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [Espace de noms atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [Espace de noms atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
 )
 
 Consultez les articles suivants pour obtenir d’autres exemples de code dans lesquels des modèles d’image peuvent être utilisés :

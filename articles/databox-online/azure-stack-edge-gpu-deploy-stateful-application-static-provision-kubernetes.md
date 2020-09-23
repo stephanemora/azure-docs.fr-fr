@@ -1,6 +1,6 @@
 ---
-title: Utiliser kubectl pour déployer une application avec état Kubernetes via un partage approvisionné de manière statique sur un appareil Azure Stack Edge | Microsoft Docs
-description: Décrit comment créer et gérer un déploiement d’application avec état Kubernetes via un partage approvisionné de manière statique à l’aide de kubectl sur un appareil GPU Azure Stack Edge.
+title: Utiliser kubectl pour déployer une application avec état Kubernetes via un partage provisionné de manière statique sur un appareil Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment créer et gérer le déploiement d’une application avec état Kubernetes via un partage provisionné de manière statique à l’aide de kubectl sur un appareil GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899536"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Utiliser kubectl pour exécuter une application avec état Kubernetes à l’aide d’un PersistentVolume sur votre appareil Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Utiliser kubectl pour exécuter une application avec état Kubernetes à l’aide d’une ressource PersistentVolume sur votre appareil Azure Stack Edge Pro
 
 Cet article explique comment déployer une application avec état à instance unique dans Kubernetes à l’aide d’un volume persistant PersistentVolume (PV) et d’un déploiement. Le déploiement utilise des commandes `kubectl` sur un cluster Kubernetes existant et déploie l’application MySQL. 
 
-Cette procédure est destinée aux personnes qui ont examiné le [stockage Kubernetes sur un appareil Azure Stack Edge](azure-stack-edge-gpu-kubernetes-storage.md) et connaissent les concepts du [stockage Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Cette procédure est destinée à ceux qui ont étudié le [stockage Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) et connaissent les concepts du [stockage Kubernetes](https://kubernetes.io/docs/concepts/storage/).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -28,34 +28,37 @@ Avant de pouvoir déployer l’application avec état, assurez-vous d’avoir re
 
 ### <a name="for-device"></a>Pour l’appareil
 
-- Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge à 1 nœud.
+- Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
     - L’appareil est activé. Voir [Activer l’appareil](azure-stack-edge-gpu-deploy-activate.md).
     - Le rôle de calcul est configuré sur l’appareil via Portail Azure et l’appareil dispose d’un cluster Kubernetes. Voir [Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>Pour le client qui accède à l’appareil
 
-- Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge.
+- Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge Pro.
     - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Vous pouvez également utiliser un autre client avec un [système d’exploitation pris en charge](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). Cet article décrit la procédure à utiliser avec un client Windows. 
     
-    - Vous avez terminé la procédure décrite dans [Accéder au cluster Kubernetes sur un appareil Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Vous avez :
+    - Vous avez terminé la procédure décrite dans [Accéder au cluster Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Vous avez :
       - Création d’un espace de noms `userns1` via la commande `New-HcsKubernetesNamespace`. 
       - Création d’un utilisateur `user1` via la commande `New-HcsKubernetesUser`. 
       - Octroi de l’accès `user1` à `userns1` via la commande `Grant-HcsKubernetesNamespaceAccess`.       
       - Installation de `kubectl` sur le client et enregistrement du fichier `kubeconfig` avec la configuration de l’utilisateur sur C:\\Users\\&lt;username&gt;\\.kube. 
     
-    - Assurez-vous que la version du client `kubectl` n’est pas décalée de plus d’une version par rapport à la version maître de Kubernetes fonctionnant sur votre appareil Azure Stack Edge. 
+    - Assurez-vous que la version du client `kubectl` n’est pas décalée de plus d’une version par rapport à la version principale de Kubernetes exécutée sur votre appareil Azure Stack Edge Pro. 
         - Utilisez `kubectl version` pour vérifier la version de kubectl en cours d’exécution sur le client. Prenez note de la version complète.
-        - Dans l’interface utilisateur locale de votre appareil Azure Stack Edge, accédez à **Vue d’ensemble** et notez le numéro du logiciel Kubernetes. 
+        - Dans l’interface utilisateur locale de votre appareil Azure Stack Edge Pro, accédez à **Vue d’ensemble** et notez le numéro de version du logiciel Kubernetes. 
         - Vérifiez la compatibilité de ces deux versions à partir du mappage fourni dans la version Kubernetes prise en charge <!-- insert link-->. 
 
 
-Vous êtes prêt à déployer une application avec état sur votre appareil Azure Stack Edge. 
+Vous êtes prêt à déployer une application avec état sur votre appareil Azure Stack Edge Pro. 
 
 ## <a name="provision-a-static-pv"></a>Approvisionner un PV statique
 
-Pour approvisionner un PV de manière statique, vous devez créer un partage sur votre appareil. Procédez comme suit pour approvisionner un PV sur votre partage SMB ou NFS. 
+Pour approvisionner un PV de manière statique, vous devez créer un partage sur votre appareil. Procédez comme suit pour provisionner une ressource PV sur votre partage SMB. 
+
+> [!NOTE]
+> L’exemple spécifique utilisé dans ce guide pratique ne fonctionne pas avec les partages NFS. En général, les partages NFS peuvent être provisionnés sur votre appareil Azure Stack Edge avec des applications sans base de données.
 
 1. Indiquez si vous souhaitez créer un partage Edge ou un partage local Edge. Suivez les instructions dans [Ajouter un partage](azure-stack-edge-manage-shares.md#add-a-share) pour créer un partage. Veillez à cocher la case **Utiliser le partage avec le computing en périphérie**.
 
@@ -71,7 +74,7 @@ Pour approvisionner un PV de manière statique, vous devez créer un partage sur
 
         ![Monter un partage local existant pour PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Notez le nom du partage. Une fois ce partage créé, un objet de volume persistant est automatiquement créé dans le cluster Kubernetes correspondant au partage SMB ou NFS que vous avez créé. 
+1. Notez le nom du partage. Une fois ce partage créé, un objet de volume persistant est automatiquement créé dans le cluster Kubernetes correspondant au partage SMB que vous avez créé. 
 
 ## <a name="deploy-mysql"></a>Déployer MySQL
 
@@ -99,7 +102,7 @@ Toutes les commandes `kubectl` que vous utilisez pour créer et gérer des dépl
 
     Cette revendication est satisfaite par les PV existants approvisionnés de manière statique lors de la création du partage à l’étape précédente. Sur votre appareil, un grand PV de 32 To est créé pour chaque partage. Le PV répond aux exigences stipulées par la PVC, et la PVC doit être liée à ce PV.
 
-    Copiez et enregistrez le fichier `mysql-deployment.yml` suivant dans un dossier sur le client Windows que vous utilisez pour accéder à l’appareil Azure Stack Edge.
+    Copiez et enregistrez le fichier `mysql-deployment.yml` suivant dans un dossier sur le client Windows que vous utilisez pour accéder à l’appareil Azure Stack Edge Pro.
     
     ```yml
     apiVersion: v1
@@ -147,7 +150,7 @@ Toutes les commandes `kubectl` que vous utilisez pour créer et gérer des dépl
               claimName: mysql-pv-claim
     ```
     
-2. Copiez et enregistrez sous un fichier `mysql-pv.yml` dans le même dossier où vous avez enregistré `mysql-deployment.yml`. Pour utiliser le partage SMB ou NFS créé précédemment avec `kubectl`, définissez le champ `volumeName` de l’objet PVC sur le nom du partage. 
+2. Copiez et enregistrez sous un fichier `mysql-pv.yml` dans le même dossier où vous avez enregistré `mysql-deployment.yml`. Pour utiliser le partage SMB créé précédemment avec `kubectl`, définissez le champ `volumeName` de l’objet PVC sur le nom du partage. 
 
     > [!NOTE] 
     > Assurez-vous que les fichiers YAML ont une mise en retrait correcte. Vous pouvez vérifier cela à l’aide de [YAML Lint](http://www.yamllint.com/) pour les valider et les enregistrer.
@@ -158,8 +161,8 @@ Toutes les commandes `kubectl` que vous utilisez pour créer et gérer des dépl
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ Toutes les commandes `kubectl` que vous utilisez pour créer et gérer des dépl
 
 ## <a name="verify-mysql-is-running"></a>Vérifier que MySQL est en cours d’exécution
 
-Le fichier YAML précédent crée un service qui permet à un pod du cluster d’accéder à la base de données. L’option de service clusterIP : Aucun ne permet au nom DNS du service de se résoudre directement sur l’adresse IP du pod. La situation est optimale lorsque vous n’avez qu’un seul pod derrière un service et que vous n’envisagez pas d’augmenter le nombre de pods.
 
 Pour exécuter une commande sur un conteneur dans un pod qui exécute MySQL, saisissez :
 
@@ -352,4 +354,4 @@ Le PV n’est plus lié à la PVC, car celle-ci a été supprimée. Comme le PV 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour comprendre comment approvisionner le stockage de manière dynamique, consultez [Déployer une application avec état via l’approvisionnement dynamique sur un appareil Azure Stack Edge](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+Pour comprendre comment provisionner le stockage de manière dynamique, consultez [Déployer une application avec état via le provisionnement dynamique sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

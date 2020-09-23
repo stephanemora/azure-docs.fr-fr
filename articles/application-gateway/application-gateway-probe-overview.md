@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186710"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649058"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -98,7 +98,7 @@ Vous devez autoriser le trafic Internet entrant sur les ports TCP 65503-65534 po
 
 En outre, la connectivité Internet sortante ne peut pas être bloquée, et le trafic entrant provenant de la balise **AzureLoadBalancer** doit être autorisé.
 
-Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-infrastructure.md#network-security-groups).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md) dans le portail Azure ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) à l’aide de PowerShell et du modèle de déploiement Azure Resource Manager.

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 736746cc710e4e22f61edaa7b2dfd1ceef3d90eb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070392"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645476"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -292,7 +292,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut `ExcludeIfInvalid`). (par défaut : « ExcludeIfInvalid »)
 
-**--s2s-preserve-access-tier** Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut : true)  (par défaut : true)
+**--s2s-preserve-access-tier** Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).  (par défaut : « true »)
 
 **--s2s-preserve-properties** Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : true)
 

@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: da21a002e6ea0bbbf528b911b7386b1dfc9c76f8
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907368"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
 Azure Security Center s’intègre à [Microsoft Defender ATP (Advanced Threat Protection)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) pour fournir des fonctionnalités complètes de détection de point de terminaison et réponse (EDR, Endpoint Detection and Response).
+
+
+## <a name="availability"></a>Disponibilité
+
+|Aspect|Détails|
+|----|:----|
+|État de sortie :|Disponibilité générale (GA)|
+|Prix :|Nécessite [Azure Defender](security-center-pricing.md)|
+|Machines prises en charge :|![Oui](./media/icons/yes-icon.png) Machines Azure exécutant Windows<br>![Oui](./media/icons/yes-icon.png) Machines Azure Arc exécutant Windows|
+|Rôles et autorisations obligatoires :|Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux.<br>![Non](./media/icons/no-icon.png) Clients GCC exécutant des charges de travail dans des clouds publics Azure<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Fonctionnalités de Microsoft Defender ATP dans Security Center
 
@@ -44,7 +57,7 @@ L’intégration de Defender ATP à Azure Security Center vous permet également
 
 ## <a name="platform-support"></a>Plateforme prise en charge
 
-Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau Standard, et pour les machines virtuelles non-Azure, vous avez besoin seulement du niveau Standard au niveau de l’espace de travail.
+Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous devez activer Azure Defender pour votre abonnement et pour les machines virtuelles non Azure, Azure Defender doit être activé au niveau de l’espace de travail uniquement.
 
 La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC.
 
@@ -61,24 +74,25 @@ Pour intégrer des serveurs à Security Center, cliquez sur **Accéder à Azure 
 
 1. Dans la zone **Intégration**, sélectionnez ou créez un espace de travail dans lequel stocker les données.
 
-2. Si vous ne voyez pas tous vos espaces de travail, cela peut être dû à un manque d’autorisations. Vérifiez que votre espace de travail est défini sur le niveau tarifaire Standard d’Azure Security Center. Pour plus d’informations, consultez [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
+2. Si vous ne voyez pas tous vos espaces de travail, cela peut être dû à un manque d’autorisations. Vérifiez que votre espace de travail est protégé par Azure Defender.
     
 3. Sélectionnez **Ajouter des serveurs** pour afficher des instructions sur la façon d’installer l’agent Log Analytics. 
 
-4. Après l’intégration, vous pouvez surveiller les machines sous **Compute et applications**.
+4. Après l’intégration, vous pouvez analyser les machines dans [l’inventaire des ressources](asset-inventory.md).
 
    ![Intégrer des ordinateurs](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Activer l’intégration de Microsoft Defender ATP
 
-Pour voir si l’intégration de Microsoft Defender ATP est activée, sélectionnez **Security Center** > **Tarification et paramètres**> cliquez sur votre abonnement.
+Pour voir si l’intégration de Microsoft Defender ATP est activée, sélectionnez **Security Center** > **Tarification et paramètres** > sélectionnez votre abonnement.
+
 Vous pouvez voir ici les intégrations actuellement activées.
 
   ![Page de paramètres de détection de menaces Azure Security Center avec l’intégration de Microsoft Defender ATP activée](media/security-center-wdatp/enable-integrations.png)
 
-- Si vous avez déjà intégré les serveurs vers le niveau standard d’Azure Security Center, vous n’avez pas besoin de prendre d’autres mesures. Azure Security Center intégrera automatiquement les serveurs à Microsoft Defender ATP. L’intégration peut prendre jusqu’à 24 heures.
+- Si vous avez déjà activé Azure Defender, aucune action supplémentaire n’est nécessaire. Azure Security Center intégrera automatiquement les serveurs à Microsoft Defender ATP. L’intégration peut prendre jusqu’à 24 heures.
 
-- Si vous n'avez jamais intégré les serveurs au niveau standard d'Azure Security Center, intégrez-les comme d'habitude dans Azure Security Center.
+- Si vous n'avez jamais intégré les serveurs sur Azure Security Center, intégrez-les à Azure Security Center et activez Azure Defender comme d’habitude.
 
 - Si vous avez intégré les serveurs par le biais de Microsoft Defender ATP :
   - Reportez-vous à la documentation pour obtenir des conseils sur [la manière d’annuler l’intégration des machines serveur](https://go.microsoft.com/fwlink/p/?linkid=852906).

@@ -464,27 +464,31 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Se connecter à Azure Synapse Link pour Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark pour Azure Synapse Analytics
+            - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copier des données depuis Synapse Link vers un pool SQL avec Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md
+            - name: Interroger le magasin analytique Azure Cosmos DB avec SQL à la demande
+              href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: SQL Synapse
           items:
-            - name: Interroger des données dans le stockage
+            - name: Interroger des données externes
               items:
                 - name: Vue d’ensemble
                   href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger un fichier CSV
+                - name: Interroger des fichiers CSV
                   href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des fichiers Parquet
                   href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger des types imbriqués Parquet
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des fichiers JSON
                   href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Interroger Azure Cosmos DB
+                  href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Interroger des types imbriqués
+                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des dossiers et plusieurs fichiers
                   href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Utiliser des métadonnées de fichier
+                - name: Interroger des fichiers partitionnés à l’aide des métadonnées de fichier
                   href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Créer et utiliser des vues
                   href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

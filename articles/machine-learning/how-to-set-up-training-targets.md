@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8b07d19ca88a2d680a4f9efbb85fcf60b895a2b3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144088"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907594"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Soumettre une exécution de formation à une cible de calcul
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous découvrirez comment utiliser différents environnements de formation ([cibles de calcul](concept-compute-target.md)) servant à effectuer l’apprentissage de vos modèles Machine Learning.
 
@@ -31,7 +29,7 @@ Il vous suffit de définir l’environnement pour chaque cible de calcul dans un
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui
-* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md), `ws`
 * Une cible de calcul, `my_compute_target`.  Créez une cible de calcul avec :
   * [Kit de développement logiciel (SDK) Python](how-to-create-attach-compute-sdk.md) 
@@ -39,11 +37,11 @@ Il vous suffit de définir l’environnement pour chaque cible de calcul dans un
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Qu’est-ce qu’une configuration d’exécution de script ?
 
-Vous soumettez votre expérience de formation à l’aide d’un objet [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py).  Cet objet inclut ce qui suit :
+Vous soumettez votre expérience de formation à l’aide d’un objet [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).  Cet objet inclut ce qui suit :
 
 * **source_directory** : Répertoire source contenant votre script d’apprentissage
 * **script** : Identifiez le script d’apprentissage
-* **run_config** : [Configuration d’exécution](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) qui définit où aura lieu l’apprentissage. Dans le `run_config`, vous spécifiez la cible de calcul et l’environnement à utiliser lors de l’exécution du script de formation.  
+* **run_config** : [Configuration d’exécution](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) qui définit où aura lieu l’apprentissage. Dans le `run_config`, vous spécifiez la cible de calcul et l’environnement à utiliser lors de l’exécution du script de formation.  
 
 ## <a name="whats-an-environment"></a>Qu’est-ce qu’un environnement ?
 
@@ -167,7 +165,7 @@ Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
-* Découvrez comment [optimiser efficacement les hyperparamètres](how-to-tune-hyperparameters.md) afin de générer des modèles plus efficaces.
+* Découvrez comment [optimiser efficacement les hyperparamètres](how-to-tune-hyperparameters.md) afin de générer des modèles plus efficaces. ?view=azure-ml-py&preserve-view=true)
 * Une fois le modèle formé, découvrez [comment et où déployer les modèles](how-to-deploy-and-where.md).
-* Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
+* Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true).
 * [Utiliser Azure Machine Learning avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)

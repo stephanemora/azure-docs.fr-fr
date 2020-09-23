@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068981"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907149"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Sorties d’Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Oui|Utilisateur Azure Active Directory </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|Oui, doit être activé.|Auth utilisateur SQL </br> MSI (préversion)|
-|[Azure Synapse Analytics (préversion)](azure-synapse-analytics-output.md)|Non|Auth utilisateur SQL|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Non|Auth utilisateur SQL|
 |[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|MSI </br> Clé d’accès|
 |[Azure Event Hubs](event-hubs-output.md)|Oui|Clé d’accès|
 |[Power BI](power-bi-output.md)|Non|Utilisateur Azure Active Directory </br> MSI|

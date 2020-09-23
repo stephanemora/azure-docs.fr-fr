@@ -1,6 +1,6 @@
 ---
-title: Configuration système requise pour Microsoft Azure Stack Edge | Microsoft Docs
-description: En savoir plus sur la configuration logicielle et réseau requise pour Azure Stack Edge
+title: Configuration système requise pour Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: Découvrez la configuration logicielle et réseau requise pour Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7754c57563ec5acb9028c2ace217f318fea5e959
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256267"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899147"
 ---
-# <a name="system-requirements-for-azure-stack-edge-with-gpu"></a>Configuration système exigée pour Azure Stack Edge avec GPU 
+# <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Configuration système exigée pour Azure Stack Edge Pro avec GPU 
 
-Cet article décrit la configuration système importante pour votre solution Microsoft Azure Stack Edge et pour les clients se connectant à Azure Stack Edge. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Azure Stack Edge. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
+Cet article décrit la configuration système requise pour votre solution Microsoft Azure Stack Edge Pro et pour les clients se connectant à Azure Stack Edge Pro. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Azure Stack Edge Pro. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
 
-La configuration système requise pour Azure Stack Edge inclut ce qui suit :
+La configuration système requise pour Azure Stack Edge Pro inclut ce qui suit :
 
 - **Configuration logicielle pour les hôtes** : décrit les plateformes prises en charge, les navigateurs pour l’interface utilisateur de configuration locale, les clients SMB et les exigences supplémentaires pour les clients qui accèdent à l’appareil.
 - **Configuration réseau pour l’appareil** : fournit des informations sur la configuration réseau nécessaire au fonctionnement de l’appareil physique.
@@ -59,9 +59,9 @@ Lorsqu’ils sont gérés à partir d’Azure Stack, les comptes de stockage hi�
 
 ## <a name="networking-port-requirements"></a>Configuration requise du port réseau
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Configuration de port requise pour Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Configuration des ports requise pour Azure Stack Edge Pro
 
-Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Azure Stack Edge envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
+Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Azure Stack Edge Pro envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 
@@ -79,9 +79,9 @@ Pour plus d'informations, consultez [Règles de configuration du pare-feu et des
 
 ## <a name="url-patterns-for-firewall-rules"></a>Modèles d’URL pour règles de pare-feu
 
-Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil Azure Stack Edge et le service dépendent d’autres applications Microsoft comme Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. Ces modifications impliquent que l’administrateur réseau surveille et mette à jour les règles de pare-feu pour votre appareil Azure Stack Edge, si nécessaire.
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre appareil Azure Stack Edge Pro et le service dépendent d’autres applications Microsoft comme Azure Service Bus, Azure Active Directory Access Control, des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. Ces modifications impliquent que l’administrateur réseau contrôle et mette à jour les règles de pare-feu pour votre appareil Azure Stack Edge Pro, si nécessaire.
 
-Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des adresses IP fixes Azure Stack Edge. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
+Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des adresses IP fixes Azure Stack Edge Pro. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
 
 > [!NOTE]
 > - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud.
@@ -117,7 +117,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 ## <a name="compute-sizing-considerations"></a>Considérations relatives au dimensionnement de la capacité de calcul
 
-Utilisez votre expérience lors du développement et des tests de votre solution afin de vous assurer que votre appareil Azure Stack Edge dispose d’une capacité suffisante et que vous en tirez des performances optimales.
+Utilisez votre expérience lors des phases de développement et de test de votre solution afin de vous assurer que votre appareil Azure Stack Edge Pro dispose d’une capacité suffisante et que vous en tirez des performances optimales.
 
 Tenez compte des facteurs suivants :
 
@@ -137,8 +137,8 @@ Pour comprendre et affiner les performances de votre solution, vous pouvez utili
 - Les métriques de calcul disponibles dans le portail Azure. Accédez à votre ressource Azure Stack Edge, puis à **Supervision > Métriques**. Examinez les valeurs **Computing en périphérie - Utilisation de la mémoire** et **Computing en périphérie - Pourcentage du processeur** pour comprendre les ressources disponibles et comment elles sont utilisées.
 - Pour superviser les modules de calcul et résoudre les problèmes associés, accédez à [Déboguer les problèmes Kubernetes](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
-Pour finir, veillez à valider votre solution sur votre jeu de données et à quantifier les performances sur Azure Stack Edge avant le déploiement en production.
+Pour finir, veillez à tester votre solution sur votre jeu de données et à quantifier les performances sur Azure Stack Edge Pro avant le déploiement en production.
 
 ## <a name="next-step"></a>Étape suivante
 
-- [Déployer votre Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+- [Déployer votre Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

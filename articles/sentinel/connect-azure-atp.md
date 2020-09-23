@@ -1,6 +1,6 @@
 ---
-title: Connecter des données Azure ATP à Azure Sentinel | Microsoft Docs
-description: Découvrez comment diffuser des journaux à partir d’Azure Advanced Threat Protection (ATP) dans Azure Sentinel en un seul clic.
+title: Connecter des données Microsoft Defender pour Identity (anciennement Azure ATP) à Azure Sentinel | Microsoft Docs
+description: Découvrez comment diffuser des journaux à partir de Microsoft Defender pour Identity (anciennement Azure Advanced Threat Protection ou ATP) dans Azure Sentinel en un seul clic.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f58c38ccfa234752a80c05c300d245c6c9e97cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559167"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657808"
 ---
-# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Connecter des données d’Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Connecter des données à partir de Microsoft Defender pour Identity (anciennement Azure Advanced Threat Protection)
 
 > [!IMPORTANT]
-> Le connecteur de données Azure Advanced Threat Protection dans Azure Sentinel est actuellement en préversion publique.
+> Le connecteur de données Microsoft Defender pour Identity dans Azure Sentinel est actuellement en préversion publique.
 > Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Vous pouvez diffuser des journaux dans Azure Sentinel avec un seul clic à partir d’[Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp).
+Vous pouvez diffuser des journaux à partir de [Microsoft Defender pour Identity](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) dans Azure Sentinel en un seul clic.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Utilisateur, doté d’autorisations d’administrateur général ou d’administrateur de la sécurité
-- Vous devez être un client de la préversion d’Azure ATP et activer l’intégration entre Azure ATP et Microsoft Cloud App Security. Pour plus d’informations, consultez [Azure Advanced Protection Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- Vous devez être un client de la préversion de Microsoft Defender pour Identity et activer l’intégration entre Microsoft Defender pour Identity et Microsoft Cloud App Security. Pour plus d’informations, consultez [Intégration de Microsoft Defender pour Identity](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-## <a name="connect-to-azure-atp"></a>Se connecter à Azure ATP
+## <a name="connect-to-microsoft-defender-for-identity"></a>Se connecter à Microsoft Defender pour Identity
 
-Assurez-vous que la version de la préversion d’Azure ATP est [activée sur votre réseau](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
-Si Azure ATP est déployé et ingère vos données, les alertes suspectes peuvent facilement être envoyées à Azure Sentinel. Le démarrage de la diffusion en continu des alertes dans Azure Sentinel peut prendre jusqu’à 24 heures.
+Assurez-vous que la version de la préversion de Microsoft Defender pour Identity est [activée sur votre réseau](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Si Microsoft Defender pour Identity est déployé et ingère vos données, les alertes suspectes peuvent facilement être diffusées vers Azure Sentinel. Le démarrage de la diffusion en continu des alertes dans Azure Sentinel peut prendre jusqu’à 24 heures.
 
 
-1. Pour connecter Azure ATP à Azure Sentinel, vous devez d’abord activer l’intégration entre Azure ATP et Microsoft Cloud App Security. Pour plus d’informations sur la procédure à suivre, consultez [Intégration d’Azure Advanced Threat Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Pour connecter Microsoft Defender pour Identity à Azure Sentinel, vous devez d’abord activer l’intégration entre Microsoft Defender pour Identity et Microsoft Cloud App Security. Pour plus d’informations sur la procédure à suivre, consultez [Intégration de Microsoft Defender pour Identity](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-1. Dans Azure Sentinel, sélectionnez **Connecteurs de données**, puis cliquez sur la vignette **Azure Advanced Threat Protection (Préversion)** .
+1. Dans Azure Sentinel, sélectionnez **Connecteurs de données**, puis cliquez sur la vignette **Microsoft Defender pour Identity (préversion)** .
 
-1. Vous pouvez indiquer si vous voulez que les alertes d’Azure ATP génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle analytique par défaut qui crée automatiquement des incidents à partir des alertes générées dans le service de sécurité connecté. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
+1. Vous pouvez décider que les alertes provenant de Microsoft Defender pour Identity génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle analytique par défaut qui crée automatiquement des incidents à partir des alertes générées dans le service de sécurité connecté. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
 
 1. Cliquez sur **Connecter**.
 
-1. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes Azure ATP, recherchez **SecurityAlert**.
+1. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes Microsoft Defender pour Identity, recherchez **SecurityAlert**.
 
 > [!NOTE]
 > Si la taille des alertes excède 30 Ko, Azure Sentinel cesse d’afficher le champ Entités dans les alertes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter Azure Advanced Threat Protection à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+Dans ce document, vous avez appris à connecter Microsoft Defender pour Identity à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 

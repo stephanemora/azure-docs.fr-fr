@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477678"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898794"
 ---
 # <a name="convert-to-csv-module"></a>Module Convertir au format CSV
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour convertir un jeu de données dans un fichier au format CSV qui peut être téléchargé, exporté ou partagé avec des modules de script R ou Python.
 

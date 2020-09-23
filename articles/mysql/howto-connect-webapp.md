@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101622"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905854"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connecter un service Azure App Service existant à un serveur de base de données Azure pour MySQL
 Cette rubrique explique comment connecter un service Azure App Service existant à votre serveur de base de données Azure pour MySQL.
@@ -26,21 +26,21 @@ La base de données Azure pour MySQL fournit une sécurité d’accès à l’ai
 
 1. Dans le panneau du serveur MySQL, sous le titre Paramètres, cliquez sur **Sécurité de la connexion** pour ouvrir le panneau Sécurité de la connexion pour la base de données Azure pour MySQL.
 
-   ![Portail Azure - cliquez sur Sécurité des connexions](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portail Azure - cliquez sur Sécurité des connexions":::
 
 2. Sélectionnez **ON** dans **Autoriser l’accès aux services Azure**, puis **Enregistrer**.
-   ![Portail Azure - Autoriser l’accès à Azure](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portail Azure - Autoriser l’accès à Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solution 2 - Créer une règle de pare-feu pour autoriser explicitement des adresses IP sortantes
 Vous pouvez ajouter explicitement toutes les adresses IP sortantes de votre service Azure App Service.
 
 1. Dans le panneau Propriétés d’App Service, affichez votre **ADRESSE IP SORTANTE**.
 
-   ![Portail Azure - Afficher des adresses IP sortantes](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portail Azure - Afficher des adresses IP sortantes":::
 
 2. Dans le panneau Sécurité de la connexion de MySQL, ajoutez une par une des adresses IP sortantes.
 
-   ![Portail Azure - Ajouter des adresses IP explicites](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portail Azure - Ajouter des adresses IP explicites":::
 
 3. N’oubliez pas d’**Enregistrer** vos règles de pare-feu.
 

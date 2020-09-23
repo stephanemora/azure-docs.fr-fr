@@ -1,6 +1,6 @@
 ---
-title: Superviser votre appareil Azure Stack Edge via le tableau de bord Kubernetes | Microsoft Docs
-description: Décrit comment accéder au tableau de bord Kubernetes et l’utiliser pour superviser votre appareil Azure Stack Edge.
+title: Superviser votre appareil Azure Stack Edge Pro via le tableau de bord Kubernetes | Microsoft Docs
+description: Décrit comment accéder au tableau de bord Kubernetes et l’utiliser pour superviser votre appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899205"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Utiliser le tableau de bord Kubernetes pour superviser votre appareil Azure Stack Edge avec GPU
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Utiliser le tableau de bord Kubernetes pour superviser votre appareil Azure Stack Edge Pro avec GPU
 
-Cet article décrit comment accéder au tableau de bord Kubernetes et l’utiliser pour superviser votre appareil Azure Stack Edge avec GPU. Pour surveiller votre appareil, vous pouvez utiliser des graphiques dans le portail Azure, afficher le tableau de bord Kubernetes ou exécuter des commandes `kubectl` par le biais de l’interface PowerShell de l’appareil. 
+Cet article décrit comment accéder au tableau de bord Kubernetes et l’utiliser pour superviser votre appareil Azure Stack Edge Pro avec GPU. Pour surveiller votre appareil, vous pouvez utiliser des graphiques dans le portail Azure, afficher le tableau de bord Kubernetes ou exécuter des commandes `kubectl` par le biais de l’interface PowerShell de l’appareil. 
 
 Cet article se concentre uniquement sur les tâches de surveillance qui peuvent être effectuées sur le tableau de bord Kubernetes.
 
@@ -35,7 +35,7 @@ Dans cet article, vous apprendrez comment :
 
 Le tableau de bord Kubernetes est une interface utilisateur web que vous pouvez utiliser pour dépanner vos applications en conteneur. Le tableau de bord Kubernetes est une alternative basée sur une interface utilisateur à la ligne de commande Kubernetes `kubectl`. Pour plus d’informations, consultez la section [Tableau de bord Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-Sur votre appareil Azure Stack Edge, vous pouvez utiliser le tableau de bord Kubernetes en mode *lecture seule* pour obtenir une vue d’ensemble des applications en cours d’exécution sur votre appareil Azure Stack Edge, afficher l’état des ressources de cluster Kubernetes et afficher les erreurs qui se sont produites sur l’appareil.
+Sur votre appareil Azure Stack Edge Pro, vous pouvez utiliser le tableau de bord Kubernetes en mode *lecture seule* pour obtenir une vue d’ensemble des applications en cours d’exécution sur votre appareil Azure Stack Edge Pro, afficher l’état des ressources de cluster Kubernetes et afficher les erreurs qui se sont produites sur l’appareil.
 
 ## <a name="access-dashboard"></a>Accès au tableau de bord
 
@@ -54,19 +54,19 @@ Le tableau de bord Kubernetes est en *lecture seule* et s’exécute sur le nœu
     1. Sélectionnez les points de suspension ( **...** ). Recherchez et pointez sur le fichier `kubeconfig` que vous avez téléchargée précédemment sur votre système local. Sélectionnez **Se connecter**.
         ![Accéder au fichier kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. Vous pouvez maintenant afficher le tableau de bord Kubernetes pour votre appareil Azure Stack Edge en mode lecture seule.
+6. Vous pouvez maintenant afficher le tableau de bord Kubernetes pour votre appareil Azure Stack Edge Pro en mode lecture seule.
 
     ![Page principale du tableau de bord Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>Afficher l’état du module
 
-Les modules de calcul sont des conteneurs avec une logique métier implémentée. Vous pouvez utiliser le tableau de bord pour vérifier si un module de calcul a été déployé correctement sur votre appareil Azure Stack Edge.
+Les modules de calcul sont des conteneurs avec une logique métier implémentée. Vous pouvez utiliser le tableau de bord pour vérifier si un module de calcul a été déployé correctement sur votre appareil Azure Stack Edge Pro.
 
 Pour afficher l’état du module, procédez comme suit dans le tableau de bord :
 
 1. Dans le volet gauche du tableau de bord, accédez à **Espace de noms**. Filtrez par l’espace de noms dans lequel les modules IoT Edge sont affichés, dans notre cas **iotedge**.
 1. Dans le volet gauche, accédez à **Charges de travail > Déploiements**.
-1. Dans le volet droit, vous verrez tous les modules déployés sur votre appareil. Dans notre cas, un module GettingStartedWithGPU a été déployé sur l’appareil Azure Stack Edge. Vous pouvez voir que le module a été déployé.
+1. Dans le volet droit, vous verrez tous les modules déployés sur votre appareil. Dans notre cas, un module GettingStartedWithGPU a été déployé sur l’appareil Azure Stack Edge Pro. Vous pouvez voir que le module a été déployé.
 
     ![Afficher le déploiement de module](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ Pour récupérer l’adresse IP, procédez comme suit sur le tableau de bord :
 
 1. Dans le volet gauche du tableau de bord, accédez à **Espace de noms**. Filtrez par l’espace de noms dans lequel un service externe est déployé, dans notre cas, **iotedge**.
 1. Dans le volet gauche, accédez à **Découverte et équilibrage de charge > Services**.
-1. Dans le volet droit, vous verrez tous les services qui s’exécutent dans l’espace de noms `iotedge` sur votre appareil Azure Stack Edge.
+1. Dans le volet droit, vous verrez tous les services qui s’exécutent dans l’espace de noms `iotedge` sur votre appareil Azure Stack Edge Pro.
 
     ![Obtenir des adresses IP pour les services externes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ Pour afficher les journaux de conteneur, procédez comme suit dans le tableau de
 
 ## <a name="view-cpu-memory-usage"></a>Afficher l’utilisation du processeur et de la mémoire
 
-Le tableau de bord Kubernetes pour l’appareil Azure Stack Edge possède également un [module complémentaire de serveur de métriques](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) qui agrège l’utilisation du processeur et de la mémoire sur les ressources Kubernetes.
+Le tableau de bord Kubernetes pour l’appareil Azure Stack Edge Pro possède également un [module complémentaire de serveur de métriques](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) qui agrège l’utilisation du processeur et de la mémoire sur les ressources Kubernetes.
  
 Par exemple, vous pouvez afficher le processeur et la mémoire consommés entre les déploiements dans tous les espaces de noms. 
 

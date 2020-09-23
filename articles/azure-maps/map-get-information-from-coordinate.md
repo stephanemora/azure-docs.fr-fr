@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: eaf67fac19ab1e4bef5ebb1e791b7f40ae46cbf2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0026b3714be4cf0a59d348f6708a3840aaddf11b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282855"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085329"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 
@@ -24,35 +24,35 @@ Deux méthodes permettent d’effectuer une recherche d’adresses inversée. La
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Demande de recherche inversée via un module de service
 
-<iframe height='500' scrolling='no' title='Obtenir des informations à partir d’une coordonnée (module de Service)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Obtenir des informations à partir d’une coordonnée</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Obtenir des informations à partir d’une coordonnée (module de Service)' src='//codepen.io/azuremaps/embed/ejEYMZ/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/ejEYMZ/'>Obtenir des informations à partir d’une coordonnée</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Dans le code ci-dessus, le premier bloc construit un objet de carte et définit le mécanisme d’authentification pour utiliser le jeton d’accès. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code crée un `TokenCredential` pour authentifier les requêtes HTTP auprès d’Azure Maps avec le jeton d’accès. Il transfère ensuite le `TokenCredential` à `atlas.service.MapsURL.newPipeline()` et crée une instance [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `searchURL` représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
+Le deuxième bloc de code crée un `TokenCredential` pour authentifier les requêtes HTTP auprès d’Azure Maps avec le jeton d’accès. Il transfère ensuite le `TokenCredential` à `atlas.service.MapsURL.newPipeline()` et crée une instance [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
 
-Le troisième bloc de code change le style du curseur de la souris en pointeur et crée un objet [fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
+Le troisième bloc de code change le style du curseur de la souris en pointeur et crée un objet [fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open). Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
 
-Le quatrième bloc de code ajoute un [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) clic de souris. Lorsqu'il est déclenché, il crée une requête de recherche avec les coordonnées du point activé. Il utilise ensuite la méthode [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) pour interroger l’[API Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) et obtenir l’adresse des coordonnées. Une collection d’entités GeoJSON est alors extraite de la réponse à l’aide de la méthode `geojson.getFeatures()`.
+Le quatrième bloc de code ajoute un [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) clic de souris. Lorsqu'il est déclenché, il crée une requête de recherche avec les coordonnées du point activé. Il utilise ensuite la méthode [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) pour interroger l’[API Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) et obtenir l’adresse des coordonnées. Une collection d’entités GeoJSON est alors extraite de la réponse à l’aide de la méthode `geojson.getFeatures()`.
 
 Le cinquième bloc de code définit le contenu de la fenêtre contextuelle HTML pour afficher l’adresse de réponse correspondant à la position des coordonnées sur lesquelles vous avez cliqué.
 
-Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
+Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Requête de recherche inversée via l'API de récupération
 
 Cliquez sur la carte pour effectuer une requête de géocode inversé pour cette position à l'aide de récupérer (fetch).
 
-<iframe height='500' scrolling='no' title='Obtenir des informations à partir d’une coordonnée' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get information from a coordinate</a> (Obtenir des informations à partir d’une coordonnée) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Obtenir des informations à partir d’une coordonnée' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>Get information from a coordinate</a> (Obtenir des informations à partir d’une coordonnée) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Dans le code ci-dessus, le premier bloc de code construit un objet de carte et définit le mécanisme d’authentification pour utiliser le jeton d’accès. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code modifie en pointeur le style du curseur de la souris. Il instancie un objet de [fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open). Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
+Le deuxième bloc de code modifie en pointeur le style du curseur de la souris. Il instancie un objet de [fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open). Pour plus d’instructions, consultez la section relative à l’[ajout d’une fenêtre contextuelle sur la carte](./map-add-popup.md).
 
-Le troisième bloc de code ajoute un détecteur d’événements pour les clics de souris. À la suite d’un clic de souris, il utilise l’[API Fetch](https://fetch.spec.whatwg.org/) pour interroger l’[API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) et obtenir l’adresse des coordonnées activées. Pour une réponse correcte, il collecte l’adresse de l’emplacement sur lequel l’utilisateur a cliqué. Il définit le contenu et la position de la fenêtre contextuelle à l’aide de la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la classe de fenêtre contextuelle.
+Le troisième bloc de code ajoute un détecteur d’événements pour les clics de souris. À la suite d’un clic de souris, il utilise l’[API Fetch](https://fetch.spec.whatwg.org/) pour interroger l’[API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) et obtenir l’adresse des coordonnées activées. Pour une réponse correcte, il collecte l’adresse de l’emplacement sur lequel l’utilisateur a cliqué. Il définit le contenu et la position de la fenêtre contextuelle à l’aide de la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) de la classe de fenêtre contextuelle.
 
-Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
+Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -62,10 +62,10 @@ Les modifications du curseur, de l’objet popup et de l’événement de clic s
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
 
 Pour voir des exemples de codes complets, consultez les articles suivants :
 

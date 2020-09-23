@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 773815cd64af2a398001bac91e14cca0b204ca8e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832060"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884647"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Azure Private Link pour Azure Database pour PostgreSQL-Serveur unique
 
@@ -68,25 +68,25 @@ Une fois que l’administrateur réseau a créé le point de terminaison privé 
     * Affiche la liste de toutes les connexions de point de terminaison privé (PEC)
     * Point de terminaison privé (PE) correspondant créé
 
-![sélectionnez le portail du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="sélectionnez le portail du point de terminaison privé":::
 
 * Sélectionnez un PEC dans la liste.
 
-![sélectionnez l’approbation en attente du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="sélectionnez l’approbation en attente du point de terminaison privé":::
 
 * L’administrateur du serveur PostgreSQL peut choisir d’approuver ou de rejeter un PEC. Il peut aussi ajouter une brève réponse sous forme de texte.
 
-![sélectionnez le message du point de terminaison privé](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="sélectionnez le message du point de terminaison privé":::
 
 * Après l’approbation ou le rejet, la liste reflète l’état approprié et le texte de réponse
 
-![sélectionnez l’état final du point de terminaison privé](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="sélectionnez l’état final du point de terminaison privé":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Cas d’usage d’Azure Private Link pour Azure Database pour PostgreSQL
 
 Les clients peuvent se connecter au point de terminaison privé à partir du même réseau virtuel, d’un réseau virtuel appairé dans la même région ou par le biais d’une connexion réseau virtuel à réseau virtuel entre régions. Les clients peuvent également se connecter localement avec ExpressRoute, un appairage privé ou un tunneling VPN. Vous trouverez ci-dessous un diagramme simplifié montrant les cas d’usage courants.
 
-![sélectionnez la vue d’ensemble du point de terminaison privé](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="sélectionnez la vue d’ensemble du point de terminaison privé":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connexion à partir d’une machine virtuelle Azure dans un réseau virtuel appairé
 Configurez le [Peering de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) pour établir la connectivité au serveur unique Azure Database pour PostgreSQL à partir d’une machine virtuelle Azure dans un réseau virtuel appairé.

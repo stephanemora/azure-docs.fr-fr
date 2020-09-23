@@ -1,6 +1,6 @@
 ---
-title: Qu'est-ce qu'Azure SQL Edge (préversion) ?
-description: En savoir plus sur Azure SQL Edge (préversion)
+title: Qu’est-ce qu’Azure SQL Edge ?
+description: Découvrez ce qu’est Azure SQL Edge
 keywords: présentation de SQL Edge, qu'est-ce que SQL Edge, vue d'ensemble de SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,27 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: e34cd0907320f96f2846c1f424e678555381cccc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907115"
 ---
-# <a name="what-is-azure-sql-edge-preview"></a>Qu'est-ce qu'Azure SQL Edge (préversion) ?
+# <a name="what-is-azure-sql-edge"></a>Qu’est-ce qu’Azure SQL Edge ?
 
-Azure SQL Edge (préversion) est un moteur de base de données relationnelle optimisé et conçu pour les déploiements IoT et IoT Edge. Il offre des fonctionnalités permettant de créer une couche de traitement et de stockage des données hautes performances pour les solutions et applications IoT. Azure SQL Edge propose des fonctionnalités qui permettent de diffuser, de traiter et d'analyser des données relationnelles et non relationnelles, telles que des données JSON, des données graphiques et des données de série chronologique, ce qui en fait un choix idéal pour une variété d'applications IoT modernes.
+Azure SQL Edge est un moteur de base de données relationnelle optimisé et conçu pour les déploiements IoT et IoT Edge. Il offre des fonctionnalités permettant de créer une couche de traitement et de stockage des données hautes performances pour les solutions et applications IoT. Azure SQL Edge propose des fonctionnalités qui permettent de diffuser, de traiter et d'analyser des données relationnelles et non relationnelles, telles que des données JSON, des données graphiques et des données de série chronologique, ce qui en fait un choix idéal pour une variété d'applications IoT modernes.
 
-Azure SQL Edge est basé sur les dernières versions du moteur de Base de données Microsoft SQL Server (/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) qui fournit des performances, une sécurité et des fonctionnalités de traitement des requêtes de pointe. Comme Azure SQL Edge repose sur le même moteur que [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) et [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), il offre la même surface de programmation T-SQL, ce qui facilite et accélère le développement d’applications ou de solutions, tout en facilitant la portabilité directe des applications entre les appareils IoT Edge, les centres de données et le cloud.
+Azure SQL Edge est basé sur les dernières versions du [moteur de base de données SQL Server](/sql/sql-server/sql-server-technical-documentation), qui fournit des performances, une sécurité et des fonctionnalités de traitement des requêtes de pointe. Comme Azure SQL Edge utilise le même moteur que [SQL Server](/sql/sql-server/sql-server-technical-documentation) et [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), il offre la même surface de programmation Transact-SQL (T-SQL), ce qui facilite et accélère le développement d’applications ou de solutions, et fournit une portabilité directe des applications entre les appareils IoT Edge, les centres de données et le cloud.
 
-> [!NOTE]
-> Azure SQL Edge est actuellement disponible en préversion et, en tant que tel, ne doit PAS être utilisé dans des environnements de production.
+Vidéo de présentation d’Azure SQL Edge sur Channel 9 :
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## <a name="deployment-models"></a>Modèles de déploiement
 
-Azure SQL Edge est disponible sur la Place de marché Azure et peut être déployé en tant que module pour [Azure IoT Edge](../iot-edge/about-iot-edge.md). Pour plus d'informations, consultez [Déployer Azure SQL Edge](deploy-portal.md).<br>
+Azure SQL Edge prend en charge deux modes de déploiement.
+
+- Déploiement connecté via Azure IoT Edge : Azure SQL Edge est disponible sur la Place de marché Azure et peut être déployé en tant que module pour [Azure IoT Edge](../iot-edge/about-iot-edge.md). Pour plus d'informations, consultez [Déployer Azure SQL Edge](deploy-portal.md).<br>
 
 ![Diagramme de présentation de SQL Edge](media/overview/overview.png)
+
+- Déploiement déconnecté : Les images conteneur Azure SQL Edge peuvent être tirées du hub Docker, puis déployées en tant que conteneur Docker autonome ou sur un cluster Kubernetes. Pour plus d’informations, consultez [Déployer Azure SQL Edge avec Docker](disconnected-deployment.md) et [Déployer un conteneur Azure SQL Edge dans Kubernetes](deploy-kubernetes.md).
 
 ## <a name="editions-of-sql-edge"></a>Éditions de SQL Edge
 
@@ -42,7 +46,7 @@ Deux éditions ou plans logiciels DE SQL Edge sont disponibles. Ces éditions in
 
 ## <a name="pricing-and-availability"></a>Tarification et disponibilité
 
-Azure SQL Edge est actuellement en préversion. Pour plus d'informations sur la tarification et la disponibilité, consultez [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
+Azure SQL Edge est maintenant en disponibilité générale. Pour plus d'informations sur la tarification et la disponibilité dans les régions, consultez [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Pour comprendre les différences de fonctionnalités entre Azure SQL Edge et SQL Server, ainsi que les différences entre les diverses options d'Azure SQL Edge, consultez [Fonctionnalités d'Azure SQL Edge prises en charge](features.md).
@@ -67,7 +71,7 @@ Azure SQL Edge simplifie le développement et la gestion des applications et vou
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) : application cliente téléchargeable gratuitement dédiée à la gestion des infrastructures SQL, allant de SQL Server à SQL Database.
 - [SQL Server Data Tools dans Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) : application cliente téléchargeable gratuitement, dédiée au développement de bases de données relationnelles SQL Server, de bases de données SQL, de packages Integration Services, de modèles de données Analysis Services et de rapports Reporting Services.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) : outil de base de données multiplateforme téléchargeable gratuitement pour les professionnels des données qui utilisent la famille Microsoft de plateformes de données locales et cloud sous Windows, MacOS et Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) : éditeur de code open source téléchargeable gratuitement pour Windows, macOS et Linux. Il prend en charge les extensions, notamment l’[extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et Azure SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs) : éditeur de code open source téléchargeable gratuitement pour Windows, macOS et Linux. Il prend en charge les extensions, notamment l’[extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

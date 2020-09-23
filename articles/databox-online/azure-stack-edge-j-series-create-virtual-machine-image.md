@@ -1,6 +1,6 @@
 ---
-title: Créer des images de machine virtuelle pour votre appareil GPU Azure Stack Edge
-description: Décrit comment créer des images de machine virtuelle Linux ou Windows à utiliser avec votre appareil GPU Azure Stack Edge.
+title: Créer des images de machine virtuelle pour votre appareil Azure Stack Edge Pro avec GPU
+description: Décrit comment créer des images de machine virtuelle Linux ou Windows à utiliser avec votre appareil Azure Stack Edge avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500281"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890995"
 ---
-# <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Créer des images de machine virtuelle personnalisées pour votre appareil Azure Stack Edge
+# <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Créer des images de machine virtuelle personnalisées pour votre appareil Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Pour déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez être capable de créer des images de machine virtuelle personnalisées que vous pouvez utiliser pour créer des machines virtuelles. Cet article décrit les étapes nécessaires à la création d’images personnalisées de machines virtuelles Linux ou Windows que vous pouvez utiliser pour déployer des machines virtuelles sur votre appareil Azure Stack Edge.
+Pour déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro, vous devez être capable de créer des images de machine virtuelle personnalisées que vous pouvez utiliser pour créer des machines virtuelles. Cet article décrit les étapes nécessaires à la création d’images personnalisées de machines virtuelles Linux ou Windows, images que vous pouvez utiliser pour déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro.
 
 ## <a name="vm-image-workflow"></a>Workflow d’image de machine virtuelle
 
-Le workflow nécessite la création d’une machine virtuelle dans Azure, la personnalisation de la machine virtuelle, la généralisation, puis le téléchargement du disque dur virtuel correspondant à cette machine virtuelle. Ce disque dur virtuel généralisé est chargé sur Azure Stack Edge, le disque managé est créé à partir de ce disque dur virtuel, l’image est créée à partir du disque managé et, pour finir, les machines virtuelles sont créées à partir de cette image.   
+Le workflow nécessite la création d’une machine virtuelle dans Azure, la personnalisation de la machine virtuelle, la généralisation, puis le téléchargement du disque dur virtuel correspondant à cette machine virtuelle. Ce disque dur virtuel généralisé est chargé sur Azure Stack Edge Pro, le disque managé est créé à partir de ce disque dur virtuel, l’image est créée à partir du disque managé et, pour finir, les machines virtuelles sont créées à partir de cette image.   
 
-Pour plus d’informations, consultez [Déployer une machine virtuelle sur votre appareil Azure Stack Edge à l’aide d’Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+Pour plus d’informations, consultez [Déployer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
 
 
 ## <a name="create-a-windows-custom-vm-image"></a>Créer une image de machine virtuelle personnalisée Windows
@@ -44,7 +44,7 @@ Effectuez les étapes suivantes pour créer une image de machine virtuelle Windo
    
        Vous pouvez également consulter [Vue d’ensemble de Sysprep (préparation du système)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Utilisez ce disque dur virtuel pour créer et déployer une machine virtuelle sur votre appareil Azure Stack Edge.
+Utilisez ce disque dur virtuel pour créer et déployer maintenant une machine virtuelle sur votre appareil Azure Stack Edge Pro.
 
 ## <a name="create-a-linux-custom-vm-image"></a>Créer une image de machine virtuelle personnalisée Linux
 
@@ -69,7 +69,7 @@ Effectuez les étapes suivantes pour créer une image de machine virtuelle Linux
 
 1. [Téléchargez un disque de système d’exploitation existant](../virtual-machines/linux/download-vhd.md).
 
-Utilisez ce disque dur virtuel pour créer et déployer une machine virtuelle sur votre appareil Azure Stack Edge. Vous pouvez utiliser les deux images de la Place de marché Azure suivantes pour créer des images personnalisées Linux :
+Utilisez ce disque dur virtuel pour créer et déployer maintenant une machine virtuelle sur votre appareil Azure Stack Edge Pro. Vous pouvez utiliser les deux images de la Place de marché Azure suivantes pour créer des images personnalisées Linux :
 
 |Nom de l’élément  |Description  |Serveur de publication  |
 |---------|---------|---------|
@@ -81,4 +81,4 @@ Pour obtenir la liste complète des images de la Place de Marché Azure qui peuv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des machines virtuelles sur votre appareil Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 60ab0bd6093149aee4c9ee22f8b517dfd2460c09
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400560"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651994"
 ---
 # <a name="azure-application-gateway-features"></a>Fonctionnalités Azure Application Gateway
 
@@ -117,13 +117,13 @@ Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de maniè
 
 Les protocoles WebSocket et HTTP/2 permettent une communication en duplex intégral entre le serveur et le client via une connexion TCP de longue durée. Cela assure une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogations, comme c’est le cas pour les implémentations basées sur le protocole HTTP. Ces protocoles engendrent une faible surcharge, contrairement à HTTP, et peuvent réutiliser la même connexion TCP pour plusieurs requêtes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Ces protocoles sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
 
-Pour plus d’informations, consultez [Prise en charge de WebSocket](application-gateway-websocket.md) et [Prise en charge de HTTP/2](configuration-overview.md#http2-support).
+Pour plus d’informations, consultez [Prise en charge de WebSocket](application-gateway-websocket.md) et [Prise en charge de HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Vidage des connexions
 
 Le vidage des connexions permet d’éliminer délicatement les membres du pool principal lors des mises à jour planifiées de maintenance. Ce paramètre est activé via le paramètre du http principal et peut s’appliquer à tous les membres d’un pool principal pendant la création de règles. Une fois activée, Application Gateway s’assure que toutes les instances de désinscription d’un pool back-end ne reçoivent aucune nouvelle requête tout en permettant aux requêtes existantes de se terminer dans un délai défini. Cela s’applique à la fois aux instances back-end explicitement supprimées du pool back-end par une modification de configuration utilisateur et aux instances backend signalées comme n’étant pas saines d’après les résultats des sondes d’intégrité. La seule exception concerne les demandes liées à la désinscription des instances, qui ont été désinscrites explicitement, en raison d’une affinité de session gérée par la passerelle et qui continuent d’être transmises par proxy aux instances de désinscription.
 
-Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#connection-draining).
+Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Pages d’erreur personnalisées
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907068"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -92,7 +92,11 @@ Vous pouvez utiliser Vision par ordinateur pour [détecter des contenus pour adu
 
 ## <a name="use-containers"></a>Utiliser des conteneurs
 
-[Utilisez des conteneurs Vision par ordinateur](computer-vision-how-to-install-containers.md) pour reconnaître le texte imprimé et le texte manuscrit localement en installant un conteneur Docker normalisé plus près de vos données.
+Utilisez des conteneurs Docker de Vision par ordinateur pour utiliser localement le service. Deux conteneurs sont actuellement disponibles :
+
+* Le [conteneur de lecture de Vision par ordinateur](computer-vision-how-to-install-containers.md) vous permet de reconnaître du texte imprimé et manuscrit dans les images.
+
+* Le [conteneur d’analyse spatiale de Vision par ordinateur](spatial-analysis-container.md) vous permet d’analyser les vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques.
 
 ## <a name="image-requirements"></a>Exigences des images
 

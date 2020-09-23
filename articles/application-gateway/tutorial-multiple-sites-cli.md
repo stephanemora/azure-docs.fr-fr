@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502752"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595837"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
@@ -22,13 +22,12 @@ Vous pouvez utiliser Azure CLI pour [configurer l’hébergement de plusieurs si
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle Application Gateway
-> * Créer des écouteurs principaux
-> * Créer des règles d’acheminement
-> * Créer des groupes de machines virtuelles identiques avec les pools principaux
-> * Créer un enregistrement CNAME dans votre domaine
+* Configurer le réseau
+* Créer une passerelle Application Gateway
+* Créer des écouteurs principaux
+* Créer des règles d’acheminement
+* Créer des groupes de machines virtuelles identiques avec les pools principaux
+* Créer un enregistrement CNAME dans votre domaine
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Passerelle d’application multisite":::
 
