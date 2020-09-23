@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038271"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536380"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recommandations de sécurité pour les images Place de marché Microsoft Azure
 
@@ -65,11 +65,3 @@ Exécutez toujours une détection de vulnérabilité de sécurité sur votre ima
 
 Même si votre organisation ne dispose pas d’images dans la Place de marché Azure, pensez à vérifier les configurations de vos images Windows et Linux par rapport à ces recommandations.
 
-## <a name="contacting-customers"></a>Contacter des clients
-
-Pour identifier les clients et leurs e-mails de contact :
-
-1.  Dans Portail Cloud Partner, sur le rail de gauche, sélectionnez **Insights**.
-2.  Sous l’onglet **Ordres et utilisation**, utilisez les champs **Date de début** et **Date de fin** pour interroger l’utilisation dans la plage de dates requise. Cela indique quels abonnements Azure ont été utilisés quotidiennement pour l’offre. Exportez ces données. 
-3.  De même, dans l’onglet **Client**, interrogez et exportez votre base clientèle.
-4.  Faites correspondre l’ID d’abonnement de l’étape 2 à celui de l’étape 3 pour rechercher les informations client nécessaires.

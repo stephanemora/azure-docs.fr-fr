@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0e8d40f5543832dc3a76e44abc54f406cce1d4a6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 7fde4a82ff3a9e0cfa67e8ce5afeebc000757b7c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147241"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462052"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Tutoriel : Configurer InVision pour le provisionnement automatique d’utilisateurs
 
@@ -144,7 +144,7 @@ Cette opération démarre le cycle de synchronisation initiale de tous les utili
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
 
 1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

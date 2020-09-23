@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478159"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437766"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>La nouvelle expérience d’inscription d’applications dans le Portail Azure
 
@@ -77,12 +77,12 @@ Dans la nouvelle expérience, la page **Secrets de l’application** s’intitul
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plateformes/Authentification : URL de réponse/URl de redirection
 Dans l’ancienne expérience, une application disposait de la section Plateformes pour web, natif et API web afin de configurer les URL De redirection, l’URL de déconnexion et le flux implicite.
 
-Dans la nouvelle expérience, les URL de réponse figurent dans la section Authentification d\'une application. En outre, elles sont appelées URI de redirection et le format des URI de redirection a changé. Vous devez désormais les associer à un type d’application (web ou public - mobile et de bureau). [En savoir plus](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Dans la nouvelle expérience, les URL de réponse figurent dans la section Authentification d\'une application. En outre, elles sont appelées URI de redirection et le format des URI de redirection a changé. Vous devez désormais les associer à un type d’application (web ou public - mobile et de bureau). [En savoir plus](quickstart-register-app.md#add-a-redirect-uri)
 
 Les API web sont configurées dans la page Exposer une API.
 
 > [!NOTE]
-> Essayez la nouvelle expérience des paramètres d’authentification vous permettant de configurer les paramètres de votre application en fonction de la plateforme ou de l’appareil que vous souhaitez cibler. [En savoir plus](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Essayez la nouvelle expérience des paramètres d’authentification vous permettant de configurer les paramètres de votre application en fonction de la plateforme ou de l’appareil que vous souhaitez cibler. [En savoir plus](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Autorisations Microsoft Graph/Autorisations d’API
 

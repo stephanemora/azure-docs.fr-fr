@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985222"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459417"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -194,7 +194,7 @@ Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivan
 2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête.
 3. Paramétrez la requête du bloqueur d’en-tête.
 
-   Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+   Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 Si la base de données atteint constamment sa limite malgré la résolution des problèmes liés aux requêtes longues et bloquantes, effectuez une mise à niveau vers une édition disposant de davantage de ressources ([Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -261,7 +261,7 @@ Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résou
 
 Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erreur 40551 : La session a été arrêtée en raison d’une utilisation excessive de TEMPDB
 
@@ -292,7 +292,7 @@ Essayez de réduire le nombre de lignes qui sont sollicitées immédiatement en 
 
 Pour contourner ce problème, essayez d’optimiser la requête.
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tableau des messages d’erreur de gouvernance des ressources supplémentaires
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

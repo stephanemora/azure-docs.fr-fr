@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 8d1ea9b0989a71268b98f0b2fd1d95d5671f996b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325795"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889861"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Découvrez comment déployer un modèle à partir d’Azure Machine Learning en tant qu’application de fonction dans Azure App Service.
 
@@ -45,7 +45,7 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
 
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 
-Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter le modèle en tant que service web. La liste suivante décrit les éléments de base nécessaires pour un déploiement :
+Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter le modèle en tant que service web. La liste suivante décrit les éléments principaux nécessaires pour un déploiement :
 
 * __Script d’entrée__. Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur le script d’entrée, consultez [Définir le cod
 Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
-> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
+> Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Création de l’image
 
-Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur de blob à partir de la configuration du modèle et de l’inférence :
+Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur de blob à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
 > L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
@@ -301,4 +301,4 @@ Pour plus d’informations sur l’utilisation des déclencheurs d’objets blob
 * Pour en savoir plus sur les déclencheurs de Stockage Blob, consultez [Liaisons Stockage Blob Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Déployez votre modèle sur Azure App Service](how-to-deploy-app-service.md).
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
-* [Référence sur l’API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)
+* [Référence sur l’API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)

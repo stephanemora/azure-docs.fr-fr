@@ -1,23 +1,23 @@
 ---
-title: Importer des données dans le concepteur (préversion)
+title: Importer des données dans le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez comment importer des données dans le concepteur Azure Machine Learning (préversion) depuis différentes sources de données.
+description: Découvrez comment importer des données dans le concepteur Azure Machine Learning depuis différentes sources de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495369"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985609"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importer des données dans le concepteur Azure Machine Learning (préversion)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importer des données dans le concepteur Azure Machine Learning
 
 Dans cet article, vous allez apprendre à importer vos propres données dans le concepteur afin de créer des solutions personnalisées. Vous pouvez importer des données dans le concepteur de deux manières : 
 
@@ -32,25 +32,34 @@ Nous vous recommandons d’utiliser des [jeux de données](concept-data.md#datas
 
 ### <a name="register-a-dataset"></a>Inscrire un jeu de données
 
-Vous pouvez inscrire des jeux de données existants [par programmation avec le kit de développement logiciel (SDK)](how-to-create-register-datasets.md#datasets-sdk) ou [visuellement dans Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+Vous pouvez inscrire des jeux de données existants [par programmation avec le kit de développement logiciel (SDK)](how-to-create-register-datasets.md#datasets-sdk) ou [visuellement dans Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 Vous pouvez également inscrire la sortie de n’importe quel module du concepteur sous forme de jeu de données.
 
 1. Sélectionnez le module qui génère les données que vous souhaitez inscrire.
 
-1. Dans le volet de propriétés, sélectionnez **Sorties** > **Inscrire le jeu de données**.
+1. Dans le volet de propriétés, sélectionnez **Sorties + journaux** > **Inscrire le jeu de données**.
 
     ![Capture d’écran montrant comment accéder à l'option Inscrire le jeu de données](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Si les données de sortie du module sont dans un format tabulaire, vous devez choisir d’enregistrer la sortie sous la forme d’un **jeu de données de fichier** ou d’un **jeu de données tabulaire**.
+
+ - Un **jeu de données de fichier** inscrit le dossier de sortie du module en tant que jeu de données de fichier. Le dossier de sortie contient un fichier de données et des méta-fichiers utilisés en interne par le concepteur. Sélectionnez cette option si vous souhaitez continuer à utiliser le jeu de données inscrit dans le concepteur. 
+
+ - Le **jeu de données tabulaire** inscrit uniquement le fichier de données de sortie du module sous la forme d’un jeu de données tabulaire. Ce format est facilement utilisé par d’autres outils, par exemple dans le Machine Learning automatisé ou le Kit de développement logiciel (SDK) Python. Sélectionnez cette option si vous envisagez d’utiliser le jeu de données enregistré en dehors du concepteur.  
+
+
+
 ### <a name="use-a-dataset"></a>Utiliser un jeu de données
 
-Vos jeux de données inscrits se trouvent dans la palette de modules, sous **Jeux de données** > **Mes jeux de données**. Pour utiliser un jeu de données, faites-le glisser et déposez-le sur le canevas du pipeline. Ensuite, connectez le port de sortie du jeu de données à d’autres modules de la palette.
+Vos jeux de données inscrits se trouvent dans la palette de modules, sous **Jeux de données**. Pour utiliser un jeu de données, faites-le glisser et déposez-le sur le canevas du pipeline. Ensuite, connectez le port de sortie du jeu de données à d’autres modules du canevas. 
 
 ![Capture d’écran montrant l’emplacement des jeux de données enregistrés dans la palette du concepteur](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Actuellement, le concepteur prend uniquement en charge le traitement des jeux de données [tabulaires](how-to-create-register-datasets.md#dataset-types). Si vous souhaitez utiliser des [jeux de données de fichier](how-to-create-register-datasets.md#dataset-types), utilisez le kit de développement logiciel (SDK) Azure Machine Learning disponible pour Python et R.
+> Le concepteur prend en charge le [contrôle de version de jeu de données](how-to-version-track-datasets.md). Spécifiez la version du jeu de données dans le volet des propriétés du module de jeu de données.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importer des données à l’aide du module Importer des données
 
@@ -59,7 +68,7 @@ Bien que nous recommandions l'utilisation de jeux de données pour importer des 
 Pour plus d’informations sur l’utilisation du module Importer des données, consultez la [page de référence Importer des données](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Si votre jeu de données contient trop de colonnes, vous pouvez obtenir l’erreur suivante : « Échec de la validation en raison d’une limitation de taille ». Pour éviter cela, [inscrivez le jeu de données dans l’interface des jeux de données](how-to-create-register-datasets.md#datasets-ui).
+> Si votre jeu de données contient trop de colonnes, vous pouvez obtenir l’erreur suivante : « Échec de la validation en raison d’une limitation de taille ». Pour éviter cela, [inscrivez le jeu de données dans l’interface des jeux de données](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Sources prises en charge
 
@@ -94,8 +103,8 @@ Les modules du concepteur sont limités par la taille de la cible de calcul. En 
 
 ## <a name="access-data-in-a-virtual-network"></a>Accéder à des données dans un réseau virtuel
 
-Si votre espace de travail se trouve dans un réseau virtuel, vous devez effectuer des étapes de configuration supplémentaires pour visualiser les données dans le concepteur. Pour plus d’informations sur l’utilisation des magasins de données et des jeux de données dans un réseau virtuel, consultez [Isolement réseau pendant la formation et inférence avec les réseaux virtuels privés](how-to-enable-virtual-network.md#machine-learning-studio).
+Si votre espace de travail se trouve dans un réseau virtuel, vous devez effectuer des étapes de configuration supplémentaires pour visualiser les données dans le concepteur. Pour plus d’informations sur l’utilisation des magasins de données et des jeux de données sur un réseau virtuel, consultez [Utiliser Azure Machine Learning Studio dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les principes de base du concepteur dans [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md).
+Découvrez les notions de base du concepteur grâce à ce [tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md).

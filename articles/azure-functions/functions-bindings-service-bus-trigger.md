@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294609"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605013"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
 
 Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une file d’attente ou d'une rubrique Service Bus. À partir de la version d’extension 3.1.0, vous pouvez déclencher une file d’attente ou une rubrique activée par une session.
 
-Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-service-bus-output.md).
+Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemple
 

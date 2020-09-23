@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688082"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469913"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -120,7 +120,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 4. Démarrez une nouvelle méthode HTTP **GET** sous l’onglet du générateur. Ajoutez votre clé d’abonnement principale Azure Maps à `status URL`. Envoyez une requête **GET** à la `status URL` que vous avez copiée à l'étape 3. La `status URL` est semblable à l'URL suivante :
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Si le processus de conversion n’est pas encore terminé, il se peut que vous voyiez quelque chose ressemblant la réponse JSON suivante :
@@ -208,7 +208,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 3. Effectuez une requête **GET** à l’URL `statusURL` pour le tileset. Ajoutez votre clé d’abonnement principale Azure Maps pour l’authentification. La requête doit ressembler à l’URL suivante :
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. Lorsque la requête HTTP **GET** se termine correctement, l’en-tête de réponse contient la valeur `tilesetId` pour le tileset créé. Copiez la valeur `tilesetId`.

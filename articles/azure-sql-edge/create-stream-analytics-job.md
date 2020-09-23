@@ -1,6 +1,6 @@
 ---
-title: Créer une tâche T-SQL Streaming dans Azure SQL Edge (préversion)
-description: En savoir plus sur la création de tâches Stream Analytics dans Azure SQL Edge (préversion).
+title: Créer une tâche de diffusion en continu T-SQL dans Azure SQL Edge
+description: Apprenez-en davantage sur la création de tâches Stream Analytics dans Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321715"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888106"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Créer une tâche Azure Stream Analytics dans Azure SQL Edge (préversion) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Créer une tâche de diffusion en continu de données dans Azure SQL Edge 
 
-Cet article explique comment créer une tâche T-SQL Streaming dans Azure SQL Edge (préversion). Vous créez les objets d’entrée et de sortie du flux externe, puis vous définissez la requête de travail de streaming dans le cadre de la création de la tâche de streaming.
-
-> [!NOTE]
-> Pour activer la fonctionnalité de diffusion en continu T-SQL dans Azure SQL Edge, activez TF 11515 en tant qu’option de démarrage, ou utilisez la commande [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Pour plus d’informations sur la façon d’activer les indicateurs de trace à l’aide du fichier mssql.conf, consultez [Configurer à l’aide du fichier mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+Cet article explique comment créer une tâche de diffusion en continu T-SQL dans Azure SQL Edge. Vous créez les objets d’entrée et de sortie du flux externe, puis vous définissez la requête de travail de streaming dans le cadre de la création de la tâche de streaming.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Configurer les objets d’entrée et de sortie du flux externe
 
@@ -255,5 +252,5 @@ La tâche de streaming peut se présenter dans l’un des états suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Afficher les métadonnées associées aux tâches de streaming dans Azure SQL Edge (préversion)](streaming-catalog-views.md) 
+- [Afficher les métadonnées associées aux tâches de streaming dans Azure SQL Edge](streaming-catalog-views.md) 
 - [Créer un flux externe](create-external-stream-transact-sql.md)

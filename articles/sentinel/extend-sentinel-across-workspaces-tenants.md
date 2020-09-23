@@ -1,6 +1,6 @@
 ---
 title: Étendre Azure Sentinel dans les espaces de travail et les locataires | Microsoft Docs
-description: Comment les fournisseurs de services MSSP peuvent utiliser plusieurs locataires dans Azure Sentinel.
+description: Comment utiliser Azure Sentinel pour interroger et analyser des données dans des espaces de travail et des locataires.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519011"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905428"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -94,6 +94,13 @@ Une fonction peut également simplifier un union couramment utilisé. Par exempl
 
 Vous pouvez ensuite écrire une requête sur les deux espaces de travail en commençant par `unionSecurityEvent | where ...`.
 
+#### <a name="scheduled-alerts"></a>Alertes planifiées
+
+Les requêtes portant sur plusieurs espaces de travail peuvent désormais être incluses dans les alertes planifiées des règles d’analytique, sous réserve des limitations suivantes :
+
+- Jusqu’à 10 espaces de travail peuvent être inclus dans une seule requête.
+- Azure Sentinel doit être déployé sur chaque espace de travail référencé dans la requête.
+
 > [!NOTE] 
 > Interroger plusieurs espaces de travail dans la même requête peut nuire au niveau de performance ; par conséquent, cette méthode est recommandée uniquement lorsque la logique requiert cette fonctionnalité.
 
@@ -121,13 +128,6 @@ Les capacités de chasse dans plusieurs espaces de travail permettent à vos cha
 Pour configurer et gérer plusieurs espaces de travail Azure Sentinel, vous devez automatiser l’utilisation de l’API de gestion Azure Sentinel. Pour plus d’informations sur l’automatisation du déploiement des ressources Azure Sentinel, notamment les règles d’alerte, les requêtes de repérage, les classeurs et les playbooks, consultez [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885) (Extension d’Azure Sentinel : automatisation des API, de l’intégration et de la gestion).
 
 Consultez également [Déployer et gérer Azure Sentinel as a Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) et [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) (Combiner Azure Lighthouse avec les fonctionnalités DevOps Sentinel) pour connaître une méthodologie consolidée et proposée par la communauté pour gérer Azure Sentinel as a code, déployer et configurer des ressources à partir d’un référentiel GitHub privé. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>Qu’est-ce qui n’est pas pris en charge dans les espaces de travail ?
-
-Les fonctionnalités suivantes ne sont pas prises en charge dans les espaces de travail :
-
-- Une règle d’alerte planifiée ne peut pas s’exécuter sur plusieurs espaces de travail à l’aide d’une requête inter-espaces de travail.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gérer les espaces de travail parmi les locataires avec Azure Lighthouse
 

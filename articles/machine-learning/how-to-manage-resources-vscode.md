@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897404"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gérer les ressources Azure Machine Learning avec l’extension VS Code (préversion)
 
@@ -44,10 +44,10 @@ Pour plus d’informations, consultez [Espaces de travail](concept-workspace.md)
     1. Choisir votre abonnement Azure
     1. Choisissez ou créez un groupe de ressources dans lequel provisionner l’espace de travail.
     1. Sélectionnez l’emplacement où vous souhaitez provisionner l’espace de travail.
-    1. Choisissez parmi les éditions *De base* et *Entreprise*. Apprenez-en davantage sur les différentes [éditions d’Azure Machine Learning](concept-editions.md).
 
 Les autres méthodes de création d’un espace de travail sont les suivantes :
 
+- Ouvrez la palette de commandes **Afficher > Palette de commandes** et entrez dans l’invite de texte **Azure ML : Créez un espace de travail**.
 - Cliquez sur l’icône `+` en haut de la vue Azure Machine Learning.
 - Créez un espace de travail quand vous êtes invité à en sélectionner un lors du provisionnement d’autres ressources.
 
@@ -242,6 +242,39 @@ Une fois l’exécution terminée, vous souhaiterez peut-être télécharger les
 ### <a name="view-run-metadata"></a>Afficher les métadonnées d’une exécution
 
 Dans l’extension, vous pouvez inspecter des métadonnées telles que la configuration d’exécution utilisée pour l’exécution ainsi que les détails de l’exécution.
+
+## <a name="compute-instances"></a>Instances de calcul
+
+Pour plus d’informations, consultez [Instances de calcul](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Créer une instance de calcul
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud d’espace de travail sous lequel vous souhaitez créer l’instance de calcul.
+1. Cliquez avec le bouton droit sur le nœud **Instances de calcul**, puis sélectionnez **Créer une instance de calcul**.
+1. À l’invite :
+    1. Donnez un nom à votre instance de calcul.
+    1. Sélectionnez une taille de machine virtuelle dans la liste.
+    1. Indiquez si vous souhaitez activer l’accès SSH.
+        1. Si vous activez l’accès SSH, vous devez également fournir la clé SSH publique ou le fichier contenant la clé. Pour plus d’informations, consultez le [guide sur la création et l’utilisation de clés SSH sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Arrêter ou redémarrer une instance de calcul
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
+1. Cliquez avec le bouton droit sur l’instance de calcul que vous souhaitez arrêter ou redémarrer, puis sélectionnez **Arrêter l’instance de calcul** ou **Redémarrer l’instance de calcul**.
+
+### <a name="view-compute-instance-configuration"></a>Afficher la configuration d’instances de calcul
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
+1. Cliquez avec le bouton droit sur l’instance de calcul que vous souhaitez inspecter, puis sélectionnez **Afficher les propriétés de l’instance de calcul**.
+
+### <a name="delete-compute-instance"></a>Supprimer une instance de calcul
+
+1. Développez le nœud d’abonnement qui contient votre espace de travail.
+1. Développez le nœud **Instance de calcul** à l’intérieur de votre espace de travail.
+1. Cliquez avec le bouton droit sur l’instance de calcul à supprimer, puis sélectionnez **Supprimer l’instance de calcul**.
 
 ## <a name="compute-clusters"></a>Clusters de calcul
 

@@ -109,6 +109,22 @@
       href: concept-recognizing-text.md
     - name: Détection de contenu pour adultes
       href: concept-detecting-adult-content.md
+- name: Intelligence artificielle responsable
+  items:
+    - name: Note de transparence
+      items:
+        - name: Présentation de l’analyse spatiale
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview'
+        - name: Caractéristiques et limitations
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations'
+    - name: 'Conformité, confidentialité et sécurité'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2'
+    - name: Utilisation responsable lors du déploiement de l’IA
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment'
+    - name: Guide de conception de la divulgation
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design'
+    - name: Rechercher des insights
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights'
 - name: Conteneurs
   items:
     - name: Conteneur d’API de lecture
@@ -125,6 +141,20 @@
         - name: Utiliser des instances de conteneur
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+    - name: Conteneur d’analyse spatiale
+      items:
+        - name: Configurer la machine hôte et exécuter le conteneur
+          href: spatial-analysis-container.md
+        - name: Configurer des opérations
+          href: spatial-analysis-operations.md
+        - name: Déployer une application web de comptage de personnes
+          href: Spatial-analysis-web-app.md
+        - name: Journalisation et résolution des problèmes
+          href: spatial-analysis-logging.md
+        - name: Positionnement des zones et des lignes
+          href: spatial-analysis-zone-line-placement.md
+        - name: Positionnement de la caméra
+          href: spatial-analysis-camera-placement.md
 - name: Guides pratiques
   items:
     - name: Appeler l’API Vision par ordinateur

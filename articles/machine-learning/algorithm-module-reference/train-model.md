@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84447558"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890204"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour effectuer l’apprentissage d’un modèle de classification ou de régression. La formation a lieu une fois que vous avez défini un modèle et ses paramètres et nécessite des données avec balises. Vous pouvez également utiliser le module **Train Model** (Entraîner le modèle) pour effectuer l’apprentissage d’un modèle existant avec de nouvelles données. 
 

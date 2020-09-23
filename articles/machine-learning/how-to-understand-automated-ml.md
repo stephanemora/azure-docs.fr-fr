@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 89fe1d80fb7282a72bde6bcafa070f2d7461b02f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42b2ff0b7c2d43beb1d5f0b2136a97e67c0143a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320831"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905072"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans cet article, vous apprenez à visualiser et à comprendre les graphiques et les métriques pour chacune de vos exécutions de Machine Learning automatisées. 
 
@@ -59,7 +59,7 @@ Après avoir exécuté une expérience de machine learning automatisé, un histo
 
    [![Modèle d’expérience](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Vous voyez aussi ces mêmes résultats lors d'une exécution avec le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Vous voyez aussi ces mêmes résultats lors d'une exécution avec le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
 ## <a name="classification-results"></a><a name="classification"></a> Résultats de la classification
 

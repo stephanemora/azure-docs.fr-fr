@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758757"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029985"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ Le modèle de prise en charge des messages cloud-à-appareil avec HTTPS est repr
 
 Vous pouvez également améliorer la logique côté appareil afin de traiter (compléter, rejeter ou abandonner) rapidement les messages en file d’attente, raccourcir leur durée de vie ou envisager d’envoyer moins de messages. Voir [Durée de vie du message C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Enfin, songez à utiliser l’[API de purge de la file d’attente](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) pour nettoyer périodiquement les messages en attente avant que la limite soit atteinte.
+Enfin, songez à utiliser l’[API de purge de la file d’attente](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) pour nettoyer périodiquement les messages en attente avant que la limite soit atteinte.

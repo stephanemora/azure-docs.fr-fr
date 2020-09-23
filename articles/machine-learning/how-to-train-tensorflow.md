@@ -10,17 +10,17 @@ author: maxluk
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d7523f68f97250f71405f840a6a5e9fcf9fb2f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 840ccec1da6df0df1ccd710d83634b850d7370fa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320865"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904919"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Créer un modèles de Deep Learning TensorFlow à l’échelle avec Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article vous explique comment exécuter vos scripts de formation [TensorFlow](https://www.tensorflow.org/overview) à l’échelle à l’aide de la classe d’[estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) d’Azure Machine Learning. Cet exemple forme et inscrit un modèle TensorFlow pour classer les chiffres manuscrits à l’aide d’un réseau neuronal profond (DNN).
+
+Cet article vous explique comment exécuter vos scripts de formation [TensorFlow](https://www.tensorflow.org/overview) à l’échelle à l’aide de la classe d’[estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) d’Azure Machine Learning. Cet exemple forme et inscrit un modèle TensorFlow pour classer les chiffres manuscrits à l’aide d’un réseau neuronal profond (DNN).
 
 Que vous développiez complètement un modèle TensorFlow ou que vous transmettiez un [modèle existant](how-to-deploy-existing-model.md) dans le cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des travaux de formation Open source afin de créer, déployer, versionner et surveiller des modèles de niveau production.
 
@@ -37,7 +37,7 @@ Exécutez ce code sur l’un de ces environnements :
  
  - Votre propre serveur de notebooks Jupyter
 
-    - [Installez le kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Installez le kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
     - [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - [Téléchargez les exemples de fichiers de script](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` et `utils.py`
      
@@ -67,7 +67,7 @@ from azureml.train.dnn import TensorFlow
 
 ### <a name="initialize-a-workspace"></a>Initialiser un espace de travail
 
-L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
+L’[espace de travail Azure Machine Learning](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
 
 Créez un objet d’espace de travail à partir du fichier `config.json` créé dans la [section Conditions préalables](#prerequisites).
 
@@ -140,15 +140,15 @@ Pour plus d’informations sur les cibles de calcul, consultez l’article [Qu�
 
 ## <a name="create-a-tensorflow-estimator"></a>Créer un estimateur TensorFlow
 
-[L’estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fournit un moyen simple de lancer un travail d’entraînement TensorFlow sur une cible de calcul.
+[L’estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) fournit un moyen simple de lancer un travail d’entraînement TensorFlow sur une cible de calcul.
 
-L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. Pour plus d’informations sur l’apprentissage des modèles à l’aide de l’estimateur générique, voir [Effectuer l’apprentissage de modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
+L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. Pour plus d’informations sur l’apprentissage des modèles à l’aide de l’estimateur générique, voir [Effectuer l’apprentissage de modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
 
 Si l’exécution de votre script d’entraînement exige des packages PIP ou Conda supplémentaires, vous pouvez installer les packages sur l’image Docker obtenue en transmettant leurs noms via les arguments `pip_packages` et `conda_packages`.
 
 
 > [!WARNING]
-> Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+> Azure Machine Learning exécute des scripts d’apprentissage en copiant l’intégralité du répertoire source. Si vous avez des données sensibles que vous ne souhaitez pas charger, utilisez un [fichier .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou ne l’incluez pas dans le répertoire source. À la place, accédez à vos données à l’aide d’un [magasin de données](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
 
 ```python
@@ -175,7 +175,7 @@ Pour plus d’informations sur la personnalisation de votre environnement Python
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
-L’[objet d’exécution](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
+L’[objet d’exécution](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
 
 ```Python
 run = exp.submit(est)
@@ -222,7 +222,7 @@ for f in run.get_file_names():
 
 ## <a name="distributed-training"></a>Entraînement distribué
 
-L’estimateur [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) prend également en charge la formation distribuée sur les clusters de l’UC et du GPU. Vous pouvez facilement exécuter des tâches distribuées TensorFlow et Azure Machine Learning gère l’orchestration à votre place.
+L’estimateur [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) prend également en charge la formation distribuée sur les clusters de l’UC et du GPU. Vous pouvez facilement exécuter des tâches distribuées TensorFlow et Azure Machine Learning gère l’orchestration à votre place.
 
 Azure Machine Learning prend en charge deux méthodes d’entraînement distribué dans TensorFlow :
 
@@ -233,7 +233,7 @@ Azure Machine Learning prend en charge deux méthodes d’entraînement distribu
 
 [Horovod](https://github.com/uber/horovod) est une infrastructure open source pour la formation distribuée, développée par Uber. Elle offre un accès facile vers des tâches distribuées TensorFlow du GPU.
 
-Pour utiliser Horovod, spécifiez un objet [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) pour le paramètre `distributed_training` dans le constructeur TensorFlow. Ce paramètre s’assure que la bibliothèque Horovod est installée et que vous pouvez l’utiliser dans votre script de formation.
+Pour utiliser Horovod, spécifiez un objet [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) pour le paramètre `distributed_training` dans le constructeur TensorFlow. Ce paramètre s’assure que la bibliothèque Horovod est installée et que vous pouvez l’utiliser dans votre script de formation.
 
 ```Python
 from azureml.core.runconfig import MpiConfiguration
@@ -256,7 +256,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 Vous pouvez également exécuter l’entraînement [natif distribué TensorFlow](https://www.tensorflow.org/deploy/distributed), qui utilise le modèle de serveur de paramètres. Dans cette méthode, vous effectuez un entraînement sur un cluster de serveurs de paramètres et de workers. Les workers calculent les dégradés pendant l’entraînement, alors que les serveurs de paramètres agrègent les dégradés.
 
-Pour utiliser la méthode serveur de paramètres, spécifiez un objet [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) pour le paramètre `distributed_training` dans le constructeur TensorFlow.
+Pour utiliser la méthode serveur de paramètres, spécifiez un objet [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) pour le paramètre `distributed_training` dans le constructeur TensorFlow.
 
 ```Python
 from azureml.train.dnn import TensorFlow

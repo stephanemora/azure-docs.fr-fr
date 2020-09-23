@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897569"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -111,7 +111,7 @@ Si votre projet est de type « Identification d’objets (cadres englobants) �
 1. Sélectionnez l’outil **Zone rectangulaire**![Outil Zone rectangulaire](./media/how-to-label-images/rectangular-box-tool.png), ou sélectionnez « R ».
 3. Cliquez sur votre cible, puis faites glisser le curseur en diagonale pour créer un cadre englobant approximatif. Pour ajuster le cadre englobant, faites glisser ses bords ou ses angles.
 
-![Capture d’écran qui illustre la création de base d’un cadre englobant.](./media/how-to-label-images/bounding-box-sequence.png)
+![Création de cadre englobant](./media/how-to-label-images/bounding-box-sequence.png)
 
 Pour supprimer un cadre englobant, cliquez sur la cible en forme de X qui apparaît à côté du cadre englobant après sa création.
 
