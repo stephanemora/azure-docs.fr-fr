@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850693"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883820"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Connecter Pare-feu Windows Defender avec sécurité avancée à Azure Sentinel
 
@@ -31,7 +31,7 @@ La solution collecte les événements de pare-feu Windows à partir des machines
 > [!NOTE]
 > - Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 >
-> - Si Azure Sentinel et Azure Security Center sont collectés dans le même espace de travail, il n’est pas nécessaire d’activer la solution du Pare-feu Windows par le biais de ce connecteur. Si vous l’avez activée malgré tout, cela n’entraîne pas de duplication de données. 
+> - Si les alertes Azure Defender d’Azure Security Center sont déjà collectées dans l’espace de travail Azure Sentinel, il n’est pas nécessaire d’activer la solution du Pare-feu Windows par le biais de ce connecteur. Toutefois, si vous l’avez activée, cela ne produira pas de données en double. 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

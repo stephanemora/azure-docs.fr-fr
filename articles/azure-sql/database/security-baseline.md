@@ -4,15 +4,15 @@ description: Base de référence de sécurité Azure pour Azure SQL Database et 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231025"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885216"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Base de référence de sécurité Azure pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7 : Activer des alertes en cas d’activité anormale
 
-**Conseils** : Utilisez Azure Security Center protection avancée contre les menaces pour Azure SQL Database pour la surveillance et les alertes en cas d’activité anormale. Activez Advanced Data Security pour vos bases de données SQL. Advanced Data Security inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données.
+**Conseils** : Utilisez Azure Security Center protection avancée contre les menaces pour Azure SQL Database pour la surveillance et les alertes en cas d’activité anormale. Activez Azure Defender pour SQL pour vos bases de données SQL. Azure Defender pour SQL inclut des fonctionnalités permettant de découvrir et d’atténuer les vulnérabilités de votre base de données, et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données.
 
 Comprendre Advanced Threat Protection et les alertes pour Azure SQL Database :
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Comment activer Advanced Data Security pour Azure SQL Database :
+Activation d’Azure Defender pour SQL pour vos bases de données SQL :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Comment gérer les alertes dans Azure Security Center :
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
-**Conseils** : Azure Active Directory (AAD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module AAD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
+**Aide** : Azure Active Directory (Azure AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
 Comment obtenir un rôle d’annuaire dans Azure AD avec PowerShell :
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Conseils** : Activez l’authentification multifacteur (MFA) Azure Active Directory (AAD) et suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
+**Aide** : Activez l’authentification multifacteur (MFA) Azure Active Directory (Azure AD) et suivez les recommandations de gestion des identités et des accès dans Azure Security Center.
 
 Comment activer l’authentification multifacteur dans Azure :
 
@@ -445,23 +445,23 @@ Comment configurer des emplacements nommés dans Azure : https://docs.microsoft
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Aide** : Créer un administrateur Azure Active Directory (AAD) pour votre serveur.
+**Aide** : Créez un administrateur Azure Active Directory (Azure AD) pour votre serveur.
 
 Comment configurer et gérer l’authentification Azure Active Directory avec Azure SQL :
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Comment créer et configurer une instance AAD :
+Création et configuration d’une instance Azure AD :
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Conseils** : Azure Active Directory (AAD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. Les accès des utilisateurs peuvent être revus régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès.
+**Aide** : Azure Active Directory (Azure AD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. De plus, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. Les accès des utilisateurs peuvent être revus régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès.
 
 Comment utiliser les révisions d’accès des identités Azure :
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11 : Superviser les tentatives d’accès aux comptes désactivés
 
-**Conseils** : Configurez l'authentification Azure Active Directory (AAD) avec Azure SQL et créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Active Directory, en envoyant les journaux d’audit et les journaux de connexion vers un espace de travail Log Analytics. Configurez les alertes souhaitées dans un espace de travail Log Analytics.
+**Aide** : Configurez l’authentification Azure Active Directory (Azure AD) avec Azure SQL et créez des paramètres de diagnostic pour les comptes d’utilisateur Azure Active Directory, en envoyant les journaux d’audit et les journaux de connexion vers un espace de travail Log Analytics. Configurez les alertes souhaitées dans un espace de travail Log Analytics.
 
 Comment configurer et gérer l’authentification Azure Active Directory avec Azure SQL :
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
-**Conseils** : Utilisez Azure Active Directory (AAD) Identity Protection et les détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez ingérer des données dans Azure Sentinel pour approfondir votre examen.
+**Conseils** : Utilisez Azure Active Directory (Azure AD) Identity Protection et les détections de risques pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
 Comment afficher les connexions à risque à Azure AD :
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Utilisez Azure Active Directory (AAD) à des fins d’authentification et de contrôle d'accès aux instances Azure SQL Database.
+**Aide** : Utilisez Azure Active Directory (Azure AD) à des fins d’authentification et de contrôle d’accès aux instances Azure SQL Database.
 
 Comment intégrer Azure SQL Database à Azure Active Directory à des fins d'authentification :
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**Conseils** : Activez Advanced Data Security pour Azure SQL Database et suivez les recommandations de Azure Security Center relatives à l’évaluation des vulnérabilités sur vos serveurs.
+**Aide** : Activez Azure Defender pour SQL pour Azure SQL Database et suivez les recommandations d’Azure Security Center relatives à l’évaluation des vulnérabilités sur vos serveurs.
 
 Procédure d’exécution de l'évaluation des vulnérabilités sur Azure SQL Database :
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Comment activer Advanced Data Security :
+Activation d’Azure Defender pour SQL :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Comment implémenter les recommandations d’évaluation de la vulnérabilité d’Azure Security Center :
 
@@ -787,7 +787,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -829,7 +829,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Comment refuser un type de ressource spécifique avec Azure Policy : https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -837,7 +837,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 
 **Conseils** : Non applicable. Cette recommandation a trait aux applications s’exécutant sur des ressources de calcul.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -887,7 +887,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -927,7 +927,7 @@ Documentation Azure Repos
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
-**Conseils** : Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure Active Directory (AAD). Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification AAD, y compris Azure Key Vault, sans informations d’identification dans votre code.
+**Conseils** : Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure Active Directory (Azure AD). Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Azure Key Vault, sans informations d’identification dans votre code.
 
 Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL :
 
@@ -1003,7 +1003,7 @@ Configuration d’identités managées :
 
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1037,7 +1037,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure non liées au calcul
 
 Comprendre Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles : https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1045,7 +1045,7 @@ Comprendre Microsoft Antimalware pour Azure Cloud Services et les machines virtu
 
 **Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul. Microsoft gère les logiciels anti-programme malveillant pour la plateforme sous-jacente.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 

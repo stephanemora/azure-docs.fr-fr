@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: d94170ade3de7e7fc128fe85437db59822694add
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 25f263a5c9ccdc67f1ab8353e616a6dded0c7f7e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117812"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901658"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -34,7 +34,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
    - Activez la protection avancée contre les menaces sur le serveur.
    - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
-   ![Configurer la détection des menaces](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
+   :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurer la détection des menaces":::
 
 ## <a name="explore-anomalous-database-activities"></a>Explorer les activités de base de données anormales
 
@@ -42,15 +42,15 @@ Vous recevez une notification par e-mail quand des activités anormales sont dé
     
 1. Cliquez sur le lien **Afficher les alertes récentes** figurant dans l’e-mail pour ouvrir le portail Azure et accéder à la page d’alertes d’Azure Security Center, qui fournit une vue d’ensemble des menaces actives détectées sur la base de données SQL.
     
-    ![Rapports d’activités anormales](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Rapports d’activités anormales":::
 
     Affichez les menaces actives :
 
-    ![Menaces actives](./media/howto-database-threat-protection-portal/active-threats.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Menaces actives":::
 
 2. Cliquez sur une alerte spécifique pour obtenir des détails supplémentaires et des actions permettant d’examiner cette menace et d’atténuer les menaces futures.
     
-    ![Alerte spécifique](./media/howto-database-threat-protection-portal/specific-alert.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerte spécifique":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explorer les alertes de détection de menace
 
@@ -58,7 +58,7 @@ La protection avancée contre les menaces intègre ses alertes avec [Azure Secur
 
 Cliquez sur **Alertes de sécurité** sous **PROTECTION CONTRE LES MENACES** pour ouvrir la page d’alertes d’Azure Security Center et obtenir une vue d’ensemble des menaces SQL actives détectées sur la base de données.
 
-  ![ASC de protection contre les menaces](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="ASC de protection contre les menaces":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

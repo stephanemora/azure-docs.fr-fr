@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7aeea1a0b151968683248b26a2c12f49b437bd2
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278562"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652075"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -132,7 +132,7 @@ La fonctionnalité de mot de passe temporaire permet de s’assurer que le trans
 
 Pour prendre en charge les mots de passe temporaires dans Azure AD pour les utilisateurs synchronisés, vous pouvez activer la fonctionnalité *ForcePasswordChangeOnLogOn* en exécutant la commande suivante sur votre serveur Azure AD Connect :
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
+`Set-ADSyncAADCompanyFeature -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  Azure AD Connect ne récupère pas de lui-même l’indicateur de changement forcé du mot de passe. Cela s’ajoute au changement de mot de passe détecté qui se produit pendant la synchronisation du hachage de mot de passe.

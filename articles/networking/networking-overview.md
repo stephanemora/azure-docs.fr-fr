@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037250"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651724"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
@@ -38,7 +38,7 @@ Cette section décrit les services qui assurent la connectivité entre les resso
 |[DNS Azure](#dns)|Héberge le domaine DNS qui fournit une résolution de noms à l’aide de l’infrastructure Microsoft Azure.|<p>[Héberger votre domaine dans Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Créer des enregistrements DNS pour une application web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Créer un enregistrement d’alias pour Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Créer un enregistrement d’alias pour l’adresse IP publique](../dns/tutorial-alias-pip.md)</p> <p>[Créer un enregistrement d’alias pour l’enregistrement de la ressource de zone](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Configurez une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le portail Azure via TLS. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique.|<p>[Créer un hôte Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Se connecter à une machine virtuelle Linux avec SSH](../bastion/bastion-connect-vm-ssh.md)</p><p>[Se connecter à une machine virtuelle Windows avec RDP](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Passerelle NAT de réseau virtuel](#nat)|Créez une passerelle NAT pour fournir une connectivité sortante à une machine virtuelle.|<p>[Créer une passerelle NAT](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Azure Peering Service (préversion)](#azurepeeringservice)|Collaborez avec des fournisseurs de services pour un routage fiable et optimal vers le cloud Microsoft sur le réseau public.|<p>[Inscrire Azure Peering Service](../peering-service/azure-portal.md)</p>|
+|[Azure Peering Service](#azurepeeringservice)|Collaborez avec des fournisseurs de services pour un routage fiable et optimal vers le cloud Microsoft sur le réseau public.|<p>[Inscrire Azure Peering Service](../peering-service/azure-portal.md)</p>|
 ||||
 
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902138"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
@@ -43,7 +43,7 @@ Les DEK, chiffrées avec les KEK, sont stockées séparément. Seule une entité
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Fonctionnement du chiffrement des données à l'aide d'une clé gérée par le client
 
-![Diagramme illustrant le scénario Bring Your Own Key (BYOK)](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagramme illustrant le scénario Bring Your Own Key (BYOK)":::
 
 Pour qu'un serveur PostgreSQL utilise les clés gérées par le client stockées dans Key Vault pour le chiffrement de la DEK, un administrateur Key Vault accorde les droits d'accès suivants au serveur :
 
@@ -79,7 +79,7 @@ Si vous utilisez le chiffrement de données à l'aide d'une clé gérée par le 
 * Assurez-vous que Key Vault et le serveur unique Azure Database pour PostgreSQL Serveur résident dans la même région pour garantir un accès plus rapide aux opérations wrap et unwrap de clé de chiffrement de données.
 * Verrouillez l’Azure Key Vault uniquement pour **le point de terminaison privé et les réseaux sélectionnés**, et autorisez uniquement des services *Microsoft approuvés* à sécuriser les ressources.
 
-    ![trusted-service-with-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Suivez les recommandations ci-dessous pour configurer une clé gérée par le client :
 

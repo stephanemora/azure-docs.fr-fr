@@ -1,27 +1,27 @@
 ---
-title: CETAS dans Synapse SQL
-description: Utilisation de CETAS avec Synapse SQL
+title: Instruction CREATE EXTERNAL TABLE AS SELECT (CETAS) dans Synapse SQL
+description: Utiliser l'instruction CREATE EXTERNAL TABLE AS SELECT (CETAS) avec Synapse SQL
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 18f472da30b34fcacd70bba9ea7371b56f1a7abf
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d33403f49429398d9bc006187c23bb8091d9b4a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032909"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885349"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS avec Synapse SQL
 
-Dans le pool SQL ou dans SQL à la demande (préversion), vous pouvez utiliser CREATE EXTERNAL TABLE AS SELECT (CETAS) pour effectuer les tâches suivantes :  
+Vous pouvez utiliser l'instruction CREATE EXTERNAL TABLE AS SELECT (CETAS) dans le pool SQL ou dans SQL à la demande (préversion) pour effectuer les tâches suivantes :  
 
 - Créer une table externe
-- Exporter, en parallèle, les résultats d’une instruction Transact-SQL SELECT vers :
+- Exporter, en parallèle, les résultats d'une instruction Transact-SQL SELECT vers :
 
   - Hadoop
   - Azure Storage Blob
@@ -29,11 +29,12 @@ Dans le pool SQL ou dans SQL à la demande (préversion), vous pouvez utiliser C
 
 ## <a name="cetas-in-sql-pool"></a>CETAS dans un pool SQL
 
-Pour plus d’informations sur le pool SQL, ainsi que sur l’utilisation et la syntaxe de CETAS, consultez l’article [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). En outre, pour obtenir des conseils sur CTAS avec un pool SQL, consultez l’article [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Pour plus d'informations sur le pool SQL, ainsi que sur l'utilisation et la syntaxe de l'instruction CETAS, consultez l'article [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). En outre, pour obtenir des conseils sur CTAS avec un pool SQL, consultez l’article [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Pour plus d'informations sur le pool SQL, ainsi que sur l'utilisation et la syntaxe de l'instruction CETAS, consultez l'article [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). En outre, pour obtenir des conseils sur CTAS avec un pool SQL, consultez l’article [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="cetas-in-sql-on-demand"></a>CETAS dans SQL à la demande
 
-Lors de l’utilisation de la ressource SQL à la demande, CETAS est utilisé pour créer une table externe et exporter les résultats de la requête vers Azure Storage Blob ou Azure Data Lake Storage Gen2.
+Lors de l'utilisation de SQL à la demande, l'instruction CETAS est utilisée pour créer une table externe et exporter les résultats de la requête vers Azure Storage Blob ou Azure Data Lake Storage Gen2.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -68,22 +69,22 @@ Spécifie le nom de l’objet de source de données externe qui contient l’emp
 
 FILE_FORMAT = *external_file_format_name*
 
-Spécifie le nom de l’objet de format de fichier externe qui contient le format du fichier de données externe. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Seuls les formats de fichier externes avec FORMAT='PARQUET' sont pris en charge.
+Spécifie le nom de l’objet de format de fichier externe qui contient le format du fichier de données externe. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Seuls les formats de fichiers externes avec FORMAT_TYPE=PARQUET et FORMAT_TYPE=DELIMITEDTEXT sont actuellement pris en charge.
 
 WITH *<common_table_expression>*
 
-Spécifie un jeu de résultats nommé temporaire, désigné par le terme d'expression de table commune (CTE, Common Table Expression). Pour plus d’informations, consultez [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Spécifie un jeu de résultats nommé temporaire, désigné par le terme d'expression de table commune (CTE, Common Table Expression). Pour plus d’informations, consultez [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 SELECT <select_criteria>
 
-Remplit la nouvelle table avec les résultats d’une instruction SELECT. *select_criteria* correspond au corps de l’instruction SELECT qui détermine les données qui sont copiées dans la nouvelle table. Pour plus d’informations sur les instructions SELECT, consultez [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Remplit la nouvelle table avec les résultats d’une instruction SELECT. *select_criteria* correspond au corps de l’instruction SELECT qui détermine les données qui sont copiées dans la nouvelle table. Pour plus d’informations sur les instructions SELECT, consultez [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
-> La clause ORDER BY dans la partie SELECT de CETAS n’est pas prise en charge.
+> La clause ORDER BY de SELECT n'est pas prise en charge pour CETAS.
 
 ## <a name="permissions"></a>Autorisations
 
-Pour que CETAS fonctionne, vous devez disposer d’autorisations permettant d’afficher le contenu des dossiers et permettant d’écrire dans le dossier LOCATION.
+Pour que CETAS fonctionne, vous devez disposer d'autorisations permettant d'afficher le contenu des dossiers et permettant d'écrire dans le dossier LOCATION.
 
 ## <a name="examples"></a>Exemples
 
@@ -112,7 +113,7 @@ FROM
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -132,7 +133,7 @@ FROM census_external_table
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -173,4 +174,4 @@ Les types de données suivants ne peuvent pas être utilisés dans la partie SEL
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez essayer d’interroger des [Tables externes Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md).
+Essayez d'interroger des [Tables externes Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md).

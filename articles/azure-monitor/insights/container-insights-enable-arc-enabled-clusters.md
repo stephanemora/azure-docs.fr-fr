@@ -3,12 +3,12 @@ title: Configurer un cluster Kubernetes compatible Azure Arc avec Azure Monitor 
 description: Cet article explique comment configurer la supervision avec Azure Monitor pour conteneurs sur des clusters Kubernetes compatibles Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090616"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Activer la supervision d’un cluster Kubernetes compatible Azure Arc
 
@@ -124,7 +124,7 @@ Pour activer la supervision de votre cluster à l’aide du script PowerShell ou
 4. Si vous souhaitez utiliser l’espace de travail Azure Monitor Log Analytics existant, configurez la variable `$logAnalyticsWorkspaceResourceId` avec la valeur correspondante représentant l’ID de ressource de l’espace de travail. Sinon, définissez la variable sur `""` pour que le script crée un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement cluster s’il n’en existe pas déjà un dans la région. L’espace de travail créé par défaut est semblable au format de *DefaultWorkspace-\<SubscriptionID>-\<Region>* .
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Si votre cluster Kubernetes compatible Arc communique par le biais d’un serveur proxy, configurez la variable `$proxyEndpoint` avec l’URL du serveur proxy. Si le cluster ne communique pas via un serveur proxy, vous pouvez définir la valeur sur `""`.  Pour plus d’informations, consultez [Configurer le point de terminaison proxy](#configure-proxy-endpoint) plus loin dans cet article.
