@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806030"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595251"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
@@ -20,11 +20,10 @@ Vous pouvez utiliser Azure PowerShell pour configurer des [règles de routage ba
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle Application Gateway
-> * Créer des écouteurs et des règles de routage
-> * Créer des groupes de machines virtuelles identiques pour les pools principaux
+* Configurer le réseau
+* Créer une passerelle Application Gateway
+* Créer des écouteurs et des règles de routage
+* Créer des groupes de machines virtuelles identiques pour les pools principaux
 
 L’exemple suivant montre le trafic du site en provenance des ports 8080 et 8081, et sa redirection vers les même pools principaux :
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806205"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595874"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gérer le trafic web avec une passerelle d’application en utilisant Azure PowerShell
 
@@ -21,10 +21,9 @@ La passerelle d’application est utilisée pour gérer et sécuriser le trafic 
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle Application Gateway
-> * Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
+* Configurer le réseau
+* Créer une passerelle Application Gateway
+* Créer un groupe de machines virtuelles identiques avec le pool backend par défaut
 
 Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure CLI](tutorial-manage-web-traffic-cli.md).
 

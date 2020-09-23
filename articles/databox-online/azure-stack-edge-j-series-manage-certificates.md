@@ -1,6 +1,6 @@
 ---
-title: Utiliser des certificats avec Azure Stack Edge avec GPU | Microsoft Docs
-description: Décrit l’utilisation de certificats avec les appareils Azure Stack Edge avec GPU, y compris la raison pour laquelle les utiliser et les types et la méthode de téléchargement des certificats sur votre appareil.
+title: Utiliser des certificats avec Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit l’utilisation de certificats avec les appareils Azure Stack Edge Pro avec GPU, y compris la raison pour laquelle les utiliser et les types et la méthode de téléchargement des certificats sur votre appareil.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,28 +8,28 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890745"
 ---
-# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Utiliser des certificats avec des appareils Azure Stack Edge avec GPU
+# <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Utiliser des certificats avec des appareils Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article décrit les types de certificats qui peuvent être installés sur votre appareil Azure Stack Edge. L’article comprend également les détails de chaque type de certificat, ainsi que la procédure d’installation et d’identification de la date d’expiration. 
+Cet article décrit les types de certificats qui peuvent être installés sur votre appareil Azure Stack Edge Pro. L’article comprend également les détails de chaque type de certificat, ainsi que la procédure d’installation et d’identification de la date d’expiration. 
 
 ## <a name="about-certificates"></a>À propos des certificats
 
 Un certificat fournit un lien entre une **clé publique** et une entité (telle qu’un nom de domaine) qui a été **signée** (vérifiée) par un tiers de confiance (par exemple une **autorité de certification**).  Un certificat offre un moyen pratique de distribuer des clés de chiffrement publiques approuvées. Les certificats garantissent que votre communication est approuvée et que vous envoyez des informations chiffrées au serveur approprié. 
 
-Lors de la configuration initiale de votre appareil Azure Stack Edge, les certificats auto-signés sont générés automatiquement. Si vous le souhaitez, vous pouvez apporter vos propres certificats. Vous devez suivre certaines instructions si vous envisagez d’apporter vos propres certificats.
+Lors de la configuration initiale de votre appareil Azure Stack Edge Pro, les certificats auto-signés sont générés automatiquement. Si vous le souhaitez, vous pouvez apporter vos propres certificats. Vous devez suivre certaines instructions si vous envisagez d’apporter vos propres certificats.
 
 ## <a name="types-of-certificates"></a>Types de certificats
 
-Les différents types de certificats utilisés sur votre appareil Azure Stack Edge sont les suivants : 
+Les différents types de certificats utilisés sur votre appareil Azure Stack Edge Pro sont les suivants : 
 - Certificats de signature
     - Autorité de certification racine
     - Intermédiaire
@@ -68,7 +68,7 @@ Ces certificats peuvent être des certificats racines ou des certificats interm�
 
 ## <a name="node-certificates"></a>Certificats de nœud
 
-<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> Tous les nœuds de l’appareil communiquent en permanence entre eux et doivent donc avoir une relation d’approbation. Les certificats de nœud permettent d’établir cette approbation. Les certificats de nœud entrent également en jeu lorsque vous vous connectez au nœud de l’appareil à l’aide d’une session PowerShell à distance via https.
+<!--Your Azure Stack Edge Pro device could be a 1-node device or a 4-node device.--> Tous les nœuds de l’appareil communiquent en permanence entre eux et doivent donc avoir une relation d’approbation. Les certificats de nœud permettent d’établir cette approbation. Les certificats de nœud entrent également en jeu lorsque vous vous connectez au nœud de l’appareil à l’aide d’une session PowerShell à distance via https.
 
 ### <a name="caveats"></a>Mises en garde
 
@@ -121,9 +121,9 @@ Vous pouvez accéder à l’interface utilisateur web locale de votre appareil v
 
 ## <a name="iot-edge-device-certificates"></a>Certificats d’appareil IoT Edge
 
-Votre appareil Azure Stack Edge est également un appareil IoT avec le calcul activé par un appareil IoT Edge connecté. Pour permettre une connexion sécurisée entre votre appareil IoT Edge et les appareils en aval qui peuvent s’y connecter, vous pouvez également télécharger des certificats IoT Edge. 
+Votre appareil Azure Stack Edge Pro est également un appareil IoT avec le calcul activé par un appareil IoT Edge connecté. Pour permettre une connexion sécurisée entre votre appareil IoT Edge et les appareils en aval qui peuvent s’y connecter, vous pouvez également télécharger des certificats IoT Edge. 
 
-L’appareil dispose de certificats auto-signés qui peuvent être utilisés si vous souhaitez utiliser uniquement le scénario de calcul avec l’appareil. Cependant, si l’appareil Azure Stack Edge est connecté à des appareils en aval, vous devez apporter vos propres certificats.
+L’appareil dispose de certificats auto-signés qui peuvent être utilisés si vous souhaitez utiliser uniquement le scénario de calcul avec l’appareil. Cependant, si l’appareil Azure Stack Edge Pro est connecté à des appareils en aval, vous devez apporter vos propres certificats.
 
 Il y a trois certificats IoT Edge que vous devez installer pour activer cette relation d’approbation :
 
@@ -140,7 +140,7 @@ Pour plus d’informations sur les certificats de IoT Edge, consultez [Détails 
 
 ## <a name="support-session-certificates"></a>Certificats de session de support
 
-Si votre appareil Azure Stack Edge rencontre des problèmes, pour résoudre ces derniers, vous pouvez ouvrir une session de support PowerShell distante sur l’appareil. Pour activer une communication sécurisée et chiffrée sur cette session de support, vous pouvez télécharger un certificat.
+Si votre appareil Azure Stack Edge Pro rencontre des problèmes, pour résoudre ces derniers, vous pouvez ouvrir une session de support PowerShell distante sur l’appareil. Pour activer une communication sécurisée et chiffrée sur cette session de support, vous pouvez télécharger un certificat.
 
 ### <a name="caveats"></a>Mises en garde
 
@@ -155,7 +155,7 @@ Si votre appareil Azure Stack Edge rencontre des problèmes, pour résoudre ces 
 
 <!--## VPN certificates
 
-If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN is configured on your Azure Stack Edge Pro device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
@@ -262,7 +262,7 @@ $DeviceSerial = "HWDC1T2"
 New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
-Une fois les certificats créés, l’étape suivante consiste à télécharger les certificats sur votre appareil Azure Stack Edge
+Une fois les certificats créés, l’étape suivante consiste à télécharger les certificats sur votre appareil Azure Stack Edge Pro
 
 
 ## <a name="upload-certificates"></a>Charger des certificats 
@@ -401,7 +401,7 @@ La sauvegarde du fichier .pfx est maintenant enregistrée à l’emplacement que
 
 ## <a name="supported-certificate-algorithms"></a>Algorithmes de certificat pris en charge
 
- Seuls les certificats RSA (Rivest-Shamir-Adleman) sont pris en charge avec votre appareil Azure Stack Edge. Si des certificats ECDSA (Elliptic Curve Digital Signature Algorithm) sont utilisés, le comportement de l’appareil est indéterminé.
+ Seuls les certificats RSA (Rivest-Shamir-Adleman) sont pris en charge avec votre appareil Azure Stack Edge Pro. Si des certificats ECDSA (Elliptic Curve Digital Signature Algorithm) sont utilisés, le comportement de l’appareil est indéterminé.
 
  Les certificats qui contiennent une clé publique RSA sont appelés certificats RSA. Les certificats qui contiennent une clé publique ECC (Elliptic Curve Cryptographic) sont appelés certificats ECDSA (Elliptic Curve Digital Signature Algorithm). 
 
@@ -418,4 +418,4 @@ Affichez la date d’expiration du certificat sur la page **Certificats** de l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer votre appareil Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Déployer votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

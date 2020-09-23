@@ -1,6 +1,6 @@
 ---
-title: Affichages catalogue de streaming (Transact-SQL) - Azure SQL Edge (préversion)
-description: En savoir plus sur les affichages catalogue de streaming et les vues de gestion dynamique disponibles dans Azure SQL Edge (préversion)
+title: Affichages catalogue de streaming (Transact-SQL) – Azure SQL Edge
+description: En savoir plus sur les affichages catalogue de streaming et les vues de gestion dynamique disponibles dans Azure SQL Edge
 keywords: sys.external_streams, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 5b1cd58b8947e376ac70ee307041ae7864ed7e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a8f037cd9923564e2e214e9727ff87d63cca547
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233108"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900527"
 ---
 # <a name="streaming-catalog-views-transact-sql"></a>Affichages catalogue de streaming (Transact-SQL)
 

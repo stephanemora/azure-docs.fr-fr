@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
-ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/18/2020
+ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906473"
+ms.locfileid: "90986713"
 ---
 # <a name="server-group-size"></a>Taille de groupe de serveurs
 
@@ -60,9 +60,6 @@ SELECT rebalance_table_shards('distributed_table_name');
 La fonction `rebalance_table_shards` rééquilibre toutes les tables dans le groupe [colocation](concepts-hyperscale-colocation.md) de la table nommée dans son argument. Vous n’avez donc pas besoin d’appeler la fonction pour chaque table distribuée. Il vous suffit de l’appeler sur une table représentative à partir de chaque groupe de colocation.
 
 ### <a name="increase-or-decrease-vcores-on-nodes"></a>Augmenter ou diminuer le nombre de cœurs virtuels sur les nœuds
-
-> [!NOTE]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Pour demander une modification du nombre de cœurs virtuels pour les nœuds de votre groupe de serveurs, veuillez [contacter le support technique Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. L’augmentation ou la diminution de la capacité de calcul peut être utile pour les expériences de performances, ainsi que pour les modifications à court terme ou à long terme des demandes de trafic.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892025"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs à partir d’Azure Stream Analytics
 
@@ -38,7 +38,7 @@ La table suivante a les paramètres nécessaires pour configurer des flux de don
 
 ## <a name="partitioning"></a>Partitionnement
 
-Le partitionnement varie en fonction de l’alignement des partitions. Lorsque la clé de partition de la sortie Event Hub s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions dans la sortie Event Hub. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) pour envoyer des événements à la partition concernée. Lorsque la clé de partition de la sortie Event Hub ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) dans **EventHubClient** pour envoyer des événements à toutes les partitions de sortie. 
+Le partitionnement varie en fonction de l’alignement des partitions. Lorsque la clé de partition de la sortie Event Hub s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions dans la sortie Event Hub. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) pour envoyer des événements à la partition concernée. Lorsque la clé de partition de la sortie Event Hub ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) dans **EventHubClient** pour envoyer des événements à toutes les partitions de sortie. 
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 
@@ -55,4 +55,4 @@ Vous pouvez joindre des colonnes de requête en tant que propriétés de l’uti
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager](quick-create-azure-resource-manager.md)
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-vs-code.md)
+* [Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-visual-studio-code.md)

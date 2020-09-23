@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fbb6a7dbe73444ac9049573705e4d04bd868a806
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287519"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884570"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -29,7 +29,7 @@ La protection contre les menaces fait partie de l’offre Azure ATP, un package 
 
 Azure ATP d’Azure Database pour PostgreSQL fournit une nouvelle couche de sécurité qui permet aux clients de détecter les menaces potentielles et d’y répondre à mesure qu’elles se présentent en générant des alertes de sécurité sur les activités anormales de bases de données. Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles et de modèles d’accès et de requêtes anormaux à la base de données. Azure ATP pour Azure Database pour PostgreSQL intègre des alertes à [Azure Security Center](https://azure.microsoft.com/services/security-center/), avec des détails sur les activités suspectes et les actions recommandées à entreprendre pour analyser et prévenir la menace. Azure ATP d’Azure Database pour PostgreSQL vous permet de réagir facilement aux menaces potentielles visant la base de données sans devenir un expert en sécurité ou gérer des systèmes avancés de surveillance de la sécurité. 
 
-![Concept Azure ATP](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png" alt-text="Concept Azure ATP":::
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertes Azure ATP 
 Azure ATP d’Azure Database pour PostgreSQL détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder aux bases de données ou à les exploiter et peut déclencher les alertes suivantes :

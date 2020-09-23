@@ -1,6 +1,6 @@
 ---
-title: Se connecter à Azure Resource Manager sur votre appareil GPU Azure Stack Edge
-description: Décrit comment se connecter à l’infrastructure Azure Resource Manager s’exécutant sur votre GPU Azure Stack Edge à l’aide d’Azure PowerShell.
+title: Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge Pro avec GPU
+description: Décrit comment se connecter à l’infrastructure Azure Resource Manager s’exécutant sur votre Azure Stack Edge Pro avec GPU à l’aide d’Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269809"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891223"
 ---
-# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge
+# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. L’appareil Azure Stack Edge prend en charge les mêmes API Azure Resource Manager pour créer, mettre à jour et supprimer des machines virtuelles dans un abonnement local. Cette prise en charge vous permet de gérer l’appareil d’une manière cohérente avec le cloud. 
+Azure Resource Manager fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. L’appareil Azure Stack Edge Pro prend en charge les mêmes API Azure Resource Manager pour créer, mettre à jour et supprimer des machines virtuelles dans un abonnement local. Cette prise en charge vous permet de gérer l’appareil d’une manière cohérente avec le cloud. 
 
-Ce tutoriel explique comment se connecter aux API locales sur votre appareil Azure Stack Edge via Azure Resource Manager à l’aide d’Azure PowerShell.
+Ce tutoriel explique comment se connecter aux API locales sur votre appareil Azure Stack Edge Pro via Azure Resource Manager à l’aide d’Azure PowerShell.
 
 ## <a name="about-azure-resource-manager"></a>À propos d’Azure Resource Manager
 
-Azure Resource Manager fournit une couche de gestion cohérente pour appeler l’API d’appareil Azure Stack Edge et effectuer des opérations telles que la création, la mise à jour et la suppression de machines virtuelles. L’architecture d’ure Resource Manager est détaillée dans le diagramme suivant.
+Azure Resource Manager fournit une couche de gestion cohérente pour appeler l’API d’appareil Azure Stack Edge Pro et effectuer des opérations telles que la création, la mise à jour et la suppression de machines virtuelles. L’architecture d’ure Resource Manager est détaillée dans le diagramme suivant.
 
 ![Diagramme pour Azure Resource Manager](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
 
 
-## <a name="endpoints-on-azure-stack-edge-device"></a>Point de terminaison sur l’appareil Azure Stack Edge
+## <a name="endpoints-on-azure-stack-edge-pro-device"></a>Point de terminaison sur l’appareil Azure Stack Edge Pro
 
 Le tableau suivant récapitule les différents points de terminaison exposés sur votre appareil, les protocoles pris en charge et les ports pour accéder à ces points de terminaison. Tout au long de l’article, vous trouverez des références à ces points de terminaison.
 
@@ -47,7 +47,7 @@ Le processus de connexion aux API locales de l’appareil à l’aide d’Azure 
 
 | N° de l’étape | Vous accomplirez cette tâche... | .. à cet emplacement. |
 | --- | --- | --- |
-| 1. | [Configurer votre appareil Azure Stack Edge](#step-1-configure-azure-stack-edge-device) | Interface utilisateur web locale |
+| 1. | [Configurer votre appareil Azure Stack Edge Pro](#step-1-configure-azure-stack-edge-pro-device) | Interface utilisateur web locale |
 | 2. | [Créer et installer des certificats](#step-2-create-and-install-certificates) | Client Windows/interface utilisateur web locale |
 | 3. | [Examiner les conditions préalables et configurer en conséquence](#step-3-install-powershell-on-the-client) | Client Windows |
 | 4. | [Configurer Azure PowerShell sur le client](#step-4-set-up-azure-powershell-on-the-client) | Client Windows |
@@ -59,13 +59,13 @@ Les sections suivantes décrivent chacune des étapes ci-dessus de connexion à 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Avant de commencer, assurez-vous que le client utilisé pour se connecter à l’appareil via Azure Resource Manager utilise le protocole TLS 1.2. Pour plus d’informations, accédez à [Configurer le protocole TLS 1.2 sur le client Windows accédant à l’appareil Azure Stack Edge](azure-stack-edge-j-series-configure-tls-settings.md).
+Avant de commencer, assurez-vous que le client utilisé pour se connecter à l’appareil via Azure Resource Manager utilise le protocole TLS 1.2. Pour plus d’informations, accédez à [Configurer le protocole TLS 1.2 sur le client Windows accédant à l’appareil Azure Stack Edge Pro](azure-stack-edge-j-series-configure-tls-settings.md).
 
-## <a name="step-1-configure-azure-stack-edge-device"></a>Étape 1 : Configurer l’appareil Azure Stack Edge 
+## <a name="step-1-configure-azure-stack-edge-pro-device"></a>Étape 1 : Configurer l’appareil Azure Stack Edge Pro 
 
-Suivez les étapes suivantes dans l’interface utilisateur web locale de votre appareil Azure Stack Edge.
+Suivez les étapes suivantes dans l’interface utilisateur web locale de votre appareil Azure Stack Edge Pro.
 
-1. Définissez les paramètres réseau de votre appareil Azure Stack Edge. 
+1. Définissez les paramètres réseau de votre appareil Azure Stack Edge Pro. 
 
     ![Page « Paramètres réseau » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -83,7 +83,7 @@ Suivez les étapes suivantes dans l’interface utilisateur web locale de votre 
 
 ## <a name="step-2-create-and-install-certificates"></a>Étape 2 : Créer et installer les certificats
 
-Les certificats garantissent que votre communication est approuvée. Sur votre appareil Azure Stack Edge, l’appliance auto-signée, le blob et les certificats Azure Resource Manager sont générés automatiquement. Si vous le souhaitez, vous pouvez également insérer votre propre blob signé ainsi que vos certificats Azure Resource Manager.
+Les certificats garantissent que votre communication est approuvée. Sur votre appareil Azure Stack Edge Pro, l’appliance auto-signée, le blob et les certificats Azure Resource Manager sont générés automatiquement. Si vous le souhaitez, vous pouvez également insérer votre propre blob signé ainsi que vos certificats Azure Resource Manager.
 
 Lorsque vous apportez votre propre certificat signé, vous avez également besoin de la chaîne de signature correspondante du certificat. Pour la chaîne de signature, Azure Resource Manager et les certificats de blob sur l’appareil, vous aurez besoin des certificats correspondants sur l’ordinateur client pour vous authentifier et communiquer avec l’appareil.
 
@@ -319,7 +319,7 @@ Définissez l’environnement Azure Resource Manager et vérifiez que la communi
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Pour l’environnement, définissez Azure Stack Edge, et pour le port à utiliser pour les appels à Azure Resource Manager, définissez le port 443. Vous définissez l’environnement de deux manières :
+2. Pour l’environnement, définissez Azure Stack Edge Pro, et pour le port à utiliser pour les appels à Azure Resource Manager, définissez le port 443. Vous définissez l’environnement de deux manières :
 
     - Définissez l’environnement. Tapez la commande suivante :
 
@@ -329,7 +329,7 @@ Définissez l’environnement Azure Resource Manager et vérifiez que la communi
     
     Pour plus d’informations, accédez à [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
-    - Définissez l’environnement inclus pour chaque cmdlet que vous exécutez. Cela permet de s’assurer que tous les appels d’API transitent par l’environnement approprié. Par défaut, les appels transitent par le cloud public Azure, mais vous souhaitez qu’ils transitent par l’environnement que vous avez défini pour l’appareil Azure Stack Edge.
+    - Définissez l’environnement inclus pour chaque cmdlet que vous exécutez. Cela permet de s’assurer que tous les appels d’API transitent par l’environnement approprié. Par défaut, les appels transitent par le cloud public Azure, mais vous souhaitez qu’ils transitent par l’environnement que vous avez défini pour l’appareil Azure Stack Edge Pro.
 
     - Pour plus d’informations sur la manière de changer d’environnement AzureRM, consultez [Changer d’environnement](#switch-environments).
 
@@ -376,7 +376,7 @@ Définissez l’environnement Azure Resource Manager et vérifiez que la communi
 
 
 > [!IMPORTANT]
-> La connexion à Azure Resource Manager expire toutes les 1,5 heures ou si votre appareil Azure Stack Edge redémarre. Dans ce cas, toute cmdlet que vous exécutez retourne un message d’erreur indiquant que vous n’êtes plus connecté à Azure. Vous devez vous reconnecter.
+> La connexion à Azure Resource Manager expire toutes les 1,5 heure ou si votre appareil Azure Stack Edge Pro redémarre. Dans ce cas, toute cmdlet que vous exécutez retourne un message d’erreur indiquant que vous n’êtes plus connecté à Azure. Vous devez vous reconnecter.
 
 ## <a name="switch-environments"></a>Changer d’environnement
 
@@ -460,4 +460,4 @@ Vous avez maintenant basculé vers l’environnement voulu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des machines virtuelles sur votre appareil Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

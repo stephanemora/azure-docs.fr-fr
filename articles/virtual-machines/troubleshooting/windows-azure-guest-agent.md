@@ -9,14 +9,14 @@ editor: ''
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659464"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561259"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Résolution des problèmes de l’agent invité Windows Azure
 
@@ -53,7 +53,7 @@ Accédez à la page des propriétés de la machine virtuelle dans le portail Azu
     
     Vous pouvez exécuter la commande PowerShell suivante pour vérifier si l’agent de machine virtuelle a été déployé sur la machine virtuelle :
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     Dans la sortie, localisez la propriété **ProvisionVMAgent** et vérifiez si la valeur est définie sur **True**. Si c’est le cas, cela signifie que l’agent est installé sur la machine virtuelle.
     

@@ -3,13 +3,12 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.author: danlep
-ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870763"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569167"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 

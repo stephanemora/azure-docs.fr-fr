@@ -1,6 +1,6 @@
 ---
-title: Configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge avec GPU
-description: Décrit comment configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge avec GPU.
+title: Configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge Pro avec GPU
+description: Décrit comment configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891170"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configurer TLS 1.2 sur les clients Windows accédant à l’appareil Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Si vous utilisez un client Windows pour accéder à votre appareil Azure Stack Edge, vous devez configurer TLS 1.2 sur votre client. Cet article fournit des ressources et des instructions pour configurer TLS 1.2 sur votre client Windows. 
+Si vous utilisez un client Windows pour accéder à votre appareil Azure Stack Edge Pro, vous devez configurer TLS 1.2 sur votre client. Cet article fournit des ressources et des instructions pour configurer TLS 1.2 sur votre client Windows. 
 
 Les instructions fournies ici sont basées sur les tests effectués sur un client exécutant Windows Server 2016.
 

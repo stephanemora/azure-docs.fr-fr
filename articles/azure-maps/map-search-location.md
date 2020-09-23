@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 678781ff4bade7484f28cc9ab14d960f2b24c323
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: be6d508da15b7c403259bd66c86c3b3e72ff2f12
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130288"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089271"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 
@@ -24,25 +24,25 @@ Vous pouvez rechercher un lieu d’intérêt de deux façons. La première consi
 
 ## <a name="make-a-search-request-via-service-module"></a>Demande de recherche via un module de service
 
-<iframe height='500' scrolling='no' title='Afficher les résultats de la recherche sur une carte (module de service)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show search results on a map (Service Module)</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Afficher les résultats de la recherche sur une carte (module de service)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>Show search results on a map (Service Module)</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Dans le code ci-dessus, le premier bloc construit un objet de carte et définit le mécanisme d’authentification pour utiliser le jeton d’accès. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code crée un `TokenCredential` pour authentifier les requêtes HTTP auprès d’Azure Maps avec le jeton d’accès. Il transfère ensuite le `TokenCredential` à `atlas.service.MapsURL.newPipeline()` et crée une instance [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `searchURL` représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
+Le deuxième bloc de code crée un `TokenCredential` pour authentifier les requêtes HTTP auprès d’Azure Maps avec le jeton d’accès. Il transfère ensuite le `TokenCredential` à `atlas.service.MapsURL.newPipeline()` et crée une instance [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
 
-Le troisième bloc de code crée un objet source de données à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) et y ajoute les résultats de la recherche. Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  Une couche de symboles est alors créée. La source de données est ajoutée à la couche de symbole, qui est ensuite ajoutée à la carte.
+Le troisième bloc de code crée un objet source de données à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) et y ajoute les résultats de la recherche. Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) en tant que symboles sur la carte.  Une couche de symboles est alors créée. La source de données est ajoutée à la couche de symbole, qui est ensuite ajoutée à la carte.
 
 Le quatrième bloc de code utilise la méthode [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) dans le [module de service](how-to-use-services-module.md). Cela vous permet d’effectuer une recherche de texte de forme libre via [l’API REST de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) pour rechercher des points d’intérêt. Les requêtes GET à l’API Search Fuzzy peuvent gérer toutes les combinaisons d’entrées approximatives. Une collection de fonctionnalités GeoJSON déterminée par la réponse est ensuite extraite à l’aide de la méthode `geojson.getFeatures()` et ajoutée à la source de données. Les données sont alors automatiquement restituées sur la carte par le biais de la couche de symboles.
 
-Le dernier bloc de code ajuste les limites d’appareil photo pour la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
+Le dernier bloc de code ajuste les limites d’appareil photo pour la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
-La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo se trouvent à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
+La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo se trouvent à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) de la carte. Nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Requête de recherche via l'API de récupération
 
-<iframe height='500' scrolling='no' title='Afficher les résultats de la recherche sur une carte' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show search results on a map </a> (Afficher les résultats de recherche sur une carte) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Afficher les résultats de la recherche sur une carte' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show search results on a map </a> (Afficher les résultats de recherche sur une carte) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Il définit le mécanisme d’authentification pour utiliser le jeton d’accès. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
@@ -51,11 +51,11 @@ Le deuxième bloc de code crée une URL pour effectuer une requête de recherche
 
 Le troisième bloc de code utilise l’[API Fetch](https://fetch.spec.whatwg.org/). L’[API Fetch](https://fetch.spec.whatwg.org/) est utilisée pour demander à [l’API Fuzzy Search d’Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) de rechercher les points d’intérêt. L’API de recherche floue peut gérer n’importe quelle combinaison d’entrées approximatives. Elle gère et analyse ensuite la réponse de recherche et ajoute les repères qui en résultent au tableau searchPins.
 
-Le quatrième bloc de code crée un objet source de données à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Dans le code, nous ajoutons des résultats de recherche à l’objet source. Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte. Une couche de symboles est alors créée. La source de données est ajoutée à la couche de symbole, qui est ensuite ajoutée à la carte.
+Le quatrième bloc de code crée un objet source de données à l’aide de la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource). Dans le code, nous ajoutons des résultats de recherche à l’objet source. Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) en tant que symboles sur la carte. Une couche de symboles est alors créée. La source de données est ajoutée à la couche de symbole, qui est ensuite ajoutée à la carte.
 
-Le dernier bloc de code crée un objet [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest). Il utilise le tableau de résultats, puis ajuste les limites d’appareil photo pour la carte à l’aide de l’option [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte. Il affiche ensuite les épingles qui en résultent.
+Le dernier bloc de code crée un objet [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox). Il utilise le tableau de résultats, puis ajuste les limites d’appareil photo pour la carte à l’aide de l’option [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte. Il affiche ensuite les épingles qui en résultent.
 
-La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo sont définies au sein du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte pour garantir que les résultats sont affichés après le chargement complet de la carte.
+La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo sont définies au sein du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) de la carte pour garantir que les résultats sont affichés après le chargement complet de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -70,7 +70,7 @@ En savoir plus sur **Recherche approximative** :
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 Pour voir des exemples de codes complets, consultez les articles suivants :
 

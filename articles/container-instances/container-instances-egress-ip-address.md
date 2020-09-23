@@ -3,14 +3,12 @@ title: Configurer une adresse IP sortante statique
 description: Configurer le pare-feu Azure et les itinéraires définis par l’utilisateur pour les charges de travail Azure Container Instances qui utilisent l’IP publique du pare-feu pour l’entrée et la sortie
 ms.topic: article
 ms.date: 07/16/2020
-author: dlepow
-ms.author: danlep
-ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023702"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566566"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configurer une IP publique unique pour le trafic sortant et entrant d’un groupe de conteneurs
 

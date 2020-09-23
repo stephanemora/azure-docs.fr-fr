@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077305"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532526"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Utiliser Azure AD comme fournisseur d’identité pour vCenter sur un cloud privé CloudSimple
 
@@ -64,7 +64,7 @@ Vous pouvez éventuellement configurer d’autres fonctionnalités d’Azure AD.
 3. Configurez le groupe d’administrateurs pour la gestion d’Azure AD Domain Services comme indiqué dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../active-directory-domain-services/tutorial-create-instance.md).
 4. Mettez à jour les paramètres DNS de vos Azure AD Domain Services comme décrit dans [Activer Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Si vous souhaitez vous connecter à AD via Internet, configurez l’enregistrement DNS pour l’adresse IP publique d’Azure AD Domain Services sur le nom de domaine.
 5. Activez la synchronisation de hachage de mot de passe pour les utilisateurs.  Cette étape active la synchronisation des hachages de mot de passe requise pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Azure AD Domain Services. Une fois la synchronisation des informations de hachage de mot de passe configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise. Consultez [Activer la synchronisation de hachage de mot de passe pour Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
-    1. Si des utilisateurs cloud uniquement sont présents, ils doivent modifier leur mot de passe à l’aide du <a href="http://myapps.microsoft.com/" target="_blank">panneau d’accès Azure AD</a> pour s’assurer que les hachages de mot de passe sont stockés au format requis par NTLM ou Kerberos.  Suivez les instructions sous [Activer la synchronisation de hachage de mot de passe avec votre domaine managé pour les comptes d’utilisateurs uniquement dans le cloud](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Cette étape doit être effectuée pour les utilisateurs individuels et tout nouvel utilisateur créé dans votre annuaire Azure AD à l’aide des cmdlets Azure AD PowerShell ou du portail Azure. Les utilisateurs qui ont besoin d’accéder à Azure AD Domain Services doivent utiliser le <a href="http://myapps.microsoft.com/" target="_blank">panneau d’accès Azure AD</a> et accéder à leur profil pour modifier le mot de passe.
+    1. Si des utilisateurs cloud uniquement sont présents, ils doivent modifier leur mot de passe à l’aide du <a href="https://myapps.microsoft.com/" target="_blank">panneau d’accès Azure AD</a> pour s’assurer que les hachages de mot de passe sont stockés au format requis par NTLM ou Kerberos.  Suivez les instructions sous [Activer la synchronisation de hachage de mot de passe avec votre domaine managé pour les comptes d’utilisateurs uniquement dans le cloud](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Cette étape doit être effectuée pour les utilisateurs individuels et tout nouvel utilisateur créé dans votre annuaire Azure AD à l’aide des cmdlets Azure AD PowerShell ou du portail Azure. Les utilisateurs qui ont besoin d’accéder à Azure AD Domain Services doivent utiliser le <a href="https://myapps.microsoft.com/" target="_blank">panneau d’accès Azure AD</a> et accéder à leur profil pour modifier le mot de passe.
 
         > [!NOTE]
         > Si votre organisation utilise des comptes d’utilisateur dans le cloud uniquement, tous les utilisateurs ayant besoin d’Azure Active Directory Domain Services doivent modifier leur mot de passe. Un compte d’utilisateur uniquement dans le cloud est un compte qui a été créé dans votre répertoire Azure AD à l’aide du portail Azure ou d’applets de commande PowerShell Azure AD. Ces comptes d’utilisateurs ne sont pas synchronisés à partir d’un répertoire local.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 399689f3f7d07a6e77128037be6b7439e7bf5184
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88960018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646618"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
@@ -80,7 +80,7 @@ Vous ne pouvez pas utiliser l’intégration au réseau virtuel avec passerelle 
 
 Pour créer une passerelle :
 
-1. [Créez un sous-réseau de passerelle][creategatewaysubnet] dans votre réseau virtuel.  
+1. [Créez un sous-réseau de passerelle][creategatewaysubnet] dans votre réseau virtuel.
 
 1. [Créez la passerelle VPN][creategateway]. Sélectionnez un type de VPN basé sur les routes.
 
@@ -102,8 +102,8 @@ Aucune configuration supplémentaire n’est nécessaire pour permettre à la fo
 
 > [!NOTE]
 > La fonctionnalité d’intégration au réseau virtuel avec passerelle obligatoire n’intègre pas une application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en [mode de coexistence][VPNERCoex], l’intégration au réseau virtuel ne fonctionne pas. Si vous avez besoin d’accéder à des ressources via une connexion ExpressRoute, utilisez la fonctionnalité d’intégration au réseau virtuel régional ou un [environnement ASE (App Service Environment)][ASE], qui s’exécute dans votre réseau virtuel.
-> 
-> 
+>
+>
 
 ### <a name="peering"></a>Peering
 
@@ -177,26 +177,27 @@ La prise en charge PowerShell de l’intégration au réseau virtuel régional e
 
 ```azurepowershell
 # Parameters
-$sitename="myWebApp"
-$resourcegroupname="myRG"
-$VNetname="myVNet"
-$location="myRegion"
-$integrationsubnetname = "myIntegrationSubnet"
-$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+$sitename = 'myWebApp'
+$resourcegroupname = 'myRG'
+$VNetname = 'myVNet'
+$location = 'myRegion'
+$integrationsubnetname = 'myIntegrationSubnet'
+$subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
 #Property array with the SubnetID
 $properties = @{
-      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
-      }
-      
-#Creation of the VNet integration
-$resourceID = $sitename+"/VirtualNetwork"
-New-AzResource -ResourceName $resourceID `
--Location $location  `
--ResourceGroupName $resourcegroupname `
--ResourceType Microsoft.Web/sites/networkConfig `
--PropertyObject $properties 
+  subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
+}
 
+#Creation of the VNet integration
+$vNetParams = @{
+  ResourceName = "$sitename/VirtualNetwork"
+  Location = $location
+  ResourceGroupName = $resourcegroupname
+  ResourceType = 'Microsoft.Web/sites/networkConfig'
+  PropertyObject = $properties
+}
+New-AzResource @vNetParams
 ```
 
 

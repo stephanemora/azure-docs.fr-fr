@@ -4,14 +4,14 @@ description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092488"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612067"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -29,7 +29,7 @@ Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](ht
 
 ![capture d’écran de la page Détails du projet dans le portail Azure](media/hpc-cache-create-basics.png)
 
-Dans **Détails du projet**, sélectionnez l’abonnement et le groupe de ressources qui doit héberger le cache. Assurez-vous que l'abonnement figure dans la liste d'[accès](hpc-cache-prerequisites.md#azure-subscription).
+Dans **Détails du projet**, sélectionnez l’abonnement et le groupe de ressources qui doit héberger le cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 Dans **Détails sur le service**, définissez le nom du cache et les autres attributs suivants :
 
@@ -132,10 +132,10 @@ nets/<cache_subnet_name>"``
 
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 Go    | oui         | Non          | Non          |
+  | 3072 Go    | oui         | non          | Non          |
   | 6144 Go    | oui         | oui         | Non          |
   | 12288 Go   | oui         | oui         | oui         |
-  | 24576 Go   | Non          | oui         | oui         |
+  | 24576 Go   | Non          | Oui         | oui         |
   | <49152 Go   | Non          | Non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.
