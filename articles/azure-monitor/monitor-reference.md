@@ -3,15 +3,15 @@ title: Éléments supervisés par Azure Monitor
 description: Informations de référence sur tous les services et autres ressources supervisés par Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
-ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
+ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435403"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -120,7 +120,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |IoT Hub | Oui | Oui | Non |  |
 |Key Vault | Oui | Oui | [Oui](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Non | Non | [Oui](insights/container-insights-overview.md)  |  |
-|Load Balancer | Oui | Oui | Non |  |
+|Load Balancer | Oui | Non | Non |  |
 |Logic Apps | Oui | Oui | Non |  |
 |Machine Learning Service | Non | Non | Non |  |
 |Applications gérées  | Non | Non | Non |  |
@@ -151,7 +151,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Portail d’inscription | Non | Non | Non |  |
 |Site Recovery | Non | Oui | Non |  |
 |Service Spring Cloud | Non | Non | Non |  |
-|SQL Data Warehouse | Oui | Oui | Non |  |
+|Azure Synapse Analytics | Oui | Oui | Non |  |
 |SQL Database | Oui | Oui | Non |  |
 |SQL Server Stretch Database | Oui | Oui | Non |  |
 |Pile | Non | Non | Non |  |

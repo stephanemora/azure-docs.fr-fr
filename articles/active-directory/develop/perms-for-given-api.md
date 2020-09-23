@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7b70460af8126199b19c18118897c93f0477791c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120726"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442201"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Guide pratique pour sélectionner les autorisations pour une API donnée 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Guide pratique pour sélectionner les autorisations pour une API donnée
 
 ## <a name="recommended-documents"></a>Documents recommandés
 
 - Découvrez comment les applications clientes utilisent [des demandes d’autorisation déléguée et d’application](./developer-glossary.md#permissions) pour accéder aux ressources.
-- Consultez les instructions détaillées sur la façon de [configurer les demandes d’autorisation d’une application cliente](./quickstart-register-app.md)
-- Pour plus de détails, découvrez comment les applications de ressources exposent des [étendues](./developer-glossary.md#scopes) et des [rôles d’application](./developer-glossary.md#roles) aux applications clientes, qui se manifestent respectivement comme autorisations déléguées et comme autorisations d’application dans le portail Azure. 
+- Consultez les instructions détaillées sur la façon de [configurer les demandes d’autorisation d’une application cliente](./quickstart-configure-app-access-web-apis.md)
+- Pour plus de détails, découvrez comment les applications de ressources exposent des [étendues](./developer-glossary.md#scopes) et des [rôles d’application](./developer-glossary.md#roles) aux applications clientes, qui se manifestent respectivement comme autorisations déléguées et comme autorisations d’application dans le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

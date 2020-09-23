@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047671"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442732"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -30,7 +30,7 @@ Les types de comptes pris en charge par vos applications mobiles dépendent de l
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Audience pour l’acquisition de jetons interactive
 
-La plupart des applications mobiles utilisent l’authentification interactive. Si votre application utilise ce formulaire d'authentification, vous pouvez connecter des utilisateurs depuis n'importe quel [type de compte](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+La plupart des applications mobiles utilisent l’authentification interactive. Si votre application utilise ce formulaire d'authentification, vous pouvez connecter des utilisateurs depuis n'importe quel [type de compte](quickstart-register-app.md).
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audience pour l'Authentification Windows intégrée, nom d'utilisateur/mot de passe et B2C
 

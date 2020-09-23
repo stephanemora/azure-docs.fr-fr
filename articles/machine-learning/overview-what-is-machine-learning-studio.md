@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89039284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902927"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -34,13 +34,13 @@ Le studio propose plusieurs expériences de création en fonction du type du pro
 
   Écrivez et exécutez votre propre code dans les [serveurs Jupyter Notebook](how-to-run-jupyter-notebooks.md) managés qui sont directement intégrés au studio. 
 
-+ **Concepteur Azure Machine Learning (préversion)**
++ **Concepteur Azure Machine Learning**
 
   Utilisez le concepteur pour entraîner et déployer des modèles Machine Learning sans écrire de code. Faites un glisser-déposer des jeux de données et des modules pour créer des pipelines ML. Essayez le [didacticiel du concepteur](tutorial-designer-automobile-price-train-score.md).
 
     ![Exemple de concepteur Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **IU de Machine Learning automatisé (préversion)**
++ **IU de Machine Learning automatisé**
 
   Découvrez comment créer des [expériences de ML automatisé](tutorial-first-experiment-automated-ml.md) avec une interface simple à utiliser. 
 
@@ -82,7 +82,7 @@ Le tableau suivant récapitule les principales différences entre ML Studio (cla
 
 | Fonctionnalité | ML Studio (classique) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de glisser-déplacer | Expérience classique | Expérience mise à jour : [concepteur Azure Machine Learning (préversion)](concept-designer.md) <br/>(Nécessite un espace de travail d’entreprise) | 
+| Interface de glisser-déplacer | Expérience classique | Expérience mise à jour : [concepteur Azure Machine Learning](concept-designer.md)| 
 | SDK de code | Non pris en charge | Intégration totale aux SDK [R](https://docs.microsoft.com/python/api/overview/azure/ml/) et [Python pour Azure Machine Learning](tutorial-1st-r-experiment.md) |
 | Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
 | Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 

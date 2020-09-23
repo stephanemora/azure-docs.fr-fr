@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Concevoir une base de données multilocataire - Hyperscale (Citus) - Azure Database pour PostgreSQL'
-description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus).
+description: Ce tutoriel explique comment alimenter une application multilocataire évolutive avec Azure Database pour PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895259"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir une base de données multilocataire avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -275,6 +275,5 @@ Au cours des étapes précédentes, vous avez créé des ressources Azure dans u
 
 Dans ce tutoriel, vous avez appris à configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données. Vous avez appris à exécuter des requêtes de données au sein et entre les locataires, ainsi qu’à personnaliser le schéma par locataire.
 
-Ensuite, découvrez les concepts de l’hyperscale.
-> [!div class="nextstepaction"]
-> [Types de nœuds de l’hyperscale](https://aka.ms/hyperscale-concepts)
+- En savoir plus sur les [types de nœuds](https://aka.ms/hyperscale-concepts) des groupes de serveurs
+- Déterminer la [taille initiale](howto-hyperscale-scaling.md#picking-initial-size) optimale pour votre groupe de serveurs

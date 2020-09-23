@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462460"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902900"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -41,7 +41,7 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Outils de Machine Learning adaptés à chaque tâche 
 
 Azure Machine Learning fournit tous les outils dont les développeurs et les scientifiques de données ont besoin pour leurs flux de travaux Machine Learning, notamment :
-+ Le [concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) (préversion) : faites glisser et déposez des modules pour générer vos expériences, puis déployez des pipelines.
++ Le [concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) : faites glisser et déposez des modules pour générer vos expériences, puis déployez des pipelines.
 
 + Notebooks Jupyter : utilisez nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks) ou créez vos propres notebooks pour tirer parti de nos exemples de <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kits de développement logiciel (SDK) Python</a> pour votre Machine Learning. 
 
@@ -71,7 +71,7 @@ Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle]
 
 Le [studio Azure Machine Learning](https://studio.azureml.net) est un portail web dans Azure Machine Learning qui propose des options sans code ou avec peu de code pour entraîner et déployer des modèles ainsi que pour gérer les ressources. Le studio est intégré au SDK Azure Machine Learning pour une expérience simplifiée. Pour plus d’informations, consultez [Qu’est-ce que le studio Azure Machine Learning ?](overview-what-is-machine-learning-studio.md)
 
-+ **Concepteur Azure Machine Learning (préversion)**
++ **Concepteur Azure Machine Learning**
 
   Utilisez le [concepteur](concept-designer.md) pour entraîner et déployer des modèles Machine Learning sans écrire de code. Essayez le [tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md) pour commencer. 
 
@@ -92,7 +92,7 @@ Le [studio Azure Machine Learning](https://studio.azureml.net) est un portail we
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps : Déployer et gestion du cycle de vie
 Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).
 
-Vous pouvez ensuite gérer vos modèles déployés à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py), d’[Azure Machine Learning Studio](https://ml.azure.com) ou de l’[interface CLI Machine Learning](reference-azure-machine-learning-cli.md).
+Vous pouvez ensuite gérer vos modèles déployés à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), d’[Azure Machine Learning Studio](https://ml.azure.com) ou de l’[interface CLI Machine Learning](reference-azure-machine-learning-cli.md).
 
 Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-use-parallel-run-step.md) sur de grandes quantités de données.
 
@@ -115,7 +115,7 @@ Azure Machine Learning fonctionne avec d’autres services sur la plateforme Azu
 + __Azure Event Grid__. Pour plus d’informations, consultez [Consommer des événements Azure Machine Learning](concept-event-grid-integration.md).
 + __Azure Monitor__. Pour plus d’informations, consultez [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).
 + Des magasins de données comme __Comptes de stockage Azure__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database pour PostgreSQL__ et __Azure Open Datasets__. Pour plus d’informations, consultez [Accéder aux données dans les services de stockage Azure](how-to-access-data.md) et [Créer des jeux de données avec Azure Open Datasets](how-to-create-register-datasets.md).
-+ __Réseaux virtuels Azure__. Pour plus d’informations, consultez [Sécuriser l’expérimentation et l’inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
++ __Réseaux virtuels Azure__. Pour plus d’informations, voir [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
 + __Azure Pipelines__. Pour plus d’informations, consultez [Entraîner et déployer des modèles Machine Learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Journaux du dépôt Git__. Pour plus d’informations, consultez [Intégration de Git](concept-train-model-git-integration.md).
 + __MLFlow__. Pour plus d’informations, consultez [MLflow pour suivre des métriques et déployer des modèles](how-to-use-mlflow.md) 
@@ -123,16 +123,7 @@ Azure Machine Learning fonctionne avec d’autres services sur la plateforme Azu
 
 ### <a name="secure-communications"></a>Communications sécurisées
 
-Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources peuvent être utilisées de façon sécurisée au sein d’un réseau virtuel pour entraîner des modèles et effectuer l’inférence. Pour plus d’informations, consultez [Sécuriser l’expérimentation et l’inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
-
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Éditions De Base et Entreprise
-
-Azure Machine Learning propose deux éditions adaptées à vos besoins de Machine Learning :
-+ **De base** : Idéal pour le développement open source à l’échelle du cloud avec une expérience Code First.
-
-+ **D’entreprise** : Ensemble de l’édition De base, plus une interface web (studio), plus une gestion sécurisée et complète du cycle de vie ML pour tous les niveaux de compétence.
-
-Pour en savoir plus sur ces éditions et les fonctionnalités qu’elles déverrouillent, consultez l’article sur les [éditions d’Azure Machine Learning](concept-editions.md).
+Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources peuvent être utilisées de façon sécurisée au sein d’un réseau virtuel pour entraîner des modèles et effectuer l’inférence. Pour plus d’informations, voir [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

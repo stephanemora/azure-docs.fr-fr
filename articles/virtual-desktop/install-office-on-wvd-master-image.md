@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1596dd8c03ba546c47429183e5d237579f1634f1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007299"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442920"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 
@@ -56,7 +56,7 @@ Cet exemple de fichier XML de configuration n’effectue pas les opérations sui
 
 L’outil Déploiement d’Office contient setup.exe. Pour installer Office, exécutez la commande suivante en ligne de commande :
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
@@ -90,7 +90,7 @@ L’exemple de fichier XML suivant installe la version du canal mensuel d’entr
 
 Après avoir installé Office, vous pouvez mettre à jour le comportement d’Office par défaut. Exécutez les commandes suivantes une par une ou dans un fichier de commandes pour mettre à jour le comportement.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -121,37 +121,37 @@ Voici la marche à suivre pour installer OneDrive en mode ordinateur par ordinat
 
 3. Si vous avez installé Office avec OneDrive en omettant **\<ExcludeApp ID="OneDrive" /\>** , désinstallez les installations utilisateur par utilisateur existantes de OneDrive dans une invite de commandes avec élévation de privilèges en exécutant la commande suivante :
 
-    ```batch
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. Exécutez cette commande dans une invite de commandes avec élévation de privilèges pour définir la valeur de Registre **AllUsersInstall** :
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. Exécutez cette commande pour installer OneDrive en mode ordinateur par ordinateur :
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Exécutez cette commande pour configurer OneDrive de sorte qu’il se lance à la connexion pour tous les utilisateurs :
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Activez **Configurer le compte d’utilisateur en mode silencieux** en exécutant la commande suivante.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. Redirigez et déplacez les dossiers Windows connus dans OneDrive en exécutant la commande suivante.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 

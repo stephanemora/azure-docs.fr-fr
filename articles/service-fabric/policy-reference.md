@@ -1,21 +1,21 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Service Fabric
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Service Fabric. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 07/10/2020
+ms.date: 09/10/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c7bf9d0d3bf9b0abc5d58f3f11445d4b4105de82
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 82cf204a6799f5169cc097bf578c748cc0e50544
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300472"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007585"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Définitions intégrées d’Azure Policy pour Azure Service Fabric
 
 Cette page est un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Service Fabric. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-service-fabric"></a>Azure Service Fabric
 

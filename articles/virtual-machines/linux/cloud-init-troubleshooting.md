@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510971"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434637"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Résoudre les problèmes d’approvisionnement des machines virtuelles avec cloud-init
 
@@ -56,7 +56,7 @@ En cas d’échec de l’approvisionnement de la machine virtuelle, Azure affich
 
 Pendant que la machine virtuelle est en cours d’exécution, vous aurez besoin des journaux de la machine virtuelle pour comprendre la raison de l’échec de l’approvisionnement.  Pour comprendre la raison de l’échec de l’approvisionnement d’une machine virtuelle, n’arrêtez pas la machine virtuelle. Laissez la machine virtuelle en cours d’exécution. Vous devez conserver l’état d’exécution de la machine virtuelle qui a échoué afin de collecter les journaux. Pour collecter les journaux, utilisez l’une des méthodes suivantes :
 
-- [Console série](./serial-console-grub-single-user-mode.md)
+- [Console série](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Activez les diagnostics de démarrage](./tutorial-monitor.md#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](./tutorial-monitor.md#view-boot-diagnostics) au cours du démarrage.
 
@@ -108,7 +108,7 @@ Une fois que vous avez trouvé une erreur ou un avertissement, remontez dans le 
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Si vous avez accès à la [Console série ](./serial-console-grub-single-user-mode.md), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
+Si vous avez accès à la [Console série ](../troubleshooting/serial-console-grub-single-user-mode.md), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
 
 La journalisation de `/var/log/cloud-init.log` peut également être reconfigurée dans /etc/cloud/cloud.cfg.d/05_logging.cfg. Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
