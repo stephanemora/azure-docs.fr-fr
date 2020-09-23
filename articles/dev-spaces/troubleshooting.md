@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Découvrez comment résoudre les problèmes courants liés à l’activation et à l’utilisation d’Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d697a11f3087c31a49d9b88e99b18bab686a2b59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981070"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Résolution des problèmes Azure Dev Spaces
 
@@ -27,14 +27,6 @@ Pour Visual Studio, définissez la variable d’environnement `MS_VS_AZUREDEVSPA
 Dans l’interface CLI, vous pouvez générer plus d’informations pendant l’exécution de la commande en utilisant le commutateur `--verbose`. Vous pouvez également parcourir des journaux d’activité plus détaillés dans `%TEMP%\Azure Dev Spaces`. Sur un Mac, vous pouvez trouver le répertoire *TEMP* en exécutant `echo $TMPDIR` à partir d’une fenêtre de terminal. Sur un ordinateur Linux, le répertoire *TEMP* est généralement `/tmp`. En outre, vérifiez que la journalisation est activée dans votre fichier de configuration [Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces fonctionne mieux lors du débogage d’une seule instance ou d’un seul pod. Le fichier `azds.yaml` contient un paramètre, *replicaCount*, qui indique le nombre de pods que Kubernetes exécute pour votre service. Si vous changez le paramètre *replicaCount* pour configurer votre application afin d’exécuter plusieurs pods pour un service donné, le débogueur s’attache au premier pod, quand l’ordre est alphabétique. Le débogueur s’attache à un autre pod une fois que le pod d’origine est recyclé, ce qui peut provoquer un comportement inattendu.
-
-## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Problèmes courants lors de l’utilisation de processus local avec Kubernetes
-
-### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>Échec de la restauration de la configuration d’origine du déploiement sur le cluster
-
-Lors de l’utilisation du processus local avec Kubernetes, si le processus local avec le client Kubernetes se bloque ou s’arrête brusquement, le service que le processus local avec Kubernetes redirige peut ne pas être restauré à son état d’origine avant que le processus local avec Kubernetes s’y connecte.
-
-Pour résoudre ce problème, déployez à nouveau le service sur votre cluster.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Problèmes courants lors de l’activation d’Azure Dev Spaces
 
@@ -265,7 +257,7 @@ Cette erreur se produit parce que pour l’instant Azure Dev Spaces ne prend pas
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Le trafic n’est pas transféré à votre cluster AKS lors de la connexion de votre ordinateur de développement
 
-Lorsque vous utilisez [Azure Dev Spaces pour connecter votre cluster AKS à votre ordinateur de développement](https://code.visualstudio.com/docs/containers/local-process-kubernetes), vous pouvez rencontrer un problème où le trafic n’est pas transféré entre votre ordinateur de développement et votre cluster AKS.
+Lorsque vous utilisez [Azure Dev Spaces pour connecter votre cluster AKS à votre ordinateur de développement](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes), vous pouvez rencontrer un problème où le trafic n’est pas transféré entre votre ordinateur de développement et votre cluster AKS.
 
 Lors de la connexion de votre ordinateur de développement à votre cluster AKS, Azure Dev Spaces transfère le trafic entre votre cluster AKS et votre ordinateur de développement en modifiant le fichier `hosts` de votre ordinateur de développement. Azure Dev Spaces crée une entrée dans le fichier `hosts` avec l’adresse du service Kubernetes que vous remplacez en tant que nom d’hôte. Cette entrée est utilisée avec le transfert de port pour diriger le trafic entre votre ordinateur de développement et le cluster AKS. Si un service sur votre ordinateur de développement entre en conflit avec le port du service Kubernetes que vous remplacez, Azure Dev Spaces ne peut pas transférer le trafic pour le service Kubernetes. Par exemple, le service *Windows BranchCache* est généralement lié à *0.0.0.0:80*, ce qui provoque un conflit pour le port 80 sur toutes les adresses IP locales.
 
