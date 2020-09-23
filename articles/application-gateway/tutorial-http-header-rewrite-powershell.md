@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806435"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595901"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Créer une passerelle d’application et réécrire des en-têtes HTTP
 
@@ -20,15 +20,13 @@ Vous pouvez utiliser Azure PowerShell pour configurer des [règles de réécritu
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
->
-> * Créer un réseau virtuel avec mise à l'échelle automatique
-> * Créer une adresse IP publique réservée
-> * Configurer l'infrastructure de votre passerelle d'application
-> * Spécifier la configuration de règle de réécriture de votre en-tête HTTP
-> * Spécifier la mise à l’échelle automatique
-> * Créer la passerelle Application Gateway
-> * Tester la passerelle d’application
+* Créer un réseau virtuel avec mise à l'échelle automatique
+* Créer une adresse IP publique réservée
+* Configurer l'infrastructure de votre passerelle d'application
+* Spécifier la configuration de règle de réécriture de votre en-tête HTTP
+* Spécifier la mise à l’échelle automatique
+* Créer la passerelle Application Gateway
+* Tester la passerelle d’application
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

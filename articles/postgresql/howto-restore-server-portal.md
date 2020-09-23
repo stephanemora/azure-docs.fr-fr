@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110808"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884313"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL - Serveur unique avec le Portail Azure
 
@@ -28,7 +28,7 @@ Vous choisissez entre la configuration de votre serveur pour des sauvegardes red
 
 Lors de la création d’un serveur via le portail Azure, la fenêtre **Niveau tarifaire** vous permet de sélectionner **Localement redondant** ou **Géographiquement redondant** pour les sauvegardes de votre serveur. Cette fenêtre vous permet également de sélectionner la **période de rétention de la sauvegarde**, c’est-à-dire la durée (en nombre de jours) pendant laquelle vous souhaitez conserver les sauvegardes de serveur.
 
-   ![Niveau tarifaire - Choisir la redondance de sauvegarde](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
 
 Pour plus d’informations sur la définition de ces valeurs lors de la création, consultez [Créer un serveur Azure Database pour PostgreSQL dans le portail Azure](quickstart-create-server-database-portal.md).
 
@@ -37,7 +37,7 @@ La période de rétention de sauvegarde d’un serveur peut être modifiée en s
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL. Cette action ouvre la page **Vue d’ensemble**.
 3. Sélectionnez **Niveau tarifaire** dans le menu, sous **PARAMÈTRES**. Le curseur vous permet de modifier la **période de rétention de sauvegarde** selon vos préférences entre 7 et 35 jours.
 Dans la capture d’écran ci-dessous, elle a été augmentée à 34 jours.
-![Période de rétention de sauvegarde augmentée](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Période de rétention de sauvegarde augmentée":::
 
 4. Cliquez sur **OK** pour confirmer la modification.
 
@@ -53,11 +53,11 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 
 2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, sélectionnez **Restaurer**.
 
-   ![Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer":::
 
 3. Remplissez le formulaire Restaurer avec les informations requises :
 
-   ![Azure Database pour PostgreSQL - Informations de restauration](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database pour PostgreSQL - Informations de restauration":::
    - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
    - **Serveur cible** : Entrez un nom pour le nouveau serveur.
    - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477576"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907899"
 ---
 # <a name="join-data"></a>Joindre des données
 
-Cet article décrit comment utiliser le module **Joindre des données** dans le concepteur d’Azure Machine Learning (préversion) pour fusionner deux jeux de données à l’aide d’une opération de jointure basée sur la base de données.  
+Cet article décrit comment utiliser le module **Joindre des données** dans le concepteur Azure Machine Learning pour fusionner deux jeux de données à l’aide d’une opération de jointure basée sur la base de données.  
 
 ## <a name="how-to-configure-join-data"></a>Configuration de Joindre des données
 

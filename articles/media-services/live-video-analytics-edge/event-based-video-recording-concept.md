@@ -3,12 +3,12 @@ title: Enregistrement de vidéo basé sur les événements – Azure
 description: Un enregistrement vidéo basé sur les événements est un enregistrement vidéo qui a été déclenché par un événement. L’événement en question peut provenir du traitement du signal vidéo lui-même (par exemple, la détection de mouvement) ou d’une source indépendante (par exemple, l’ouverture d’une porte).  Certains cas d’usage relatifs à l’enregistrement de vidéo basé sur les événements sont décrits dans cet article.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260742"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568486"
 ---
 # <a name="event-based-video-recording"></a>Enregistrement de vidéo basé sur les événements  
  
@@ -34,7 +34,8 @@ Dans ce cas d’usage, vous pouvez enregistrer des clips vidéo uniquement lorsq
 
 Le diagramme ci-dessous montre une représentation graphique d’un graphe multimédia qui résout ce cas d’usage. La représentation JSON de la topologie d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
-![Enregistrement de vidéo basé sur la détection de mouvement](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Enregistrement de vidéo basé sur la détection de mouvement":::
 
 Dans le diagramme, le nœud source RTSP capture le flux vidéo en direct à partir de la caméra et le remet à un nœud [processeur de détection de mouvement](media-graph-concept.md#motion-detection-processor). Lors de la détection de mouvement dans la vidéo en direct, le nœud processeur de détection de mouvement génère un événement qui accède au nœud [processeur de porte de signal](media-graph-concept.md#signal-gate-processor), ainsi qu’au nœud récepteur de messages IoT Hub. Ce dernier envoie les événements au hub IoT Edge, à partir duquel ils peuvent être acheminés vers d’autres destinations pour déclencher des alertes. 
 
@@ -44,7 +45,8 @@ Un événement du nœud détecteur de mouvement déclenchera le nœud processeur
 
 Dans ce cas d’usage, les signaux d’un autre capteur IoT peuvent être utilisés pour déclencher l’enregistrement de la vidéo. Le diagramme ci-dessous montre une représentation graphique d’un graphe multimédia qui résout ce cas d’usage. La représentation JSON de la topologie d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
-![Enregistrement de vidéo basé sur les événements provenant d’autres sources](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Enregistrement de vidéo basé sur les événements provenant d’autres sources":::
 
 Dans le diagramme, le capteur externe envoie des événements au hub IoT Edge. Les événements sont ensuite acheminés vers le nœud processeur de porte de signal via le nœud [source de messages IoT Hub](media-graph-concept.md#iot-hub-message-source). Le comportement du nœud processeur de porte de signal est le même que dans le cas d’usage précédent : il s’ouvre et laisse le flux vidéo en direct passer du nœud source RTSP au nœud récepteur de fichiers (ou au nœud récepteur de ressources) lorsqu’il est déclenché par l’événement externe. 
 
@@ -54,7 +56,8 @@ Si vous utilisez un nœud récepteur de fichiers, la vidéo sera enregistrée da
 
 Dans ce cas d’usage, vous pouvez enregistrer des clips vidéo basés sur le signal d’un système logique externe. Un exemple de ce cas d’usage peut être l’enregistrement d’un clip vidéo uniquement lorsqu’un camion est détecté dans le flux vidéo du trafic sur une autoroute. Le diagramme ci-dessous montre une représentation graphique d’un graphe multimédia qui résout ce cas d’usage. La représentation JSON de la topologie d’un tel graphe multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
-![Enregistrement de vidéo basé sur un module d’inférence externe](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Enregistrement de vidéo basé sur un module d’inférence externe":::
 
 Dans le diagramme, le nœud source RTSP capture le flux vidéo en direct à partir de la caméra et le remet à deux branches : l’une possède un nœud [processeur de porte de signal](media-graph-concept.md#signal-gate-processor), et l’autre utilise un nœud [d’extension HTTP](media-graph-concept.md) pour envoyer des données à un module logique externe. Le nœud d’extension HTTP permet au graphe multimédia d’envoyer des trames d’image (au format JPEG, BMP ou PNG) à un service d’inférence externe via REST. Généralement, ce chemin de signal ne peut prendre en charge que des fréquences d’images faibles (< 5 fps). Vous pouvez utiliser le nœud [processeur de filtre de fréquence d’images](media-graph-concept.md#frame-rate-filter-processor) pour réduire la fréquence d’images de la vidéo allant vers le nœud d’extension HTTP.
 

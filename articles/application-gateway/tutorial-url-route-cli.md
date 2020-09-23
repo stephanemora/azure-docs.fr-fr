@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502696"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595222"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
@@ -23,13 +23,12 @@ En tant qu’administrateur gérant le trafic web, vous souhaitez aider vos clie
 
 Dans cet article, vous apprendrez comment :
 
-> [!div class="checklist"]
-> * Créer un groupe de ressources pour les ressources réseau dont vous aurez besoin
-> * Créer les ressources réseau
-> * Créer une passerelle d’application pour le trafic provenant de votre application
-> * Spécifier des pools de serveurs et des règles d’acheminement pour les différents types de trafic
-> * Créer un groupe identique pour chaque pool afin que ce dernier puisse effectuer une mise à l'échelle
-> * Exécuter un test pour vérifier que les différents types de trafic sont dirigés vers le bon pool
+* Créer un groupe de ressources pour les ressources réseau dont vous aurez besoin
+* Créer les ressources réseau
+* Créer une passerelle d’application pour le trafic provenant de votre application
+* Spécifier des pools de serveurs et des règles d’acheminement pour les différents types de trafic
+* Créer un groupe identique pour chaque pool afin que ce dernier puisse effectuer une mise à l'échelle
+* Exécuter un test pour vérifier que les différents types de trafic sont dirigés vers le bon pool
 
 Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure PowerShell](tutorial-url-route-powershell.md) ou le [portail Azure](create-url-route-portal.md).
 

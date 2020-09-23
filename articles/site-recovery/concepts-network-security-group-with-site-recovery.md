@@ -1,18 +1,18 @@
 ---
 title: Groupes de sécurité réseau avec Azure Site Recovery | Microsoft Docs
 description: Décrit comment utiliser les groupes de sécurité réseau avec Azure Site Recovery pour la reprise après sinistre et la migration
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: harshacs
+ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292357"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069677"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Groupes de sécurité réseau avec Azure Site Recovery
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b4fbeb6baa4516ca4cf3ca6194195fae2c688b07
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dba7a3cc7a68d360fd6e56511b71ae364f624646
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165654"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569274"
 ---
 Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Pour baser votre expression CRON sur un autre fuseau horaire, créez un paramètre d’application nommé `WEBSITE_TIME_ZONE` pour votre application de fonction. 
 
@@ -12,7 +12,7 @@ La valeur de ce paramètre dépend du système d’exploitation et du plan sur l
 
 |Système d’exploitation |Plan |Valeur |
 |-|-|-|
-| **Windows** |Tous | Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10). |
+| **Windows** |Tous | Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). |
 | **Linux** |Premium<br/>Dédié |Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans la [base de données tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
 
 > [!NOTE]

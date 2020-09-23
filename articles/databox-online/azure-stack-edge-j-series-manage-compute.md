@@ -1,6 +1,6 @@
 ---
-title: Gestion du calcul sur Azure Stack Edge avec GPU | Microsoft Docs
-description: Décrit comment gérer les paramètres de computing en périphérie (déclencheur, modules, affichage de la configuration du calcul, suppression de configuration) via le portail Azure sur votre Azure Stack Edge avec GPU.
+title: Gestion du calcul sur Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit comment gérer les paramètres de calcul Edge (déclencheur, modules, affichage de la configuration du calcul, suppression de configuration) via le portail Azure sur votre appareil Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea52c393ec9897d43714d69ff448038b65ee555
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 58e199cc3c09e6b4ff333fb53c047598b1ec9b5f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890599"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge-gpu"></a>Gérer le calcul sur votre Azure Stack Edge avec GPU
+# <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gérer le calcul sur votre appareil Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer le calcul sur votre Azure Stack Edge. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
+Cet article explique comment gérer le calcul sur votre appareil Azure Stack Edge Pro. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
 
 Dans cet article, vous apprendrez comment :
 
@@ -30,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-triggers"></a>Gérer les déclencheurs
 
-Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans votre Azure Stack Edge, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
+Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans Azure Stack Edge Pro, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
 
 - **Fichier** : Ces déclencheurs répondent à des événements tels que la création ou la modification d’un fichier.
 - **Scheduled** : Ces déclencheurs résultent d’une planification que vous pouvez définir avec une date de début, une heure de début et un intervalle de répétition.
@@ -84,7 +84,7 @@ La liste des déclencheurs est actualisée afin de refléter la suppression.
 
 ## <a name="manage-compute-configuration"></a>Gérer la configuration du calcul
 
-Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante, ou actualiser la configuration de calcul afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour votre Azure Stack Edge.
+Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante, ou actualiser la configuration de calcul afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour Azure Stack Edge Pro.
 
 ### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
 
@@ -113,11 +113,11 @@ Pour supprimer la configuration de computing en périphérie de votre appareil, 
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge
 
-Lorsque vous configurez le calcul sur Azure Stack Edge, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
+Lorsque vous configurez le calcul sur Azure Stack Edge Pro, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
 
 Pour définir la rotation de ces clés, vous pouvez accéder au service IoT Hub que vous avez créé, puis sélectionnez l’appareil IoT ou l’appareil IoT Edge. Chaque appareil possède une clé d’accès primaire et une clé d’accès secondaire. Affectez la clé d’accès primaire à la clé d’accès secondaire, puis régénérez la clé d’accès primaire.
 
-Se une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre Azure Stack Edge pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge utilise uniquement les clés d’accès primaires.
+Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre Azure Stack Edge Pro pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge Pro utilise uniquement les clés d’accès primaires.
 
 Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit sur le portail Azure.
 
@@ -133,4 +133,4 @@ Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [résoudre les problèmes liés à votre appareil Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).
+- Découvrez comment [résoudre les problèmes liés à votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md).

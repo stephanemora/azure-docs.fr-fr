@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144020"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906648"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dans ce tutoriel, vous allez utiliser l’extension de machine learning pour Azure CLI pour entraîner, inscrire et déployer un modèle.
 
-Les scripts d’entraînement Python présentés dans ce tutoriel utilisent [scikit-learn](https://scikit-learn.org/) pour entraîner un modèle simple. Ce tutoriel n’est pas centré sur les scripts ou le modèle, mais sur l’utilisation de l’interface CLI avec Azure Machine Learning.
+Les scripts d’entraînement Python présentés dans ce didacticiel utilisent [scikit-learn](https://scikit-learn.org/) pour entraîner un modèle simple. Ce tutoriel n’est pas centré sur les scripts ou le modèle, mais sur l’utilisation de l’interface CLI avec Azure Machine Learning.
 
 Découvrez comment effectuer les actions suivantes :
 
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur de ressources de base sur la plateforme Azure. Quand vous utilisez Azure Machine Learning, le groupe de ressources contient votre espace de travail Azure Machine Learning. Il contient aussi les autres services Azure utilisés par l’espace de travail. Par exemple, si vous entraînez votre modèle en utilisant une ressource de calcul basée sur le cloud, cette ressource est créée dans le groupe de ressources.
+Un groupe de ressources est un conteneur de ressources sur la plateforme Azure. Quand vous utilisez Azure Machine Learning, le groupe de ressources contient votre espace de travail Azure Machine Learning. Il contient aussi les autres services Azure utilisés par l’espace de travail. Par exemple, si vous entraînez votre modèle en utilisant une ressource de calcul basée sur le cloud, cette ressource est créée dans le groupe de ressources.
 
 Pour __créer un groupe de ressources__, utilisez la commande suivante. Remplacez `<resource-group-name>` par le nom à utiliser pour ce groupe de ressources. Remplacez `<location>` par la région Azure à utiliser pour ce groupe de ressources :
 

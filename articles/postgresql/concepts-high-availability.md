@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547679"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884439"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Haute disponibilité dans Azure Database pour PostgreSQL – Serveur unique
 Le service Azure Database pour PostgreSQL – Serveur unique offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/postgresql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Il offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Le service Azure Database pour PostgreSQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
@@ -29,7 +29,7 @@ Il convient pour l’exécution de bases de données stratégiques nécessitant 
 ## <a name="planned-downtime-mitigation"></a>Réduction des temps d’arrêt planifiés
 Le service Azure Database pour PostgreSQL est architecturé pour offrir une haute disponibilité pendant les opérations planifiées nécessitant un temps d’arrêt. 
 
-![vue de la mise à l’échelle élastique dans Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="vue de la mise à l’échelle élastique dans Azure PostgreSQL":::
 
 1. Mettre à l’échelle des serveurs de base de données PostgreSQL en quelques secondes
 2. La passerelle qui agit en tant que proxy pour router le client se connecte au serveur de base de données approprié
@@ -49,7 +49,7 @@ Voici quelques scénarios de maintenance planifiée :
 Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues telles qu’un échec matériel sous-jacent, des problèmes de mise en réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue, un nouveau serveur de base de données est automatiquement approvisionné en quelques secondes. Le stockage étendu est automatiquement attaché au nouveau serveur de base de données. Le moteur PostgreSQL effectue l’opération de récupération à l’aide des fichiers WAL et de base de données, puis ouvre le serveur de base de données pour permettre aux clients de se connecter. Les transactions non validées sont perdues et doivent être retentées par l’application. Bien qu’il ne soit pas possible d’éviter un temps d’arrêt non planifié, le service Azure Database pour PostgreSQL réduit les temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine. 
 
 
-![affichage de la haute disponibilité dans Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="affichage de la haute disponibilité dans Azure PostgreSQL":::
 
 1. Serveurs Azure PostgreSQL avec fonctionnalités de mise à l’échelle rapide.
 2. Passerelle faisant office de proxy pour router les connexions client vers le serveur de base de données approprié.

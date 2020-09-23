@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907858"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Module Allocation de Dirichlet latente
 
-Cet article explique comment utiliser le module Allocation de Dirichlet latente dans le concepteur Azure Machine Learning (préversion) pour regrouper du texte non classifié en catégories. 
+Cet article explique comment utiliser le module Allocation de Dirichlet latente dans le concepteur Azure Machine Learning pour regrouper du texte non classifié en catégories. 
 
 L’allocation de Dirichlet latente (LDA, Latent Dirichlet Allocation) est souvent utilisée dans le traitement du langage naturel pour rechercher des textes similaires. *Modélisation de rubrique* est un autre terme courant.
 
@@ -75,7 +75,7 @@ Ce module requiert un jeu de données qui contient une colonne de texte, à l’
     + Les valeurs de la matrice de rubriques de caractéristiques sont représentées en tant que probabilité où `P(word|topic)`.
 
     > [!NOTE] 
-    > Dans le concepteur Azure Machine Learning (préversion), la bibliothèque scikit-learn ne prend plus en charge la sortie non normalisée *doc_topic_distr* depuis la version 0.19. Dans ce module, le paramètre **Normalize** ne peut être appliqué qu’à la sortie *Feature Topic matrix*. La sortie *Transformed dataset* est toujours normalisée.
+    > Dans le concepteur Azure Machine Learning, la bibliothèque scikit-learn ne prend plus en charge la sortie non normalisée *doc_topic_distr* depuis la version 0.19. Dans ce module, le paramètre **Normalize** ne peut être appliqué qu’à la sortie *Feature Topic matrix*. La sortie *Transformed dataset* est toujours normalisée.
 
 7. Sélectionnez l’option **Show all options**, puis affectez-lui la valeur **TRUE** si vous souhaitez définir les paramètres avancés suivants.
 

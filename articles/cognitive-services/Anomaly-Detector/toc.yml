@@ -14,7 +14,7 @@
           href: ./quickstarts/client-libraries.md
     - name: API REST
       items:
-        - name: 'Utilisation de C#'
+        - name: Utilisation de C#
           href: quickstarts/detect-data-anomalies-csharp.md
         - name: Utilisation de Java
           href: quickstarts/detect-data-anomalies-java.md
@@ -69,7 +69,7 @@
         - name: Démonstration interactive
           href: 'https://aka.ms/adDemo'
         - name: Sur Jupyter Notebook
-          href: 'https://aka.ms/adNotebook'
+          href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
     - name: Livre blanc sur SR-CNN dans KDD 2019
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Ressources

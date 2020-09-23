@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 69fcb271ac94df3faf8e9e37c1ef30a6c0681441
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079507"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566124"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -744,7 +744,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | quotas | Non | Non |
 > | resourcetypes | Non | Non |
 > | validatesubscriptionmoveavailability | Non | Non |
-> | virtualmachines | Oui | Non |
+> | virtualmachines | Oui | Oui |
 > | virtualmachines / diagnosticsettings | Non | Non |
 > | virtualmachines / metricdefinitions | Non | Non |
 > | virtualmachines / metrics | Non | Non |
@@ -2789,7 +2789,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | locations / jobagentoperationresults | Non | Non |
 > | locations / longtermretentionbackupazureasyncoperation | Non | Non |
 > | locations / longtermretentionbackupoperationresults | Non | Non |
-> | locations / longtermretentionbackups | Non | Non |
+> | locations / longtermretentionbackups | Oui | Oui |
 > | locations / longtermretentionmanagedinstancebackupazureasyncoperation | Non | Non |
 > | locations / longtermretentionmanagedinstancebackupoperationresults | Non | Non |
 > | locations / longtermretentionmanagedinstancebackups | Non | Non |
@@ -2872,7 +2872,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers / databases / auditingsettings | Non | Non |
 > | servers / databases / auditrecords | Non | Non |
 > | servers / databases / automatictuning | Non | Non |
-> | servers / databases / backuplongtermretentionpolicies | Non | Non |
+> | servers / databases / backuplongtermretentionpolicies | Oui | Oui |
 > | servers / databases / backupshorttermretentionpolicies | Non | Non |
 > | servers / databases / connectionpolicies | Non | Non |
 > | servers / databases / datamaskingpolicies | Non | Non |

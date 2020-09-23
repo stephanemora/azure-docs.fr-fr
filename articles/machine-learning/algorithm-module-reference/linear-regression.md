@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137452"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907843"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
-Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour créer un modèle de régression linéaire à utiliser dans un pipeline.  Une régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou une variable dépendante. 
 
@@ -25,7 +25,7 @@ Ce module vous permet de définir une méthode de régression linéaire, puis d�
 
 ## <a name="about-linear-regression"></a>À propos de la régression linéaire
 
-La régression linéaire est une méthode statistique courante qui a été largement adoptée dans le domaine de l’apprentissage automatique, puis améliorée avec de nombreuses nouvelles méthodes d’ajustement de ligne de régression et de mesure des erreurs. Au sens le plus simple, la régression fait référence à la prédiction d’une cible numérique. La régression linéaire constitue toujours un bon choix lorsque vous souhaitez disposer d’un modèle simple pour une tâche prédictive de base. La régression linéaire tend également à bien fonctionner avec des jeux de données éparses et de grande dimension peu complexes.
+La régression linéaire est une méthode statistique courante qui a été largement adoptée dans le domaine de l’apprentissage automatique, puis améliorée avec de nombreuses nouvelles méthodes d’ajustement de ligne de régression et de mesure des erreurs. En bref, la régression fait référence à la prédiction d’une cible numérique. La régression linéaire constitue toujours un bon choix lorsque vous souhaitez disposer d’un modèle simple pour une tâche prédictive de base. La régression linéaire tend également à bien fonctionner avec des jeux de données éparses et de grande dimension peu complexes.
 
 Azure Machine Learning prend en charge divers modèles de régression, en plus de la régression linéaire. Cependant, le terme « régression » peut être interprété dans un sens général, et certains types de régressions fournis par d’autres outils ne sont pas pris en charge.
 
