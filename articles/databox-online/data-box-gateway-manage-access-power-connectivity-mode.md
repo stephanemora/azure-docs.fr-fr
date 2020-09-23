@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339210"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893945"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, l’alimentation et le mode de connectivité de votre appareil Azure Data Box Gateway
 
@@ -57,16 +57,16 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 
 ## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
 
-Pour créer votre ressource Azure Stack Edge/Data Box Gateway, IoT Hub et Stockage Azure, vous devez disposer d’autorisations de contributeur ou plus élevées au niveau du groupe de ressources. Les fournisseurs de ressources correspondants doivent également être inscrits. Pour toutes les opérations qui impliquent des informations d’identification et une clé d’activation, des autorisations sur l’API Azure Active Directory Graph sont également exigées. Elles sont décrites dans les sections suivantes.
+Pour créer votre ressource Azure Stack Edge Pro/Data Box Gateway, IoT Hub et Stockage Azure, vous devez disposer d’autorisations de contributeur ou plus élevées au niveau du groupe de ressources. Les fournisseurs de ressources correspondants doivent également être inscrits. Pour toutes les opérations qui impliquent des informations d’identification et une clé d’activation, des autorisations sur l’API Azure Active Directory Graph sont également exigées. Elles sont décrites dans les sections suivantes.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gérer les autorisations pour l’API Microsoft Graph
 
-Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge, ou effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Microsoft Graph. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
+Quand vous générez la clé d’activation pour l’appareil Azure Stack Edge Pro, ou effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Microsoft Graph. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
 
 -  Création d’un partage avec un compte de stockage associé.
 -  Création d’un utilisateur qui peut accéder aux partages se trouvant sur l’appareil.
 
-Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Azure Stack Edge et la création d’utilisateur échoueront toutes.
+Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes un invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Azure Stack Edge Pro et la création d’utilisateur échoueront toutes.
 
 Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Microsoft Graph, consultez [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Pour obtenir une liste des fournisseurs de ressources inscrits dans l’abonneme
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Pour un appareil Azure Stack Edge, `Microsoft.DataBoxEdge` doit être inscrit. Pour inscrire `Microsoft.DataBoxEdge`, l’administrateur de l’abonnement doit exécuter la commande suivante :
+Pour un appareil Azure Stack Edge Pro, `Microsoft.DataBoxEdge` doit être inscrit. Pour inscrire `Microsoft.DataBoxEdge`, l’administrateur de l’abonnement doit exécuter la commande suivante :
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

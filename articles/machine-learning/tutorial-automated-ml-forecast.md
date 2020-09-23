@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896668"
+ms.locfileid: "90979075"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 
@@ -236,7 +236,7 @@ Pour savoir comment créer un schéma pris en charge par Power BI pour faciliter
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
 + Découvrez-en plus sur la [caractérisation](how-to-configure-auto-features.md#featurization).
-+ En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile).
++ En savoir plus sur le [profilage des données](how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > Ce jeu de données de vélos en libre-service a été modifié pour les besoins de ce tutoriel. Ce jeu de données, mis à disposition dans le cadre d’un [concours Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data), a été initialement proposé par [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Il est également accessible dans la [base de données de Machine Learning de l’UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

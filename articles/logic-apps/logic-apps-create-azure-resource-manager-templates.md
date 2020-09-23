@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066079"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971784"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
@@ -60,14 +60,14 @@ Ces exemples montrent comment créer et déployer des applications logiques à l
 
 1. La méthode la plus simple pour installer le module LogicAppTemplate à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate) est d’utiliser cette commande :
 
-   ```text
-   PS> Install-Module -Name LogicAppTemplate
+   ```powershell
+   Install-Module -Name LogicAppTemplate
    ```
 
    Pour effectuer une mise à jour vers la dernière version, exécutez la commande suivante :
 
-   ```text
-   PS> Update-Module -Name LogicAppTemplate
+   ```powershell
+   Update-Module -Name LogicAppTemplate
    ```
 
 Ou, pour procéder à l’installation manuelle, suivez les étapes décrites dans GitHub pour le [Créateur du modèle d’application logique](https://github.com/jeffhollan/LogicAppTemplateCreator).
@@ -80,28 +80,43 @@ Quand vous exécutez la commande `Get-LogicAppTemplate` avec cet outil, la comma
 
 ### <a name="generate-template-with-powershell"></a>Générer un modèle avec PowerShell
 
-Pour générer votre modèle après l’installation du module LogicAppTemplate et [Azure CLI](/cli/azure/?view=azure-cli-latest), exécutez la commande PowerShell :
+Pour générer votre modèle après l’installation du module LogicAppTemplate et [Azure CLI](/cli/azure/), exécutez la commande PowerShell :
 
-```text
-PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    Token = (az account get-access-token | ConvertFrom-Json).accessToken
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Pour suivre la recommandation relative à la redirection dans un jeton à partir de l’[outil client Azure Resource Manager](https://github.com/projectkudu/ARMClient), exécutez cette commande à l’emplacement dans lequel `$SubscriptionId` est votre ID d’abonnement Azure :
 
-```text
-PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+armclient token $SubscriptionId | Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Après l’extraction, vous pouvez créer un fichier de paramètres à partir de votre modèle en exécutant la commande suivante :
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
+```powershell
+Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
 ```
 
 Pour l’extraction avec des références Azure Key Vault (statique uniquement), exécutez la commande suivante :
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
+```powershell
+Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
 | Paramètres | Obligatoire | Description |

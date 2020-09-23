@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291797"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667503"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -217,7 +217,7 @@ Vous êtes chargé de garantir l'intégrité des scripts référencés par le sc
 
 ## <a name="use-supporting-scripts"></a>Utiliser des scripts de prise en charge
 
-Vous pouvez séparer les logiques complexes en un ou plusieurs fichiers de script de prise en charge. La propriété `supportingScriptURI` vous permet de fournir un tableau d’URI pour les fichiers de script de prise en charge, le cas échéant :
+Vous pouvez séparer les logiques complexes en un ou plusieurs fichiers de script de prise en charge. La propriété `supportingScriptUris` vous permet de fournir un tableau d’URI pour les fichiers de script de prise en charge, le cas échéant :
 
 ```json
 "scriptContent": "

@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, carlrab, emlisa
-ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.reviewer: vanto, emlisa
+ms.date: 09/21/2020
+ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885289"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Vue d’ensemble des capacités de sécurité d’Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Cet article décrit les principes de la sécurisation de la couche Données d’une application avec [Azure SQL Database](sql-database-paas-overview.md) et [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). La stratégie de sécurité décrite suit une approche en couches de défense en profondeur comme illustré ci-après, et se déplace de l’extérieur vers :
 
-![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
+![couche de sécurité SQL. png](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Sécurité du réseau
 
@@ -77,7 +77,7 @@ Il est recommandé de créer des rôles personnalisés si nécessaire. Ajoutez d
 
 La sécurité au niveau des lignes permet aux clients de contrôler l'accès aux lignes d'une table de base de données en fonction des caractéristiques de l'utilisateur exécutant une requête (appartenance à un groupe ou contexte d'exécution, par exemple). La sécurité au niveau des lignes permet également d’implémenter des concepts de sécurité personnalisés en fonction d’une étiquette. Pour plus d’informations, consultez [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security).
 
-![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
+![base de données Azure RLS. png](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Protection contre les menaces
 
@@ -91,7 +91,7 @@ L’audit SQL Database et SQL Managed Instance suit les activités de base de do
 
 Advanced Threat Protection analyse vos journaux afin de détecter les éventuels comportements inhabituels ou les tentatives d’accès ou d’exploitation des bases de données potentiellement dangereuses. Des alertes sont créées pour les activités suspectes, telles que les attaques par injection de code SQL, infiltration potentielle de données et force brute, ainsi que pour les anomalies des modèles d’accès afin d’intercepter les réaffectations de privilèges et l’utilisation d’informations d’identification ayant fait l’objet de violation de sécurité. Les alertes s’affichent dans [Azure Security Center](https://azure.microsoft.com/services/security-center/), où les détails relatifs aux activités suspectes, les suggestions d’examen approfondi ainsi que les actions visant à atténuer les menaces sont indiqués. Le service Advanced Threat Protection peut être activé par serveur pour un coût supplémentaire. Pour en savoir plus, consultez [Prise en main de Advanced Threat Protection pour Azure SQL Database](threat-detection-configure.md).
 
-![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
+![Azure Database TD. jpg](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Protection et chiffrement des informations
 
@@ -122,13 +122,13 @@ Dans Azure, toutes les bases de données créées sont chiffrées par défaut, e
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (Chiffrement en cours d’utilisation)
 
-![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
+![base de données Azure AE. png](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement. La clé de chiffrement n’est jamais exposée dans SQL Database ou SQL Managed Instance, et peut être stockée dans le [magasin de certificats Windows](always-encrypted-certificate-store-configure.md) ou dans [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 
-![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
+![base de données Windows Azure DDM. png](./media/security-overview/azure-database-ddm.png)
 
 Le masquage dynamique des données limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques détecte automatiquement les données potentiellement sensibles dans Azure SQL Database et SQL Managed Instance et fournit des recommandations pouvant donner lieu à une action permettant de masquer ces champs, avec un impact minimal sur la couche d’application. Il dissimule les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées. Pour en savoir plus, consultez [Prise en main du masquage de données dynamiques dans SQL Database et SQL Managed Instance](dynamic-data-masking-overview.md).
 
@@ -136,7 +136,7 @@ Le masquage dynamique des données limite l’exposition des données sensibles 
 
 ### <a name="vulnerability-assessment"></a>Évaluation des vulnérabilités
 
-[L’évaluation des vulnérabilités ](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et vous aide à corriger des vulnérabilités de base de données potentielles, avec pour objectif d’améliorer de manière proactive la sécurité globale des bases de données. L’évaluation des vulnérabilités (VA) fait partie de l’offre Advanced Data Security, qui est un package unifié de capacités avancées de sécurité SQL. L’évaluation des vulnérabilités est accessible et peut être gérée par le biais du portail SQL Advanced Data Security central.
+[L’évaluation des vulnérabilités ](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et vous aide à corriger des vulnérabilités de base de données potentielles, avec pour objectif d’améliorer de manière proactive la sécurité globale des bases de données. L’évaluation des vulnérabilités (VA) fait partie de l’offre Azure Defender pour SQL, qui est un package unifié pour les fonctionnalités avancées de sécurité SQL. L’évaluation des vulnérabilités est accessible et gérée par le biais de l’Azure Defender central pour le portail SQL.
 
 ### <a name="data-discovery-and-classification"></a>Découverte et classification des données
 
@@ -150,7 +150,7 @@ Pour plus d’informations, consultez [Bien démarrer avec Découverte et classi
 
 ### <a name="compliance"></a>Conformité
 
-Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonctionnalités permettant à votre application de répondre à différentes exigences en matière de sécurité, mais il participe également à des audits réguliers et est certifié conforme à de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
+Non seulement Azure SQL Database propose les fonctions ci-dessus et des fonctionnalités permettant à votre application de répondre à différentes exigences en matière de sécurité, mais il participe également à des audits réguliers et est certifié conforme à de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://www.microsoft.com/trust-center/compliance/compliance-overview), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651724"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650688"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -213,7 +213,7 @@ Au cours de cette phase, vous déployez généralement des systèmes de dévelop
 12. Au fur et à mesure que la charge de travail s’applique, enregistrez la consommation de ressources des systèmes dans Azure. Comparez cette consommation avec les enregistrements de votre ancienne plateforme. Ajustez le dimensionnement des machines virtuelles des futurs déploiements si vous constatez des différences importantes. Gardez à l’esprit que, quand vous réduisez la taille, le stockage et la bande passante réseau des machines virtuelles sont également réduits.
     - [Tailles des machines virtuelles Windows dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Tailles des machines virtuelles Linux dans Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Expérimentez la fonctionnalité et les processus de copie du système. L’objectif est de faciliter la copie d’un système de développement ou d’un système de test afin que les équipes de projet bénéficient rapidement de nouveaux systèmes. Envisagez d’utiliser [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) pour ces tâches.
+13. Expérimentez la fonctionnalité et les processus de copie du système. L’objectif est de faciliter la copie d’un système de développement ou d’un système de test afin que les équipes de projet bénéficient rapidement de nouveaux systèmes. 
 14. Vous pouvez optimiser et affiner les accès, les autorisations et les processus basés sur les rôles Azure de votre équipe afin d’être sûr de bénéficier de la séparation des tâches. En même temps, assurez-vous que toutes les équipes peuvent effectuer leurs tâches dans l’infrastructure Azure.
 15. Testez les procédures de haute disponibilité et de récupération d’urgence pour permettre à votre personnel d’exécuter ces tâches. Identifiez les défauts et adaptez les nouvelles fonctionnalités Azure que vous intégrez à vos déploiements.
 

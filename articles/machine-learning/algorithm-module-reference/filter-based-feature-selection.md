@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477593"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893792"
 ---
 # <a name="filter-based-feature-selection"></a>Sélection de caractéristiques par filtrage
 
-Cet article décrit comment utiliser le module de sélection de caractéristiques par filtrage dans le concepteur Azure Machine Learning (préversion). Ce module vous aide à identifier les colonnes de votre jeu de données d’entrée qui ont la plus grande capacité de prédiction. 
+Cet article décrit comment utiliser le module de sélection de caractéristiques par filtrage dans le concepteur Azure Machine Learning. Ce module vous aide à identifier les colonnes de votre jeu de données d’entrée qui ont la plus grande capacité de prédiction. 
 
 En général, la *sélection de caractéristiques* fait référence au processus d’application de tests statistiques à des entrées, en fonction d’une sortie donnée. L’objectif est de déterminer quelles colonnes prédisent le mieux la sortie. Le module de sélection de caractéristiques par filtrage permet de choisir parmi plusieurs algorithmes de sélection de caractéristiques. Le module inclut des méthodes de corrélation telles que les valeurs de corrélation de Pearson et de test du khi-deux. 
 
