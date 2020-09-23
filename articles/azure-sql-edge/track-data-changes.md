@@ -1,6 +1,6 @@
 ---
-title: Suivre les modifications de données dans Azure SQL Edge (préversion)
-description: Découvrez le suivi des modifications et la capture des changements de données dans Azure SQL Edge (préversion).
+title: Suivre les modifications de données dans Azure SQL Edge
+description: Découvrez le suivi des modifications et la capture des changements de données dans Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900062"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Suivre les modifications de données dans Azure SQL Edge (préversion)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Suivre les modifications de données dans Azure SQL Edge
 
 Azure SQL Edge prend en charge les deux fonctionnalités SQL Server qui suivent les modifications apportées aux données d’une base de données : [suivi des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) et [capture des changements de données](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Ces fonctionnalités permettent aux applications de déterminer les changements de langage de modification de données (opérations d’insertion, de mise à jour et de suppression) apportées aux tables utilisateur dans une base de données. Vous pouvez activer la capture de données modifiées et le suivi des modifications sur la même base de données. Aucune considération particulière ne s'applique.
 
@@ -60,10 +60,10 @@ Pour plus d’informations, voir [Tables temporelles](https://docs.microsoft.com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Streaming de données dans Azure SQL Edge (préversion)](stream-data.md)
-- [Machine Learning et IA avec ONNX dans Azure SQL Edge (préversion)](onnx-overview.md)
-- [Configurer la réplication sur Azure SQL Edge (préversion)](configure-replication.md)
-- [Sauvegarder et restaurer des bases de données dans Azure SQL Edge (préversion)](backup-restore.md)
+- [Streaming de données dans Azure SQL Edge](stream-data.md)
+- [Machine Learning et IA avec ONNX dans Azure SQL Edge](onnx-overview.md)
+- [Configurer la réplication sur Azure SQL Edge](configure-replication.md)
+- [Sauvegarder et restaurer des bases de données dans Azure SQL Edge](backup-restore.md)
 
 
 

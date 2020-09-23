@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891483"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 
@@ -40,7 +40,6 @@ Azure Synapse Link vous permet d’accéder directement au magasin analytique Az
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insights en temps quasi réel dans vos données opérationnelles
 
 Vous pouvez désormais bénéficier d’insights détaillés sur vos données opérationnelles quasiment en temps réel à l’aide d’Azure Synapse Link. Les systèmes basés sur ETL ont tendance à avoir une latence plus élevée pour l’analyse de vos données opérationnelles, en raison des nombreuses couches nécessaires pour l’extraction, la transformation et le chargement des données opérationnelles. Avec l’intégration native du magasin analytique Azure Cosmos DB à l’aide d’Azure Synapse Analytics, vous pouvez analyser les données opérationnelles en temps quasi-réel en activant de nouveaux scénarios d’entreprise. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Aucun impact sur les charges de travail opérationnelles
 
@@ -91,7 +90,7 @@ Vous pouvez interroger les données à partir du magasin analytique Azure Cosmos
 
 Cette intégration active les scénarios HTAP suivants pour des utilisateurs différents :
 
-* Ingénieur décisionnel qui souhaite modéliser et publier un rapport pour accéder aux données opérationnelles d’Azure Cosmos DB directement par le biais de Synapse SQL.
+* Ingénieur décisionnel qui souhaite modéliser et publier un rapport Power BI pour accéder aux données opérationnelles d’Azure Cosmos DB directement par le biais de Synapse SQL.
 
 * Analyste de données qui souhaite obtenir des insights à partir des données opérationnelles dans un conteneur Azure Cosmos DB en l’interrogeant avec Synapse SQL, lire des données à grande échelle et combiner ces informations avec d’autres sources de données.
 
@@ -115,16 +114,15 @@ Dans ce cas, Synapse Link offre une expérience analytique plus intégrée sans 
 
 L’utilisation de Synapse Link est déconseillée si vos exigences en matière d’entrepôt de données sont, par exemple, la concurrence élevée, la gestion des charges de travail et la persistance des agrégats sur plusieurs sources de données. Pour plus d’informations, consultez [Scénarios courants pouvant être alimentés Azure Synapse Link pour Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Limites
 
-* Durant la préversion publique, Azure Synapse Link est pris en charge uniquement pour l’API Azure Cosmos DB SQL (Core). La prise en charge de l’API Azure Cosmos DB pour Mongo DB et l’API Cassandra est actuellement en préversion contrôlée. Pour demander l’accès à cette préversion contrôlée, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Azure Synapse Link est pris en charge pour l’API Azure Cosmos DB SQL (Core) et l’API Azure Cosmos DB pour MongoDB. La prise en charge de l’API Cassandra est actuellement en préversion contrôlée. Pour demander l’accès à cette préversion contrôlée, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Actuellement, le magasin analytique ne peut être activé que pour les nouveaux conteneurs (à la fois dans les comptes Azure Cosmos DB nouveaux et existants).
-
-* Dans la préversion, la sauvegarde et la restauration des conteneurs ne sont pas prises en charge pour les comptes de base de données Synapse Link. Si vous avez des charges de travail de production qui nécessitent des fonctionnalités de sauvegarde et de restauration, nous vous recommandons de ne pas activer Synapse Link dans ces comptes de base de données. 
+* Actuellement, le magasin analytique ne peut être activé que pour les nouveaux conteneurs. Pour utiliser le magasin analytique pour les conteneurs existants, migrez les conteneurs existants vers de nouveaux conteneurs à l’aide des [outils de migration Azure Cosmos DB](cosmosdb-migrationchoices.md). Vous pouvez activer Synapse Link sur les comptes Azure Cosmos DB, nouveaux comme existants.
 
 * L’accès au magasin analytique Azure Cosmos DB avec Synapse SQL serverless est actuellement en préversion contrôlée. Pour demander l’accès, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+* Dans la préversion, la sauvegarde et la restauration des conteneurs ne sont pas prises en charge pour les comptes de base de données Synapse Link. Si vous avez des charges de travail qui nécessitent des fonctionnalités de sauvegarde et de restauration, nous vous recommandons de ne pas activer Synapse Link dans ces comptes de base de données. 
 
 * L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement.
 

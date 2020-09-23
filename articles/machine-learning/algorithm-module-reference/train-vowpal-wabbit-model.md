@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857708"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907801"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Entraîner un modèle Vowpal Wabbit
-Cet article explique comment utiliser le module **Train Vowpal Wabbit Model** (Entraîner un modèle Vowpal Wabbit) dans le concepteur Azure Machine Learning (préversion) pour créer un modèle Machine Learning à l’aide de Vowpal Wabbit.  
+Cet article explique comment utiliser le module **Train Vowpal Wabbit Model** (Entraîner un modèle Vowpal Wabbit) dans le concepteur Azure Machine Learning pour créer un modèle Machine Learning à l’aide de Vowpal Wabbit.  
 
 Si vous souhaitez utiliser Vowpal Wabbit pour le machine learning, formatez votre entrée conformément aux exigences de Vowpal Wabbit, et préparez les données au format nécessaire. Utilisez ce module pour spécifier les arguments de ligne de commande de Vowpal Wabbit. 
 
