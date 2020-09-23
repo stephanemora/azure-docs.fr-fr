@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: da84fee4e974f02f29dc9006fe740c415632ae53
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181156"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029016"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 | Exemple | Description |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Un exemple iOS dans Swift qui authentifie les utilisateurs Azure AD B2C et appelle une API à l’aide d’OAuth 2.0 |
-| [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | Une application Android simple expliquant comment utiliser MSAL pour authentifier les utilisateurs via Azure Active Directory B2C et accéder à une API web avec les jetons générés. |
+| [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | Une application Android simple expliquant comment utiliser MSAL pour authentifier les utilisateurs via Azure Active Directory B2C et accéder à une API web avec les jetons générés. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | Un exemple qui montre comment vous pouvez utiliser une bibliothèque tierce pour générer une application iOS en Objective-C qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité Azure AD B2C. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | Un exemple qui montre comment vous pouvez utiliser une bibliothèque tierce pour générer une application Android qui authentifie les utilisateurs d’identités Microsoft auprès de notre service d’identité B2C et qui appelle une API web à l’aide de jetons d’accès OAuth 2.0. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Un exemple qui montre comment une application .NET de bureau Windows (WPF) peut connecter un utilisateur à l’aide d’Azure AD B2C, récupérer un jeton d’accès à l’aide de MSAL.NET et appeler une API. |

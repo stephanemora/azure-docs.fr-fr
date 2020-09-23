@@ -1,6 +1,6 @@
 ---
-title: Superviser votre appareil Azure Stack Edge | Microsoft Docs
-description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour superviser votre appareil Azure Stack Edge.
+title: Surveiller votre appareil Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour surveiller votre appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339550"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904408"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Superviser votre appareil Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Surveiller votre appareil Azure Stack Edge Pro
 
-Cet article explique comment superviser votre appareil Azure Stack Edge. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
+Cet article explique comment surveiller votre appareil Azure Stack Edge Pro. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
 
 Dans cet article, vous apprendrez comment :
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895813"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 ---
@@ -35,8 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour parcourir les fonctionnalités traitées dans ce tutoriel, vous devez avoir accès au niveau tarifaire standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement.
-Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) vous guide dans la mise à niveau vers le plan Standard.
+Pour parcourir les fonctionnalités couvertes dans ce tutoriel, [Azure Defender](azure-defender.md) doit être activé. Vous pouvez essayer gratuitement Azure Defender pendant 30 jours.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
 
@@ -72,13 +71,13 @@ Compte tenu des informations figurant dans le tableau de bord Conformité avec l
 
 1.  Vous pouvez sélectionner une ressource particulière pour voir plus de détails et suivre la recommandation associée à cette ressource. <br>Par exemple, sous l’onglet de la norme **Azure CIS**, vous pouvez cliquer sur la recommandation **Exiger un transfert sécurisé au compte de stockage**.
 
-    ![recommandation de conformité](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Sélection de la recommandation **Exiger un transfert sécurisé vers le compte de stockage**](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. Quand vous cliquez pour accéder aux informations de la recommandation et sélectionnez une ressource non intègre, vous accédez directement à l’expérience d’activation **du transfert sécurisé vers le stockage** au sein du portail Azure.
 
     Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-    ![recommandation de conformité](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Configuration du compte de stockage](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  Quand vous prenez des mesures pour résoudre les recommandations, vous pouvez constater une amélioration de votre score de conformité dans le rapport du tableau de bord de conformité.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e6763633ce27c537f1384e8e51020d44132c0377
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120930"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469845"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Contrôle de version de modèle dans l’API Analyse de texte
 
@@ -44,13 +44,10 @@ Le conteneur [Analyse de texte pour l’intégrité](../how-tos/text-analytics-f
 
 | Point de terminaison                        | Étiquette de l’image conteneur                     | Version du modèle |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.013150001-amd64-preview` ou la plus récente | `2020-07-24`  |
+| `/entities/health`               | `1.1.013150001-amd64-preview` ou la plus récente | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
-| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
-
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,12 +3,12 @@ title: Configurer une liaison privée
 description: Configurez un point de terminaison privé sur un registre de conteneurs et activez l’accès sur une liaison privée dans un réseau virtuel local. L’accès à la liaison privée est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f21ea0db8d5aff306f2476e8f24191f60b532f34
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298230"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488743"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link
 
@@ -17,13 +17,9 @@ Limitez l’accès à un registre en attribuant des adresses IP privées de ré
 
 Vous pouvez [configurer des paramètres DNS](../private-link/private-endpoint-overview.md#dns-configuration) pour les points de terminaison privés du registre afin que les paramètres résolvent l’adresse IP privée allouée au registre. Avec la configuration DNS, les clients et les services du réseau peuvent continuer à accéder au registre avec le nom de domaine complet du registre, tel que *myregistry.azurecr.io*. 
 
-Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
+Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Actuellement, un maximum de dix points de terminaison privés peuvent être configurés pour un registre. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
 
-
-## <a name="things-to-know"></a>À savoir
-
-* À l’heure actuelle, l’analyse d’images avec Azure Security Center n’est pas disponible dans un registre configuré avec un point de terminaison privé.
-* Actuellement, un maximum de dix points de terminaison privés peuvent être configurés pour un registre.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

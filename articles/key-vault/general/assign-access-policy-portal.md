@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9fd2df1af3a9f15ca8a53a0094734188dd30bf1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380409"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481407"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur la création de groupes dans Azure Active Directo
 
     ![Sélection du principal du service pour la stratégie d’accès](../media/authentication/assign-policy-portal-03.png)
 
-    Si vous utilisez une identité managée pour l’application, recherchez et sélectionnez le nom de l’application (pour plus d’informations sur l’identité managée et les principaux de service, consultez [Authentification du coffre de clés – Identité d’application et principaux de service](authentication.md#app-identity-and-service-principals)).
+    Si vous utilisez une identité managée pour l’application, recherchez et sélectionnez le nom de l’application (pour plus d’informations sur l’identité managée et les principaux de service, consultez [Authentification du coffre de clés – Identité d’application et principaux de service](authentication.md#app-identity-and-security-principals)).
  
 1.  De retour dans le volet **Ajouter une stratégie d’accès**, sélectionnez **Ajouter** pour enregistrer la stratégie d’accès.
 

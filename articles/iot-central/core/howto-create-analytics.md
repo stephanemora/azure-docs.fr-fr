@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8f329b6377915a3df6e3f3e212cbd8d41f9ed80d
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147277"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017658"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Guide pratique pour utiliser une analytique permettant d’analyser les données des appareils
 
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
-
-
 
 Azure IoT Central fournit des fonctionnalités d’analyse enrichies pour analyser les tendances historiques et mettre en corrélation différentes données de télémétrie de vos appareils. Pour commencer, accédez à la zone **Analytique** du volet de gauche.
 

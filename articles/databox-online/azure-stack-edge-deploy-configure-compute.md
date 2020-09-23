@@ -1,6 +1,6 @@
 ---
-title: Tutoriel pour filtrer et analyser des données avec le rôle de calcul sur Azure Stack Edge | Microsoft Docs
-description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge et l’utiliser pour transformer des données avant de les envoyer à Azure.
+title: Tutoriel pour filtrer et analyser des données avec le rôle de calcul sur Azure Stack Edge Pro | Microsoft Docs
+description: Découvrez comment configurer le rôle de calcul sur Azure Stack Edge Pro et l’utiliser pour transformer des données avant de les envoyer à Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83774066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904581"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge"></a>Tutoriel : Transformer des données avec Azure Stack Edge
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro
 
-Ce tutoriel explique comment configurer un rôle de calcul sur votre appareil Azure Stack Edge. Une fois que vous avez configuré le rôle de calcul, Azure Stack Edge peut transformer des données avant de les envoyer à Azure.
+Ce tutoriel explique comment configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro. Une fois que vous avez configuré le rôle de calcul, Azure Stack Edge Pro peut transformer des données avant de les envoyer à Azure.
 
 Cette procédure peut prendre environ 10 à 15 minutes.
 
@@ -33,14 +33,14 @@ Dans ce tutoriel, vous allez apprendre à :
  
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge, vérifiez que :
+Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, vérifiez que :
 
-- Vous avez activé votre appareil Azure Stack Edge, comme décrit dans [Connecter, configurer et activer Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Vous avez activé votre appareil Azure Stack Edge Pro, comme décrit dans [Connecter, configurer et activer Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurer le calcul
 
-Pour configurer le calcul sur votre appareil Azure Stack Edge, vous allez créer une ressource IoT Hub.
+Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
 
 1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à la Vue d’ensemble. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
 
@@ -62,7 +62,7 @@ Pour configurer le calcul sur votre appareil Azure Stack Edge, vous allez créer
     ![Bien démarrer avec le calcul](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
-    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que le hub IOT soit associé à l’appareil Azure Stack Edge, le hub IOT est créé mais n’est pas affiché dans la configuration de calcul. 
+    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que l’instance IoT Hub soit associée à l’appareil Azure Stack Edge Pro, l’instance IoT Hub est créée mais n’est pas affichée dans la configuration de calcul. 
     
     Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
 
@@ -101,9 +101,9 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 
 ## <a name="add-a-module"></a>Ajouter un module
 
-Vous pouvez ajouter un module prédéfini ou personnalisé. Il n’existe aucun module personnalisé sur cet appareil Edge. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Vous pouvez ajouter un module prédéfini ou personnalisé. Il n’existe aucun module personnalisé sur cet appareil Edge. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
+Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
 1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules**, sélectionnez le type de scénario **Simple**. Sélectionnez **Ajouter**.
 2. Dans le panneau **Configurer et ajouter un module**, entrez les valeurs suivantes :
@@ -111,7 +111,7 @@ Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edg
     
     |Champ  |Valeur  |
     |---------|---------|
-    |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur un appareil IoT Edge associé à votre Azure Stack Edge.        |
+    |Nom     | Nom unique pour le module. Ce module est un conteneur Docker que vous pouvez déployer sur un appareil IoT Edge associé à votre Azure Stack Edge Pro.        |
     |URI d’image     | URI d’image de l’image conteneur associée pour le module.        |
     |Informations d’identification obligatoires     | Si cette case est cochée, le nom d’utilisateur et le mot de passe sont utilisés pour récupérer les modules avec une URL correspondante.        |
     |Partage d’entrée     | Sélectionnez un partage d’entrée. Dans ce cas, le partage local Edge est le partage d’entrée. Le module utilisé ici déplace les fichiers depuis le partage local Edge vers un partage Edge où ils sont chargés sur le cloud.        |
@@ -165,7 +165,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Ajouter un module de calcul
 > * Vérifier la transformation des données et transférer
 
-Pour savoir comment gérer votre appareil Azure Stack Edge, consultez :
+Pour savoir comment gérer votre appareil Azure Stack Edge Pro, consultez :
 
 > [!div class="nextstepaction"]
-> [Administrer un appareil Azure Stack Edge avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Administrer un appareil Azure Stack Edge Pro avec l’interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)

@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783329"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460794"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -47,7 +47,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Lorsque vous supprimez un membre d’une équipe, il est également supprimé du groupe Microsoft 365. La suppression de la fonctionnalité de conversation de l’équipe peut être retardée. Pour plus d’informations, consultez l’article [Appartenance au groupe](/microsoftteams/office-365-groups#group-membership).
 
-* Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Vérifiez que votre annuaire n’est pas en configuration multigéographique. Actuellement, la gestion des droits d’utilisation ne prend pas en charge les emplacements multigéographiques pour SharePoint Online. Les sites SharePoint Online doivent se trouver à l’emplacement géographique par défaut pour être régis par la gestion des droits d’utilisation. Pour plus d’informations, voir [Fonctionnalités multigéographiques dans OneDrive et SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Packages d’accès
 

@@ -1,6 +1,6 @@
 ---
-title: Limites d’Azure Stack Edge | Microsoft Docs
-description: Découvrez les limites et les tailles recommandées lorsque vous déployez et exploitez Azure Stack Edge, notamment les limites de service, les limites d’appareil et les limites de stockage.
+title: Limites d’Azure Stack Edge Pro | Microsoft Docs
+description: Découvrez les limites et les tailles recommandées lorsque vous déployez et exploitez Azure Stack Edge Pro, notamment les limites de service, les limites d’appareil et les limites de stockage.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079810"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904456"
 ---
-# <a name="azure-stack-edge-limits"></a>Limites Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Limites d’Azure Stack Edge Pro
 
-Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Stack Edge. 
+Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Stack Edge Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limites du service Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Limites de l’appareil Azure Stack
+## <a name="azure-stack-edge-device-limits"></a>Limites de l’appareil Azure Stack Edge
 
-Le tableau suivant décrit les limites de l’appareil Azure Stack Edge. 
+Le tableau suivant décrit les limites de l’appareil Azure Stack Edge Pro. 
 
 | Description | Valeur |
 |---|---|
@@ -53,4 +53,4 @@ Le tableau suivant décrit les limites de l’appareil Azure Stack Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Préparer le déploiement d’Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Préparer le déploiement d’Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

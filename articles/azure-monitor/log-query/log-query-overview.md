@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539599"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033164"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.
@@ -38,10 +38,7 @@ Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-
 Consultez [Différences propres au langage de requête de journal d'Azure Monitor](data-explorer-difference.md) pour découvrir les différences mineures dans la version de KQL utilisée par Azure Monitor.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Quelles sont les données disponibles pour les requêtes de journal ?
-Toutes les données collectées dans Azure Monitor Logs sont disponibles pour récupération et analyse par les requêtes de journal. Différentes sources de données écriront leurs données dans différentes tables, mais vous pouvez inclure plusieurs tables dans une seule requête pour analyser les données entre plusieurs sources. Lorsque vous générez une requête, vous commencez par déterminer les tables comportant les données que vous recherchez ; vous devez donc avoir au moins une connaissance élémentaire de la structure des données dans Azure Monitor Logs.
-
-Consultez [Sources d’Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs) pour une liste des différentes sources de données qui remplissent Azure Monitor Logs.<br>
-Consultez [Structure d’Azure Monitor Logs](logs-structure.md) pour une explication de la façon dont les données sont structurées.
+Toutes les données collectées dans Azure Monitor Logs sont disponibles pour récupération et analyse par les requêtes de journal. Différentes sources de données écriront leurs données dans différentes tables, mais vous pouvez inclure plusieurs tables dans une seule requête pour analyser les données entre plusieurs sources. Quand vous générez une requête, commencez par déterminer les tables où figurent les données que vous recherchez. Consultez [Structure d’Azure Monitor Logs](logs-structure.md) pour une explication de la façon dont les données sont structurées.
 
 ## <a name="what-does-a-log-query-look-like"></a>À quoi ressemble une requête de journal ?
 Une requête peut être aussi simple qu’un seul nom de table pour récupérer tous les enregistrements de cette table :

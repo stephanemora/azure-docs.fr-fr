@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269844"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490069"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Lors de la réception de données dans une table, si la table cible n’existe p
 
 ### <a name="prerequisites-for-sql-source"></a>Conditions préalables pour une source SQL
 
-* Une base de données Azure SQL ou un entrepôt de données Azure Synapse Analytics (antérieurement Azure SQL Data Warehouse) avec des tables et des vues que vous voulez partager.
+* Instance Azure SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse) avec les tables et les vues que vous voulez partager.
 * Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur.
 * Autorisation pour l’accès du partage de données à l’entrepôt de données. Pour ce faire, procédez comme suit : 
     1. Définissez-vous comme administrateur Azure Active Directory pour le serveur SQL Server.
@@ -150,7 +150,7 @@ Si vous choisissez de recevoir des données dans le service Stockage Azure, vous
 Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synapse Analytics, vous trouverez ci-dessous la liste des conditions préalables.
 
 * Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle Contributeur. 
-* Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à la base de données Azure SQL ou à l’entrepôt de données Azure SQL. Pour ce faire, procédez comme suit : 
+* Autorisation permettant à l’identité managée de la ressource de partage de données d’accéder à Azure SQL Database ou à Azure Synapse Analytics. Pour ce faire, procédez comme suit : 
     1. Définissez-vous comme administrateur Azure Active Directory pour le serveur SQL Server.
     1. Connectez-vous à la base de données ou à l’entrepôt de données Azure SQL avec Azure Active Directory.
     1. Utilisez l’Éditeur de requêtes (préversion) pour exécuter le script suivant afin d’ajouter l’identité managée Data Share en tant que « db_datareader, db_datawriter, db_ddladmin ». Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
