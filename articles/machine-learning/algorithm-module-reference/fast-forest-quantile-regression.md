@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87094482"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907953"
 ---
 # <a name="fast-forest-quantile-regression"></a>Régression quantile de forêt rapide
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning.
 
 Utilisez ce module pour créer un modèle de régression de quantile de forêt rapide dans un pipeline. Une régression quantile de forêt rapide est utile si vous souhaitez mieux comprendre la distribution de la valeur prédite, au lieu d'obtenir une seule valeur de prédiction moyenne. Cette méthode a de nombreuses applications, notamment :  
   
@@ -32,7 +32,7 @@ Cet algorithme de régression est un une méthode d’apprentissage **supervisé
 
 ## <a name="more-about-quantile-regression"></a>En savoir plus sur la régression quantile
 
-Il existe de nombreux types de régressions différents. La régression revient essentiellement à ajuster un modèle à une cible exprimée comme un vecteur numérique. Toutefois, les statisticiens ont développé des méthodes de régression de plus en plus avancées.
+Il existe de nombreux types de régressions différents. En bref, la régression revient à ajuster un modèle à une cible exprimée comme un vecteur numérique. Toutefois, les statisticiens ont développé des méthodes de régression de plus en plus avancées.
 
 Au sens le plus simple du terme, un *quantile* est une valeur qui divise un jeu de données en groupes de taille égale, les valeurs de quantile marquant les limites entre les groupes. Sur le plan statistique, les quantiles sont des valeurs extraites à intervalles réguliers à partir de l'inverse de la fonction de distribution cumulative d'une variable aléatoire.
 

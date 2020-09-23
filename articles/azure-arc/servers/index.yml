@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Serveurs Azure Arc (préversion)
-summary: Serveurs Azure Arc
+title: Serveurs avec Azure Arc
+summary: Serveurs avec Azure Arc
 metadata:
-  title: Serveurs Azure Arc
+  title: Serveurs avec Azure Arc
   description: Découvrir plus d’informations sur la gestion des machines locales dans Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763759"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908109"
 landingContent:
 - title: Connecter des machines à Azure en utilisant des serveurs avec Azure Arc
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     links:
     - text: Qu’est-ce qu’un serveur avec Azure Arc ?
       url: overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
     - text: Connecter des ordinateurs à Azure Arc depuis le portail Azure
       url: onboard-portal.md
@@ -30,3 +30,9 @@ landingContent:
       url: onboard-service-principal.md
     - text: Connecter des ordinateurs à Azure avec PowerShell DSC
       url: onboard-dsc.md
+- title: Guides de démarrage rapide de 10 minutes
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Déployer l’agent des serveurs avec Arc
+      url: ./learn/quick-enable-hybrid-vm.md

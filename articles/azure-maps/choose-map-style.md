@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036791"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089562"
 ---
 # <a name="change-the-style-of-the-map"></a>Changer le style de la carte
 
@@ -82,7 +82,7 @@ Le style de la carte de base peut être mis à jour à l’aide de la fonction `
 map.setStyle({ style: 'satellite' });
 ```
 
-Dans le code suivant, après le chargement d’une instance de carte, le style de carte est mis à jour de `grayscale_dark` en `satellite` à l’aide de la fonction [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-).
+Dans le code suivant, après le chargement d’une instance de carte, le style de carte est mis à jour de `grayscale_dark` en `satellite` à l’aide de la fonction [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-).
 
 <br/>
 
@@ -97,14 +97,14 @@ Le sélecteur de styles propose deux options de disposition distinctes : `icon`
 
 L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposition `icon`.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Disposition de la liste du sélecteur de styles":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Disposition des icônes du sélecteur de styles":::
 
 L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposition `list`.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Disposition de la liste du sélecteur de styles":::
 
 > [!IMPORTANT]
->Par défaut, le contrôle du sélecteur de styles répertorie tous les styles disponibles sous le niveau tarifaire S0 d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez S1 et que vous voulez afficher tous les styles disponibles, affectez à l’option `mapStyles` du sélecteur de styles la valeur `"all"`.
+> Par défaut, le contrôle du sélecteur de styles répertorie tous les styles disponibles sous le niveau tarifaire S0 d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez S1 et que vous voulez afficher tous les styles disponibles, affectez à l’option `mapStyles` du sélecteur de styles la valeur `"all"`.
 
 Le code suivant montre comment remplacer la liste de styles de base `mapStyles` par défaut. Dans cet exemple, nous définissons l’option `mapStyles` pour répertorier les styles de base que le contrôle du sélecteur de styles doit afficher.
 

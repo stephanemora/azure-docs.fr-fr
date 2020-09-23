@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652098"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886386"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -78,8 +78,6 @@ Pendant l’entraînement, Azure Machine Learning crée un certain nombre de pip
 
    * Si vous disposez d’une expérience limitée ou inexistante en programmation, essayez l’expérience web Azure Machine Learning Studio sur [https://ml.azure.com](https://ml.azure.com/).  
    * Pour les développeurs Python, consultez le [SDK Python Azure Machine Learning](how-to-configure-auto-train.md). 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Spécifier la source et le format des données d’apprentissage étiquetées** : tableaux NumPy ou cadre de données Pandas.
 
@@ -172,25 +170,25 @@ Tenez compte des avantages et des inconvénients suivants lorsque au moment de c
 
 ### <a name="feature-availability"></a>Disponibilité des fonctionnalités 
 
- D’autres fonctionnalités sont disponibles lorsque vous utilisez le calcul distant, comme indiqué dans le tableau ci-dessous. Certaines de ces fonctionnalités sont disponibles uniquement dans un espace de travail d’entreprise.
+ D’autres fonctionnalités sont disponibles lorsque vous utilisez le calcul distant, comme indiqué dans le tableau ci-dessous. 
 
-| Fonctionnalité                                                    | Remote | Local | Nécessite <br>Espace de travail d’entreprise |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Streaming de données (prise en charge de données volumineuses jusqu’à 100 Go)          | ✓      |       | ✓                             |
-| Caractérisation de texte et apprentissage basés sur DNN-BERT             | ✓      |       | ✓                             |
-| Prise en charge de GPU prêt à l’emploi (apprentissage et inférence)        | ✓      |       | ✓                             |
-| Prise en charge de la classification d’image et de l’étiquetage                  | ✓      |       | ✓                             |
-| Modèles auto-ARIMA, Prophet et ForecastTCN pour les prévisions | ✓      |       | ✓                             |
-| Exécutions/itérations multiples en parallèle                       | ✓      |       | ✓                             |
-| Créer des modèles avec interprétabilité dans l’interface utilisateur de l’expérience web du studio AutoML      | ✓      |       | ✓                             |
-| Personnalisation de l’ingénierie des fonctionnalités dans l’interface utilisateur de l’expérience web du studio                        | ✓      |       | ✓                              |
-| Optimisation des hyperparamètres d’Azure Machine Learning                             | ✓      |       |                               |
-| Prise en charge des flux de travail du pipeline Azure Machine Learning                         | ✓      |       |                               |
-| Continuer une exécution                                             | ✓      |       |                               |
-| Prévisions                                                | ✓      | ✓     | ✓                             |
-| Créer et exécuter des expériences dans des blocs-notes                    | ✓      | ✓     |                               |
-| Inscrire et visualiser les informations et les métriques de l’expérience dans l’interface utilisateur | ✓      | ✓     |                               |
-| Garde-fous des données                                            | ✓      | ✓     |                               |
+| Fonctionnalité                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming de données (prise en charge de données volumineuses jusqu’à 100 Go)          | ✓      |       | 
+| Caractérisation de texte et apprentissage basés sur DNN-BERT             | ✓      |       |
+| Prise en charge de GPU prêt à l’emploi (apprentissage et inférence)        | ✓      |       |
+| Prise en charge de la classification d’image et de l’étiquetage                  | ✓      |       |
+| Modèles auto-ARIMA, Prophet et ForecastTCN pour les prévisions | ✓      |       | 
+| Exécutions/itérations multiples en parallèle                       | ✓      |       |
+| Créer des modèles avec interprétabilité dans l’interface utilisateur de l’expérience web du studio AutoML      | ✓      |       |
+| Personnalisation de l’ingénierie des fonctionnalités dans l’interface utilisateur de l’expérience web du studio| ✓      |       |
+| Optimisation des hyperparamètres d’Azure Machine Learning                             | ✓      |       |
+| Prise en charge des flux de travail du pipeline Azure Machine Learning                         | ✓      |       |
+| Continuer une exécution                                             | ✓      |       |
+| Prévisions                                                | ✓      | ✓     |
+| Créer et exécuter des expériences dans des blocs-notes                    | ✓      | ✓     |
+| Inscrire et visualiser les informations et les métriques de l’expérience dans l’interface utilisateur | ✓      | ✓     |
+| Garde-fous des données                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Nombreux modèles 
 
@@ -204,9 +202,9 @@ Par exemple, la création d’un modèle __pour chaque instance ou chaque indivi
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML dans Azure Machine Learning
 
-Azure Machine Learning offre deux expériences pour utiliser le machine learning automatisé
+Azure Machine Learning offre deux expériences pour utiliser le machine learning automatisé :
 
-* Pour les clients expérimentés en programmation, [SDK Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* Pour les clients expérimentés en programmation, [SDK Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * Pour les clients avec une expérience limitée ou inexistante en programmation, Azure Machine Learning Studio sur [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,9 +287,9 @@ Des articles de guide pratique fournissent des détails supplémentaires sur les
 
 Passez en revue les exemples de code détaillé et les cas d’usage disponibles dans le [dépôt GitHub d’exemples de blocs-notes pour le Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
-### <a name="python-sdk-reference"></a>Référence du Kit de développement logiciel (SDK) Python 
+### <a name="python-sdk-reference"></a>Référence du Kit de développement logiciel (SDK) Python
 
-Approfondissez votre expertise des modèles de conception de Kit de développement logiciel (SDK) et des spécifications de classe avec la [documentation de référence sur la classe AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+Approfondissez votre expertise des modèles de conception de Kit de développement logiciel (SDK) et des spécifications de classe avec la [documentation de référence sur la classe AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
 
 > [!Note]
 > Des fonctionnalités de machine learning automatisé sont également disponible dans d’autres solutions Microsoft telles que [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) et [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

@@ -3,12 +3,12 @@ title: Configurer un conteneur Linux personnalisé
 description: Découvrez comment configurer un conteneur Linux personnalisé dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082780"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566974"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -147,6 +147,7 @@ La fonctionnalité multiconteneurs est actuellement en préversion. Les fonction
 
 - Authentification / Autorisation
 - Identités managées
+- CORS
 
 ### <a name="docker-compose-options"></a>Options Docker Compose
 
