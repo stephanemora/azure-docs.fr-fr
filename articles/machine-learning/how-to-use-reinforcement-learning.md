@@ -10,16 +10,16 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d3a7b04e6169df21ad30017b72f70ff667429b23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902374"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > L’apprentissage par renforcement Azure Machine Learning est actuellement une fonctionnalité en préversion. Seules les infrastructures Ray et RLlib sont prises en charge pour l’instant.
@@ -49,8 +49,8 @@ Exécutez ce code dans l’un des environnements suivants. Nous vous recommandon
  
  - Votre propre serveur de notebooks Jupyter
 
-    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py) : `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installez le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Installez le [Kit de développement logiciel (SDK) d’apprentissage par renforcement d’Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true) : `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Créer un [fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
     - Exécutez le [bloc-notes de configuration](https://aka.ms/azure-rl-env-setup) du réseau virtuel pour ouvrir les ports réseau utilisés pour l’apprentissage par renforcement distribué.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Créer une expérience d’apprentissage par renforcement
 
-Créez une [expérience](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
+Créez une [expérience](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) pour suivre votre apprentissage par renforcement. Dans Azure Machine Learning, les expériences sont des collections logiques d’essais associés pour organiser des journaux d’exécution, un historique, des résultats et bien plus encore.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Créer un estimateur d’apprentissage par renforcement
 
-Cette section explique comment à utiliser l’[estimateur d’apprentissage par renforcement](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) pour soumettre un travail d’apprentissage à Azure Machine Learning.
+Cette section explique comment à utiliser l’[estimateur d’apprentissage par renforcement](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) pour soumettre un travail d’apprentissage à Azure Machine Learning.
 
 Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier facilement comment configurer l’exécution d’un script. Pour plus d’informations sur le modèle d’estimateur Azure Machine Learning, consultez [Comment former des modèles à l’aide d’estimateurs](how-to-train-ml-models.md).
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) gère l’historique des exécutions des travaux en cours ou terminés. 
+[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) gère l’historique des exécutions des travaux en cours ou terminés. 
 
 ```python
 run = exp.submit(config=rl_estimator)

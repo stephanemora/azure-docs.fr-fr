@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860398"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892978"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parité du cloud souverain Azure Machine Learning
 
@@ -49,9 +49,9 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Créer des points de terminaison de pipeline à l’aide du kit de développement logiciel (SDK) Azure Machine Learning                           | GA                   | YES                | YES         |
 | Créer, modifier et supprimer des séries planifiées de pipelines à l’aide du kit de développement logiciel (SDK) Azure Machine Learning | GA                   | OUI*               | OUI*        |
 | Afficher les détails de l’exécution du pipeline dans Studio                                        | GA                   | YES                | YES         |
-| Créer, exécuter, visualiser et publier des pipelines dans le concepteur Azure Machine Learning          | Version préliminaire publique       | YES                | YES         |
+| Créer, exécuter, visualiser et publier des pipelines dans le concepteur Azure Machine Learning          | GA      | YES                | YES         |
 | Intégration avec Azure Databricks à l’aide d’un pipeline ML                             | GA                   | Non                 | Non          |
-| Créer des points de terminaison de pipeline dans le concepteur Azure Machine Learning                             | Version préliminaire publique       | YES                | YES         |
+| Créer des points de terminaison de pipeline dans le concepteur Azure Machine Learning                             | GA      | YES                | YES         |
 | **Notebooks intégrés** |   |  | | 
 | Notebook et partage de fichiers de l’espace de travail                                        | GA                   | YES                | YES         |
 | Prise en charge R et Python                                                       | GA                   | YES                | YES         |
@@ -136,7 +136,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 * Pour les instances de calcul Azure Machine Learning, la possibilité d’actualiser un jeton au-delà de 24 heures n’est pas disponible dans Azure Government.
 * Le profilage de modèle ne prend pas en charge 4 UC dans la région US-Arizona.   
 * Les exemples de notebooks peuvent ne pas fonctionner dans Azure Government s’il leur faut accéder à des données publiques.
-* Adresses IP : La commande CLI utilisée dans les instructions [VNet et tunneling forcé](how-to-enable-virtual-network.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063).
+* Adresses IP : La commande CLI utilisée dans les instructions [VNet et tunneling forcé](how-to-secure-training-vnet.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063).
 * Pour les pipelines planifiés, nous fournissons également un mécanisme de déclenchement basé sur un objet blob. Ce mécanisme n’est pas pris en charge pour les espaces de travail CMK. Pour activer un déclencheur basé sur un objet blob pour les espaces de travail CMK, vous devez effectuer une configuration supplémentaire. Pour plus d’informations, consultez [Déclencher l’exécution d’un pipeline Machine Learning à partir d’une application logique](how-to-trigger-published-pipeline.md).
 * Pare-feux : Lorsque vous utilisez une région Azure Government, ajoutez les hôtes supplémentaires suivants à votre paramètre de pare-feu :
 
@@ -162,9 +162,9 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Créer des points de terminaison de pipeline à l’aide du kit de développement logiciel (SDK) Azure Machine Learning                           | GA               | YES       | N/A        |
 | Créer, modifier et supprimer des séries planifiées de pipelines à l’aide du kit de développement logiciel (SDK) Azure Machine Learning | GA               | YES       | N/A        |
 | Afficher les détails de l’exécution du pipeline dans Studio                                        | GA               | YES       | N/A        |
-| Créer, exécuter, visualiser et publier des pipelines dans le concepteur Azure Machine Learning          | Version préliminaire publique   | YES       | N/A        |
+| Créer, exécuter, visualiser et publier des pipelines dans le concepteur Azure Machine Learning          | GA  | YES       | N/A        |
 | Intégration avec Azure Databricks à l’aide d’un pipeline ML                             | GA               | Non        | N/A        |
-| Créer des points de terminaison de pipeline dans le concepteur Azure Machine Learning                             | Version préliminaire publique   | YES       | N/A        |
+| Créer des points de terminaison de pipeline dans le concepteur Azure Machine Learning                             | GA   | YES       | N/A        |
 | **Notebooks intégrés** |   | | |
 | Notebook et partage de fichiers de l’espace de travail                                        | GA               | YES       | N/A        |
 | Prise en charge R et Python                                                       | GA               | YES       | N/A        |
@@ -236,7 +236,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Les exemples de notebooks peuvent ne pas fonctionner s’il leur faut accéder à des données publiques.
-* Plages d’adresse IP : La commande CLI utilisée dans les instructions [Tunneling forcé - VNet](how-to-enable-virtual-network.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062).
+* Plages d’adresse IP : La commande CLI utilisée dans les instructions [Tunneling forcé - VNet](how-to-secure-training-vnet.md#forced-tunneling) ne retourne pas de plages IP. Privilégiez les [plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062).
 * La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où Liaison privée est activé, mais CI sera pris en charge lors du prochain déploiement de l’extension de service dans toutes les régions AML.
 
 ## <a name="next-steps"></a>Étapes suivantes

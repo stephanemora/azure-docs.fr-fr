@@ -1,18 +1,18 @@
 ---
 title: Connecter des machines hybrides à Azure à grande échelle
-description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide d’un serveur avec Azure Arc (préversion) en utilisant un principal de service.
-ms.date: 07/23/2020
+description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs activés par Azure Arc en utilisant un principal de service.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 545d8abd6dd17e1e413852735c096ddc9261b972
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908334"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connecter des machines hybrides à Azure à grande échelle
 
-Vous pouvez activer un serveur avec Azure Arc (préversion) pour plusieurs ordinateurs Windows ou Linux dans votre environnement avec plusieurs options flexibles en fonction de vos besoins. À l’aide du modèle de script que nous fournissons, vous pouvez automatiser chaque étape de l’installation, y compris l’établissement de la connexion à Azure Arc. Toutefois, vous devez exécuter ce script de manière interactive avec un compte qui dispose d’autorisations élevées sur l’ordinateur cible et dans Azure. Pour connecter les ordinateurs à un serveur avec Azure Arc, vous pouvez utiliser un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory au lieu d’utiliser votre identité privilégiée pour [connecter l’ordinateur de manière interactive](onboard-portal.md). Un principal du service est une identité de gestion limitée spéciale qui ne dispose que de l’autorisation minimale nécessaire pour connecter des machines à Azure à l’aide de la commande `azcmagent`. Cela est plus sûr que d’utiliser un compte doté de privilèges plus élevés comme un Administrateur client et respecte nos meilleures pratiques en matière de sécurité du contrôle d’accès. Le principal de service est utilisé uniquement pendant l’intégration ; il n’est pas utilisé à d’autres fins.  
+Vous pouvez activer des serveurs activés par Azure Arc pour plusieurs ordinateurs Windows ou Linux dans votre environnement avec plusieurs options flexibles en fonction de vos besoins. À l’aide du modèle de script que nous fournissons, vous pouvez automatiser chaque étape de l’installation, y compris l’établissement de la connexion à Azure Arc. Toutefois, vous devez exécuter ce script de manière interactive avec un compte qui dispose d’autorisations élevées sur l’ordinateur cible et dans Azure. Pour connecter les ordinateurs à des serveur activés par Azure Arc, vous pouvez utiliser un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory au lieu d’utiliser votre identité privilégiée pour [connecter l’ordinateur de manière interactive](onboard-portal.md). Un principal du service est une identité de gestion limitée spéciale qui ne dispose que de l’autorisation minimale nécessaire pour connecter des machines à Azure à l’aide de la commande `azcmagent`. Cela est plus sûr que d’utiliser un compte doté de privilèges plus élevés comme un Administrateur client et respecte nos meilleures pratiques en matière de sécurité du contrôle d’accès. Le principal de service est utilisé uniquement pendant l’intégration ; il n’est pas utilisé à d’autres fins.  
 
 Les méthodes d’installation pour installer et configurer l’agent Connected Machine requièrent que la méthode automatisée que vous utilisez dispose des autorisations d’administrateur sur les ordinateurs. Vous utilisez le compte root sur Linux et un membre du groupe Administrateurs local sur Windows.
 
@@ -20,7 +20,7 @@ Avant de commencer, veillez à consulter les [conditions préalables](agent-over
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-À la fin de ce processus, vous aurez correctement connecté vos machines hybrides à un serveur avec Azure Arc.
+À la fin de ce processus, vous aurez correctement connecté vos machines hybrides à des serveurs activés par Azure Arc.
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Créer un principal de service pour une intégration à grande échelle
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
 
-Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte à un serveur avec Azure Arc (préversion), accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
+Une fois que vous avez installé l’agent et que vous l’avez configuré pour qu’il se connecte aux serveurs activés par Azure Arc, accédez au portail Azure pour vérifier que le serveur s’est correctement connecté. Affichez vos machines dans le [portail Azure](https://aka.ms/hybridmachineportal).
 
 ![Connexion au serveur réussie](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -141,4 +141,4 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 - Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
 
-- En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de solutions comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-intro.md).
+- Découvrez-en plus sur l’[[agent Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-intro.md).

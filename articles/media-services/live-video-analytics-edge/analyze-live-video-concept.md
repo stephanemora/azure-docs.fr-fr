@@ -3,12 +3,12 @@ title: 'Analyse de la vidéo en direct sans enregistrement : Azure'
 description: Un graphique multimédia peut être utilisé pour extraire les analyses d’un flux vidéo en direct, sans avoir à les enregistrer en périphérie ou dans le cloud en toute simplicité. Cet article aborde ce concept.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 29e00b9c04a652771ca150e2a45e980d20f8bc1f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260182"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893030"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analyse de la vidéo en direct sans enregistrement
 
@@ -25,19 +25,22 @@ Vous pouvez utiliser les graphiques multimédias pour analyser des vidéos en di
 
 Le graphique multimédia présenté ci-dessous se compose d’un nœud de [source RTSP](media-graph-concept.md#rtsp-source), d’un nœud de [processeur de détection de mouvement](media-graph-concept.md#motion-detection-processor) et d’un nœud [de réception de messages du hub IoT](media-graph-concept.md#iot-hub-message-sink). La représentation JSON de la topologie d’un tel graphique multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-detection/topology.json). Ce graphique vous permet de détecter le mouvement dans les flux vidéo en direct entrants et de transmettre les événements à d’autres applications et services via le nœud récepteur de messages du IoT Hub. Les applications ou services externes peuvent déclencher une alerte ou envoyer une notification aux personnes appropriées.
 
-![Analyse des vidéos en direct basée sur la détection de mouvement](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics basé sur la détection de mouvement":::
 
 ### <a name="analyzing-video-using-a-custom-vision-model"></a>Analyse de vidéos à l’aide d’un modèle Custom Vision 
 
 Le graphique multimédia présenté ci-dessous vous permet d’analyser un flux vidéo en direct à l’aide d’un modèle Custom Vision empaqueté dans un module distinct. La représentation JSON de la topologie d’un tel graphique multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json). Vous pouvez voir des exemples sur l’habillage des modèles dans des modules IoT Edge qui s’exécutent en tant que service d’inférence [ici](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis).
 
-![Analyse vidéo en direct basée sur un module d’inférence externe](./media/analyze-live-video/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Analyse vidéo en direct basée sur un module d’inférence externe":::
 
 Dans ce graphique multimédia, le nœud de processeur de filtre de fréquence d’images réduit la fréquence d’images du flux vidéo en direct entrant avant de l’envoyer à un nœud de [processeur d’extension HTTP](media-graph-concept.md#http-extension-processor), qui envoie des trames d’image (au format JPEG, BMP ou PNG) à un service d’inférence externe sur REST. Les résultats du service d’inférence externe sont récupérés par le nœud d’extension HTTP et relayés à IoT Edge Hub via le nœud de IoT Hub de réception des messages. Ce type de graphique multimédia peut être utilisé pour créer des solutions pour divers scénarios, tels que la compréhension de la distribution de séries chronologiques de véhicules à l’intersection, la compréhension du modèle de trafic des consommateurs dans un magasin de vente au détail, etc.
 
 Cet exemple peut être amélioré en utilisant un processeur de détecteur de mouvement avant le nœud de processeur de filtre de fréquence d’images. Cela réduira la charge sur le service d’inférence, car il est utilisé uniquement lorsqu’il y a une activité de mouvement dans la vidéo.
 
-![Analyse vidéo en direct basée sur les trames détectées par un module d’inférence externe](./media/analyze-live-video/motion-detected-frames.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Analyse vidéo en direct basée sur les trames détectées par un module d’inférence externe":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

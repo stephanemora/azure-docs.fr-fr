@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884342"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validation du chiffrement des données pour Azure Database pour PostgreSQL
 
@@ -37,7 +37,7 @@ Cet article vous aide à vérifier que le chiffrement des données à l’aide d
 
 2. Sur le portail Azure, si vous pouvez vous assurer que la clé de chiffrement est définie, les données sont chiffrées à l’aide de la clé du client utilisée dans le portail Azure.
 
-  ![Vue d’ensemble de la stratégie d’accès](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Vue d’ensemble de la stratégie d’accès":::
 
 ### <a name="from-cli"></a>À partir de l’interface CLI
 

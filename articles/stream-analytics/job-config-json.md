@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: 0676b987725a33049d9da3256bdd4e6dc8028d00
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885491"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Champs JobConfig.json Azure Stream Analytics
 
-Les champs suivants sont pris en charge dans le fichier *JobConfig.json* utilisé pour [créer une tâche Azure Stream Analytics avec Visual Studio Code](quick-create-vs-code.md).
+Les champs suivants sont pris en charge dans le fichier *JobConfig.json* utilisé pour [créer une tâche Azure Stream Analytics avec Visual Studio Code](quick-create-visual-studio-code.md).
 
 ```json
 {
@@ -55,7 +55,7 @@ Les champs suivants sont pris en charge dans le fichier *JobConfig.json* utilis�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-vs-code.md)
+* [Créer une tâche Azure Stream Analytics dans Visual Studio Code](quick-create-visual-studio-code.md)
 * [Tester des requêtes Stream Analytics localement avec des exemples de données à l’aide de Visual Studio Code](visual-studio-code-local-run.md)
 * [Tester des requêtes Stream Analytics localement par rapport à une entrée de stream en direct à l’aide de Visual Studio Code](visual-studio-code-local-run-live-input.md)
 *[Déployer une tâche Azure Stream Analytics à l’aide du package npm CI/CD](setup-cicd-vs-code.md)

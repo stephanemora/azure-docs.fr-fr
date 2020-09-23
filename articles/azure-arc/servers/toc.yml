@@ -47,12 +47,12 @@
       items:
         - name: Problèmes de connexion de l’agent
           href: troubleshoot-agent-onboard.md
-    - name: Référence
-      items:
-        - name: Disponibilité des régions et résidence des données
-          href: data-residency.md
-        - name: REST
-          href: /rest/api/hybridcompute
-        - name: Éléments intégrés Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: policy-reference.md
+- name: Référence
+  items:
+    - name: Résidence des données
+      href: data-residency.md
+    - name: REST
+      href: /rest/api/hybridcompute
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

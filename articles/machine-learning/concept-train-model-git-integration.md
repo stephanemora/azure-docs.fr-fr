@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 154d28e4df9bad68f3c5e93208ccf62ba2721663
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144819"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893548"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -70,12 +70,10 @@ Les informations Git sont stockées dans les propriétés d’une exécution d�
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail.
+1. Dans le [portail Studio](https://ml.azure.com), sélectionnez votre espace de travail.
 1. Sélectionnez __Expériences__, puis sélectionnez l’une de vos expériences.
 1. Sélectionnez l’une des exécutions dans la colonne __NUMÉRO D’EXÉCUTION__.
-1. Sélectionnez __Journaux__, puis développez les entrées __logs__ et __azureml__. Sélectionnez le lien qui commence par __###\_azure__.
-
-    ![Entrée ###_azure dans le portail](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Sélectionnez __Sorties + Journaux__, puis développez les entrées __logs__ (journaux) et __azureml__. Sélectionnez le lien qui commence par __###\_azure__.
 
 Les informations journalisées contiennent du texte similaire au code JSON suivant :
 
@@ -98,7 +96,7 @@ Les informations journalisées contiennent du texte similaire au code JSON suiva
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
-Après l’envoi d’une exécution d’entraînement, un objet [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) est retourné. L’attribut `properties` de cet objet contient les informations Git journalisées. Par exemple, le code suivant récupère le hachage de validation :
+Après l’envoi d’une exécution d’entraînement, un objet [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) est retourné. L’attribut `properties` de cet objet contient les informations Git journalisées. Par exemple, le code suivant récupère le hachage de validation :
 
 ```python
 run.properties['azureml.git.commit']
