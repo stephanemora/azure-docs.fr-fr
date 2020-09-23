@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890264"
 ---
 # <a name="split-image-directory"></a>Diviser un répertoire d’images
 
-Cette rubrique explique comment utiliser le module Diviser un répertoire d’images dans Azure Machine Learning Designer (préversion) pour diviser les images d’un répertoire d’images en deux jeux distincts.
+Cette rubrique explique comment utiliser le module Diviser un répertoire d’images dans Azure Machine Learning Designer pour diviser les images d’un répertoire d’images en deux jeux distincts.
 
 Ce module est particulièrement utile quand vous devez séparer des données d’image en jeux de formation et de test. 
 

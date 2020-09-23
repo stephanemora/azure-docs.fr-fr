@@ -3,16 +3,17 @@ title: Mode rafale des disques managés
 description: Découvrez le mode rafale des disques pour les disques Azure et le mode rafale des disques pour les machines virtuelles Azure
 author: albecker1
 ms.author: albecker
-ms.date: 04/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: references_regions
+ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889109"
 ---
 # <a name="disk-bursting"></a>Mode rafale des disques
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -20,6 +21,10 @@ ms.locfileid: "82594409"
 ## <a name="virtual-machine-level-bursting"></a>Mode rafale au niveau des machines virtuelles
 La prise en charge du mode rafale au niveau des machines virtuelles est activée dans toutes les régions du cloud public sur les tailles prises en charge suivantes : 
 - [Série Lsv2](../lsv2-series.md)
+
+Le mode rafale au niveau des machines virtuelles est également disponible dans USA Centre-Ouest pour les tailles prises en charge suivantes :
+- [Dsv3-series](../dv3-dsv3-series.md)
+- [Série Esv3](../ev3-esv3-series.md)
 
 Le mode rafale est activé par défaut pour les machines virtuelles qui le prennent en charge.
 

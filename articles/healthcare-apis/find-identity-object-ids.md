@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 5b42d61d59a3c816c3b664297470cfbf91f17439
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851764"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033623"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Rechercher des ID d’objet d’identité pour la configuration de l’authentification
 
@@ -21,16 +21,16 @@ Cet article explique comment rechercher des ID d’objet d’identité requis lo
 
 ## <a name="find-user-object-id"></a>Rechercher un ID d’objet d’utilisateur
 
-Si vous avez un utilisateur avec le nom d’utilisateur `myuser@consoso.com`, vous pouvez localiser les utilisateurs `ObjectId` à l’aide de la commande PowerShell suivante :
+Si vous avez un utilisateur avec le nom d’utilisateur `myuser@contoso.com`, vous pouvez localiser les utilisateurs `ObjectId` à l’aide de la commande PowerShell suivante :
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 ou vous pouvez utiliser l’interface de ligne de commande Azure :
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## <a name="find-service-principal-object-id"></a>Rechercher un ID d’objet de principal de service

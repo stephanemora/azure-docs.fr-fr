@@ -95,6 +95,10 @@
       items:
         - name: "Qu’est-ce que Edge Zones\_?"
           href: ../networking/edge-zones-overview.md
+    - name: Documentation Azure Orbital
+      items:
+        - name: Présentation d’Azure Orbital
+          href: ../networking/azure-orbital-overview.md
 - name: Récupération d’urgence
   items:
     - name: Utiliser Azure Site Recovery

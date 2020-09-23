@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890169"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Options d’ingestion des données pour les workflows Azure Machine Learning
 
@@ -25,7 +25,7 @@ Dans cet article, découvrez les avantages et les inconvénients des options d�
 Choisissez parmi :
 + Les pipelines [Azure Data Factory](#azure-data-factory), conçus spécifiquement pour extraire, charger et transformer des données.
 
-+ Le [SDK Python Azure Machine Learning](#azure-machine-learning-python-sdk) qui fournit une solution de code personnalisée pour les tâches de base liées à l’ingestion des données.
++ Le [SDK Python Azure Machine Learning](#azure-machine-learning-python-sdk) qui fournit une solution de code personnalisée pour les tâches liées à l’ingestion des données.
 
 + Une combinaison des deux.
 
@@ -70,7 +70,7 @@ Configure vos propres scripts Python. | Ne prend pas en charge le déclenchement
 Prépare les données dans le cadre de chaque exécution de formation de modèle.|Requiert des qualifications de développement pour créer un script d’ingestion des données.
 Prend en charge les scripts de préparation des données sur différentes cibles de calcul, y compris [le calcul Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed). |Ne fournit pas d’interface utilisateur pour créer le mécanisme d’ingestion.
 
-Dans le diagramme suivant, le pipeline Azure Machine Learning se compose de deux étapes : l’ingestion des données et la formation du modèle. L’étape d’ingestion des données englobe des tâches qui peuvent être accomplies à l’aide de bibliothèques Python et du Kit de développement logiciel (SDK) Python, telles que l’extraction de données à partir de sources locales/web, et des transformations de données de base, comme l’imputation des valeurs manquantes. L’étape de formation utilise ensuite les données préparées comme entrée de votre script d’apprentissage pour effectuer l’apprentissage de votre modèle Machine Learning. 
+Dans le diagramme suivant, le pipeline Azure Machine Learning se compose de deux étapes : l’ingestion des données et la formation du modèle. L’étape d’ingestion des données englobe des tâches qui peuvent être accomplies à l’aide de bibliothèques Python et du Kit de développement logiciel (SDK) Python, telles que l’extraction de données à partir de sources locales/web, et des transformations de données, comme l’imputation des valeurs manquantes. L’étape de formation utilise ensuite les données préparées comme entrée de votre script d’apprentissage pour effectuer l’apprentissage de votre modèle Machine Learning. 
 
 ![Pipeline Azure + Kit de développement logiciel (SDK) d’ingestion des données](media/concept-data-ingestion/data-ingest-option-two.png)
 

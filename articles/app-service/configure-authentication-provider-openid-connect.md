@@ -4,12 +4,12 @@ description: Découvrez comment configurer un fournisseur OpenID Connect en tant
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983870"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurer votre application App Service ou Azure Functions pour la connexion à l’aide d’un fournisseur OpenID Connect (préversion)
 
@@ -53,7 +53,7 @@ Si vous ne pouvez pas utiliser un document de métadonnées de configuration, vo
 Cette section vous guide tout au long de la mise à jour de la configuration pour inclure votre nouveau fournisseur d’identité. Voici un exemple de configuration.
 
 1. Dans l’objet `identityProviders`, ajoutez un objet `openIdConnectProviders` s’il n’en existe pas déjà un.
-1. Dans l’objet `openIdConnectProviders`, ajoutez une clé pour votre nouveau fournisseur. Il s’agit d’un nom convivial utilisé pour référencer le fournisseur dans le reste de la configuration. Par exemple, si vous souhaitez exiger que toutes les demandes soient authentifiées auprès de ce fournisseur, vous devez définir `globalValidation.unauthenticatedClientAction` sur « RedirectToLoginPage » et définir `globalValidation.unauthenticatedClientAction` sur ce même nom convivial.
+1. Dans l’objet `openIdConnectProviders`, ajoutez une clé pour votre nouveau fournisseur. Il s’agit d’un nom convivial utilisé pour référencer le fournisseur dans le reste de la configuration. Par exemple, si vous souhaitez exiger que toutes les demandes soient authentifiées auprès de ce fournisseur, vous devez définir `globalValidation.unauthenticatedClientAction` sur « RedirectToLoginPage » et définir `redirectToProvider` sur ce même nom convivial.
 1. Attribuez un objet à cette clé avec un objet `registration` dans celui-ci, et éventuellement un objet `login` :
     
     ```json

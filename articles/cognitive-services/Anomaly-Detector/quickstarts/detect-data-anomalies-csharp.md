@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a364588d77fb24e96c831ce541c5bb4e63d93e98
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922342"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904567"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies et C#
 
-Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes de détection de l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de séries chronologiques. Cette application C# envoie deux requêtes d’API contenant des données de séries chronologiques au format JSON, et reçoit les réponses.
+Utilisez ce guide de démarrage rapide pour commencer à utiliser l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de série chronologique. Cette application C# envoie des demandes d’API contenant des données de série chronologique au format JSON et reçoit les réponses.
 
 | Requête d’API                                        | Sortie de l’application                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Détecter des anomalies par lot                        | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour chaque point de données dans les données de la série chronologique, et les positions des anomalies détectées. |
-| Détecter l’état d’anomalie du dernier point de données | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour le dernier point de données dans les données de série chronologique.                                        |
+| Détecter l’état d’anomalie du dernier point de données | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour le dernier point de données dans les données de série chronologique. |
+| Détecter les points de changement qui marquent les nouvelles tendances des données | Réponse JSON contenant les points de changement détectés dans les données de série chronologique. |
 
- Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Vous trouverez le code source de ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
+Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Vous trouverez le code source de ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,6 +62,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
     |------------------------------------|--------------------------------------------------|
     | Détection par lot                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Détection sur le dernier point de données | `/anomalydetector/v1.0/timeseries/last/detect`   |
+    | Détection des points de changement | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
@@ -95,6 +97,18 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>Détecter les points de changement dans les données
+
+1. Créez une fonction appelée `detectChangePoints()`. Construisez la demande et envoyez-la en appelant la fonction `Request()` avec votre point de terminaison, l’URL de détection d’anomalies par lots, votre clé d’abonnement et les données de série chronologique.
+
+2. Désérialisez l’objet JSON et écrivez-le dans la console.
+
+3. Si la réponse contient un champ `code`, imprimez le code d’erreur et le message d’erreur.
+
+4. Sinon, recherchez les positions des points de changement dans le jeu de données. Le champ `isChangePoint` de la réponse contient un tableau de valeurs booléennes, chacune d’elles indiquant si un point de données a été identifié en tant que point de changement. Convertissez-le en tableau de chaînes avec la fonction `ToObject<bool[]>()` de l’objet de réponse. Itérez au sein du tableau et imprimez l’index des valeurs `true`. Ces valeurs correspondent aux indices des points de changement de tendance, si de tels points sont trouvés.
+
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Charger vos données de série chronologique et envoyer la requête
 
 1. Dans la méthode Main de votre application, chargez vos données de série chronologique JSON avec `File.ReadAllText()`.
@@ -108,5 +122,6 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes
 Une réponse correcte est retournée au format JSON. Cliquez sur les liens ci-dessous pour afficher la réponse JSON sur GitHub :
 * [Exemple de réponse de détection par lots](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exemple de dernière réponse de détection de points](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exemple de réponse de détection de points de changement](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

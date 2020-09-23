@@ -1,6 +1,6 @@
 ---
-title: Gestion des utilisateurs sur GPU Azure Stack Edge | Microsoft Docs
-description: Décrit comment utiliser le portail Azure pour gérer les utilisateurs sur votre GPU Azure Stack Edge.
+title: Gestion des utilisateurs sur GPU Azure Stack Edge Pro | Microsoft Docs
+description: Décrit comment utiliser le portail Azure pour gérer les utilisateurs sur Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254183"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904505"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Utiliser le portail Azure pour gérer les utilisateurs sur Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les utilisateurs sur Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer les utilisateurs sur votre ressource Azure Stack Edge. Vous pouvez gérer le service Azure Stack Edge via le portail Azure ou via l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, modifier ou supprimer des utilisateurs.
+Cet article explique comment gérer les utilisateurs sur votre ressource Azure Stack Edge Pro. Vous pouvez gérer Azure Stack Edge Pro via le portail Azure ou l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, modifier ou supprimer des utilisateurs.
 
 Dans cet article, vous apprendrez comment :
 

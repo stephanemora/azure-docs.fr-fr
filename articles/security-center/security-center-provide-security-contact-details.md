@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9fbd63e1b46b837350be720fadf68777927f9bff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516297"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904765"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -39,8 +39,8 @@ Pour éviter la fatigue liée aux alertes, Security Center limite le volume des 
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|Mise à la disposition générale|
-|Prix :|Niveau gratuit|
+|État de sortie :|Disponibilité générale (GA)|
+|Prix :|Gratuit|
 |Rôles et autorisations obligatoires :|**Administrateur de la sécurité**<br>**Propriétaire de l’abonnement** |
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov (partiel)<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||

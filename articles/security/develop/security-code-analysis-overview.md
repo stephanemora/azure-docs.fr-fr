@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d9caabe3dfde34964f662dbf01316b2cbb0bcab
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543008"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031243"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>À propos de Microsoft Security Code Analysis
 
@@ -73,7 +73,7 @@ Les mots de passe et autres secrets stockés dans le code source constituent un 
 
 ### <a name="roslyn-analyzers"></a>Analyseurs Roslyn
 
-Roslyn Analyzers est un outil intégré au compilateur de Microsoft qui permet une analyse statique du code C# et Visual Basic managé. Pour plus d'informations, consultez [Analyseurs basés sur Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
+Roslyn Analyzers est un outil intégré au compilateur de Microsoft qui permet une analyse statique du code C# et Visual Basic managé. Pour plus d'informations, consultez [Analyseurs basés sur Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
 
 ### <a name="tslint"></a>TSLint
 
