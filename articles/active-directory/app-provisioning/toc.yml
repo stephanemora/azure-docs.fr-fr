@@ -78,7 +78,7 @@
     - name: Créer un point de terminaison SCIM et configurer le provisionnement
       href: use-scim-to-provision-users-and-groups.md
     - name: Automatiser la configuration avec MS Graph
-      href: application-provisioning-configure-api.md
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: Informations de référence
   items:
     - name: "Conformité au protocole SCIM\_2.0"
