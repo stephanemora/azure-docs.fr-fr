@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025345"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -207,3 +207,33 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
     ![Package d’accès - Stratégie - Paramètre Activer la stratégie](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Cliquez sur **Suivant**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Ajout d’informations sur le demandeur (préversion) à un package d'accès
+
+1. Accédez à l’onglet **Informations sur le demandeur**, puis cliquez sur le sous-onglet **Questions**.
+ 
+1. Tapez ce que vous souhaitez demander au demandeur, également appelé « chaîne d’affichage », pour la question dans la zone **Question**.
+
+    ![Package d’accès – Stratégie – Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Si vous souhaitez ajouter vos propres options de localisation, cliquez sur **Ajouter une localisation**.
+    1. Une fois dans le volet **Ajouter des localisations pour les questions**, sélectionnez le **code de la langue** dans laquelle vous localisez la question.
+    1. Dans la langue que vous avez configurée, tapez la question dans la zone **Texte localisé**.
+    1. Une fois que vous avez ajouté toutes les localisations nécessaires, cliquez sur **Enregistrer**.
+
+    ![Package d’accès – Stratégie – Configuration du texte localisé](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Sélectionnez le **Format de la réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court*, *choix multiples* et *texte long*.
+ 
+    ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Afficher et modifier** pour configurer les options de réponse.
+    1. Une fois que vous avez sélectionné Afficher et modifier, le volet **Afficher/modifier la question** s’ouvre.
+    1. Tapez les options de réponse que vous souhaitez donner au demandeur lorsqu’il répond à la question dans les zones **Valeurs de réponse** .
+    1. Tapez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
+    
+    ![Package d’accès – Stratégie –Saisie des options de choix multiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Pour exiger que les demandeurs répondent à cette question lorsqu’ils demandent l’accès à un package d’accès, cochez la case sous **Obligatoire**.
+
+1. Cliquez sur Suivant.

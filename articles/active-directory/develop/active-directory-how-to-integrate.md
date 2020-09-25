@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115694"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706164"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Intégration à Plateforme d’identités Microsoft
 
@@ -31,7 +31,7 @@ Il existe plusieurs façons d’intégrer votre application à Plateforme d’id
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Prendre en charge Plateforme d’identités Microsoft comme moyen de connexion à votre application
 
-**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Plateforme d’identités Microsoft pour se connecter à votre application, vos utilisateurs n’auront pas à mémoriser un nom et mot de passe de plus. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Plateforme d’identités Microsoft alimente les connexions pour certaines des applications cloud les plus populaires au monde, notamment Office 365 et Microsoft Azure. Avec des centaines de millions d’utilisateurs dans des millions d’organisations, il est fort probable que votre utilisateur soit déjà connecté à Plateforme d’identités Microsoft. En savoir plus sur [l’ajout de la prise en charge de la connexion à Plateforme d’identités Microsoft](./authentication-vs-authorization.md).
+**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Plateforme d’identités Microsoft pour se connecter à votre application, vos utilisateurs n’auront pas à mémoriser un nom et mot de passe de plus. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Plateforme d’identités Microsoft alimente les connexions pour certaines des applications cloud les plus populaires au monde, notamment Microsoft 365 et Microsoft Azure. Avec des centaines de millions d’utilisateurs dans des millions d’organisations, il est fort probable que votre utilisateur soit déjà connecté à Plateforme d’identités Microsoft. En savoir plus sur [l’ajout de la prise en charge de la connexion à Plateforme d’identités Microsoft](./authentication-vs-authorization.md).
 
 **Simplifiez l’inscription à votre application.**  Lors de l’inscription de votre application, Plateforme d’identités Microsoft peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d’inscription ou de le supprimer complètement. Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles. Tout utilisateur peut s’inscrire et se connecter à une application qui est intégrée à Plateforme d’identités Microsoft sans avoir besoin de l’intervention des services informatiques. En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -47,13 +47,13 @@ Il existe plusieurs façons d’intégrer votre application à Plateforme d’id
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil de l’utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
 
-**Plateforme d’identités Microsoft est le serveur d’autorisation pour Office 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge Plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations de l’utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. En savoir plus sur l’ [accès aux API Office 365](/previous-versions/office/office-365-api/).
+**Plateforme d’identités Microsoft est le serveur d’autorisation pour Microsoft 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge Plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations de l’utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. En savoir plus sur l’[accès aux API Microsoft 365](/previous-versions/office/office-365-api/).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promotion de votre application dans les Marketplace d’Azure et d’Office 365
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promotion de votre application dans les Places de marché Azure et Microsoft 365
 
 **Promouvez votre application aux millions d'organisations qui utilisent déjà Azure AD.**  Les utilisateurs qui recherchent ces marketplace utilisent déjà un ou plusieurs services cloud, ce qui les définit en tant que clients de service cloud. En savoir plus sur la promotion de votre application dans [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Office 365.**  Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](../user-help/my-apps-portal-end-user-access.md).
+**Lorsque des utilisateurs s’inscrivent à votre application, cela apparaîtra dans leur panneau d'accès Azure AD et le lanceur d'applications Microsoft 365.**  Les utilisateurs pourront rapidement et facilement retourner à votre application plus tard, ce qui améliore ainsi l’engagement utilisateur. En savoir plus sur le [panneau d'accès Azure AD](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Sécurisation de la communication de périphérique à service et de service à service
 
@@ -85,7 +85,7 @@ L’intégration à Plateforme d’identités Microsoft s’accompagne d’avant
 
 ### <a name="worldwide-presence-and-high-availability"></a>Présence dans le monde entier et haute disponibilité
 
-**Azure AD est déployé dans des centres de données dans le monde entier et est géré et surveillé en permanence.**  Azure AD est le système de gestion des identités de Microsoft Azure et Office 365 et est déployé dans 28 centres de données dans le monde entier. Les données d’Active Directory sont garanties pour être répliquées sur au moins trois centres de données. Les équilibrages de charge globaux garantissent aux utilisateurs un accès à la copie la plus fidèle d'Azure AD contenant leurs données. Ils retransmettent automatiquement les demandes vers d’autres centres de données si un problème est détecté.
+**Azure AD est déployé dans des centres de données dans le monde entier et est géré et surveillé en permanence.**  Azure AD est le système de gestion des identités de Microsoft Azure et Microsoft 365 et est déployé dans 28 centres de données dans le monde entier. Les données d’Active Directory sont garanties pour être répliquées sur au moins trois centres de données. Les équilibrages de charge globaux garantissent aux utilisateurs un accès à la copie la plus fidèle d'Azure AD contenant leurs données. Ils retransmettent automatiquement les demandes vers d’autres centres de données si un problème est détecté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

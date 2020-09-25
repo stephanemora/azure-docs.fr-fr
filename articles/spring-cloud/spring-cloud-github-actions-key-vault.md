@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888777"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
+
 Le coffre de clés est un emplacement sécurisé pour stocker les clés. Au sein des entreprises, les utilisateurs doivent stocker les informations d’identification des environnements CI/CD dans l’étendue qu’ils contrôlent. La clé permettant d’accéder aux informations d’identification dans le coffre de clés doit être limitée à l’étendue des ressources.  Elle a uniquement accès à l’étendue du coffre de clés, et non à l’ensemble de l’étendue Azure. Elle est assimilable à une clé qui peut ouvrir uniquement un coffre-fort, non à une clé principale qui peut ouvrir toutes les portes d’un bâtiment. C’est un moyen d’obtenir une clé avec une autre clé, ce qui est utile dans un workflow CI/CD. 
 
 ## <a name="generate-credential"></a>Générer les informations d’identification

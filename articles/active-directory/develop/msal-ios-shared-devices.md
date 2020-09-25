@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114912"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528126"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 
@@ -60,12 +60,21 @@ Votre appareil doit être configuré pour prendre en charge le mode Appareil par
 
     - **Type** : Rediriger
     - **ID d’extension** : com.microsoft.azureauthenticator.ssoextension
-    - **ID de l’équipe** : SGGM6D27TK
-    - **URL** : https://login.microsoftonline.com
-    - Données supplémentaires à configurer :
+    - **ID d'équipe** : (ce champ n'est pas nécessaire pour iOS)
+    - **URL** :   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **Données supplémentaires à configurer** :
       - Clé : sharedDeviceMode
       - Tapez : Boolean
-      - Valeur : True
+      - Valeur : true
 
     Pour plus d’informations sur la configuration avec Intune, consultez la [documentation sur la configuration d’Intune](/intune/configuration/ios-device-features-settings).
 
@@ -76,7 +85,7 @@ Votre appareil doit être configuré pour prendre en charge le mode Appareil par
     - Configuration 1 :
       - Clé : sharedDeviceMode
       - Tapez : Boolean
-      - Valeur : True
+      - Valeur : true
 
 ## <a name="modify-your-ios-application-to-support-shared-device-mode"></a>Modifier votre application iOS pour prendre en charge le mode Appareil partagé
 

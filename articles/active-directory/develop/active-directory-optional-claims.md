@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068724"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436848"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -130,7 +130,7 @@ Vous pouvez configurer des revendications facultatives pour votre application pa
 
 **Configuration de revendications facultatives par le biais de l’interface utilisateur :**
 
-[![montre comment configurer des revendications facultatives à l’aide de l’interface utilisateur](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configurer des revendications facultatives dans l'interface utilisateur](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication facultative**.
@@ -238,7 +238,7 @@ Cette section couvre les options de configuration sous les revendications facult
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
 1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication de groupe**.
-1. Sélectionnez les types de groupes à renvoyer (**Tous les groupes**, **SecurityGroup**ou **DirectoryRole**). L’option **Tous les groupes** comprend **SecurityGroup**, **DirectoryRole**et **DistributionList**
+1. Sélectionnez les types de groupes à renvoyer (**Groupes de sécurité** ou **Rôles d'annuaire**, **Tous les groupes** et/ou **Groupes attribués à l'application**). L'option **Groupes attribués à l'application** ne comprend que les groupes attribués à l'application. L'option **Tous les groupes** comprend **SecurityGroup**, **DirectoryRole** et **DistributionList**, mais pas **Groupes attribués à l'application**. 
 1. Facultatif : sélectionnez les propriétés du type de jeton pour modifier la valeur de la revendication de groupe afin qu’elle contienne les attributs du groupe local, ou pour remplacer la revendication de groupe par une revendication de rôle.
 1. Sélectionnez **Enregistrer**.
 
@@ -256,6 +256,7 @@ Cette section couvre les options de configuration sous les revendications facult
    - « All » (cette option comprend SecurityGroup, DirectoryRole et DistributionList)
    - « SecurityGroup »
    - « DirectoryRole »
+   - « ApplicationGroup » (cette option comprend uniquement les groupes attribués à l'application)
 
    Par exemple :
 
@@ -307,7 +308,7 @@ Cette section couvre les options de configuration sous les revendications facult
 
     **Configuration de l’interface utilisateur :**
 
-    [![montre comment configurer des revendications facultatives à l’aide de l’interface utilisateur](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configurer des revendications facultatives](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Entrée du manifeste de l’application :**
 
@@ -328,7 +329,7 @@ Cette section couvre les options de configuration sous les revendications facult
 
     **Configuration de l’interface utilisateur :**
 
-    [![montre comment configurer des revendications facultatives à l’aide de l’interface utilisateur](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Revendications facultatives dans le manifeste](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Entrée du manifeste de l’application :**
 
@@ -394,7 +395,7 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 
 1. Sélectionnez **Ajouter une revendication facultative**, puis le type de jeton **SAML** et enfin **extn.skypeID** dans la liste des revendications (applicable uniquement si vous avez créé un objet utilisateur Azure AD appelé skypeID). Sélectionnez ensuite **Ajouter**.
 
-    [![montre comment configurer des revendications facultatives à l’aide de l’interface utilisateur](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Revendications facultatives pour le jeton SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuration du manifeste :**
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205935"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030308"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -65,6 +65,8 @@ Du point de vue du développement, cela signifie plusieurs choses :
 * N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
 * Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://127.0.0.1/MyWebApp` ne correspond pas à `http://127.0.0.1/MyNativeApp`.
 * D’après la documentation d’aide des RFC, vous ne devez pas utiliser `localhost` dans l’URI de redirection. À la place, utilisez l’adresse IP réelle de bouclage, `127.0.0.1`. Cela empêche votre application d’être bloquée par des pare-feu mal configurés ou des interfaces réseau renommées.
+
+    Pour utiliser le schéma `http` avec l’adresse de bouclage (127.0.0.1) au lieu de localhost, vous devez modifier le [manifeste d’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
 
     L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
 

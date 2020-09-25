@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892536"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
 
 Les alertes Azure Spring Cloud prennent en charge la supervision des ressources en fonction de conditions telles que le stockage disponible, le taux de requêtes ou l’utilisation des données. Une alerte envoie une notification quand les taux ou les conditions répondent aux spécifications définies.
 
@@ -58,11 +60,11 @@ Dans la page **Ajouter un groupe d’actions** :
 
 ## <a name="set-up-alert"></a>Configurer une alerte 
 
-Les étapes précédentes ont permis de créer un **Groupe d’actions** qui utilise l’e-mail. Vous pouvez également utiliser les notifications par téléphone, les Webhooks, les fonctions Azure, etc.  
+Les étapes précédentes ont permis de créer un **Groupe d’actions** qui utilise l’e-mail. Vous pouvez également utiliser les notifications par téléphone, les webhooks, les fonctions Azure, etc. Les étapes suivantes configurent une **alerte**.
 
-Pour configurer une **alerte**, revenez à la page **Alertes**, puis cliquez sur **Gérer les règles d’alerte**.
+1. Revenez à la page **Alertes**, puis cliquez sur **Gérer les règles d’alerte**.
 
-  ![Capture d’écran de définition d’alerte dans le portail](media/alerts-action-groups/alerts-2.png)
+   ![Capture d’écran de définition d’alerte dans le portail](media/alerts-action-groups/alerts-2.png)
 
 1. Sélectionnez la **Ressource** nécessaire pour l’alerte.
 
@@ -84,9 +86,9 @@ Pour configurer une **alerte**, revenez à la page **Alertes**, puis cliquez sur
 
 1. Cliquez sur **Done**.
 
-Pour plus d’informations sur les conditions pouvant être supervisées, consultez [Options de métriques du portail de l’utilisateur](spring-cloud-concept-metrics.md#user-metrics-options).
+   Pour plus d’informations sur les conditions pouvant être supervisées, consultez [Options de métriques du portail de l’utilisateur](spring-cloud-concept-metrics.md#user-metrics-options).
 
- Sous **ACTIONS**, cliquez sur **Sélectionner un groupe d’actions**. Dans le volet **ACTIONS**, sélectionnez le **Groupe d’actions** que vous avez défini.
+1. Sous **ACTIONS**, cliquez sur **Sélectionner un groupe d’actions**. Dans le volet **ACTIONS**, sélectionnez le **Groupe d’actions** que vous avez défini.
 
    ![Capture d’écran d’ajout d’une nouvelle règle d’alerte 4 dans le portail](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Pour plus d’informations sur les conditions pouvant être supervisées, consul
 
    ![Capture d’écran d’ajout d’une nouvelle règle d’alerte 5 dans le portail](media/alerts-action-groups/alerts-3-4.png)
 
-Vérifiez que la nouvelle règle d’alerte est activée.
+1. Vérifiez que la nouvelle règle d’alerte est activée.
 
    ![Capture d’écran d’ajout d’une nouvelle règle d’alerte 6 dans le portail](media/alerts-action-groups/alerts-4.png)
 
 Vous pouvez également créer une règle à l’aide de la page **Métriques** :
 
-   ![Capture d’écran d’ajout d’une nouvelle règle d’alerte 7 dans le portail](media/alerts-action-groups/alerts-5.png)
+![Capture d’écran d’ajout d’une nouvelle règle d’alerte 7 dans le portail](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477683"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085703"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Marquer votre application avec la mention « éditeur vérifié » (préversion)
+# <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
 
-Lorsqu'une application est marquée avec la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide de son compte Microsoft Partner Network (MPN) et a associé ce compte MPN à l'inscription de l'application. Cet article explique comment mener à bien le processus de [ validation de l’éditeur (préversion)](publisher-verification-overview.md).
+Lorsqu'une application est marquée avec la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide de son compte Microsoft Partner Network (MPN) et a associé ce compte MPN à l'inscription de l'application. Cet article explique comment accomplir le processus de [vérification de l’éditeur](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Démarrage rapide
 Si vous êtes déjà inscrit à Microsoft Partner Network (MPN) et que vous remplissez les [conditions préalables](publisher-verification-overview.md#requirements), vous pouvez commencer immédiatement : 
 
-1. Accédez au [portail d'inscription des applications](https://aka.ms/PublisherVerificationPreview) (préversion).
+1. Se connecter au [portail d’inscription des applications](https://aka.ms/PublisherVerificationPreview) à l’aide de l’[authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
 1. Choisissez une application, puis cliquez sur **Personnalisation**. 
 
@@ -40,21 +40,19 @@ Pour plus d’informations sur les avantages spécifiques, les conditions requis
 ## <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
 Assurez-vous d'avoir respecté les [conditions préalables](publisher-verification-overview.md#requirements), puis procédez comme suit pour marquer vos applications avec la mention « éditeur vérifié ».  
 
-1. Vérifiez que vous êtes connecté avec un compte d’organisation (Azure AD) autorisé à apporter des modifications aux applications que vous souhaitez marquer avec la mention « éditeur vérifié » et sur le compte MPN dans l’Espace partenaires. 
+1. Vérifiez que vous êtes connecté avec une [authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) à un compte d’organisation (Azure AD) autorisé à apporter des modifications aux applications que vous souhaitez marquer avec la mention « éditeur vérifié » et sur le compte MPN dans l’Espace partenaires.
 
-    - Dans Azure AD, cet utilisateur doit être le propriétaire de l'application ou disposer d'un des rôles suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    - Dans Azure AD, cet utilisateur doit être membre de l’un des rôles suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
 
     - Dans l'Espace partenaires, cet utilisateur doit disposer des rôles suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD). 
 
-1. Accédez à la version en préversion du portail d'inscription des applications.  
+1. Accédez au portail d’inscription des applications :  
 
 1. Cliquez sur une application que vous souhaitez marquer avec la mention « éditeur vérifié » et ouvrez le panneau Personnalisation. 
 
-1. Vérifiez que le domaine de l’éditeur de l’application est correctement défini. Ce domaine doit : 
+1. Vérifiez que le [domaine de l’éditeur](howto-configure-publisher-domain.md) de l’application est défini. 
 
-    - Être ajouté au locataire Azure AD en tant que domaine personnalisé vérifié par DNS,  
-
-    - Correspondre au domaine de l’adresse de messagerie utilisée lors du processus de vérification de votre compte MPN. 
+1. Assurez-vous que le domaine de l’éditeur ou un [domaine personnalisé](../fundamentals/add-custom-domain.md) vérifié par DNS sur le locataire correspond au domaine de l’adresse e-mail utilisée durant le processus de vérification de votre compte MPN.
 
 1. Cliquez sur **Ajouter l'ID MPN pour vérifier l'éditeur** en bas de la page. 
 
@@ -72,7 +70,7 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Les utilisateurs invités à donner leur consentement à votre application voient votre badge une fois le processus terminé avec succès, même si sa réplication dans le système peut prendre un certain temps. 
 
-1. Testez cette fonctionnalité en vous connectant à votre application et en vérifiant que le badge vérifié s’affiche dans l’écran de consentement. Si vous êtes connecté en tant qu’utilisateur ayant donné son consentement à l’application, vous pouvez utiliser le paramètre de requête *prompt=consent* pour forcer une invite de consentement. 
+1. Testez cette fonctionnalité en vous connectant à votre application et en vérifiant que le badge vérifié s’affiche dans l’écran de consentement. Si vous êtes connecté en tant qu’utilisateur ayant donné son consentement à l’application, vous pouvez utiliser le paramètre de requête *prompt=consent* pour forcer une invite de consentement. Ce paramètre doit être utilisé uniquement à des fins de test et n’est jamais codé en dur dans les demandes de votre application.
 
 1. Répétez ce processus si nécessaire pour toutes les applications supplémentaires pour lesquelles vous souhaitez afficher le badge. Vous pouvez utiliser Microsoft Graph pour effectuer cette opération en bloc. Des cmdlets PowerShell seront prochainement disponibles. Pour plus d’informations, consultez [Création d'appels Microsoft API Graph](troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls). 
 

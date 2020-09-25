@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 43fad8d09c069f5e054634fb46f40e63047d5426
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888311"
+ms.locfileid: "90982066"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 
@@ -170,7 +170,15 @@ Pour rechercher votre chaîne de connexion :
 
 Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
 
-Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d’accès à Swagger est visible à l’adresse `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
+# <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
+
+# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
+
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemin d'accès à Swagger est visible à l'adresse : `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+
+---
 
 ### <a name="asynchronous-read"></a>Lecture asynchrone
 
@@ -335,7 +343,7 @@ Vous pouvez utiliser l’opération suivante pour lire une image en mode synchro
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
-# <a name="version-30"></a>[Version 3.0](#tab/version-3)
+# <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 `POST /vision/v3.0/read/SyncAnalyze`
 

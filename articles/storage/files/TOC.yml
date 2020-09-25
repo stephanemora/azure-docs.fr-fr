@@ -70,7 +70,7 @@
     - name: Chiffrement au repos
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Chiffrement au repos avec des clés gérées par le client
-      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Cibles de performance et d’évolutivité
       href: storage-files-scale-targets.md
     - name: Offres de conformité
@@ -243,18 +243,16 @@
           items:
             - name: Vérifier le modèle de clé de chiffrement du compte
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Configurer des clés de chiffrement gérées par le client
+            - name: Configurer le chiffrement avec les clés gérées par le client
               items:
-                - name: Portail
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Activer le chiffrement de l’infrastructure pour un compte de stockage
+                - name: Stocker les clés gérées par le client dans un coffre de clés
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Stocker les clés gérées par le client dans un HSM managé
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Activer le chiffrement de l’infrastructure pour le compte
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Détection avancée des menaces
-          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configurer Azure Defender pour la protection contre les menaces
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurer des pare-feu et des réseaux virtuels
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Exiger un transfert sécurisé

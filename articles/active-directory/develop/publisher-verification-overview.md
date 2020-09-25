@@ -1,6 +1,6 @@
 ---
 title: Présentation de la vérification de l'éditeur - Plateforme d'identités Microsoft | Azure
-description: Fournit une vue d'ensemble du programme de vérification de l'éditeur (préversion) pour la Plateforme d'identités Microsoft. Répertorie les avantages et conditions d'utilisation du programme, ainsi que les questions fréquemment posées. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte Microsoft Partner Network auquel le processus de vérification a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à l'inscription de l'application.
+description: Fournit une vue d'ensemble du programme de vérification de l'éditeur pour la Plateforme d'identités Microsoft. Répertorie les avantages et conditions d'utilisation du programme, ainsi que les questions fréquemment posées. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte Microsoft Partner Network auquel le processus de vérification a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à l'inscription de l'application.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068471"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089749"
 ---
-# <a name="publisher-verification-preview"></a>Vérification de l'éditeur (préversion)
+# <a name="publisher-verification"></a>Vérification de l'éditeur
 
-La vérification de l'éditeur (préversion) permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la Plateforme d'identités Microsoft. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
+La vérification de l’éditeur permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la plateforme d'identités Microsoft. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
 
 Un badge bleu « vérifié » apparaît sur l'invite de consentement d'Azure AD et sur d'autres écrans : ![Invite de consentement](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +33,7 @@ La vérification de l'éditeur offre les avantages suivants :
 
 - **Amélioration de l'image de marque** : un badge « vérifié » apparaît sur l'[invite de consentement](application-consent-experience.md) Azure AD, la page Applications d'entreprise et les autres pages auxquelles ont accès les utilisateurs finaux et les administrateurs. 
 
-- **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer de nouvelles stratégies de consentement des utilisateurs, l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies. 
+- **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies. 
 
 - **Amélioration de l'évaluation des risques** : les détections par Microsoft de demandes de consentement « risquées » peuvent inclure la vérification de l'éditeur comme signal. 
 
@@ -52,6 +52,8 @@ Il existe quelques conditions préalables à la vérification de l'éditeur, don
 
     -  Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD).
     
+-  L'utilisateur qui procède à la vérification doit se connecter en utilisant l'[authentification multifacteur](../authentication/howto-mfa-getstarted.md).
+
 -  L'éditeur accepte les [conditions d'utilisation de la Plateforme d'identités Microsoft pour développeurs](/legal/microsoft-identity-platform/terms-of-use).
 
 Les développeurs qui ont déjà rempli ces conditions préalables peuvent être vérifiés en quelques minutes. Si les conditions ne sont pas remplies, la configuration est gratuite. 

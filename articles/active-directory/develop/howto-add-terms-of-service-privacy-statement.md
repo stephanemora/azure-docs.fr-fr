@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478006"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535770"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
@@ -58,7 +58,7 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>À l’aide du Portail Azure
 Suivez les étapes ci-dessous dans le portail Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez le client AzureAD approprié (pas B2C).
 2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
 3. Ouvrez le volet **Personnalisation**.
 4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
@@ -69,6 +69,11 @@ Suivez les étapes ci-dessous dans le portail Azure.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
 
 Si vous préférez modifier directement l’objet JSON de l’application, vous pouvez utiliser l’éditeur de manifeste dans le portail Azure ou le portail d’inscription des applications pour inclure des liens vers les conditions d’utilisation et la déclaration de confidentialité de votre application.
+
+1. Accédez à la section **Inscriptions d’applications**, puis sélectionnez votre application.
+2. Ouvrez le volet **Manifeste**.
+3. Ctrl + F, recherchez « informationalUrls ». Renseignez les informations.
+4. Enregistrez vos modifications.
 
 ```json
     "informationalUrls": { 

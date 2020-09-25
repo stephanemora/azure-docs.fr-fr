@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025032"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie IPsec/IKE personnalisée est prise en charge sur toutes les références SKU Azure, à l’exception de la référence SKU De base.
@@ -31,7 +31,7 @@ Le tableau suivant répertorie les algorithmes de chiffrement et les puissances 
 | ---              | ---                                                                           |
 | Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Groupe DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun |
+| Groupe DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Aucun  |
 | Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
 | Intégrité IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
@@ -99,6 +99,9 @@ Oui, vous pouvez appliquer la stratégie personnalisée pour des connexions IPse
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>Dois-je spécifier la même stratégie pour les ressources de connexion entre des réseaux virtuels ?
 Oui. Un tunnel entre des réseaux virtuels se compose de deux ressources de connexion dans Azure, une pour chaque direction. Assurez-vous que les deux ressources de connexion ont la même stratégie, sinon la connexion de réseau virtuel à réseau virtuel ne pourra pas être établie.
+
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>Quelle est la valeur du délai d’expiration DPD par défaut ? Est-ce que je peux spécifier un autre délai d’expiration DPD ?
+Le délai d’expiration DPD par défaut est de 45 secondes. Vous pouvez spécifier une autre valeur de délai d’expiration DPD sur chaque connexion IPsec ou de réseau virtuel à réseau virtuel comprise entre 9 et 3 600 secondes.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>La stratégie IPsec/IKE est-elle compatible avec une connexion ExpressRoute ?
 Non. La stratégie IPsec/IKE est uniquement compatible avec les connexions S2S VPN et entre des réseaux virtuels via les passerelles VPN Azure.

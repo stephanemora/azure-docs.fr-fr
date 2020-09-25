@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 4ef08ea03cab711901225cab227a0f5f84055d7a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426348"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906819"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutoriel : Provisionner une instance Azure Spring Cloud avec Terraform
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
 
 Ce tutoriel crée une instance Azure Spring Cloud à l’aide de Terraform. Les procédures vous guident tout au long de la création des ressources suivantes :
 

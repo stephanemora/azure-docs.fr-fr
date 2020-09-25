@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905752"
+ms.locfileid: "90988085"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -361,6 +361,17 @@ Voici les détails :
 * Des données de télémétrie sont également envoyées (push) à l’abonnement Microsoft/Azure.
 
 [![Workflow de l’inférence](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>Auditer et gérer la conformité
+
+[Azure Policy](/azure/governance/policy) est un outil de gouvernance qui vous permet de vous assurer que les ressources Azure sont conformes à vos stratégies. Avec Azure Machine Learning, vous pouvez affecter les stratégies suivantes :
+
+* **Clé gérée par le client** : Auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client.
+* **Liaison privée** : Auditer si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel.
+
+Pour plus d’informations sur Azure Policy, consultez la [documentation relative à Azure Policy](/azure/governance/policy/overview).
+
+Pour plus d’informations sur les stratégies spécifiques à Azure Machine Learning, consultez [Audit et gestion de la conformité avec Azure Policy](how-to-integrate-azure-policy.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

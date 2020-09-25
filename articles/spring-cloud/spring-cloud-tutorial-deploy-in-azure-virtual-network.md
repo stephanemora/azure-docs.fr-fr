@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688451"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892897"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutoriel : Déployer Azure Spring Cloud dans un réseau virtuel (injection de réseau virtuel)
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
 
 Ce tutoriel explique comment déployer une instance du service Azure Spring Cloud dans votre réseau virtuel. Ce procédé est parfois appelé « injection de réseau virtuel ».  
 
@@ -38,7 +40,7 @@ Le réseau virtuel dans lequel vous déployez votre instance du service Azure Sp
 * **Sous-réseaux** : le réseau virtuel doit comporter deux sous-réseaux dédiés à une instance du service Azure Spring Cloud : 
     * Un pour le runtime du service
     * Un pour vos applications de microservices Spring Boot. 
-    * Il existe une relation un-à-un entre ces sous-réseaux et une instance du service Azure Spring Cloud. Vous ne pouvez pas partager plusieurs instances du service sur un même sous-réseau. Vous devez utiliser de nouveaux sous-réseaux pour chaque instance du service que vous déployez.
+    * Il existe une relation un-à-un entre ces sous-réseaux et une instance du service Azure Spring Cloud. Vous devez utiliser un nouveau sous-réseau pour chaque instance de service que vous déployez. En outre, chaque sous-réseau ne peut inclure qu’une seule instance de service.
 * **Espace d’adressage** : un bloc CIDR allant jusqu’à /28 pour le sous-réseau du runtime du service et un autre bloc CIDR allant jusqu’à /24 pour le sous-réseau des applications de microservices Spring Boot.
 * **Table de routage** : aucune table de routage existante ne doit être associée aux sous-réseaux.
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141362"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705892"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -153,7 +153,7 @@ Cela est illustré par un client natif multiniveau appelant un exemple d’API w
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Plusieurs niveaux dans plusieurs clients
 
-Un cas similaire se produit si les différents niveaux d’une application sont enregistrés dans différents clients. Prenons par exemple le cas de la création d’une application cliente native qui appelle l’API Office 365 Exchange Online. Pour développer l’application native, et pour que l’application native s’exécute ensuite sur un client, le principal du service Exchange Online doit être présent. Dans ce cas, le développeur et l’utilisateur doivent acheter Exchange Online afin de créer le principal du service sur leurs clients.
+Un cas similaire se produit si les différents niveaux d’une application sont enregistrés dans différents clients. Prenons par exemple le cas de la création d’une application cliente native qui appelle l’API Exchange Online. Pour développer l’application native, et pour que l’application native s’exécute ensuite sur un client, le principal du service Exchange Online doit être présent. Dans ce cas, le développeur et l’utilisateur doivent acheter Exchange Online afin de créer le principal du service sur leurs clients.
 
 Dans le cas d’une API générée par une organisation autre que Microsoft, le développeur de l’API doit fournir un moyen à ses clients de donner leur consentement à l’application sur leurs clients. La conception recommandée est que le développeur tiers génère l’API de façon à pouvoir également fonctionner comme un client web pour implémenter l’inscription. Pour ce faire :
 
@@ -181,7 +181,7 @@ Les applications mutualisées peuvent également obtenir des jetons d’accès p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a montré comment créer une application pouvant connecter un utilisateur à partir de tout client Azure AD. Après activation de l’authentification unique (SSO) entre votre application et Azure AD, vous pouvez également mettre à jour votre application pour accéder aux API exposées par des ressources Microsoft telles qu’Office 365. Cela vous permet de proposer une expérience personnalisée dans votre application, par exemple en affichant des informations contextuelles aux utilisateurs, comme leur photo de profil ou leur prochain rendez-vous de calendrier. Pour en savoir plus sur les appels d’API à des services Azure AD et Office 365 comme Exchange, SharePoint, OneDrive, OneNote, et bien plus, voir [API Microsoft Graph][MSFT-Graph-overview].
+Cet article vous a montré comment créer une application pouvant connecter un utilisateur à partir de tout client Azure AD. Après activation de l’authentification unique (SSO) entre votre application et Azure AD, vous pouvez également mettre à jour votre application pour accéder aux API exposées par des ressources Microsoft telles que Microsoft 365. Cela vous permet de proposer une expérience personnalisée dans votre application, par exemple en affichant des informations contextuelles aux utilisateurs, comme leur photo de profil ou leur prochain rendez-vous de calendrier. Pour en savoir plus sur les appels d’API à des services Azure AD et Microsoft 365 comme Exchange, SharePoint, OneDrive, OneNote, et bien plus, voir [API Microsoft Graph][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Contenu connexe
 

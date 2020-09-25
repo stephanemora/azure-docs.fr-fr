@@ -2,13 +2,13 @@
 title: Types de ressources d’extension
 description: Présente les types de ressources Azure servant à étendre les fonctionnalités d’autres types de ressources.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969751"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Types de ressources qui étendent les fonctionnalités d’autres ressources
 
@@ -21,6 +21,8 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.Advisor/suppressions
 - Microsoft.AlertsManagement/alerts
 - Microsoft.AlertsManagement/alertsSummary
+- Microsoft.Authorization/accessReviewScheduleDefinitions
+- Microsoft.Authorization/accessReviewScheduleSettings
 - Microsoft.Authorization/checkAccess
 - Microsoft.Authorization/denyAssignments
 - Microsoft.Authorization/findOrphanRoleAssignments
@@ -34,6 +36,7 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.Authorization/roleAssignments
 - Microsoft.Authorization/roleAssignmentsUsageMetrics
 - Microsoft.Authorization/roleDefinitions
+- Microsoft.Automanage/configurationProfileAssignments
 - Microsoft.Billing/billingPeriods
 - Microsoft.Billing/billingPermissions
 - Microsoft.Billing/billingRoleAssignments
@@ -47,24 +50,24 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.Consumption/Budgets
 - Microsoft.Consumption/Charges
 - Microsoft.Consumption/CostTags
+- Microsoft.Consumption/credits
+- Microsoft.Consumption/events
 - Microsoft.Consumption/Forecasts
+- Microsoft.Consumption/lots
 - Microsoft.Consumption/Marketplaces
 - Microsoft.Consumption/OperationResults
 - Microsoft.Consumption/OperationStatus
 - Microsoft.Consumption/Pricesheets
+- Microsoft.Consumption/products
 - Microsoft.Consumption/ReservationDetails
 - Microsoft.Consumption/ReservationRecommendationDetails
 - Microsoft.Consumption/ReservationRecommendations
 - Microsoft.Consumption/ReservationSummaries
 - Microsoft.Consumption/ReservationTransactions
 - Microsoft.Consumption/Tags
+- Microsoft.Consumption/tenants
 - Microsoft.Consumption/Terms
 - Microsoft.Consumption/UsageDetails
-- Microsoft.Consumption/credits
-- Microsoft.Consumption/events
-- Microsoft.Consumption/lots
-- Microsoft.Consumption/products
-- Microsoft.Consumption/tenants
 - Microsoft.ContainerInstance/serviceAssociationLinks
 - Microsoft.CostManagement/Alerts
 - Microsoft.CostManagement/Budgets
@@ -73,6 +76,7 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
 - Microsoft.CostManagement/Forecast
+- Microsoft.CostManagement/Insights
 - Microsoft.CostManagement/Query
 - Microsoft.CostManagement/Reportconfigs
 - Microsoft.CostManagement/Reports
@@ -93,17 +97,19 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - microsoft.insights/diagnosticSettingsCategories
 - microsoft.insights/eventtypes
 - microsoft.insights/extendedDiagnosticSettings
+- microsoft.insights/generateLiveToken
 - microsoft.insights/guestDiagnosticSettingsAssociation
 - microsoft.insights/logDefinitions
 - microsoft.insights/logs
+- microsoft.insights/metricbaselines
 - microsoft.insights/metricDefinitions
 - microsoft.insights/metricNamespaces
-- microsoft.insights/metricbaselines
 - microsoft.insights/metrics
 - microsoft.insights/myWorkbooks
 - microsoft.insights/topology
 - microsoft.insights/transactions
 - microsoft.insights/vmInsightsOnboardingStatuses
+- Microsoft.KubernetesConfiguration/extensions
 - Microsoft.KubernetesConfiguration/sourceControlConfigurations
 - Microsoft.Maintenance/applyUpdates
 - Microsoft.Maintenance/configurationAssignments
@@ -128,20 +134,22 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.ResourceHealth/notifications
 - Microsoft.Resources/links
 - Microsoft.Resources/tags
-- Microsoft.Security/Compliances
-- Microsoft.Security/InformationProtectionPolicies
 - Microsoft.Security/adaptiveNetworkHardenings
 - Microsoft.Security/advancedThreatProtectionSettings
 - Microsoft.Security/assessmentMetadata
 - Microsoft.Security/assessments
 - Microsoft.Security/complianceResults
+- Microsoft.Security/Compliances
 - Microsoft.Security/dataCollectionAgents
 - Microsoft.Security/deviceSecurityGroups
+- Microsoft.Security/InformationProtectionPolicies
+- Microsoft.Security/iotSensors
 - Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssessments
+- Microsoft.Security/sqlVulnerabilityAssessments
 - Microsoft.SecurityInsights/aggregations
-- Microsoft.SecurityInsights/alertRuleTemplates
 - Microsoft.SecurityInsights/alertRules
+- Microsoft.SecurityInsights/alertRuleTemplates
 - Microsoft.SecurityInsights/automationRules
 - Microsoft.SecurityInsights/bookmarks
 - Microsoft.SecurityInsights/cases
@@ -153,6 +161,7 @@ Une ressource d’extension est une ressource qui ajoute des fonctionnalités à
 - Microsoft.SecurityInsights/officeConsents
 - Microsoft.SecurityInsights/settings
 - Microsoft.SecurityInsights/threatIntelligence
+- Microsoft.SecurityInsights/watchlists
 - Microsoft.SoftwarePlan/hybridUseBenefits
 - Microsoft.Subscription/CreateSubscription
 - microsoft.support/supporttickets

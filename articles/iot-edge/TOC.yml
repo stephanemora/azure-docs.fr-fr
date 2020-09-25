@@ -101,6 +101,8 @@
           href: iot-edge-security-manager.md
         - name: Certificats IoT Edge
           href: iot-edge-certs.md
+        - name: Informatique confidentielle
+          href: deploy-trusted-applications.md
     - name: Plateforme prise en charge
       href: support.md
     - name: Liste de contrôle pour le déploiement de production

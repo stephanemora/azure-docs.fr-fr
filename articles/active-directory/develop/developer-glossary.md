@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178822"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705994"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
@@ -154,7 +154,7 @@ Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def],
 
 Comme le définit l’[infrastructure d’autorisation OAuth2][OAuth2-Role-Def], serveur hébergeant des ressources protégées capable d’accepter et de répondre aux demandes de ressources protégées effectuées par les [applications clientes](#client-application) qui présentent un [jeton d’accès](#access-token). Également appelé serveur de ressources protégées ou application de ressources.
 
-Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons par exemple l’[API Microsoft Graph][Microsoft-Graph], qui fournit un accès aux données du client Azure AD, et les API Office 365, qui fournissent un accès à des données telles que le courrier et le calendrier.
+Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons, par exemple, l’[API Microsoft Graph][Microsoft-Graph] qui fournit un accès aux données du client Azure AD, et les API Microsoft 365 qui fournissent un accès à des données telles que le courrier et le calendrier.
 
 Tout comme une application cliente, la configuration d’identité d’une application de ressources est établie via [l’inscription](#application-registration) dans un client Azure AD, fournissant à la fois l’objet application et l’objet principal du service. Certaines API fournies par Microsoft, telles que l’API Microsoft Graph, proposent des principaux du service préinscrits mis à disposition dans tous les clients lors du provisionnement.
 
@@ -172,7 +172,7 @@ Comme les [rôles](#roles), les étendues offrent au [serveur de ressources](#re
 
 Les portées sont des chaînes définies par les ressources (par exemple, « Mail.Read » ou « Directory.ReadWrite.All »), gérées dans le [portail Azure][AZURE-portal] via le [manifeste d’application](#application-manifest) de la ressource et stockées dans la [propriété oauth2Permissions][Graph-Sp-Resource] de cette dernière. Le portail Azure est également utilisé pour configurer les [autorisations déléguées](#permissions) de l’application cliente, qui lui permettent d’accéder à une portée.
 
-Une convention d’affectation de noms recommandée consiste à utiliser le format « ressource.opération.contrainte ». Pour une présentation détaillée des étendues exposées par l’API Microsoft Graph, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][Graph-Perm-Scopes]. Pour les portées exposées par les services Office 365, consultez [Office 365 API permissions reference (Référence sur les autorisations des API Office 365)][O365-Perm-Ref].
+Une convention d’affectation de noms recommandée consiste à utiliser le format « ressource.opération.contrainte ». Pour une présentation détaillée des étendues exposées par l’API Microsoft Graph, consultez [Graph API Permission Scopes (Étendues des autorisations de l’API Graph)][Graph-Perm-Scopes]. Pour les étendues exposées par les services Microsoft 365, consultez [Référence des autorisations des API Microsoft 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>jeton de sécurité
 
@@ -202,7 +202,7 @@ Une instance d’un répertoire Azure AD est désignée sous le nom de client Az
 * l’authentification des comptes utilisateurs et des applications enregistrées
 * les points de terminaison REST requis pour prendre en charge différents protocoles, notamment OAuth2 et SAML, y compris le [point de terminaison d’autorisation](#authorization-endpoint), le [point de terminaison de jeton](#token-endpoint) et le point de terminaison « commun » utilisé par les [applications mutualisées](#multi-tenant-application).
 
-Les locataires Azure AD sont créés avec/associés à des abonnements Azure et Office 365 pendant l’inscription, fournissant des fonctionnalités de gestion des identités et des accès pour l’abonnement. Les administrateurs d’abonnement Azure peuvent également créer d’autres locataires Azure AD via le portail Azure. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un locataire Azure AD et pour obtenir des instructions sur l’association ou l’ajout d’un abonnement à un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory][AAD-How-Subscriptions-Assoc].
+Les locataires Azure AD sont créés/associés avec des abonnements Azure et Microsoft 365 pendant l’inscription, fournissant des fonctionnalités de gestion des identités et des accès pour l’abonnement. Les administrateurs d’abonnement Azure peuvent également créer d’autres locataires Azure AD via le portail Azure. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un locataire Azure AD et pour obtenir des instructions sur l’association ou l’ajout d’un abonnement à un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory][AAD-How-Subscriptions-Assoc].
 
 ## <a name="token-endpoint"></a>point de terminaison de jeton
 

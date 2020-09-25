@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297533"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892499"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Comprendre l’application et le déploiement dans Azure Spring Cloud
+
+**Cet article s'applique à :** ✔️ Java ✔️ C#
 
 **L’application** et **le déploiement** sont les deux concepts clés du modèle de ressources Azure Spring Cloud. Dans Azure Spring Cloud, une *application* est l’abstraction d’une application métier ou d’un microservice.  Une version de code ou de binaire déployée comme *application* s’exécute dans un *déploiement*.  Les applications s’exécutent dans *une instance du service Azure Spring Cloud* ou simplement dans un *instance de service*, comme indiqué ci-dessous.
 

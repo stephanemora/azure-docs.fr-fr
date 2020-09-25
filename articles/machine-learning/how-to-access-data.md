@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893476"
+ms.locfileid: "90976781"
 ---
 # <a name="connect-to-azure-storage-services"></a>Se connecter aux services de stockage Azure
 
-Dans cet article, découvrez comment vous **connecter aux services de stockage Azure par le biais des magasins de données Azure Machine Learning**. Les banques de données se connectent en toute sécurité à votre service de stockage Azure sans avoir à compromettre vos informations d’authentification et l’intégrité de votre source de données d’origine. Ils stockent des informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [Key Vault](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail, de sorte que vous pouvez accéder à votre stockage en toute sécurité sans avoir à coder en dur ces informations dans vos scripts. Vous pouvez utiliser le [kit de développement logiciel (SDK) Azure Machine Learning Python](#python) ou [Azure Machine Learning Studio](#studio) pour créer et inscrire des banques de données.
+Dans cet article, découvrez comment vous **connecter aux services de stockage Azure par le biais des magasins de données Azure Machine Learning**. Les banques de données se connectent en toute sécurité à votre service de stockage Azure sans avoir à compromettre vos informations d’authentification et l’intégrité de votre source de données d’origine. Ils stockent des informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton, dans votre [Key Vault](https://azure.microsoft.com/services/key-vault/) associé à l’espace de travail, de sorte que vous pouvez accéder à votre stockage en toute sécurité sans avoir à coder en dur ces informations dans vos scripts. Vous pouvez utiliser le [kit de développement logiciel (SDK) Azure Machine Learning Python](#python) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md) pour créer et inscrire des banques de données.
 
 Si vous préférez créer et gérer des banques de données à l’aide de l’extension Azure Machine Learning VS Code, consultez le [guide de procédures de gestion des ressources VS Code](how-to-manage-resources-vscode.md#datastores).
 
@@ -92,7 +92,7 @@ Si votre compte de stockage de données se trouve sur un **réseau virtuel**, de
 
 ### <a name="access-validation"></a>Validation de l’accès
 
-**Dans le cadre du processus de création et d’inscription du magasin de données initial**, Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
+**Dans le cadre du processus de création et d’inscription du magasin de données initial**, Azure Machine Learning vérifie automatiquement que le service de stockage sous-jacent existe et que le principal fourni par l’utilisateur (nom d’utilisateur, principal de service ou jeton SAS) a accès au stockage spécifié.
 
 **Après la création** du magasin de données, cette validation est effectuée uniquement pour les méthodes qui requièrent l’accès au conteneur de stockage sous-jacent, et **non** chaque fois que des objets du magasin de données sont récupérés. Par exemple, la validation se produit si vous souhaitez télécharger des fichiers à partir de votre magasin de données ; mais si vous souhaitez simplement modifier votre magasin de données par défaut, la validation ne se produit pas.
 
@@ -117,7 +117,7 @@ Pour le conteneur d’objets BLOB Azure et le stockage Azure Data Lake Gen2, ass
 
 <a name="python"></a>
 
-## <a name="create-and-register-datastores-via-the-sdk"></a>Créer et inscrire des magasins de données via le SDK
+## <a name="create-and-register-datastores"></a>Créer et inscrire des magasins de données
 
 Quand vous inscrivez une solution de stockage Azure en tant que magasin de données, ce dernier est automatiquement créé et inscrit dans un espace de travail spécifique. Retrouvez les instructions relatives aux scénarios de réseau virtuel et les indications pour trouver les informations d’authentification requises dans la section [accès au stockage et autorisations](#storage-access-and-permissions). 
 
@@ -129,7 +129,7 @@ Dans cette section, vous trouverez des exemples de création et d’inscription 
 
  Pour créer des magasins de données pour les autres services de stockage pris en charge, consultez la [documentation de référence des méthodes `register_azure_*` applicables](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods).
 
-Si vous préférez une expérience à moindre code, consultez [Créer des magasins de données dans Azure Machine Learning Studio](#studio).
+Si vous préférez une expérience à moindre code, consultez [Se connecter aux données avec Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > Le nom du magasin de données doit contenir uniquement des lettres minuscules, des chiffres et des traits de soulignement. 
@@ -199,25 +199,6 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_id=client_id, # client id of service principal
                                                              client_secret=client_secret) # the secret of service principal
 ```
-
-<a name="studio"></a>
-
-
-## <a name="create-datastores-in-the-studio"></a>Créer des magasins de données dans Studio 
-
-Créez un magasin de données en quelques étapes avec Azure Machine Learning Studio.
-
-> [!IMPORTANT]
-> Si votre compte de stockage de données se trouve sur un réseau virtuel, des étapes de configuration supplémentaires sont nécessaires pour s’assurer que Studio a accès à vos données. Pour vous assurer que les étapes de configuration appropriées sont appliquées, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure](how-to-enable-studio-virtual-network.md). 
-
-1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
-1. Sélectionnez **Magasins de données** dans le volet gauche sous **Gérer**.
-1. Sélectionnez **+ Nouveau magasin de données**.
-1. Remplissez le formulaire de création d’un magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et du type d’authentification que vous sélectionnez. Pour savoir où trouver les informations d’authentification requises pour remplir ce formulaire, consultez la section [accès au stockage et autorisations](#access-validation).
-
-L’exemple suivant montre à quoi ressemble le formulaire quand vous créez un **magasin de données d’objets blob Azure** : 
-    
-![Formulaire de création d’un magasin de données](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Utiliser des données dans vos magasins de données

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 3d419268302ac8fd55559c6af9cd328f22bd2404
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b17e2618cd87c0689fa531e893149a1b2fab8d20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930041"
+ms.locfileid: "90987184"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -69,9 +69,9 @@ Dans cet article, vous allez télécharger et installer les packages logiciels s
 | Système d’exploitation Linux | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) doit être installé sur l’ordinateur hôte.  |
 
 
-## <a name="request-access-to-the-spatial-analysis-functionality"></a>Demander l’accès à la fonctionnalité d’analyse spatiale
+## <a name="request-approval-to-run-the-container"></a>Demande d’approbation pour l’exécution du conteneur
 
-Complétez et envoyez le [formulaire de demande](https://aka.ms/cognitivegate) pour demander l’accès au conteneur. 
+Complétez le [formulaire de demande](https://aka.ms/cognitivegate) et envoyez-le afin d’obtenir l’approbation d’exécuter le conteneur. 
 
 Le formulaire demande des informations sur vous, votre entreprise et le scénario d’utilisateur pour lequel vous allez utiliser le conteneur. Une fois le formulaire envoyé, l’équipe Azure Cognitive Services Azure l’examinera et vous informera de sa décision par courrier électronique.
 
@@ -208,7 +208,8 @@ sudo systemctl restart docker
 ## <a name="enable-nvidia-mps-on-the-host-computer"></a>Activez NVIDIA MPS sur l’ordinateur hôte
 
 > [!TIP]
-> Exécutez les instructions de MPS à partir d’une fenêtre de terminal sur l’ordinateur hôte. Pas à l’intérieur de votre instance de conteneur Docker.
+> * N’installez pas de pack d’administration si la capacité de calcul de votre GPU est inférieure à 7.x (pre Volta). Pour obtenir des informations de référence, consultez [Compatibilité CUDA](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#support-title). 
+> * Exécutez les instructions de MPS à partir d’une fenêtre de terminal sur l’ordinateur hôte. Pas à l’intérieur de votre instance de conteneur Docker.
 
 Pour des performances et une utilisation optimales, configurez le ou les GPU de l’ordinateur hôte pour le [service de multitraitement (MPS) NVIDIA](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Exécutez les instructions de MPS à partir d’une fenêtre de terminal sur l’ordinateur hôte.
 
@@ -262,7 +263,9 @@ az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-
 Si l’ordinateur hôte n’est pas un appareil Azure Stack Edge, vous devez installer [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Pour télécharger la version correcte, procédez comme suit : Ubuntu Server 18.04 :
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-Copy the generated list.
+```
+
+Copiez la liste générée.
 
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -335,7 +338,8 @@ Une fois que vous avez mis à jour l’exemple de fichier [DeploymentManifest.js
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content DeploymentManifest.json --target-condition "deviceId='<IoT Edge device name>'" -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+
 ```
 
 |Paramètre  |Description  |

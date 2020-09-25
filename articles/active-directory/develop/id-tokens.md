@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795230"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646592"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -85,6 +85,8 @@ Cette liste affiche les revendications JWT présentes par défaut dans la plupar
 |`unique_name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Cette valeur est unique à un moment donné mais, comme les e-mails et autres identificateurs peuvent être réutilisés, elle peut réapparaître sur d’autres comptes et doit donc être utilisée uniquement à des fins d’affichage. Émise uniquement dans les jetons `id_tokens` v1.0. |
 |`uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`ver` | Chaîne, 1.0 ou 2.0 | Indique la version du jeton id_token. |
+|`hasgroups`|Boolean|Le cas échéant, toujours true, ce qui indique que l’utilisateur appartient à au moins un groupe. Utilisé à la place de la revendication des groupes pour les JWT dans les flux d’octroi implicites si la revendication des groupes complets étend le fragment URI au-delà des limites de longueur d’URL (actuellement, 6 groupes ou plus). Indique que le client doit utiliser l’API Microsoft Graph pour déterminer les groupes de l’utilisateur (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
+|`groups:src1`|Objet JSON | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour les jetons JWT en tant que revendication distribuée, pour SAML en tant que nouvelle revendication à la place de la revendication `groups`. <br><br>**Exemple de valeur JWT** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Pour plus d’informations, consultez [Revendication de dépassement des groupes](#groups-overage-claim).|
 
 > [!NOTE]
 > Les id_token v1.0 et v2.0 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Si les applications existantes utilisent probablement le point de terminaison Azure AD, les nouvelles applications doivent utiliser le point de terminaison de « Plateforme d’identité Microsoft » v2.0.
@@ -102,6 +104,26 @@ Pour stocker correctement les informations par utilisateur, utilisez `sub` ou `o
 > N’utilisez pas la revendication `idp` pour stocker des informations sur un utilisateur dans une tentative de mettre en corrélation des utilisateurs parmi les locataires.  Elle ne fonctionnera pas, car, par conception, les revendications `oid` et `sub` pour un utilisateur changent entre locataires pour s’assurer que des applications ne puissent pas suivre des utilisateurs parmi les locataires.  
 >
 > Les scénarios d’invité, où un utilisateur est hébergé dans un locataire et s’authentifie dans un autre, doivent traiter l’utilisateur comme s’il s’agissait d’un tout nouvel utilisateur du service.  Vos documents et privilèges dans le locataire Contoso ne doivent pas s’appliquer dans le locataire Fabrikam. Cela est important pour empêcher des fuites accidentelles de données entre locataires.
+
+### <a name="groups-overage-claim"></a>Revendication de dépassement des groupes
+Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication `groups`. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton qui indique à l’application d’interroger l’API Microsoft Graph pour récupérer l’appartenance de groupe de l’utilisateur.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Valider un jeton id_token
 

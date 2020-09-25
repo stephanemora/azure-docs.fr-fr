@@ -1,7 +1,7 @@
 ---
-title: Jetons Azure AD et types de revendication
-description: Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)
-documentationcenter: na
+title: Informations de référence sur les revendications de jeton SAML 2.0 | Azure
+titleSuffix: Microsoft identity platform
+description: Informations de référence contenant des détails sur les revendications incluses dans les jetons SAML 2.0 émis par la plateforme d’identités Microsoft, y compris leurs équivalents JWT.
 author: kenwith
 services: active-directory
 manager: CelesteDG
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 06/22/2018
+ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114963"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705705"
 ---
-# <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
+# <a name="saml-token-claims-reference"></a>Informations de référence sur les revendications de jeton SAML
 
-Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
+La plateforme d’identités Microsoft émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu des jetons SAML 2.0.
 
 ## <a name="claims-in-saml-tokens"></a>Revendications dans des jetons SAML
 
@@ -30,11 +30,11 @@ Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécuri
 > | Nom | Revendication JWT équivalente | Description | Exemple |
 > | --- | --- | --- | ------------|
 > |Public visé | `aud` |Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
-> | Moment d’authentification | |Enregistre la date et l’heure de l’authentification. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
+> | Moment d’authentification | |Enregistre la date et l’heure de l’authentification. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |Méthode d'authentification | `amr` |Identifie comment le sujet du jeton a été authentifié. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Prénom | `given_name` |Fournit le prénom de l’utilisateur tel que défini dans l’objet utilisateur Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Groupes | `groups` |Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété « groupMembershipClaims » du manifeste d'application. Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory et une valeur « All » inclut les groupes de sécurité et les listes de Distribution Office 365. <br><br> **Remarques**: <br> Si le nombre de groupes auxquels l’utilisateur appartient dépasse une limite (150 pour SAML, 200 pour JSON), une revendication de dépassement est ajoutée aux sources de revendication qui pointent sur le point de terminaison Graph contenant la liste des groupes pour l’utilisateur. (dans . | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicateur de dépassement des groupes | `groups:src1` | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour SAML, il est ajouté en tant que nouvelle revendication à la place de la revendication `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> |Groupes | `groups` |Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété « groupMembershipClaims » du manifeste d'application. Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory, et une valeur « All » inclut les groupes de sécurité et les listes de distribution Microsoft 365. <br><br> **Remarques**: <br> Si le nombre de groupes auxquels l’utilisateur appartient dépasse une limite (150 pour SAML, 200 pour JSON), une revendication de dépassement est ajoutée aux sources de revendication qui pointent sur le point de terminaison Graph contenant la liste des groupes pour l’utilisateur. (dans . | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> | Indicateur de dépassement des groupes | `groups:src1` | Pour les requêtes de jetons dont la longueur n’est pas limitée mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour SAML, il est ajouté en tant que nouvelle revendication à la place de la revendication `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Fournisseur d’identité | `idp` |Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d'utilisateur est dans un autre client que l'émetteur. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Enregistre l’heure à laquelle le jeton a été émis. Il est souvent utilisé pour mesurer l’actualisation du jeton. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Émetteur | `iss` |Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Dans les jetons retournés par Azure AD, l'émetteur est sts.windows.net. Le GUID dans la valeur de revendication de l'émetteur est l'ID client de Azure AD Directory. L'ID client est un identificateur non modifiable et fiable du répertoire. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
@@ -152,10 +152,9 @@ Il s'agit d'un exemple de jeton SAML classique.
 </t:RequestSecurityTokenResponse>
 ```
 
-## <a name="related-content"></a>Contenu connexe
+## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [ressource de stratégie](/graph/api/resources/policy?view=graph-rest-beta).
-* Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (en anglais). 
-* Ajoutez [revendications personnalisées et facultatives](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) aux jetons pour votre application.
+* Pour en savoir plus sur la gestion de la stratégie de durée de vie des jetons à l’aide de l’API Microsoft Graph, consultez la [Vue d’ensemble de la ressource de stratégie Azure AD](/graph/api/resources/policy).
+* Ajoutez [revendications personnalisées et facultatives](active-directory-optional-claims.md) aux jetons pour votre application.
 * Utilisez l’[authentification unique (SSO) avec SAML](single-sign-on-saml-protocol.md).
 * Utilisez le [protocole SAML de déconnexion unique Azure](single-sign-out-saml-protocol.md)

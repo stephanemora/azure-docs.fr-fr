@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate avec un script
 description: Découvrez comment configurer une appliance Azure Migrate avec un script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929973"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514405"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurer une appliance avec un script
 
@@ -51,7 +51,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Algorithme** | **Télécharger** | **SHA256**
     --- | --- | ---
-    VMware (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    VMware (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -100,7 +100,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
     **Scénario** | **Télécharger** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    Hyper-V (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a476422c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### <a name="run-the-script"></a>Exécuter le script
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930001"
+ms.locfileid: "90973377"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Ajouter des flux de données à partir de différentes sources dans Metrics Advisor
 
@@ -27,10 +27,10 @@ Utilisez cet article pour rechercher les paramètres et les exigences de connexi
 | ---------------------|-------------|
 |**De base** | Vous devez être en mesure de fournir des paramètres de base pour accéder aux sources de données. Par exemple, une chaîne de connexion ou une clé. Les administrateurs du flux de données peuvent afficher ces informations d’identification. |
 | **AzureManagedIdentity** | [Identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour les ressources Azure est une fonctionnalité d’Azure Active Directory. Elle fournit aux services Azure une identité managée automatiquement dans Azure AD. Vous pouvez utiliser cette identité pour authentifier tous les services qui prennent en charge l’authentification Azure AD.|
-| **AzureSQLConnectionString**| Stockez votre chaîne de connexion AzureSQL en tant qu’**entité d’authentification** dans Metrics Advisor et utilisez-la directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’authentification sont en mesure d’afficher ces informations d’identification, mais permettent aux viewers autorisés de créer des flux de données sans avoir besoin de connaître les détails des informations d’identification. |
-| **DataLakeGen2SharedKey**| Stockez votre clé de compte de lac de données en tant qu’**entité d’authentification** dans Metrics Advisor et utilisez-la directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’authentification sont en mesure d’afficher ces informations d’identification, mais permettent aux viewers autorisés de créer un flux de données sans avoir besoin de connaître les détails des informations d’identification.|
-| **ServicePrincipal**| Stockez votre principal de service en tant qu’**entité d’authentification** dans Metrics Advisor et utilisez-le directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’authentification sont en mesure d’afficher les informations d’identification, mais permettent aux viewers autorisés de créer des flux de données sans avoir besoin de connaître les détails des informations d’identification.|
-| **ServicePrincipalInKeyVault**|Stockez votre principal de service dans KeyVault en tant qu’**entité d’authentification** dans Metrics Advisor et utilisez-le directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’**entité d’authentification** sont en mesure d’afficher les informations d’identification, mais permettent également aux viewers de créer des flux de données sans avoir besoin de connaître les détails des informations d’identification. |
+| **AzureSQLConnectionString**| Stockez votre chaîne de connexion AzureSQL en tant qu’**entité d’informations d’identification** dans Metrics Advisor et utilisez-la directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’informations d’identification sont en mesure d’afficher ces informations d’identification, mais elles permettent aux lecteurs autorisés de créer des flux de données sans avoir besoin de connaître les détails des informations d’identification. |
+| **DataLakeGen2SharedKey**| Stockez votre clé de compte de lac de données en tant qu’**entité d’informations d’identification** dans Metrics Advisor et utilisez-la directement à chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’informations d’identification sont en mesure d’afficher ces informations d’identification, mais elles permettent aux lecteurs autorisés de créer un flux de données sans avoir besoin de connaître les détails des informations d’identification.|
+| **Principal du service**| Stockez votre principal de service en tant qu’**entité d’informations d’identification** dans Metrics Advisor, et utilisez celle-ci directement chaque fois que vous intégrez des données de mesures. Seuls les administrateurs de l’entité d’informations d’identification sont en mesure d’afficher les informations d’identification, mais celles-ci permettent aux lecteurs autorisés de créer un flux de données sans avoir besoin de connaître les détails des informations d’identification.|
+| **Principal de service du coffre de clés**|Stockez votre principal de service dans coffre de clés en tant qu’**entité d’informations d’identification** dans Metrics Advisor, et utilisez-le directement à chaque fois que vous intégrez des données de métriques. Seuls les administrateurs d’une **entité d’informations d’identification** sont en mesure d’afficher les informations d’identification, mais celles-ci permettent également aux lecteurs de créer des flux de données sans avoir besoin de connaître les détails des informations d’identification. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Sources de données prises en charge et types d’authentification correspondants
 
@@ -41,8 +41,8 @@ Utilisez cet article pour rechercher les paramètres et les exigences de connexi
 |[**Stockage Blob Azure (JSON)** ](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)** ](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Principal du service<br>Principal de service du coffre de clés<br> |
+|[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Principal du service<br>Principal de service du coffre de clés<br>AzureSQLConnectionString
 |[**Stockage Table Azure**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**requête HTTP**](#http) | Basic | 
@@ -51,7 +51,7 @@ Utilisez cet article pour rechercher les paramètres et les exigences de connexi
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Créez une **entité d’authentification** et utilisez-la pour l’authentification auprès de vos sources de données. Les sections suivantes spécifient les paramètres requis par pour une authentification *de base*. 
+Créez une **entité d’informations d’identification** et utilisez-la pour l’authentification auprès de vos sources de données. Les sections suivantes spécifient les paramètres requis par pour une authentification *de base*. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: Diagnostiquer des problèmes de filtre de trafic réseau sur une machine virtuelle
       href: network-watcher-ip-flow-verify-overview.md
+    - name: Diagnostiquer le filtrage du trafic et les règles de groupe de sécurité réseau
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: Diagnostiquer des problèmes de routage sur une machine virtuelle
       href: network-watcher-next-hop-overview.md
     - name: Diagnostiquer les problèmes de communication sortante sur une machine virtuelle

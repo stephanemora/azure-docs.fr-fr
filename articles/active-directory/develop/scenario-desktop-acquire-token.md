@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141293"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032807"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -38,7 +38,7 @@ L’API web est définie par ses valeurs de `scopes`. Quelle que soit l’expér
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -183,7 +183,7 @@ Sur Android, vous devez également spécifier l’activité parente au moyen de 
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-L’interface utilisateur est importante, car elle est interactive. `AcquireTokenInteractive` présente un paramètre facultatif spécifique pouvant préciser, pour les plateformes qui le prennent en charge, l’interface utilisateur parente. Lorsqu’il est utilisé dans une application de bureau, `.WithParentActivityOrWindow` présente un type différent qui dépend la plateforme.
+L’interface utilisateur est importante, car elle est interactive. `AcquireTokenInteractive` présente un paramètre facultatif spécifique pouvant préciser, pour les plateformes qui le prennent en charge, l’interface utilisateur parente. Lorsqu’il est utilisé dans une application de bureau, `.WithParentActivityOrWindow` présente un type différent qui dépend la plateforme. Vous pouvez également omettre le paramètre facultatif de fenêtre parente pour créer une fenêtre, si vous ne souhaitez pas contrôler l’emplacement où la boîte de dialogue de connexion s’affiche à l’écran. Cela s’applique aux applications basées sur une ligne de commande, utilisées pour passer des appels à tout autre service principal et n’ont pas besoin de fenêtres pour l’interaction avec l’utilisateur. 
 
 ```csharp
 // net45
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
   - Ou bien, l’administrateur de locataires doit avoir préalablement consenti à ce que tous les utilisateurs dans le locataire utilisent l’application.
   - En d’autres termes :
     - En tant que développeur, vous avez sélectionné le bouton **Accorder** pour vous-même, dans le portail Azure.
-    - Ou bien, un administrateur de locataire a sélectionné le bouton **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder aux API web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Ou bien, un administrateur de locataire a sélectionné le bouton **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder à votre API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - Ou bien, vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Demande de consentement d’utilisateur individuel](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - Ou bien, vous avez fourni un moyen à l’administrateur de locataire de donner son consentement pour l’utilisation de l’application. Pour plus d’informations, consultez [Consentement administrateur](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -925,7 +925,7 @@ Ce flux n’est pas pris en charge sur MSAL pour macOS.
 
 Si vous écrivez un outil en ligne de commande qui n’a pas de contrôles web, et que vous ne pouvez pas ou ne souhaitez pas utiliser les flux précédents, vous devez utiliser le flux de code d’appareil.
 
-L’authentification interactive avec Azure AD nécessite un navigateur web. Pour plus d’informations, consultez [Utilisation de navigateurs Web](https://aka.ms/msal-net-uses-web-browser). Pour authentifier des utilisateurs sur des appareils ou des systèmes d’exploitation qui ne fournissent pas de navigateur web, le flux de code d’appareil permet à l’utilisateur de se servir d’un autre appareil, tel qu’un ordinateur ou un téléphone mobile, pour se connecter de manière interactive. En utilisant le flux de code d’appareil, l’application obtient des jetons par le biais d’un processus en deux étapes, qui est conçu pour ces appareils ou systèmes d’exploitation. De telles applications se retrouvent par exemple à s’exécuter sur IoT ou des outils en ligne de commande (CLI). L’idée est la suivante :
+L’authentification interactive avec Azure AD nécessite un navigateur web. Pour plus d’informations, consultez [Utilisation de navigateurs Web](https://aka.ms/msal-net-uses-web-browser). Pour authentifier des utilisateurs sur des appareils ou des systèmes d’exploitation qui ne fournissent pas de navigateur web, le flux de code d’appareil permet à l’utilisateur de se servir d’un autre appareil, tel qu’un ordinateur ou un téléphone mobile, pour se connecter de manière interactive. En utilisant le flux de code d’appareil, l’application obtient les jetons via un processus en deux étapes, conçu pour ces appareils ou systèmes d’exploitation. De telles applications se retrouvent par exemple à s’exécuter sur IoT ou des outils en ligne de commande (CLI). L’idée est la suivante :
 
 1. Chaque fois que l’authentification utilisateur est exigée, l’application fournit un code pour l’utilisateur. L’utilisateur est invité à utiliser un autre appareil, tel qu’un smartphone connecté à Internet, pour accéder à une URL, par exemple, `https://microsoft.com/devicelogin`. Ensuite, l’utilisateur est invité à entrer le code. Le code entré, la page web guide l’utilisateur dans un processus d’authentification normale, qui comporte des invites de consentement et une authentification multifacteur, si nécessaire.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

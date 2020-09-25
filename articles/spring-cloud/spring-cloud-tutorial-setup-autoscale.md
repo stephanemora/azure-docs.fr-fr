@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905392"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutoriel : Configurer la mise à l’échelle automatique pour les applications de microservice
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
+
 La mise à l’échelle automatique est une fonctionnalité intégrée d’Azure Spring Cloud qui permet aux applications de microservice d’atteindre des performances maximales quand la demande évolue. Elle implique de modifier la quantité de processeurs virtuels, de mémoire et d’instances d’application. Cet article décrit comment configurer les paramètres de mise à l’échelle automatique pour vos applications à l’aide du portail Microsoft Azure ou de l’interface Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -68,4 +71,4 @@ Si vous êtes au niveau De base et limité par une ou plusieurs de ces restricti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Supervision de la mise à l’échelle automatique avec l’interface Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Supervision de la mise à l’échelle automatique avec l’interface Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

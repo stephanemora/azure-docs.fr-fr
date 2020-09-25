@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904283"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gérer et superviser une application avec l’actionneur Azure Spring Boot
+
+**Cet article s’applique à :** ✔️ Java
 
 Après avoir déployé un nouveau binaire dans votre application, vous pouvez vérifier la fonctionnalité et afficher des informations sur votre application en cours d’exécution. Cet article explique comment accéder à l’API à partir d’un point de terminaison de test fourni par Azure Spring Cloud et exposer les fonctionnalités prêtes pour la production de votre application.
 
@@ -73,5 +75,7 @@ Vous pouvez maintenant revenir au volet Vue d’ensemble de l’application et p
 Pour afficher tous les points de terminaison intégrés, consultez [Exposition des points de terminaison](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Comprendre les métriques pour Azure Spring Cloud](spring-cloud-concept-metrics.md)
 * [Présentation de l’état des applications dans Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

@@ -132,6 +132,8 @@
       items:
         - name: Mettre à l’échelle un cluster AKS
           href: scale-cluster.md
+        - name: Arrêter un cluster AKS (préversion)
+          href: start-stop-cluster.md
         - name: Mettre à niveau un cluster AKS
           href: upgrade-cluster.md
         - name: Utiliser un SLA avec une durée de bon fonctionnement
@@ -307,8 +309,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Développer et exécuter des applications
       items:
-        - name: Utiliser Local Process with Kubernetes avec Visual Studio Code (préversion)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Utiliser Bridge to Kubernetes avec Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Utiliser Bridge to Kubernetes avec Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Installer des applications existantes avec Helm
           href: kubernetes-helm.md
         - name: Utiliser OpenFaaS

@@ -50,6 +50,8 @@
       items:
         - name: Tableau de prise en charge de Sauvegarde Azure
           href: backup-support-matrix.md
+        - name: Matrice de prise en charge du centre de sauvegarde
+          href: backup-center-support-matrix.md
         - name: Matrice de prise en charge de la sauvegarde de machines virtuelles Azure
           href: backup-support-matrix-iaas.md
         - name: Matrice de prise en charge de DPM/MABS (serveur de sauvegarde Azure)
@@ -68,6 +70,8 @@
       items:
         - name: FAQ sur les coffres Recovery Services
           href: backup-azure-backup-faq.md
+        - name: Questions fréquentes (FAQ) sur le Centre de sauvegarde
+          href: backup-center-faq.md
         - name: FAQ sur la sauvegarde des machines virtuelles Azure
           href: backup-azure-vm-backup-faq.md
         - name: FAQ sur l’agent MARS
@@ -88,23 +92,41 @@
       href: guidance-best-practices.md
 - name: Guides pratiques
   items:
-    - name: Coffre Recovery Services
+    - name: Coffres
+      items:
+        - name: Coffre Recovery Services
+          items:
+            - name: Vue d’ensemble
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: Créer
+              href: backup-create-rs-vault.md
+            - name: DELETE
+              href: backup-azure-delete-vault.md
+            - name: Déplacer
+              href: backup-azure-move-recovery-services-vault.md
+            - name: Gérer
+              href: backup-azure-manage-windows-server.md
+        - name: Archivage de sauvegarde
+          items:
+            - name: Vue d’ensemble
+              href: backup-vault-overview.md
+    - name: Centre de sauvegarde
       items:
         - name: Vue d’ensemble
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Créer
-          href: backup-create-rs-vault.md
-        - name: DELETE
-          href: backup-azure-delete-vault.md
-        - name: Déplacer
-          href: backup-azure-move-recovery-services-vault.md
-        - name: Gérer
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: Superviser et opérer
+          href: backup-center-monitor-operate.md
+        - name: Obtenir des Insights
+          href: backup-center-obtain-insights.md
+        - name: Régir l’environnement
+          href: backup-center-govern-environment.md
+        - name: Exécuter des actions
+          href: backup-center-actions.md
     - name: Sauvegarde des machines virtuelles Azure
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: Gérer
           href: manage-monitor-sql-database-backup.md
+    - name: Sauvegarde d’Azure Database pour PostgreSQL
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: Sauvegarde Windows avec l’agent MARS
       items:
         - name: Vue d’ensemble
@@ -160,7 +186,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -180,7 +206,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -188,7 +214,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -196,7 +222,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -204,7 +230,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -214,7 +240,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md

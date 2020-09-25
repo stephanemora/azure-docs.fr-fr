@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299643"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888574"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Activer une identité managée affectée par le système pour une application Azure Spring Cloud
+
+**Cet article s’applique à :** ✔️ Java ✔️ C#
+
 Les identités managées pour les ressources Azure fournissent une identité automatiquement managée dans Azure Active Directory à une ressource Azure telle que votre application Azure Spring Cloud. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
 
 Cet article explique comment activer et désactiver les identités managées affectées par le système pour une application Azure Spring Cloud, à l'aide du portail Azure et de l'interface CLI (disponible à partir de la version 0.2.4).
@@ -81,7 +84,8 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser des identités managées avec le kit de développement logiciel (SDK) Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+
 * [Accéder à Azure Key Vault avec des identités managées dans un « starter » Spring Boot](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [En savoir plus sur les identités managées pour les ressources Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Utiliser des identités managées avec le kit de développement logiciel (SDK) Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 

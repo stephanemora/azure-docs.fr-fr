@@ -3,12 +3,12 @@ title: Détails de la structure d’exemption de stratégie
 description: Décrit la définition d’exemption de stratégie utilisée par Azure Policy pour exempter des ressources de l’évaluation d’initiatives ou de définitions.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930078"
+ms.locfileid: "90968046"
 ---
 # <a name="azure-policy-exemption-structure"></a>Structure d’exemption Azure Policy
 
@@ -99,11 +99,12 @@ Ce champ correspond au nom du chemin complet d’une attribution de stratégie o
 
 Si le `policyAssignmentId` concerne une attribution d’initiative, la propriété `policyDefinitionReferenceIds` peut être utilisée pour spécifier la ou les définitions de stratégie de l’initiative à laquelle la ressource objet a une exemption. Comme la ressource peut être exemptée d’une ou de plusieurs définitions de stratégie incluses, cette propriété est un _tableau_. Les valeurs doivent correspondre aux valeurs de la définition d’initiative dans les `policyDefinitions.policyDefinitionReferenceId`champs.
 
-## <a name="required-permissions"></a>Autorisations requises
+## <a name="exemption-category"></a>Catégorie d’exemption
 
-Les autorisations Azure RBAC nécessaires pour gérer les objets d’exemption de stratégie se trouvent dans le `Microsoft.Authorization/policyExemptions`groupe d’opérations. Les rôles intégrés de [collaborateur de stratégie de ressource](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) et d’[administrateur de la sécurité](../../../role-based-access-control/built-in-roles.md#security-admin) disposent des autorisations `read` et `write` l’enregistreur de données [Policy Insights (préversion)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) dispose de l’autorisation `read`.
+Deux catégories d’exemption existent et sont utilisées pour regrouper les exemptions :
 
-Les exemptions ont des mesures de sécurité supplémentaires en raison de l’impact de l’octroi d’une exemption. Au-delà de la nécessité de l’`Microsoft.Authorization/policyExemptions/write`opération sur la hiérarchie de ressources ou une ressource individuelle, le créateur d’une exemption doit avoir le verbe `exempt/Action` sur l’affectation cible.
+- **Atténuées** : L’exemption est accordée parce que l’intention de stratégie est satisfaite par une autre méthode.
+- **Renonciation** : L’exemption est accordée car l’état de non-conformité de la ressource est provisoirement accepté. Une autre raison de l’utilisation de cette catégorie est pour une ressource ou une hiérarchie de ressources qui doit être exclue d’une ou de plusieurs définitions dans une initiative, mais ne doit pas être exclue de l’initiative entière.
 
 ## <a name="expiration"></a>Expiration
 
@@ -111,6 +112,12 @@ Pour définir à quel moment une hiérarchie de ressources ou une ressource indi
 
 > [!NOTE]
 > Les exemptions de stratégie ne sont pas supprimées lorsque la `expiresOn` date est atteinte. L’objet est conservé pour la conservation des enregistrements, mais l’exemption n’est plus honorée.
+
+## <a name="required-permissions"></a>Autorisations requises
+
+Les autorisations Azure RBAC nécessaires pour gérer les objets d’exemption de stratégie se trouvent dans le `Microsoft.Authorization/policyExemptions`groupe d’opérations. Les rôles intégrés de [collaborateur de stratégie de ressource](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) et d’[administrateur de la sécurité](../../../role-based-access-control/built-in-roles.md#security-admin) disposent des autorisations `read` et `write` l’enregistreur de données [Policy Insights (préversion)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) dispose de l’autorisation `read`.
+
+Les exemptions ont des mesures de sécurité supplémentaires en raison de l’impact de l’octroi d’une exemption. Au-delà de la nécessité de l’`Microsoft.Authorization/policyExemptions/write`opération sur la hiérarchie de ressources ou une ressource individuelle, le créateur d’une exemption doit avoir le verbe `exempt/Action` sur l’affectation cible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

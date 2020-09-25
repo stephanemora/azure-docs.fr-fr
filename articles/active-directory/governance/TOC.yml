@@ -60,7 +60,7 @@
               href: entitlement-management-catalog-create.md
             - name: Déléguer pour accéder aux gestionnaires de packages
               href: entitlement-management-delegate-managers.md
-        - name: Accéder aux gestionnaires de packages
+        - name: Gestionnaires de package d’accès et gestionnaires d’attribution de package d’accès
           items:
             - name: Créer un package d’accès
               href: entitlement-management-access-package-create.md
@@ -68,8 +68,10 @@
               href: entitlement-management-access-package-settings.md
             - name: Changer les rôles de ressources
               href: entitlement-management-access-package-resources.md
-            - name: Changer les paramètres de demande et d’approbation
+            - name: Changer les paramètres de requête
               href: entitlement-management-access-package-request-policy.md
+            - name: Changer les paramètres d’approbation
+              href: entitlement-management-access-package-approval-policy.md
             - name: Changer les paramètres de cycle de vie
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: Afficher les requêtes

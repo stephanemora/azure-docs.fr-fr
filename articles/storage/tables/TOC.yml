@@ -50,8 +50,8 @@
         - name: Chiffrement du Stockage Azure au repos
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
           items:
-            - name: Clés gérées par le client avec Azure Key Vault
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Chiffrement avec des clés gérées par le client
+              href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Contrôles de sécurité par Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
@@ -104,17 +104,15 @@
           items:
             - name: Créer un compte qui prend en charge les clés gérées par le client
               href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Configurer les clés gérées par le client
+            - name: Configurer le chiffrement avec les clés gérées par le client
               items:
-                - name: Portail
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Stocker les clés gérées par le client dans un coffre de clés
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Stocker les clés gérées par le client dans un HSM managé
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
             - name: Vérifier le modèle de clé de chiffrement du compte
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Activer le chiffrement de l’infrastructure pour un compte de stockage
+            - name: Activer le chiffrement de l’infrastructure pour le compte
               href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Configurer le chiffrement côté client
           items:
@@ -136,6 +134,8 @@
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
                 - name: Configurer la version TLS pour une application cliente
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Configurer Azure Defender pour la protection contre les menaces
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Gérer la redondance des données
       items:
         - name: Changer le mode de réplication des données

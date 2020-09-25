@@ -7,18 +7,76 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293997"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908288"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
 Avec les outils de suivi distribué d’Azure Spring Cloud, vous pouvez facilement déboguer et superviser les problèmes complexes. Azure Spring Cloud intègre Azure [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
 
-Dans cet article, vous apprendrez comment :
+::: zone pivot="programming-language-csharp"
+Dans cet article, vous allez apprendre à activer une application .NET Core Steeltoe pour utiliser le traçage distribué.
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ces procédures, vous avez besoin d’une application Steeltoe déjà [préparée pour le déploiement sur Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md).
+
+## <a name="dependencies"></a>Dépendances
+
+Installer les packages NuGet suivants
+
+* [Steeltoe.Management.TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe.Management.ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+
+## <a name="update-startupcs"></a>Mettre à jour Startup.cs
+
+1. Dans la méthode `ConfigureServices`, appelez les méthode `AddDistributedTracing` et `AddZipkinExporter`.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration);
+       services.AddZipkinExporter(Configuration);
+   }
+   ```
+
+1. Dans la méthode `Configure`, appelez la méthode `UseTracingExporter`.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+        app.UseTracingExporter();
+   }
+   ```
+
+## <a name="update-configuration"></a>Mettre à jour la configuration
+
+Ajoutez les paramètres suivants à la source de configuration qui sera utilisée lors de l’exécution de l’application dans Azure Spring Cloud :
+
+1. Définissez `management.tracing.alwaysSample` sur True.
+
+2. Si vous souhaitez afficher les étendues de suivi envoyées entre le serveur Eureka, le serveur de configuration et les applications utilisateur : définissez `management.tracing.egressIgnorePattern` sur /api/v2/spans|/v2/apps/. */permissions|/eureka/.* |/oauth/.*.
+
+Par exemple, *appSettings.json* comprend les propriétés suivantes :
+ 
+```json
+"management": {
+    "tracing": {
+      "alwaysSample": true,
+      "egressIgnorePattern": "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*"
+    }
+  }
+```
+
+Pour plus d’informations sur le traçage distribué dans les applications Steeltoe .NET Core, consultez [Traçage distribué](https://steeltoe.io/docs/3/tracing/distributed-tracing) dans la documentation de Steeltoe.
+::: zone-end
+::: zone pivot="programming-language-java"
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Activer le suivi distribué dans le portail Azure
@@ -28,8 +86,8 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Suivez le [guide de démarrage rapide concernant le déploiement d’une application via Azure CLI](spring-cloud-quickstart.md) afin de provisionner et d’exécuter un service Azure Spring Cloud.
-    
+Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Effectuez le démarrage rapide [Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md) pour approvisionner et exécuter un service Azure Spring Cloud.
+
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
 1. Ajoutez la ligne suivante au fichier application.properties :
@@ -73,6 +131,7 @@ spring.sleuth.sampler.probability=0.5
 ```
 
 Si vous avez déjà créé et déployé une application, vous pouvez modifier le taux d’échantillonnage. Pour ce faire, ajoutez la ligne précédente en tant que variable d’environnement dans Azure CLI ou dans le portail Azure.
+::: zone-end
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 

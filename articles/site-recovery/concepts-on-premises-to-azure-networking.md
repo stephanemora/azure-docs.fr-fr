@@ -1,18 +1,18 @@
 ---
 title: Se connecter à des machines virtuelles Azure en basculement local avec Azure Site Recovery
 description: Explique comment se connecter à des machines virtuelles Azure après le basculement d’un environnement local vers Azure à l’aide d’Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770490"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568776"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Se connecter à des machines virtuelles Azure après le basculement d’un environnement local 
 
@@ -107,8 +107,8 @@ Intéressons-nous à un exemple.
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Les applications s’exécutant sur Azure sont situées dans deux sous-réseaux du **réseau Azure**, à savoir :
-- 172.16.1.0/24
-- 172.16.2.0/24
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 Pour conserver ses adresses, voici comment la société procède.
 

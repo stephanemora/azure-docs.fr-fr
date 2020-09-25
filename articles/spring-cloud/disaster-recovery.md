@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076032"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892545"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Récupération d’urgence Azure Spring Cloud
+
+**Cet article s'applique à :** ✔️ Java ✔️ C#
 
 Cet article explique certaines stratégies que vous pouvez utiliser pour protéger vos applications Azure Spring Cloud contre les temps d’arrêt.  Chaque région ou centre de données peut subir un temps d’arrêt causé par des catastrophes régionales, mais une planification soigneuse peut atténuer l’impact sur vos clients.
 
@@ -62,3 +64,8 @@ Voici le profil du gestionnaire de trafic :
 4. Créez un enregistrement CNAME dans la zone DNS : bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. L’environnement est maintenant entièrement configuré. Les clients doivent pouvoir accéder à l’application via : bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md)
+ 

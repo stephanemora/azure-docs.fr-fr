@@ -4,15 +4,16 @@ description: Découvrir comment passer en revue les indicateurs de performance d
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046848"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892655"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -109,6 +110,34 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| jvm.gc.pause.total.count | jvm.gc.pause (nombre total) | Count | Nombre total de GC après le démarrage de cette JMV, y compris les GC de nouvelle et d’ancienne génération. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (durée totale) | Millisecondes | Durée totale du GC utilisée après le démarrage de cette JMV, y compris les GC de nouvelle et d’ancienne génération. |
 
+::: zone pivot="programming-language-csharp"
+### <a name="performance-net"></a>Performance (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
+>|------|-----------------------------|------|---------|
+>| Utilisation de l’UC       | cpu-usage      | Millisecondes | Temps d’utilisation du processeur par le processus. |
+>| Plage de travail     | working-set    | Mo    | Quantité de plage de travail utilisée par le processus. |
+>| Taille des segments de mémoire du récupérateur de mémoire    | gc-heap-size   | Mo    | Taille totale des segments de mémoire rapportée par le récupérateur de mémoire. |
+>| Nombre de nettoyages de mémoire Gén 0  | gen-0-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 0 par seconde. |
+>| Nombre de nettoyages de mémoire Gén 1  | gen-1-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 1 par seconde. |
+>| Nombre de nettoyages de mémoire Gén 2  | gen-2-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 2 par seconde. |
+>| Taille du tas de la génération 0 | gen-0-size     | Octets        | Taille des segments de mémoire de Génération 0. |
+>| Taille du tas de la génération 1 | gen-1-size     | Octets        | Taille des segments de mémoire de Génération 1. |
+>| Taille du tas de la génération 2 | gen-2-size     | Octets        | Taille des segments de mémoire de Génération 2. |
+>| Taille du tas des objets volumineux   | loh-size       | Octets        | Taille du tas des objets volumineux. |
+>| Taux d’allocation | alloc-rate     | Octets        | Nombre d’octets alloués par seconde. |
+>| Nombre d’assemblys  | assembly-count | Count        | Nombre d’assemblys chargés. |
+>| Nombre d’exceptions | exception-count | Count       | Nombre d’exceptions par seconde. |
+>| Nombre de threads du pool de threads      | threadpool-thread-count              | Count | Nombre de threads dans un pool. |
+>| Nombre de contentions de verrouillage du moniteur | monitor-lock-contention-count        | Count | Nombre de fois par seconde où il y a eu contention lors d’une tentative de suppression de verrou d’un moniteur. |
+>| Longueur de file d’attente du pool de threads      | threadpool-queue-length              | Count | Longueur de la file d’attente des éléments de travail du pool de threads. |
+>| Nombre d’éléments terminés dans le pool de threads | threadpool-completed-items-count | Count | Nombre d’éléments de travail terminés dans le pool de threads. |
+>| Nombre de minuteurs actifs               | active-timer-count               | Count | Nombre de minuteurs actuellement actifs. Un minuteur actif est un minuteur défini pour sonner à un moment donné et qui n’a pas encore été annulé. |
+
+Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
+
 ### <a name="request"></a>Requête
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
@@ -117,6 +146,20 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| tomcat.global.received | tomcat.global.received | Octets | Quantité de données reçues par le serveur web Tomcat |
 >| tomcat.global.request.total.count | tomcat.global.request (nombre total) | Count | Nombre total de requêtes traitées par le serveur web Tomcat |
 >| tomcat.global.request.max | tomcat.global.request.max | Millisecondes | Durée maximale de traitement d’une requête par le serveur web Tomcat |
+
+::: zone pivot="programming-language-csharp"
+### <a name="request-net"></a>Requête (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
+>|------|-----------------------------|------|---------|
+>| Demandes par seconde | requests-per-second | Count | Le taux de demandes. |
+>| Nombre total de requêtes | total-requests | Count | Nombre total de requêtes. |
+>| Requêtes en cours | current-requests | Count | Nombre de requêtes en cours. |
+>| Demandes ayant échoué | failed-requests | Count | Nombre d’échecs de requêtes. |
+
+Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
 
 ### <a name="session"></a>session
 >[!div class="mx-tdCol2BreakAll"]
@@ -130,6 +173,7 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Nombre de sessions actives Tomcat |
 
 ## <a name="see-also"></a>Voir aussi
+
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
 
 * [Bien démarrer avec Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
@@ -137,7 +181,7 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Quotas et plans de service pour Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
-

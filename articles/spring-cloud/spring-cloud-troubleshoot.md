@@ -4,15 +4,16 @@ description: Guide de dépannage pour Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5a67ebbf0f83f2dc3a340f52cab7437bbfaa350e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299165"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904198"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Résoudre les problèmes courants liés à Azure Spring Cloud
 
@@ -20,6 +21,7 @@ Cet article fournit des instructions pour résoudre les problèmes de développe
 
 ## <a name="availability-performance-and-application-issues"></a>Problèmes liés à la disponibilité, aux performances et aux applications
 
+::: zone pivot="programming-language-java"
 ### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>Mon application ne démarre pas (par exemple, le point de terminaison ne peut pas être connecté ou retourne une erreur 502 après quelques tentatives)
 
 Exportez les journaux dans Azure Log Analytics. La table des journaux des applications Spring est nommée *AppPlatformLogsforSpring*. Pour en savoir plus, consultez [Analyser les journaux et les métriques avec les paramètres de diagnostic](diagnostic-services.md).
@@ -58,10 +60,16 @@ Quand vous déboguez des incidents d’application, commencez par vérifier l’
     * Une explosion de mémoire au tout début.
     * La répartition de mémoire en surtension pour un chemin d’accès logique spécifique.
     * Fuites de mémoire progressives.
-
   Pour plus d’informations, consultez [Métriques](spring-cloud-concept-metrics.md).
+  
+* Si l’application ne démarre pas, vérifiez qu’elle possède des paramètres jvm valides. Si la mémoire jvm est trop élevée, le message d’erreur suivant peut s’afficher dans vos journaux :
+
+  >« required memory 2728741K is greater than 2000M available for allocation »
+
+
 
 Pour en savoir plus sur Azure Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Mon application connaît une utilisation élevée du processeur ou une utilisation élevée de la mémoire
 
@@ -85,6 +93,7 @@ Si toutes les instances sont opérationnelles, accédez à Azure Log Analytics p
 
 Pour en savoir plus sur Azure Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Interrogez les journaux à l’aide du [langage de requête Kusto](https://docs.microsoft.com/azure/kusto/query/).
 
+::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Check-list pour le déploiement de votre application Spring sur Azure Spring Cloud
 
 Avant d’intégrer votre application, assurez-vous qu’elle répond aux critères suivants :
@@ -96,6 +105,7 @@ Avant d’intégrer votre application, assurez-vous qu’elle répond aux critè
 * Les paramètres JVM ont les valeurs attendues.
 * Nous vous recommandons de désactiver ou supprimer les services _Config Server_ et _Spring Service Registry_ incorporés du package d’application.
 * Si des ressources Azure doivent être liées via la _liaison de service_, assurez-vous que les ressources cibles sont en cours d’exécution.
+::: zone-end
 
 ## <a name="configuration-and-management"></a>Configuration et gestion
 
@@ -114,6 +124,17 @@ Si vous souhaitez configurer l’instance de service Azure Spring Cloud à l’a
 
 Le nom de l’instance de service Azure Spring Cloud est utilisé pour demander un nom de sous-domaine sous `azureapps.io`, de sorte que la configuration échoue si le nom est en conflit avec un nom existant. Vous pouvez trouver plus de détails dans les journaux d’activité.
 
+::: zone pivot="programming-language-java"
+### <a name="i-cant-deploy-a-net-core-app"></a>Je ne parviens pas à déployer une application .NET Core
+
+Vous ne pouvez pas télécharger un fichier *.zip* pour une application .NET Core Steeltoe à l’aide du portail Azure ou du modèle Resource Manager.
+
+Quand vous déployez votre package d’application à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), ce dernier interroge régulièrement l’avancement du déploiement, puis, à la fin, affiche son résultat.
+
+Vérifiez que votre application est empaquetée dans le bon format *.zip*. Si elle n’est pas empaquetée correctement, le processus se bloquera ou un message d’erreur s’affichera.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-jar-package"></a>Je ne peux pas déployer un package JAR
 
 Vous ne pouvez pas télécharger le package source ou celui du fichier d’archive Java (JAR) à l’aide du Portail Azure ou du modèle Resource Manager.
@@ -211,3 +232,8 @@ Vérifiez si la dépendance `spring-boot-actuator` est activée dans votre packa
 ```
 
 Si vos journaux d’applications peuvent être archivés dans un compte de stockage, mais ne sont pas envoyés à Azure Log Analytics, vérifiez si vous avez [correctement configuré votre espace de travail](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Si vous utilisez un niveau gratuit d’Azure Log Analytics, notez que [le niveau gratuit ne fournit pas de contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+::: zone-end
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Guide pratique pour diagnostiquer et résoudre les problèmes dans Azure Spring Cloud par soi-même](spring-cloud-howto-self-diagnose-solve.md)

@@ -12,20 +12,22 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: ccbdc13f7efadff7fc4e101dfd0b736115d5351d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92394138c5aa20d0abc33387aab1e9c37e6f9cb9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897929"
+ms.locfileid: "90986395"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
 
 
-Dans cet article, vous découvrez comment créer des jeux de données Azure Machine Learning pour accéder aux données de vos expériences locales ou à distance. Pour comprendre où figurent les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](concept-data.md#data-workflow).
+Dans cet article, vous découvrez comment créer des jeux de données Azure Machine Learning pour accéder aux données de vos expériences locales ou à distance avec le kit de développement logiciel (SDK) Python Azure Machine Learning. Pour comprendre où figurent les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](concept-data.md#data-workflow).
 
 En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Étant donné que les données restent à leur emplacement existant, vous n’exposez aucun coût de stockage supplémentaire et ne risquez pas l’intégrité de vos sources de données. Les jeux de données sont également évalués tardivement, ce qui contribue aux vitesses de performances de flux de travail. Vous pouvez créer des jeux de données à partir de magasins de données, d’URL publiques et de [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+
+Pour une expérience à faible niveau de codage, [créez des jeux de données Azure Machine Learning avec Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets).
 
 Avec les jeux de données Azure Machine Learning, vous pouvez :
 
@@ -72,15 +74,14 @@ Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data
 
 Nous vous recommandons d’utiliser FileDatasets pour vos flux de travail d’apprentissage automatique, car les fichiers sources peuvent être dans n’importe quel format, ce qui permet un éventail plus large de scénarios d’apprentissage automatique, dont l’apprentissage profond.
 
-Créer un FileDataset avec le [Kit de développement logiciel (SDK) Python](#create-a-filedataset) ou [Azure Machine Learning Studio](#create-datasets-in-the-studio)
-
+Créez un FileDataset avec le [kit de développement logiciel (SDK) Python](#create-a-filedataset) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 ### <a name="tabulardataset"></a>TabularDataset
 
 Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans une tramedonnées pandas ou Spark afin de pouvoir travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de [résultats de requête SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Avec TabularDatasets, vous pouvez spécifier un horodatage à partir d’une colonne dans les données ou à partir de là où les données du modèle de chemin sont stockées pour activer une caractéristique de série chronologique. Cette spécification permet un filtrage chronologique facile et efficace. Pour un exemple, consultez [Démonstration de l’API pour une série chronologique tabulaire avec des données météo NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
-Créez un TabularDataset avec le [Kit de développement logiciel (SDK) Python](#create-a-tabulardataset) ou [Azure Machine Learning Studio](#create-datasets-in-the-studio).
+Créez un TabularDataset avec le [Kit de développement logiciel (SDK) Python](#create-a-tabulardataset) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
 > Les flux de travail AutoML générés via Azure Machine Learning Studio prennent actuellement en charge uniquement les TabularDatasets. 
@@ -91,9 +92,9 @@ Si votre espace de travail se trouve dans un réseau virtuel, vous devez configu
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets-via-the-sdk"></a>Créer des jeux de données via le Kit de développement logiciel (SDK)
+## <a name="create-datasets"></a>Créez les jeux de données
 
- Pour que les données soient accessibles par Azure Machine Learning, les jeux de données doivent être créés à partir de chemins dans des [magasins de données Azure](how-to-access-data.md) ou des URL web publiques. 
+Pour que les données soient accessibles par Azure Machine Learning, les jeux de données doivent être créés à partir de chemins dans des [magasins de données Azure](how-to-access-data.md) ou des URL web publiques. 
 
 Pour créer des jeux de données à partir d’un [magasin de données Azure](how-to-access-data.md) à l’aide du Kit de développement logiciel (SDK) Python :
 
@@ -220,26 +221,6 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
-<a name="datasets-ui"></a>
-## <a name="create-datasets-in-the-studio"></a>Créer des jeux de données dans le studio
-L’animation et les étapes suivantes montrent comment créer un jeu de données dans [Azure Machine Learning Studio](https://ml.azure.com).
-
-> [!Note]
-> Les jeux de données créés via Azure Machine Learning Studio sont automatiquement inscrits auprès de l’espace de travail.
-
-![Créer un jeu de données avec l’interface utilisateur](./media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-Pour créer un jeu de données dans le studio :
-1. Connectez-vous à https://ml.azure.com.
-1. Sélectionnez **Jeux de données** dans la section **Ressources** du volet gauche. 
-1. Sélectionnez **Créer un jeu de données** pour choisir la source de votre jeu de données. Cette source peut être des fichiers locaux, un magasin de fichiers ou des URL publiques.
-1. Sélectionnez le type de jeu de données **Tabulaire** ou **Fichier**.
-1. Sélectionnez **Suivant** pour ouvrir le formulaire **Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où conserver votre jeu de données après sa création, ainsi que les fichiers de données à utiliser pour votre jeu de données. 
-    1. Vous pouvez choisir d’ignorer la validation si vos données se trouvent dans un réseau virtuel. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
-1. Sélectionnez **Suivant** pour renseigner les formulaires **Paramètres et aperçu** et **Schéma** ; ils sont renseignés intelligemment en fonction du type de fichier et vous pouvez configurer davantage votre jeu de données avant de le créer sur ces formulaires. 
-1. Sélectionnez **Suivant** pour passer en revue le formulaire **Confirmer les détails**. Vérifiez vos sélections et créez un profil de données facultatif pour votre jeu de données. En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile). 
-1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Créer des jeu de données avec Azure Open Datasets
 

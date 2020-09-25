@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013586"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613731"
 ---
 # <a name="debug-rendering"></a>Rendu du débogage
 
@@ -74,6 +74,10 @@ Toutefois, les effets fournis ne donnent aucune introspection détaillée de l�
 
 * L’activation des superpositions de texte entraîne peu, voire pas, de surcharge de performances.
 * L’activation du mode filaire entraîne une surcharge de performances non négligeable, même si elle peut varier en fonction de la scène. Pour les scènes complexes, ce mode peut provoquer la chute de la fréquence d’images en dessous de la cible de 60 Hz.
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [C++ RemoteManager::DebugRenderingSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

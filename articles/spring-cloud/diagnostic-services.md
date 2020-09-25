@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892571"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
+
+**Cet article s'applique à :** ✔️ Java ✔️ C#
 
 La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser les journaux et les métriques à l’aide d’un des services suivants :
 
@@ -25,7 +27,7 @@ La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser
 Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 > [!TIP]
-> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs) !
+> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs) !
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Vous pourrez peut-être appliquer la même stratégie pour d’autres bibliothèques de journaux Java.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md)

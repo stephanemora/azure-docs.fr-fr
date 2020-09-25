@@ -137,14 +137,14 @@
             - name: Chiffrement du Stockage Azure au repos
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
-                - name: Clés gérées par le client avec Azure Key Vault
-                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Clés fournies par le client sur la requête
-                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Chiffrement avec des clés gérées par le client
+                  href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Chiffrement sur la requête à l’aide de clés fournies par le client
+                  href: encryption-customer-provided-keys.md
+                - name: Étendues de chiffrement
+                  href: encryption-scope-overview.md
             - name: Objets blob immuables
               href: storage-blob-immutable-storage.md
-            - name: Détection avancée des menaces
-              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Contrôles de sécurité intégrés
               href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utiliser des points de terminaison privés Azure
@@ -380,19 +380,17 @@
                   items:
                     - name: Vérifier le modèle de clé de chiffrement du compte
                       href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configurer des clés de chiffrement gérées par le client
+                    - name: Configurer le chiffrement avec les clés gérées par le client
                       items:
-                        - name: Portail
-                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: PowerShell
-                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: Azure CLI
-                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Stocker les clés gérées par le client dans un coffre de clés
+                          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Stocker les clés gérées par le client dans un HSM managé
+                          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Fournir une clé de chiffrement sur une demande
                   href: storage-blob-customer-provided-key.md
                 - name: Gérer des étendues de chiffrement
                   href: encryption-scope-manage.md
-                - name: Activer le chiffrement de l’infrastructure pour un compte de stockage
+                - name: Activer le chiffrement de l’infrastructure pour le compte
                   href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurer le chiffrement côté client
               items:
@@ -414,6 +412,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurer la version TLS pour une application cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurer Azure Defender pour la protection contre les menaces
+              href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Définir et gérer des stratégies d’immuabilité
               href: storage-blob-immutability-policies-manage.md
         - name: Gérer la redondance des données

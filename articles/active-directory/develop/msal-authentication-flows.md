@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170511"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437868"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -219,7 +219,7 @@ L’autorité transmise lors de la construction de l’application cliente publi
 Cela signifie que l’une des conditions suivantes est remplie :
 
 - En tant que développeur, vous avez choisi l’option **Accorder** dans le portail Azure pour vous-même.
-- Un administrateur de locataires a sélectionné **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application dans le portail Azure (consultez [Ajouter des autorisations pour accéder aux API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Un administrateur de locataires a sélectionné **Accorder/révoquer le consentement administrateur pour {domaine du locataire}** dans l’onglet **Autorisations de l’API** lors de l’inscription de l’application dans le portail Azure (consultez [Ajouter des autorisations pour accéder à votre API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - Vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application ; consultez [Demande de consentement d’utilisateur individuel](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Vous avez fourni un moyen à l’administrateur de locataires de donner son consentement pour l’utilisation de l’application ; consultez [Consentement administrateur](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552830"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421456"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -88,11 +88,11 @@ Vous pouvez également attribuer une valeur constante (statique) quelconque à t
 
 1. Entrez la valeur constante sans guillemets dans **Attribut source** conformément à votre organisation, puis cliquez sur **Enregistrer**.
 
-    ![Ouvrez la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Organisation de la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. La valeur constante sera affichée comme ci-dessous.
 
-    ![Ouvrez la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Modification de la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Revendications spéciales - Transformations
 
@@ -121,7 +121,7 @@ Pour appliquer une transformation à un attribut utilisateur :
 2. Sélectionnez la fonction dans la liste déroulante de transformation. Selon la fonction sélectionnée, vous devrez fournir des paramètres et une valeur constante à évaluer dans la transformation. Pour plus d’informations sur les fonctions disponibles, reportez-vous au tableau ci-dessous.
 3. Pour appliquer plusieurs transformations, cliquez sur **Ajouter une transformation**. Vous pouvez appliquer un maximum de deux transformations à une revendication. Par exemple, vous pouvez d’abord extraire le préfixe e-mail de `user.mail`. Ensuite, mettez la chaîne en majuscules.
 
-   ![Modifier la valeur NameID (identificateur du nom)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Transformation de plusieurs revendications](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Vous pouvez utiliser les fonctions suivantes pour transformer des revendications.
 
@@ -129,8 +129,8 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 |----------|-------------|
 | **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse e-mail ou du nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
 | **Join()** | Crée une nouvelle valeur en joignant deux attributs. Si vous le souhaitez, vous pouvez utiliser un séparateur entre les deux attributs. Pour la transformation de revendication NameID, la jointure est limitée à un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
-| **ToUpper()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
+| **ToLowercase()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
+| **ToUppercase()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
 | **Contains()** | Génère un attribut ou une constante si l’entrée correspond à la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication où la valeur est l’adresse e-mail utilisateur si elle contient le domaine «@contoso.com». Dans ce cas, nous vous conseillons de générer le nom d’utilisateur principal. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.email<br/>*Valeur* : "@contoso.com"<br/>Paramètre 2 (sortie) : user.email<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.userprincipalname |
 | **EndWith()** | Génère un attribut ou une constante si l’entrée se termine par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication dont la valeur est l’ID d’employé de l’utilisateur, si l’ID d’employé se termine par « 000 ». Dans ce cas, nous vous recommandons d’obtenir un attribut d’extension en sortie. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.employeeid<br/>*Valeur* : "000"<br/>Paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie, s’il n’existe aucune correspondance) : user.extensionattribute1 |
 | **StartWith()** | Génère un attribut ou une constante si l’entrée commence par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication dont la valeur est l’ID d’employé de l’utilisateur, si la valeur de Pays/région commence par « US ». Dans ce cas, nous vous recommandons d’obtenir un attribut d’extension en sortie. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.country<br/>*Valeur* : "US"<br/>Paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie, s’il n’existe aucune correspondance) : user.extensionattribute1 |

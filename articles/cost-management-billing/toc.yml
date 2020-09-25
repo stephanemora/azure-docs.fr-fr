@@ -180,6 +180,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: Exporter les informations d’abonnement
               href: manage/export-subscriptions.md
+            - name: Supprimer un mode de paiement pour la facturation Azure
+              href: manage/delete-azure-payment-method.md
             - name: Changer de carte de crédit
               href: manage/change-credit-card.md
             - name: Modifier l’administrateur
