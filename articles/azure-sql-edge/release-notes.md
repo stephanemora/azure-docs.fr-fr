@@ -9,28 +9,74 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
-ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553408"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900601"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notes de publication Azure SQL Edge 
 
 Cet article décrit les nouveautés et les modifications apportées à chaque nouvelle build d’Azure SQL Edge.
 
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>Numéro de build du moteur SQL – 15.0.2000.1549
+
+### <a name="whats-new"></a>Nouveautés
+1. Images de conteneur basées sur Ubuntu 18.04. 
+2. Prise en charge pour `IGNORE NULL` et `RESPECT NULL` syntaxe avec `LAST_VALUE()` et les fonctions `FIRST_VALUE()`. 
+3. Améliorations de la fiabilité pour PREDICT avec ONNX.
+4. Prise en charge du nettoyage basé sur la stratégie de conservation des données.      
+   - Prise en charge du nettoyage optimisé pour les index columnstore en cluster.
+5. Prise en charge de nouvelles fonctionnalités 
+   - Récupération rapide
+   - Réglage automatique des requêtes
+
+### <a name="fixes"></a>Correctifs
+1. Messages d'erreur supplémentaires et détails pour le dépannage des opérations de diffusion en continu TSQL. 
+2. Améliorations visant à préserver l’autonomie de la batterie en mode inactif. 
+3. Correctifs du moteur de diffusion en continu TSQL : 
+   - Nettoyage de la tâche de diffusion en continu arrêtée 
+   - Correctifs pour les améliorations de la localisation et de la gestion Unicode
+4. Nettoyage basé sur la stratégie de conservation des données
+   - Correctifs pour les scénarios de création et de nettoyage de stratégie de rétention.
+5. Correctifs pour les tâches du minuteur d’arrière-plan pour améliorer les économies d’énergie en mode d’alimentation basse.
+
+
+## <a name="ctp-23"></a>CTP 2.3
+### <a name="sql-engine-build-number---15020001549"></a>Numéro de build du moteur SQL – 15.0.2000.1549
+### <a name="whats-new"></a>Nouveautés
+1. Prise en charge des origines personnalisées dans la fonction Date_Bucket (). 
+2. Prise en charge des fichiers BacPac dans le cadre du déploiement SQL.
+3. Prise en charge du nettoyage basé sur la stratégie de conservation des données.      
+   - Prise en charge DDL pour l’activation de la stratégie de rétention 
+   - Procédures stockées de nettoyage et tâche de nettoyage en arrière-plan
+   - Événements étendus pour surveiller les tâches de nettoyage
+
+### <a name="fixes"></a>Correctifs
+1. Messages d'erreur supplémentaires et détails pour le dépannage des opérations de diffusion en continu TSQL. 
+2. Améliorations visant à préserver l’autonomie de la batterie en mode inactif. 
+3. Correctifs du moteur de diffusion en continu TSQL : 
+   - Résoudre le problème de filigrane bloqué avec la fenêtre récurrente sous-diffusée 
+   - Corriger la gestion des exceptions de l’infrastructure pour s’assurer qu’elle est collectée en tant qu’erreur utilisateur
+
+
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>Numéro de build du moteur SQL – 15.0.2000.1546
-### <a name="fixes"></a>Correctifs
+### <a name="whats-new"></a>Nouveautés
 1. Prise en charge des conteneurs non racine 
 2. Support pour la collecte de données d’utilisation et de diagnostic 
 3. Mises à jour de la diffusion en continu T-SQL
    - Prise en charge des caractères Unicode pour les noms d’objets de flux
+
+### <a name="fixes"></a>Correctifs
+1. Mises à jour de la diffusion en continu T-SQL
    - Améliorations du nettoyage de processus
    - Améliorations de la journalisation et des diagnostics
-4. Amélioration des performances de l’ingestion de données
+2. Amélioration des performances de l’ingestion de données
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>Numéro de build du moteur SQL - 15.0.2000.1545

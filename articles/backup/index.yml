@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: f78a311125340f447cb0f2dda960e34c289c123a
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88650840"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90974439"
 landingContent:
 - title: En savoir plus sur Sauvegarde Azure
   linkLists:
@@ -56,12 +56,14 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Centre de sauvegarde
+      url: backup-center-overview.md
+    - text: Sauvegarder Azure Database pour PostgreSQL
+      url: backup-azure-database-postgresql.md
     - text: Suppression réversible pour la Sauvegarde Azure
       url: backup-azure-security-feature-cloud.md
     - text: Restauration sous forme de fichiers de SQL Server sur des machines virtuelles Azure
       url: restore-sql-database-azure-vm.md#restore-as-files
-    - text: Sauvegarde de base de données SAP HANA sur des machines virtuelles Azure
-      url: backup-azure-sap-hana-database.md
 - title: Sauvegarder des machines virtuelles Azure
   linkLists:
   - linkListType: concept
@@ -134,6 +136,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Gérer à grande échelle avec le Centre de sauvegarde
+      url: backup-center-monitor-operate.md
     - text: Gouverner à grande échelle avec Azure Policy
       url: backup-azure-auto-enable-backup.md
     - text: Superviser et opérer à grande échelle avec l’Explorateur de sauvegarde

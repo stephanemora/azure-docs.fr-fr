@@ -4,19 +4,25 @@ description: Découvrez comment automatiser la découverte et l’inscription de
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c3e26b157630df6004292c93a0a0a47307d5949a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1e60799878cc30b729344c03df36a4c5e4f4a199
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071013"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904215"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Découvrir et inscrire vos services Spring Cloud
 
 La découverte de services est une condition essentielle pour une architecture basée sur des microservices.  La configuration manuelle de chaque client prend du temps et introduit le risque d’erreur humaine.  Spring Cloud Service Registry résout ce problème.  Une fois configuré, un serveur Service Registry contrôle l’inscription et la découverte des services pour les microservices de votre application. Le serveur Service Registry gère un registre des microservices déployés, permet l’équilibrage de charge côté client et découple les fournisseurs de services des clients sans dépendre du système DNS.
+
+::: zone pivot="programming-language-csharp"
+Pour plus d’informations sur la configuration d’une inscription au service pour une application Steeltoe, consultez [Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md).
+::: zone-end
+::: zone pivot="programming-language-java"
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Inscrire votre application à l’aide de Spring Cloud Service Registry
 
@@ -56,3 +62,4 @@ Pour finir, ajoutez une annotation à la classe de niveau supérieur de votre ap
 Le point de terminaison de serveur Spring Cloud Service Registry est injecté en tant que variable d’environnement dans votre application.  Les microservices pourront désormais s’inscrire eux-mêmes auprès du serveur Service Registry et découvrir d’autres microservices dépendants.
 
 Notez que quelques minutes peuvent être nécessaires pour que les modifications se propagent du serveur à tous les microservices.
+::: zone-end

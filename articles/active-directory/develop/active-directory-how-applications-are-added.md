@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115762"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706181"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -70,9 +70,9 @@ Le principal de service peut inclure :
 
 * Lorsque les utilisateurs se connectent à une application tierce intégrée à Azure AD
   * Lors de la connexion, les utilisateurs sont invités à autoriser l’application à accéder à leur profil et à effectuer d’autres actions. Dès que la première personne donne son consentement, le principal de service représentant l’application est ajouté à l’annuaire.
-* Lorsque les utilisateurs se connectent aux services en ligne de Microsoft comme [Office 365](https://products.office.com/)
-  * Lorsque vous vous abonnez à Office 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Office 365.
-  * Certains services d’Office 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
+* Lorsque les utilisateurs se connectent aux services en ligne de Microsoft comme [Microsoft 365](https://products.office.com/)
+  * Lorsque vous vous abonnez à Microsoft 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Microsoft 365.
+  * Certains services de Microsoft 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
 * Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](../manage-apps/application-proxy.md)
 * Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
@@ -116,7 +116,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des s
 * L’authentification unique à l’aide de la fédération ou du mot de passe
 * La configuration et la synchronisation de l’utilisateur
 * Le contrôle d’accès basé sur les rôles : utilisez le répertoire pour définir les rôles d’application, afin d’effectuer des vérifications d’autorisation basées sur les rôles dans une application
-* Les services d’autorisation OAuth : utilisés par Office 365 et d’autres applications Microsoft pour autoriser l’accès aux API/ressources
+* Les services d’autorisation OAuth : utilisés par Microsoft 365 et d’autres applications Microsoft pour autoriser l’accès aux API/ressources
 * La publication et le proxy d’applications : publiez une application sur Internet à partir d’un réseau privé
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Qui a l'autorisation d'ajouter des applications à mon instance Azure AD ?

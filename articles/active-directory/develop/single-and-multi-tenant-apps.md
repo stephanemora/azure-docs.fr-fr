@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881363"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705637"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Location dans Azure Active Directory
 
@@ -35,8 +35,8 @@ Dans le portail Azure, vous pouvez configurer votre application pour être mono-
 | Public visé | Mono/Multi-locataire | Qui peut se connecter | 
 |----------|--------| ---------|
 | Comptes dans cet annuaire uniquement | Locataire unique | Tous les comptes d’utilisateur et d’invité dans votre annuaire peuvent utiliser votre application ou API.<br>*Utilisez cette option si votre audience cible est interne à votre organisation.* |
-| Comptes dans n’importe quel annuaire Azure AD | Multi-locataire | Tous les utilisateurs et invités avec un compte professionnel ou scolaire Microsoft peuvent utiliser votre application ou API. Ceci inclut les établissements scolaires et les entreprises qui utilisent Office 365.<br>*Utilisez cette option si votre audience cible est constituée de clients d’entreprise ou du secteur éducatif.* |
-| Comptes dans n’importe quel annuaire Azure AD et des comptes Microsoft personnels (tels que Skype, Xbox, Outlook.com) | Multi-locataire | Tous les utilisateurs avec un compte professionnel ou scolaire, ou un compte personnel Microsoft, peuvent utiliser votre application ou API. Ceci inclut les établissements scolaires et les entreprises qui utilisent Office 365, ainsi que les comptes personnels utilisés pour se connecter à des services tels que Xbox et Skype.<br>*Utilisez cette option pour cibler l’ensemble plus large de comptes Microsoft.* | 
+| Comptes dans n’importe quel annuaire Azure AD | Multi-locataire | Tous les utilisateurs et invités avec un compte professionnel ou scolaire Microsoft peuvent utiliser votre application ou API. Cela inclut les établissements scolaires et les entreprises qui utilisent Microsoft 365.<br>*Utilisez cette option si votre audience cible est constituée de clients d’entreprise ou du secteur éducatif.* |
+| Comptes dans n’importe quel annuaire Azure AD et des comptes Microsoft personnels (tels que Skype, Xbox, Outlook.com) | Multi-locataire | Tous les utilisateurs avec un compte professionnel ou scolaire, ou un compte personnel Microsoft, peuvent utiliser votre application ou API. Cela inclut les établissements scolaires et les entreprises qui utilisent Microsoft 365, ainsi que les comptes personnels utilisés pour se connecter à des services tels que Xbox et Skype.<br>*Utilisez cette option pour cibler l’ensemble plus large de comptes Microsoft.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Meilleures pratiques pour les applications multi-locataires
 
