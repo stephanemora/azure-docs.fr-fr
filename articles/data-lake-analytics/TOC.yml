@@ -68,7 +68,7 @@
             - name: Concepts de base
               href: data-lake-analytics-u-sql-get-started.md
             - name: Référence sur le langage
-              href: 'https://msdn.microsoft.com/library/azure/mt591959'
+              href: 'https://docs.microsoft.com/u-sql/'
             - name: Catalogue
               href: data-lake-analytics-u-sql-catalog.md
             - name: Opérateurs définis par l’utilisateur
