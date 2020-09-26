@@ -115,8 +115,6 @@
     - name: Encodage de contenu
       href: media-services-encode-asset.md
       items:
-        - name: Comparer des encodeurs
-          href: media-services-compare-encoders.md
         - name: Gérer la vitesse et la simultanéité de votre encodage
           href: media-services-manage-encoding-speed.md
         - name: Media Encoder Standard (MES)
@@ -205,20 +203,6 @@
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
                 - name: "H264\_– Vitesse de transmission unique\_qualité faible SD pour Android"
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-        - name: Media Encoder Premium Workflow
-          items:
-            - name: Codecs et formats de Media Encoder Premium Workflow
-              href: media-services-premium-workflow-encoder-formats.md
-            - name: Encoder avec Media Encoder Premium Workflow.
-              items:
-                - name: Media Encoder Premium Workflow
-                  href: media-services-encode-with-premium-workflow.md
-                - name: Didacticiels de workflow Media Encoder Premium
-                  href: media-services-media-encoder-premium-workflow-tutorials.md
-                - name: Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail
-                  href: media-services-workflow-designer.md
-                - name: Workflow Premium avec plusieurs entrées
-                  href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
         - name: Créer une tâche qui génère des segments fMP4
           href: media-services-generate-fmp4-chunks.md
         - name: Processeurs multimédias
