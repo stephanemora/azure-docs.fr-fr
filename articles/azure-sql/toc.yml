@@ -1210,6 +1210,8 @@
           href: database/database-import-export-hang.md
     - name: Mises à jour de service
       items:
+        - name: Expiration du certificat racine SSL
+          href: updates/ssl-root-certificate-expiring.md
         - name: Mises à jour des adresses IP de la passerelle
           href: database/gateway-migration.md
         - name: Événements de maintenance périodiques
