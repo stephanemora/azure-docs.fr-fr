@@ -9,6 +9,10 @@
   items:
     - name: Créer une porte d’entrée - Portail
       href: quickstart-create-front-door.md
+    - name: Créer une porte d’entrée - PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Créer une porte d’entrée - CLI
+      href: quickstart-create-front-door-cli.md
     - name: Créer une porte d’entrée - Modèle ARM
       href: quickstart-create-front-door-template.md
 - name: Tutoriels

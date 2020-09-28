@@ -214,6 +214,9 @@
         - name: Quotas de processeurs virtuels
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Appels PUT pour les opérations de création ou de mise à jour
+      href: ../virtual-machines/put-calls-create-or-update.md
+      maintainContext: true
     - name: FAQ sur le groupe identique
       href: virtual-machine-scale-sets-faq.md
 - name: Procédure
@@ -274,6 +277,8 @@
             - name: Utilisation de clés gérées par le client
               displayName: 'SSE, CMK, encrypt'
               href: ../virtual-machines/image-version-encryption.md
+            - name: Inscription d’application pour le partage
+              href: share-images-across-tenants.md
     - name: Créer un modèle
       items:
         - name: En savoir plus sur les modèles de groupes identiques
@@ -326,6 +331,15 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Utiliser des hôtes dédiés (préversion)
+          href: ../virtual-machines/dedicated-hosts.md
+          items:
+            - name: Interface de ligne de commande
+              href: ../virtual-machines/linux/dedicated-hosts-cli.md
+            - name: PowerShell
+              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+            - name: Portail
+              href: ../virtual-machines/dedicated-hosts-portal.md
         - name: Utiliser une instance Spot
           href: use-spot.md
     - name: Gérer
@@ -358,18 +372,6 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: Arrêter la notification en cas de suppression
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: Galeries d’images partagées
-          items:
-            - name: Vue d’ensemble
-              href: shared-image-galleries.md
-            - name: Interface de ligne de commande
-              href: shared-images-cli.md
-            - name: PowerShell
-              href: shared-images-powershell.md
-            - name: Partager des images entre locataires
-              href: share-images-across-tenants.md
-            - name: Résoudre les problèmes relatifs aux images partagées
-              href: troubleshooting-shared-images.md
         - name: Créer un groupe de placements de proximité
           href: proximity-placement-groups.md
         - name: Mise à l’échelle verticale dans un groupe de machines virtuelles identiques

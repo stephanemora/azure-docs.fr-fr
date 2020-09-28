@@ -145,6 +145,8 @@
       href: ../../network-watcher/security-baseline.md
     - name: Base de référence Security Center
       href: ../../security-center/security-baseline.md
+    - name: Base de référence Service Bus
+      href: ../../service-bus-messaging/security-baseline.md
     - name: Base de référence de sécurité pour Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Base de référence de la sécurité Stream Analytics

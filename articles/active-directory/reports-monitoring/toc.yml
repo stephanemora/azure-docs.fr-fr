@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: Journaux d’audit
       href: concept-audit-logs.md
+    - name: Nouveaux journaux de connexion - préversion
+      href: concept-all-sign-ins.md
     - name: Journaux d’activité de connexion
       href: concept-sign-ins.md
     - name: Rapport d’utilisation et d’insights

@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Erreur d’arrêt Windows - État Pas de mémoire
           href: troubleshoot-windows-stop-error.md
+        - name: Erreur d’arrêt Windows - Processus système terminé
+          href: windows-stop-error-system-process-terminated.md
 - name: Impossible de se connecter à ma machine virtuelle
   items:
     - name: RDP

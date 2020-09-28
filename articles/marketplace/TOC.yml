@@ -277,19 +277,19 @@
     - name: Processus de paiement
       items:
         - name: Processus de paiement
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configurer votre compte de paiement et vos déclarations de taxe
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Seuils, modes et délais de paiement'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Vue d’ensemble des récapitulatifs des paiements
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Récapitulatifs des paiements
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Seuils et délais de paiement
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Relevés de paiements
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Détails de la stratégie des paiements
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Détails des taxes
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: FAQ sur les paiements
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Informations de référence sur l’API CPP
       items:
         - name: Vue d’ensemble

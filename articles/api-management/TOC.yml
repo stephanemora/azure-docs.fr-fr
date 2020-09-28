@@ -197,6 +197,8 @@
       items:
         - name: Définir ou modifier des stratégies
           href: set-edit-policies.md
+        - name: Déboguer des stratégies
+          href: api-management-debug-policies.md
         - name: Expressions de stratégie
           href: api-management-policy-expressions.md
         - name: Mise en cache personnalisée
@@ -221,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Stratégies de transformation
           href: api-management-transformation-policies.md
+        - name: Stratégies d’intégration Distributed Application Runtime (Dapr)
+          href: api-management-dapr-policies.md
     - name: Gérer en production
       items:
         - name: Exporter des API vers Power Platform
