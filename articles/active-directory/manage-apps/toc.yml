@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Affecter des utilisateurs à une application
       href: add-application-portal-assign-users.md
-    - name: Configurer l’authentification unique
+    - name: Configurer l’authentification unique SAML
       href: add-application-portal-setup-sso.md
+    - name: Configurer l’authentification unique OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Supprimer une application
       href: delete-application-portal.md
 - name: Tutoriels

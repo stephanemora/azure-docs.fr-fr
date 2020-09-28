@@ -46,3 +46,5 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Bibliothèque Azure DCAP pour Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Protocole d’attestation VBS
+      href: virtualization-based-security-protocol.md

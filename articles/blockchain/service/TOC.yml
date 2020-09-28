@@ -13,6 +13,8 @@
       href: create-member.md
     - name: Créer un membre en utilisant CLI
       href: create-member-cli.md
+    - name: Créer un membre à l'aide d'Azure PowerShell
+      href: create-member-powershell.md
     - name: Créer un membre en utilisant un modèle ARM
       displayName: Resource Manager
       href: create-member-template.md
@@ -81,7 +83,7 @@
     - name: Support de la communauté pour les objets blob
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Support de Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
+      href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-service'
     - name: Commentaires sur le produit
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Tarifs

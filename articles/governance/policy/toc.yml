@@ -17,6 +17,9 @@
     - name: "Attribuer une stratégie\_- Azure PowerShell"
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Attribuer une stratégie - JavaScript
+      displayName: 'assign, compliance'
+      href: ./assign-policy-javascript.md
     - name: Attribuer une stratégie - Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
       href: ./concepts/policy-as-code.md
     - name: Intégration à Kubernetes
       items:
-        - name: Azure Policy pour Kubernetes (préversion)
+        - name: Azure Policy pour Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Sécuriser les pods avec Azure Policy (préversion)
+        - name: Sécuriser les pods avec Azure Policy
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Auditer les machines virtuelles avec la configuration invité

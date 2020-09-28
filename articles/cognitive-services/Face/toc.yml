@@ -13,7 +13,7 @@
       items:
         - name: Détecter des visages dans une image
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: Utilisation du kit de développement logiciel (SDK) client
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Concepts
   items:
@@ -47,9 +47,7 @@
   items:
     - name: Détecter des visages
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identifier des visages
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Ajouter des visages
+    - name: Ajouter des visages à un groupe
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Utiliser l’attribut HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

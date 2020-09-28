@@ -250,7 +250,7 @@
           href: control-kubeconfig-access.md
         - name: Sécuriser le trafic de pods avec des stratégies réseau
           href: use-network-policies.md
-        - name: Sécuriser les pods avec Azure Policy (préversion)
+        - name: Sécuriser les pods avec Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Utiliser des stratégies de sécurité des pods (préversion)
           href: use-pod-security-policies.md

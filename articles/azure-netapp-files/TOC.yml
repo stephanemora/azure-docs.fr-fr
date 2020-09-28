@@ -4,7 +4,7 @@
   items:
     - name: Présentation d’Azure NetApp Files
       href: azure-netapp-files-introduction.md
-    - name: Comprendre la hiérarchie de stockage
+    - name: Hiérarchie de stockage d’Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Démarrages rapides
   expanded: true
@@ -61,6 +61,8 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: Configurer un pool de capacité
       href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Gérer un pool de capacités de QoS manuel
+      href: manage-manual-qos-capacity-pool.md
     - name: Déléguer un sous-réseau à Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Créer et gérer un volume NFS
@@ -109,8 +111,12 @@
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Résoudre les problèmes
       items:
+        - name: Résoudre les problèmes de pools de capacités
+          href: troubleshoot-capacity-pools.md
         - name: Résoudre les problèmes de réplication interrégion
           href: troubleshoot-cross-region-replication.md
+        - name: Résoudre les problèmes de stratégies d’instantanés
+          href: troubleshoot-snapshot-policies.md
 - name: Informations de référence
   items:
     - name: REST

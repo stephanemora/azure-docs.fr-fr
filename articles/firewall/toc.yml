@@ -88,6 +88,8 @@
       href: firewall-diagnostics.md
     - name: Journaux d’activité Azure Monitor
       href: log-analytics-samples.md
+    - name: Classeur du Pare-feu Azure
+      href: firewall-workbook.md
 - name: Informations de référence
   items:
     - name: Azure CLI
