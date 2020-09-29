@@ -4,12 +4,16 @@
   items:
     - name: Qu’est-ce que Service Fabric ?
       href: service-fabric-overview.md
+    - name: Clusters managés Service Fabric
+      href: overview-managed-cluster.md
 - name: Démarrages rapides
   expanded: true
   items:
     - name: Modèle ARM
       displayName: Resource Manager
       href: quickstart-cluster-template.md
+    - name: Cluster managé
+      href: quickstart-managed-cluster-template.md
     - name: Créer une application .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Déployer une application de conteneur Linux
@@ -64,6 +68,16 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3 - Effectuer un basculement ou une mise à l’échelle
           href: service-fabric-tutorial-containers-failover.md
+    - name: Créer un cluster managé Service Fabric
+      items:
+        - name: 1 - Déployer un cluster managé Service Fabric
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 - Effectuer le scale-out d’un type de nœud de cluster managé
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 - Ajouter et supprimer des types de nœuds de clusters managés
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 - Se connecter à un cluster managé et déployer une application
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Créer et gérer un cluster
       items:
         - name: 1- Créer un cluster sur Azure
@@ -155,7 +169,7 @@
           items:
             - name: Présentation des conteneurs
               href: service-fabric-containers-overview.md
-            - name: Docker Compose (préversion)
+            - name: Docker compose
               href: service-fabric-docker-compose.md
             - name: Sondes
               href: probes-codepackage.md
@@ -430,7 +444,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: Générer un service de conteneur
           items:
-            - name: Docker Compose (préversion)
+            - name: Docker compose
               href: service-fabric-docker-compose.md
             - name: Pilotes de journalisation et de volume
               href: service-fabric-containers-volume-logging-drivers.md
@@ -509,7 +523,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Configurer un certificat de chiffrement et chiffrer des secrets sur Linux
                   href: service-fabric-application-secret-management-linux.md
-                - name: Stocker des secrets en lieu sûr avec KeyVaultReference (préversion)
+                - name: Stocker des secrets en lieu sûr avec KeyVaultReference
                   href: service-fabric-keyvault-references.md
             - name: Configurer le proxy inverse pour une communication sécurisée
               href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -675,6 +689,8 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Mettre à niveau
               items:
+                - name: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé
+                  href: how-to-managed-cluster-vmss-extension.md
                 - name: "Mise à niveau de la version de Service\_Fabric"
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Mise à niveau de la configuration du cluster
@@ -901,6 +917,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Questions courantes
       href: service-fabric-common-questions.md
+    - name: Questions courantes sur les clusters managés Service Fabric
+      href: faq-managed-cluster.md
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-service-fabric.html
     - name: Garde-fous de déploiement Azure Resource Manager

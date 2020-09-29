@@ -46,7 +46,7 @@
         - name: Approvisionner pour multilocation
           href: how-to-provision-multitenant.md
         - name: Utiliser des stratégies d’allocation personnalisées
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: Exemples
   items:
     - name: Exemple d’attestation d’appareil TPM simulé
@@ -109,6 +109,8 @@
   items:
     - name: Connecter MXChip IoT DevKit à IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Provisionner des appareils à l’aide de stratégies d’allocation personnalisées
+      href: how-to-use-custom-allocation-policies.md
     - name: Gérer le service de provisionnement des appareils
       items:
         - name: Gérer les inscriptions - Portail

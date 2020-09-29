@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 09/10/2020
+  ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 07d167ca046bb4c4a5e5e50cec43c7685fcec8fb
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: 07d038aef43594550e81b640a8dfd98452804143
+  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91262006"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91409790"
 highlightedContent:
   items:
   - title: Guide de prise en main pour les développeurs Azure
@@ -32,7 +32,7 @@ highlightedContent:
     url: https://docs.microsoft.com/azure/cloud-adoption-framework/
   - title: Développer vos compétences avec Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
+    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
 productDirectory:
   title: Parcourir les produits Azure
   items:
@@ -963,8 +963,8 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
-  - title: Azure Resource Mover
-    summary: Déplacer des ressources entre des régions Azure.
+  - title: Azure Resource Mover (préversion)
+    summary: Simplifiez le déplacement de plusieurs ressources d’une région Azure à une autre
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
     azureCategories:
     - management-and-governance
@@ -1110,6 +1110,19 @@ productDirectory:
     azureCategories:
     - networking
     url: bastion/index.yml
+  - title: Azure Defender
+    summary: Protégez les charges de travail cloud hybrides
+    imageSrc: ./media/index/defender.svg
+    azureCategories:
+    - security
+    url: security-center/azure-defender.md
+  - title: Azure Defender pour IoT (préversion)
+    summary: Gestion continue des actifs et détection des menaces pour les appareils IoT/OT managés et non managés
+    imageSrc: ./media/index/defender-iot.svg
+    azureCategories:
+    - security
+    - iot
+    url: security-center/defender-for-iot-introduction.md
   - title: Protection DDoS dans Azure
     summary: Protéger ses applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
