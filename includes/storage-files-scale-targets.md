@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760568"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606795"
 ---
 | Ressource | Partages de fichiers Standard | Partages de fichiers Premium |
 |----------|---------------|------------------------------------------|
@@ -26,5 +26,6 @@ ms.locfileid: "88760568"
 | Nombre maximal d’instantanés de partage | 200 instantanés de partage | 200 instantanés de partage |
 | Longueur maximale du nom de l’objet (répertoires et fichiers) | 2 048 caractères | 2 048 caractères |
 | Nombre maximal de caractères des composants de nom de chemin d’accès (dans le chemin d’accès \A\B\C\D, chaque lettre est un composant) | 255 caractères | 255 caractères |
+| Limite de liaison codée en dur (NFS uniquement) | N/A | 178 |
 
 \* Par défaut, la taille des partages de fichiers standard est de 5 Tio. Consultez [Activer et créer des partages de fichiers volumineux](../articles/storage/files/storage-files-how-to-create-large-file-share.md) pour savoir comment effectuer un scale-up des partages de fichiers jusqu’à 100 Tio.

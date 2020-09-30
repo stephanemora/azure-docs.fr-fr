@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3915108b9bd182053b62ee427fb95b5b984233db
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: caf37fcd236f1483580d007d1432284116f728ca
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255373"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969051"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI
 
@@ -45,15 +45,9 @@ Dans cet article, vous allez apprendre à effectuer les opérations suivantes af
     - [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour créer un groupe de machines virtuelles identiques, puis activer ou supprimer l’identité managée affectée par le système et/ou par l’utilisateur à partir d’un groupe de machines virtuelles identiques.
     - [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) pour créer une identité managée affectée par l’utilisateur.
     - [Opérateur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-operator) pour attribuer et supprimer une identité managée affectée par l’utilisateur dans un groupe de machines virtuelles identiques.
-- Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
-    - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
-    - Utilisez l’interface intégrée Azure Cloud Shell via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
-    - [Installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli) (2.0.13 ou ultérieure) si vous préférez utiliser une console CLI locale. 
-      
-      > [!NOTE]
-      > Les commandes ont été mises à jour pour refléter la dernière version [d’Azure CLI](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Pour exécuter les exemples de scripts, vous avez deux options :
+    - Utiliser [Azure Cloud Shell](../../cloud-shell/overview.md), que vous pouvez ouvrir en utilisant le bouton **Essayer** dans le coin supérieur droit des blocs de code.
+    - Exécuter les scripts localement en installant la dernière version d’[Azure CLI](/cli/azure/install-azure-cli), puis en vous connectant à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure dans lequel vous voulez créer des ressources.
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
@@ -63,19 +57,13 @@ Dans cette section, vous allez apprendre à activer et désactiver l'identité m
 
 Pour créer un groupe de machines virtuelles identiques avec l’identité managée affectée par le système activée :
 
-1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer le groupe de machines virtuelles identiques :
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous disposez déjà d’un groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous disposez déjà d’un groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. [Créez](/cli/azure/vmss/#az-vmss-create) un groupe de machines virtuelles identiques. L’exemple suivant crée un groupe de machines virtuelles identiques nommé *myVMSS* avec une identité managée affectée par le système, comme le demande le paramètre `--assign-identity`. Les paramètres `--admin-username` et `--admin-password` spécifient le nom d’utilisateur et le mot de passe d’administration du compte pour la connexion à la machine virtuelle. Mettez à jour ces valeurs en fonction de votre environnement : 
+1. [Créez](/cli/azure/vmss/#az-vmss-create) un groupe de machines virtuelles identiques. L’exemple suivant crée un groupe de machines virtuelles identiques nommé *myVMSS* avec une identité managée affectée par le système, comme le demande le paramètre `--assign-identity`. Les paramètres `--admin-username` et `--admin-password` spécifient le nom d’utilisateur et le mot de passe d’administration du compte pour la connexion à la machine virtuelle. Mettez à jour ces valeurs en fonction de votre environnement : 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -83,19 +71,11 @@ Pour créer un groupe de machines virtuelles identiques avec l’identité manag
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure existant
 
-Si vous devez activer l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure existant :
+Si vous devez [Activer](/cli/azure/vmss/identity/#az-vmss-identity-assign) l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure existant :
 
-1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure qui contient le groupe de machines virtuelles identiques.
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. [Activez](/cli/azure/vmss/identity/#az-vmss-identity-assign) une identité managée affectée par le système sur une machine virtuelle existante :
-
-   ```azurecli-interactive
-   az vmss identity assign -g myResourceGroup -n myVMSS
-   ```
+```azurecli-interactive
+az vmss identity assign -g myResourceGroup -n myVMSS
+```
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Désactiver une identité managée affectée par le système d’un groupe de machines virtuelles identiques Azure
 
@@ -113,8 +93,6 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin de l’identit�
 ```azurecli-interactive
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
@@ -216,6 +194,4 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des identités managées pour les ressources Azure](overview.md)
-- Pour le démarrage rapide de la création d’un groupe de machines virtuelles identiques Azure, consultez : 
-
-  - [Créer un groupe de machines virtuelles identiques avec CLI](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
+- Pour le guide de démarrage rapide de création d’un groupe de machines virtuelles identiques Azure, consultez [Créer un groupe de machines virtuelles identiques avec CLI](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)

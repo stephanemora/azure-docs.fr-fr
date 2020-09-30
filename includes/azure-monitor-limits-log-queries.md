@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82072635"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064862"
 ---
 ### <a name="general-query-limits"></a>Limites générales concernant les requêtes
 
@@ -30,8 +30,8 @@ Azure Monitor applique plusieurs limitations pour gérer les situations où les 
 | Measure | Limite par utilisateur | Description |
 |:---|:---|:---|
 | Requêtes simultanées | 5 | Si 5 requêtes sont déjà en cours d’exécution pour l’utilisateur, toutes les nouvelles requêtes sont placées dans une file d’attente de concurrence par utilisateur. Quand l’une des requêtes se termine, la requête suivante est extraite de la file d’attente et démarrée. Ceci n’inclut pas les requêtes des règles d’alerte.
-| Temps de conservation dans la file d’attente de concurrence | 2,5 minutes | Si une requête reste dans la file d’attente pendant plus de 2,5 minutes sans être démarrée, elle se termine avec une réponse d’erreur HTTP avec le code 429. |
-| Nombre total de requêtes dans la file d’attente de concurrence | 40 | Quand le nombre de requêtes dans la file d’attente atteint 40, les requêtes supplémentaires sont rejetées avec un code d’erreur HTTP 429. Ce nombre s’ajoute aux 5 requêtes qui peuvent être exécutées simultanément. |
+| Temps de conservation dans la file d’attente de concurrence | 3 minutes | Si une requête reste dans la file d’attente pendant plus de 3 minutes sans être démarrée, elle se termine avec une réponse d’erreur HTTP avec le code 429. |
+| Nombre total de requêtes dans la file d’attente de concurrence | 200 | Quand le nombre de requêtes dans la file d’attente atteint 200, les requêtes supplémentaires sont rejetées avec un code d’erreur HTTP 429. Ce nombre s’ajoute aux 5 requêtes qui peuvent être exécutées simultanément. |
 | Taux de requêtes | 200 requêtes par tranche de 30 secondes | Il s’agit du taux global d’émission de requêtes par un même utilisateur vers tous les espaces de travail.  Cette limite s’applique aux requêtes de programmation ou aux requêtes lancées par des composants de visualisation tels que les tableaux de bord Azure ou la page récapitulative de l’espace de travail Log Analytics. |
 
 - Optimisez vos requêtes comme décrit dans [Optimiser les requêtes de journal dans Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).

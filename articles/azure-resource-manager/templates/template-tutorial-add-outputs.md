@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c90f1ce4bc3f3f5ed91bee86bb1f6f9093876c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 34bda2b63360226b3a246d73ef560f666e48604f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497781"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069269"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutoriel : Ajouter des sorties à votre modèle ARM
 
@@ -92,7 +92,7 @@ Dans la sortie de la commande de déploiement, un objet semblable à l’exemple
 ```
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="review-your-work"></a>Passer en revue votre travail
 

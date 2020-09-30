@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185396"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987640"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutoriel : Créer un runbook de workflow PowerShell
 
@@ -109,17 +109,17 @@ Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le pu
 
 6. Notez que l’état du travail est affiché dans **Résumé du travail**. Cet état correspond aux états que vous avez vus lors du test du runbook.
 
-   ![Résumé des tâches](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Capture d’écran du volet Tâche du runbook montrant la section Résumé du travail en évidence.":::
 
 7. Lorsque l’état du runbook est Terminé, cliquez sur **Sortie**. La page Sortie s’ouvre, dans laquelle vous pouvez voir votre message `Hello World`.
 
-   ![Résumé des tâches](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Capture d’écran du volet Tâche du runbook montrant la section Résumé du travail en évidence.":::
 
 8. Fermez la page Sortie.
 
 9. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Vous ne devriez voir que `Hello World` dans le flux de sortie. Notez que le volet Flux peut afficher d’autres flux pour une tâche de runbook, tels que des flux de détails et d’erreurs, si le runbook écrit dans ceux-ci.
 
-   ![Résumé des tâches](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Capture d’écran du volet Tâche du runbook montrant la section Résumé du travail en évidence.":::
 
 10. Fermez les volets du flux et de la tâche pour revenir à la page MyFirstRunbook.
 

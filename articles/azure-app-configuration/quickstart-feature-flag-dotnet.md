@@ -15,18 +15,18 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 998527a8557db0b0cf271dc8b05d5771660a175c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 17817a5730678ae708c92c99093e7b859e05f8fe
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983861"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application .NET Framework
 
 Dans ce guide de démarrage rapide, vous incorporez Azure App Configuration à une application .NET Framework pour créer une implémentation de bout en bout de la gestion des fonctionnalités. Vous pouvez utiliser le service App Configuration pour stocker de manière centralisée tous vos indicateurs de fonctionnalités et contrôler leur état. 
 
-Les bibliothèques de gestion des fonctionnalités .NET étendent le framework avec une prise en charge complète des indicateurs de fonctionnalités. Ces bibliothèques sont basées sur le système de configuration de .NET. Elles s’intègrent facilement à App Configuration via son fournisseur de configuration .NET.
+Les bibliothèques de gestion des fonctionnalités .NET étendent le framework avec une prise en charge des indicateurs de fonctionnalités. Ces bibliothèques sont basées sur le système de configuration de .NET. Elles s’intègrent à App Configuration via son fournisseur de configuration .NET.
 
 ## <a name="prerequisites"></a>Prérequis
 

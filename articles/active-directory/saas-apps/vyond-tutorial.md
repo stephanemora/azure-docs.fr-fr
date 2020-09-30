@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 01a40e48f606c2e9c92d38b453a058d3ad5ba058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe1f5f718ce54845dea2fc9da3ea2c9f4e18ce92
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531285"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659395"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vyond"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Vyond
 
@@ -35,16 +35,16 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Vyond pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
-
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Vyond prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
 
-* Après avoir configuré Vyond, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré Vyond, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-vyond-from-the-gallery"></a>Ajout de Vyond à partir de la galerie
 
@@ -58,7 +58,7 @@ Pour configurer l’intégration de Vyond à Azure AD, vous devez ajouter Vyond
 1. Sélectionnez **Vyond** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-vyond"></a>Configurer et tester l’authentification unique Azure AD pour Vyond
+## <a name="configure-and-test-azure-ad-sso-for-vyond"></a>Configurer et tester l’authentification unique Azure AD pour Vyond
 
 Configurez et testez l’authentification unique Azure AD avec Vyond à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Vyond associé.
 

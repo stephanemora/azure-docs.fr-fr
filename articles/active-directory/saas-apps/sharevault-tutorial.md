@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dcf67ce9c9e63fdbba8db565113cf3380e4142dd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f8a0576ff9ea128aae0d63d4879fe66ed2bf549
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548666"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660630"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ShareVault
 
@@ -41,7 +41,10 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * ShareVault prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 * ShareVault prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré ShareVault, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré ShareVault, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-sharevault-from-the-gallery"></a>Ajout de ShareVault à partir de la galerie
 
@@ -54,7 +57,7 @@ Pour configurer l’intégration de ShareVault avec Azure AD, vous devez ajoute
 1. Dans la section **Ajouter à partir de la galerie**, tapez **ShareVault** dans la zone de recherche.
 1. Sélectionnez **ShareVault** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharevault"></a>Configurer et tester l’authentification unique Azure AD pour ShareVault
+## <a name="configure-and-test-azure-ad-sso-for-sharevault"></a>Configurer et tester l’authentification unique Azure AD pour ShareVault
 
 Configurez et testez l’authentification unique Azure AD avec ShareVault pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur ShareVault associé.
 

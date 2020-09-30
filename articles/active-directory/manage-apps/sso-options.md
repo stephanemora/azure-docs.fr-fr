@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: ab4d150d79b2c53ad23d892efacef6a848d97854
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469811"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604204"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Options d’authentification unique dans Azure AD
 
@@ -24,7 +24,7 @@ L’authentification unique offre de nombreux avantages par rapport aux méthode
 
 - **Avec l’authentification unique**, les utilisateurs se connectent une seule fois avec un seul compte pour accéder à des appareils joints au domaine, à des ressources d’entreprise, à des applications Saas et à des applications web. Une fois la connexion établie, l’utilisateur peut lancer des applications à partir du portail Office 365 ou de Mes applications. Les administrateurs peuvent centraliser la gestion des comptes d’utilisateur, et ajouter ou supprimer automatiquement l’accès utilisateur à des applications en fonction de l’appartenance à des groupes.
 
-- **Sans l’authentification unique**, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Office 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application.
+- **Sans l’authentification unique**, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Microsoft 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application.
 
 Pour en savoir plus sur l’authentification unique, consultez [Qu’est-ce que l’authentification unique ?](what-is-single-sign-on.md).
 
@@ -137,7 +137,7 @@ L’authentification unique liée permet à Azure AD de fournir l’authentifica
 
 ### <a name="linked-sign-on-for-application-migration"></a>Authentification liée pour la migration de l’application
 
-L’authentification liée peut fournir une expérience utilisateur homogène lorsque vous migrez des applications sur un certain laps de temps. Si vous migrez des applications vers Azure Active Directory, vous pouvez utiliser l’authentification liée pour publier rapidement des liens vers toutes les applications que vous voulez migrer.  Les utilisateurs peuvent trouver tous les liens dans le [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou dans le [Lanceur d’applications Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Les utilisateurs ne savent pas qu’ils accèdent à une application liée ou à une application migrée.  
+L’authentification liée peut fournir une expérience utilisateur homogène lorsque vous migrez des applications sur un certain laps de temps. Si vous migrez des applications vers Azure Active Directory, vous pouvez utiliser l’authentification liée pour publier rapidement des liens vers toutes les applications que vous voulez migrer.  Les utilisateurs peuvent trouver tous les liens dans le [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou dans le [Lanceur d’applications Microsoft 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Les utilisateurs ne savent pas qu’ils accèdent à une application liée ou à une application migrée.  
 
 Une fois qu’un utilisateur s’est authentifié avec une application liée, un enregistrement de compte doit être créé avant que l’utilisateur final obtienne l’accès par authentification unique. Le provisionnement de cet enregistrement de compte peut se produire automatiquement ou il peut être effectué manuellement par un administrateur.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4ce14b9d467e4badc833a1e1e4d8e1d08d232b1a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985227"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
@@ -69,7 +69,7 @@ Dans cette section, vous déployez votre application Node.js sur Azure à l’ai
 
 1. Dans l’explorateur **AZURE APP SERVICE** de VS Code, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure. (Vous pouvez également appeler la même commande à partir de la **palette de commandes** (**Ctrl**+**Maj**+**P**) en tapant « déployer sur l’application web » et en choisissant **Azure App Service : Déployer sur l’application web**).
 
-    ![Déployer sur l'application web](media/quickstart-nodejs/deploy.png)
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
         
 1. Choisissez le dossier *nodejs-docs-hello-world*.
 
@@ -95,7 +95,7 @@ Dans cette section, vous déployez votre application Node.js sur Azure à l’ai
 
     ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
 
-1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail "nodejs-docs-hello-world" sur (nom de l’application)"** . Quand vous sélectionnez **Oui**, vous indiquez à VS Code de cibler automatiquement la même application web App Service pour les déploiements suivants.
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world" sur (nom de l’application)"** . Quand vous sélectionnez **Oui**, vous indiquez à VS Code de cibler automatiquement la même application web App Service pour les déploiements suivants.
 
 1. Si vous effectuez le déploiement sur Linux, à l’issue du déploiement, sélectionnez **Parcourir le site Web** dans l’invite pour voir l’application web que vous venez de déployer. Le navigateur doit afficher le message « Hello World! ».
 
@@ -141,7 +141,33 @@ Vous pouvez voir la sortie de journal (appels à `console.log`) à partir de l�
 
 1. Lorsque vous y êtes invité, choisissez d’activer la journalisation et de redémarrer l’application. Une fois l’application redémarrée, la fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de journaux. 
 
-    ![Activer la journalisation et redémarrer](media/quickstart-nodejs/enable-restart.png)
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
+        
+1. Choisissez le dossier *nodejs-docs-hello-world*.
+
+1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+
+    - Linux : Sélectionnez **Créer une application web**.
+    - Windows : Sélectionnez **Créer une application web... Avancé**
+
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+
+1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+
+1. Si vous ciblez Windows, suivez les invites supplémentaires :
+    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
+    1. Sélectionnez **Windows** comme système d’exploitation.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
+    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+
+1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+
+    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+
+    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world":::
 
 1. Après quelques secondes, la fenêtre de sortie affiche un message indiquant que vous êtes connecté au service de streaming de journaux. Vous pouvez générer plus d’activités de sortie en actualisant la page dans le navigateur.
 
@@ -263,7 +289,33 @@ code .
 
 Dans l’explorateur **AZURE APP SERVICE**, sélectionnez l’icône représentant une flèche bleue pointant vers le haut pour déployer votre application sur Azure.
 
-![Déployer sur l'application web](./media/quickstart-nodejs/deploy.png)
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
+        
+1. Choisissez le dossier *nodejs-docs-hello-world*.
+
+1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+
+    - Linux : Sélectionnez **Créer une application web**.
+    - Windows : Sélectionnez **Créer une application web... Avancé**
+
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+
+1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+
+1. Si vous ciblez Windows, suivez les invites supplémentaires :
+    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
+    1. Sélectionnez **Windows** comme système d’exploitation.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
+    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+
+1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+
+    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+
+    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world":::
 
 > [!TIP]
 > Vous pouvez également effectuer le déploiement à partir de la **palette de commandes** (Ctrl + Maj + P) en tapant « déployer sur l'application web » et en exécutant l’**Azure App Service : Commande Déployer sur l'application web**.
@@ -280,11 +332,63 @@ Dans l’explorateur **AZURE APP SERVICE**, sélectionnez l’icône représenta
 
 1. Sélectionnez **Oui** lorsque vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur cible. Votre application est alors déployée.
 
-    ![Déploiement configuré](./media/quickstart-nodejs/server-build.png)
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
+        
+1. Choisissez le dossier *nodejs-docs-hello-world*.
+
+1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+
+    - Linux : Sélectionnez **Créer une application web**.
+    - Windows : Sélectionnez **Créer une application web... Avancé**
+
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+
+1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+
+1. Si vous ciblez Windows, suivez les invites supplémentaires :
+    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
+    1. Sélectionnez **Windows** comme système d’exploitation.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
+    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+
+1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+
+    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+
+    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world":::
 
 1. Lorsque le déploiement démarre, vous êtes invité à mettre à jour votre espace de travail afin que les déploiements ultérieurs ciblent automatiquement la même application web App Service. Choisissez **Oui** pour vous assurer que vos modifications sont déployées sur la bonne application.
 
-    ![Déploiement configuré](./media/quickstart-nodejs/save-configuration.png)
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
+        
+1. Choisissez le dossier *nodejs-docs-hello-world*.
+
+1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+
+    - Linux : Sélectionnez **Créer une application web**.
+    - Windows : Sélectionnez **Créer une application web... Avancé**
+
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+
+1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+
+1. Si vous ciblez Windows, suivez les invites supplémentaires :
+    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
+    1. Sélectionnez **Windows** comme système d’exploitation.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
+    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+
+1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+
+    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+
+    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world":::
 
 > [!TIP]
 > Assurez-vous que votre application utilise le port d’écoute fourni par la variable d’environnement PORT `process.env.PORT`.
@@ -314,7 +418,33 @@ La fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de jou
 
 ![Afficher les journaux d’activité de diffusion en continu](./media/quickstart-nodejs/view-logs.png)
 
-![Activer la journalisation et redémarrer](./media/quickstart-nodejs/enable-restart.png)
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Capture d’écran d’Azure App Service dans VS Code montrant l’icône de flèche bleue sélectionnée.&quot;:::
+        
+1. Choisissez le dossier *nodejs-docs-hello-world*.
+
+1. Choisissez une option de création basée sur le système d’exploitation sur lequel vous souhaitez effectuer le déploiement :
+
+    - Linux : Sélectionnez **Créer une application web**.
+    - Windows : Sélectionnez **Créer une application web... Avancé**
+
+1. Saisissez un nom unique pour votre application web et appuyez sur **Entrée**. Le nom doit être unique sur l’ensemble d’Azure et comporter uniquement des caractères alphanumériques (« A-Z », « a-z » et « 0-9 ») et des traits d’union (« - »).
+
+1. Si vous ciblez Linux, sélectionnez une version de Node.js quand vous y êtes invité. Une version **LTS** est recommandée.
+
+1. Si vous ciblez Windows, suivez les invites supplémentaires :
+    1. Sélectionnez **Créer un groupe de ressources** et entrez un nom pour le groupe de ressources, par exemple `AppServiceQS-rg`.
+    1. Sélectionnez **Windows** comme système d’exploitation.
+    1. Sélectionnez **Créer un plan App Service**, entrez un nom pour le plan (par exemple, `AppServiceQS-plan`), puis sélectionnez le niveau tarifaire **F1 Gratuit**.
+    1. À l’invite Application Insights, choisissez **Ignorer pour le moment**.
+    1. Choisissez une région près de chez vous ou à proximité des ressources auxquelles vous souhaitez accéder.
+
+1. Quand vous avez répondu à toutes les invites, VS Code affiche les ressources Azure qui sont créées pour votre application dans sa fenêtre de notification.
+
+    Si vous effectuez un déploiement dans Linux, sélectionnez **Oui** quand vous êtes invité à mettre à jour votre configuration pour exécuter `npm install` sur le serveur Linux cible.
+
+    ![Invite concernant la mise à jour de la configuration sur le serveur Linux cible](media/quickstart-nodejs/server-build.png)
+
+1. Sélectionnez **Oui** quand le message suivant s’affiche : **Toujours déployer l’espace de travail &quot;nodejs-docs-hello-world":::
 
 Après quelques secondes, vous verrez s’afficher un message indiquant que vous êtes connecté au service de diffusion en continu de journaux. Actualisez la page plusieurs fois pour voir davantage d’activité.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 93ae0b634969f2329a45f333437588f16d0a187d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4403d5470f96ead861196f7c9bcb0b9b6af088b0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528897"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973104"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco AnyConnect
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer Cisco AnyConnect à Azure Ac
 * Contrôler qui dans Azure AD a accès à Cisco AnyConnect.
 * Permettre à vos utilisateurs de se connecter automatiquement à Cisco AnyConnect avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,24 +38,23 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Cisco AnyConnect prend en charge l’authentification unique initiée par le **fournisseur d’identité**
-* Après avoir configuré Cisco AnyConnect, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-cisco-anyconnect-from-the-gallery"></a>Ajout de Cisco AnyConnect à partir de la galerie
 
 Pour configurer l’intégration de Cisco AnyConnect à Azure AD, vous devez ajouter Cisco AnyConnect à votre liste d’applications SaaS gérées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Cisco AnyConnect** dans la zone de recherche.
 1. Sélectionnez **Cisco AnyConnect** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-cisco-anyconnect"></a>Configurer et tester l’authentification unique Azure AD pour Cisco AnyConnect
+## <a name="configure-and-test-azure-ad-sso-for-cisco-anyconnect"></a>Configurer et tester l’authentification unique Azure AD pour Cisco AnyConnect
 
 Configurez et testez l’authentification unique Azure AD avec Cisco AnyConnect pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Cisco AnyConnect.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec Cisco AnyConnect, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Cisco AnyConnect, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -70,7 +67,7 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec Cisco 
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Cisco AnyConnect**, recherchez la section **Gérer**, puis sélectionnez **authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Cisco AnyConnect**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -115,15 +112,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Cisco AnyConnect**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-cisco-anyconnect-sso"></a>Configurer l’authentification unique pour Cisco AnyConnect
@@ -181,25 +172,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-cisco-anyconnect-test-user"></a>Créer un utilisateur de test Cisco AnyConnect
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Cisco AnyConnect. Rapprochez-vous de l’ [équipe de support Cisco AnyConnect](https://www.cisco.com/c/en/us/support/index.html) pour ajouter les utilisateurs dans la plateforme Cisco AnyConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Cisco AnyConnect. Collaborez avec l’[équipe du support technique de Cisco AnyConnect](https://www.cisco.com/c/en/us/support/index.html) pour ajouter les utilisateurs dans la plateforme Cisco AnyConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Le fait de cliquer sur la vignette Cisco AnyConnect dans le panneau d’accès doit vous connecter automatiquement à l’application Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique (SSO)
+* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Cisco AnyConnect dans le volet d’accès doit vous connecter automatiquement à l’application Cisco AnyConnect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Essayer Cisco AnyConnect avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Cisco AnyConnect avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+Après avoir configuré Cisco AnyConnect, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

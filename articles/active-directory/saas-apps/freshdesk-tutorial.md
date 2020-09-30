@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71c1bea58f17b457f417a5b050640d04d44019d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551050"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056521"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Didacticiel : Intégration d’Azure Active Directory à FreshDesk
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de FreshDesk dans Azure AD, vous devez ajouter 
 1. Dans la section **Ajouter à partir de la galerie**, tapez **FreshDesk** dans la zone de recherche.
 1. Sélectionnez **FreshDesk** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshdesk"></a>Configurer et tester l’authentification unique Azure AD pour FreshDesk
+## <a name="configure-and-test-azure-ad-sso-for-freshdesk"></a>Configurer et tester l’authentification unique Azure AD pour FreshDesk
 
 Configurez et testez l’authentification unique Azure AD avec FreshDesk pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur FreshDesk associé.
 
@@ -81,9 +81,11 @@ Pour configurer et tester l’authentification unique Azure AD avec FreshDesk, s
     a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com` ou toute autre valeur suggérée par FreshDesk.
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
-
+     
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenant-name>.freshdesk.com/login/saml`
+    
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Contactez [l’équipe de support FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application FreshDesk s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de votre jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. **Unique User Identifier**  (Identificateur d’utilisateur unique) est mappé à **user.userPrincipalName**, mais FreshDesk s’attend à ce que cette revendication soit mappée à **user. mail**. Vous devez donc modifier le mappage d’attributs en cliquant sur l’icône de modification et changer le mappage d’attributs.
 

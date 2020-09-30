@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: aa37cef84bb1d2cb92f2bb0e4a227c5be60fa345
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7886691559a63e6d54ea748582f641f33cecf995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979736"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit
 
@@ -25,8 +25,6 @@ Dans ce didacticiel, vous allez apprendre à intégrer Azure AD SAML Toolkit ave
 * Contrôler dans Azure AD qui a accès à Azure AD SAML Toolkit.
 * Autoriser les utilisateurs à se connecter automatiquement à Azure AD SAML Toolkit avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,37 +38,39 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Azure AD SAML Toolkit prend en charge l’authentification unique lancée par le **fournisseur de services**
-* Après avoir configuré Azure AD SAML Toolkit, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>Ajout d’Azure AD SAML Toolkit à partir de la galerie
 
 Pour configurer l’intégration d’Azure AD SAML Toolkit dans Azure AD, vous devez ajouter Azure AD SAML Toolkit à partir de la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Azure AD SAML Toolkit** dans la zone de recherche.
 1. Sélectionnez **Azure AD SAML Toolkit** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-azure-ad-saml-toolkit"></a>Configurer et tester l’authentification unique Azure AD pour Azure AD SAML Toolkit
+## <a name="configure-and-test-azure-ad-sso-for-azure-ad-saml-toolkit"></a>Configurer et tester l’authentification unique Azure AD pour Azure AD SAML Toolkit
 
 Configurez et testez l’authentification unique Azure AD avec Azure AD SAML Toolkit pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Azure AD SAML Toolkit associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec Azure AD SAML Toolkit, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique (SSO) Azure AD avec Azure AD SAML Toolkit, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Azure AD SAML Toolkit](#configure-azure-ad-saml-toolkit-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Azure AD SAML Toolkit](#create-azure-ad-saml-toolkit-test-user)** pour avoir un équivalent de B.Simon dans Azure AD SAML Toolkit lié à la représentation Azure AD associée.
+    * **[Créer un utilisateur de test Azure AD SAML Toolkit](#create-azure-ad-saml-toolkit-test-user)** pour avoir un équivalent de B.Simon dans Azure AD SAML Toolkit lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Azure AD SAML Toolkit**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Azure AD SAML Toolkit**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -78,14 +78,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://samltoolkit.azurewebsites.net/`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://samltoolkit.azurewebsites.net/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://samltoolkit.azurewebsites.net`
-
-    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://samltoolkit.azurewebsites.net/SAML/Consume`
-
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Remplacez ces valeurs par les valeurs réelles de l’URL de connexion, de l’identificateur et de l’URL de réponse, comme cela est expliqué plus loin dans le tutoriel.
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -114,15 +109,9 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Azure AD SAML Toolkit**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-azure-ad-saml-toolkit-sso"></a>Configurer l’authentification unique Azure AD SAML Toolkit
@@ -137,11 +126,11 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 1. Cliquez sur **Créer**.
 
-    ![Créer une authentification unique pour Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
+    ![Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
 1. Dans la page **Configuration de l’authentification unique SAML**, procédez comme suit :
 
-    ![Créer une authentification unique pour Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/fill-details.png)
+    ![Azure AD SAML Toolkit - Créer une configuration de l’authentification unique](./media/saml-toolkit-tutorial/fill-details.png)
 
     1. Dans la zone de texte **URL de connexion**, collez la valeur d’**URL de connexion** que vous avez copiée sur le Portail Azure.
 
@@ -161,20 +150,14 @@ Dans cette section, un utilisateur appelé B. Simon est créé dans Azure AD SAM
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Azure AD SAML Toolkit dans le volet d’accès, vous devez être connecté automatiquement à l’application Azure AD SAML Toolkit pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion SAML Toolkit où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+2. Accédez directement à l’URL de connexion SAML Toolkit pour lancer le flux de connexion à partir de là.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette SAML Toolkit dans le volet d’accès doit vous connecter automatiquement à l’application SAML Toolkit pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Essayer Azure AD SAML Toolkit avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Azure AD SAML Toolkit avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-azure)
+Après avoir configuré Azure AD SAML Toolkit, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

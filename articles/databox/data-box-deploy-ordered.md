@@ -2,18 +2,18 @@
 title: Tutoriel - Commander Azure Data Box | Microsoft Docs
 description: Ce tutoriel présente Azure Data Box, une solution hybride qui vous permet d’importer des données locales dans Azure, et explique comment commander Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/15/2020
+ms.author: alkohli
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783567"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604306"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -138,7 +138,7 @@ Avant de commencer, vous devez :
 * Installer Windows PowerShell version 6.2.4 ou supérieure
 * Installer le module Azure PowerShell (AZ)
 * Installer le module Azure Data Box (Az.DataBox)
-* Vous connecter à Azure
+* Connectez-vous à Azure.
 
 #### <a name="install-azure-powershell-and-modules-locally"></a>Installer Azure PowerShell et les modules localement
 
@@ -268,8 +268,21 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     ![Commande Data Box de disque managé](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Si un objet blob de pages n’est pas correctement converti en disque managé, il reste dans le compte de stockage et des frais de stockage vous sont facturés.
 
-    Sélectionnez **Suivant : Détails du contact** pour continuer.
+    Sélectionnez **Suivant : Sécurité** pour continuer.
+
+1. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur le logiciel, sélectionnez **Activer le double chiffrement pour la commande**. 
+
+   Le chiffrement basé sur le logiciel est effectué en plus du chiffrement AES 256 bits des données sur Data Box.
+
+   > [!NOTE]
+   > L’activation de cette option peut augmenter le temps nécessaire au traitement des commandes et à la copie des données. Une fois votre commande créée, vous ne pouvez pas changer cette option.
+
+   ![Écran Sécurité pour l’importation de Data Box - Double chiffrement](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Sélectionnez **Suivant : Détails du contact** pour continuer.
 
 8. Sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
 

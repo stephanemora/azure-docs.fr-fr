@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400328"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085040"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutoriel : Comment afficher les directions de route à l’aide du service Route Azure Maps et du contrôle de carte
 
@@ -106,7 +106,7 @@ Les étapes suivantes vous montrent comment créer et afficher le contrôle de c
 
 ## <a name="define-route-display-rendering"></a>Définir le rendu de l’affichage de l’itinéraire
 
-Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couche de lignes. Les points de départ et d’arrivée sont affichés à l’aide d’une couche de symboles. Pour plus d’informations sur l’ajout de couches de lignes, consultez [Ajouter une couche de lignes à une carte](map-add-line-layer.md). Pour en savoir plus sur les couches de symboles, consultez [Ajouter une couche de symboles à une carte](map-add-pin.md).
+Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couche de lignes. Les points de départ et d’arrivée seront affichés à l’aide d’un calque de symboles. Pour plus d’informations sur l’ajout de couches de lignes, consultez [Ajouter une couche de lignes à une carte](map-add-line-layer.md). Pour en savoir plus sur les couches de symboles, consultez [Ajouter une couche de symboles à une carte](map-add-pin.md).
 
 1. Ajoutez le code JavaScript suivant à la fonction `GetMap`. Ce code implémente le gestionnaire d’événements du contrôle de carte `ready`. Le reste du code de ce tutoriel sera placé dans le gestionnaire d’événements `ready`.
 
@@ -143,7 +143,7 @@ Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couch
 
     Dans le gestionnaire d’événements `ready` du contrôle de carte, une source de données est créée pour stocker l’itinéraire du point de départ au point d’arrivée. Pour définir le rendu de la ligne d’itinéraire, une couche de lignes est créée et jointe à la source de données.  Pour vous assurer que la ligne d’itinéraire ne couvre pas les étiquettes de route, nous avons transmis un deuxième paramètre avec la valeur de `'labels'`.
 
-    Ensuite, une couche de symbole est créée et jointe à la source de données. Ce calque spécifie la manière dont les points de départ et d’arrivée sont affichés. Dans le cas présent, des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point.
+    Ensuite, une couche de symbole est créée et jointe à la source de données. Ce calque spécifie comment les points de départ et d’arrivée sont affichés. Des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés à partir de chaque objet de point. Pour en savoir plus sur les expressions, consultez [Expressions de style basé sur les données](data-driven-style-expressions-web-sdk.md).
 
 2. Définissez Microsoft comme point de départ, et une station-service de Seattle comme point de destination.  Dans le gestionnaire d’événements du contrôle de carte `ready`, ajoutez le code suivant.
 
@@ -168,17 +168,22 @@ Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couch
     });
     ```
 
-    Ce code crée deux [objets point GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) pour représenter des points de départ et d’arrivée qui sont ensuite ajoutés à la source de données. Le dernier bloc de code définit la vue de l’appareil photo sur la base de la latitude et de la longitude des points de départ et d’arrivée. Pour plus d’informations sur la propriété setCamera du contrôle de carte setCamera, consultez la propriété [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
+    Ce code crée deux [objets point GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) pour représenter des points de départ et d’arrivée qui sont ensuite ajoutés à la source de données. 
+
+    Le dernier bloc de code définit la vue de l’appareil photo sur la base de la latitude et de la longitude des points de départ et d’arrivée. Les points de départ et d’arrivée sont ajoutés à la source de données. Le rectangle englobant des points de départ et d’arrivée est calculé à l’aide de la fonction `atlas.data.BoundingBox.fromData`. Ce rectangle englobant est utilisé pour définir la vue de caméra de la carte sur l’itinéraire entier à l’aide de la fonction `map.setCamera`. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole. Pour plus d’informations sur la propriété setCamera du contrôle de carte setCamera, consultez la propriété [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Enregistrez**MapRoute.html** et actualisez votre navigateur. La carte est maintenant centrée sur Seattle. La broche bleue en forme de larme marque le point de départ. La broche bleue ronde marque le point d’arrivée.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Voir le point de départ et d’arrivée des routes sur la carte":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Rendu de la carte de base du contrôle de carte":::
 
 <a id="getroute"></a>
 
 ## <a name="get-route-directions"></a>Get Route Directions (Obtenir des directions)
 
-Cette section vous montre comment utiliser l’API de service Route Azure Maps pour trouver des directions d’un point à un autre. Ce service comprend d’autres API qui vous permettent de planifier des itinéraires *les plus rapides*, *les plus courts*, *économiques* ou *intéressants* entre deux emplacements. Ce service permet également aux utilisateurs de planifier des itinéraires futurs en fonction de l’historique des conditions de trafic. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Cette section montre comment utiliser l’API Obtenir des directions Azure Maps pour obtenir des directions d’un point à un autre et l’heure d’arrivée estimée.
+
+>[!TIP]
+>Le service Route Azure Maps fournit des API afin de planifier des itinéraires basés sur différents types d’itinéraires, par exemple *le plus rapide*, *le plus court*, le plus *économique* ou le plus *intéressant* en fonction de la distance, des conditions de circulation et du mode de transport utilisé. Il permet également aux utilisateurs de planifier des itinéraires futurs en fonction de l’historique des conditions de circulation. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. Dans la fonction `GetMap`, à l’intérieur du gestionnaire d’événements `ready` du contrôle, ajoutez le code suivant au code JavaScript.
 
@@ -193,7 +198,7 @@ Cette section vous montre comment utiliser l’API de service Route Azure Maps p
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` crée un `SubscriptionKeyCredentialPolicy` pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` représente une URL des opérations sur l’[itinéraire](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps.
+   `SubscriptionKeyCredential` crée un `SubscriptionKeyCredentialPolicy` pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` représente une URL des opérations sur l’[itinéraire](https://docs.microsoft.com/rest/api/maps/route) d’Azure Maps.
 
 2. Après avoir configuré les informations d’identification et l’URL, ajoutez le code suivant dans le gestionnaire d’événements `ready` du contrôle. Ce code construit l’itinéraire du point de départ au point d’arrivée. L’URL `routeURL` demande à l’API de service Route Azure Maps de calculer des itinéraires. Une collection de fonctionnalités GeoJSON de la réponse est alors extraite à l’aide de la méthode `geojson.getFeatures()` et ajoutée à la source de données.
 
@@ -211,7 +216,7 @@ Cette section vous montre comment utiliser l’API de service Route Azure Maps p
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur web. La carte doit maintenant afficher l’itinéraire du point de départ au point d’arrivée.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure Map Control et service Route":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Rendu de la carte de base du contrôle de carte":::
 
     Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Vous pouvez trouver un exemple en direct [ici](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 

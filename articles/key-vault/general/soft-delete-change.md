@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984607"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La suppression réversible sera activée sur tous les coffres de clés
 
 > [!WARNING]
 > **Changement cassant** : La possibilité de refuser la suppression réversible sera dépréciée à la fin de l’année et la protection de la suppression réversible sera automatiquement activée pour tous les coffres de clés.  Il est recommandé aux utilisateurs et aux administrateurs d’Azure Key Vault d’activer immédiatement la suppression réversible sur leurs coffres de clés.
+>
+> Pour Managed HSM, la suppression réversible est activée par défaut et ne peut pas être désactivée.
 
 Quand un secret est supprimé d’un coffre de clés sans la protection de la suppression réversible, le secret est définitivement supprimé. Les utilisateurs peuvent actuellement refuser la suppression réversible lors de la création du coffre de clés ; cependant, pour protéger vos secrets contre les suppressions accidentelles ou malveillantes par un utilisateur, Microsoft activera prochainement la protection de la suppression réversible sur **tous** les coffres de clés, et les utilisateurs n’auront plus la possibilité de refuser ou de désactiver la suppression réversible.
 

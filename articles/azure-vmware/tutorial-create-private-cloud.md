@@ -3,12 +3,12 @@ title: 'Tutoriel : Déployer un cluster vSphere dans Azure'
 description: Découvrez comment déployer un cluster vSphere dans Azure en utilisant Azure VMware Solution
 ms.topic: tutorial
 ms.date: 09/07/2020
-ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985946"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution dans Azure
 
@@ -76,14 +76,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="delete-a-private-cloud-azure-portal"></a>Supprimer un cloud privé (portail Azure)
+## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Supprimer un cloud privé Azure VMware Solution
 
-Si vous avez un cloud privé Azure VMware Solution dont vous n’avez plus besoin, vous pouvez le supprimer. Quand vous supprimez un cloud privé, tous les clusters et tous leurs composants sont supprimés.
-
-Pour cela, accédez à votre cloud privé dans le portail Azure, puis sélectionnez **Supprimer**. Dans la page confirmation, confirmez le nom du cloud privé, puis sélectionnez **Oui**.
+Si vous avez un cloud privé Azure VMware Solution dont vous n’avez plus besoin, vous pouvez le supprimer. Un cloud privé Azure VMware Solution comprend un domaine de réseau isolé, un ou plusieurs clusters vSphere provisionnés sur des nœuds serveur dédiés, et généralement de nombreuses machines virtuelles. Quand un cloud privé est supprimé, toutes les machines virtuelles, leurs données et les clusters sont supprimés. Les nœuds nus dédiés sont réinitialisés en toute sécurité et retournés au pool libre. Le domaine de réseau provisionné pour le client est supprimé.  
 
 > [!CAUTION]
-> La suppression du cloud privé est une opération irréversible. Dès lors que le cloud privé a été supprimé, les données ne peuvent pas être récupérées, car cela met fin à toutes les charges de travail en cours d’exécution et à tous les composants et détruit toutes les données et tous les paramètres de configuration du cloud privé, y compris les adresses IP publiques. 
+> La suppression du cloud privé est une opération irréversible. Une fois le cloud privé supprimé, les données ne peuvent pas être récupérées, car cela met fin à l’ensemble des charges de travail et composants en cours d’exécution, et détruit toutes les données et tous les paramètres de configuration du cloud privé, notamment les adresses IP publiques.
+
+### <a name="prerequisites"></a>Prérequis
+
+Une fois qu’un cloud privé est supprimé, il n’existe aucun moyen de récupérer les machines virtuelles et leurs données. Les données de machines virtuelles seront nécessaires ultérieurement, mais l’administrateur doit d’abord sauvegarder toutes les données avant de supprimer le cloud privé.
+
+### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Étapes à suivre pour supprimer un cloud privé Azure VMware Solution
+
+1. Accédez à la page Azure VMware Solutions à partir du portail Azure.
+
+2. Sélectionnez le cloud privé à supprimer.
+ 
+3. Entrez le nom du cloud privé, puis sélectionnez **Oui**. Le processus de suppression se termine en quelques heures.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -92,6 +102,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Créer un cloud privé Azure VMware Solution
 > * Vérifier le cloud privé déployé
+> * Supprimer un cloud privé Azure VMware Solution
 
 Passez au tutoriel suivant pour découvrir comment créer un réseau virtuel à utiliser avec votre cloud privé dans le cadre de la configuration de la gestion locale pour vos clusters de cloud privé.
 

@@ -16,12 +16,12 @@ ms.date: 12/22/2017
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c27480f29a29f4805f8a9cafcfd388cb0638519e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f8a898e116ee2d88f4ccc5a0131737b2723f8b8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969079"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutoriel : Utiliser une identité managée affectée par l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -45,20 +45,15 @@ Dans ce tutoriel, vous allez apprendre à :
 
 - [Créez une machine virtuelle Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-- Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Pour exécuter les exemples de scripts, vous avez deux options :
+    - Utiliser [Azure Cloud Shell](../../cloud-shell/overview.md), que vous pouvez ouvrir à l’aide du bouton **Essayer** dans le coin supérieur droit des blocs de code.
+    - Exécuter les scripts localement en installant la dernière version d’[Azure CLI](/cli/azure/install-azure-cli), puis en vous connectant à Azure à l’aide d’[az login](/cli/azure/reference-index#az-login).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur
 
-1. Si vous utilisez la console CLI (au lieu d’une session Azure Cloud Shell), commencez par vous connecter à Azure. Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez créer l’identité managée affectée par l’utilisateur :
-
-    ```azurecli
-    az login
-    ```
-
-2. Créez une identité managée affectée par l’utilisateur en utilisant la commande [az identity create](/cli/azure/identity#az-identity-create). Le paramètre `-g` spécifie le groupe de ressources où l’identité managée affectée par l’utilisateur est créée, et le paramètre `-n` spécifie son nom. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<UAMI NAME>` par vos propres valeurs :
+Créez une identité managée affectée par l’utilisateur en utilisant la commande [az identity create](/cli/azure/identity#az-identity-create). Le paramètre `-g` spécifie le groupe de ressources où l’identité managée affectée par l’utilisateur est créée, et le paramètre `-n` spécifie son nom. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<UAMI NAME>` par vos propres valeurs :
     
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
-
 
 ```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <UAMI NAME>
@@ -129,14 +124,14 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 3. Connectez-vous à la machine virtuelle à l’aide du client SSH de votre choix. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](/windows/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison d’identité du service IMDS (Instance Metadata Service) Azure pour obtenir un jeton d’accès à Azure Resource Manager.  
 
-   La requête CURL permettant d’acquérir un jeton d’accès est illustrée dans l’exemple suivant. Veillez à remplacer `<CLIENT ID>` par la propriété `clientId` retournée par la commande `az identity create` dans [Créer une identité managée affectée par l’utilisateur](#create-a-user-assigned-managed-identity) : 
+   La requête CURL permettant d’acquérir un jeton d’accès est illustrée dans l’exemple suivant.Veillez à remplacer `<CLIENT ID>` par la propriété `clientId` retournée par la commande `az identity create` dans [Créer une identité managée affectée par l’utilisateur](#create-a-user-assigned-managed-identity) : 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > La valeur du paramètre `resource` doit correspondre exactement à ce qui est attendu par Azure AD. Lorsque vous utilisez l’ID de ressource Resource Manager, vous devez inclure la barre oblique de fin à l’URI. 
+    > La valeur du paramètre `resource` doit correspondre exactement à ce qui est attendu par Azure AD.Lorsque vous utilisez l’ID de ressource Resource Manager, vous devez inclure la barre oblique de fin à l’URI. 
     
     La réponse inclut le jeton d’accès dont vous avez besoin pour accéder à Azure Resource Manager. 
     

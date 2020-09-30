@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 92eecc419128b593dced0f9679dd02eb273cbb62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7081babb66cc91a0d904bf46a31843b663c016e7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518235"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à My IBISWorld
 
@@ -41,7 +41,10 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * My IBISWorld prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**
 * My IBISWorld prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré My IBISWorld, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré My IBISWorld, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-my-ibisworld-from-the-gallery"></a>Ajout de My IBISWorld à partir de la galerie
 
@@ -55,7 +58,7 @@ Pour configurer l’intégration de My IBISWorld dans Azure AD, vous devez ajout
 1. Sélectionnez **My IBISWorld** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-my-ibisworld"></a>Configurer et tester l’authentification unique Azure AD pour My IBISWorld
+## <a name="configure-and-test-azure-ad-sso-for-my-ibisworld"></a>Configurer et tester l’authentification unique Azure AD pour My IBISWorld
 
 Configurez et testez l’authentification unique Azure AD avec My IBISWorld pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur My IBISWorld associé.
 

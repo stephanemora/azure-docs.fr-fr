@@ -1,6 +1,6 @@
 ---
 title: Personnaliser des rôles Administrateur dans Azure Active Directory | Microsoft Docs
-description: Affichez un aperçu des rôles Azure AD personnalisés pour la délégation de la gestion des identités. Gérez les rôles Azure dans le Portail Azure, PowerShell ou l’API Graph.
+description: Découvrez comment comprendre les rôles personnalisés Azure AD dans Azure Active Directory (Azure AD) avec le contrôle d’accès en fonction du rôle et les étendues de ressources.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e962bea893e8a658b876aabf417e64b11a31dfc1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac8713affd56d011e5e1f5e9326de501fb3ce67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975559"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Rôles d’administrateurs personnalisés Azure Active Directory (préversion)
 

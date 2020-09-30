@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1454106c4498f4519972633df8a871585d254f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497543"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069439"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutoriel : Ajouter des paramètres à votre modèle ARM
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 Pour voir la flexibilité de votre modèle, procédez de nouveau au redéploiement. Cette fois-ci, définissez le paramètre SKU sur **Standard_GRS**. Vous pouvez soit passer un nouveau nom pour créer un compte de stockage différent, soit utiliser le même nom pour mettre à jour votre compte de stockage existant. Les deux options fonctionnent.
 

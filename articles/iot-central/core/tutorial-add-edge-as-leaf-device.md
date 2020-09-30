@@ -1,6 +1,6 @@
 ---
-title: Ajouter un appareil Azure IoT Edge à Azure IoT Central | Microsoft Docs
-description: Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central en qualité d’opérateur
+title: Tutoriel - Ajouter un appareil Azure IoT Edge à Azure IoT Central | Microsoft Docs
+description: Tutoriel - Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central en qualité d’opérateur
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018660"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987018"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutoriel : Ajouter un appareil Azure IoT Edge à votre application Azure IoT Central
 
@@ -99,7 +99,7 @@ Pour ajouter les définitions de télémétrie au modèle d’appareil :
 
 L’interface **Gérer** comprend désormais les types de télémétrie **machine**, **ambient** et **timeCreated** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interface avec les types de télémétrie machine et ambient":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 ### <a name="add-views-to-template"></a>Ajouter des vues au modèle
 
@@ -115,7 +115,7 @@ Le modèle d’appareil n’a pas encore de vue pour permettre à un opérateur 
 
 1. Sélectionnez **Enregistrer** pour enregistrer la vue **View IoT Edge device telemetry**.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modèle d’appareil avec la vue de télémétrie":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 ### <a name="publish-the-template"></a>Publier le modèle
 
@@ -123,7 +123,7 @@ Avant de pouvoir ajouter un appareil qui utilise le modèle **Environmental Sens
 
 Accédez au modèle **Environmental Sensor Edge Device**, puis sélectionnez **Publier**. Dans le panneau **Publier ce modèle d’appareil dans l’application**, sélectionnez **Publier** pour publier le modèle :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publier le modèle d’appareil":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 ## <a name="add-iot-edge-device"></a>Ajouter un appareil IoT Edge
 
@@ -135,7 +135,7 @@ Maintenant que vous avez publié le modèle **Environmental Sensor Edge Device**
 
 Vous disposez maintenant d’un nouvel appareil avec l’état **Inscrit** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Nouvel appareil inscrit":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 ### <a name="get-the-device-credentials"></a>Obtenir les informations d’identification de l’appareil
 
@@ -181,7 +181,7 @@ Sur la page **Déploiement personnalisé** :
 
 1. Passez en revue vos choix, puis sélectionnez **Créer** :
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Créer une machine virtuelle IoT Edge":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 Quelques minutes sont nécessaires pour achever le déploiement. Une fois le déploiement terminé, accédez au groupe de ressources **central-edge-rg** dans le portail Azure.
 
@@ -269,15 +269,15 @@ Pour configurer la machine virtuelle IoT Edge pour qu’elle utilise DPS pour s�
 
 L’appareil IoT Edge simulé est maintenant en cours d’exécution sur la machine virtuelle. Dans votre application IoT Central, l’état de l’appareil est maintenant **Provisionné** dans la page **Appareils** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Appareil IoT Edge provisionné":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 Vous pouvez voir la télémétrie de l’appareil dans la page **Afficher la télémétrie de l’appareil IoT Edge** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Télémétrie de l’appareil":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 La page **Modules** affiche l’état des modules IoT Edge sur l’appareil :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="État des modules d’appareil":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Modèle d’appareil créé à partir du manifeste IoT Edge":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -286,14 +286,14 @@ Si vous envisagez de continuer à utiliser la machine virtuelle IoT Edge, vous p
 * Pour supprimer la machine virtuelle IoT Edge et les ressources qui lui sont associées, supprimez le groupe de ressources **contoso-edge-rg** dans le portail Azure.
 * Pour supprimer l’application IoT Central, accédez à la page **Votre application** dans la section **Administration** de l’application, puis sélectionnez **Supprimer**.
 
+En tant que développeur de solutions ou opérateur, maintenant que vous avez appris à utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons ensuite de lire :
+
+> [!div class="nextstepaction"]
+> [Utiliser des groupes d’appareils pour analyser les données de télémétrie des appareils](./tutorial-use-device-groups.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 En tant que développeur d’appareils, maintenant que vous avez appris à utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons ensuite de lire :
 
 > [!div class="nextstepaction"]
 > [Développer des modules IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
-
-En tant que développeur de solutions ou opérateur, maintenant que vous avez appris à utiliser et gérer les appareils IoT Edge dans IoT Central, nous vous suggérons ensuite de lire :
-
-> [!div class="nextstepaction"]
-> [Utiliser des groupes d’appareils pour analyser les données de télémétrie des appareils](./tutorial-use-device-groups.md)

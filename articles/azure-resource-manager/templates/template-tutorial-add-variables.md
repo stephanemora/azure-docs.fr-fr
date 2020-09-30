@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9607ddd4a44af6a515080d4fd6f0c475268470b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 398b2741d7bafe4c3fdd9520d00eb7fcb766b876
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497492"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069609"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutoriel : Ajouter des variables à votre modèle ARM
 
@@ -83,7 +83,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

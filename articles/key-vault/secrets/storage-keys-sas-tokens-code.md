@@ -1,6 +1,6 @@
 ---
 title: Récupérer les jetons de signature d’accès partagé dans le code | Azure Key Vault
-description: La fonctionnalité de compte de stockage managé assure une intégration fluide entre Azure Key Vault et un compte de stockage Azure.
+description: La fonctionnalité de compte de stockage géré assure une intégration fluide entre Azure Key Vault et un compte de stockage Azure. Cet exemple utilise le kit SDK Azure pour .NET qui permet de gérer les jetons SAS.
 ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
@@ -9,53 +9,39 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ca89d06ea0d5e2396c820b25490b30e25c99f10
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002927"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086774"
 ---
-# <a name="fetch-shared-access-signature-tokens-in-code"></a>Récupérer les jetons de signature d’accès partagé dans le code
+# <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Créer une définition SAS et récupérer les jetons de signature d’accès partagé dans le code
 
 Vous pouvez gérer votre compte de stockage avec les jetons de signature d’accès partagé(SAS) dans votre coffre de clés. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des SAS](../../storage/common/storage-sas-overview.md).
 
-Cet article fournit des exemples de code .NET qui extraient un jeton SAS et effectuent des opérations avec celui-ci. Pour plus d’informations sur la façon de créer et de stocker des jetons SAS, consultez [Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure](overview-storage-keys.md) ou [Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell](overview-storage-keys-powershell.md).
+> [!NOTE]
+> Nous vous recommandons d’utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../storage/common/storage-auth-aad.md) pour sécuriser votre compte de stockage et ainsi bénéficier d’une sécurité et d’une facilité d’utilisation supérieures par rapport à une autorisation de clé partagée.
+
+Cet article fournit des exemples de code .NET qui crée une définition SAS et récupère des jetons SAS. Pour plus d’informations, consultez notre exemple [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/), notamment le client généré pour les comptes de stockage gérés par Key Vault. Pour plus d’informations sur la façon de créer et de stocker des jetons SAS, consultez [Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure](overview-storage-keys.md) ou [Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Exemples de code
 
-Dans cet exemple, le code extrait un jeton SAS de votre coffre de clés, l’utilise pour créer un compte de stockage et crée un client de service BLOB.
+Dans l’exemple suivant, nous allons créer un modèle SAS :
 
-```cs
-// The shared access signature is stored as a secret in keyvault. 
-// After you get a security token, create a new SecretClient with vault credentials and the key vault URI.
-// The format for the key vault URI (kvuri) is https://<YourKeyVaultName>.vault.azure.net
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
 
-var kv = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+À l’aide de ce modèle, nous pouvons créer une définition SAS au moyen de 
 
-// Now retrive your storage SAS token from Key Vault using the name of the secret (secretName).
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
 
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
+Une fois la définition SAS créée, vous pouvez récupérer des jetons SAS comme des secrets au moyen de `SecretClient`. Vous devez faire précéder le nom du secret par le nom du compte de stockage suivi d’un tiret :
 
-// Create new storage credentials using the SAS token.
-StorageCredentials accountSAS = new StorageCredentials(sasToken);
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52-58":::
 
-// Use these credentials and your storage account name to create a Blob service client.
-CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "<storage-account>", endpointSuffix: null, useHttps: true);
-CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
-```
+Si votre jeton de signature d’accès partagé arrive à expiration, vous pouvez récupérer le même secret pour en générer un nouveau.
 
-Si votre jeton de signature d’accès partagé est sur le point d’expirer, vous pouvez le récupérer de votre coffre de clés, puis mettre à jour le code.
-
-```cs
-// If your shared access signature token is about to expire,
-// get the shared access signature token again from Key Vault and update it.
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
-accountSAS.UpdateSASToken(sasToken);
-```
-
+Vous obtenez des instructions sur l’utilisation d’un jeton SAS récupéré à partir de Key Vault pour accéder aux services de stockage Azure en consultant [Utiliser une signature d’accès partagé de compte pour accéder au service BLOB.](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [Accorder un accès limité aux ressources du Stockage Azure à l’aide des SAS](../../storage/common/storage-sas-overview.md).

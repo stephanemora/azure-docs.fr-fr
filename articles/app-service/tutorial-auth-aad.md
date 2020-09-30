@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c1c3f52dafe63e3f829eb12d4fb872ed3ce85f36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982900"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -145,7 +145,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 > [!NOTE]
 > En cas de redémarrage de votre application, vous avez peut-être remarqué que de nouvelles données ont été effacées. Ce comportement par défaut se déclenche en raison de l’utilisation d’une base de données en mémoire par l’application ASP.NET Core.
@@ -225,7 +225,7 @@ Accédez à `http://<front-end-app-name>.azurewebsites.net` et ajoutez quelques 
 
 Accédez à `http://<back-end-app-name>.azurewebsites.net` pour voir les éléments ajoutés à partir de l’application frontale. Ajoutez également quelques éléments, tels que `from back end 1` et `from back end 2`, puis actualisez l’application frontale pour voir si elle reflète les modifications.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 ## <a name="configure-auth"></a>Configurer l’authentification
 
@@ -239,7 +239,7 @@ Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Group
 
 Dans **Groupes de ressources**, recherchez et sélectionnez votre groupe de ressources. Dans **Vue d’ensemble**, sélectionnez la page de gestion de votre application back-end.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Dans le menu de gauche de votre application back-end, sélectionnez **Authentification/Autorisation**, puis activez l’authentification App Service en sélectionnant **On** (Activé).
 
@@ -247,7 +247,7 @@ Dans **Mesure à prendre quand une demande n’est pas authentifiée**, sélecti
 
 Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/configure-auth-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Sélectionnez **Express**, puis acceptez les paramètres par défaut pour créer une application AD, et sélectionnez **OK**.
 
@@ -259,7 +259,7 @@ Sélectionnez à nouveau **Azure Active Directory**, puis sélectionnez **Applic
 
 Copiez l’**ID de client** de l’application Azure AD dans le Bloc-notes. Vous aurez besoin de cette valeur ultérieurement.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/get-application-id-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Si vous vous arrêtez ici, vous disposez d’une application autonome qui est déjà sécurisée par l’authentification et l’autorisation App Service. Les sections restantes vous montrent comment sécuriser une solution multi-application en « transmettant » l’utilisateur authentifié du front-end au back-end. 
 
@@ -284,13 +284,13 @@ Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Azure
 
 Sélectionnez **Inscriptions d’applications** > **Applications détenues** > **Afficher toutes les applications de cet annuaire**. Sélectionnez le nom de votre application frontale, puis sélectionnez **Autorisations de l’API**.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Sélectionnez **Ajouter une autorisation**, puis **API utilisées par mon organisation** >  **\<back-end-app-name>** .
 
 Dans la page **Demander des autorisations d’API** pour l’application back-end, sélectionnez **Autorisations déléguées** et **user_impersonation**, puis sélectionnez **Ajouter des autorisations**.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Configurer App Service pour renvoyer un jeton d’accès utilisable
 
@@ -300,7 +300,7 @@ Accédez à [Azure Resource Explorer](https://resources.azure.com) et, à l’ai
 
 [Azure Resource Explorer](https://resources.azure.com) est désormais ouvert avec votre application front-end sélectionnée dans l’arborescence des ressources. En haut de la page, cliquez sur **Lecture/écriture** pour apporter des modifications à vos ressources Azure.
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Dans le navigateur de gauche, descendez dans la hiérarchie jusqu’à **conf** > **authsettings**.
 
@@ -310,7 +310,7 @@ Dans l’affichage **authsettings**, cliquez sur **Modifier**. Définissez `addi
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![API ASP.NET Core exécuté dans Azure App Service](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Capture d’écran d’un exemple d’API REST Azure App Service dans une fenêtre de navigateur, qui présente une application de liste de tâches.":::
 
 Enregistrez vos paramètres en cliquant sur **PUT**.
 

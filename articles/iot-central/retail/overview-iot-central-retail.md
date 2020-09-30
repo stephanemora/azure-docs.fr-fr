@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c72825f4645919468f8b59bbc4b9d9498fe11009
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979404"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
@@ -41,9 +41,9 @@ Les avantages d’une solution de logistique connectée sont les suivants :
 
 Les captures d’écran suivantes montrent le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Tableau de bord de logistique connectée":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Présentation d’Azure IoT Retail":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Tableau de bord de logistique connectée":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’informations, consultez le tutoriel [Déployer et découvrir un modèle d’application de logistique connectée](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ Les avantages d’un centre de distribution numérique sont les suivants :
 
 La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Tableau de bord de centre de distribution numérique":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du centre de distribution numérique](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ Le modèle d’application est fourni avec un ensemble de modèles d’appareils
 
 La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Surveillance des conditions d’analytique en magasin":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’information, consultez le tutoriel [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ Le modèle d’application est fourni avec un ensemble de modèles d’appareils
 
 La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Caisse d’analytique en magasin":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’information, consultez le tutoriel [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Ce modèle d’application se concentre sur la connectivité des appareils, ains
 
 La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Tableau de bord de gestion intelligente des stocks":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’informations, consultez le tutoriel [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ Ce modèle d’application vous permet de :
 
 La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centre de microtraitement":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-micro-fulfillment-center.md).
 
@@ -165,7 +165,7 @@ Le modèle d’application comprend quatre tableaux de bord d’application :
 * **(Exemple) Gestion de caméras réelles** utilise des caméras simulées pour montrer comment vous pouvez gérer vos caméras à partir de l’application.
 * **(Exemple) Supervision de caméras réelles** utilise des caméras simulées pour montrer comment vous pouvez superviser vos caméras à partir de l’application.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analytique vidéo - Détection d’objets et de mouvements":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Présentation d’Azure IoT Retail":::
 
 Pour en savoir plus sur l’architecture de la solution, consultez [Architecture de l’application d’analytique vidéo](architecture-video-analytics.md).
 

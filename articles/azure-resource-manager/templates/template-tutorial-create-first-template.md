@@ -6,12 +6,12 @@ ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 140eb73cdf6d5bb701c08b0dd8d5f85b6f137df6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497475"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069235"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutoriel : Créer et déployer votre premier modèle ARM
 
@@ -178,7 +178,7 @@ La commande de déploiement retourne des résultats. Recherchez `ProvisioningSta
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

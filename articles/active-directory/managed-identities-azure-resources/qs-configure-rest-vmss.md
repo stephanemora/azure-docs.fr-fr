@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266797"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968885"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -45,12 +45,9 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
     - [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour créer un groupe de machines virtuelles identiques, puis activer et supprimer l’identité managée affectée par le système ou l’utilisateur d’un groupe de machines virtuelles identiques.
     - [Contributeur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) pour créer une identité managée affectée par l’utilisateur.
     - [Opérateur d’identité managée](../../role-based-access-control/built-in-roles.md#managed-identity-operator) pour attribuer une identité affectée par l’utilisateur à un groupe de machines virtuelles identiques ou la supprimer.
-- Si vous utilisez Windows, installez le [sous-système Windows pour Linux](/windows/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
-- [Installez la console locale Azure CLI](/cli/azure/install-azure-cli), si vous utilisez le [sous-système Windows pour Linux](/windows/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Si vous utilisez la console locale Azure CLI, connectez-vous à Azure en utilisant la commande `az login` avec un compte associé à l’abonnement Azure dont vous souhaitez gérer les identités managées affectées par le système ou l’utilisateur.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Vous pouvez exécuter toutes les commandes de cet article dans le cloud ou localement :
+    - Pour exécuter dans le cloud, utilisez [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Pour exécuter localement, installez [curl](https://curl.haxx.se/download.html) et [Azure CLI](/cli/azure/install-azure-cli), puis connectez-vous à Azure en utilisant la commande [az login](/cli/azure/reference-index#az-login) avec un compte associé à l’abonnement Azure dont vous voulez gérer les identités managées affectées par le système ou par l’utilisateur.
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 

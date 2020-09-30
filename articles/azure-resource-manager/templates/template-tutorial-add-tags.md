@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce25047ae93a332b62b7e785b23da5794031a98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ace23e392d90e77c02df7861df96c066c82eee33
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497509"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069065"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutoriel : Ajouter des étiquettes dans votre modèle ARM
 
@@ -72,7 +72,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

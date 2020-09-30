@@ -1,14 +1,14 @@
 ---
 title: Contrôles de l’exemple de blueprint DoD Impact Level 5
 description: Mappage des contrôles de l’exemple de blueprint DoD Impact Level 5. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921314"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978371"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint DoD Impact Level 5
 
@@ -307,11 +307,8 @@ Ce blueprint permet de gérer les défauts du système d’informations en affec
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correction des défauts | Suppression des versions précédentes des logiciels/microprogrammes
 
-Ce blueprint affecte des définitions de stratégie qui vous permettent de vérifier que les applications utilisent la dernière version du .NET Framework, de HTTP, de Java, de PHP, de Python et de TLS. Ce blueprint affecte également une définition de stratégie qui garantit que Kubernetes Services est mis à niveau vers sa version non vulnérable.
+Ce blueprint affecte des définitions de stratégie qui vous permettent de vérifier que les applications utilisent la dernière version de HTTP, de Java, de PHP, de Python et de TLS. Ce blueprint affecte également une définition de stratégie qui garantit que Kubernetes Services est mis à niveau vers sa version non vulnérable.
 
-- Vérifier que la version du .NET Framework est la plus récente, si elle est utilisée dans le cadre de l’application API
-- Vérifier que la version du .NET Framework est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
-- Vérifier que la version du .NET Framework est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application API
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application de fonction
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
@@ -319,7 +316,6 @@ Ce blueprint affecte des définitions de stratégie qui vous permettent de véri
 - Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
 - Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API
-- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
 - Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API
 - Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction

@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint DoD Impact Level 4
 description: Mappage de contrôles de l’exemple de blueprint DoD Impact Level 4. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923286"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978397"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mappage de contrôles de l’exemple de blueprint DoD Impact Level 4
 
@@ -32,7 +32,7 @@ Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conforme
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestion des comptes | Schémas basés sur des rôles
 
-Azure implémente le [contrôle d’accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. En outre, ce blueprint affecte une définition Azure Policy pour vérifier l’utilisation des règles RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
+Azure implémente le [contrôle d'accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL et Service Fabric. L’utilisation de l’authentification Azure Active Directory permet une gestion simplifiée des autorisations et une gestion centralisée des identités des utilisateurs de bases de données et d’autres services Microsoft. En outre, ce blueprint affecte une définition Azure Policy pour vérifier l’utilisation des règles RBAC personnalisées. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée.
 
 - Un administrateur Azure Active Directory doit être approvisionné pour les serveurs SQL
 - Auditer l’utilisation de règles personnalisées RBAC
@@ -63,7 +63,7 @@ Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’a
 
 ## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) Privilèges minimum | Révision des privilèges utilisateur
 
-Azure implémente un [Contrôle d’accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes à examiner en priorité. L’examen de ces indicateurs de compte peut vous aider à vous assurer que les contrôles de privilège minimum sont implémentés.
+Azure implémente le [contrôle d'accès en fonction du rôle (Azure RBAC)](../../../../role-based-access-control/overview.md) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes à examiner en priorité. L’examen de ces indicateurs de compte peut vous aider à vous assurer que les contrôles de privilège minimum sont implémentés.
 
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
@@ -102,11 +102,11 @@ Ce blueprint fournit des définitions de stratégie qui vous permettent de véri
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant une configuration et une gestion centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
-- \[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
-- \[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 Réponse aux échecs du processus d’audit
@@ -123,11 +123,11 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant la génération de rapports et l’analyse centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
-- \[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
-- \[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Révision, analyse et rapports d’audit | Intégration/analyse et fonctionnalités de surveillance
@@ -144,7 +144,7 @@ Ce blueprint fournit des définitions de stratégie qui auditent les enregistrem
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 
 ## <a name="au-12-audit-generation"></a>AU-12 Génération de l’audit
 
@@ -152,11 +152,11 @@ Ce blueprint fournit des définitions de stratégie qui auditent et appliquent l
 Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. L’audit et Advanced Data Security sont configurés sur les serveurs SQL.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
-- \[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
-- \[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Auditer le paramètre de diagnostic
 - L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
@@ -336,11 +336,8 @@ Ce blueprint permet de gérer les défauts du système d’informations en affec
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correction des défauts | Suppression des versions précédentes des logiciels/microprogrammes
 
-Ce blueprint affecte des définitions de stratégie qui vous permettent de vérifier que les applications utilisent la dernière version du .NET Framework, de HTTP, de Java, de PHP, de Python et de TLS. Ce blueprint affecte également une définition de stratégie qui garantit que Kubernetes Services est mis à niveau vers sa version non vulnérable.
+Ce blueprint affecte des définitions de stratégie qui vous permettent de vérifier que les applications utilisent la dernière version de HTTP, de Java, de PHP, de Python et de TLS. Ce blueprint affecte également une définition de stratégie qui garantit que Kubernetes Services est mis à niveau vers sa version non vulnérable.
 
-- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application API
-- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
-- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application API
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application de fonction
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
@@ -348,7 +345,6 @@ Ce blueprint affecte des définitions de stratégie qui vous permettent de véri
 - Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
 - Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API
-- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
 - Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web
 - Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API
 - Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
@@ -356,7 +352,7 @@ Ce blueprint affecte des définitions de stratégie qui vous permettent de véri
 - La dernière version de TLS doit être utilisée dans votre application API
 - La dernière version de TLS doit être utilisée dans votre application de fonction
 - La dernière version de TLS doit être utilisée dans votre application web
-- \[Préversion\] : Kubernetes Services doit être mis à niveau vers une version non vulnérable de Kubernetes
+- Kubernetes Services doit être mis à niveau vers une version non vulnérable de Kubernetes
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Protection contre les codes malveillants
 
@@ -378,11 +374,11 @@ Ce blueprint permet de gérer la protection des points de terminaison, notamment
 Ce blueprint vous aide à superviser votre système en auditant et en appliquant la journalisation et la sécurité des données aux ressources Azure. Plus précisément, les stratégies affectées auditent et appliquent le déploiement de l’agent Log Analytics et de paramètres de sécurité renforcée pour les bases de données SQL, les comptes de stockage et les ressources réseau. Ces fonctionnalités peuvent vous aider à détecter des comportements anormaux et des indicateurs d’attaques afin de prendre des mesures appropriées.
 
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
+- Auditer le déploiement de l’agent Log Analytics dans les groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
-- \[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
-- \[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)
+- Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Advanced Data Security doit être activé sur vos instances managées
 - Advanced Data Security doit être activé sur vos serveurs SQL

@@ -1,19 +1,19 @@
 ---
-title: 'Tutoriel : ASP.NET Core avec SQL Database'
-description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service en établissant une connexion avec une instance SQL Database.
+title: 'Tutoriel : ASP.NET Core avec Azure SQL Database'
+description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service, en établissant une connexion à une instance Azure SQL Database.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 27b01a86d1bc44b5adb977f10339a0f2d56a64d4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958522"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982888"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutoriel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutoriel : Générer une application ASP.NET Core et Azure SQL Database dans Azure App Service
 
 ::: zone pivot="platform-windows"  
 

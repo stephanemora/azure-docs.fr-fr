@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77426358"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972428"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutoriel : Créer une application de gestion connectée des déchets dans IoT Central
 
@@ -131,13 +131,13 @@ Pour afficher ce modèle d’appareil :
 
 1. Cliquez sur **Modèles d’appareil** dans le volet gauche de votre application dans IoT Central. 
 
-    ![Modèle d'appareil](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Capture d’écran montrant la liste des modèles d’appareil dans l’application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. Dans la liste Modèles d’appareil, vous voyez **Connected Waste Bin** (Conteneur de déchets connecté). Ouvrez-le en cliquant sur son nom.
 
 3. Familiarisez-vous avec les capacités de ce modèle d’appareil. Vous pouvez voir qu’il définit des capteurs comme que *Fill level* (Niveau de remplissage), *Odor meter* (Mesure des odeurs), *Weight* (Poids), *Location* (Emplacement), etc.
 
-   ![Modèle d'appareil](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Capture d’écran montrant les détails du modèle d’appareil de conteneur connecté de déchets](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -265,8 +265,9 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez votre a
 1. Ouvrez l’onglet Administration dans le volet gauche de votre application IoT Central.
 2. Sélectionnez Paramètres de l'application, puis cliquez sur le bouton Supprimer en bas de la page.
 
-  
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail les [concepts de la gestion connectée des déchets](./concepts-connectedwastemanagement-architecture.md).
+* Découvrez plus en détail les
+ 
+> [!div class="nextstepaction"]
+> [concepts de la gestion connectée des déchets](./concepts-connectedwastemanagement-architecture.md)

@@ -4,12 +4,12 @@ description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la f
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017887"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968333"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
@@ -24,6 +24,7 @@ Le service de sauvegarde Azure fournit des solutions simples, sécurisées et re
 - **Partages Azure Files** - [Sauvegarder des partages de fichiers Azure sur un compte de stockage](backup-afs.md)
 - **SQL Server sur des machines virtuelles Azure** -  [Sauvegardez des bases de données SQL Server qui s’exécutent sur les machines virtuelles Azure](backup-azure-sql-database.md).
 - **Bases de données SAP HANA sur des machines virtuelles Azure** - [Sauvegardez des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](backup-azure-sap-hana-database.md).
+- **Serveurs Azure Database pour PostgreSQL (préversion)**  -  [Sauvegarder des bases de données Azure PostgreSQL et conserver les sauvegardes pendant jusqu’à 10 ans](backup-azure-database-postgresql.md)
 
 ![Vue d’ensemble du service Sauvegarde Azure](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,8 +44,9 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Conserver des données à court et à long terme** : Vous pouvez utiliser des [coffres Recovery Services](backup-azure-recovery-services-vault-overview.md) pour la conservation des données à court et à long termes.
 - **Gestion automatique du stockage** : les environnements hybrides impliquent souvent un stockage hétérogène (une partie en local et une autre dans le cloud). Avec le service Sauvegarde Azure, l’utilisation d’appareils de stockage locaux ne génère aucun coût. Azure Backup alloue et gère automatiquement le stockage de sauvegarde sur la base d’un modèle de paiement à l’utilisation. Vous payez uniquement le stockage que vous consommez. [Apprenez-en davantage sur la](https://azure.microsoft.com/pricing/details/backup) tarification.
 - **Plusieurs options de stockage** : Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles.
-  - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
-  - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
+  - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
+  - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
+  - [Le stockage redondant interzone (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. Le stockage redondant interzone n’a pas de temps d’arrêt. Vos charges de travail critiques qui nécessitent la [résidence des données](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) et qui ne doivent pas avoir de temps d’arrêt peuvent donc être sauvegardées dans un stockage redondant interzone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

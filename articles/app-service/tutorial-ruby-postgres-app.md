@@ -5,18 +5,18 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 77892cc9a05c569e431fb9c66c2f6eb92068b3af
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082122"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979480"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel vous explique comment créer une application Ruby et comment la connecter à une base de données PostgreSQL. Une fois terminé, vous disposerez d’une application [Ruby on Rails](https://rubyonrails.org/) s’exécutant dans App Service sur Linux.
 
-![Application Ruby on Rails s’exécutant dans Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Capture d’écran d’un exemple d’application Ruby on Rails intitulé Tasks (Tâches).":::
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -255,7 +255,7 @@ Dans cette étape, vous allez déployer l’application Rails connectée à Post
 
 ### <a name="configure-database-settings"></a>Configuration des paramètres de la base de données
 
-Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell.
+Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) dans Cloud Shell.
 
 La commande Cloud Shell suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;postgres-server-name>_ .
 
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Accédez à `http://<app-name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
-![Application Ruby on Rails s’exécutant dans Azure App Service](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Capture d’écran d’un exemple d’application Ruby on Rails intitulé Tasks (Tâches).":::
 
 Félicitations, vous exécutez une application Ruby on Rails orientée données dans Azure App Service.
 

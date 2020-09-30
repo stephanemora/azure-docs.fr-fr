@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519840"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708119"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Clever
 
@@ -40,6 +40,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Clever prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
+* Après avoir configuré Concur, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -56,7 +57,7 @@ Pour configurer l’intégration de Clever avec Azure AD, vous devez ajouter Cle
 1. Sélectionnez **Clever** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Configurer et tester l’authentification unique Azure AD pour Clever
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Configurer et tester l’authentification unique Azure AD pour Clever
 
 Configurez et testez l’authentification unique Azure AD avec Clever à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Clever associé.
 
@@ -83,10 +84,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://clever.com/in/<companyname>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://clever.com/oauth/saml/metadata.xml`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://clever.com/oauth/saml/metadata.xml`
 
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support technique de Clever](https://clever.com/about/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    >  Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir la valeur, contactez l’[équipe de support technique de Clever](https://clever.com/about/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -131,11 +134,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ![Connexion instantanée](./media/clever-tutorial/ic798984.png "Instant Login")
 
     > [!NOTE]
-    > Avant de pouvoir tester l’authentification unique, vous devez contacter l[’équipe du support Clever Client](https://clever.com/about/contact/) pour activer l’authentification unique Office 365 dans le back end.
+    > Avant de pouvoir tester l’authentification unique, vous devez contacter l’[équipe du support technique Clever](https://clever.com/about/contact/) pour activer l’authentification unique Microsoft 365 dans le back-end.
 
 1. Dans la page **Instant Login** , procédez comme suit :
  
-    ![Connexion instantanée](./media/clever-tutorial/ic798985.png "Instant Login")
+    ![Configuration de l’authentification unique dans la page de connexion instantanée](./media/clever-tutorial/ic798985.png "Instant Login")
 
     a. Renseignez le champ **Login URL**.
 

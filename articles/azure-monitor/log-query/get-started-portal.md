@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874229"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088355"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutoriel : Bien démarrer avec les requêtes Log Analytics
 
@@ -42,7 +42,7 @@ Un *schéma* est une collection de tables regroupées en catégories logiques. L
 
 Les tables du schéma sont présentées sous l’onglet **Tables** de l’espace de travail Log Analytics. Les tables contiennent des colonnes ; le type de données de chaque colonne est représenté par une icône affichée à côté du nom de la colonne. Par exemple, la table**Event** contient des colonnes de texte comme **Computer** et des colonnes numériques comme **EventCategory**.
 
-![schéma](media/get-started-portal/schema.png)
+![La capture d’écran montre la page Journaux du portail Azure avec une nouvelle requête, mettant en évidence le volet Tables avec Computer et EventCategory encadrés.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Écrire et exécuter des requêtes de base
 
@@ -120,7 +120,7 @@ Pour filtrer les résultats de la requête `Event` sur les événements **Error*
    
 1. Sélectionnez **Filtrer**.
    
-   ![Filtrer](media/get-started-portal/filter.png)
+   ![La capture d’écran montre une table des résultats avec un menu contextuel permettant de filtrer les résultats sur la valeur EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Trier, regrouper et sélectionner des colonnes
 Pour trier les résultats d’une requête en fonction d’une colonne spécifique, par exemple **TimeGenerated [UTC]** , sélectionnez l’en-tête de la colonne. Sélectionnez de nouveau cet en-tête pour passer de l’ordre croissant à l’ordre décroissant, ou inversement.
@@ -129,7 +129,7 @@ Pour trier les résultats d’une requête en fonction d’une colonne spécifiq
 
 Une autre façon d’organiser les résultats consiste à utiliser des groupes. Pour regrouper les résultats d’après une colonne spécifique, faites glisser l’en-tête de la colonne vers la barre au-dessus de la table de résultats qui indique **Faites glisser un en-tête de colonne et placez-le ici pour regrouper en fonction de cette colonne**. Pour créer des sous-groupes, faites glisser d’autres colonnes vers la barre supérieure. Vous pouvez réorganiser la hiérarchie et trier les groupes et sous-groupes dans la barre.
 
-![Groupes](media/get-started-portal/groups.png)
+![La capture d’écran montre les résultats de la requête avec des sous-groupes pour EventLevelName et Computer.](media/get-started-portal/groups.png)
 
 Pour masquer ou afficher des colonnes dans les résultats, sélectionnez **Colonnes** au-dessus de la table, puis sélectionnez ou désélectionnez les colonnes de votre choix dans la liste déroulante.
 

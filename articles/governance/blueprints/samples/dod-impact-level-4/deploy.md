@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint DoD Impact Level 4
 description: Étapes de déploiement pour l’exemple de blueprint DoD Impact Level 4 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7ab2e5967031b52bcad7c1b6f38b546cb8a7eb86
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978417"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Déployer l’exemple de blueprint DoD Impact Level 4
 
@@ -99,12 +99,12 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour l’audit SQL Server|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région). Important : Pour un bon fonctionnement de l’audit, vous ne devez ni supprimer ni renommer le groupe de ressources ou les comptes de stockage.|
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Préfixe du compte de stockage pour les diagnostics du groupe de sécurité réseau|Ce préfixe peut être combiné à l’emplacement du groupe de sécurité réseau pour former le nom de compte de stockage créé.|
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister)|Groupe de ressources dans lequel le compte de stockage sera créé. Ce groupe de ressources doit déjà exister.|
-|Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Espace de travail Log Analytics pour Linux VM Scale Sets (VMSS)|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
-|Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
+|Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux|Affectation de rôle|Espace de travail Log Analytics pour les groupes de machines virtuelles identiques Linux|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
+|Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Espace de travail Log Analytics pour les machines virtuelles Linux|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
 |Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
-|Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Espace de travail Log Analytics pour Windows VM Scale Sets (VMSS)|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
-|Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
+|Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows|Affectation de rôle|Espace de travail Log Analytics pour les groupes de machines virtuelles identiques Windows|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
+|Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Espace de travail Log Analytics pour les machines virtuelles Windows|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
 |Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|Membres à inclure dans le groupe local Administrateurs|Liste séparée par des points-virgules des membres qui doivent être exclus du groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|

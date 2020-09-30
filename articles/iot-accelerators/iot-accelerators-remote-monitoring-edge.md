@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66117528"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969999"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies à la périphérie avec l’accélérateur de solution de supervision à distance
 
@@ -26,7 +26,7 @@ Contoso souhaite déployer un module de périphérie intelligent qui détecte le
 
 Le diagramme suivant montre les composants clés dans le scénario du tutoriel :
 
-![Vue d’ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Le diagramme illustre la pompe à pétrole connectée au module Stream Analytics IoT Edge dans l’appareil IoT Edge pour les données de télémétrie et commandes. Les données de télémétrie filtrées sont dirigées vers l’appareil IoT Edge de l’accélérateur de solution de supervision à distance dans le cloud. Le cloud contient également le déploiement et le package. Le déploiement déploie le runtime IoT Edge dans l’appareil.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Dans ce tutoriel, vous allez :
 
@@ -80,7 +80,7 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Travail     | Balises  |
+    | Travail     | Étiquettes  |
     | Nom du travail | AddEdgeTag |
     | Clé     | IsOilPump |
     | Valeur   | O     |
@@ -96,7 +96,7 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name    | OilPumps |
+    | Nom    | OilPumps |
     | Champ   | Tags.IsOilPump |
     | Opérateur | = Equals |
     | Valeur    | O |
@@ -161,9 +161,9 @@ Définissez le travail Stream Analytics dans le portail avant de l’empaqueter 
     | Option | Valeur |
     | ------ | ----- |
     | Nom du travail | EdgeDeviceJob |
-    | Subscription | Votre abonnement Azure |
+    | Abonnement | Votre abonnement Azure |
     | Resource group | IoTEdgeDevices |
-    | Location | USA Est |
+    | Emplacement | USA Est |
     | Environnement d’hébergement | Edge |
     | Unités de diffusion en continu | 1 |
 
@@ -239,7 +239,7 @@ Ensuite, créez un manifeste de déploiement IoT Edge qui définit les modules �
 
 1. Dans la page **Créer un déploiement > Passer en revue le déploiement**, cliquez sur **Envoyer** :
 
-    [![Passer en revue le déploiement](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Vérifier le déploiement](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
 1. Dans la page **IoT Edge** principale, cliquez sur **Déploiements IoT Edge**. **oil-pump-device** figure dans la liste des déploiements.
 
@@ -275,11 +275,11 @@ Vous êtes maintenant prêt à déployer le package sur votre appareil.
 
     | Option | Valeur |
     | ------ | ----- |
-    | Name   | OilPumpDevices |
+    | Nom   | OilPumpDevices |
     | Type de package | Manifeste Edge |
     | Package | oil-pump-device.json |
     | Groupe d’appareils | OilPumps |
-    | Priority | 10 |
+    | Priorité | 10 |
 
     [![Créer un déploiement](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
@@ -317,7 +317,7 @@ Si vous souhaitez avertir les opérateurs lorsque le seuil a été atteint, vous
     | Nom de la règle | Température de la pompe à pétrole |
     | Description | La température de la pompe à pétrole a dépassé les 300 degrés |
     | Groupe d’appareils | OilPumps |
-    | Calcul | Immédiat |
+    | Calcul | Instantané |
     | Champ | température |
     | Opérateur | > |
     | Valeur | 300 |

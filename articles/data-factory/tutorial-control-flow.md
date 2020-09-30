@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513322"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983417"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez créer un pipeline Data Factory qui présente certa
 
 Ce graphique fournit une vue d’ensemble du scénario :
 
-![Vue d’ensemble](media/tutorial-control-flow/overview.png)
+![Le diagramme montre le Stockage Blob Azure qui est la cible d’une copie, laquelle, en cas de réussite, envoie un e-mail avec des détails ou, en cas d’échec, envoie un e-mail avec les détails de l’erreur.](media/tutorial-control-flow/overview.png)
 
 Ce tutoriel explique comment effectuer les tâches suivantes :
 

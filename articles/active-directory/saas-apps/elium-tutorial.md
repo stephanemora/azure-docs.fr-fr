@@ -4,19 +4,19 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 author: jeevansd
 manager: CelesteDG
-ms.reviewer: celested
+ms.reviewer: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 756b8e8e06d393736b330c3ae3e9128de76bf5a0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e7fc8f68bf344b689d6d4ebb49fde8d43ebcaccd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544211"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053639"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Elium
 
@@ -26,14 +26,15 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Elium à Azure Active
 * Permettre à vos utilisateurs de se connecter automatiquement à Elium avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Elium pour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -46,14 +47,14 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration d’Elium à Azure AD, vous devez ajouter Elium, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Elium** dans la zone de recherche.
 1. Sélectionnez **Elium** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-elium"></a>Configurer et tester l’authentification unique Azure AD pour Elium
+## <a name="configure-and-test-azure-ad-sso-for-elium"></a>Configurer et tester l’authentification unique Azure AD pour Elium
 
 Configurez et testez l’authentification unique Azure AD avec Elium à l’aide d’un utilisateur de test appelé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Elium associé.
 
@@ -70,7 +71,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Elium, suive
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Elium**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Elium**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -133,15 +134,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Elium**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-elium-sso"></a>Configurer l’authentification unique Elium
@@ -156,17 +151,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Si vous souhaitez configurer manuellement Elium, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Elium en tant qu’administrateur et effectuez les étapes suivantes :
 
-1. Cliquez sur le **Profil utilisateur** dans le coin supérieur droit, puis sélectionnez **Administration**.
+1. Cliquez sur le **Profil utilisateur** en haut à droite, puis sélectionnez **Paramètres**.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user1.png)
+    ![Configurer l’authentification unique Elium 01](./media/elium-tutorial/elium-01.png)
 
-1. Sélectionnez l’onglet **Sécurité**.
+1. Sélectionnez **Sécurité** sous **Avancé**.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user2.png)
+    ![Configurer l’authentification unique Elium 02](./media/elium-tutorial/elium-02.png)
 
 1. Faites défiler jusqu’à la section **Single Sign-On SSO** (Authentification unique) et effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user3.png)
+    ![Configurer l’authentification unique Elium 03](./media/elium-tutorial/elium-03.png)
 
     a. Copiez la valeur de **Verify that SAML2 authentication works for your account** (Vérifiez que l’authentification SAML2 fonctionne pour votre compte) et collez-la dans la zone de texte **URL de connexion** de la section **Configuration SAML de base** du portail Azure.
 
@@ -181,11 +176,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     e. Recherchez l’**entityID** (identificateur d’utilisateur) dans le fichier **SP Metadata** (Métadonnées du fournisseur de service), copiez la valeur de **entityID**, puis collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base** du portail Azure. 
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user4.png)
+    ![Configurer l’authentification unique Elium 04](./media/elium-tutorial/elium-04.png)
 
     f. Recherchez **AssertionConsumerService** dans le fichier **SP Metadata** (Métadonnées du fournisseur de service), copiez la valeur de **Location**, puis collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user5.png)
+    ![Configurer l’authentification unique Elium 05](./media/elium-tutorial/elium-05.png)
 
     g. Dans le Bloc-notes, ouvrez le fichier de métadonnées téléchargé depuis le portail Azure, copiez son contenu et collez-le dans la zone de texte **IdP Metadata** (Métadonnées du fournisseur d’identité).
 
@@ -200,16 +195,20 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Elium. Elium 
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+ 
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
+ 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Elium, où vous pouvez lancer le processus de connexion.  
+ 
+* Accédez directement à l’URL de connexion Elium pour lancer le processus de connexion.
+ 
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+ 
+* Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance d’Elium pour laquelle vous avez configuré l’authentification unique. 
+ 
+Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Elium dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Elium pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Quand vous cliquez sur la vignette Elium dans le volet d’accès, vous devez être connecté automatiquement à l’application Elium pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Essayer Elium avec Azure AD](https://aad.portal.azure.com/)
+Une fois que vous avez configuré Glint Inc, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

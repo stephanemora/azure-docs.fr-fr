@@ -9,18 +9,22 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 27d8d4de308fe7cf6e6f36dd33f33bb73c495073
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983233"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
 Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos clés et secrets restent disponibles pour votre application même en cas d’échec de composants individuels du service.
 
+> [!NOTE]
+> Ce guide s’applique aux coffres. Les pools HSM managés utilisent un autre modèle de haute disponibilité et de reprise d’activité. Pour plus d’informations, consultez [Guide de reprise d’activité pour un HSM managé](../managed-hsm/disaster-recovery-guide.md).
+
 Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Consultez le document [Régions jumelées d’Azure](../../best-practices-availability-paired-regions.md) pour plus d’informations sur les paires de régions spécifiques.
+
 
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Vous n’avez besoin d’effectuer aucune action pour démarrer ce processus. Il se produit automatiquement sans que vous le perceviez.
 
@@ -45,6 +49,7 @@ Il convient toutefois de prendre quelques précautions :
   * Vérifier
   * Signer
   * Backup
-* Au cours du basculement, vous ne pouvez pas apporter de modifications aux propriétés du coffre de clés. Vous ne serez pas en mesure de modifier la configuration ni les paramètres de la stratégie d’accès et du pare-feu.
-* Une fois le basculement restauré, tous les types de demandes (y compris de lecture -read- *et* d’écriture write-) sont disponibles.
 
+* Au cours du basculement, vous ne pouvez pas apporter de modifications aux propriétés du coffre de clés. Vous ne serez pas en mesure de modifier la configuration ni les paramètres de la stratégie d’accès et du pare-feu.
+
+* Une fois le basculement restauré, tous les types de demandes (y compris de lecture -read- *et* d’écriture write-) sont disponibles.

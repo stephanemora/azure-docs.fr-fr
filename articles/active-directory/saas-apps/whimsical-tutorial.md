@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ee5fe4a856e75e9833b9d69dd24efd932f760a91
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 443cd6ce3805dbd5ebc250556c6d8ec28161f50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523284"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Whimsical
 
@@ -35,16 +35,16 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Espace de travail d’équipe Whimsical.
 
-> [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
-
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Whimsical prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
 * Whimsical prend en charge le provisionnement d’utilisateurs **juste-à-temps**
-* Après avoir configuré Whimsical, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré Whimsical, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-whimsical-from-the-gallery"></a>Ajout de Whimsical à partir de la galerie
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration de Whimsical à Azure AD, vous devez ajouter W
 1. Dans la section **Ajouter à partir de la galerie**, entrez **Whimsical** dans la zone de recherche.
 1. Sélectionnez **Whimsical** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-whimsical"></a>Configurer et tester l’authentification unique Azure AD pour Whimsical
+## <a name="configure-and-test-azure-ad-sso-for-whimsical"></a>Configurer et tester l’authentification unique Azure AD pour Whimsical
 
 Configurez et testez l’authentification unique Azure AD avec Whimsical à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Whimsical associé.
 
@@ -169,5 +169,3 @@ Quand vous cliquez sur la vignette Whimsical dans le volet d’accès, vous deve
 - [Essayer Whimsical avec Azure AD](https://aad.portal.azure.com/)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Whimsical avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -2,20 +2,20 @@
 title: Tutoriel - Utiliser un fichier de paramètres pour déployer un modèle
 description: Utilisez les fichiers de paramètres qui contiennent les valeurs à utiliser pour le déploiement de votre modèle Azure Resource Manager.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502798"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069507"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutoriel : Utiliser les fichiers de paramètres pour déployer votre modèle ARM
 
-Dans ce tutoriel, vous apprenez à utiliser des [fichiers de paramètres](parameter-files.md) pour stocker les valeurs que vous transmettez pendant le déploiement. Dans les tutoriels précédents, vous avez utilisé des paramètres incorporés à votre commande de déploiement. Cette approche fonctionnait pour tester votre modèle ARM (Azure Resource Manager) mais, lors de l’automatisation des déploiements, il peut être plus facile de passer un ensemble de valeurs pour votre environnement. Les fichiers de paramètres facilitent la création de package des valeurs de paramètre pour un environnement spécifique. Dans ce tutoriel, vous allez créer des fichiers de paramètres pour les environnements de développement et de production. Comptez environ **12 minutes** pour suivre ce tutoriel.
+Dans ce tutoriel, vous apprenez à utiliser des [fichiers de paramètres](parameter-files.md) pour stocker les valeurs que vous transmettez pendant le déploiement. Dans les tutoriels précédents, vous avez utilisé des paramètres incorporés à votre commande de déploiement. Cette approche fonctionnait pour tester votre modèle Azure Resource Manager (modèle ARM) mais, lors de l’automatisation des déploiements, il peut être plus facile de passer un ensemble de valeurs pour votre environnement. Les fichiers de paramètres facilitent la création de package des valeurs de paramètre pour un environnement spécifique. Dans ce tutoriel, vous allez créer des fichiers de paramètres pour les environnements de développement et de production. Comptez environ **12 minutes** pour suivre ce tutoriel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,6 +34,12 @@ Ce modèle fonctionne bien, mais vous souhaitez maintenant gérer sans peine les
 ## <a name="add-parameter-files"></a>Ajouter des fichiers de paramètres
 
 Les fichiers de paramètres sont des fichiers JSON dont la structure est similaire à celle de votre modèle. Dans le fichier, vous fournissez les valeurs de paramètre que vous souhaitez transmettre pendant le déploiement.
+
+Dans le fichier de paramètres, vous fournissez des valeurs pour les paramètres de votre modèle. Le nom de chaque paramètre dans votre fichier de paramètres doit correspondre au nom d’un paramètre dans votre modèle. Le nom ne respecte pas la casse, mais pour voir facilement les valeurs correspondantes, nous vous recommandons de faire correspondre la casse du modèle.
+
+Vous n’avez pas besoin de fournir une valeur pour chaque paramètre. Si un paramètre non spécifié a une valeur par défaut, cette valeur est utilisée pendant le déploiement. Si un paramètre n’a pas de valeur par défaut et qu’il n’est pas spécifié dans le fichier de paramètres, vous êtes invité à fournir une valeur lors du déploiement.
+
+Vous ne pouvez pas spécifier un nom de paramètre dans votre fichier de paramètres qui ne correspond pas à un nom de paramètre dans le modèle. Vous obtenez une erreur quand des paramètres inconnus sont fournis.
 
 Dans VS Code, créez un fichier avec le contenu suivant. Enregistrez le fichier sous le nom **azuredeploy.parameters.dev.json**.
 
@@ -122,7 +128,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

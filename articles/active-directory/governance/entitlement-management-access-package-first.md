@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034574"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707490"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -41,6 +41,8 @@ Dans ce tutoriel, vous allez apprendre à :
 Pour obtenir une démonstration pas à pas du processus de déploiement de la gestion des droits d'utilisation d’Azure Active Directory, notamment la création de votre premier package d’accès, regardez la vidéo suivante :
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+Vous pouvez également créer un package d’accès par programme à l’aide de Microsoft Graph. Pour obtenir un tutoriel qui montre comment créer un package d’accès par programme, consultez [API de gestion des droits d’utilisation](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -106,7 +108,7 @@ Un *package d’accès* est un bundle de ressources dont une équipe ou un proje
 
 9. Dans le volet Sélectionner les groupes, recherchez le groupe **Marketing resources** créé précédemment et sélectionnez-le.
 
-    Par défaut, des groupes sont présents à l’intérieur et à l’extérieur du catalogue **Général**. Quand vous sélectionnez un groupe à l’extérieur du catalogue **Général**, il est ajouté au catalogue **Général**.
+     Par défaut, des groupes sont présents à l’intérieur du catalogue Général. Quand vous sélectionnez un groupe à l’extérieur du catalogue Général (vous le voyez si vous cochez la case de l’option **Tout afficher**), il est ajouté au catalogue Général.
 
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

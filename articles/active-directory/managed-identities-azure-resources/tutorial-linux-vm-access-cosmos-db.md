@@ -15,17 +15,16 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2006c44d68d9570af0bfa410cc7fe908502d2ba5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7b57fcc26a64ee766d2fd70ebaad36edb133566e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267987"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968802"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Cosmos DB 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
-
 
 Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux afin d’accéder à Azure Cosmos DB. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -41,10 +40,9 @@ Ce didacticiel vous indique comment utiliser une identité managée assignée pa
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux possibilités :
-
-- Utiliser [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dans le portail Azure ou via le bouton **Essayer** situé en haut à droite de chaque bloc de code.
-- [Installer la dernière version de CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 ou ultérieure) si vous préférez utiliser une console CLI locale.
+- Pour exécuter les exemples de scripts, vous avez deux options :
+    - Utiliser [Azure Cloud Shell](../../cloud-shell/overview.md), que vous pouvez ouvrir à l’aide du bouton **Essayer** dans le coin supérieur droit des blocs de code.
+    - Exécuter les scripts localement en installant la dernière version d’[Azure CLI](/cli/azure/install-azure-cli), puis en vous connectant à Azure à l’aide d’[az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez créer des ressources.
 
 ## <a name="create-a-cosmos-db-account"></a>Création d’un compte Cosmos DB 
 
@@ -82,8 +80,8 @@ La réponse inclut les détails de l’identité managée attribuée par le syst
     "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
     "type": "SystemAssigned"
  }
-
 ```
+
 ## <a name="grant-your-linux-vms-system-assigned-identity-access-to-the-cosmos-db-account-access-keys"></a>Accordez à l’identité managée attribuée par le système l’accès aux clés d’accès du compte Cosmos DB
 
 Cosmos DB ne prend pas en charge l’authentification Azure AD en mode natif. Toutefois, vous pouvez utiliser une identité managée pour récupérer une clé d’accès Cosmos DB à partir du gestionnaire des ressources, puis utiliser cette clé pour accéder à Cosmos DB. Dans cette étape, vous autoriserez votre identité managée attribuée par le système à accéder aux clés pour le compte Cosmos DB.
@@ -159,7 +157,7 @@ La réponse CURL vous donne la liste des clés.  Par exemple, si vous obtenez le
 
 Maintenant que vous disposez de la clé d’accès pour le compte Cosmos DB, vous pouvez la passer à un SDK Cosmos DB et effectuer des appels pour accéder au compte.  Pour un exemple rapide, vous pouvez passer la clé d’accès à Azure CLI.  Vous pouvez obtenir l’`<COSMOS DB CONNECTION URL>` sous l’onglet **Vue d’ensemble**, dans le panneau du compte Cosmos DB, dans le portail Azure.  Remplacez `<ACCESS KEY>` par la valeur que vous avez obtenue ci-dessus :
 
-```azurecli
+```azurecli-interactive
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 

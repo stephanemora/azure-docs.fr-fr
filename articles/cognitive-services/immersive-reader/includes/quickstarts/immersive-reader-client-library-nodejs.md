@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: d485e95e0f41b323d1297c669c13fb1fe5886619
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505384"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978297"
 ---
-Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu de façon inclusive qui implémente des techniques éprouvées pour améliorer la compréhension de la lecture.
+Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
-Dans ce guide de démarrage rapide, vous allez créer une application web à partir de zéro et intégrer le Lecteur immersif à l’aide de la bibliothèque de client Lecteur immersif. Un exemple complet fonctionnel de ce guide de démarrage rapide est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
+Dans ce guide de démarrage rapide, vous allez créer une application web en partant de zéro et intégrer le Lecteur immersif à l’aide de la bibliothèque de client Lecteur immersif. Un exemple complet et fonctionnel de ce guide de démarrage rapide est disponible [sur GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
 ## <a name="prerequisites"></a>Prérequis
 
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * Une ressource Lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](../../how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
 * [Node.js](https://nodejs.org/) et [Yarn](https://yarnpkg.com)
 * Un IDE tel que [Visual Studio Code](https://code.visualstudio.com/)
@@ -246,13 +245,13 @@ npm start
 
 Ouvrez votre navigateur et accédez à _http://localhost:3000_ . Les éléments suivants doivent s’afficher :
 
-![Exemple d'application](../../media/quickstart-nodejs/1-buildapp.png)
+![Exemple d’application - Node.js](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Lancer le Lecteur immersif
 
 Lorsque vous cliquez sur le bouton « Lecteur immersif », vous verrez le lecteur immersif lancé avec le contenu de la page.
 
-![Lecteur immersif](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+![Lecteur immersif - Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

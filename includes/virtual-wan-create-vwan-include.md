@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 56f79bf38b627f80d73b59dbbfbb73dddd809458
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c9c8fa8099848eec09e689bf9491f71f378e9e3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525158"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606168"
 ---
 Dans un navigateur, accédez au Portail Azure et connectez-vous avec votre compte Azure.
 
@@ -21,7 +21,7 @@ Dans un navigateur, accédez au Portail Azure et connectez-vous avec votre compt
 1. Sélectionnez **WAN virtuel** dans les résultats. Dans la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
 1. Dans la page **Créer un WAN**, sous l’onglet **Fonctions de base**, renseignez les champs suivants :
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Concepts de base":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="La capture d’écran montre le volet Créer un WAN avec l’onglet Informations de base sélectionné.":::
 
    * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
    * **Groupe de ressources** : créez-en un ou utilisez-en un qui existe déjà.

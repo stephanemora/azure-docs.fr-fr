@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641101"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982846"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 
@@ -41,7 +41,7 @@ Le composant « démon » de cet exemple est un contrôleur d’API : `SyncCo
 
 L’application est une application multilocataire destinée aux clients professionnels Microsoft. Elle doit donc leur fournir un moyen de s’abonner ou de se connecter aux données de leur entreprise. Durant le processus de connexion, un administrateur d’entreprise accorde d’abord des *autorisations d’application* directement à l’application afin que celle-ci puisse accéder aux données d’entreprise de manière non interactive, sans nécessiter la présence d’un utilisateur connecté. Dans cet exemple, la majeure partie de la logique montre comment réaliser ce processus de connexion à l’aide du point de terminaison de [consentement administrateur](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plateforme d’identités.
 
-![Topologie](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Le diagramme illustre l’application UserSync avec trois éléments locaux se connectant à Azure : Start dot Auth acquérant un jeton de manière interactive pour se connecter à Azure AD, AccountController obtenant le consentement de l’administrateur pour se connecter à Azure AD et SyncController lisant un utilisateur pour une connexion à Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour le point de terminaison de la plateforme d’identités](v2-oauth2-client-creds-grant-flow.md).
 

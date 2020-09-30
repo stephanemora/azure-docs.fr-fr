@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdaff3dd8c1397ea2a0f70a5b84c0e42e9692412
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bb05660b15fc09eb0d24a869f16f466a99f91211
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255420"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969008"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI
 
@@ -37,15 +37,9 @@ Cet article explique comment effectuer les opérations suivantes d’identités 
 
 - Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
-    - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
-    - Utilisez l’interface intégrée Azure Cloud Shell via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
-    - [Installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli) si vous préférez utiliser une console CLI locale. 
-      
-      > [!NOTE]
-      > Les commandes ont été mises à jour pour refléter la dernière version [d’Azure CLI](/cli/azure/install-azure-cli).     
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Pour exécuter les exemples de scripts, vous avez deux options :
+    - Utiliser [Azure Cloud Shell](../../cloud-shell/overview.md), que vous pouvez ouvrir en utilisant le bouton **Essayer** dans le coin supérieur droit des blocs de code.
+    - Exécuter les scripts localement en installant la dernière version d’[Azure CLI](/cli/azure/install-azure-cli), puis en vous connectant à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure dans lequel vous voulez créer des ressources.
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
@@ -55,19 +49,13 @@ Dans cette section, vous allez découvrir comment activer et désactiver l’ide
 
 Pour créer une machine virtuelle Azure avec l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
-1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure sur lequel vous souhaitez déployer la machine virtuelle :
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre machine virtuelle et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre machine virtuelle et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm/#az-vm-create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec une identité managée affectée par le système, comme le demande le paramètre `--assign-identity`. Les paramètres `--admin-username` et `--admin-password` spécifient le nom d’utilisateur et le mot de passe d’administration du compte pour la connexion à la machine virtuelle. Mettez à jour ces valeurs en fonction de votre environnement : 
+1. Créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm/#az-vm-create). L’exemple suivant crée une machine virtuelle nommée *myVM* avec une identité managée affectée par le système, comme le demande le paramètre `--assign-identity`. Les paramètres `--admin-username` et `--admin-password` spécifient le nom d’utilisateur et le mot de passe d’administration du compte pour la connexion à la machine virtuelle. Mettez à jour ces valeurs en fonction de votre environnement : 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12

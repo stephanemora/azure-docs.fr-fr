@@ -5,19 +5,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 882188c638c77fa0055f1c2d2e664d97a4fe9359
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 19e1d71cd766a99a32e90e2f83dc717ba56b795f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984034"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
 [App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Il offre également une [identité managée](overview-managed-identity.md) pour votre application, qui constitue une solution clé en main permettant de sécuriser l’accès à [Azure SQL Database](/azure/sql-database/) et à d’autres services Azure. Les identités managées dans App Service sécurisent votre application en en éliminant les secrets, par exemple les informations d’identification dans les chaînes de connexion. Dans ce tutoriel, vous allez ajouter l’identité managée à l’exemple d’application web que vous avez créé dans l’un des tutoriels suivants : 
 
-- [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+- [Tutoriel : Générer une application ASP.NET dans Azure avec Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutoriel : Générer une application ASP.NET Core et Azure SQL Database dans Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 Lorsque vous aurez terminé, votre exemple d’application se connectera à SQL Database en toute sécurité sans nécessiter aucun nom d’utilisateur ni mot de passe.
 

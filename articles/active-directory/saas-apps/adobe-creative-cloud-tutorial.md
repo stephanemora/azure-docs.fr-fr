@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 81e02bdc483c4b68901d7e81b29f3a7f423480d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48009246dd491ca3f4080cf85036c66605a73272
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537598"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706996"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Adobe Creative Cloud
 
@@ -102,7 +102,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | E-mail | user.mail |
 
     > [!NOTE]
-    > Les utilisateurs doivent posséder une licence Office 365 ExO pour que la valeur de demande par message soit renseignée dans la réponse SAML.
+    > Les utilisateurs doivent avoir une licence Microsoft 365 ExO pour que la valeur de la revendication d’e-mail soit renseignée dans la réponse SAML.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le fichier de métadonnées XML et l’enregistrer sur votre ordinateur.
 

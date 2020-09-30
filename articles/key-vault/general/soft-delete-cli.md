@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: da821da08594180b9dd94728252e1a43c04fbde2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585659"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531659"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -25,7 +25,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Azure CLI - Si vous ne l’avez pas encore configuré pour votre environnement, consultez [Gérer Key Vault avec Azure CLI](manage-with-cli2.md).
+- Azure CLI - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](manage-with-cli2.md).
 
 Pour obtenir des informations de référence propres à Key Vault pour l’interface CLI, consultez [Informations de référence sur Key Vault Azure CLI](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Nouveau coffre de clés
 
-La suppression réversible est automatiquement activée sur tous les coffres de clés par défaut. Le 31 décembre 2020, il ne sera plus possible de créer un coffre de clés sans la suppression réversible activée.
+La suppression réversible est automatiquement activée sur tous les coffres de clés par défaut. À partir du 31 décembre 2020, il ne sera plus possible de créer un coffre de clés sans la suppression réversible activée.
 
 ### <a name="verify-soft-delete-enablement"></a>Vérifier l’activation de la suppression réversible
 
@@ -241,6 +241,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Autres ressources
 
-- Pour obtenir une vue d’ensemble de la fonctionnalité de suppression réversible de Key Vault, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](soft-delete-overview.md).
+- Pour obtenir une présentation de la fonctionnalité de suppression réversible, consultez [Présentation de la suppression réversible d’Azure Key Vault](soft-delete-overview.md).
 - Pour obtenir une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](overview.md)
 

@@ -6,12 +6,12 @@ ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6a2c59a9cbaddc02159ee89497900509f33772c0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650070"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069541"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutoriel : Utiliser un modèle exporté depuis le portail Azure
 
@@ -111,7 +111,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> En cas d’échec du déploiement, utilisez le commutateur **debug** avec la commande de déploiement pour afficher les journaux de débogage.  Vous pouvez également utiliser le commutateur **verbose** pour afficher les journaux de débogage complets.
+> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

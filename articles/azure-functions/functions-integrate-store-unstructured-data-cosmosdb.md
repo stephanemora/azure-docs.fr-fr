@@ -4,12 +4,12 @@ description: Stocker des données non structurées à l’aide d’Azure Functio
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210885"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987978"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Stocker des données non structurées à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -42,11 +42,11 @@ Vous devez disposer d’un compte Azure Cosmos DB qui utilise l’API SQL avant 
 
 1. Sélectionnez **Intégration** et **+ Ajouter une sortie**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Ajout d’une liaison de sortie Azure Cosmos DB." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
 1. Utilisez les paramètres **Créer une sortie** comme spécifié dans le tableau :
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configurez la liaison de sortie Azure Cosmos DB." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -138,23 +138,23 @@ Cet exemple de code lit les chaînes de requête HTTP et les assigne aux champs 
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Testez la fonction." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
 
 1. Sélectionnez **Exécuter** et vérifiez que l’état 200 est renvoyé.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Testez la fonction." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
 
 1. Dans le portail Azure, recherchez et sélectionnez **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Recherchez le service Azure Cosmos DB." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
 1. Sélectionnez votre compte Azure Cosmos DB, puis sélectionnez **Explorateur de données**.
 
 1. Développez les nœuds **TaskCollection**, sélectionnez le nouveau document et confirmez que le document contient des valeurs de votre chaîne de requête, ainsi que des métadonnées supplémentaires.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Vérifiez les valeurs de chaîne dans votre document." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Dans le portail Azure, sélectionnez votre fonction HTTP." border="true":::
 
 Vous êtes parvenu à ajouter une liaison à votre déclencheur HTTP pour stocker des données non structurées dans une base de données Azure Cosmos DB.
 

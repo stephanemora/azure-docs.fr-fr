@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961837"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973703"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -26,7 +26,7 @@ En plus du service Azure Application Gateway, de nombreuses options de marketpla
 ## <a name="setup"></a>Programme d’installation
 Pour ce document, nous configurons l’environnement App Service derrière plusieurs instances à charge équilibrée de WAF Barracuda, afin que seul le trafic provenant du WAF puisse atteindre l’environnement App Service. Il n’est pas accessible depuis la zone DMZ. Nous avons également Azure Traffic Manager devant les instances WAF Barracuda pour équilibrer la charge entre les régions et les centres de données Azure. Un diagramme de haut niveau de la configuration ressemblerait à l’image suivante :
 
-![Architecture][Architecture] 
+![Le diagramme montre une instance Traffic Manager Azure facultative qui se connecte aux instances Web Application Firewall, en se connectant à la liste de contrôle d’accès (ACL) réseau pour autoriser uniquement le trafic à partir du pare-feu dans un environnement App Service Environment qui contient l’API web, et une application mobile pour deux régions.][Architecture] 
 
 > [!NOTE]
 > Avec l’introduction de la [prise en charge de l’équilibreur de charge interne pour l’environnement App Service](app-service-environment-with-internal-load-balancer.md), vous pouvez configurer l’ASE de façon à ce qu’il soit inaccessible depuis le DMZ et uniquement disponible pour le réseau privé. 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553561"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Prezi
 
@@ -42,6 +42,9 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Prezi prend en charge l’authentification unique lancée par le fournisseur de services et le fournisseur d’identité.
 * Prezi prend en charge le provisionnement d’utilisateurs juste-à-temps.
 * Après avoir configuré Prezi, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="add-prezi-from-the-gallery"></a>Ajouter Prezi à partir de la galerie
 
@@ -81,7 +84,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure
 
 1. Sélectionnez **Définir des URL supplémentaires** et effectuez l’étape suivante si vous souhaitez configurer l’application en mode lancé par le **fournisseur de services** :
 
-    Dans la zone **URL de connexion**, entrez l’URL `https://prezi.com/login/sso/`.
+    Dans la zone **URL de connexion**, entrez l’URL : `https://prezi.com/login/sso/`.
 
 1. Sélectionnez **Enregistrer**.
 

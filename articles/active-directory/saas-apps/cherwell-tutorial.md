@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/03/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: e506a6d8a309f844018d33285b82a490e2a3c93c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d036b12bbbd46b279421ffc67941f6671528890f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529468"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Didacticiel : Intégration d’Azure Active Directory à Cherwell
 
@@ -43,68 +43,56 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * Cherwell prend en charge l’authentification unique initiée par le **fournisseur de services**
 
+* Après avoir configuré Cherwell, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
 ## <a name="adding-cherwell-from-the-gallery"></a>Ajout de Cherwell à partir de la galerie
 
 Pour configurer l’intégration de Cherwell à Azure AD, vous devez ajouter Cherwell à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Cherwell à partir de la galerie, effectuez les étapes suivantes :**
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Cherwell** dans la zone de recherche.
+1. Sélectionnez **Cherwell** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, tapez **Cherwell**, sélectionnez **Cherwell** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-    ![Cherwell dans la liste des résultats](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Cherwell avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Cherwell associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Cherwell, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Cherwell](#configure-cherwell-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Cherwell](#create-cherwell-test-user)** pour avoir un équivalent de Britta Simon dans Cherwell lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+2. **[Configurer l’authentification unique Cherwell](#configure-cherwell-sso)** pour configurer les paramètres d’authentification unique côté application.
+    * **[Créer un utilisateur de test Cherwell](#create-cherwell-test-user)** pour avoir un équivalent de Britta Simon dans Cherwell lié à la représentation Azure AD de l’utilisateur.
+3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec Cherwell, effectuez les étapes suivantes :
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Cherwell**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Cherwell**, sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Dans la section **Configuration SAML de base**, effectuez l’étape suivante :
 
     ![Informations d’authentification unique dans Domaine et URL Cherwell](common/sp-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.cherwellondemand.com/cherwellclient`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.cherwellondemand.com/cherwellclient`.
 
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.cherwellondemand.com/cherwellclient`
+    
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Cherwell](https://cherwellsupport.com/CherwellPortal). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour les valeurs avec l’URL de connexion et l’URL de réponse réelles. Pour obtenir cette valeur, contactez l’[équipe du support technique de Cherwell](https://cherwellsupport.com/CherwellPortal). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -120,62 +108,43 @@ Pour configurer l’authentification unique Azure AD avec Cherwell, effectuez le
 
     c. URL de déconnexion
 
-### <a name="configure-cherwell-single-sign-on"></a>Configurer l’authentification unique Cherwell
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
+Dans cette section, vous allez créer un utilisateur de test nommé B.Simon dans le portail Azure.
+
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur**, en haut de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez **B.Simon**.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez `<username>@<companydomain>.<extension>`. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Sélectionnez **Create** (Créer).
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Cherwell.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Cherwell**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
+
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+
+## <a name="configure-cherwell-sso"></a>Configurer l’authentification unique Cherwell
 
 Pour configurer l’authentification unique côté **Cherwell**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL copiées correspondantes, depuis le portail Azure à l’[équipe du support technique Cherwell](https://cherwellsupport.com/CherwellPortal). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!NOTE]
 > L’équipe de support technique Cherwell doit se charger de la configuration de l’authentification unique. Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon\@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Cherwell.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Cherwell**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, sélectionnez **Cherwell**.
-
-    ![Lien Cherwell dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-cherwell-test-user"></a>Créer un utilisateur de test Cherwell
 
@@ -184,7 +153,7 @@ Pour pouvoir se connecter à Cherwell, les utilisateurs d’Azure AD doivent êt
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Cherwell pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

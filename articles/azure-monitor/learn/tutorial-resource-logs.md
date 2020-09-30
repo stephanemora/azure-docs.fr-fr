@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505837"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090072"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure
 
@@ -84,7 +84,7 @@ Les données sont récupérées à partir d’un espace de travail Log Analytics
     > [!NOTE]
     > Si vous avez ouvert Log Analytics à partir du menu Azure Monitor, l’étendue sera définie sur l’espace de travail Log Analytics. Dans ce cas, les requêtes incluront tous les enregistrements dans l’espace de travail.
    
-    ![Journaux d’activité](media/tutorial-resource-logs/logs.png)
+    ![La capture d’écran montre les journaux d’une application logique affichant une nouvelle requête avec le nom de l’application logique mis en évidence.](media/tutorial-resource-logs/logs.png)
 
 4. Le service présenté dans l’exemple écrit les journaux de ressources dans la table **AzureDiagnostics**, mais les autres services peuvent écrire dans d’autres tables. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/resource-logs-schema.md) pour plus de détails sur les tables utilisées par les différents services Azure.
 

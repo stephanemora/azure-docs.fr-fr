@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983739"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Création de branches et de chaînage pour les activités dans un pipeline Azure Data Factory à l’aide du portail Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "86077647"
 
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, le pipeline envoie les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, le pipeline envoie les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
 
-Vue d’ensemble du scénario : ![Vue d'ensemble](media/tutorial-control-flow-portal/overview.png)
+Vue d’ensemble du scénario : ![Le diagramme montre le Stockage Blob Azure qui est la cible d’une copie, laquelle, en cas de réussite, envoie un e-mail avec des détails ou, en cas d’échec, envoie un e-mail avec les détails de l’erreur.](media/tutorial-control-flow-portal/overview.png)
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 

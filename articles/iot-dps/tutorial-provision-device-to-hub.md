@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74975038"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526440"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
@@ -28,12 +28,12 @@ Dans le didacticiel précédent, vous avez appris à configurer un appareil pour
 
 Avant de continuer, assurez-vous de configurer votre appareil comme indiqué dans le didacticiel [Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md) avant de continuer.
+Si vous ne connaissez pas le processus de provisionnement automatique, révisez la présentation du [provisionnement](about-iot-dps.md#provisioning-process) avant de poursuivre.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Inscrire l’appareil
 
-Cette étape implique l’ajout des artefacts de sécurité uniques de l’appareil au service Device Provisioning. Ces artefacts de sécurité sont basés sur le [mécanisme d’attestation](concepts-device.md#attestation-mechanism) de l’appareil, comme suit :
+Cette étape implique l’ajout des artefacts de sécurité uniques de l’appareil au service Device Provisioning. Ces artefacts de sécurité sont basés sur le [mécanisme d’attestation](concepts-service.md#attestation-mechanism) de l’appareil, comme suit :
 
 - Pour les appareils TPM, vous avez besoin des éléments suivants :
     - La *paire de clés de type EK* qui est unique à chaque simulation ou processeur TPM, obtenue auprès du fournisseur de processeurs TPM.  Pour plus d’informations, consultez [Comprendre la paire de clés de type EK (Endorsement Key) du module de plateforme sécurisée](https://technet.microsoft.com/library/cc770443.aspx).
@@ -48,7 +48,7 @@ Cette étape implique l’ajout des artefacts de sécurité uniques de l’appar
 
 Il existe deux façons d’inscrire l’appareil auprès du service Device Provisioning :
 
-- **Groupe d’inscriptions** : représente un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Nous recommandons d’utiliser un groupe d’inscriptions pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire. Pour plus d’informations sur l’attestation d’identité dans les groupes d’inscription, consultez [Sécurité](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+- **Groupe d’inscriptions** : représente un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Nous recommandons d’utiliser un groupe d’inscriptions pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire. Pour plus d’informations sur l’attestation d’identité dans les groupes d’inscription, consultez [Sécurité](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Ajouter une inscription de groupe pour l’attestation X.509 dans le portail](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

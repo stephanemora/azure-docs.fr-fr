@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71e6dc8bdb8bdccdaaf845498eebdbe75a8b35c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 38cc5458b2e62e071227a2372d56e4647e347338
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547181"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Concur
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Concur prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
 * Concur prend en charge l’approvisionnement d’utilisateurs **Juste-à-temps**
-* Après avoir configuré Concur, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Concur, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-concur-from-the-gallery"></a>Ajout de Concur à partir de la galerie
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Concur avec Azure AD, vous devez ajouter Co
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Concur** dans la zone de recherche.
 1. Sélectionnez **Concur** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-concur"></a>Configurer et tester l’authentification unique Azure AD pour Concur
+## <a name="configure-and-test-azure-ad-sso-for-concur"></a>Configurer et tester l’authentification unique Azure AD pour Concur
 
 Configurez et testez l’authentification unique Azure AD avec Concur à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Concur associé.
 
@@ -82,9 +82,18 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<customer-domain>.concursolutions.com`
+    
+    c. Dans **URL de réponse**, entrez l’un des modèles d’URL suivants :
 
+    | URL de réponse|
+    |----------|
+    | `https://www.concursolutions.com/SAMLRedirector/SAMLReceiver.ashx` |
+    | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
+    | `https://<customer-domain>.concur.com` |
+    | `https://<customer-domain>.concursolutions.com` | 
+    
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Concur](https://www.concur.co.in/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Concur](https://www.concur.co.in/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

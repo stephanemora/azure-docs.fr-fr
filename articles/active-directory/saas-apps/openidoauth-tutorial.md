@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543922"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705620"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
@@ -76,13 +76,13 @@ Par défaut, Azure AD promeut les applications mutualisées. Elles sont facileme
 ## <a name="consent-framework"></a>Framework de consentement
 
 Vous pouvez utiliser l’infrastructure de consentement d’Azure AD pour développer des applications clientes natives et web mutualisées. Ces applications autorisent la connexion au moyen de comptes d’utilisateurs d’un locataire Azure AD différent de celui où l’application a été inscrite. Elles peuvent également avoir besoin d’accéder à des API web, par exemple :
-- API Microsoft Graph pour accéder à Azure AD, à Intune et aux services d’Office 365
+- API Microsoft Graph pour accéder à Azure AD, à Intune et aux services de Microsoft 365.
 - API des autres services Microsoft
 - Vos propres API web
 
 L’infrastructure est basée sur le consentement d’un utilisateur ou d’un administrateur à l’inscription d’une application dans son répertoire. Cette inscription peut impliquer l’accès aux données de répertoire. Une fois le consentement donné, l’application cliente peut appeler l’API Microsoft Graph au nom de l’utilisateur et utiliser les informations en fonction des besoins.
 
-[L’API Microsoft Graph](https://developer.microsoft.com/graph/) permet d’accéder aux données d’Office 365, par exemple :
+L’[API Microsoft Graph](https://developer.microsoft.com/graph/) permet d’accéder aux données de Microsoft 365, par exemple :
 
 - Calendriers et messages d’Exchange
 - Sites et listes de SharePoint
@@ -121,7 +121,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 3. Si l’utilisateur n’est pas déjà authentifié, le point de terminaison /authorize d’Azure AD l’invite à se connecter.
 
-    ![Authentification](./media/openidoauth-tutorial/authentication.png)
+    ![Capture d’écran de l’invite de connexion pour le compte](./media/openidoauth-tutorial/authentication.png)
 
 4. Une fois l’utilisateur connecté, Azure AD détermine s’il est nécessaire d’afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation) a déjà accordé ou non son consentement à l’application.
 

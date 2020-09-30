@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869182"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061799"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutoriel : Configurer et exécuter le fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets sur Kubernetes
 
@@ -70,7 +70,7 @@ Suivez les instructions des sections « Créer un groupe de ressources », «�
     ```azurecli
     kubectl version
     ```
-1. Vérifiez que votre version de Kubernetes est la version 1.1.16.0 ou ultérieure. La commande suivante met à niveau le cluster Kubernetes et le pool de nœuds. L’exécution de la commande peut prendre quelques minutes. Dans cet exemple, le groupe de ressources est *contosoResourceGroup* et le cluster Kubernetes est *contosoAKSCluster*.
+1. Vérifiez que votre version de Kubernetes est la version 1.1.16.0 ou ultérieure. Pour les clusters Windows, vérifiez que votre version de Kubernetes est 1.18.0 ou une version ultérieure. La commande suivante met à niveau le cluster Kubernetes et le pool de nœuds. L’exécution de la commande peut prendre quelques minutes. Dans cet exemple, le groupe de ressources est *contosoResourceGroup* et le cluster Kubernetes est *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Pour créer votre propre coffre de clés et définir vos secrets, suivez les ins
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Créer votre propre objet SecretProviderClass
 
-Pour créer votre propre objet SecretProviderClass personnalisé avec des paramètres propres au fournisseur pour le pilote CSI du magasin des secrets, [utilisez ce modèle](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml). Cet objet permet à l’identité d’accéder à votre coffre de clés.
+Pour créer votre propre objet SecretProviderClass personnalisé avec des paramètres propres au fournisseur pour le pilote CSI du magasin des secrets, [utilisez ce modèle](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). Cet objet permet à l’identité d’accéder à votre coffre de clés.
 
 Dans l’exemple de fichier YAML SecretProviderClass, spécifiez les paramètres manquants. Les paramètres suivants sont requis :
 
-* **userAssignedIdentityID** : ID client du principal de service
+* **userAssignedIdentityID** : # [OBLIGATOIRE] Si vous employez un principal du service, servez-vous de l’ID client pour désigner l’identité managée affectée par l’utilisateur à utiliser. Si vous utilisez une identité affectée par l’utilisateur comme identité managée de la machine virtuelle, spécifiez l’ID client de l’identité. Si la valeur est vide, elle utilise par défaut l’identité affectée par le système sur la machine virtuelle 
 * **keyvaultName** : nom de votre coffre de clés
 * **objects** : conteneur de l’ensemble du contenu de secret à monter
     * **objectName** : nom du contenu de secret
     * **objectType** : type d’objet (secret, clé, certificat)
-* **resourceGroup** : nom du groupe de ressources
-* **subscriptionId** : ID d’abonnement de votre coffre de clés
+* **resourceGroup** : Nom du groupe de ressources # [OBLIGATOIRE pour toute version < 0.0.4]. Groupe de ressources du coffre de clés
+* **subscriptionId** : ID d’abonnement de votre coffre de clés # [OBLIGATOIRE pour toute version < 0.0.4]. ID d’abonnement du coffre de clés
 * **tenantID** : ID de locataire ou ID de répertoire de votre coffre de clés
+
+La documentation de tous les champs obligatoires est disponible ici : [Lien](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Le modèle mis à jour figure dans l’exemple suivant. Téléchargez-le sous forme de fichier YAML, puis complétez les champs obligatoires. Dans cet exemple, le coffre de clés est **contosoKeyVault5**. Il comporte deux secrets : **secret1** et **secret2**.
 
@@ -210,6 +212,11 @@ Si vous utilisez des identités managées, attribuez des rôles spécifiques au 
 1. Pour créer, lister ou lire une identité managée affectée par l’utilisateur, le rôle [Opérateur d’identité managée](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) doit être affecté à votre cluster AKS. Vérifiez que **$clientId** correspond au clientId du cluster Kubernetes. Pour l’étendue, il se trouve sous votre service d’abonnement Azure, notamment le groupe de ressources de nœud mis en place lors de la création du cluster AKS. Cette étendue permet de s’assurer que seules les ressources de ce groupe sont affectées par les rôles attribués ci-dessous. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -304,6 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 Exécutez la commande suivante pour déployer votre pod :

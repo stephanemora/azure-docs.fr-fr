@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531523"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
-Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel vous montre comment configurer votre appareil pendant le processus de fabrication, pour lui permettre d’être approvisionné automatiquement avec IoT Hub. Votre appareil est approvisionné en fonction de son [mécanisme d’attestation](concepts-device.md#attestation-mechanism), au premier démarrage et à la première connexion au service d’approvisionnement. Ce tutoriel décrit les tâches suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel vous montre comment configurer votre appareil pendant le processus de fabrication, pour lui permettre d’être approvisionné automatiquement avec IoT Hub. Votre appareil est approvisionné en fonction de son [mécanisme d’attestation](concepts-service.md#attestation-mechanism), au premier démarrage et à la première connexion au service d’approvisionnement. Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Générer un Kit de développement logiciel (SDK) Device Provisioning Service Client spécifique à une plateforme
@@ -29,7 +29,7 @@ Avant de continuer ce tutoriel, vous devez créer votre instance du service Devi
 
 Ce didacticiel utilise le [référentiel Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), qui contient le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Le Kit de développement logiciel (SDK) offre actuellement une prise en charge TPM et X.509 pour les appareils s’exécutant sur des implémentations Windows ou Ubuntu. Ce didacticiel repose sur l'utilisation d'un client de développement Windows, ce qui suppose également que vous ayez des connaissances de base sur Visual Studio. 
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md) avant de continuer. 
+Si vous ne connaissez pas le processus de provisionnement automatique, révisez la présentation du [provisionnement](about-iot-dps.md#provisioning-process) avant de poursuivre. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 Les prérequis suivants s’appliquent à un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du kit de développement logiciel (SDK).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
 
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
@@ -100,9 +100,9 @@ Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l
 
 - Pour un appareil X.509, vous devez obtenir les certificats délivrés à votre appareil. Le service de provisionnement expose deux types d’entrées d’inscription qui contrôlent l’accès aux appareils qui recourent au mécanisme d’attestation X.509. Les certificats requis varient selon les types d’inscription que vous allez utiliser.
 
-    - Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-security.md#end-entity-leaf-certificate).
+    - Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulations d’appareils
 

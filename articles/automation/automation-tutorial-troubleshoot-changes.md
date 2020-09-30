@@ -7,12 +7,12 @@ keywords: modification, suivi, suivi des modifications, change tracking, invento
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185804"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530537"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure
 
@@ -218,9 +218,9 @@ L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir
 
 18. Pour personnaliser l’objet de l’e-mail d’alerte, sélectionnez **Personnaliser les actions**. 
 
-19. Pour **Créer une règle**, sélectionnez **Objet de l’e-mail**, puis choisissez **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié. L’illustration suivante est un exemple d’e-mail reçu lorsque le service W3SVC s’arrête.
+19. Pour **Créer une règle**, sélectionnez **Objet de l’e-mail**, puis choisissez **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié. L’image suivante est un exemple d’e-mail reçu quand le service W3SVC s’arrête.
 
-    ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![La capture d’écran montre une notification par e-mail reçue quand les services W3SVC s’arrêtent.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

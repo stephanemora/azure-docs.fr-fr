@@ -2,16 +2,16 @@
 title: Téléchargement de l’émulateur Cosmos Azure et notes de publication
 description: Procurez-vous les notes de publication de l’émulateur Azure Cosmos pour connaître les différentes versions et les informations de téléchargement.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/21/2020
+ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988175"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -26,18 +26,25 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="2115-23-august-2020"></a>2.11.5 (23 août 2020)
+
+Cette version ajoute deux nouvelles options de démarrage de l’émulateur Cosmos : 
+
+* « /EnablePreview » active les fonctionnalités en préversion pour l’émulateur. Il s’agit des fonctionnalités de préversion qui sont encore en cours de développement ; elles sont accessibles via l’intégration continue et l’exemple d’écriture.
+* « /EnableAadAuthentication » permet à l’émulateur d’accepter des jetons Azure Active Directory personnalisés comme alternative aux clés principales Azure Cosmos. Cette fonctionnalité est toujours en cours de développement ; les affectations de rôles spécifiques et les autres paramètres liés aux autorisations ne sont pas pris en charge actuellement.
+
+### <a name="2112-07-july-2020"></a>2.11.2 (07 juillet 2020)
 
 - Cette version modifie la manière dont sont collectées les traces ETL qui sont nécessaires lors du dépannage de l’émulateur Cosmos. Les outils WPR (Windows Performance Runtime) sont désormais utilisés par défaut pour la capture des traces ETL. La capture basée sur LOGMAN est désormais dépréciée. Ce changement a été en partie nécessaire à cause des mises à jour de sécurité Windows récentes qui impactent le fonctionnement de LOGMAN lorsque celui-ci est exécuté via l’émulateur Cosmos.
 
-### <a name="2111-06102020"></a>2.11.1 (10/06/2020)
+### <a name="2111-10-june-2020"></a>2.11.1 (10 juin 2020)
 
-- Cette version corrige deux bogues liés à l’émulateur Data Explorer. Dans certains cas, quand vous utilisez l’émulateur Data Explorer par le biais d’un navigateur web, il ne parvient pas à se connecter au point de terminaison de l’émulateur Cosmos et toutes les actions associées, telles que la création d’une base de données ou d’un conteneur, génèrent une erreur. Le deuxième problème résolu est lié à la création d’un élément à partir d’un fichier JSON à l’aide de l’action de chargement de Data Explorer.
+- Cette version corrige deux bogues liés à l’émulateur Data Explorer. Dans certains cas, quand vous utilisez l’émulateur Data Explorer par le biais d’un navigateur web, il ne parvient pas à se connecter au point de terminaison de l’émulateur Cosmos, et toutes les actions associées, telles que la création d’une base de données ou d’un conteneur, génèrent une erreur. Le deuxième problème résolu est lié à la création d’un élément à partir d’un fichier JSON à l’aide de l’action de chargement de Data Explorer.
 
 ### <a name="2110"></a>2.11.0
 
 - Cette version introduit la prise en charge du débit provisionné par la mise à l’échelle automatique. Ces nouvelles fonctionnalités comprennent la possibilité de définir un niveau personnalisé du débit maximal provisionné dans les unités de requête (RU/s), d’activer la mise à l’échelle automatique sur les bases de données et conteneurs existants ainsi que la prise en charge programmatique au moyen des kits SDK Azure Cosmos DB.
-- Correction d’un problème lors de l’interrogation d’un grand nombre de documents (plus de 1 Go) quand l’émulateur échoue avec le code d’état d’erreur interne 500.
+- Correction d’un problème lors de l’interrogation d’un grand nombre de documents (plus de 1 Go) pendant lequel l’émulateur échoue avec le code d’état d’erreur interne 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -57,11 +64,11 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 
 ### <a name="270"></a>2.7.0
 
-- Cette version corrige une régression qui empêchait les utilisateurs d’exécuter des requêtes sur le compte d’API SQL à partir de l’émulateur lors de l’utilisation de clients .NET Core ou .NET x86.
+- Cette version corrige une régression qui empêchait les utilisateurs d’exécuter des requêtes sur le compte d’API SQL à partir de l’émulateur lors de l’utilisation de clients .NET Core ou .NET x86.
 
 ### <a name="246"></a>2.4.6
 
-- Cette version offre une parité avec les fonctionnalités du service Azure Cosmos à partir de juillet 2019, avec les exceptions indiquées dans [Développer localement avec l’émulateur Azure Cosmos](local-emulator.md). Elle résout aussi plusieurs bogues liés à l’arrêt de l’émulateur quand il est appelé via la ligne de commande et les remplacements d’adresses IP internes pour les clients SDK utilisant une connectivité en mode direct.
+- Cette version offre une parité avec les fonctionnalités du service Azure Cosmos à partir de juillet 2019, avec les exceptions indiquées dans [Développer localement avec l’émulateur Azure Cosmos](local-emulator.md). Elle résout aussi plusieurs bogues liés à l’arrêt de l’émulateur quand il est appelé via la ligne de commande, et les remplacements d’adresses IP internes pour les clients SDK utilisant une connectivité en mode direct.
 
 ### <a name="243"></a>2.4.3
 

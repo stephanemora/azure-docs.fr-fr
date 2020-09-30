@@ -1,5 +1,5 @@
 ---
-title: Définir un nouveau type d’appareil de passerelle dans Azure IoT Central | Microsoft Docs
+title: Tutoriel - Définir un nouveau type d’appareil de passerelle dans Azure IoT Central | Microsoft Docs
 description: Ce tutoriel vous indique comment, en tant que créateur, définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758133"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967916"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
 *Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
@@ -31,6 +31,9 @@ En plus de permettre à des appareils en aval de communiquer avec votre applicat
 * Envoyer sa propre télémétrie, comme une température.
 * Répondre aux mises à jour de propriétés accessibles en écriture effectuées par un opérateur. Par exemple, un opérateur peut modifier l’intervalle d’envoi de la télémétrie.
 * Répondre à des commandes, comme le redémarrage de l’appareil.
+
+> [!div class="checklist"]
+> Créer des modèles d’appareil en aval Créer un modèle d’appareil de passerelle Publier le modèle d’appareil Créer les appareils simulés
 
 ## <a name="prerequisites"></a>Prérequis
 

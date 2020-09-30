@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843485"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978606"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Démarrage rapide : Déployer le serveur FHIR open source à l’aide du portail Azure
 
@@ -25,17 +25,17 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Accédez à la [page de déploiement de GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md), puis recherchez le bouton Déployer sur Azure :
 
-![Page de déploiement open source](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Page de déploiement open source](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Cliquez sur le bouton de déploiement, et le portail Azure s’ouvre.
 
 ## <a name="fill-in-deployment-parameters"></a>Indiquer les paramètres de déploiement
 
-Choisissez de créer un groupe de ressources, puis donnez-lui un nom. Le seul autre paramètre obligatoire est le nom du service.
+Choisissez de créer un groupe de ressources, puis donnez-lui un nom. Les seuls autres paramètres nécessaires sont un nom pour le service et le mot de passe de l’administrateur SQL.
 
-![Paramètres du déploiement personnalisé](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Notez que le déploiement entraîne le tirage (pull) du code source directement depuis le dépôt open source vers GitHub. Si vous avez dupliqué (fork) le dépôt, vous pouvez pointer vers votre propre dépôt et vers une branche spécifique.
+>[!div class="mx-imgBorder"]
+>![Paramètres du déploiement personnalisé](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Après avoir indiqué les détails nécessaires, vous pouvez démarrer le déploiement.
 

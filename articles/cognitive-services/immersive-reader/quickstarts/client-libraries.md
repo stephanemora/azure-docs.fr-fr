@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Utiliser la bibliothèque cliente Lecteur immersif'
+title: 'Démarrage rapide : Bibliothèque de client Lecteur immersif'
 titleSuffix: Azure Cognitive Services
-description: L’API Lecteur immersif offre des bibliothèques de client qui simplifient l’intégration de fonctionnalités de recherche dans vos applications. Utilisez ce guide de démarrage rapide pour commencer à envoyer des requêtes de recherche et à obtenir des résultats.
+description: La bibliothèque de client Lecteur immersif facilite l’intégration du service Lecteur immersif dans vos applications web pour améliorer la compréhension de la lecture. Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le Lecteur immersif pour la sélection de texte, la reconnaissance de parties d’un discours parlé, la lecture d’un texte sélectionné à voix haute, la traduction, etc.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,17 +9,18 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f02c473fb4a44fb8c0235658d3c8f6e3279844
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: cog-serv-seo-aug-2020
+keywords: afficher des images, parties de discours parlé, lire un texte sélectionné, traduire des mots, compréhension de la lecture
+ms.openlocfilehash: 621be6293b4ac487cafafc14498524c97fdc6d82
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978255"
 ---
-# <a name="quickstart-use-the-immersive-reader-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Lecteur immersif
+# <a name="quickstart-get-started-with-immersive-reader"></a>Démarrage rapide : Bien démarrer avec le Lecteur immersif
 
 ::: zone pivot="programming-language-csharp"
 
