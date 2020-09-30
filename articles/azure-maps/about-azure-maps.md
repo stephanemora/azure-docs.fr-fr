@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285330"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -52,7 +52,7 @@ Le SDK web Azure Maps vous permet de personnaliser des cartes interactives avec 
 
 Utilisez le SDK Android d’Azure Maps pour créer des applications cartographiques mobiles.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exemples de cartes sur un appareil mobile":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exemple de carte de la modification de population créée à l’aide du Kit de développement logiciel (SDK) web Azure Maps":::
 
 ## <a name="services-in-azure-maps"></a>Services d’Azure Maps
 
@@ -78,7 +78,7 @@ Pour plus d’informations sur le service, consultez la [Documentation du servic
 
 Le [service Render V2](https://docs.microsoft.com/rest/api/maps/renderv2) actuellement en préversion introduit une nouvelle version de l’[API Get Map Tile V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). L’API Get Map Tile V2 permet aux clients de demander à Azure Maps des vignettes routières, des vignettes météo ou des vignettes de carte créées à l’aide du Créateur Azure Maps. Il est recommandé d’utiliser la nouvelle API Get Map Tile V2.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemple de carte provenant du service Render V2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemple de carte de la modification de population créée à l’aide du Kit de développement logiciel (SDK) web Azure Maps":::
 
 Pour plus d’informations, consultez la [Documentation du service Render V2](https://docs.microsoft.com/rest/api/maps/renderv2).
 
@@ -88,7 +88,7 @@ Pour en savoir plus sur le service Render V1 en disponibilité générale, consu
 
 Les services de routage permettent de calculer les heures d’arrivée estimées pour chaque itinéraire demandé. Les API Route tiennent compte de facteurs tels que des informations de trafic en temps réel et des données de trafic historiques comme les vitesses routières typiques correspondant au jour et à l’heure demandés. Les API retournent les itinéraires les plus courts ou les plus rapides disponibles vers plusieurs destinations à la fois à la suite ou dans un ordre optimisé, en fonction de l’heure ou de la distance. Le service permet aux développeurs de calculer des directions pour plusieurs modes de déplacement, à savoir en voiture, en camion, à vélo, à pied et en véhicule électrique. Le service prend aussi en compte des entrées comme l’heure de départ, les restrictions de poids ou le transport de matières dangereuses.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exemple de carte provenant de Route Service":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exemple de carte de la modification de population créée à l’aide du Kit de développement logiciel (SDK) web Azure Maps":::
 
 Le service Route offre des fonctionnalités avancées, telles que :
 
@@ -102,7 +102,7 @@ Pour plus d’informations sur les fonctionnalités de routage, consultez la [Do
 
 Search Service aide les développeurs à rechercher des adresses, des lieux, des listes d’entreprises par nom ou par catégorie, et d’autres informations d’ordre géographique. Les services peuvent aussi effectuer un [géocodage inverse](https://en.wikipedia.org/wiki/Reverse_geocoding) d’adresses et d’intersections basé sur des latitudes et longitudes.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exemple d’une recherche sur une carte":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exemple de carte de la modification de population créée à l’aide du Kit de développement logiciel (SDK) web Azure Maps":::
 
 Search Service fournit également des fonctionnalités avancées comme les suivantes :
 
@@ -204,7 +204,7 @@ De plus, Azure Maps offre un [contrôle de carte JavaScript](https://docs.micros
 
 Le visuel Azure Maps pour Power BI fournit un ensemble complet de visualisations de données pour les données spatiales sur une carte. On estime que plus de 80 % des données d’entreprise possèdent un contexte d’emplacement. Le visuel Azure Maps offre une solution sans code permettant d’obtenir des insights sur la façon dont ce contexte de localisation est associé aux données de votre entreprise et les influence.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI Desktop avec le visuel Azure Maps affichant des données d’entreprise":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Exemple de carte de la modification de population créée à l’aide du Kit de développement logiciel (SDK) web Azure Maps":::
 
 Pour plus d’informations, consultez la documentation [Bien démarrer avec le visuel Azure Maps pour Power BI](power-bi-visual-getting-started.md).
 
@@ -231,10 +231,8 @@ Vérifiez que la localisation de votre adresse IP actuelle se trouve dans un pay
 
 Essayez un exemple d’application qui montre Azure Maps :
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Créer une application web](quick-demo-map-app.md)
+[Démarrage rapide : Créer une application web](quick-demo-map-app.md)
 
 Restez informé sur Azure Maps :
 
-> [!div class="nextstepaction"]
-> [Blog Azure Maps](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Blog Azure Maps](https://azure.microsoft.com/blog/topics/azure-maps/)
