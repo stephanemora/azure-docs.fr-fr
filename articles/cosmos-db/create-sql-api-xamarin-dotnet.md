@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33ade2be8b75a4e63f6def2b6c5e1001dde97ff8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020488"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319042"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application todo avec Xamarin à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -22,6 +22,7 @@ ms.locfileid: "89020488"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Kit SDK Java v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -90,7 +91,7 @@ Revenez dans le portail Azure pour récupérer vos informations de clé API et l
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte d’API SQL Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier APIKeys.cs à l’étape suivante.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Afficher et copier une clé d’accès dans le panneau Clés du portail Azure":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 2. Dans Visual Studio 2019 ou Visual Studio pour Mac, ouvrez le fichier APIKeys.cs dans le dossier azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
 
@@ -108,7 +109,7 @@ Revenez dans le portail Azure pour récupérer vos informations de clé API et l
 
 Cette solution montre comment créer une application de liste de tâches à l’aide de l’API SQL Azure Cosmos DB et Xamarin.Forms. L’application comporte deux onglets, le premier onglet inclut un affichage sous forme de liste présentant les éléments de liste de tâches qui ne sont pas encore terminés. Le deuxième onglet affiche les éléments de liste de tâches qui sont déjà terminés. En plus d’avoir un aperçu des éléments de liste de tâches non terminés via le premier onglet, vous pouvez ajouter des éléments de liste de tâches, en modifier et en marquer comme étant terminés.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copier dans les données json et cliquer sur Enregistrer dans l’Explorateur de données du portail Azure":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 Le code de la solution ToDoItems contient :
 
@@ -171,27 +172,27 @@ La procédure suivante montre comment exécuter l’application à l’aide du d
 
 1. Commencez par sélectionner la plateforme à cibler en cliquant sur la liste déroulante en surbrillance et en sélectionnant ToDoItems.iOS pour iOS ou ToDoItems.Android pour Android.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Sélection d’une plateforme pour déboguer dans Visual Studio pour Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 2. Pour commencer à déboguer l’application, appuyez sur cmd + Entrée ou cliquez sur le bouton de lecture.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Début du débogage dans Visual Studio pour Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 3. Après le démarrage du simulateur iOS ou de l’émulateur Android, l’application affiche deux onglets en bas de l’écran pour iOS et en haut de l’écran pour Android. Le premier onglet présente les éléments de liste de tâches qui ne sont pas terminés et le deuxième affiche les éléments de liste de tâches qui sont terminés.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Écran de démarrage de l’application de liste de tâches":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 4. Pour terminer un élément de liste de tâches sur iOS, faites-le glisser à gauche > appuyez sur le bouton **Terminer**. Pour terminer un élément de liste de tâches sur Android, appuyez de façon prolongée sur l’élément > appuyez ensuite sur le bouton Terminer.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Terminer un élément de liste de tâches":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 5. Pour modifier un élément de liste de tâches > appuyez sur l’élément > un nouvel écran s’affiche pour que vous puissiez saisir de nouvelles valeurs. En appuyant sur le bouton Enregistrer, les modifications seront conservées dans Azure Cosmos DB.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Modifier un élément de liste de tâches":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 6. Pour ajouter un élément de liste de tâches > appuyez sur le bouton **Ajouter** dans le coin supérieur droit de l’écran d’accueil > une nouvelle page vide de modification s’affiche.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Ajouter un élément de liste de tâches":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Application de liste de tâches Xamarin s’exécutant sur iOS":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 

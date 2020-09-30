@@ -1,24 +1,24 @@
 ---
 title: 'Démarrage rapide : Générer une application Python à l’aide du compte d’API SQL Azure Cosmos DB'
 description: Cet article présente un exemple de code Python que vous pouvez utiliser pour vous connecter à l’API SQL d’Azure Cosmos DB et pour l’interroger.
-author: Rodrigossz
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/11/2020
-ms.author: rosouz
+ms.date: 09/22/2020
+ms.author: anfeldma
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 16f1a7d3608b13dd5423205dc75500d76f62d69a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319008"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Python à l’aide d’un compte d’API SQL Azure Cosmos DB
 
@@ -26,6 +26,7 @@ ms.locfileid: "88588141"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Kit SDK Java v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -35,12 +36,12 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 ## <a name="prerequisites"></a>Prérequis
 
 - Un compte Cosmos DB. Vos options sont :
-    * Au sein d’un abonnement Azure :
-        * [Créez un compte Azure gratuit](https://azure.microsoft.com/free) ou utilisez votre abonnement existant 
+    * Au sein d’un abonnement Azure actif :
+        * [Créer un compte Azure gratuit](https://azure.microsoft.com/free) ou utiliser votre abonnement existant 
         * [Crédits mensuels Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
         * [Niveau gratuit d’Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
-    * Sans abonnement actif à Azure :
-        * [Essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/), un environnement de tests pendant 30 jours.
+    * Sans abonnement Azure actif :
+        * [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/), un environnement de tests pendant 30 jours.
         * [Émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
 - [Python 2.7, 3.5.3 ou supérieur](https://www.python.org/downloads/) avec l’exécutable `python` dans votre `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
@@ -116,7 +117,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans votre compte Azure Cosmos DB, dans le [portail Azure](https://portal.azure.com/), sélectionnez **Clés** dans le volet de navigation de gauche. Utilisez les boutons de copie sur le côté droit de l’écran pour copier l’**URI** et la **clé primaire** dans le fichier *cosmos_get_started.py* à l’étape suivante.
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obtenir une clé d’accès et un URI dans les paramètres de clés du portail Azure":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
 
 2. Dans Visual Studio Code, ouvrez le fichier *cosmos_get_started.py* sous *\git-samples\azure-cosmos-db-python-getting-started*.
 

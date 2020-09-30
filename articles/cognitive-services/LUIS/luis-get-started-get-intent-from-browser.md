@@ -1,14 +1,16 @@
 ---
 title: 'Démarrage rapide : Interroger une prédiction avec un navigateur - LUIS'
 description: Dans ce guide de démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel dans un navigateur.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316271"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Démarrage rapide : Interroger un runtime de prédiction avec texte utilisateur
 

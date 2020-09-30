@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319467"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Liaison privée vous permet de vous connecter à différents services PaaS dans 
 
 > [!IMPORTANT]
 > Cet article s’applique à la fois à Azure SQL Database et à Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour simplifier, le terme « base de données » fait référence aux bases de données dans Azure SQL Database et Azure Synapse Analytics. De même, toutes les références à « serveur » désignent le [serveur SQL logique](logical-servers.md) qui héberge Azure SQL Database et Azure Synapse Analytics. Cet article ne s’applique *pas* à **Azure SQL Managed Instance**.
-
-## <a name="data-exfiltration-prevention"></a>Prévention de l’exfiltration de données
-
-L’exfiltration de données dans Azure SQL Database se produit quand un utilisateur autorisé, tel qu’un administrateur de base de données, extrait des données d’un système et les déplace vers un autre emplacement ou système en dehors de l’organisation. C’est par exemple le cas quand un utilisateur déplace des données vers un compte de stockage détenu par un tiers.
-
-Imaginez un scénario selon lequel un utilisateur exécute SSMS (SQL Server Management Studio) à l’intérieur d’une machine virtuelle Azure se connectant à une base de données dans SQL Database. Cette base de données se trouve dans le centre de données USA Ouest. L’exemple ci-dessous montre comment utiliser des contrôles d’accès réseau pour limiter l’accès à la base de données SQL par le biais de points de terminaison publics.
-
-1. Désactivez tout le trafic des services Azure à destination de la base de données SQL par le biais du point de terminaison public en affectant **OFF** à l’option Autoriser les services Azure. Vérifiez qu’aucune adresse IP n’est autorisée dans les règles de pare-feu au niveau du serveur et de la base de données. Pour plus d’informations, consultez [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](network-access-controls-overview.md).
-1. Autorisez uniquement le trafic à destination de la base de données dans SQL Database à l’aide de l’adresse IP privée de la machine virtuelle. Pour plus d’informations, consultez les articles sur le [Point de terminaison de service](vnet-service-endpoint-rule-overview.md) et les [Règles de pare-feu du réseau virtuel](firewall-configure.md).
-1. Sur la machine virtuelle Azure, limitez l’étendue de la connexion sortante à l’aide de [groupes de sécurité réseau (NSG)](../../virtual-network/manage-network-security-group.md) et d’étiquettes de service comme suit.
-    - Spécifiez une règle NSG pour autoriser le trafic pour Service Tag = SQL.WestUs (autorise uniquement la connexion à la base de données SQL dans USA Ouest)
-    - Spécifiez une règle NSG avec une **priorité plus élevée** pour refuser le trafic pour Service Tag = SQL (refuse les connexions à la base de données SQL dans toutes les régions)
-
-À la fin de cette configuration, la machine virtuelle Azure peut uniquement se connecter à une base de données dans SQL Database de la région USA Ouest. Toutefois, la connectivité n’est pas limitée à une seule base de données dans SQL Database. La machine virtuelle peut toujours se connecter à n’importe quelle base de données de la région USA Ouest, même si elle ne fait pas partie de l’abonnement. Bien que nous ayons réduit l’étendue de l’exfiltration de données dans le scénario ci-dessus à une région spécifique, nous ne l’avons pas encore totalement éliminée.
-
-Grâce à Liaison privée, les clients peuvent désormais configurer des contrôles d’accès réseau comme des groupes de sécurité réseau pour restreindre l’accès au point de terminaison privé. Les ressources Azure PaaS individuelles sont ensuite mappées à des points de terminaison privés spécifiques. Un utilisateur interne malveillant peut uniquement accéder à la ressource PaaS mappée (par exemple, une base de données dans SQL Database). Il n’a accès à aucune autre ressource. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Connectivité locale sur un appairage privé
-
-Quand des clients se connectent au point de terminaison public à partir de machines locales, leur adresse IP doit être ajoutée au pare-feu IP à l’aide d’une [règle de pare-feu au niveau du serveur](firewall-create-server-level-portal-quickstart.md). Bien que ce modèle fonctionne bien pour autoriser l’accès à des machines individuelles pour des charges de travail de développement ou de test, il est difficile à gérer dans un environnement de production.
-
-Grâce à Liaison privée, les clients peuvent activer l’accès entre différents locaux au point de terminaison privé en utilisant [ ExpressRoute](../../expressroute/expressroute-introduction.md), un appairage privé ou un tunneling VPN. Les clients peuvent ensuite désactiver tout accès par le biais du point de terminaison public et s’abstenir d’utiliser le pare-feu IP pour autoriser les adresses IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Comment configurer Liaison privée pour Azure SQL Database 
 
@@ -71,6 +49,12 @@ Une fois que l’administrateur réseau a créé le point de terminaison privé 
 
 1. Après approbation ou rejet, la liste reflète l’état approprié et le texte de réponse.
 ![Capture d’écran de tous les PEC après approbation][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Connectivité locale sur un appairage privé
+
+Quand des clients se connectent au point de terminaison public à partir de machines locales, leur adresse IP doit être ajoutée au pare-feu IP à l’aide d’une [règle de pare-feu au niveau du serveur](firewall-create-server-level-portal-quickstart.md). Bien que ce modèle fonctionne bien pour autoriser l’accès à des machines individuelles pour des charges de travail de développement ou de test, il est difficile à gérer dans un environnement de production.
+
+Grâce à Liaison privée, les clients peuvent activer l’accès entre différents locaux au point de terminaison privé en utilisant [ ExpressRoute](../../expressroute/expressroute-introduction.md), un appairage privé ou un tunneling VPN. Les clients peuvent ensuite désactiver tout accès par le biais du point de terminaison public et s’abstenir d’utiliser le pare-feu IP pour autoriser les adresses IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Cas d’usage de Liaison privée pour Azure SQL Database 
 
@@ -154,6 +138,22 @@ Suivez les étapes décrites ici afin d’utiliser [SSMS pour vous connecter à 
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Prévention de l’exfiltration de données
+
+L’exfiltration de données dans Azure SQL Database se produit quand un utilisateur autorisé, tel qu’un administrateur de base de données, extrait des données d’un système et les déplace vers un autre emplacement ou système en dehors de l’organisation. C’est par exemple le cas quand un utilisateur déplace des données vers un compte de stockage détenu par un tiers.
+
+Imaginez un scénario selon lequel un utilisateur exécute SSMS (SQL Server Management Studio) à l’intérieur d’une machine virtuelle Azure se connectant à une base de données dans SQL Database. Cette base de données se trouve dans le centre de données USA Ouest. L’exemple ci-dessous montre comment utiliser des contrôles d’accès réseau pour limiter l’accès à la base de données SQL par le biais de points de terminaison publics.
+
+1. Désactivez tout le trafic des services Azure à destination de la base de données SQL par le biais du point de terminaison public en affectant **OFF** à l’option Autoriser les services Azure. Vérifiez qu’aucune adresse IP n’est autorisée dans les règles de pare-feu au niveau du serveur et de la base de données. Pour plus d’informations, consultez [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](network-access-controls-overview.md).
+1. Autorisez uniquement le trafic à destination de la base de données dans SQL Database à l’aide de l’adresse IP privée de la machine virtuelle. Pour plus d’informations, consultez les articles sur le [Point de terminaison de service](vnet-service-endpoint-rule-overview.md) et les [Règles de pare-feu du réseau virtuel](firewall-configure.md).
+1. Sur la machine virtuelle Azure, limitez l’étendue de la connexion sortante à l’aide de [groupes de sécurité réseau (NSG)](../../virtual-network/manage-network-security-group.md) et d’étiquettes de service comme suit.
+    - Spécifiez une règle NSG pour autoriser le trafic pour Service Tag = SQL.WestUs (autorise uniquement la connexion à la base de données SQL dans USA Ouest)
+    - Spécifiez une règle NSG avec une **priorité plus élevée** pour refuser le trafic pour Service Tag = SQL (refuse les connexions à la base de données SQL dans toutes les régions)
+
+À la fin de cette configuration, la machine virtuelle Azure peut uniquement se connecter à une base de données dans SQL Database de la région USA Ouest. Toutefois, la connectivité n’est pas limitée à une seule base de données dans SQL Database. La machine virtuelle peut toujours se connecter à n’importe quelle base de données de la région USA Ouest, même si elle ne fait pas partie de l’abonnement. Bien que nous ayons réduit l’étendue de l’exfiltration de données dans le scénario ci-dessus à une région spécifique, nous ne l’avons pas encore totalement éliminée.
+
+Grâce à Liaison privée, les clients peuvent désormais configurer des contrôles d’accès réseau comme des groupes de sécurité réseau pour restreindre l’accès au point de terminaison privé. Les ressources Azure PaaS individuelles sont ensuite mappées à des points de terminaison privés spécifiques. Un utilisateur interne malveillant peut uniquement accéder à la ressource PaaS mappée (par exemple, une base de données dans SQL Database). Il n’a accès à aucune autre ressource. 
 
 ## <a name="limitations"></a>Limites 
 Les connexions au point de terminaison privé prennent uniquement en charge **Proxy** comme [stratégie de connexion](connectivity-architecture.md#connection-policy).

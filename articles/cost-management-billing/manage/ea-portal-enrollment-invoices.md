@@ -3,17 +3,17 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316135"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -162,20 +162,6 @@ Reportez-vous à [Services Azure](https://azure.microsoft.com/services/) et à [
 ### <a name="enterprise-agreement-units-of-measure"></a>Unités de mesure du Contrat Entreprise
 
 Les unités de mesure des Contrats Entreprise sont souvent différentes de celles présentées dans nos autres programmes tels que le programme de Contrat d’abonnement à Microsoft Online (MOSA). Cette disparité signifie que, pour un certain nombre de services, l’unité de mesure est agrégée pour fournir la tarification normalisée. L’unité de mesure affichée dans la vue Résumé de l’utilisation du portail Enterprise est toujours la mesure Enterprise. Une liste complète des unités de mesure et des conversions actuelles pour chaque service est fournie avec le fichier Excel des [noms de services conviviaux](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
-
-### <a name="rounding-rules"></a>Règles d’arrondi
-
-L’arrondi effectué dans le portail Enterprise utilise la logique d’arrondi bancaire ou d’arrondi Gaussien standard IEEE. Cette logique permet d'arrondir les numéros au chiffre pair le plus proche pour les valeurs à demi-chiffres. La logique d’arrondi au demi supérieur la plus courante consiste toujours à arrondir les demi-chiffres au chiffre le plus élevé supérieur. Cette méthode du portail Azure Enterprise fournit en fait une somme totale plus précise sur le groupe par rapport à la logique Excel standard.
-
-Par exemple, lorsque le premier chiffre à arrondir est 5 et qu'il n'y a pas de chiffres suivants ou que les chiffres suivants sont des zéros, arrondissez au chiffre pair le plus proche. Par exemple : 2,315 et 2,325 arrondis au centième le plus proche deviennent 2,32.
-
-À titre de référence, le tableau suivant présente des formules Excel que vous pouvez utiliser pour modéliser les règles d'arrondi et de conversion du portail Azure Enterprise :
-
-| Scénario | Formule de logique bancaire |
-| --- | --- |
-| Arrondi de l’utilisation | =MROUND({_source_}, 0.0002) |
-| Arrondi de la tarification (2 décimales) | =MROUND({_source_}, 0.02) |
-| Arrondi de la tarification (0 décimale) | =MROUND({_source_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversion entre le rapport de détails de l’utilisation et la page de résumé de l’utilisation
 

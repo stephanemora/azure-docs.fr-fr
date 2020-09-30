@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 72bb38b7d9d28366fb75c5656832a1f37c770fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303310"
 ---
 Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS Java pour envoyer des SMS.
 
@@ -30,7 +30,8 @@ Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Une ressource Communication Services déployée. [Créez une ressource Communication Services](../../create-communication-resource.md).
+- Une ressource Communication Services active et la chaîne de connexion. [Créez une ressource Communication Services](../../create-communication-resource.md).
+- Un numéro de téléphone permettant de recevoir des SMS. [Obtenez un numéro de téléphone](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 

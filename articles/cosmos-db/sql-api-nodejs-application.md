@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322697"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutoriel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
 
@@ -439,7 +439,7 @@ Maintenant que vous avez créé l’application, vous pouvez l’exécuter local
 
 1. Pour tester l’application sur votre machine locale, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez la page `http://localhost:3000` dans votre navigateur. La page devrait maintenant ressembler à ce qui est présenté dans la capture d’écran suivante :
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Capture d’écran de l’application My Todo List dans une fenêtre de navigateur":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Découvrir Node.js - Capture d’écran de l’application Hello World dans une fenêtre de navigateur":::
 
     > [!TIP]
     > Si vous recevez une erreur liée à la mise en retrait dans le fichier layout.jade ou index.jade, assurez-vous que les deux premières lignes des deux fichiers sont justifiées à gauche et ne présentent aucun espace. Supprimez tout espace éventuel dans les deux premières lignes, enregistrez les deux fichiers, puis actualisez la fenêtre du navigateur. 
@@ -448,7 +448,7 @@ Maintenant que vous avez créé l’application, vous pouvez l’exécuter local
 
 3. La page doit se mettre à jour et afficher le nouvel élément créé dans la liste des tâches.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Capture d’écran de l’application avec un nouvel élément dans la liste des tâches":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Découvrir Node.js - Capture d’écran de l’application Hello World dans une fenêtre de navigateur":::
 
 4. Pour terminer une tâche, cochez la case dans la colonne Complete, puis sélectionnez **Mettre à jour les tâches**. Cela met à jour le document que vous avez déjà créé et le supprime de la vue.
 

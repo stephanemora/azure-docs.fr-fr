@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle une table à l’aide du portail Azure
-description: Dans ce tutoriel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure.
+description: Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082656"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320912"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
