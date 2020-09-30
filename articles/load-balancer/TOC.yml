@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Référence Standard de Load Balancer et zones de disponibilité
       href: load-balancer-standard-availability-zones.md
-    - name: Contrôles de sécurité intégrés
-      href: load-balancer-security-controls.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Gestion des pools de back-ends
       href: backend-pool-management.md
     - name: Standard Load Balancer et Virtual Machine Scale Sets

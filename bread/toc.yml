@@ -283,7 +283,7 @@
     - name: Utilisateur Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Backup
+    - name: Sauvegarde
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -598,12 +598,9 @@
         - name: Machine virtuelle de science des données
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Consommateur de Place de marché
-      tocHref: /azure/marketplace-consumer/
+    - name: Place de marché commerciale
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Publication de Place de marché
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/
