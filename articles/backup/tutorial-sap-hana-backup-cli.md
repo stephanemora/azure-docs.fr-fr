@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bas
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324958"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Par défaut, le coffre Recovery Services est défini pour le stockage géoredondant. Le stockage géoredondant s’assure que les données de sauvegarde sont répliquées dans une région Azure secondaire située à des centaines de kilomètres de la région principale. Si vous devez modifier le paramètre de redondance de stockage, utilisez l’applet de commande [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
+Par défaut, le coffre Recovery Services est défini pour le stockage géoredondant. Le stockage géoredondant s’assure que les données de sauvegarde sont répliquées dans une région Azure secondaire située à des centaines de kilomètres de la région principale. Si vous devez modifier le paramètre de redondance de stockage, utilisez l’applet de commande [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -59,7 +59,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-Pour voir si votre coffre a bien été créé, utilisez l’applet de commande [az backup vault list](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list). Vous obtiendrez la réponse suivante :
+Pour voir si votre coffre a bien été créé, utilisez l’applet de commande [az backup vault list](/cli/azure/backup/vault#az-backup-vault-list). Vous obtiendrez la réponse suivante :
 
 ```output
 Location   Name             ResourceGroup
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Pour que l’instance de SAP HANA (la machine virtuelle avec SAP HANA installée) soit découverte par les services Azure, un [script de pré-inscription](https://aka.ms/scriptforpermsonhana) doit être exécuté sur l’ordinateur SAP HANA. Vérifiez que tous les [prérequis](./tutorial-backup-sap-hana-db.md#prerequisites) sont respectés avant d’exécuter le script. Pour en savoir plus sur ce que fait le script, reportez-vous à la section [Ce que fait le script de préinscription](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-Une fois le script exécuté, l’instance de SAP HANA peut être inscrite auprès du coffre Recovery Services créé précédemment. Pour inscrire l’instance, utilisez l’applet de commande [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* est l’ID de ressource de la machine virtuelle que vous avez créée pour installer SAP HANA.
+Une fois le script exécuté, l’instance de SAP HANA peut être inscrite auprès du coffre Recovery Services créé précédemment. Pour inscrire l’instance, utilisez l’applet de commande [az backup container register](/cli/azure/backup/container#az-backup-container-register). *VMResourceId* est l’ID de ressource de la machine virtuelle que vous avez créée pour installer SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -87,7 +87,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 L’inscription de l’instance de SAP HANA entraîne la découverte automatique de toutes ses bases de données actuelles. Toutefois, pour découvrir les nouvelles bases de données qui peuvent être ajoutées ultérieurement, reportez-vous à la section [Découverte des nouvelles bases de données ajoutées à l’instance de SAP HANA inscrite](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance).
 
-Pour vérifier si l’instance de SAP HANA est correctement inscrite auprès de votre coffre, utilisez l’applet de commande [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list). Vous obtiendrez la réponse suivante :
+Pour vérifier si l’instance de SAP HANA est correctement inscrite auprès de votre coffre, utilisez l’applet de commande [az backup container list](/cli/azure/backup/container#az-backup-container-list). Vous obtiendrez la réponse suivante :
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -100,7 +100,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>Activer la sauvegarde sur une base de données SAP HANA
 
-L’applet de commande [az backup protectable-item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) liste toutes les bases de données découvertes sur l’instance de SAP HANA que vous avez inscrite à l’étape précédente.
+L’applet de commande [az backup protectable-item list](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) liste toutes les bases de données découvertes sur l’instance de SAP HANA que vous avez inscrite à l’étape précédente.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 Comme vous pouvez le voir dans la sortie ci-dessus, le SID du système SAP HANA est HXE. Dans ce tutoriel, nous allons configurer la sauvegarde pour la base de données *saphanadatabase;hxe;hxe* qui réside sur le serveur *hxehost*.
 
-Pour protéger et configurer la sauvegarde sur une base de données, nous utilisons l’applet de commande [az backup protection enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl). Spécifiez le nom de la stratégie que vous voulez utiliser. Pour créer une stratégie à l’aide de l’interface CLI, utilisez l’applet de commande [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create). Pour ce tutoriel, nous allons utiliser la stratégie *sapahanaPolicy*.
+Pour protéger et configurer la sauvegarde sur une base de données, nous utilisons l’applet de commande [az backup protection enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl). Spécifiez le nom de la stratégie que vous voulez utiliser. Pour créer une stratégie à l’aide de l’interface CLI, utilisez l’applet de commande [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create). Pour ce tutoriel, nous allons utiliser la stratégie *sapahanaPolicy*.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -133,7 +133,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Vous pouvez vérifier si la configuration de sauvegarde ci-dessus est terminée à l’aide de l’applet de commande [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list). La sortie se présente comme suit :
+Vous pouvez vérifier si la configuration de sauvegarde ci-dessus est terminée à l’aide de l’applet de commande [az backup job list](/cli/azure/backup/job#az-backup-job-list). La sortie se présente comme suit :
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-La cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) liste tous les travaux de sauvegarde (planifiés ou à la demande) qui ont été exécutés ou qui sont en cours d’exécution sur la base de données protégée, en plus d’autres opérations telles que l’inscription, la configuration de la sauvegarde et la suppression des données de sauvegarde.
+La cmdlet [az backup job list](/cli/azure/backup/job#az-backup-job-list) liste tous les travaux de sauvegarde (planifiés ou à la demande) qui ont été exécutés ou qui sont en cours d’exécution sur la base de données protégée, en plus d’autres opérations telles que l’inscription, la configuration de la sauvegarde et la suppression des données de sauvegarde.
 
 >[!NOTE]
 >La sauvegarde Azure ne s’ajuste pas automatiquement au changement d’heure lorsque vous sauvegardez une base de données SAP HANA qui s’exécute dans une machine virtuelle Azure.
@@ -173,7 +173,7 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+La réponse vous donnera le nom du travail. Vous pouvez utiliser ce nom pour effectuer le suivi de l’état du travail à l’aide de l’applet de commande [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
 >En plus de planifier une sauvegarde complète ou différentielle, vous pouvez également en déclencher une manuellement. Les sauvegardes de journaux sont déclenchées et gérées automatiquement par SAP HANA en interne.

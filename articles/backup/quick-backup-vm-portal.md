@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328771"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Sauvegarder une machine virtuelle dans Azure
 
@@ -83,7 +83,7 @@ Si vous vous apprêtez à passer à un didacticiel de sauvegarde expliquant comm
 6. Dans la liste, choisissez votre groupe de ressources. Si vous avez utilisé les exemples de commandes de démarrage rapide de machine virtuelle, le groupe de ressources est nommé *myResourceGroup*.
 7. Sélectionnez **Supprimer le groupe de ressources**. Pour confirmer, entrez le nom de groupe de ressources, puis sélectionnez **Supprimer**.
 
-    ![Supprimer le groupe de ressources à partir du portail Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Supprimer le groupe de ressources à partir du portail Azure](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

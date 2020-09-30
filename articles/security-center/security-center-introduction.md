@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323672"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -67,7 +67,7 @@ Garantir la sécurité de vos charges de travail est une règle de base en mati�
 
 Security Center vous aide à **identifier les abonnements Shadow IT**. En examinant les abonnements étiquetés **non couverts** de votre tableau de bord, vous pouvez savoir immédiatement quels sont les abonnements nouvellement créés et vous assurer qu’ils sont couverts par vos stratégies, en plus d’être protégés par Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Tableau de bord de stratégie Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Page Gestion des stratégies":::
 
 ### <a name="continuous-assessments"></a>Évaluations continues
 
@@ -75,13 +75,13 @@ Security Center détecte en continu les nouvelles ressources déployées dans vo
 
 Pour vous aider à comprendre l’importance de chaque recommandation pour votre posture de sécurité globale, Security Center regroupe les recommandations en contrôles de sécurité et ajoute une valeur de **degré de sécurisation** à chaque contrôle. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Degré de sécurisation de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Page Gestion des stratégies":::
 
 ### <a name="network-map"></a>Mappage réseau
 
 L’un des outils les plus puissants fournis par Security Center pour surveiller en continu l’état de votre réseau est le **mappage réseau**. Le mappage vous permet de visualiser la topologie de vos charges de travail, afin que vous puissiez vérifier que chaque nœud est bien configuré. Vous pouvez voir de quelle façon vos nœuds sont connectés, ce qui vous permet de bloquer les connexions indésirables qui pourraient simplifier l’accès d’un attaquant à votre réseau.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappage réseau Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Page Gestion des stratégies":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimiser et améliorer la sécurité en configurant les contrôles recommandés
@@ -92,7 +92,7 @@ De cette façon, Security Center vous permet non seulement de définir des strat
 
 Les recommandations vous aident à réduire la surface d’attaque de chacune de vos ressources. Cela inclut les machines virtuelles Azure, les serveurs autres qu’Azure et les services PaaS Azure comme les comptes Stockage et SQL, entre autres, où chaque type de ressource est évalué différemment et a ses propres normes.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemple de recommandation Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Page Gestion des stratégies":::
 
 ## <a name="protect-against-threats"></a>Vous protéger contre les menaces
 
@@ -100,7 +100,7 @@ La protection contre les menaces de Security Center vous permet de détecter et 
 
 La protection contre les menaces Security Center inclut l’analyse de la chaîne de frappe de fusion, qui corrèle automatiquement les alertes dans votre environnement en fonction de l’analyse de la chaîne cybercriminelle, pour vous aider à mieux comprendre l’intégralité de l’histoire d’une campagne d’attaque, là où elle a commencé et le type d’impact sur vos ressources.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertes de sécurité":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Page Gestion des stratégies":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Intégration à Microsoft Defender Advanced Threat Protection
 

@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360920"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutoriel : Configurer manuellement un groupe de disponibilité SQL Server sur des machines virtuelles Azure
 
@@ -41,13 +41,13 @@ Le tableau suivant répertorie les conditions requises que vous devez remplir av
 
 | Condition requise |Description |
 |----- |----- |----- |
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Deux instances SQL Server** | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Serveur Windows** | Partage de fichiers pour le témoin de cluster |  
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Compte de service SQL Server** | Compte du domaine |
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Compte de service SQL Server Agent** | Compte du domaine |  
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Ports du pare-feu ouverts** | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de groupe de disponibilité : **59999** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge principal du cluster : **58888** ou n’importe quel port disponible |
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Ajouter de la fonctionnalité de Clustering de basculement** | Fonctionnalité requise sur les deux instances |
-|![Carré](./media/availability-group-manually-configure-tutorial/square.png)   **Compte du domaine d’installation** | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Deux instances** | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | Partage de fichiers pour le témoin de cluster |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Compte du service SQL Server** | Compte du domaine |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Compte du service SQL Server Agent** | Compte du domaine |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Ports du pare-feu ouverts** | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de groupe de disponibilité : **59999** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge principal du cluster : **58888** ou n’importe quel port disponible |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Ajout de la fonctionnalité de Clustering de basculement** | Fonctionnalité requise sur les deux instances |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Compte du domaine d’installation** | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
 
 
 Avant de commencer ce didacticiel, vous devez [remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure](availability-group-manually-configure-prerequisites-tutorial.md). Si ces conditions préalables sont déjà remplies, vous pouvez passer à l’étape [Création d’un cluster](#CreateCluster).

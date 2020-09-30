@@ -3,13 +3,13 @@ title: Guide de démarrage rapide – Déployer un conteneur Docker dans une ins
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 ms.topic: quickstart
 ms.date: 08/24/2020
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 0decfdbc468cbf267260ef80634eb8ecb5e710b7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870802"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324533"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide du portail Azure
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-free
 
 Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Instances**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Commencer à créer une instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Dans la page **De base**, entrez les valeurs suivantes dans les zones de texte **Groupe de ressources**, **Nom du conteneur** et **Image du conteneur**. Conservez les autres valeurs par défaut, puis cliquez sur **OK**.
 
@@ -38,25 +38,25 @@ Dans la page **De base**, entrez les valeurs suivantes dans les zones de texte 
 * Source d’image : **Images du guide de démarrage rapide**
 * Image conteneur : `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Pour ce guide de démarrage rapide, vous conservez les paramètres par défaut pour déployer l’image Microsoft publique `aci-helloworld`. Cet exemple d’image Linux contient une petite application web écrite en Node.js qui se présente sous la forme d’une page HTML statique. Vous pouvez également utiliser vos propres images conteneur stockées dans Azure Container Registry, Docker Hub ou d’autres registres.
 
 Dans la page **Mise en réseau**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Configuration des paramètres réseau pour une nouvelle instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Conservez les autres paramètres comme valeurs par défaut, puis sélectionnez **Vérifier + créer**.
 
 Une fois la validation terminée, un résumé des paramètres de votre conteneur s’affiche. Sélectionnez **Créer** pour envoyer votre demande de déploiement de conteneur.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Résumé des paramètres d’une nouvelle instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Quand le déploiement commence, une notification s’affiche indiquant que le déploiement est en cours. Une autre notification s’affiche lorsque le groupe de conteneurs a été déployé.
 
 Ouvrez la vue d’ensemble du groupe de conteneurs en accédant à **Groupes de ressources** > **myresourcegroup** > **mycontainer**. Prenez note du **nom de domaine complet** de l’instance de conteneur, ainsi que de son **état**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Vue d’ensemble du groupe de conteneurs dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Une fois que son **État** est *En cours d’exécution*, accédez au nom de domaine complet du conteneur dans votre navigateur.
 
@@ -70,18 +70,18 @@ Il est utile d’afficher les journaux d’activité d’une instance de contene
 
 Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux d’activité**. Vous devez normalement voir la requête HTTP GET générée quand vous affichez l’application dans votre navigateur.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Journaux d’activité du conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous avez terminé avec le conteneur, sélectionnez **Vue d’ensemble** pour l’instance de conteneur *mycontainer*, puis sélectionnez **Supprimer**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Suppression de l’instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 Cliquez sur **Oui** quand la boîte de dialogue de confirmation apparaît.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Supprimer la confirmation d’une instance de conteneur dans le portail Azure":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

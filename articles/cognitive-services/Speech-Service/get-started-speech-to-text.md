@@ -10,22 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: speech-full-stack-go
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 08c42c383e114d404e5b3728fc264a70932aa915
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 2e738222897b60e3a7578ca10bd7596be4fc4da6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327041"
 ---
 # <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
-
-L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
-
-> [!TIP]
-> Si vous souhaitez passer directement à l’exemple de code, consultez les [exemples de démarrage rapide](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) sur GitHub.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-csharp.md)]

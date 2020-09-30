@@ -2,14 +2,16 @@
 title: 'Tutoriel : Révision des énoncés de point de terminaison - LUIS'
 description: Dans ce tutoriel, améliorez les prédictions d’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959022"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324635"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée.
@@ -82,7 +84,7 @@ Passez en revue les énoncés du point de terminaison pour une intention correct
 
 1. Dans la section **Build** du portail, sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Capture d’écran du bouton Passer en revue les énoncés de point de terminaison dans le volet de navigation de gauche.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Passez de la page Versions à la page Intentions.":::
 
     Cet énoncé, `I'm looking for a job with Natural Language Processing`, n’a pas l’intention correcte, _GetJobInformation_. Elle a été mal prédite en tant que _ApplyForJob_ en raison de la similarité des noms de postes et des verbes utilisés dans les deux intentions.
 
