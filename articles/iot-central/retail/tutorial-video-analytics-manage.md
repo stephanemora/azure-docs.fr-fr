@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719068"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575195"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutoriel : Surveiller et gérer une application d’analytique vidéo pour la détection d’objet et de mouvement
 
@@ -61,7 +61,7 @@ Si vous avez deux caméras connectées à votre appareil de passerelle IoT Edge,
 
 Sélectionnez l’onglet **Appareils en aval** pour l’appareil **Passerelle d’analytique vidéo en direct 001** afin de voir les caméras que vous venez d’ajouter :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspecter":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Ajouter une caméra":::
 
 Les caméras figurent également dans la liste de la page **Appareils** dans l’application.
 
@@ -98,7 +98,7 @@ Sélectionnez **Enregistrer**.
 
 Au bout de quelques secondes, vous voyez s’afficher le message de confirmation **Accepté** pour chaque paramètre :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Détection d’objet":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Ajouter une caméra":::
 
 ## <a name="start-lva-processing"></a>Démarrer le traitement d’analytique vidéo en direct
 
@@ -108,13 +108,13 @@ Exécutez la commande **Démarrer le traitement d’analytique vidéo en direct*
 
 Une fois l’exécution de la commande terminée, affichez l’historique des commandes pour vous assurer qu’il n’y a pas d’erreurs :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Commande Démarrer le traitement d’analytique vidéo en direct":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Ajouter une caméra":::
 
 ## <a name="monitor-the-cameras"></a>Surveiller les caméras
 
 Accédez à l’appareil **caméra-003** et sélectionnez l’onglet **Tableau de bord** :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Tableau de bord de la caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Ajouter une caméra":::
 
 La vignette **Nombre de détections** affiche le nombre moyen de détections pour chacun des objets classes de détection sélectionnés pendant un intervalle de détection d’une seconde.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Accédez à l’appareil **caméra-003** et sélectionnez l’onglet **Tableau de bord**. Cliquez ensuite sur l’un des liens hypertexte de détection d’objet capturés dans la vignette **Vidéo d’événement d’inférence**. La vidéo apparaît sur une page affichée dans le lecteur vidéo local :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Extrait vidéo":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Ajouter une caméra":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Changer les appareils simulés dans les tableaux de bord d’application
 
@@ -182,7 +182,7 @@ Les tableaux de bord d’application affichent initialement la télémétrie et 
 
 Le tableau de bord **Moniteur de caméra réelle** affiche maintenant les valeurs de votre caméra réelle :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Tableau de bord d’application Caméras réelles":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Ajouter une caméra":::
 
 ## <a name="pause-processing"></a>Suspendre le traitement
 

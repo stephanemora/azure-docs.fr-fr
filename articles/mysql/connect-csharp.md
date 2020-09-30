@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 5/26/2020
-ms.openlocfilehash: 6c1cc658708a8429e635d23a058a784f6fc4ef05
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/29/2020
+ms.openlocfilehash: 470555fd258fbeb8f429aebe0ca8dedb58aeff00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904007"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568129"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utilisez .NET (C#) pour vous connecter et interroger des données dans Azure Database pour MySQL
 
@@ -59,7 +59,7 @@ Remplacez les paramètres `Server`, `Database`, `UserID` et `Password` par les v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -124,7 +124,7 @@ Remplacez les paramètres `Server`, `Database`, `UserID` et `Password` par les v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -181,7 +181,7 @@ Remplacez les paramètres `Server`, `Database`, `UserID` et `Password` par les v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -233,7 +233,7 @@ Remplacez les paramètres `Server`, `Database`, `UserID` et `Password` par les v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {

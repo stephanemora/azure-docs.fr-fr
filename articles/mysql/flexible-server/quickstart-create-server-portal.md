@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/21/2020
-ms.openlocfilehash: 4d4d65f9ad04ca6bf99375647684a75e8662bb4d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/29/2020
+ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944530"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569633"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Démarrage rapide : Utiliser le portail Azure pour créer un serveur flexible Azure Database pour MySQL
 
@@ -36,18 +36,15 @@ Pour créer un serveur flexible, procédez comme suit :
 
 2. Sélectionnez **Bases de données** > **Azure Database pour MySQL**. Vous pouvez également entrer **MySQL** dans la zone de recherche pour localiser le service.
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Option Azure Database pour MySQL":::
 
 3. Sélectionnez **Serveur flexible** comme option de déploiement.
      
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Choisir une option de déploiement":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Option Azure Database pour MySQL":::    
 
 4. Remplissez le formulaire **Informations de base** avec les informations suivantes : 
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Créer un formulaire de serveur"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Option Azure Database pour MySQL"::: 
                                     
     |**Paramètre**|**Valeur suggérée**|**Description**|
     |---|---|---|
@@ -60,8 +57,7 @@ Pour créer un serveur flexible, procédez comme suit :
     Version|5.7| Version principale de MySQL.|
     Calcul + stockage | **Modulable**, **Standard_B1ms**, **10 Gio**, **7 jours** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur**. *Modulable*, *Standard_B1ms*, *10 Gio* et *7 jours* sont les valeurs par défaut des options **Niveau de calcul**, **Taille de calcul**, **Stockage** et **Période de rétention des sauvegardes**. Vous pouvez laisser ces curseurs en l’état ou les ajuster. Enregistrez cette sélection de calcul et de stockage en sélectionnant **Enregistrer** afin de conserver les configurations. La capture d'écran ci-dessous présente les options de calcul et de stockage.|
     
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Calcul + stockage":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Option Azure Database pour MySQL":::
 
 5. Configurer les options de mise en réseau
 
@@ -70,10 +66,7 @@ Pour créer un serveur flexible, procédez comme suit :
     > [!NOTE]
     > Une fois le serveur créé, la méthode de connectivité ne peut pas être modifiée. Par exemple, si vous avez sélectionné *Accès public (adresses IP autorisées)* lors de la création du serveur, vous ne pouvez pas passer à *Accès privé (intégration au réseau virtuel)* à l'issue de cette création. Nous vous recommandons vivement de sélectionner l'Accès privé lors de la création d'un serveur afin de pouvoir y accéder en toute sécurité à l'aide de l'intégration au réseau virtuel. Pour en savoir plus sur l'accès privé, consultez l'[article consacré aux concepts](./concepts-networking.md).
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Configurer la mise en réseau":::  
-
-    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Option Azure Database pour MySQL":::  
 
 6. Sélectionnez **Vérifier + créer** pour passer en revue la configuration de votre serveur flexible.
 
@@ -110,7 +103,7 @@ Vous avez réussi à créer un serveur flexible Azure Database pour MySQL dans u
 Pour supprimer le serveur, vous pouvez cliquer sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre serveur, comme indiqué ci-dessous :
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Supprimer vos ressources":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Option Azure Database pour MySQL":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

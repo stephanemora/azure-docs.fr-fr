@@ -1,5 +1,5 @@
 ---
-title: Créer un pool Synapse SQL avec Azure PowerShell
+title: 'Démarrage rapide : Créer un pool Synapse SQL avec Azure PowerShell'
 description: Créez rapidement un pool Synapse SQL avec une règle de pare-feu au niveau du serveur à l’aide d’Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 098b33491076de5e7e71fed7439cc6090e0183bb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5408944f16509f83c30b9ee066d6f0a93dab95f0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076791"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567653"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Démarrage rapide : Créer un pool Synapse SQL avec Azure PowerShell
 
