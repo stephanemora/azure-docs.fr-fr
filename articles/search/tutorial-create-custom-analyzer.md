@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290308"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397264"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutoriel : Créer un analyseur personnalisé pour les numéros de téléphone
 
@@ -59,7 +59,7 @@ Pour chaque demande, vous devez effectuer les étapes suivantes :
 
 1. Remplacez `<YOUR-ADMIN-API-KEY>` par la clé primaire ou secondaire de votre service de recherche.
 
-  ![URL et en-tête de requête Postman](media/search-get-started-postman/postman-url.png "URL et en-tête de requête Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="URL et en-tête de requête Postman" border="false":::
 
 Si vous ne connaissez pas bien Postman, consultez [Explorer les API REST de Recherche cognitive Azure avec Postman](search-get-started-postman.md).
 
@@ -239,11 +239,11 @@ Un analyseur comprend trois composants :
 
 Le diagramme ci-dessous vous montre comment ces trois composants fonctionnent ensemble pour générer des jetons à partir d’une phrase :
 
-  ![Diagramme du processus Analyseur de segmentation d’une phrase en unités lexicales](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="URL et en-tête de requête Postman":::
 
 Ces jetons sont ensuite stockés dans un index inversé qui autorise des recherches rapides en texte intégral.  Pour cela, un index inversé mappe tous les termes uniques extraits durant l’analyse lexicale aux documents dans lesquels ils apparaissent. Le diagramme ci-dessous vous montre un exemple :
 
-  ![Exemple d’index inversé](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="URL et en-tête de requête Postman":::
 
 Toute la recherche se résume à rechercher les termes stockés dans l’index inversé. Quand un utilisateur émet une requête :
 
@@ -251,7 +251,7 @@ Toute la recherche se résume à rechercher les termes stockés dans l’index i
 1. L’index inversé est ensuite analysé à la recherche de documents contenant des termes correspondants.
 1. Enfin, les documents récupérés sont classés par l’[algorithme de similarité](index-ranking-similarity.md).
 
-  ![Diagramme du processus Analyseur de classement de la similarité](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="URL et en-tête de requête Postman":::
 
 Si les termes de la requête ne correspondent pas aux termes de votre index inversé, aucun résultat n’est retourné. Pour en savoir plus sur le fonctionnement des requêtes, consultez cet article sur la [recherche en texte intégral](search-lucene-query-architecture.md).
 

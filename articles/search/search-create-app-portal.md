@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
-ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292535"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399820"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de démonstration dans le portail (Recherche cognitive Azure)
 
@@ -35,7 +35,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
   Ce guide de démarrage rapide utilise l’exemple prédéfini de données et d’index Real Estate, car il contient des images miniatures (l’Assistant prend en charge l’ajout d’images à la page de résultats). Pour créer l’index utilisé dans cet exercice, exécutez l’Assistant **Importer des données**, en choisissant la source de données *realestate-us-sample*.
 
-  ![Page source de données de l’exemple de données](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="Page source de données de l’exemple de données" border="false":::
 
 Quand l’index est prêt à être utilisé, passez à l’étape suivante.
 
@@ -61,7 +61,7 @@ L’Assistant fournit une disposition de base pour l’affichage des résultats 
 
 1. Dans Description, choisissez un champ qui fournit des détails pouvant faciliter la décision de cliquer ou non pour accéder à ce document particulier.
 
-   ![configurer les résultats pour les exemples de données](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Page source de données de l’exemple de données" border="false":::
 
 ## <a name="add-a-sidebar"></a>Ajouter une barre latérale
 
@@ -83,7 +83,7 @@ Les suggestions sont activées sur des définitions de champs spécifiques. L’
 
 La capture d’écran suivante montre les options de l’Assistant, en regard d’une page rendue dans l’application. Vous pouvez voir comment les sélections de champs sont utilisées et comment l’option « Afficher le nom du champ » est utilisée pour inclure ou exclure un étiquetage au sein de la suggestion.
 
-![Configuration des suggestions de requêtes](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Page source de données de l’exemple de données":::
 
 ## <a name="create-download-and-execute"></a>Créer, télécharger et exécuter
 
@@ -95,7 +95,7 @@ La capture d’écran suivante montre les options de l’Assistant, en regard d�
 
 L’index sous-jacent se compose de données générées et fictives qui ont été dupliquées dans tous les documents, et les descriptions ne correspondent parfois pas à l’image. Vous pouvez vous attendre à une expérience plus cohérente quand vous créez une application basée sur vos propres index.
 
-![Exécuter l’application](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Page source de données de l’exemple de données":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

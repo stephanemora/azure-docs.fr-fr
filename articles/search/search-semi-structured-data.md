@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929701"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397383"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutoriel : Indexer des objets blob JSON à partir de Stockage Azure avec REST
 
@@ -54,7 +54,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
-   ![Créer un compte de stockage](media/cognitive-search-tutorial-blob/storage-account.png "Créer un compte de stockage")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Créer un compte de stockage" border="false":::
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
@@ -76,11 +76,11 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Une fois le conteneur créé, ouvrez-le et sélectionnez **Charger** dans la barre de commandes.
 
-   ![Charger dans la barre de commandes](media/search-semi-structured-data/upload-command-bar.png "Charger dans la barre de commandes")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Créer un compte de stockage" border="false":::
 
 1. Accédez au dossier contenant les exemples de fichiers. Sélectionnez-les tous, puis cliquez sur **Charger**.
 
-   ![Charger des fichiers](media/search-semi-structured-data/clinicalupload.png "Charger des fichiers")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Créer un compte de stockage" border="false":::
 
 Une fois le chargement terminé, les fichiers doivent apparaître dans leur propre sous-dossier au sein du conteneur de données.
 
@@ -98,7 +98,7 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Créer un compte de stockage" border="false":::
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -110,7 +110,7 @@ Les méthodes de requête utilisées pour chaque appel dans ce tutoriel sont **P
 
 Dans les en-têtes, définissez « Content-type » sur `application/json` et `api-key` sur la clé API d’administration de votre service Recherche cognitive Azure. Une fois que vous avez défini les en-têtes, vous pouvez les utiliser pour chaque demande de cet exercice.
 
-  ![URL et en-tête de requête Postman](media/search-get-started-postman/postman-url.png "URL et en-tête de requête Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Créer un compte de stockage" border="false":::
 
 Les URI doivent spécifier un élément « api-version » et chaque appel doit retourner une réponse **201 Créé**. L'api-version généralement disponible pour utiliser les tableaux JSON est `2020-06-30`.
 
@@ -315,11 +315,11 @@ Vous pouvez démarrer la recherche dès que le premier document est chargé.
 
 1. Ajoutez le paramètre de requête `$select` pour limiter les résultats à moins de champs : `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  Pour cette requête, 100 documents correspondent, mais par défaut, Recherche cognitive Azure retourne seulement 50 dans les résultats.
 
-   ![Requête paramétrable](media/search-semi-structured-data/lastquery.png "Requête paramétrable")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Créer un compte de stockage" border="false":::
 
 1. `$filter=MinimumAge ge 30 and MaximumAge lt 75` est un exemple de requête plus complexe qui retourne seulement les résultats pour lesquels le paramètre MinimumAge est supérieur ou égal à 30 et le paramètre MaximumAge inférieur à 75. Remplacez l’expression `$select` par l’expression `$filter`.
 
-   ![Recherche de données semi-structurées](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Créer un compte de stockage" border="false":::
 
 Vous pouvez aussi utiliser des opérateurs logiques (AND, OR, NOT) et des opérateurs de comparaison (eq, ne, gt, lt, ge, le). Les comparaisons de chaînes sont sensibles à la casse. Pour plus d’informations et d’exemples, consultez [Créer une requête simple](search-query-simple-examples.md).
 

@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cb35cdf217d497b612dee12aedb869b0583e464
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b1bd0ff28906f35ddc56afbd0287bbe29879deb4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438939"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -245,7 +245,7 @@ En outre, les recommandations **Preview (Préversion)** de préversion n’affic
 
 Exemple de recommandation de préversion :
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommandation portant l’indicateur Preview (Préversion)":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Intégrer les résultats de sécurité dans la configuration de l’exportation continue":::
 
 [En savoir plus sur le degré de sécurisation](secure-score-security-controls.md).
 
@@ -254,7 +254,7 @@ Exemple de recommandation de préversion :
 
 La page de détails des recommandations comprend désormais un indicateur d’intervalle d’actualisation (le cas échéant) et affiche clairement la gravité de la recommandation.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Page de recommandation affichant l’actualisation et la gravité":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Intégrer les résultats de sécurité dans la configuration de l’exportation continue":::
 
 
 
@@ -288,7 +288,7 @@ Les paramètres de sécurité par défaut fournissent des paramètres de sécuri
 
 Security Center fournit désormais une recommandation de sécurité chaque fois qu’il identifie un abonnement Azure sans activation des paramètres de sécurité par défaut. Jusqu’à présent, Security Center recommandait d’activer l’authentification multifacteur à l’aide de l’accès conditionnel, qui fait partie de la licence Premium d’Azure Active Directory (AD). Pour les clients qui utilisent Azure AD gratuitement, nous vous recommandons maintenant d’activer les paramètres de sécurité par défaut. 
 
-Notre objectif est d’encourager un plus grand nombre de clients à sécuriser leurs environnements cloud grâce à l’authentification multifacteur et d’atténuer l’un des risques les plus élevés, qui est également le plus important pour votre [score de sécurité](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Notre objectif est d’encourager un plus grand nombre de clients à sécuriser leurs environnements cloud grâce à l’authentification multifacteur et d’atténuer l’un des risques les plus élevés, qui est également le plus important pour votre [score de sécurité](secure-score-security-controls.md).
 
 En savoir plus sur les [paramètres de sécurité par défaut](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -429,7 +429,7 @@ Les recommandations incluent également la fonctionnalité de correction rapide.
 
 Pour plus d’informations sur ces cas de figure, consultez la [page de référence sur les recommandations en matière de sécurité](recommendations-reference.md).
 
-Apprenez-en davantage sur la [protection contre les menaces dans Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+Apprenez-en davantage sur la [protection contre les menaces dans Azure Security Center](azure-defender.md).
 
 
 
@@ -442,13 +442,13 @@ Afin d’améliorer la clarté et les recommandations concernant les fonctionnal
 
 Pour en savoir plus sur la sécurité des conteneurs qu’offre Security Center, consultez les articles suivants :
 
-- [Vue d’ensemble des fonctionnalités de sécurité des conteneurs du Security Center](https://docs.microsoft.com/azure/security-center/container-security)
-- [Détails de l’intégration avec Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Détails de l’intégration avec Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [Comment analyser vos registres et renforcer vos hôtes Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Alertes de sécurité des fonctionnalités de protection contre les menaces pour les clusters Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Alertes de sécurité des fonctionnalités de protection contre les menaces pour les hôtes Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [Recommandations en matière de sécurité pour les conteneurs](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Vue d’ensemble des fonctionnalités de sécurité des conteneurs du Security Center](container-security.md)
+- [Détails de l’intégration avec Azure Container Registry](defender-for-container-registries-introduction.md)
+- [Détails de l’intégration avec Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
+- [Comment analyser vos registres et renforcer vos hôtes Docker](container-security.md)
+- [Alertes de sécurité des fonctionnalités de protection contre les menaces pour les clusters Azure Kubernetes Service](alerts-reference.md#alerts-akscluster)
+- [Alertes de sécurité des fonctionnalités de protection contre les menaces pour les hôtes Azure Kubernetes Service](alerts-reference.md#alerts-containerhost)
+- [Recommandations en matière de sécurité pour les conteneurs](recommendations-reference.md#recs-containers)
 
 
 
@@ -537,10 +537,9 @@ Les recommandations incluent également la fonctionnalité de correction rapide 
 
 Pour plus d’informations sur ces deux nouvelles recommandations, consultez le tableau [Recommandations relatives au calcul et aux applications](recommendations-reference.md#recs-computeapp).
 
-En savoir plus sur la façon dont Azure Security Center utilise l’agent dans [Qu’est-ce que l’agent Log Analytics ?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+En savoir plus sur la façon dont Azure Security Center utilise l’agent dans [Qu’est-ce que l’agent Log Analytics ?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-En savoir plus sur les [extensions pour les machines Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
-
+En savoir plus sur les [extensions pour les machines Azure Arc](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nouvelles stratégies pour créer des configurations d’exportation continue et d’automatisation de flux de travail à l’échelle
@@ -597,7 +596,7 @@ Les stratégies se trouvent dans Azure Policy :
 | [Advanced Threat Protection doit être activé sur les machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-En savoir plus sur la [protection contre les menaces dans Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+En savoir plus sur la [protection contre les menaces dans Azure Security Center](azure-defender.md).
 
 
 
@@ -679,7 +678,7 @@ Les contrôles de sécurité, et cette option, font partie de la nouvelle expér
 
 Pour en savoir plus sur les contrôles de sécurité, consultez [Version améliorée du degré de sécurisation (préversion) dans Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Activer/désactiver « Regrouper par contrôles » pour les recommandations":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Intégrer les résultats de sécurité dans la configuration de l’exportation continue":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Extension du contrôle de sécurité « Implémenter les bonnes pratiques de sécurité » 
 
@@ -721,7 +720,7 @@ Pour en savoir plus, consultez [Amélioration de vos recommandations personnalis
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Migration des fonctionnalités d’analyse du vidage sur incident vers la détection d’attaque sans fichier 
 
-Nous intégrons les fonctionnalités de détection de l’analyse du vidage sur incident Windows dans la [détection d’attaque sans fichier](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). L’analyse de la détection d’attaque sans fichier offre des versions améliorées des alertes de sécurité suivantes pour les ordinateurs Windows : Injection de code découverte, usurpation d’identité de module Windows détectée, Shellcode détecté et segment de code suspect détecté.
+Nous intégrons les fonctionnalités de détection de l’analyse du vidage sur incident Windows dans la [détection d’attaque sans fichier](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). L’analyse de la détection d’attaque sans fichier offre des versions améliorées des alertes de sécurité suivantes pour les ordinateurs Windows : Injection de code découverte, usurpation d’identité de module Windows détectée, Shellcode détecté et segment de code suspect détecté.
 
 Voici quelques-uns des avantages de cette transition :
 

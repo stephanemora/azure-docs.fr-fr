@@ -7,13 +7,13 @@ ms.author: terrychr
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/19/2020
-ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935974"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397400"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences
 
@@ -59,7 +59,7 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP" border="false":::
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -78,15 +78,13 @@ Dans cette section, Postman et une collection fournie sont utilisés pour créer
 1. Entrez la valeur storageConnectionString à partir de la page des clés de votre compte de Stockage Azure.
 1. Entrez la valeur containerName pour le conteneur que vous avez créé dans le compte de stockage.
 
-> [!div class="mx-imgBorder"]
-> ![modifier des variables dans Postman](media/cognitive-search-debug/postman-enter-variables.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 La collection contient quatre appels REST différents utilisés pour terminer cette section.
 
 Le premier appel crée la source de données. `clinical-trials-ds`. Le deuxième appel crée l’ensemble de compétences, `clinical-trials-ss`. Le troisième appel crée l’index, `clinical-trials`. Le quatrième et dernier appel crée l’indexeur, `clinical-trials-idxr`. Une fois tous les appels de la collection terminés, fermez Postman, puis revenez au portail Azure.
 
-> [!div class="mx-imgBorder"]
-> ![utilisation de Postman pour créer une source de données](media/cognitive-search-debug/postman-create-data-source.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 ## <a name="check-the-results"></a>Vérification des résultats
 
@@ -109,8 +107,7 @@ Retournez à l’écran de vue d’ensemble du service de recherche.
 
 ## <a name="start-your-debug-session"></a>Démarrer votre session de débogage
 
-> [!div class="mx-imgBorder"]
-> ![démarrer une nouvelle session de débogage](media/cognitive-search-debug/new-debug-session-screen-required.png)
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 1. Cliquez sur l’onglet Sessions de débogage (préversion).
 1. Sélectionnez +NewDebugSession.
@@ -123,8 +120,7 @@ Retournez à l’écran de vue d’ensemble du service de recherche.
 > [!Important]
 > Une session de débogage ne fonctionne qu’avec un seul document. Un document spécifique du jeu de données peut être sélectionné. Si ce n’est pas le cas, la session est définie par défaut sur le premier document.
 
-> [!div class="mx-imgBorder"]
-> ![Nouvelle session de débogage démarrée](media/cognitive-search-debug/debug-execution-complete1.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Quand l’exécution de la session de débogage est terminée, la session affiche par défaut l’onglet Enrichissements par IA, en mettant en évidence le graphe des compétences.
 
@@ -144,8 +140,7 @@ Sous l’onglet Erreurs/avertissements, une erreur est signalée pour une opéra
 1. Sélectionnez le symbole **</>** au début de la ligne, puis ouvrez l’évaluateur d’expression.
 1. Cliquez sur le bouton **Évaluer** pour vérifier que cette expression génère une erreur. Cette opération permet de vérifier que la propriété « languageCode » n’est pas une entrée valide.
 
-> [!div class="mx-imgBorder"]
-> ![Évaluateur d’expression](media/cognitive-search-debug/expression-evaluator-language.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Il existe deux façons de rechercher cette erreur dans la session. La première consiste à examiner d’où provient l’entrée, c’est-à-dire quelle compétence de la hiérarchie est supposée produire ce résultat ? L’onglet Exécutions du volet des détails des compétences doit afficher la source de l’entrée. Si aucune source n’est affichée, cela indique une erreur de mappage de champ.
 
@@ -153,8 +148,7 @@ Il existe deux façons de rechercher cette erreur dans la session. La première 
 1. Examinez les entrées (INPUTS) et recherchez « languageCode ». Aucune source n’est indiquée pour cette entrée. 
 1. Basculez vers le volet de gauche pour afficher la structure de données enrichie. Aucun chemin mappé ne correspond à « languageCode ».
 
-> [!div class="mx-imgBorder"]
-> ![Structure de données enrichie](media/cognitive-search-debug/enriched-data-structure-language.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Il existe un chemin mappé pour « language ». Par conséquent, il y a une faute de frappe dans les paramètres des compétences. Pour résoudre ce problème, l’expression dans « /document/language » de la compétence #1 doit être mise à jour.
 
@@ -170,13 +164,11 @@ Une fois l’exécution de la session de débogage terminée, cliquez sur l’on
 
 ## <a name="fix-missing-skill-output-values"></a>Remédier aux valeurs de sortie de compétence manquantes
 
-> [!div class="mx-imgBorder"]
-> ![Erreurs et avertissements](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Il manque des valeurs de sortie d’une compétence. Pour identifier la compétence avec l’erreur, accédez à la structure de données enrichie, recherchez le nom de la valeur, puis examinez sa source d’origine. Dans le cas des valeurs « organizations » et « locations » manquantes, il s’agit de sorties de la compétence #1. Le fait d’ouvrir l’évaluateur d’expression </> pour chaque chemin affiche les expressions listées sous la forme « /document/content/organizations » et « /document/content/locations », respectivement.
 
-> [!div class="mx-imgBorder"]
-> ![Entité organizations de l’évaluateur d’expression](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 La sortie de ces entités est vide alors qu’elle ne doit pas l’être. Quelles sont les entrées produisant ce résultat ?
 
@@ -184,16 +176,14 @@ La sortie de ces entités est vide alors qu’elle ne doit pas l’être. Quelle
 1. Sélectionnez l’onglet **Exécutions** dans le volet des détails des compétences, à droite.
 1. Ouvrez l’évaluateur d’expression **</>** pour l’entrée (INPUT) « text ».
 
-> [!div class="mx-imgBorder"]
-> ![Entrée de la compétence de texte](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Le résultat affiché pour cette entrée ne ressemble pas à une entrée de texte. Il ressemble à une image qui est entourée de nouvelles lignes. L’absence de texte signifie qu’aucune entité ne peut être identifiée. Si vous observez la hiérarchie de l’ensemble de compétences, vous pouvez voir que le contenu est d’abord traité par la compétence #6 (OCR), puis transmis à la compétence #5 (Fusion). 
 
 1. Sélectionnez la compétence #5 (Fusion) dans le **graphe des compétences**.
 1. Sélectionnez l’onglet **Exécutions** dans le volet des détails des compétences, à droite, puis ouvrez l’évaluateur d’expression **</>** pour les sorties (OUTPUTS) « mergedText ».
 
-> [!div class="mx-imgBorder"]
-> ![Sortie de la compétence Fusion](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Ici, le texte est associé à l’image. Si vous observez l’expression « /document/merged_content », l’erreur dans les chemins « organizations » et « locations » pour la compétence #1 est visible. Au lieu d’utiliser « /document/content », elle doit utiliser « /document/merged_content » pour les entrées « text ».
 
@@ -213,8 +203,7 @@ Une fois l’exécution de l’indexeur terminée, les erreurs sont toujours pr�
 1. Parcourez les **paramètres des compétences** pour rechercher «outputs » (sorties).
 1. Ouvrez l’évaluateur d’expression **</>** pour l’entité « organizations ».
 
-> [!div class="mx-imgBorder"]
-> ![Sortie de l’entité organizations](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 L’évaluation du résultat de l’expression donne le résultat correct. La compétence consiste à identifier la valeur correcte pour l’entité, « organizations ». Toutefois, le mappage de sortie dans le chemin de l’entité génère toujours une erreur. En comparant le chemin de sortie de la compétence avec le chemin de sortie de l’erreur, la compétence apparente les sorties, les organisations et les emplacements sous le nœud /document/content, tandis que le mappage de champs de sortie s’attend à ce que les résultats soient apparentés sous le nœud /document/merged_content. À l’étape précédente, l’entrée est passée de « /document/content » à « /document/merged_content ». Le contexte dans les paramètres des compétences doit être changé afin de garantir que la sortie est générée avec le contexte approprié.
 
@@ -225,8 +214,7 @@ L’évaluation du résultat de l’expression donne le résultat correct. La co
 1. Cliquez sur **Enregistrer** dans le volet des détails des compétences, à droite.
 1. Cliquez sur **Exécuter** dans le menu Fenêtre de la session. Cela lance une autre exécution de l’ensemble de compétences avec le document.
 
-> [!div class="mx-imgBorder"]
-> ![Correction du contexte dans les paramètres des compétences](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP":::
 
 Toutes les erreurs ont été résolues.
 

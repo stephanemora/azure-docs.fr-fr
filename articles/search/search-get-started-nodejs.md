@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917888"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400602"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Node.js à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Les appels au service nécessitent un point de terminaison d’URL et une clé d
 
     Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtenir le nom du service, les clés d’administration et les clés de requête" border="false":::
 
 Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -473,7 +473,7 @@ Vous devez voir une série de messages décrivant les actions effectuées par le
 
 Ouvrez la **Vue d’ensemble** de votre service de recherche dans le Portail Azure. Sélectionnez l’onglet **Index**. Un résultat tel que celui-ci doit s’afficher :
 
-![Capture d’écran du portail Azure, de la vue d’ensemble du service Recherche, de l’onglet Index](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Obtenir le nom du service, les clés d’administration et les clés de requête" border="false":::
 
 À l’étape suivante, vous ajouterez des données à l’index. 
 

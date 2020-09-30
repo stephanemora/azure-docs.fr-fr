@@ -1,18 +1,18 @@
 ---
 title: 'Interroger avec l’API Gremlin d’Azure Cosmos DB et la console TinkerPop Gremlin : Didacticiel'
 description: Démarrage rapide d’Azure Cosmos DB pour créer des vertex, des arêtes et des requêtes à l’aide de l’API Gremlin Azure Cosmos DB.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: jasonh
+ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543773"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409389"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 
@@ -65,11 +65,11 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 
    Pour la valeur de Hôtes, copiez la valeur de l’**URI Gremlin** depuis la page **Vue d’ensemble** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Afficher et copier la valeur d’URI Gremlin sur la page Vue d’ensemble du portail Azure":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB à partir de la console Apache Gremlin":::
 
    Pour la valeur du mot de passe, copiez la **Clé principale** depuis la page **Clés** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Afficher et copier votre clé principale dans le portail Azure, page Clés":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB à partir de la console Apache Gremlin":::
 
    Votre fichier remote-secure.yaml doit ressembler à ceci :
 

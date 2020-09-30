@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929786"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398406"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Démarrage rapide : Utiliser l’Explorateur de recherche pour exécuter des requêtes dans le portail
 
@@ -37,11 +37,11 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 1. Ouvrez l’Explorateur de recherche dans la barre de commandes :
 
-   ![Commande d’accès à l’explorateur de recherche dans le portail](./media/search-explorer/search-explorer-cmd2.png "Commande d’accès à l’explorateur de recherche dans le portail")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
     Ou utilisez l’onglet **Explorateur de recherche** intégré sur un index ouvert :
 
-   ![Onglet Explorateur de recherche](./media/search-explorer/search-explorer-tab.png "Onglet Explorateur de recherche")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="unspecified-query"></a>Requête non spécifiée
 
@@ -55,7 +55,7 @@ La syntaxe équivalente d'une recherche vide est `*` ou `search=*`.
 
    **Résultats**
    
-   ![Exemple de requête vide](./media/search-explorer/search-explorer-example-empty.png "Exemple de requête vide non qualifiée ou vide")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="free-text-search"></a>Recherche en texte libre
 
@@ -71,7 +71,7 @@ Notez que lorsque vous indiquez des critères de recherche, comme des termes ou 
 
    Vous pouvez utiliser Ctrl+F pour rechercher des termes spécifiques dans les résultats.
 
-   ![Exemple de requête de texte libre](./media/search-explorer/search-explorer-example-freetext.png "Exemple de requête de texte libre")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Nombre de documents correspondants 
 
@@ -83,7 +83,7 @@ Ajoutez **$count=true** pour obtenir le nombre de correspondances trouvées dans
 
    **Résultats**
 
-   ![Exemple de nombre de documents](./media/search-explorer/search-explorer-example-count.png "Nombre de documents correspondants dans l’index")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Limiter les champs dans les résultats de la recherche
 
@@ -95,7 +95,7 @@ Ajoutez [ **$select**](search-query-odata-select.md) pour limiter les résultats
 
    **Résultats**
 
-   ![Exemple de limite de champs](./media/search-explorer/search-explorer-example-selectfield.png "Restreindre les champs dans les résultats de la recherche")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Retourner le jeu de résultats suivant
 
@@ -107,7 +107,7 @@ La Recherche cognitive Azure retourne les 50 premières correspondances selon l
 
    **Résultats**
 
-   ![Lot de résultats de recherche](./media/search-explorer/search-explorer-example-topskip.png "Retourner le lot de résultats de recherche suivant")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filtrer les expressions (supérieur à, inférieur à, égal à)
 
@@ -119,7 +119,7 @@ Utilisez le paramètre [ **$filter**](search-query-odata-filter.md) lorsque vous
    
    **Résultats**
 
-   ![Expression filter](./media/search-explorer/search-explorer-example-filter.png "Filtrer par critère")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 ## <a name="order-by-expressions"></a>Expressions OrderBy
 
@@ -131,7 +131,7 @@ Ajoutez [ **$orderby**](search-query-odata-orderby.md) pour trier les résultats
    
    **Résultats**
 
-   ![Expression orderby](./media/search-explorer/search-explorer-example-ordery.png "Changer l’ordre de tri")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Commande d’accès à l’explorateur de recherche dans le portail" border="false":::
 
 Les expressions **$filter** et **$orderby** sont des constructions OData. Pour plus d’informations, consultez l’article [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 

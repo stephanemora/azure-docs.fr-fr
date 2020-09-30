@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 6488871067416b2cee533561bae47874413d9012
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892114"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371284"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware
 
@@ -194,7 +194,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
    ![Entrer le mot de passe de l’appareil virtuel](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 8. Si vous avez démarré votre appareil dans un environnement non DHCP, un message s’affiche : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
+6. Les étapes 6 à 8 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 9. Si vous avez démarré votre appareil dans un environnement non DHCP, un message s’affiche : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
    
 7. Pour configurer le réseau, dans l’invite de commandes, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 

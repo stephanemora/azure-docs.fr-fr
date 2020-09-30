@@ -5,15 +5,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 23da214f4ffc9e589523f7ada00a77494183eb15
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 68b5946cb21bef1c8979a94c8780682cfe9defa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377441"
 ---
 Dans la requête, utilisez le paramètre `@StartTime` afin d’obtenir des données de métrique pour un horodatage particulier. Il sera remplacé par une chaîne au format `yyyy-MM-ddTHH:mm:ss`. 
 

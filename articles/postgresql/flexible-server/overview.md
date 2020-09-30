@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944438"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439953"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database pour PostgreSQL - Serveur flexible
 
@@ -49,15 +49,14 @@ Lors des événements de basculement, qu'ils soient planifiés ou non, si le ser
 1. Une nouvelle machine virtuelle de calcul Linux est approvisionnée.
 2. Le stockage contenant les fichiers de données est mappé avec la machine virtuelle.
 3. Le moteur de base de données PostgreSQL est mis en ligne sur le nouvelle machine virtuelle.
-4. Le service de passerelle assure un basculement transparent qui ne nécessite aucune modification du côté des applications.
 
 L’image ci-dessous montre la transition pour les machines virtuelles et l’échec de stockage.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Serveur flexible - Machine virtuelle et échecs de stockage":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Serveur flexible - Machine virtuelle et échecs de stockage":::
 
 Si la haute disponibilité redondante interzone est configurée, le service approvisionne et gère un serveur de secours dans la zone de disponibilité, au sein de la même région Azure. Les modifications apportées aux données sur le serveur source sont répliquées de façon synchrone sur le serveur de secours pour éviter toute perte de données. Avec la haute disponibilité redondante interzone, une fois l’événement de basculement planifié ou non planifié déclenché, le serveur de secours est immédiatement mis en ligne et disponible pour traiter les transactions entrantes. Cela permet la résilience du service en cas de défaillance de zone de disponibilité dans une région Azure prenant en charge plusieurs zones de disponibilité, comme illustré sur l’image ci-dessous.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Haute disponibilité redondante interzone":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Serveur flexible - Machine virtuelle et échecs de stockage":::
 
  Pour plus d’informations, consultez le document [Haute disponibilité](./concepts-high-availability.md).
 
