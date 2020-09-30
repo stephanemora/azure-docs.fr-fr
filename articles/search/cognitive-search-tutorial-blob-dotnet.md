@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 13e3f5a7d86d2e9b705fbeb104ba4f8eb690cb3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002860"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534095"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutoriel : Contenu recherchable généré par l’IA issu d’objets blob Azure avec le SDK .NET
 
@@ -170,7 +170,7 @@ Installez ensuite la version la plus récente du package NuGet `Microsoft.Extens
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 Ajoutez les informations relatives à votre service de recherche, ainsi qu'à votre compte de stockage d'objets blob. Rappelez-vous que vous pouvez récupérer ces informations à partir des étapes de configuration du service indiquées dans la section précédente.
 
 Pour **SearchServiceName**, entrez le nom court du service et non l’URL complète.
@@ -586,11 +586,11 @@ Cet exercice utilise les champs et les types de champ suivants :
 
 | Noms de champs | Types de champ |
 | --- | --- |
-| id | Edm.String |
-| content | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organizations | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Créer la classe DemoIndex
 
@@ -906,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Répétez ces étapes pour les champs supplémentaires : content, languageCode, keyPhrases et organizations dans cet exercice. Vous pouvez retourner plusieurs champs via la propriété [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) en utilisant une liste délimitée par des virgules.
+Répétez ces étapes pour les champs supplémentaires : content, languageCode, keyPhrases et organizations dans cet exercice. Vous pouvez retourner plusieurs champs via la propriété [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) en utilisant une liste délimitée par des virgules.
 
 <a name="reset"></a>
 

@@ -3,17 +3,17 @@ title: 'Azure Defender pour SQL : avantages et fonctionnalités'
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: e76fd33ccca73394c4ee48b3737db8b93a990659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449056"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Présentation d’Azure Defender pour SQL
 

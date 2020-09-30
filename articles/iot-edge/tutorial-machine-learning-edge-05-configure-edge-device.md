@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733009"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448510"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
@@ -167,7 +167,7 @@ Ensuite, exécutez le script afin de créer la machine virtuelle pour votre appa
     * Créer le groupe de ressources s’il n’existe pas déjà
     * Créer la machine virtuelle
     * Ajouter des exceptions NSG pour la machine virtuelle sur les ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ) et 443 (TLS)
-    * Installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+    * Installer [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 7. Le script génère la chaîne de connexion SSH permettant de se connecter à la machine virtuelle. Copiez la chaîne de connexion pour la prochaine étape.
 

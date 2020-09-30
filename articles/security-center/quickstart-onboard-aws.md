@@ -3,16 +3,16 @@ title: Connecter votre compte AWS à Azure Security Center
 description: Surveillance de vos ressources AWS à partir d’Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: how-to
+ms.date: 9/22/2020
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ee1b8fe6ed97f3b71cda418cce9e432f7c045447
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930684"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449038"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -71,7 +71,7 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
 
 #### <a name="create-an-iam-role-for-security-center"></a>Créer un rôle IAM pour Security Center
 1. Depuis votre console Amazon Web Services, sous **Security, Identity & Compliance** (Sécurité, identité et conformité), sélectionnez **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Services AWS":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 
 1. Sélectionnez **Rôles** et **Créer un rôle**.
 1. Sélectionnez **Another AWS account** (Autre compte AWS).
@@ -127,12 +127,12 @@ En tant que **propriétaire** de l’abonnement que vous souhaitez utiliser pour
 
 1. Dans le menu de Security Center, sélectionnez **Connecteurs cloud multiples**.
 1. Sélectionnez **Ajouter un compte AWS**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Ajouter un compte AWS sur la page connecteurs multicloud de Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 1. Configurez les options dans l’onglet **Authentification AWS** :
     1. Entrez un **nom d’affichage** pour le connecteur.
     1. Confirmez que l’abonnement est correct. Il s’agit de l’abonnement qui inclura les recommandations relatives au connecteur et à AWS Security Hub.
     1. Selon l’option d’authentification que vous avez choisie dans l’[étape 2. Configurez l’authentification pour Security Center dans AWS](#step-2-set-up-authentication-for-security-center-in-aws) :
-        - Sélectionnez **Envisager un rôle** et collez l’ARN à partir de [Créer un rôle IAM pour Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Coller le fichier ARN dans le champ correspondant de l’Assistant de connexion AWS dans le portail Azure":::
+        - Sélectionnez **Envisager un rôle** et collez l’ARN à partir de [Créer un rôle IAM pour Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 
             OR
 
@@ -164,7 +164,7 @@ Lorsque le connecteur est correctement créé et qu’AWS Security Hub a été c
 - Le service ASC analyse les nouvelles instances AWS EC2 toutes les 6 heures et les intègre en fonction de la configuration.
 - La norme AWS CIS s’affiche dans le tableau de bord de conformité réglementaire de Security Center.
 - Si la stratégie Security Hub est activée, des recommandations s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Ressources AWS et recommandations sur la page Recommandations de Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 
 
 
@@ -174,7 +174,7 @@ Comme indiqué ci-dessus, la page Recommandations de sécurité d’Azure Securi
 
 Pour afficher toutes les recommandations actives pour vos ressources par type de ressource, utilisez la page d’inventaire des ressources de Security Center et filtrez sur le type de ressource AWS qui vous intéresse :
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtre de type de ressource de la page d’inventaire des ressources avec les options AWS"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS dans le FAQ de Security Center

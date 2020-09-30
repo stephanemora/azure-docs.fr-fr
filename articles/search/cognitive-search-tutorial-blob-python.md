@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936025"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531001"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser Python et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -59,7 +59,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
-   ![Créer un compte de stockage](media/cognitive-search-tutorial-blob/storage-account.png "Créer un compte de stockage")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Créer un compte de stockage" border="false":::
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
@@ -81,7 +81,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
 
-   ![Charger les exemples de fichiers](media/cognitive-search-tutorial-blob/sample-files.png "Charger les exemples de fichiers")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Créer un compte de stockage" border="false":::
 
 1. Avant de quitter Stockage Azure, obtenez une chaîne de connexion afin de pouvoir formuler une connexion dans Recherche cognitive Azure. 
 
@@ -117,7 +117,7 @@ Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’a
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Créer un compte de stockage" border="false":::
 
 Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -190,7 +190,7 @@ La demande doit retourner un code d’état 201 confirmant la réussite.
 
 Dans le portail Azure, dans la page de tableau de bord du service de recherche, vérifiez que cogsrch-py-datasource apparaît dans la liste **Sources de données**. Cliquez sur **Actualiser** pour mettre à jour la page.
 
-![Vignette Sources de données dans le portail](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Vignette Sources de données dans le portail")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Créer un compte de stockage" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Étape 2 : Créer un ensemble de compétences
 
@@ -303,7 +303,7 @@ Chaque compétence s’exécute sur le contenu du document. Au cours du traiteme
 
 Une représentation graphique de l’ensemble de compétences est présentée ci-dessous.
 
-![Comprendre un ensemble de compétences](media/cognitive-search-tutorial-blob/skillset.png "Comprendre un ensemble de compétences")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Créer un compte de stockage" border="false":::
 
 Les sorties peuvent être mappées à un index, utilisées comme entrée d’une compétence en aval, ou les deux, comme c’est le cas avec le code de langue. Dans l’index, un code de langue est utile pour le filtrage. En tant qu’entrée, le code de langue est utilisé par les compétences d’analyse de texte pour informer les règles linguistiques en matière de césure de mots.
 
@@ -315,7 +315,7 @@ Dans cette section, vous définissez le schéma d’index en spécifiant les cha
 
 Cet exercice utilise les champs et les types de champ suivants :
 
-| Noms de champs : | id         | content   | languageCode | keyPhrases         | organizations     |
+| Noms de champs : | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | Types de champ : | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 Dans la réponse, supervisez `"lastResult"` pour ses valeurs `"status"` et `"endTime"`. Exécuter le script régulièrement pour vérifier l’état. Quand l’indexeur a terminé, l’état est défini sur « success », une valeur « endTime » est spécifiée et la réponse inclut les erreurs et avertissements qui se sont éventuellement produits au cours de l’enrichissement.
 
-![L’indexeur est créé](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "L’indexeur est créé")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Créer un compte de stockage" border="false":::
 
 Les avertissements sont courants avec certaines combinaisons de fichiers sources et de compétences et n’indiquent pas toujours un problème. De nombreux avertissements ont une importance mineure. Par exemple, si vous indexez un fichier JPEG qui n’a pas de texte, vous voyez l’avertissement dans la capture d’écran ci-après.
 
-![Exemple d’avertissement de l’indexeur](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exemple d’avertissement de l’indexeur")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Créer un compte de stockage" border="false":::
 
 ## <a name="5---search"></a>5 - Recherche
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Les résultats doivent ressembler à l’exemple suivant. La capture d’écran montre uniquement une partie de la réponse.
 
-![Interroger l’index pour tous les champs](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Interroger l’index pour tous les champs")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Créer un compte de stockage" border="false":::
 
 La sortie est le schéma d’index, avec le nom, le type et les attributs de chaque champ.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Les résultats doivent ressembler à l’exemple suivant. La capture d’écran montre uniquement une partie de la réponse.
 
-![Interroger l’index pour le contenu des organisations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Interroger l’index pour retourner le contenu des organisations")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Créer un compte de stockage" border="false":::
 
 Répétez cette opération pour les champs supplémentaires : `content`, `languageCode`, `keyPhrases` et `organizations` dans cet exercice. Vous pouvez retourner plusieurs champs via `$select` à l’aide d’une liste délimitée par des virgules.
 
@@ -522,7 +522,7 @@ Dans les premières étapes expérimentales du développement, l’approche la p
 
 Vous pouvez utiliser le portail pour supprimer les index, les indexeurs et les ensembles de compétences. Quand vous supprimez l’indexeur, vous pouvez si vous le souhaitez, sélectivement supprimer l’index, l’ensemble de compétences et la source de données en même temps.
 
-![Supprimer les objets de recherche](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Supprimer des objets de recherche dans le portail")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Créer un compte de stockage" border="false":::
 
 Vous pouvez également les supprimer à l’aide d’un script. Le script suivant montre comment supprimer un ensemble de compétences. 
 

@@ -4,15 +4,15 @@ description: En savoir plus sur les fonctionnalités de la page de présentation
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929833"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447671"
 ---
 # <a name="azure-security-centers-overview-page"></a>Page de présentation de Security Center
 
@@ -27,7 +27,7 @@ La présentation fournit une vue unifiée de la posture de sécurité de vos cha
 
 ## <a name="features-of-the-overview-page"></a>Fonctionnalités de la page de présentation
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Barre supérieure de la page de présentation de Security Center":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Page Vue d’ensemble de Security Center":::
 
 La **barre de menus supérieure** offre :
 - **Abonnements** : vous pouvez afficher et filtrer la liste des abonnements en sélectionnant ce bouton. Security Center ajuste l’affichage pour refléter la position de sécurité des abonnements sélectionnés.

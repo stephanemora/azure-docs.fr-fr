@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895747"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447175"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Démarrage rapide : Configuration d’Azure Security Center
 
@@ -61,7 +61,7 @@ Pour suivre les guides de démarrage rapide et les tutoriels Security Center, vo
 
 1. Dans la barre latérale de Security Center, sélectionnez **Bien démarrer**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Onglet Mise à niveau de la page Prise en main"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Tableau de bord de présentation de Security Center"::: 
 
     L’onglet **Mise à jour** répertorie les abonnements et les espaces de travail éligibles à l’intégration.
 
@@ -82,7 +82,7 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
 1. Dans la page **Collecte des données**, définissez **Provisionnement automatique** sur **On** (activé).
 1. Sélectionnez **Enregistrer**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Activation du provisionnement automatique de l’agent Log Analytics":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Tableau de bord de présentation de Security Center":::
 
 >[!TIP]
 > Si un espace de travail doit être approvisionné, l’installation de l’agent peut prendre jusqu’à 25 minutes.
@@ -109,7 +109,6 @@ Vous souhaitez optimiser et réduire vos coûts de cloud ?
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

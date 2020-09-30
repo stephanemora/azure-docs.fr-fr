@@ -3,16 +3,16 @@ title: Connecter votre compte GCP à Azure Security Center
 description: Surveillance de vos ressources GCP à partir d’Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: how-to
+ms.date: 9/22/2020
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f478c279eb4c07332d047935f7c5dab89fd4b7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930679"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448993"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connectez vos comptes GCP à Azure Security Center
 
@@ -80,7 +80,7 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
     1. Sélectionnez **AJOUTER**.
     1. Dans le champ **Nouveaux membres**, collez la **valeur E-mail** que vous avez copiée précédemment.
     1. Spécifiez le rôle **Visionneuse d’administration de Security Center**, puis sélectionnez Enregistrer.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Définition les autorisations GCP pertinentes":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Étape 4. Créer une clé privée pour le compte de service dédié
@@ -107,7 +107,7 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 Lorsque le connecteur est correctement créé et que le GCP Security Command Center a été configuré correctement :
 
 - La norme CIS GCP s’affiche dans le tableau de bord de conformité réglementaire de Security Center.
-- Les recommandations de sécurité pour vos ressources GCP s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration :   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Ressources GCP et recommandations sur la page Recommandations de Security Center":::
+- Les recommandations de sécurité pour vos ressources GCP s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration :   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Surveillance de vos ressources GCP
@@ -116,7 +116,7 @@ Comme indiqué ci-dessus, la page Recommandations de sécurité d’Azure Securi
 
 Pour afficher toutes les recommandations actives pour vos ressources par type de ressource, utilisez la page d’inventaire des ressources de Security Center et filtrez sur le type de ressource GCP qui vous intéresse :
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtre de type de ressource de la page d’inventaire des ressources avec les options GCP"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center"::: 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

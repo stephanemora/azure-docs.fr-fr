@@ -1,17 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer une application Java sur Azure Service Fabric'
 description: Dans le cadre de ce démarrage rapide, vous créez une application Java pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric.
-author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
-ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320423"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529846"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide :  Déployer une application Java dans Azure Service Fabric sur Linux
 
