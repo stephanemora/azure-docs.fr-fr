@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169801"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258896"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
@@ -150,13 +150,13 @@ Cet exemple d’application prend en charge l’inscription, la connexion et la 
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Page d’inscription affichée par le flux utilisateur Azure AD B2C":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Navigateur web montrant l’application monopage s’exécutant localement":::
 
 1. Sélectionnez **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
 Quand vous sélectionnez **Créer**, l’application affiche le nom de l’utilisateur connecté.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navigateur web montrant l’application monopage avec l’utilisateur connecté":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navigateur web montrant l’application monopage s’exécutant localement":::
 
 Si vous voulez tester la connexion, sélectionnez le bouton **Se déconnecter**, puis sélectionnez **Se connecter**, et connectez-vous avec l’adresse e-mail et le mot de passe que vous avez entrés lors de votre inscription.
 

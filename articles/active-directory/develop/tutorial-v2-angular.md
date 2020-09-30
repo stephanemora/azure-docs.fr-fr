@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118281"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256923"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage Angular
 

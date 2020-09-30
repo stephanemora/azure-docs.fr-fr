@@ -3,13 +3,13 @@ title: Démarrage rapide – Déployer un conteneur Docker dans une instance de 
 description: Dans ce démarrage rapide, vous utilisez Docker CLI pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolée.
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 37a6c430055e440d149b9a793c453251787267d4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.custom: devx-track-js
+ms.openlocfilehash: 9904fb8c2142816196a1939a16445318bdb245d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262312"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Démarrage rapide : Déployer une instance de conteneur dans Azure à l’aide de Docker CLI
 
