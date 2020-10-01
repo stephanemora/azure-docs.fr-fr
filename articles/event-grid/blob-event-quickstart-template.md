@@ -3,14 +3,14 @@ title: Envoyer des événements de Stockage Blob à un point de terminaison web 
 description: Utilisez Azure Event Grid et un modèle Azure Resource Manager pour créer un compte de stockage Blob, puis abonnez-vous à ses événements. Envoyez les événements à un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661263"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598358"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Router des événements de stockage blob vers un point de terminaison web à l’aide d’un modèle Resource Manager
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Démarrage rapide : Router des événements de stockage blob vers un point de terminaison web à l’aide d’un modèle Resource Manager
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez un modèle Resource Manager (Azure Resource Manager) pour créer un compte de stockage blob, vous abonner aux événements de ce stockage blob et déclencher un événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
