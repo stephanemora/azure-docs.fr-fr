@@ -18,15 +18,15 @@
       href: add-application-portal-configure.md
     - name: Affecter des utilisateurs à une application
       href: add-application-portal-assign-users.md
-    - name: Configurer l’authentification unique SAML
+    - name: Configurer l’authentification unique basée sur SAML
       href: add-application-portal-setup-sso.md
-    - name: Configurer l’authentification unique OIDC
+    - name: Configurer l’authentification unique basée sur OIDC
       href: add-application-portal-setup-oidc-sso.md
     - name: Supprimer une application
       href: delete-application-portal.md
 - name: Tutoriels
   items:
-    - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
+    - name: Liste des applications préconfigurées
       href: /azure/active-directory/saas-apps/
     - name: Ajouter une application locale via le proxy d’application
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Ressources de migration
           href: migration-resources.md
-        - name: Migrer une application ADFS vers Azure
+        - name: "Migrer une application AD\_FS vers Azure"
           href: migrate-adfs-apps-to-azure.md
         - name: Utiliser le rapport d’activité d’application AD FS (préversion)
           href: migrate-adfs-application-activity.md

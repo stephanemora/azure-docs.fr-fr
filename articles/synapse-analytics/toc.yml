@@ -10,34 +10,24 @@
       items:
         - name: Introduction
           href: get-started.md
-          displayName: 'get, started'
-        - name: 1 Créer un espace de travail
+        - name: 1 Créer un espace de travail Synapse
           href: get-started-create-workspace.md
-          displayName: 'get, started'
-        - name: 2 Utiliser des pools SQL
+        - name: 2 Analyser avec un pool SQL
           href: get-started-analyze-sql-pool.md
-          displayName: 'get, started'
-        - name: 3 Utiliser Spark
+        - name: 3 Analyser avec Spark
           href: get-started-analyze-spark.md
-          displayName: 'get, started'
-        - name: 4 Utiliser SQL à la demande
+        - name: 4 Analyser avec SQL à la demande
           href: get-started-analyze-sql-on-demand.md
-          displayName: 'get, started'
         - name: 5 Analyser des données dans un compte de stockage
           href: get-started-analyze-storage.md
-          displayName: 'get, started'
         - name: 6 Orchestrer avec des pipelines
           href: get-started-pipelines.md
-          displayName: 'get, started'
         - name: 7 Visualiser avec Power BI
           href: get-started-visualize-power-bi.md
-          displayName: 'get, started'
         - name: 8 Superviser
           href: get-started-monitor.md
-          displayName: 'get, started'
         - name: 9 Explorer le Centre de connaissances
           href: get-started-knowledge-center.md
-          displayName: 'get, started'
     - name: Aide-mémoire
       href: overview-cheat-sheet.md
     - name: Questions fréquentes (FAQ)
@@ -58,16 +48,16 @@
       href: quickstart-power-bi.md
     - name: Créer des pools
       items:
-        - name: Créer un pool SQL à l’aide de Synapse Studio
-          href: quickstart-create-sql-pool-studio.md
+        - name: Créer un notebook Apache Spark avec des outils web
+          href: quickstart-apache-spark-notebook.md
+        - name: Créer un pool Apache Spark à l’aide du portail Azure
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Créer un pool Apache Spark à l’aide de Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
         - name: Créer un pool SQL à l’aide du portail Azure
           href: quickstart-create-sql-pool-portal.md
-        - name: Créer un notebook
-          href: quickstart-apache-spark-notebook.md
-        - name: Créer un pool Spark avec le portail Azure
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Créer un pool Spark à l’aide de Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Créer un pool SQL à l’aide de Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Charger des données avec les pools SQL
       items:
         - name: Instruction COPY
@@ -84,16 +74,12 @@
   items:
     - name: Exécuter des applications Apache Spark
       href: ./spark/intellij-tool-synapse.md
-    - name: Exécuter des applications PySpark pour des pools Spark
-      href: ./spark/vscode-tool-synapse.md
     - name: Définitions des travaux Spark
       href: ./spark/apache-spark-job-definitions.md
     - name: "Power\_BI\_Desktop"
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Scientifique des données
       items:
-        - name: Exécuter une expérience de régression avec Azure AutoML
-          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
         - name: Créer un modèle de classification avec Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Analyste de données
@@ -212,8 +198,8 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Langage d’expression
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Différences par rapport à Azure Data Factory
-              href: ./data-integration/concepts-data-factory-differences.md
+        - name: Différences par rapport à Azure Data Factory
+          href: ./data-integration/concepts-data-factory-differences.md
     - name: Spark
       items:
         - name: Vue d’ensemble
@@ -386,6 +372,22 @@
           href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Cas d’utilisation de Synapse Link
           href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Machine Learning
+      items:
+        - name: Vue d'ensemble
+          items:
+            - name: "Qu’est-ce que le machine learning dans Synapse Analytics\_?"
+              href: machine-learning/what-is-machine-learning.md
+        - name: Démarrages rapides
+          items:
+            - name: Créer un nouveau service lié Azure Machine Learning
+              href: machine-learning/quickstart-integrate-azure-machine-learning.md
+        - name: Didacticiels
+          items:
+            - name: Assistant de scoring de modèle pour les pools SQL
+              href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+            - name: Exécuter une expérience de régression avec Azure AutoML (scoring dans DW)
+              href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Intégration d’outils (IA, ETL, BI)'
       items:
         - name: Résoudre les problèmes liés à Synapse Studio
@@ -478,31 +480,27 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Se connecter à Azure Synapse Link pour Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark
+            - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark pour Azure Synapse Analytics
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copier des données depuis Synapse Link vers un pool SQL avec Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md
-            - name: Interroger le magasin analytique Azure Cosmos DB avec SQL à la demande
-              href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: SQL Synapse
           items:
-            - name: Interroger des données externes
+            - name: Interroger des données dans le stockage
               items:
                 - name: Vue d’ensemble
                   href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger des fichiers CSV
+                - name: Interroger un fichier CSV
                   href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des fichiers Parquet
                   href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Interroger des types imbriqués Parquet
+                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des fichiers JSON
                   href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger Azure Cosmos DB
-                  href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger des types imbriqués
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Interroger des dossiers et plusieurs fichiers
                   href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Interroger des fichiers partitionnés à l’aide des métadonnées de fichier
+                - name: Utiliser des métadonnées de fichier
                   href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Créer et utiliser des vues
                   href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
