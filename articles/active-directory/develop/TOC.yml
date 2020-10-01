@@ -66,7 +66,7 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Démon de console Python
           href: quickstart-v2-python-daemon.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: Applications monopages
       displayName: SPA
@@ -145,7 +145,7 @@
               href: scenario-spa-production.md
         - name: Application web qui connecte les utilisateurs
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: scenario-web-app-sign-user-overview.md
             - name: Inscription d'application
               href: scenario-web-app-sign-user-app-registration.md
@@ -418,6 +418,8 @@
               href: id-tokens.md
             - name: Jetons d’accès
               href: access-tokens.md
+            - name: Configurer les durées de vie des jetons
+              href: active-directory-configurable-token-lifetimes.md
             - name: Point de terminaison UserInfo
               href: userinfo.md
             - name: Informations d’identification de certificat
@@ -522,7 +524,7 @@
         - name: Utiliser des attributs d’extension de schéma d’annuaire dans les revendications
           href: active-directory-schema-extensions.md
         - name: Configurer les durées de vie des jetons
-          href: active-directory-configurable-token-lifetimes.md
+          href: configure-token-lifetimes.md
         - name: Gérer les changements de cookie SameSite dans le navigateur Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Gérer ITP dans Safari
