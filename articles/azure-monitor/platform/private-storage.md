@@ -1,241 +1,100 @@
 ---
-title: Comptes de stockage appartenant au client pour l’ingestion des journaux
-description: Utilisez votre propre compte de stockage pour l’ingestion des données de journal dans un espace de travail Log Analytics dans Azure Monitor.
+title: Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
+description: Utilisez votre propre compte de stockage pour les scénarios de Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2020
-ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+author: noakup
+ms.author: noakuper
+ms.date: 09/03/2020
+ms.openlocfilehash: 9d54e6eb84e3269eb95f8d314875474f78536652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962670"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526423"
 ---
-# <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Comptes de stockage appartenant au client pour l’ingestion des journaux dans Azure Monitor
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 
-Azure Monitor utilise des comptes de stockage dans le processus d’ingestion de certains types de données tels que des [journaux personnalisés](data-sources-custom-logs.md) et certains [journaux Azure](./diagnostics-extension-logs.md). Pendant le processus d’ingestion, les journaux sont d’abord envoyés à un compte de stockage puis ingérés dans Log Analytics ou Application Insights. Si vous souhaitez contrôler vos données lors de l’ingestion, vous pouvez utiliser vos propres comptes de stockage au lieu du stockage géré par le service. L’utilisation de votre propre compte de stockage vous permet de contrôler l’accès, le contenu, le chiffrement et la conservation des journaux lors de l’ingestion. Nous appelons cela « Bring Your Own Storage », ou BYOS. 
+Log Analytics s’appuie sur Stockage Azure dans différents scénarios. Cette utilisation est généralement gérée automatiquement. Toutefois, dans certains cas, vous devez fournir et gérer votre propre compte de stockage, également appelé compte de stockage géré par le client. Ce document détaille l’utilisation du stockage géré par le client pour l’ingestion des journaux WAD/LAD, des scénarios Azure Private Link spécifiques et le chiffrement par CMK. 
 
-Un scénario qui requiert BYOS est l’isolement réseau via des liaisons privés. Lorsque vous utilisez un réseau virtuel, l’isolement réseau est souvent une exigence et l’accès à l’Internet public est limité. Dans ce cas, l’accès au stockage du service Azure Monitor pour l’ingestion de journaux est soit complètement bloqué, soit considéré comme une mauvaise pratique. Au lieu de cela, les journaux doivent être ingérés par le bais d’un compte de stockage appartenant au client au sein du réseau virtuel ou facilement accessible à partir de celui-ci.
+> [!NOTE]
+> Nous vous recommandons de ne pas dépendre du contenu que Log Analytics charge sur le stockage géré par le client, étant donné que le formatage et le contenu peuvent changer.
 
-Le chiffrement des journaux avec des clés gérées par le client (CMK) est un autre scénario. Les clients peuvent chiffrer les données journalisées à l’aide de CMK sur les clusters qui stockent les journaux. La même clé peut également être utilisée pour chiffrer des journaux pendant le processus d’ingestion.
+## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Ingestion des journaux de l’extension Azure Diagnostics (WAD/LAD)
+Les agents de l’extension Azure Diagnostics (également appelés WAD et LAD pour les agents Windows et Linux, respectivement) recueillent différents journaux du système d’exploitation et les stockent sur un compte de stockage géré par le client. Vous pouvez ensuite ingérer ces journaux dans Log Analytics pour les examiner et les analyser.
+Pour collecter les journaux de l’extension Azure Diagnostics à partir de votre compte de stockage, connectez le compte de stockage à votre espace de travail Log Analytics en tant que source de données de stockage à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) ou en appelant l’[API Storage Insights](https://docs.microsoft.com/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
 
-## <a name="data-types-supported"></a>Types de données prises en charge
+Types de données pris en charge :
+* syslog
+* Événements Windows
+* Service Fabric
+* Événements ETW
+* Journaux d’activité IIS
 
-Les types de données qui sont ingérés à partir d’un compte de stockage sont les suivants. Pour plus d’informations sur l’ingestion de ces types, consultez [Collecter des données de l’extension de diagnostic Azure et les enregistrer dans des journaux d’activité Azure Monitor](./diagnostics-extension-logs.md).
+## <a name="using-private-links"></a>Utilisation de liaisons privées
+Les comptes de stockage gérés par le client sont requis dans certains cas d’usage, notamment lorsque des liaisons privées sont utilisées pour se connecter à des ressources Azure Monitor. L’un de ces cas est l’ingestion de journaux personnalisés ou de journaux IIS. Ces types de données sont d’abord chargés sous forme de blobs sur un compte Stockage Azure intermédiaire, et seulement ensuite ils sont ingérés dans un espace de travail. De même, certaines solutions Azure Monitor peuvent utiliser des comptes de stockage pour stocker des fichiers volumineux, tels que des fichiers de sauvegarde Watson, qui sont utilisés par la solution Azure Security Center. 
 
-| Type | Informations sur les tables |
-|:-----|:------------------|
-| Journaux d’activité IIS | Blob : wad-iis-logfiles|
-|Journaux des événements Windows | Tableau : WADWindowsEventLogsTable |
-| syslog | Tableau : LinuxsyslogVer2v0 |
-| Journaux d’activité de suivi des événements ETW Windows | Tableau : WADETWEventTable|
-| Service Fabric | Tableau : WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Journaux d’activité personnalisés | n/a |
-| Fichiers d’image mémoire Watson Azure Security Center | n/a|  
+##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Scénarios Azure Private Link qui requièrent un stockage géré par le client
+* Ingestion de journaux personnalisés et de journaux IIS
+* Solution ASC autorisée à collecter des fichiers de sauvegarde Watson
 
-## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage 
-Le compte de stockage doit remplir les conditions suivantes :
+### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Comment utiliser un compte de stockage géré par le client via une liaison privée
+##### <a name="workspace-requirements"></a>Conditions requises pour l’espace de travail
+Lors de la connexion à Azure Monitor via une liaison privée, les agents Log Analytics peuvent uniquement envoyer des journaux à des espaces de travail qui sont liés à votre réseau via une liaison privée. Cette règle nécessite que vous configuriez correctement un objet Étendue de liaison privée Azure Monitor (AMPLS), que vous le connectiez à vos espaces de travail, puis que vous le connectiez à votre réseau via une liaison privée. Pour plus d’informations sur la procédure de configuration de l’AMPLS, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security). 
+##### <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
+Pour que le compte de stockage se connecte correctement à votre liaison privée, il doit :
+* se trouver sur votre réseau virtuel ou sur un réseau appairé et être connecté à votre réseau virtuel via une liaison privée. Cela permet aux agents de votre réseau virtuel d’envoyer des journaux au compte de stockage ;
+* se trouver dans la même région que l’espace de travail auquel il est lié ;
+* autoriser Azure Monitor à accéder au compte de stockage. Si vous avez choisi de n’autoriser que certains réseaux à accéder à votre compte de stockage, veillez à autoriser cette exception : « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage ». Cela permet à Log Analytics de lire les journaux ingérés dans ce compte de stockage ;
+* si votre espace de travail traite également du trafic provenant d’autres réseaux, vous devez configurer le compte de stockage de manière à autoriser le trafic entrant provenant des réseaux concernés ou d’Internet.
 
-- Accessible aux ressources de votre réseau virtuel qui écrivent des journaux dans le stockage.
-- Doit se trouver dans la même région que l’espace de travail auquel il est lié.
-- Autoriser l’accès Azure Monitor - Si vous choisissez de limiter l’accès à votre compte de stockage pour sélectionner des réseaux, veillez à autoriser cette exception : *Autoriser les services Microsoft approuvés à accéder à ce compte de stockage*.
+##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Lier votre compte de stockage à un espace de travail Log Analytics
+Vous pouvez lier votre compte de stockage à l’espace de travail via l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) ou l’[API REST](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts). Valeurs dataSourceType applicables :
+* CustomLogs : utilise le stockage pour les journaux personnalisés et les journaux IIS pendant l’ingestion.
+* AzureWatson : utilise le stockage pour les fichiers de sauvegarde Watson chargés par la solution ASC (Azure Security Center). Pour plus d’informations sur la gestion de la conservation des données, le remplacement d’un compte de stockage lié et la surveillance de l’activité sur votre compte de stockage, consultez la section [Gestion des comptes de stockage liés](#managing-linked-storage-accounts). 
 
-## <a name="process-to-configure-customer-owned-storage"></a>Processus de configuration du stockage appartenant au client
-Le processus de base pour utiliser votre propre compte de stockage pour l’ingestion est le suivant :
+## <a name="encrypting-data-with-cmk"></a>Chiffrement des données avec une clé gérée par le client
+Stockage Azure chiffre toutes les données au repos dans un compte de stockage. Par défaut, le service chiffre les données avec des clés gérées par Microsoft (MMK). Toutefois, Stockage Azure vous permet d’utiliser une clé gérée par le client (CMK) à partir d’Azure Key Vault pour chiffrer vos données de stockage. Vous pouvez importer vos propres clés dans Azure Key Vault ou utiliser les API d’Azure Key Vault pour générer des clés.
+##### <a name="cmk-scenarios-that-require-a-customer-managed-storage-account"></a>Scénarios CMK qui requièrent un compte de stockage géré par le client
+* Chiffrement des requêtes d’alerte de journal avec une clé gérée par le client
+* Chiffrement des requêtes enregistrées avec une clé gérée par le client
 
-1. Créez un compte de stockage ou sélectionnez un compte existant.
-2. Liez le compte de stockage à un espace de travail Log Analytics.
-3. Gérez le stockage en examinant sa charge et sa rétention pour vous assurer qu’il fonctionne comme prévu.
+### <a name="how-to-apply-cmk-to-customer-managed-storage-accounts"></a>Comment appliquer une clé gérée par le client à des comptes de stockage gérés par le client
+##### <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
+Le compte de stockage et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur le chiffrement et la gestion des clés dans le stockage Azure, consultez [Chiffrement du stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-La seule méthode disponible pour créer et supprimer des liaisons consiste à utiliser l’API REST. Des détails sur la requête d’API spécifique requise pour chaque processus sont fournis dans les sections ci-dessous.
+##### <a name="apply-cmk-to-your-storage-accounts"></a>Appliquer une clé gérée par le client à vos comptes de stockage
+Pour configurer votre compte Stockage Azure de façon à utiliser des clés gérées par le client avec Azure Key Vault, utilisez le [portail Azure](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal?toc=/azure/storage/blobs/toc.json), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-powershell?toc=/azure/storage/blobs/toc.json) ou l’[interface CLI](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-cli?toc=/azure/storage/blobs/toc.json). 
 
-## <a name="command-line-and-rest-api"></a>Ligne de commande et API REST
+## <a name="managing-linked-storage-accounts"></a>Gestion des comptes de stockage liés
 
-### <a name="command-line"></a>Ligne de commande
-Pour créer et gérer des comptes de stockage liés, utilisez [az monitor log-analytics workspace linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Cette commande permet de lier et de dissocier les comptes de stockage d’un espace de travail et de répertorier les comptes de stockage liés.
+Pour lier des comptes de stockage à votre espace de travail ou les en dissocier, utilisez l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) ou l’[API REST](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts).
 
-### <a name="request-and-cli-values"></a>Valeurs de la requête et de l’interface CLI
+##### <a name="create-or-modify-a-link"></a>Créer ou modifier une liaison
+Lorsque vous liez un compte de stockage à un espace de travail, Log Analytics commence à l’utiliser au lieu du compte de stockage détenu par le service. Vous pouvez : 
+* inscrire plusieurs comptes de stockage pour répartir la charge des journaux entre eux ;
+* réutiliser le même compte de stockage pour plusieurs espaces de travail.
 
-#### <a name="datasourcetype"></a>dataSourceType 
+##### <a name="unlink-a-storage-account"></a>Dissocier un compte de stockage
+Pour cesser d’utiliser un compte de stockage, dissociez le stockage de l’espace de travail. La dissociation de tous les comptes de stockage d’un espace de travail signifie que Log Analytics tentera de se tourner vers les comptes de stockage gérés par le service. Si votre réseau dispose d’un accès limité à Internet, ces stockages peuvent être indisponibles et tout scénario qui repose sur le stockage échouera.
 
-- AzureWatson : utilisez cette valeur pour les fichiers d’image mémoire Azure Watson Azure Security Center.
-- CustomLogs : utilisez cette valeur pour les types de données suivants :
-  - Journaux d’activité personnalisés
-  - Journaux d’activité IIS
-  - Événements (Windows)
-  - Syslog (Linux)
-  - Journaux ETW
-  - Événements Service Fabric
-  - Données d’évaluation  
+##### <a name="replace-a-storage-account"></a>Remplacer un compte de stockage
+Pour remplacer un compte de stockage utilisé pour l’ingestion :
+1.  **Créez une liaison vers un nouveau compte de stockage.** Les agents de journalisation recevront la configuration mise à jour et commenceront également à envoyer des données vers le nouveau stockage. Le processus peut prendre quelques minutes.
+2.  **Ensuite, dissociez l’ancien compte de stockage pour que les agents cessent d’écrire dans le compte supprimé.** Le processus d’ingestion continue de lire les données de ce compte jusqu’à ce qu’elles soient toutes ingérées. Ne supprimez pas le compte de stockage tant que tous les journaux n’ont pas été ingérés.
 
-#### <a name="storage_account_resource_id"></a>storage_account_resource_id
-Cette valeur utilise la structure suivante :
+### <a name="maintaining-storage-accounts"></a>Conservation des comptes de stockage
+##### <a name="manage-log-retention"></a>Gérer la rétention des journaux
+Lorsque vous utilisez votre propre compte de stockage, la rétention est laissée à votre discrétion. En d’autres termes, Log Analytics ne supprime pas les journaux stockés sur votre stockage privé. Au lieu de cela, vous devez configurer une stratégie pour gérer la charge en fonction de vos préférences.
 
-```
-subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
-```
-
-
-## <a name="get-linked-storage-accounts"></a>Obtenir les comptes de stockage liés
-
-### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obtenir les comptes de stockage liés pour tous les types de source de données
-
-#### <a name="api-request"></a>Requête d’API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>response
-
-```json
-{
-    [
-        {
-            "properties":
-            {
-                "dataSourceType": "CustomLogs",
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_1>",
-                    "<storage_account_resource_id_2>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-            "name": "CustomLogs",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        },
-        {
-            "properties":
-            {
-                "dataSourceType": " AzureWatson "
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_3>",
-                    "<storage_account_resource_id_4>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/AzureWatson",
-            "name": "AzureWatson",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        }
-    ]
-}
-```
-
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obtenir les comptes de stockage liés pour un type spécifique de source de données
-
-#### <a name="api-request"></a>Requête d’API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>response 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-## <a name="create-or-modify-a-link"></a>Créer ou modifier une liaison
-
-Une fois que vous avez lié un compte de stockage à un espace de travail, Log Analytics commencera à l’utiliser au lieu du compte de stockage détenu par le service. Vous pouvez inscrire une liste de comptes de stockage en même temps, et vous pouvez utiliser le même compte de stockage pour plusieurs espaces de travail.
-
-Si votre espace de travail traite à la fois des ressources de réseau virtuel et des ressources externes à un réseau virtuel, vous devez vous assurer qu’il ne rejette pas le trafic provenant d’Internet. Votre stockage doit avoir les mêmes paramètres que votre espace de travail et être mis à la disposition des ressources externes à votre réseau virtuel. 
-
-### <a name="api-request"></a>Requête d’API
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-### <a name="payload"></a>Payload
-
-```json
-{
-    "properties":
-    {
-        "storageAccountIds  " : 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    }
-}
-```
-
-### <a name="response"></a>response
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs"
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-"id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-"name": "CustomLogs",
-"type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-
-## <a name="unlink-a-storage-account"></a>Dissocier un compte de stockage
-Si vous décidez de cesser d’utiliser un compte de stockage pour l’ingestion ou de remplacer l’espace de travail que vous utilisez, vous devez dissocier le compte de stockage de l’espace de travail.
-
-La dissociation de tous les comptes de stockage d’un espace de travail signifie que l’ingestion tentera de se tourner vers les comptes de stockage gérés par le service. Si vos agents s’exécutent sur un réseau virtuel avec un accès limité à Internet, l’ingestion est supposée échouer. L’espace de travail doit avoir un compte de stockage lié qui est accessible à partir de vos ressources analysées.
-
-Avant de supprimer un compte de stockage, vous devez vous assurer que toutes les données qu’il contient ont été ingérées dans l’espace de travail. Par précaution, gardez votre compte de stockage disponible après avoir lié un autre stockage. Supprimez-le uniquement une fois que tout son contenu a été ingéré, et vous pouvez voir que les nouvelles données sont écrites dans le compte de stockage qui vient d’être connecté.
-
-
-### <a name="api-request"></a>Requête d’API
-```
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-## <a name="replace-a-storage-account"></a>Remplacer un compte de stockage
-
-Pour remplacer un compte de stockage utilisé pour l’ingestion, commencez par créer une liaison pour un nouveau compte de stockage. Les agents de journalisation recevront la configuration mise à jour et commenceront également à envoyer des données vers le nouveau stockage.
-
-Ensuite, dissociez l’ancien compte de stockage pour que les agents cessent d’écrire dans le compte supprimé. Le processus d’ingestion continue de lire les données de ce compte jusqu’à ce qu’elles soient toutes ingérées. Ne supprimez pas le compte de stockage tant que tous les journaux n’ont pas été ingérés.
-
-La configuration de l’agent sera actualisée après quelques minutes, et les journaux seront basculés vers le nouveau stockage.
-
-## <a name="manage-storage-account"></a>Gérer un compte de stockage
-
-### <a name="load"></a>Load
-
-Les comptes de stockage peuvent traiter une certaine charge de demandes de lecture et d’écriture avant de commencer à les limiter. La limitation a une incidence sur le temps nécessaire à l’ingestion des journaux et peut entraîner la perte de données. Si votre stockage est surchargé, inscrivez des comptes de stockage supplémentaires et répartissez la charge entre eux. 
+##### <a name="consider-load"></a>Prendre en compte la charge
+Les comptes de stockage peuvent gérer une certaine charge de requêtes de lecture et d’écriture avant de commencer à limiter les requêtes (pour plus d’informations, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account)). La limitation a une incidence sur le temps nécessaire à l’ingestion des journaux. Si votre compte de stockage est surchargé, inscrivez un compte de stockage supplémentaire afin de répartir la charge. Pour surveiller la capacité et le niveau de performance de votre compte de stockage, consultez ses [insights dans le portail Azure]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### <a name="related-charges"></a>Frais connexes
-
-Les comptes de stockage sont facturés en fonction du volume de données stockées, des types de stockage et du type de redondance. Pour plus d’informations, consultez [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/) et [Tarification de Stockage Table](https://azure.microsoft.com/pricing/details/storage/tables/).
-
-Si le compte de stockage inscrit de votre espace de travail se trouve dans une autre région, la sortie vous sera facturée selon ces [détails de tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
-
+Les comptes de stockage sont facturés en fonction du volume de données stockées, du type de stockage et du type de redondance. Pour plus d’informations, consultez [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs) et [Tarification de Stockage Table](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la configuration d’une liaison privée, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](private-link-security.md).
-
+- En savoir plus sur l’[utilisation d’Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](private-link-security.md)
+- En savoir plus sur les [clés gérées par le client dans Azure Monitor](customer-managed-keys.md)

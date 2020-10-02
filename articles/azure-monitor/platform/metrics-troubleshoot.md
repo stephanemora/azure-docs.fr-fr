@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829592"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440675"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -110,7 +110,7 @@ Par défaut, les métriques de SE invité sont stockées dans le compte de Stock
 
 1. Vérifiez que le compte de stockage n’est pas protégé par le pare-feu. Le Portail Azure a besoin d’accéder au compte de stockage afin de récupérer les données de métriques et de tracer les graphiques.
 
-1. Utilisez [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les métriques sont transmises dans le compte de stockage. Si les métriques ne sont pas collectées, reportez-vous au [guide de résolution des problèmes liés à l’extension Diagnostics Azure ](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les métriques sont transmises au compte de stockage. Si les métriques ne sont pas collectées, reportez-vous au [guide de résolution des problèmes liés à l’extension Diagnostics Azure ](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

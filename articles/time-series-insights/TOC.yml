@@ -73,7 +73,7 @@
           href: time-series-insights-update-query-data-csharp.md
         - name: "Interroger des données en utilisant\_C# - Gen1"
           href: time-series-insights-query-data-csharp.md
-        - name: Gérer des données de référence dans C#
+        - name: Gérer des données de référence en C# - Gen1
           href: time-series-insights-manage-reference-data-csharp.md
         - name: Partager un affichage personnalisé
           href: time-series-insights-parameterized-urls.md
@@ -137,7 +137,7 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostiquer et résoudre les problèmes
           href: time-series-insights-diagnose-and-solve-problems.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Time Series Insights
       items:

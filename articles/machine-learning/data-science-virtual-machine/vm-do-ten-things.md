@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815910"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440454"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Science des données avec une Data Science Virtual Machine Windows
 
@@ -255,7 +255,7 @@ Les données sont lues en tant que trame de données :
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anciennement SQL DW) et bases de données
 Azure Synapse Analytics (anciennement SQL DW) est un entrepôt de données élastique en tant que service offrant une expérience SQL Server professionnelle.
 
-Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Une fois votre entrepôt de données Azure SQL provisionné, vous pouvez utiliser [cette procédure pas à pas](../team-data-science-process/sqldw-walkthrough.md) pour le chargement de données, mais aussi pour l’exploration et la modélisation à l’aide de données dans l’entrepôt de données SQL.
+Vous pouvez configurer Azure Synapse Analytics en suivant les instructions dans [cet article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Une fois que vous avez configuré Azure Synapse Analytics, vous pouvez utiliser [cette procédure pas à pas](../team-data-science-process/sqldw-walkthrough.md) pour le chargement, l’exploration et la modélisation de données en utilisant les données d’Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB est une base de données NoSQL sur le cloud. Vous pouvez l’utiliser pour travailler avec des documents comme JSON, et pour stocker et interroger les documents.

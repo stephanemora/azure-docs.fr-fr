@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327648"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056164"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -188,7 +188,7 @@ Pour filtrer les messages avant l’envoi de données de télémétrie, vous pou
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils
 
-Pour recevoir des événements de l’état de la connexion de l’appareil, un appareil doit effectuer une opération « Envoi de données de télémétrie D2C » « Réception de message C2D » avec IOT Hub. Toutefois, si un appareil utilise le protocole AMQP pour se connecter à IOT Hub, il est recommandé d’effectuer une opération« Réception de message C2D ». Sinon, les notifications d’état de la connexion peuvent être retardées de quelques minutes. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant [l’API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) pour IoT Hub C# SDK, ou [le client d’appareil pour AMQP](iot-hub-amqp-support.md#device-client).
+Pour recevoir des événements de l’état de la connexion de l’appareil, un appareil doit effectuer une opération « Envoi de données de télémétrie D2C » « Réception de message C2D » avec IOT Hub. Toutefois, si un appareil utilise le protocole AMQP pour se connecter à IOT Hub, il est recommandé d’effectuer une opération« Réception de message C2D ». Sinon, les notifications d’état de la connexion peuvent être retardées de quelques minutes. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant l’API Receive Async pour le Kit de développement logiciel (SDK) C# IoT Hub ou le [client d’appareil pour AMQP](iot-hub-amqp-support.md#device-client).
 
 Le lien D2C est ouvert si vous envoyez des données de télémétrie. 
 
@@ -214,4 +214,4 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 
 * [Comparer les différences entre le routage des messages et des événements IoT Hub](iot-hub-event-grid-routing-comparison.md)
 
-* [Découvrez comment utiliser les événements de télémétrie IoT pour implémenter l’analytique spatiale via Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)
+* [Découvrez comment utiliser les événements de télémétrie IoT pour implémenter l’analytique spatiale via Azure Maps](../azure-maps/tutorial-iot-hub-maps.md)

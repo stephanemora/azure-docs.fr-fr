@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035023"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058765"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](./itsmc-overview.md).
@@ -25,7 +25,8 @@ Les produits/services ITSM suivants sont pris en charge. Sélectionnez le produi
 
 > [!NOTE]
 > 
-> Le connecteur ITSM peut uniquement se connecter aux instances de ServiceNow basées sur le cloud. Les instances de ServiceNow en local ne sont pas prises en charge actuellement.
+> À compter du 1er octobre 2020, les intégrations ITSM de Cherwell et Provance à Azure Alert ne seront plus disponibles pour les nouveaux clients. Les nouvelles connexions ITSM ne seront pas prises en charge. 
+> Les connexions ITSM existantes continueront d’être prises en charge.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Connecter System Center Service Manager au connecteur ITSM dans Azure
 
@@ -40,6 +41,10 @@ Vérifiez que les prérequis suivants sont remplis :
 - Connexion hybride créée et configurée. Plus d’informations : [Configurez la connexion hybride](#configure-the-hybrid-connection).
 - Versions prises en charge de Service Manager :  2012 R2 ou 2016.
 - Rôle utilisateur :  [Opérateur avancé](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> Le connecteur ITSM peut uniquement se connecter aux instances de ServiceNow basées sur le cloud. Les instances de ServiceNow en local ne sont pas prises en charge actuellement.
 
 ### <a name="connection-procedure"></a>Procédure de connexion
 
@@ -298,6 +303,10 @@ Une fois l’utilisateur créé, l’état de l’option **Liste de vérificatio
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit Provance au connecteur ITSM dans Azure.
 
+> [!NOTE]
+> 
+> À compter du 1er octobre 2020, l’intégration ITSM de Provance à Azure Alert ne sera plus disponible pour les nouveaux clients. Les nouvelles connexions ITSM ne seront pas prises en charge. 
+> Les connexions ITSM existantes continueront d’être prises en charge.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -352,6 +361,11 @@ En savoir plus : [Créer des éléments de travail ITSM à partir d’alertes Az
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit Cherwell au connecteur ITSM dans Azure.
 
+> [!NOTE]
+> 
+> À compter du 1er octobre 2020, l’intégration ITSM de Cherwell à Azure Alert ne sera plus disponible pour les nouveaux clients. Les nouvelles connexions ITSM ne seront pas prises en charge. 
+> Les connexions ITSM existantes continueront d’être prises en charge.
+
 ### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
@@ -362,7 +376,7 @@ Vérifiez que les prérequis suivants sont remplis :
 
 ### <a name="connection-procedure"></a>Procédure de connexion
 
-Exécutez la procédure suivante pour créer une connexion Provance :
+Exécutez la procédure suivante pour créer une connexion Cherwell :
 
 1. Dans le portail Azure, accédez à **Toutes les ressources** et recherchez **ServiceDesk(nom_de_votre_espace_de_travail)**
 

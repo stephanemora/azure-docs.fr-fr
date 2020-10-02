@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322905"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090174"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -66,7 +66,7 @@ Créez une machine virtuelle de système d’exploitation Linux pour recevoir to
 
 1. Dans le portail Azure, effectuez une requête de journal pour `VMware_CL`. Quand Azure Monitor collecte les données Syslog, il conserve le format Syslog. Dans le portail, certains des champs sont capturés, tel que *Hostname* et *ProcessName*.  
 
-    ![type](./media/vmware/type.png)  
+    ![La capture d’écran affiche une requête de journal pour Type = VMware_CL avec un résultat horodaté.](./media/vmware/type.png)  
 
     Si vos résultats de recherche de vue de journal d’activité sont similaires à l’image ci-dessus, vous êtes prêt à utiliser le tableau de bord de la solution de supervision VMware.  
 
@@ -75,7 +75,7 @@ La solution de supervision VMware collecte diverses mesures de performances et d
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte.
 
-| plateforme | Agent Log Analytics pour Linux | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | Fréquence de collecte |
+| plateforme | Agent Log Analytics pour Linux | Agent System Center Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |Toutes les 3 minutes. |
 
@@ -105,7 +105,7 @@ Le tableau suivant affiche des exemples de champs de données collectés par la 
 ## <a name="vmware-monitoring-solution-overview"></a>Présentation de la solution de supervision VMware
 La vignette VMware s’affiche dans votre espace de travail Log Analytics. Elle fournit une vue d’ensemble des erreurs. Lorsque vous cliquez sur la vignette, vous accédez à l’affichage du tableau de bord.
 
-![vignette](./media/vmware/tile.png)
+![La capture d’écran montre la vignette VMware, affichant neuf échecs.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Accédez à l’affichage du tableau de bord
 Dans l’affichage du tableau de bord **VMware**, les panneaux sont organisés par :
@@ -147,13 +147,13 @@ Si vous souhaitez voir d’autres données de création de machine virtuelle hô
 #### <a name="common-log-queries"></a>Requêtes de journal courantes
 La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer vos hôtes ESXi, telles que l’espace de stockage élevé, la latence du stockage et la défaillance de chemin.
 
-![queries](./media/vmware/queries.png)
+![La capture d’écran montre RECHERCHES RECOMMANDÉES, qui sont des requêtes stockées utiles.](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Enregistrer des requêtes
 L’enregistrement de requêtes de journal est une fonctionnalité standard dans Azure Monitor ; elle peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](../learn/tutorial-logs-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![La capture d’écran montre une partie d’un tableau de bord personnalisé nommé Recherche dans les journaux avec des icônes pour les options Annuler, Exporter, Alertes, Enregistrer, Favoris et Historique.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
 Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).

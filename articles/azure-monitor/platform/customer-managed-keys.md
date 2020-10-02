@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
-ms.openlocfilehash: 9b47326d32b393af5dcf167c373b6873fe39cd7c
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.date: 09/09/2020
+ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279735"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657301"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -21,17 +21,15 @@ Nous vous recommandons de passer en revue les [Limitations et contraintes](#limi
 
 ## <a name="customer-managed-key-cmk-overview"></a>Vue d’ensemble des clés gérées par le client (CMK)
 
-Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante des organisations. Si vous pouvez laisser Azure gérer complètement le chiffrement au repos, plusieurs options vous permettent de le gérer vous-même, ainsi que les clés de chiffrement.
+Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est une exigence de sécurité et de confidentialité courante dans les organisations. Vous pouvez laisser Azure gérer complètement le chiffrement au repos, mais vous disposez aussi de plusieurs options pour gérer étroitement le chiffrement ou les clés de chiffrement.
 
-Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre [Azure Key Vault](../../key-vault/general/overview.md) et accessible à l’aide de l’authentification par [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) attribuée par le système. Cette clé (CMK) peut être [protégée par un logiciel ou par un HSM matériel](../../key-vault/general/overview.md).
+Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre [Azure Key Vault](../../key-vault/general/overview.md) et accessible à l’aide de l’authentification par [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) attribuée par le système. Cette clé (CMK) peut être [protégée par un logiciel ou par un HSM matériel](../../key-vault/general/overview.md). L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-Le chiffrement d’Azure Monitor opère de façon similaire au  [chiffrement du Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
+La capacité de clé gérée par le client est fournie sur des clusters Log Analytics dédiés et vous permet de révoquer l’accès à vos données à tout moment et de les protéger avec le contrôle [Lockbox](#customer-lockbox-preview). Pour vérifier que nous disposons de la capacité requise pour un cluster dédié dans votre région, votre abonnement doit nécessairement être autorisé au préalable. Avant de commencer à configurer une clé CMK, demandez à votre contact Microsoft d’autoriser votre abonnement.
 
-Une clé CMK vous permet de contrôler l’accès à vos données et de le révoquer à tout moment. Le stockage Azure Monitor respecte toujours les modifications des autorisations de clé en l’espace d’une heure. Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé CMK, mais votre contrôle sur les données SSD est sujet à une  [révocation de clé](#cmk-kek-revocation). Nous travaillerons à l’implémentation de données SSD chiffrées avec clé CMK au cours de la seconde moitié de 2020.
+Le [modèle de tarification des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) utilise des réservations de capacité à partir de 1 000 Go/jour.
 
-La capacité de clé CMK est fournie sur des clusters Log Analytics dédiés. Pour vérifier que nous disposons de la capacité requise dans votre région, votre abonnement doit nécessairement être autorisé au préalable. Avant de commencer à configurer une clé CMK, demandez à votre contact Microsoft d’autoriser votre abonnement.
-
-Le  [modèle de tarification des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)utilise des réservations de capacité à partir de 1000 Go/jour.
+Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#cmk-kek-revocation). Nous travaillerons à l’implémentation de données SSD chiffrées avec clé CMK au cours de la seconde moitié de 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Fonctionnement de CMK dans Azure Monitor
 
@@ -533,6 +531,13 @@ Content-type: application/json
 ```
 
 Après la configuration, toute nouvelle requête d’alerte sera sauvegardée dans votre stockage.
+
+## <a name="customer-lockbox-preview"></a>Customer Lockbox (préversion)
+Lockbox vous permet d’approuver ou de rejeter la demande d’un ingénieur Microsoft d’accéder à vos données lors d’une demande de support.
+
+Dans Azure Monitor, vous disposez de ce contrôle sur les données des espaces de travail associés à votre cluster Log Analytics dédié. Le contrôle Lockbox s’applique aux données stockées dans un cluster Log Analytics dédié dans lequel elles sont maintenues isolées dans les comptes de stockage du cluster configurés dans votre abonnement protégé par Lockbox.  
+
+En savoir plus sur [Customer Lockbox pour Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 ## <a name="cmk-management"></a>Gestion de clé CMK
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653271"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611635"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 **Avantages** : 
 - Utile pour les applications qui cherchent à migrer vers Azure tout en conservant leur architecture de haute disponibilité et de récupération d’urgence (HADR) telle quelle. 
 - Peut migrer des applications en cluster vers Azure en raison de la prise en charge des réservations persistantes SCSI (SCSI PR). 
-- Prend en charge les SSD Premium Azure partagés pour toutes les versions de SQL Server et les disques de stockage Ultra d’Azure partagés pour SQL Server 2019. 
+- Prend en charge le stockage SSD Premium Azure partagées et Disque Ultra Azure.
 - Peut utiliser un seul disque partagé ou entrelacer plusieurs disques partagés pour créer un pool de stockage partagé. 
 - Prend en charge Filestream.
 
@@ -153,10 +153,11 @@ Pour le moment, les instances de cluster de basculement SQL Server sur des machi
 
 L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL Server une fois l’agent réinstallé en mode de gestion léger.
 
-### <a name="msdtc"></a>MSDTC   
-Les machines virtuelles Azure prennent en charge MSDTC sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
+### <a name="msdtc"></a>MSDTC 
 
-Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge pour Windows Server 2016 ou versions antérieures pour la raison suivante :
+La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) ou sur des machines virtuelles SQL Server qui utilisent des disques partagés Azure. 
+
+Concernant Machines virtuelles Azure, MSDTC n’est pas pris en charge pour Windows Server 2016 ou versions antérieures avec des volumes partagés en cluster pour la raison suivante :
 
 - La ressource MSDTC en cluster n’est pas configurable pour utiliser le stockage partagé. Sur Windows Server 2016, si vous créez une ressource MSDTC, celle-ci n’affiche pas le stockage partagé qui est disponible pour l’utilisation, et cela même si le stockage est disponible. Ce problème a été résolu dans Windows Server 2019.
 - L’équilibreur de charge de base ne gère pas les ports RPC.

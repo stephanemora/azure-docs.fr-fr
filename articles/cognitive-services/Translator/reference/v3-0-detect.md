@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592285"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566634"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0 : Detect
 
@@ -67,7 +67,7 @@ Les en-têtes de demande sont les suivants :
 
 ## <a name="request-body"></a>Corps de la demande
 
-Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`. La détection de la langue est appliquée à la valeur de la propriété `Text`. Voici un exemple de corps de la demande :
+Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`. La détection de la langue est appliquée à la valeur de la propriété `Text`. La détection automatique de la langue fonctionne mieux avec un texte d’entrée plus long. Voici un exemple de corps de la demande :
 
 ```json
 [
@@ -78,7 +78,6 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 100 éléments.
-* La valeur texte d’un élément de tableau ne peut pas dépasser 10 000 caractères, espaces compris.
 * L’intégralité du texte inclus dans la demande ne peut pas dépasser 50 000 caractères, espaces compris.
 
 ## <a name="response-body"></a>Response body

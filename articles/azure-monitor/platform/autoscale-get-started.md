@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794531"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651721"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -119,9 +119,13 @@ Lorsque vous effectuez un scale-out vers plusieurs instances, App Service peut e
 
 ### <a name="health-check-path"></a>Chemin de contrôle d'intégrité
 
-Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si le site a des HTTP**S** activés, le contrôle d’intégrité respecte les HTTP**S** et envoie la demande à l’aide de ce protocole.
+Le chemin d’accès doit répondre dans un délai de deux minutes avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans les deux minutes ou retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si le protocole HTTP**S** est activé pour le site, le contrôle d’intégrité atteint le point de terminaison HTTP en premier, puis honore la redirection HTTP 307 vers le point de terminaison HTTPS.
 
 Le chemin du contrôle d'intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin d’accès doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
+
+#### <a name="security"></a>Sécurité 
+
+Les équipes de développement des grandes entreprises doivent souvent adhérer à des exigences de sécurité pour leurs API exposées. Pour sécuriser le point de terminaison du contrôle d’intégrité vous devez d’abord utiliser des fonctionnalités telles que des [restrictions d’adresse IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), des [certificats clients](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) ou un réseau virtuel pour restreindre l’accès à l’application. Vous pouvez sécuriser le point de terminaison du contrôle d’intégrité proprement dit en exigeant que la propriété `User-Agent` de la requête entrante corresponde à `ReadyForRequest/1.0`. La propriété User-Agent ne peut pas être falsifiée, car la requête a déjà été sécurisée par les fonctionnalités de sécurité précédentes.
 
 ### <a name="behavior"></a>Comportement
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918398"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564013"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canaux de télémétrie dans Application Insights
 
@@ -153,13 +153,25 @@ En bref, la réponse est qu’aucun des canaux intégrés n’offre une garantie
 
 Bien que le nom du package et de l’espace de noms de ce canal mentionne « WindowsServer », ce canal est pris en charge sur d’autres systèmes que Windows, avec l’exception suivante. Sur les autres systèmes, le canal ne crée pas de dossier de stockage local par défaut. Vous devez créer manuellement un dossier de stockage local et configurer le canal pour qu’il l’utilise. Une fois que le stockage local a été configuré, le canal fonctionne de la même façon sur tous les systèmes.
 
+> [!NOTE]
+> Grâce à la version 2.15.0-beta3 et celles ultérieures, un stockage local est désormais automatiquement créé pour Linux, Mac et Windows. Pour les systèmes non Windows, le Kit de développement logiciel (SDK) crée automatiquement un dossier de stockage local selon la logique suivante :
+> - `${TMPDIR}` : Si la variable d’environnement `${TMPDIR}` est définie, cet emplacement est utilisé.
+> - `/var/tmp` : Si l’emplacement précédent n’existe pas, nous essayons `/var/tmp`.
+> - `/tmp` : Si les deux emplacements précédents n’existent pas, nous essayons `tmp`. 
+> - Si aucun de ces emplacements n’existe, le stockage local n’est pas créé et la configuration manuelle est toujours requise. [En savoir plus sur l’implémentation](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>Le kit de développement logiciel (SDK) crée-t-il un stockage local temporaire ? Les données sont-elles chiffrées dans le stockage ?
 
 Le SDK stocke les données de télémétrie dans le stockage local en cas de problèmes de réseau ou de limitation. Ces données ne sont pas chiffrées localement.
 
 Sur les systèmes Windows, le SDK crée automatiquement un dossier local temporaire dans le répertoire %TEMP% ou %LOCALAPPDATA%, auquel seuls les administrateurs et l’utilisateur actuel ont accès.
 
-Sur les systèmes autres que Windows, aucun stockage local n’est créé automatiquement par le SDK et, par conséquent, aucune donnée n’est stockée localement par défaut. Vous pouvez créer manuellement un répertoire de stockage et configurer le canal pour qu’il l’utilise. Dans ce cas, vous devez vous assurer que le répertoire est sécurisé.
+Sur les systèmes autres que Windows, aucun stockage local n’est créé automatiquement par le SDK et, par conséquent, aucune donnée n’est stockée localement par défaut.
+
+> [!NOTE]
+> Grâce à la version 2.15.0-beta3 et celles ultérieures, un stockage local est désormais automatiquement créé pour Linux, Mac et Windows. 
+
+ Vous pouvez créer manuellement un répertoire de stockage et configurer le canal pour qu’il l’utilise. Dans ce cas, vous devez vous assurer que le répertoire est sécurisé.
 Découvrez-en plus sur [la protection et la confidentialité des données](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>Kit de développement logiciel (SDK) open source

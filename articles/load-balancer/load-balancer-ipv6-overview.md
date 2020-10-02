@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981849"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058748"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
@@ -79,7 +79,7 @@ Limites
 * Le point de terminaison IPv6 sur la machine virtuelle n’est pas exposé directement à Internet. Il se trouve derrière un équilibreur de charge. Seuls les ports spécifiés dans les règles d’équilibrage de charge sont accessibles via IPv6.
 * La modification du paramètre IdleTimeout pour IPv6 n’est **pas prise en charge pour le moment**. La valeur par défaut est de quatre minutes.
 * La modification du paramètre loadDistributionMethod pour IPv6 n’est **pas prise en charge pour le moment**.
-* Les adresses IP IPv6 réservées (où IPAllocationMethod = static) ne sont **pas prises en charge pour le moment**.
+* IPv6 pour Basic Load Balancer est verrouillé sur une référence SKU **Dynamique**.  IPv6 pour Standard Load Balancer est verrouillé sur une référence SKU **Statique**.
 * NAT64 (traduction d’IPv6 vers IPv4) n’est pas pris en charge.
 * L’attachement d’une carte réseau secondaire qui fait référence à un sous-réseau IPv6 à un pool principal n’est **actuellement pas pris en charge**.
 

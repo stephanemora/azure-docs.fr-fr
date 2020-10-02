@@ -117,15 +117,10 @@
       items:
         - name: Vue d’ensemble
           href: platform/data-platform.md
-        - name: Emplacements des données
-          href: platform/data-locations.md
-        - name: Mesures
-          href: platform/data-platform-metrics.md
         - name: Journaux d’activité
           href: platform/data-platform-logs.md
-        - name: Durée d’ingestion des données de journal
-          displayname: latency
-          href: platform/data-ingestion-time.md
+        - name: Mesures
+          href: platform/data-platform-metrics.md
         - name: Envoyer des données en streaming à Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Insights
@@ -146,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -209,39 +204,42 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Vue d’ensemble des requêtes de journal
-          displayname: 'log query, log queries, query, queries'
+        - name: Vue d'ensemble
+          displayname: 'Log Analytics, log query, log queries, query, queries'
           href: log-query/log-query-overview.md
+        - name: Didacticiel
+          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+          href: log-query/get-started-portal.md
+        - name: Étendue de requête
+          href: log-query/scope.md
         - name: Expérience simple des journaux
           href: log-query/simple-logs.md
-        - name: Requêtes de journal d’audit
-          href: log-query/query-audit.md
-        - name: Tutoriels
+        - name: Requêtes dans les journaux
           items:
-            - name: Tutoriel Log Analytics
-              href: log-query/get-started-portal.md
-            - name: Tutoriel sur les requêtes de journal
-              href: log-query/get-started-queries.md
-        - name: Données de journal
-          items:
-            - name: Étendue de requête
-              href: log-query/scope.md
             - name: Colonnes standard
               href: platform/log-standard-columns.md
+            - name: Auditer des requêtes
+              href: log-query/query-audit.md
+            - name: Optimiser les requêtes
+              href: log-query/query-optimization.md
+            - name: Fonctions
+              href: log-query/functions.md
+            - name: Analyser les données de texte
+              href: log-query/parse-text.md
+            - name: Exemples de requêtes
+              href: log-query/saved-queries.md
             - name: Groupes d’ordinateurs
               href: platform/computer-groups.md
         - name: Langage de requête
           items:
-            - name: Documentation sur le langage de requête
-              href: log-query/query-language.md
-            - name: Différences de langage
+            - name: Informations de référence sur KQL
+              href: /azure/data-explorer/kusto/query/
+            - name: Différence avec Azure Data Explorer
               href: log-query/data-explorer-difference.md
-            - name: Opérateurs utiles
-              href: log-query/useful-operators.md
-            - name: Fonctions
-              href: log-query/functions.md
-            - name: Transition à partir de la recherche dans les journaux
-              href: log-query/log-search-transition.md
+            - name: Exemples
+              href: log-query/examples.md
+            - name: Exemples d’analytique intelligente
+              href: log-query/smart-analytics.md
             - name: Leçons
               items:
                 - name: Opérations de chaîne
@@ -268,9 +266,9 @@
                   href: log-query/sql-cheatsheet.md
                 - name: Splunk
                   href: log-query/splunk-cheatsheet.md
-        - name: Inter-ressources
+        - name: Requêtes inter-ressources
           items:
-            - name: Requêtes inter-ressources
+            - name: Vue d'ensemble
               href: log-query/cross-workspace-query.md
             - name: expression de l’application
               href: log-query/app-expression.md
@@ -280,32 +278,25 @@
               href: log-query/resource-expression.md
             - name: Unifier les ressources de données d’application
               href: log-query/unify-app-resource-data.md
-        - name: Exemples et instructions
-          items:
-            - name: Exemples de requêtes
-              href: log-query/saved-queries.md
-            - name: Exemples de requête de journal
-              href: log-query/examples.md
-            - name: Exemples d’analytique intelligente
-              href: log-query/smart-analytics.md
-            - name: Optimiser les requêtes
-              href: log-query/query-optimization.md
-            - name: Analyser les données de texte
-              href: log-query/parse-text.md
         - name: Espaces de travail et clusters
           items:
             - name: Concevoir un déploiement d’espace de travail
               href: platform/design-logs-deployment.md
             - name: Créer un espace de travail
               items:
-                - name: Utiliser le portail Azure
+                - name: Portail Azure
                   href: learn/quick-create-workspace.md
-                - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
+                - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
-                - name: Utiliser PowerShell
+                - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+                - name: Modèle Resource Manager
+                  href: platform/template-workspace-configuration.md
             - name: Supprimer et récupérer un espace de travail
               href: platform/delete-workspace.md
+            - name: Gérer l’accès
+              displayName: Log Analytics workspace
+              href: platform/manage-access.md
             - name: Déplacer un espace de travail
               href: platform/move-workspace.md
             - name: Conception pour les fournisseurs de services
@@ -328,6 +319,9 @@
       items:
         - name: Règles de collecte des données
           href: platform/data-collection-rule-overview.md
+        - name: Durée d’ingestion des données de journal
+          displayname: latency
+          href: platform/data-ingestion-time.md
         - name: Sources de données des agents
           items:
             - name: Vue d’ensemble
@@ -384,7 +378,7 @@
               href: platform/data-collection-rule-azure-monitor-agent.md
         - name: Agent Log Analytics
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: platform/log-analytics-agent.md
             - name: Agents Windows
               href: platform/agent-windows.md
@@ -438,7 +432,7 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Collecter des métriques avec Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
@@ -646,7 +640,7 @@
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -805,7 +799,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -964,7 +958,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -992,7 +986,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers
@@ -1132,7 +1126,7 @@
               href: insights/wire-data.md
     - name: Workbooks
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualisations
@@ -1167,12 +1161,18 @@
               href: platform/workbooks-time.md
             - name: Paramètres de texte
               href: platform/workbooks-text.md
+            - name: Paramètres de ressource
+              href: platform/workbooks-resources.md
         - name: Configuration
           items:
             - name: Contrôle d’accès
               href: platform/workbooks-access-control.md
             - name: Déployer avec Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Groupes
+              href: platform/workbooks-groups.md
+            - name: Transformer des données JSON avec JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Déplacer des classeurs vers une autre région
               href: platform/workbooks-move-region.md
             - name: Déplacer des modèles de classeur vers une autre région

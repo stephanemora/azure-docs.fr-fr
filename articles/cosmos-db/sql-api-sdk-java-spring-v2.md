@@ -1,6 +1,6 @@
 ---
 title: Spring Data Azure Cosmos DB v2 pour les notes de publication et les ressources de l’API SQL
-description: Découvrez Spring Data Azure Cosmos DB v2 pour l’API SQL, notamment les dates de mise en production, dates de mise hors service et modifications apportées entre chaque version du kit de développement logiciel (SDK) Java asynchrone SQL Azure Cosmos DB.
+description: Découvrez Spring Data Azure Cosmos DB v2 pour l’API SQL, notamment les dates de mise en production, les dates de mise hors service et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java asynchrone SQL Azure Cosmos DB.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 47d9a8ff884e29dc5692c97d5e7867a856d01063
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590476"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069122"
 ---
-# <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v2 pour l’API Core (SQL) : notes de publication et ressources
+# <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v2 pour l’API Core (SQL) : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
@@ -36,186 +36,177 @@ ms.locfileid: "88590476"
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
-Spring Data Azure Cosmos DB v2 pour Core (SQL) permet aux développeurs d’utiliser Azure Cosmos DB dans des applications Spring. Spring Data Azure Cosmos DB expose l’interface de données Spring pour manipuler les bases de données et les collections, travailler avec des documents et émettre des requêtes. Les API synchrones et asynchrones (réactives) sont prises en charge dans le même artefact Maven. 
+ Spring Data Azure Cosmos DB v2 pour Core (SQL) permet aux développeurs d’utiliser Azure Cosmos DB dans des applications Spring. Spring Data Azure Cosmos DB expose l’interface de données Spring pour manipuler les bases de données et les collections, travailler avec des documents et émettre des requêtes. Les API synchrones et asynchrones (réactives) sont prises en charge dans le même artefact Maven. 
 
-L’[infrastructure Spring](https://spring.io/projects/spring-framework) est un modèle de programmation et de configuration qui rationalise le développement d’applications Java. Pour citer le site web de l’organisation, Spring rationalise la « plomberie » des applications à l’aide de l’injection de dépendances. De nombreux développeurs comme Spring parce que la génération et le test d’applications deviennent plus simples. [Spring Boot](https://spring.io/projects/spring-boot) étend cette idée de la gestion de la plomberie avec un œil sur l’application web et le développement de microservices. [Spring Data](https://spring.io/projects/spring-data) est un modèle de programmation permettant l’accès à des magasins de données tels que Azure Cosmos DB à partir du contexte d’une application Spring ou Spring Boot. 
+[Spring Framework](https://spring.io/projects/spring-framework) est un modèle de programmation et de configuration qui rationalise le développement d’applications Java. Spring rationalise la « plomberie » des applications en injectant des dépendances. De nombreux développeurs apprécient Spring, car il rend la création et le test d’applications plus simples. [Spring Boot](https://spring.io/projects/spring-boot) étend cette prise en charge de la plomberie en vue du développement d’applications web et de microservices. [Spring Data](https://spring.io/projects/spring-data) est un modèle de programmation permettant l’accès à des magasins de données tels qu’Azure Cosmos DB à partir du contexte d’une application Spring ou Spring Boot. 
 
 Vous pouvez utiliser Spring Data Azure Cosmos DB dans vos applications [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/).
 
 > [!IMPORTANT]  
-> Ces notes de publication sont destinées à la version v2 de Spring Data Azure Cosmos DB. Vous trouverez les notes de publication v3 [ici](sql-api-sdk-java-spring-v3.md). 
+> Ces notes de publication sont destinées à la version 2 de Spring Data Azure Cosmos DB. Les [notes de publication de la version 3 sont accessibles ici](sql-api-sdk-java-spring-v3.md). 
 >
-> Spring Data Azure Cosmos DB prend en charge uniquement l’API SQL.
+> Spring Data Azure Cosmos DB prend uniquement en charge l’API SQL.
 >
-> Les guides suivants ont trait à Spring Data sur d’autres API de Azure Cosmos DB :
+> Pour plus d’informations concernant Spring Data sur d’autres API d’Azure Cosmos DB, consultez les articles suivants :
 > * [Spring Data pour Apache Cassandra avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Spring Data MongoDB avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
 > * [Spring Data Gremlin avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Vous souhaitez vous familiariser rapidement ?
-> 1. Installez le [Runtime Java minimal pris en charge, JDK 8,](/java/azure/jdk/?view=azure-java-stable) pour pouvoir utiliser le Kit de développement logiciel (SDK).
-> 2. Créez une application Spring Data Azure Cosmos DB à l’aide du starter- [c’est facile](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) !
-> 3. Utilisez le [Guide de développeurs Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) qui vous guide pas à pas à travers les requêtes de base Azure Cosmos DB.
+> 1. Installez le [runtime Java minimal pris en charge, JDK 8](/java/azure/jdk/?view=azure-java-stable), pour pouvoir utiliser le Kit de développement logiciel (SDK).
+> 2. Créez une application Spring Data Azure Cosmos DB à l’aide du [starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). C’est facile.
+> 3. Utilisez le [guide du développeur Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) qui vous guide pas à pas à travers les requêtes Azure Cosmos DB de base.
 >
-> Vous pouvez créer rapidement des applications Spring Boot Starter avec [Spring Initializer](https://start.spring.io/) !
+> Vous pouvez créer rapidement des applications Spring Boot Starter grâce à [Spring Initializr](https://start.spring.io/) !
 >
 
-## <a name="helpful-content"></a>Contenu de l’aide
+## <a name="resources"></a>Ressources
 
-| Contenu | Lien |
+| Ressource | Lien |
 |---|---|
 | **Téléchargement du Kit de développement logiciel (SDK)** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**Documentation de l’API** | [Documentation de référence Spring Data Azure Cosmos DB]() |
 |**Contribution au Kit de développement logiciel (SDK)** | [Référentiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Spring Boot Starter**| [Bibliothèque de client Spring Boot Starter Azure Cosmos DB pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
 |**Exemple d’application Spring TODO avec Azure Cosmos DB**| [Expérience Java de bout en bout dans App Service Linux (partie 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**Guide de développeurs** | [Guide de développeurs Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Guide d’utilisation de starter** | [Comment utiliser Spring Boot Starter avec une API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Référentiel GitHub pour Azure Spring Boot Starter Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
-|**Exemple avec App Services** | [Guide pratique pour utiliser Spring et Cosmos DB avec App Service sur Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exemple d’application TODO](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Guide du développeur** | [Guide du développeur Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**Utilisation de Starter** | [Comment utiliser Spring Boot Starter avec l’API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Référentiel GitHub pour Azure Cosmos DB Spring Boot Starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**Exemple avec Azure App Service** | [Guide pratique pour utiliser Spring et Cosmos DB avec App Service sur Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exemple d’application TODO](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Historique des mises en production
 
-### <a name="230-2020-05-21"></a>2.3.0 (2020-05-21)
+### <a name="230-may-21-2020"></a>2.3.0 (21 mai 2020)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mettre à jour la version de Spring Boot vers 2.3.0 
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Met à jour Spring Boot vers la version 2.3.0.
 
-### <a name="225-2020-05-19"></a>2.2.5 (2020-05-19)
-#### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mise à jour de la version Azure Cosmos DB vers la version 3.7.3
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Contient des correctifs de fuites de mémoire et des mises à niveau de version netty à partir du kit de développement logiciel (SDK) Cosmos v 3.7.3 
 
-### <a name="224-2020-04-06"></a>2.2.4 (2020-04-06)
+### <a name="225-may-19-2020"></a>2.2.5 (19 mai 2020)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
+* Met à jour Azure Cosmos DB vers la version 3.7.3.
 #### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction de l’indicateur allowTelemetry à prendre en compte à partir de CosmosDbConfig
-* Correction de la propriété TTL sur le conteneur
+* Contient des correctifs de fuites de mémoire et des mises à niveau de version Netty à partir du Kit de développement logiciel (SDK) Azure Cosmos DB v3.7.3.
 
-### <a name="223-2020-02-25"></a>2.2.3 (2020-02-25)
-#### <a name="new-features"></a>Nouvelles fonctionnalités
-* Ajout d’une nouvelle findAll par API clé de partition
-* Mise à jour de la version Azure-Cosmos vers 3.7.0
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction collectionName -> containerName
-* Correction entityClass & domainClass -> domainType
-* Correction « Retour de la collection d’entités enregistrée par référentiel au lieu d’entités d’entrée »
+### <a name="224-april-6-2020"></a>2.2.4 (6 avril 2020)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Corrige l’indicateur `allowTelemetry` pour le prendre en compte à partir de `CosmosDbConfig`.
+* Corrige la propriété `TTL` sur le conteneur.
 
-### <a name="2110-2020-02-25"></a>2.1.10 (2020-02-25)
+### <a name="223-february-25-2020"></a>2.2.3 (25 février 2020)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction rétro-portée « Retour de la collection d’entités enregistrée par référentiel au lieu d’entités d’entrée »
+* Ajoute une nouvelle `findAll` par API de clé de partition.
+* Met à jour Azure Cosmos DB vers la version 3.7.0.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Corrige `collectionName` -> `containerName`.
+* Corrige `entityClass` et `domainClass` -> `domainType`.
+* Corrige « Retour de la collection d’entités enregistrée par référentiel au lieu d’entités d’entrée ».
 
-### <a name="222-2020-01-15"></a>2.2.2 (2020-01-15)
-#### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mise à jour de la version Azure-Cosmos vers la version 3.6.0
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+### <a name="2110-february-25-2020"></a>2.1.10 (25 février 2020)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Les backports corrigent « Retour de la collection d’entités enregistrée par référentiel au lieu d’entités d’entrée ».
 
-### <a name="221-2019-12-31"></a>2.2.1 (2019-12-31)
+### <a name="222-january-15-2020"></a>2.2.2 (15 janvier 2020)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mise à jour du Kit de développement logiciel (SDK) Cosmos DB vers 3.5.0
-* Ajout d’un champ d’annotation pour activer/désactiver la création automatique de la collection
-* Meilleure gestion des exceptions, CosmosClientException exposé via CosmosDBAccessException
-* RequestCharge et activityId exposés via ResponseDiagnostics
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correctifs de la mise à jour du kit de développement logiciel (SDK) 3.5.0 : « exception lorsque l’en-tête de la réponse HTTP Cosmos DB dépasse 8 192 octets », « Échec de ConsistencyPolicy.defaultConsistencyLevel() sur l’obsolescence limitée et le préfixe cohérent »
-* Correction du comportement des API findById, retour vide introuvable, au lieu de lever l’exception
-* Correction d’un bogue dans lequel le tri n’a pas été appliqué à la page suivante lors de l’utilisation de CosmosPageRequest
+* Met à jour Azure Cosmos DB vers la version 3.6.0.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
 
-### <a name="219-2019-12-26"></a>2.1.9 (2019-12-26)
+### <a name="221-december-31-2019"></a>2.2.1 (31 décembre 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Ajout d’un champ d’annotation pour activer/désactiver la création automatique de la collection
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction du comportement des API findById, retour vide introuvable, au lieu de lever l’exception
+* Met à jour le Kit de développement logiciel (SDK) Azure Cosmos DB vers la version 3.5.0.
+* Ajoute un champ d’annotation pour activer ou désactiver la création automatique de la collection.
+* Améliore la gestion des exceptions. Expose `CosmosClientException` via `CosmosDBAccessException`.
+* Expose `requestCharge` et `activityId` via `ResponseDiagnostics`.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* La mise à jour du Kit de développement logiciel (SDK) 3.5.0 corrige « Exception lorsque l’en-tête de réponse HTTP Cosmos DB dépasse 8 192 octets » et « Échec de ConsistencyPolicy.defaultConsistencyLevel() sur l’obsolescence limitée et le préfixe cohérent ».
+* Corrige le comportement de la méthode `findById`. Auparavant, cette méthode retournait une réponse vide si l’entité n’étais pas trouvée au lieu de lever une exception.
+* Corrige un bogue dans lequel le tri n’était pas appliqué à la page suivante quand `CosmosPageRequest` était utilisé.
 
-### <a name="220-2019-10-21"></a>2.2.0 (2019-10-21)
+### <a name="219-december-26-2019"></a>2.1.9 (26 décembre 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Support du référentiel Cosmos réactif complet
-* Chaîne de diagnostics de requêtes et support de mesures de requêtes Cosmos DB
-* Mise à jour du Kit de développement logiciel (SDK) Cosmos DB vers 3.3.1
-* Mise à niveau de la version de Spring Framework vers 5.2.0.RELEASE
-* Mise à niveau de la version de Spring Data Commons vers 2.2.0.RELEASE
-* Ajout des API findByIdAndPartitionKey, deleteByIdAndPartitionKey
-* Dépendance supprimée de azure-documentdb
-* DocumentDb rebaptisé pour Cosmos
+* Ajoute un champ d’annotation pour activer ou désactiver la création automatique de la collection.
 #### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction « Le tri lève une exception quand pagesize est inférieur au nombre total d’éléments dans le référentiel »
+*  Corrige le comportement de la méthode `findById`. Auparavant, cette méthode retournait une réponse vide si l’entité n’étais pas trouvée au lieu de lever une exception.
 
-### <a name="218-2019-10-18"></a>2.1.8 (2019-10-18)
+### <a name="220-october-21-2019"></a>2.2.0 (21 octobre 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Déprécier les API de base de données de documents
-* Ajout des API findByIdAndPartitionKey, deleteByIdAndPartitionKey.
-* Ajout du verrouillage optimiste basé sur _etag
-* Expression SPeL activée pour le nom de la collection de documents
-* Améliorations apportées à ObjectMapper.
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Prise en charge complète du référentiel Cosmos réactif.
+* Prise en charge de la chaîne de diagnostics des requêtes et des métriques de requêtes Azure Cosmos DB.
+* Met à jour le Kit de développement logiciel (SDK) Azure Cosmos DB vers la version 3.3.1.
+* Met à niveau Spring Framework vers la version 5.2.0.RELEASE.
+* Met à niveau Spring Data Commons vers la version 2.2.0.RELEASE.
+* Ajoute les API `findByIdAndPartitionKey` et `deleteByIdAndPartitionKey`.
+* Supprime la dépendance d’azure-documentdb.
+* Renomme DocumentDB en Azure Cosmos DB.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Corrige « Le tri lève une exception quand pageSize est inférieur au nombre total d’éléments dans le référentiel ».
 
-### <a name="217-2019-10-18"></a>2.1.7 (2019-10-18)
+### <a name="218-october-18-2019"></a>2.1.8 (18 octobre 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Ajout de la dépendance du kit de développement logiciel (SDK) Cosmos v3
-* Référentiel Cosmos réactif ajouté
-* Implémentation mise à jour de DocumentDbTemplate pour utiliser le kit de développement logiciel (SDK) Cosmos v3.
-* Autres modifications de configuration pour le support des référentiels Cosmos réactifs.
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Déprécie les API DocumentDB.
+* Ajoute les API `findByIdAndPartitionKey` et `deleteByIdAndPartitionKey`.
+* Ajoute un verrouillage optimiste basé sur `_etag`.
+* Active l’expression SpEL pour le nom de la collection de documents.
+* Ajoute des améliorations à `ObjectMapper`.
 
-### <a name="212-2019-03-19"></a>2.1.2 (2019-03-19)
+### <a name="217-october-18-2019"></a>2.1.7 (18 octobre 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Supprimer la dépendance applicationInsights pour
-    * Risque potentiel des dépendances polluantes
-    * Incompatibilité Java 11
+* Ajoute la dépendance au Kit de développement logiciel (SDK) Azure Cosmos DB version 3.
+* Ajoute un référentiel Cosmos réactif.
+* Met à jour l’implémentation de `DocumentDbTemplate` pour utiliser le Kit de développement logiciel (SDK) Azure Cosmos DB version 3.
+* Ajoute d’autres modifications de configuration pour la prise en charge des référentiels Cosmos réactifs.
+
+### <a name="212-march-19-2019"></a>2.1.2 (19 mars 2019)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Supprime la dépendance à `applicationInsights` pour :
+    * Risque potentiel des dépendances polluantes.
+    * Incompatibilité Java 11.
     * Éviter un impact potentiel sur les performances du processeur et/ou de la mémoire.
 
-### <a name="207-2019-03-20"></a>2.0.7 (2019-03-20)
-#### <a name="new-features"></a>Nouvelles fonctionnalités
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Le rétro-portage supprime la dépendance applicationInsights pour
-    * Risque potentiel des dépendances polluantes
-    * Incompatibilité Java 11
+### <a name="207-march-20-2019"></a>2.0.7 (20 mars 2019)
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Le backport supprime la dépendance à `applicationInsights` pour :
+    * Risque potentiel des dépendances polluantes.
+    * Incompatibilité Java 11.
     * Éviter un impact potentiel sur les performances du processeur et/ou de la mémoire.
 
-### <a name="211-2019-03-07"></a>2.1.1 (2019-03-07)
+### <a name="211-march-7-2019"></a>2.1.1 (7 mars 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mettre à jour la version principale vers la version 2.1.1
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Met à jour la version principale vers 2.1.1.
 
-### <a name="206-2019-03-07"></a>2.0.6 (2019-03-07)
+### <a name="206-march-7-2019"></a>2.0.6 (7 mars 2019)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Ignorer toutes les exceptions des données de télémétrie
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Ignorer toutes les exceptions de la télémétrie.
 
-### <a name="210-2018-12-17"></a>2.1.0 (2018-12-17)
+### <a name="210-december-17-2018"></a>2.1.0 (17 décembre 2018)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mettre à jour la version vers 2.1.0 pour résoudre le problème
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
+* Met à jour la version vers 2.1.0 pour résoudre le problème.
 
-### <a name="205-2018-09-13"></a>2.0.5 (2018-09-13)
+### <a name="205-september-13-2018"></a>2.0.5 (13 septembre 2018)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* L’ajout du mot clé existe, startsWith
-* Mettre à jour le fichier Readme
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Corriger « impossible d’appeler autohref directement pour l’entité »
-* Corriger « le findAll échoue si la collection n’est pas créée »
+* Ajoute les mots clés `exists` et `startsWith`.
+* Met à jour le fichier Lisez-moi.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Corrige « Impossible d’appeler autohref directement pour l’entité ».
+* Corrige « findAll échoue si la collection n’est pas créée ».
 
-### <a name="204-pre-release-2018-08-23"></a>2.0.4 (Préversion) (2018-08-23)
+### <a name="204-prerelease-august-23-2018"></a>2.0.4 (prépublication) [23 août 2018]
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Package restant de documentdb à cosmosdb,
-* Ajoutez une nouvelle fonctionnalité du mot clé de méthode de requête, 16 mots clés de l’API SQL pris en charge.
-* Ajoutez une nouvelle fonctionnalité de requête avec la pagination et le tri.
-* Simplifiez la configuration de spring-data-cosmosdb.
-* Ajoutez l’API deleteCollection et deleteAll.
+* Renomme le package documentdb en cosmosdb.
+* Ajoute une nouvelle fonctionnalité de requête avec la méthode des mots clés. Seize mots clés de l’API SQL sont désormais pris en charge.
+* Ajoute une nouvelle fonctionnalité de requête avec la pagination et le tri.
+* Simplifie la configuration de spring-data-cosmosdb.
+* Ajoute les API `deleteCollection` et `deleteAll`.
 
-#### <a name="key-bug-fixes"></a>Correctifs des bogues clés
-* Correction des bogues et amélioration des défauts.
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+* Correction des bogues et atténuation des défauts.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Apprenez-en davantage sur [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Pour en savoir plus sur l’infrastructure Spring, consultez la [page d’accueil du projet](https://spring.io/projects/spring-framework).
+Apprenez-en davantage sur [Spring Framework](https://spring.io/projects/spring-framework).
 
-Pour en savoir plus sur Spring Boot, consultez la [page d’accueil du projet](https://spring.io/projects/spring-boot).
+Apprenez-en davantage sur [Spring Boot](https://spring.io/projects/spring-boot).
 
-Pour en savoir plus sur Spring Data, consultez la [page d’accueil du projet](https://spring.io/projects/spring-data).
+Apprenez-en davantage sur [Spring Data](https://spring.io/projects/spring-data).

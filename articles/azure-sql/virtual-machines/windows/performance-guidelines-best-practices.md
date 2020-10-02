@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690236"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481788"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Recommandations de performances pour SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -198,10 +198,23 @@ Si vous utilisez des espaces de stockage, lors de l’ajout de nœuds dans le cl
 
 Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster**, Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](/windows-server/storage/storage-spaces/overview).
 
+## <a name="multiple-instances"></a>Plusieurs instances 
+
+Tenez compte des meilleures pratiques suivantes lorsque vous déployez plusieurs instances SQL sur une seule machine virtuelle : 
+
+- Définissez la mémoire maximale du serveur pour chaque instance SQL, en vous assurant qu’il reste de la mémoire pour le système d’exploitation. Veillez à mettre à jour les restrictions de mémoire pour les instances SQL si vous modifiez la quantité de mémoire allouée à la machine virtuelle. 
+- Ayez des numéros d’unité logique distincts pour les données, les journaux et TempDB puisqu’ils ont tous des modèles de charge de travail différents et que vous ne souhaitez pas qu’ils aient un impact les uns sur les autres. 
+- Testez minutieusement votre environnement avec des charges de travail importantes semblables à celle de production pour vous assurer qu’il peut gérer la capacité de pointe conformément au contrat de niveau de service de l’application. 
+
+Les signes d’un système surchargé incluent notamment l’épuisement des threads de travail, des temps de réponse longs et/ou le blocage de la mémoire système du répartiteur. 
+
+
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le stockage et les performances, consultez [Storage Configuration Guidelines for SQL Server on Azure Virtual Machines](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
+Pour plus d’informations sur le stockage et le niveau de performance, consultez [Instructions de configuration du stockage pour SQL Server sur les machines virtuelles Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
-Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](security-considerations-best-practices.md).
+Pour connaître les meilleures pratiques en matière de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](security-considerations-best-practices.md).
 
 Consultez d’autres articles relatifs aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](frequently-asked-questions-faq.md).

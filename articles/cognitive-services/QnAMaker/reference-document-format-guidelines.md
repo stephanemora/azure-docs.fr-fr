@@ -1,14 +1,14 @@
 ---
 title: Instructions relatives au format des documents importés – QnA Maker
-description: Découvrez comment les types d'URL sont utilisés pour importer et créer des paires de questions et réponses.
+description: Suivez ces instructions pour l’importation de documents afin d’obtenir les meilleurs résultats pour votre contenu.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804331"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530775"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instructions relatives au format pour les documents et les URL importés
 

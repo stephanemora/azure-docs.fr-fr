@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70080600"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090633"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostics de performances pour les machines virtuelles Azure
 
@@ -33,11 +33,28 @@ Vous pouvez exécuter les diagnostics de performances directement depuis le port
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Windows 8, Windows 8 Entreprise, Windows 8 Professionnel, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Entreprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace image), CentOS 6.5 [`*`], 7.6, RHEL 7.2, 7.5, 8.0 [`*`], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`]
+- Les distributions prises en charge sont les suivantes :
+
+    | Distribution               | Version                                         |
+    |----------------------------|-------------------------------------------------|
+    | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 |
+    | CentOS                     | 6.5 [`*`], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
+    | Debian                     | 8, 9, 10 [`*`]                                    |
+    | SLES                       | 12 SP4 [`*`]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[`*`] Reportez-vous aux [Problèmes connus](how-to-use-perfinsights-linux.md#known-issues)
@@ -82,7 +99,7 @@ Les scénarios d’analyse suivants sont disponibles à partir du portail Azure.
 * **Analyse avancée des performances** `*`  
     Inclut toutes les vérifications de l’analyse des performances et collecte une ou plusieurs des traces, comme indiqué dans les sections suivantes. Ce scénario permet de résoudre les problèmes complexes qui nécessitent des traces supplémentaires. L’exécution de ce scénario sur de plus longues périodes augmente la taille globale de la sortie de diagnostics, selon la taille de la machine virtuelle et les options de trace sélectionnées. L’exécution de cette analyse prend de 30 secondes à 15 minutes, selon la durée sélectionnée. [En savoir plus](https://aka.ms/perfinsights/advanced)
 
-* **Analyse Azure Files** `*`  
+* **Analyse de fichiers Azure** `*`  
     Inclut toutes les vérifications de l’analyse des performances et capture une trace réseau et des compteurs SMB. Utilisez ce scénario pour résoudre les problèmes de performances des fichiers Azure. L’exécution de cette analyse prend de 30 secondes à 15 minutes, selon la durée sélectionnée. [En savoir plus](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
@@ -184,7 +201,7 @@ Vous pouvez partager un lien vers le fichier compressé des rapports à l’aide
 1. Cliquez sur **Générer un jeton et une URL SAP d’objet blob**.
 1. Copiez **l’URL SAP d’objet blob** et partagez-la avec l’ingénieur du support.
 
-**Option 3** : télécharger le rapport à partir du compte de stockage
+**Option 3 :** télécharger le rapport à partir du compte de stockage
 
 Vous pouvez également localiser le fichier compressé du rapport de diagnostics de performances à l’aide des étapes 1 à 4 de l’option 2. Choisissez de télécharger le fichier, puis partagez-le par e-mail, ou demandez les instructions pour charger le fichier à l’ingénieur du support.  
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612552"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482842"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurer un équilibreur de charge SQL Server AlwaysOn sur des machines virtuelles Azure
 
@@ -40,7 +40,7 @@ Afficher des articles connexes :
 
 Dans ce document, vous créez et vous configurez un équilibreur de charge dans le portail Azure. Une fois le processus terminé, vous configurez le cluster afin qu’il utilise l’adresse IP de l’équilibreur de charge pour l’écouteur du groupe de disponibilité.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Créer et configurer l’équilibrage de charge dans le portail Azure
+## <a name="create--configure-load-balancer"></a>Créer et configurer l’équilibreur de charge 
 
 Dans cette partie de la tâche, suivez ces étapes :
 
@@ -71,7 +71,7 @@ Créez d’abord l’équilibreur de charge.
    | --- | --- |
    | **Nom** |Nom de l’équilibrage de charge. Par exemple, **sqlLB**. |
    | **Type** |**Interne** : La plupart des implémentations utilisent un équilibreur de charge interne, ce qui permet aux applications du même réseau virtuel de se connecter au groupe de disponibilité.  </br> **Externe** : Permet aux applications de se connecter au groupe de disponibilité par le biais d’une connexion Internet publique. |
-   | **Référence (SKU)** |**Standard** : Obligatoire si vos instances SQL se trouvent dans un autre groupe à haute disponibilité que l’équilibreur de charge. </br> **De base** : Option par défaut. |
+   | **Référence (SKU)** |**De base** : Option par défaut. Valide uniquement si les instances SQL se trouvent dans le même groupe à haute disponibilité. </br> **Standard** : Recommandée. Valide si les instances SQL se trouvent dans le même groupe à haute disponibilité. Obligatoire si vos instances SQL se trouvent dans des zones de disponibilité différentes. |
    | **Réseau virtuel** |Sélectionnez le réseau virtuel contenant les instances de SQL Server. |
    | **Sous-réseau** |Sélectionnez le sous-réseau contenant les instances de SQL Server. |
    | **Affectation d’adresses IP** |**Statique** |

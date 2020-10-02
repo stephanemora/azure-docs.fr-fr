@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386671"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033198"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Ingérer des données dans un pool SQL
 
-Cet article explique comment ingérer les données d’un compte de stockage Azure Data Lake Gen 2 dans un pool SQL à l'aide d'Azure Synapse Analytics.
+Cet article explique comment ingérer les données d’un compte de stockage Azure Data Lake Gen2 dans un pool SQL à l’aide d’Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,24 +32,24 @@ Dans Azure Synapse Analytics, un service lié vous permet de définir vos inform
 
 1. Ouvrez l'expérience utilisateur Azure Synapse Analytics et accédez à l’onglet **Gérer**.
 1. Sous **Connexions externes**, sélectionnez **Services liés**.
-1. Pour ajouter un service lié, cliquez sur **Nouveau**.
-1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis cliquez sur **Continuer**.
-1. Entrez vos informations d’identification d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Cliquez sur Tester la connexion pour vérifier que vos informations sont correctes. Une fois que vous avez fini, cliquez sur **Créer**.
+1. Pour ajouter un service lié, sélectionnez **Nouveau**.
+1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis sélectionnez **Continuer**.
+1. Entrez vos informations d’identification d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Sélectionnez Tester la connexion pour vérifier que vos informations d’identification sont correctes. Lorsque vous avez terminé, sélectionnez **Créer**.
 1. Répétez les étapes 3 à 5, mais au lieu d'Azure Data Lake Storage Gen2, sélectionnez la vignette Azure Synapse Analytics et entrez les informations d’identification de connexion correspondantes. Pour Azure Synapse Analytics, l’authentification SQL, l’identité managée et le principal de service sont actuellement pris en charge.
 
 ## <a name="create-pipeline"></a>Création d’un pipeline
 
 Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline contenant une activité de copie qui ingère des données d'ADLS Gen2 dans un pool SQL.
 
-1. Accédez à l’onglet **Orchestrer**. Cliquez sur l’icône + en regard de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
+1. Accédez à l’onglet **Orchestrer**. Sélectionnez l’icône + à côté de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
 1. Dans le volet des activités, sous **Déplacer et transformer**, faites glisser **Copier les données** sur le canevas du pipeline.
-1. Cliquez sur l’activité de copie, puis accédez à l’onglet **Source**. Cliquez sur **Nouveau** pour créer un jeu de données source.
-1. Sélectionnez Azure Data Lake Storage Gen2 en tant que magasin de données, puis cliquez sur Continuer.
-1. Sélectionnez DelimitedText comme format, puis cliquez sur Continuer.
-1. Dans le volet Définir les propriétés, sélectionnez le service lié ADLS que vous avez créé. Spécifiez le chemin d’accès du fichier de vos données sources, puis spécifiez si la première ligne contient un en-tête. Vous pouvez importer le schéma à partir du magasin de fichiers ou d’un exemple de fichier. Une fois que vous avez fini, cliquez sur OK.
-1. Accédez à l’onglet **Récepteur**. Cliquez sur **Nouveau** pour créer un jeu de données récepteur.
-1. Sélectionnez Azure Synapse Analytics en tant que magasin de données, puis cliquez sur Continuer.
-1. Dans le volet Définir les propriétés, sélectionnez le service lié Azure Synapse Analytics que vous avez créé. Si vous écrivez dans une table existante, sélectionnez-la dans la liste déroulante. Sinon, cochez **Modifier** et entrez le nom de la nouvelle table. Une fois que vous avez fini, cliquez sur OK
+1. Sélectionnez l’activité de copie, puis accédez à l’onglet **Source**. Sélectionnez **Nouveau** pour créer un jeu de données source.
+1. Sélectionnez Azure Data Lake Storage Gen2 comme magasin de données, puis sélectionnez Continuer.
+1. Sélectionnez DelimitedText comme format, puis sélectionnez Continuer.
+1. Dans le volet Définir les propriétés, sélectionnez le service lié ADLS que vous avez créé. Spécifiez le chemin d’accès du fichier de vos données sources, puis spécifiez si la première ligne contient un en-tête. Vous pouvez importer le schéma à partir du magasin de fichiers ou d’un exemple de fichier. Sélectionnez OK lorsque vous avez terminé.
+1. Accédez à l’onglet **Récepteur**. Sélectionnez **Nouveau** pour créer un jeu de données récepteur.
+1. Sélectionnez Azure Synapse Analytics en tant que magasin de données, puis sélectionnez Continuer.
+1. Dans le volet Définir les propriétés, sélectionnez le service lié Azure Synapse Analytics que vous avez créé. Si vous écrivez dans une table existante, sélectionnez-la dans la liste déroulante. Sinon, cochez **Modifier** et entrez le nom de la nouvelle table. Lorsque vous avez terminé, sélectionnez OK.
 1. Si vous créez une table, activez **Créer automatiquement une table** dans le champ d'option.
 
 ## <a name="debug-and-publish-pipeline"></a>Déboguer et publier le pipeline
@@ -58,7 +58,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
 
 1. Pour déboguer le pipeline, sélectionnez **Déboguer** dans la barre d’outils. L’état d’exécution du pipeline apparaît dans l’onglet **Sortie** au bas de la fenêtre. 
 1. Une fois que le pipeline peut s’exécuter correctement, sélectionnez **Publier tout** dans la barre d’outils supérieure. Cette action publie les entités (jeux de données et pipelines) que vous avez créées dans le service Synapse Analytics.
-1. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, cliquez sur le bouton en forme de cloche en haut à droite. 
+1. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, sélectionnez le bouton avec l’icône de cloche en haut à droite. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Déclencher et surveiller le pipeline

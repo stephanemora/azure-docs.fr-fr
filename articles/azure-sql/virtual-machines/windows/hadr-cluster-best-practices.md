@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285626"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612321"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ Utilisez une seule carte réseau (NIC) par serveur (nœud de cluster) et un seul
 
 Bien qu’un cluster à deux nœuds puisse fonctionner sans [ressource de quorum](/windows-server/storage/storage-spaces/understand-quorum), les clients sont strictement tenus d’utiliser une ressource de quorum pour prendre en charge la production. La validation du cluster ne transmet pas de cluster sans ressource de quorum. 
 
-Techniquement, un cluster à trois nœuds peut survivre à la perte d’un seul nœud (jusqu’à deux nœuds) sans ressource de quorum. Mais une fois que le cluster n’a plus que deux nœuds, il y a un risque d’exécution dans : 
+Techniquement, un cluster à trois nœuds peut survivre à la perte d’un seul nœud (jusqu’à deux nœuds) sans ressource de quorum. Toutefois, une fois que le cluster est réduit à deux nœuds, il existe un risque que les ressources en cluster soient déconnectées en cas de perte d’un nœud ou d’échec de communication pour éviter un scénario Split-Brain.
 
-- **Partition dans l’espace** (split brain) : les nœuds du cluster sont séparés sur le réseau en raison du problème du serveur, de la carte réseau ou du commutateur. 
-- **Partition dans le temps** (amnesia) : un nœud joint ou rejoint le cluster et tente de revendiquer la propriété du groupe de clusters ou un rôle de cluster de manière inappropriée. 
-
-La ressource de quorum protège le cluster contre tous ces problèmes. 
+La configuration d’une ressource de quorum permet au cluster de continuer en ligne avec un seul nœud en ligne.
 
 Le tableau suivant répertorie les options de quorum disponibles dans l’ordre recommandé pour une machine virtuelle Azure, le témoin de disque étant le choix privilégié : 
 
 
 ||[Témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Témoin cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Systèmes d’exploitation pris en charge**| Tous |Windows Server 2016+| Windows Server 2012+|
+|**Systèmes d’exploitation pris en charge**| Tous |Windows Server 2016+| Tous|
 
 
 
 
 ### <a name="disk-witness"></a>Témoin de disque
 
-Un témoin de disque est un petit disque en cluster qui se trouve dans le groupe de stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données du cluster, dont la taille par défaut est généralement inférieure à 1 Go. Le témoin de disque est l’option de quorum privilégiée pour une machine virtuelle Azure, car elle peut résoudre le problème de partition dans le temps, à la différence du témoin de cloud et du témoin de partage de fichiers. 
+Un témoin de disque est un petit disque en cluster qui se trouve dans le groupe de stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données du cluster, dont la taille par défaut est généralement inférieure à 1 Go. Le témoin de disque est l’option de quorum par défaut pour tous les clusters qui utilisent des disques partagés Azure (ou toute solution de disque partagé comme SCSI, iSCSI ou SAN Fiber Channel partagé).  Un volume partagé en cluster ne peut pas être utilisé comme témoin de disque.
 
 Configurer un disque partagé Azure comme témoin de disque. 
 
@@ -95,8 +92,8 @@ Le tableau suivant compare la capacité de prise en charge de la connexion HADR�
 
 | |**Nom de réseau virtuel (VNN)**  |**Nom de réseau distribué (DNN)**  |
 |---------|---------|---------|
-|**Version de système d’exploitation minimale**| Windows Server 2012 | Windows Server 2016|
-|**Version minimale de SQL Server** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Version de système d’exploitation minimale**| Tous | Tous |
+|**Version minimale de SQL Server** |Tous |SQL Server 2019 CU2|
 |**Solution HADR prise en charge** | Instance de cluster de basculement <br/> Groupe de disponibilité | Instance de cluster de basculement|
 
 
@@ -108,9 +105,9 @@ Il y a un léger délai de basculement lorsque vous utilisez l’équilibreur de
 
 Pour commencer, découvrez comment [configurer Azure Load Balancer pour une instance FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
-**Version de SQL pris en charge** : SQL Server 2012 et versions ultérieures   
-**Solution HADR prise en charge** : Instance de cluster de basculement et groupes de disponibilité 
+**Systèmes d’exploitation pris en charge** : Tous   
+**Version de SQL pris en charge** : Tous   
+**Solution HADR prise en charge** : Instance de cluster de basculement et groupes de disponibilité   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nom de réseau distribué (DNN)
@@ -138,9 +135,10 @@ Pour commencer, découvrez comment [configurer une ressource DNN pour une instan
 Tenez compte des limitations suivantes lorsque vous utilisez l’instance FCI ou des groupes de disponibilité et SQL Server sur des machines virtuelles Azure. 
 
 ### <a name="msdtc"></a>MSDTC 
-La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge pour Windows Server 2016 ou versions antérieures pour la raison suivante :
+La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) ou sur des machines virtuelles SQL Server qui utilisent des disques partagés Azure. 
+
+Concernant Machines virtuelles Azure, MSDTC n’est pas pris en charge pour Windows Server 2016 ou versions antérieures avec des volumes partagés en cluster pour la raison suivante :
 
 - La ressource MSDTC en cluster n’est pas configurable pour utiliser le stockage partagé. Sur Windows Server 2016, si vous créez une ressource MSDTC, celle-ci n’affiche pas le stockage partagé qui est disponible pour l’utilisation, et cela même si le stockage est disponible. Ce problème a été résolu dans Windows Server 2019.
 - L’équilibreur de charge de base ne gère pas les ports RPC.

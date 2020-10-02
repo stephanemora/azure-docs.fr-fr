@@ -18,6 +18,8 @@
       items:
         - name: Ajouter des cibles de stockage
           href: hpc-cache-add-storage.md
+        - name: Ajouter des chemins d’espace de noms
+          href: add-namespace-paths.md
         - name: Déplacer des données vers des cibles de stockage (si nécessaire)
           items:
             - name: Précharger un nouveau stockage d’objets blob
@@ -42,8 +44,6 @@
   items:
     - name: Azure CLI
       href: /cli/azure/ext/hpc-cache/hpc-cache
-    - name: Azure PowerShell
-      href: /powershell/module/Az.HPCCache
 - name: Ressources
   items:
     - name: Ouverture d’un ticket de support

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249160"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442903"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Requêtes analytiques entre locataires utilisant des données extraites – Application multilocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Les applications SaaS que vous développez ont accès à une grande quantité de
 
 L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur des milliers de bases de données. Une façon de maîtriser la complexité consiste à extraire les données à une base de données analytique ou un entrepôt de données. Ensuite, vous interrogez le magasin de données pour collecter des informations à partir des données de ticket de tous les clients.
 
-Ce didacticiel présente un scénario complet d’analytique pour cet exemple d’application SaaS. Tout d’abord, les travaux élastiques sont utilisés pour planifier l’extraction de données de chaque base de données client. Les données sont envoyées à un magasin d’analytique. Le magasin d’analytique peut être une base de données SQL ou un entrepôt de données SQL. Pour l’extraction de données à grande échelle, [Azure Data Factory](../../data-factory/introduction.md) est recommandé.
+Ce didacticiel présente un scénario complet d’analytique pour cet exemple d’application SaaS. Tout d’abord, les travaux élastiques sont utilisés pour planifier l’extraction de données de chaque base de données client. Les données sont envoyées à un magasin d’analytique. Le magasin d’analytique peut être une instance SQL Database ou Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour l’extraction de données à grande échelle, [Azure Data Factory](../../data-factory/introduction.md) est recommandé.
 
 Ensuite, les données agrégées sont fragmentées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées :
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4a7132221d2db58e4dea0e41f2761f4f395b9632
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401399"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657354"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Ligne de base de la sécurité Azure pour Azure Machine Learning
 
@@ -28,7 +28,7 @@ La ligne de base de la sécurité pour Microsoft Azure Machine Learning contient
 
 Le pare-feu Azure peut être utilisé pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public.
 
-- [Guide pratique pour exécuter en toute sécurité des expériences et une inférence dans un réseau virtuel isolé](how-to-enable-virtual-network.md)
+- [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
 
 - [Utiliser l’espace de travail derrière le Pare-feu Azure pour Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Activez les journaux de flux de groupe de sécurité réseau et envoyez ceux-ci 
 
 - [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Isolement réseau pendant la formation et l’inférence avec des réseaux virtuels privés](how-to-enable-virtual-network.md)
+- [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -122,7 +122,7 @@ Le service Azure Machine Learning propose une liste de balises de service pour s
 
 - [Pour plus d’informations sur l’utilisation des étiquettes de service](../virtual-network/service-tags-overview.md)
 
-- [Pour un réseau virtuel Azure Machine Learning](how-to-enable-virtual-network.md)
+- [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -182,7 +182,7 @@ Si une ressource de votre réseau virtuel Azure Machine Learning prend en charge
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -326,7 +326,7 @@ Vous pouvez également utiliser le module Azure AD PowerShell pour effectuer de
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
-**Conseils** : Azure Machine Learning est fourni avec trois rôles par défaut lors de la création d’un espace de travail, permettant de créer des procédures d’exploitation standard autour de l’utilisation de comptes de propriétaire.
+**Aide** : Azure Machine Learning est fourni avec trois rôles par défaut lors de la création d’un espace de travail, créant ainsi des procédures d’exploitation standard autour de l’utilisation de comptes de propriétaire.
 
 Vous pouvez également activer l’accès juste-à-temps aux comptes d’administration en utilisant Azure Active Directory Privileged Identity Management et Azure Resource Manager. 
 
@@ -356,7 +356,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -380,7 +380,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1130,7 +1130,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

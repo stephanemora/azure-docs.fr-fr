@@ -3,12 +3,12 @@ title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509873"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645589"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -57,13 +57,13 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
      1. Inscrivez les fournisseurs de ressources **Microsoft.ContainerService** et **Microsoft.PolicyInsights**. Pour connaître les étapes, consultez [Types et fournisseurs de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+     1. Lancez le service Azure Policy dans le portail Azure en sélectionnant **Tous les services**, puis en recherchant et en sélectionnant **Policy**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
 
      1. Sélectionnez **S’inscrire à la préversion** sur le côté gauche de la page Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="S’inscrire à la préversion Policy pour AKS" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
 
      1. Sélectionnez la ligne de l’abonnement que vous souhaitez ajouter à la préversion.
 
@@ -120,17 +120,17 @@ Une fois les étapes préalables ci-dessus accomplies, installez le module compl
 
 - Portail Azure
 
-  1. Lancez le service AKS dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **services Kubernetes**.
+  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services**, puis en recherchant et en sélectionnant **Services Kubernetes**.
 
   1. Sélectionnez l’un de vos clusters AKS.
 
   1. Sélectionnez **Stratégies (préversion)** sur le côté gauche de la page du service Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Définitions de stratégie à partir du cluster AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
 
   1. Dans la page principale, sélectionnez le bouton **Activer un module complémentaire**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Activer le module complémentaire Azure Policy pour AKS":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services.":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, uti
 
 - Portail Azure
 
-  1. Lancez le service AKS dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **services Kubernetes**.
+  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services**, puis en recherchant et en sélectionnant **Services Kubernetes**.
 
   1. Sélectionnez le cluster AKS dans lequel vous souhaitez désactiver le module complémentaire Azure Policy.
 
   1. Sélectionnez **Stratégies (préversion)** sur le côté gauche de la page du service Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Définitions de stratégie à partir du cluster AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
 
   1. Dans la page principale, sélectionnez le bouton **Désactiver un module complémentaire**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Désactiver le module complémentaire Azure Policy pour AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
 
 - Azure CLI
 

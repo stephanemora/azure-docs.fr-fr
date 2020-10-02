@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732572"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462034"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -307,10 +309,10 @@ Une fois activée, la prise en charge du traçage distribué IoT Hub va suivre c
 
 1. Un message est généré sur l’appareil IoT.
 1. L’appareil IoT décide (avec l’aide du cloud) que ce message doit se voir attribuer un contexte de trace.
-1. Le SDK ajoute un `tracestate` à la propriété d’application de message, comprenant l’horodatage de la création du message.
+1. Le Kit de développement logiciel (SDK) ajoute un `tracestate` à la propriété du message, comprenant l’horodatage de la création du message.
 1. L’appareil IoT envoie le message à IoT Hub.
 1. Le message arrive à la passerelle du hub IoT.
-1. IoT Hub recherche `tracestate` dans les propriétés de l’application message puis vérifie qu’il est au bon format.
+1. IoT Hub recherche `tracestate` dans les propriétés du message, puis vérifie qu’il est au bon format.
 1. Si c’est le cas, IoT Hub génère un `trace-id` global unique pour le message et un `span-id` pour le « tronçon », puis il les journalise dans des journaux de diagnostic Azure Monitor sous l’opération `DiagnosticIoTHubD2C`.
 1. Quand le traitement des messages est terminé, IoT Hub génère un autre `span-id`, puis le journalise avec le `trace-id` existant, sous l’opération `DiagnosticIoTHubIngress`.
 1. Si le routage est activé pour le message, IoT Hub écrit des données dans le point de terminaison personnalisé, puis journalise un autre `span-id` avec le même `trace-id` sous la catégorie `DiagnosticIoTHubEgress`.

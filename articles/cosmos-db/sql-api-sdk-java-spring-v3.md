@@ -9,14 +9,14 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: e67e6911eeac29036dee2b68c19395b34e1d11da
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9e5b92918d93109183740be555bb805877862407
+ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228033"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90817868"
 ---
-# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 pour l’API Core (SQL) : notes de publication et ressources
+# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 pour l’API Core (SQL) : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
@@ -38,18 +38,18 @@ ms.locfileid: "89228033"
 
 Spring Data Azure Cosmos DB v3 pour Core (SQL) permet aux développeurs d’utiliser Azure Cosmos DB dans des applications Spring. Spring Data Azure Cosmos DB expose l’interface de données Spring pour manipuler les bases de données et les collections, travailler avec des documents et émettre des requêtes. Les API synchrones et asynchrones (réactives) sont prises en charge dans le même artefact Maven. 
 
-Spring Data Azure Cosmos DB est dépendant de l’infrastructure Spring Data. L’équipe du Kit de développement logiciel (SDK) Azure Cosmos DB publie des artefacts Maven pour Spring Data v2.2 et v2.3.
+Spring Data Azure Cosmos DB est dépendant de l’infrastructure Spring Data. L’équipe du Kit de développement logiciel (SDK) Azure Cosmos DB publie des artefacts Maven pour les versions 2.2 et 2.3 de Spring Data.
 
-L’[infrastructure Spring](https://spring.io/projects/spring-framework) est un modèle de programmation et de configuration qui rationalise le développement d’applications Java. Pour citer le site web de l’organisation, Spring rationalise la « plomberie » des applications à l’aide de l’injection de dépendances. De nombreux développeurs comme Spring parce que la génération et le test d’applications deviennent plus simples. [Spring Boot](https://spring.io/projects/spring-boot) étend cette idée de la gestion de la plomberie avec un œil sur l’application web et le développement de microservices. [Spring Data](https://spring.io/projects/spring-data) est un modèle de programmation et une infrastructure permettant l’accès à des magasins de données tels qu’Azure Cosmos DB à partir du contexte d’une application Spring ou Spring Boot. 
+[Spring Framework](https://spring.io/projects/spring-framework) est un modèle de programmation et de configuration qui rationalise le développement d’applications Java. Spring rationalise la « plomberie » des applications en injectant des dépendances. De nombreux développeurs apprécient Spring, car il rend la création et le test d’applications plus simples. [Spring Boot](https://spring.io/projects/spring-boot) étend cette prise en charge de la plomberie en vue du développement d’applications web et de microservices. [Spring Data](https://spring.io/projects/spring-data) est un modèle de programmation et une infrastructure permettant l’accès à des magasins de données tels qu’Azure Cosmos DB à partir du contexte d’une application Spring ou Spring Boot. 
 
 Vous pouvez utiliser Spring Data Azure Cosmos DB dans vos applications [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/).
 
 > [!IMPORTANT]  
-> Ces notes de publication sont destinées à la version v3 de Spring Data Azure Cosmos DB. Vous trouverez les notes de publication de la version v2 [ici](sql-api-sdk-java-spring-v2.md). 
+> Ces notes de publication sont destinées à la version 3 de Spring Data Azure Cosmos DB. Les [notes de publication de la version 2 sont accessibles ici](sql-api-sdk-java-spring-v2.md). 
 >
-> Spring Data Azure Cosmos DB prend en charge uniquement l’API SQL.
+> Spring Data Azure Cosmos DB prend uniquement en charge l’API SQL.
 >
-> Les guides suivants prennent en charge Spring Data sur d’autres API de Azure Cosmos DB :
+> Pour plus d’informations concernant Spring Data sur d’autres API d’Azure Cosmos DB, consultez les articles suivants :
 > * [Spring Data pour Apache Cassandra avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Spring Data MongoDB avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
 > * [Spring Data Gremlin avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
@@ -61,31 +61,19 @@ Vous pouvez utiliser Spring Data Azure Cosmos DB dans vos applications [Azure Sp
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 
-### <a name="navigate-the-tabs-above-for-basic-spring-data-azure-cosmos-db-samples"></a>Parcourez les onglets ci-dessus pour accéder à des exemples Spring Data Azure Cosmos DB de base.
+#### <a name="these-tabs-contain-basic-spring-data-azure-cosmos-db-samples"></a>Ces onglets contiennent des exemples Spring Data Azure Cosmos DB de base.
 
 # <a name="pomxml"></a>[pom.xml](#tab/pom)
 
 ### <a name="configure-dependencies"></a>Configurer des dépendances
 
-Deux artefacts Maven pour Spring Azure Cosmos DB v3 sont disponibles.
-
-Artefact dépendant de l’infrastructure Spring Data v2.2 :
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-2-2-cosmos</artifactId>
-    <version>latest</version>
-</dependency>
-```
-
-Artefact dépendant de l’infrastructure Spring Data v2.3 :
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-2-3-cosmos</artifactId>
-    <version>latest</version>
-</dependency>
-```
+  ```xml
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-spring-data-cosmos</artifactId>
+      <version>latest</version>
+  </dependency>
+  ```
 
 # <a name="connect"></a>[Connexion](#tab/connect)
 
@@ -93,7 +81,7 @@ Artefact dépendant de l’infrastructure Spring Data v2.3 :
 
 Spécifiez les détails du compte et du conteneur Azure Cosmos DB. Spring Data Azure Cosmos DB crée automatiquement le client et se connecte au conteneur.
 
-[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/resources/application.properties) :
+[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties) :
 ```
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
@@ -108,44 +96,60 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>Opérations de document
 
-[Créer](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java) : [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
+Créer :
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
 
-[Supprimer](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java) : [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
+Supprimer :
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
 
 # <a name="query"></a>[Requête](#tab/queries)
 
-### <a name="query"></a>Requête
-
-[Interroger](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java) : [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
+Requête :
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
 
 ---
 
-## <a name="helpful-content"></a>Contenu utile
+## <a name="resources"></a>Ressources
 
-| Contenu | Infrastructure Spring Data v2.2 | Infrastructure Spring Data v2.3 |
-|---|---|
-| **Téléchargement du Kit de développement logiciel (SDK)** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
-|**Contribution au Kit de développement logiciel (SDK)** | [Référentiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [Référentiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
-|**Didacticiel**| [Didacticiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Didacticiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
+* **Contribution au Kit de développement logiciel (SDK)**  : [Référentiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+
+* **Tutoriel** : [Didacticiel Spring Data Azure Cosmos DB sur GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 ## <a name="release-history"></a>Historique des mises en production
 
-### <a name="300-beta2-unreleased"></a>3.0.0-beta.2 (Unreleased)
+### <a name="300-beta2-september-17-2020"></a>3.0.0-beta.2 (17 septembre 2020)
 
-### <a name="300-beta1-2020-08-17"></a>3.0.0-beta.1 (2020-08-17)
 #### <a name="new-features"></a>Nouvelles fonctionnalités
-* Mise à jour de l’ID de groupe en `com.azure`.
-* Mise à jour de l’ID d’artefact en `azure-spring-data-2-3-cosmos`.
-* Mise à jour de la dépendance du Kit de développement logiciel (SDK) azure-cosmos à `4.3.2-beta.2`.
-* Prise en charge de l’audit des entités : gestion automatique des champs annotés createdBy, createdDate, lastModifiedBy et lastModifiedDate.
-* Prise en charge de l’annotation `@GeneratedValue` pour la génération automatique d’ID pour les champs d’ID de type `String`.
-* Prise en charge de la configuration multibase de données pour un compte Cosmos unique avec plusieurs bases de données et pour plusieurs comptes Cosmos avec plusieurs bases de données.
-* Prise en charge de l’annotation `@Version` sur n’importe quel champ de chaîne.
-* Les API de synchronisation mises à jour retournent des types `Iterable` au lieu de `List`.
-* Exposition de `CosmosClientBuilder` du Kit de développement logiciel (SDK) Cosmos comme spring bean à la classe `@Configuration`.
-* Mise à jour de `CosmosConfig` pour contenir les métriques de requête et l’implémentation du processeur de diagnostics des réponses.
-* Prise en charge du renvoi du type de données `Optional` pour les requêtes à résultat unique.
+
+* Mise à jour de l’ID d’artefact en `azure-spring-data-cosmos`.
+* Mise à jour de la dépendance azure-cosmos en `4.5.0`.
+* Prise en charge de `Query Annotation` pour les requêtes natives.
+* Prise en charge de Java 11.
+* Ajout de la prise en charge de la clé de partition imbriquée en exposant le champ `partitionKeyPath` dans l’annotation `@Container`.
+* Ajout de la prise en charge du type de requête `limit` autorisant l’utilisation de `top` et de `first` lors de la définition des API de référentiel.
+
+#### <a name="key-bug-fixes"></a>Principaux bogues résolus
+
+* Correction du bogue de clé de partition imbriquée en cas d’utilisation avec l’annotation `@GeneratedValue`.
+
+### <a name="300-beta1-august-17-2020"></a>3.0.0-beta.1 (17 août 2020)
+
+#### <a name="new-features"></a>Nouvelles fonctionnalités
+
+* Met à jour de l’ID de groupe en `com.azure`.
+* Met à jour de l’ID d’artefact en `azure-spring-data-2-3-cosmos`.
+* Met à jour de la dépendance du Kit de développement logiciel (SDK) azure-cosmos en `4.3.2-beta.2`.
+* Ajoute la prise en charge des entités d’audit : la gestion automatique des champs annotés `createdBy`, `createdDate`, `lastModifiedBy` et `lastModifiedDate`.
+* Ajoute la prise en charge de l’annotation `@GeneratedValue` pour la génération automatique d’ID pour les champs d’ID de type `String`.
+* Ajoute la prise en charge de la configuration multibase de données pour des comptes Azure Cosmos DB uniques avec plusieurs bases de données et pour des comptes Azure Cosmos DB multiples avec plusieurs bases de données.
+* Ajoute la prise en charge de l’annotation `@Version` sur n’importe quel champ de chaîne.
+* Met à jour les types de retour de l’API de synchronisation en types `Iterable` au lieu de `List`.
+* Expose `CosmosClientBuilder` du Kit de développement logiciel (SDK) Azure Cosmos DB en tant que composant Spring à la classe `@Configuration`.
+* Met à jour `CosmosConfig` pour contenir les métriques de requête et l’implémentation du processeur de diagnostics des réponses.
+* Ajoute la prise en charge du renvoi du type de données `Optional` pour les requêtes à résultat unique.
+
 #### <a name="renames"></a>Renommages
+
 * `CosmosDbFactory` en `CosmosFactory`.
 * `CosmosDBConfig` en `CosmosConfig`.
 * `CosmosDBAccessException` en `CosmosAccessException`.
@@ -153,23 +157,27 @@ cosmos.queryMetricsEnabled=true
 * Annotation `DocumentIndexingPolicy` en annotation `CosmosIndexingPolicy`.
 * `DocumentQuery` en `CosmosQuery`.
 * Indicateur application.properties `populateQueryMetrics` en `queryMetricsEnabled`.
+
 #### <a name="key-bug-fixes"></a>Principaux bogues résolus
+
 * Planification de la tâche de journalisation des diagnostics dans les threads `Parallel` afin d’éviter de bloquer les threads d’E/S de Netty.
 * Correction du verrouillage optimiste lors de l’opération de suppression.
 * Correction du problème lié à l’échappement des requêtes pour la clause `IN`.
 * Correction du problème en autorisant le type de données `long` pour `@Id`.
 * Correction du problème en autorisant `boolean`, `long`, `int` et `double` comme types de données pour l’annotation `@PartitionKey`.
-* Correction des mots clés `IgnoreCase` & `AllIgnoreCase` pour les requêtes Ignorer la casse.
-* Suppression de la valeur d’unité de requête par défaut de 4 000 lors de la création automatique de conteneurs.
+* Correction des mots clés `IgnoreCase` et `AllIgnoreCase` pour les requêtes Ignorer la casse.
+* Suppression de la valeur d’unité de requête par défaut de 4 000 lorsque les conteneurs sont créés automatiquement.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Pour en savoir plus sur l’infrastructure Spring, consultez la [page d’accueil du projet](https://spring.io/projects/spring-framework).
+Apprenez-en davantage sur [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Pour en savoir plus sur Spring Boot, consultez la [page d’accueil du projet](https://spring.io/projects/spring-boot).
+Apprenez-en davantage sur [Spring Framework](https://spring.io/projects/spring-framework).
 
-Pour en savoir plus sur Spring Data, consultez la [page d’accueil du projet](https://spring.io/projects/spring-data).
+Apprenez-en davantage sur [Spring Boot](https://spring.io/projects/spring-boot).
+
+Apprenez-en davantage sur [Spring Data](https://spring.io/projects/spring-data).

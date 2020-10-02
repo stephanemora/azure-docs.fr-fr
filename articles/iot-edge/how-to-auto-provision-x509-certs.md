@@ -9,16 +9,16 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260035"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530741"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509
 
-Avec le [service Azure IoT Hub Device Provisioning (DPS)](../iot-dps/index.yml), vous pouvez provisionner automatiquement des appareils IoT Edge à l’aide de certificats X.509. Si vous ne connaissez pas le processus de provisionnement automatique, révisez les [concepts du provisionnement automatique](../iot-dps/concepts-auto-provisioning.md) avant de poursuivre.
+Avec le [service Azure IoT Hub Device Provisioning (DPS)](../iot-dps/index.yml), vous pouvez provisionner automatiquement des appareils IoT Edge à l’aide de certificats X.509. Si vous ne connaissez pas le processus de provisionnement automatique, révisez la présentation du [provisionnement](../iot-dps/about-iot-dps.md#provisioning-process) avant de poursuivre.
 
 Cet article vous montre comment créer une inscription au service Device Provisioning à l’aide de certificats X.509 sur un appareil IoT Edge, en procédant comme suit :
 
@@ -52,7 +52,7 @@ Les fichiers suivants sont nécessaires pour configurer le provisionnement autom
 * Un certificat d’autorité de certification racine ou intermédiaire issu de la chaîne d’approbation des certificats. Ce certificat est chargé dans DPS si vous créez une inscription de groupe.
 
 > [!NOTE]
-> Actuellement, une limitation de libiothsm empêche l'utilisation de certificats qui expirent le 1er janvier 2050 ou après cette date.
+> Il existe actuellement dans libiothsm une limitation empêchant l’utilisation de certificats qui expirent le 1er janvier 2038 ou après cette date.
 
 ### <a name="use-test-certificates"></a>Utiliser des certificats de test
 

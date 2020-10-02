@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326169"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030342"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -20,10 +20,7 @@ Lorsque vous avez des applications critiques et des processus métier basés sur
 > Cet article s’applique à tous les services Azure qui utilisent Azure Monitor. Les ressources de calcul, notamment les machines virtuelles et App Service, génèrent les mêmes données de supervision que celles décrites ici, mais disposent aussi d’un système d’exploitation invité également capable de générer des journaux et des métriques. Consultez la documentation sur la supervision de ces services pour plus d’informations sur la façon de collecter et d’analyser ces données.
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
-Azure Monitor est un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et en local. La [plateforme de données Azure Monitor](../platform/data-platform.md) collecte des données dans des [journaux](../platform/data-platform-logs.md) et des [métriques](../platform/data-platform-metrics.md), et permet de les analyser ensemble à l’aide d’un ensemble complet d’outils de supervision, comme décrit dans les sections suivantes.
-
-- [Que pouvez-vous faire avec les métriques Azure Monitor ?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [Que pouvez-vous faire avec les journaux Azure Monitor ?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Azure Monitor est un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et en local. La [plateforme de données Azure Monitor](../platform/data-platform.md) collecte des données dans des [journaux d’activité](../platform/data-platform-logs.md) et des [métriques](../platform/data-platform-metrics.md) et permet de les analyser ensemble à l’aide d’un ensemble complet d’outils de supervision. Consultez la liste complète des applications et services qui peuvent être supervisés par Azure Monitor dans [Quels sont les éléments supervisés par Azure Monitor ?](../monitor-reference.md)
 
 Dès que vous créez une ressource Azure, Azure Monitor est activé et commence à collecter des métriques et des journaux d’activité que vous pouvez [consulter et analyser dans le portail Azure](#monitoring-in-the-azure-portal). Avec une certaine configuration, vous pouvez collecter des données de supervision supplémentaires et activer des fonctionnalités supplémentaires. Consultez [Données de supervision](#monitoring-data) ci-dessous, pour plus d’informations sur les exigences de configuration.
 
@@ -100,7 +97,7 @@ Certains services fournissent des outils dépassant les fonctionnalités standar
 
 Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à partir de **Supervision** dans le menu de chaque ressource. Accédez à tous les insights et à toutes les solutions à partir du menu **Azure Monitor**.
 
-![Insights](media/monitor-azure-resource/insights.png)
+![Insights dans le portail Azure](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Mesures
 Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer**, disponible à partir de l’élément de menu [Métriques](../platform/metrics-getting-started.md) pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
@@ -108,7 +105,7 @@ Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer*
 - Consultez [Bien démarrer avec Azure Metrics Explorer](../platform/metrics-getting-started.md) pour découvrir les principes de base de l’utilisation de Metrics Explorer.
 - Consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../platform/metrics-charts.md) pour découvrir les fonctionnalités avancées de Metrics Explorer, telles que l’utilisation de plusieurs métriques et l’application de filtres et d’un fractionnement.
 
-![Mesures](media/monitor-azure-resource/metrics.png)
+![Explorateur de métriques dans le portail Azure](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Journal d’activité 
@@ -129,7 +126,7 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 - Consultez [Mode de collecte](../platform/resource-logs.md#send-to-log-analytics-workspace) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
 - Consultez la documentation de chaque service Azure pour plus d’informations sur sa table dans les journaux Azure Monitor.
 
-![Journaux d’activité](media/monitor-azure-resource/logs.png)
+![Log Analytics dans le portail Azure](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>Supervision à partir de la ligne de commande
 Vous pouvez accéder aux données de supervision collectées depuis votre ressource à partir d’une ligne de commande ou les inclure dans un script à l’aide d’[Azure PowerShell](/powershell/azure/) ou de l’[interface de ligne de commande Azure](/cli/azure/). 
