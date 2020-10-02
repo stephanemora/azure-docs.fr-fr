@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ada966cb3c2a08a8a1ed81c3ba18ab9859774b44
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972256"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)
+
+> [!NOTE]
+> Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les **coffres** et les **HSM managés**. Le contrôle d’accès décrit dans cet article s’applique uniquement aux **coffres**. Pour en savoir plus sur le contrôle d’accès pour le HSM managé, consultez [Contrôle d’accès HSM managé](../managed-hsm/access-control.md).
 
 Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), qui permet une gestion précise des accès des ressources Azure.
 
@@ -45,14 +48,14 @@ Pour des instructions sur la gestion d’Azure Key Vault, consultez :
 
 | Rôle intégré | Description | id |
 | --- | --- | --- |
-| Administrateur de Key Vault (préversion) | Permet d’effectuer toute opération de plan de données sur un coffre de clés et tous les objets qu’il contient, à savoir les certificats, les clés et les secrets. Ne permet pas de gérer les ressources du coffre de clés ou les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Responsable des certificats de Key Vault (préversion) | Permet d’effectuer toute action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Responsable du chiffrement de Key Vault (préversion)| Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Service de chiffrement de Key Vault (préversion) | Permet de lire les métadonnées des clés et d’effectuer des opérations d’enveloppement/désenveloppement. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Utilisateur de chiffrement de Key Vault (préversion) | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Lecteur de Key Vault (préversion)| Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne permet pas de lire des valeurs sensibles, telles que des contenus secrets ou des documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Responsable des secrets de Key Vault (préversion)| Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Utilisateur de secrets de Key Vault (préversion)| Permet de lire le contenu d’un secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Administrateur de Key Vault (préversion) | Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, y compris les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Responsable des certificats de Key Vault (préversion) | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Responsable du chiffrement de Key Vault (préversion)| Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Service de chiffrement de Key Vault (préversion) | Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Utilisateur de chiffrement de Key Vault (préversion) | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Lecteur de Key Vault (préversion)| Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Responsable des secrets de Key Vault (préversion)| Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Utilisateur de secrets de Key Vault (préversion)| Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Pour plus d’informations sur les définitions de rôles intégrés Azure, consultez [Rôles intégrés Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 

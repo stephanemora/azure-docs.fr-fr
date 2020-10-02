@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933662"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595649"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -160,13 +160,16 @@ Il est également possible de spécifier des paramètres de rétention différen
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Notez que le type de données (table) est sensible à la casse.  Pour obtenir les paramètres actuels de conservation par type de données d’un type de données particulier (dans cet exemple, SecurityEvent), utilisez :
+Notez que le type de données (table) est sensible à la casse.  Pour obtenir les paramètres actuels de rétention par type de données d’un type de données particulier (dans cet exemple, SecurityEvent), utilisez :
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-Pour obtenir les paramètres actuels de conservation par type de données pour tous les types de données figurant dans votre espace de travail, omettez simplement le type de données spécifique, par exemple :
+> [!NOTE]
+> La rétention n’est retournée pour un type de données que elle a été explicitement définie.  Les types de données dont la rétention n’a pas été explicitement définie (et qui héritent donc de la rétention de l’espace de travail) ne retournent rien suite à cet appel. 
+
+Pour obtenir les paramètres actuels de rétention par type de données pour tous les types de données figurant dans votre espace de travail, dont la rétention par type de données a été définie, omettez simplement le type de données spécifique, par exemple :
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,9 +578,9 @@ Pour déclencher une alerte si le volume de données ingérées facturables au c
 - **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
-   - **Requête de recherche** sur `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. 
+   - **Requête de recherche** sur `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. Si vous souhaitez un autre 
    - La **logique d’alerte** est **basée sur** le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
-   - **Période** de *1440* minutes et **Fréquence des alertes** définie toutes les *1440* minutes pour s’exécuter une fois par jour.
+   - **Période** de *1 440* minutes et **Fréquence des alertes** définie toutes les *1 440* minutes pour s’exécuter une fois par jour.
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :
    - **Nom** défini sur *Billable data volume greater than 50 GB in 24 hours* (Volume de données facturables supérieur à 50 Go en 24 heures)
    - **Gravité** : *Avertissement*
@@ -604,7 +607,7 @@ Lorsque la collecte de données s’arrête, le paramètre OperationStatus a la 
 |Raison pour laquelle la collecte s’arrête| Solution| 
 |-----------------------|---------|
 |La limite quotidienne de votre espace de travail a été atteinte|Attendez que la collecte redémarre automatiquement ou augmentez la limite du volume de données quotidien décrite dans la section Gérer le volume de données maximal quotidien. L’heure de réinitialisation de la limite quotidienne s’affiche sur la page **Limite quotidienne**. |
-| Votre espace de travail a atteint le [débit d’ingestion de données](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Un seuil de débit de volume d’ingestion par défaut de 500 Mo (compressé) s’applique aux espaces de travail, ce qui correspond à **6 Go/min** non compressé. La taille réelle peut varier entre les types de données en fonction de la longueur du journal et du taux de compression. Ce seuil s’applique à toutes les données ingérées, qu’elles soient envoyées à partir de ressources Azure en utilisant les [paramètres de diagnostic](diagnostic-settings.md),de l’[API du collecteur de données](data-collector-api.md) ou d’agents. Quand vous envoyez des données vers un espace de travail à un débit supérieur à 80 % du seuil configuré dans votre espace de travail, un événement est envoyé au tableau *Opération* de votre espace de travail toutes les 6 heures pendant que le seuil continue d’être dépassé. Quand le débit de volume ingéré est plus élevé que le seuil, des données sont supprimées et un événement est envoyé toutes les 6 heures au tableau *Opération* de votre espace de travail pendant que le seuil continue d’être dépassé. Si votre débit de volume d’ingestion continue de dépasser le seuil ou si vous pensez l’atteindre bientôt, vous pouvez demander de l’augmenter dans votre espace de travail en effectuant une demande de support. Pour être notifié d'un tel événement dans votre espace de travail, créez une [règle d'alerte de journal](alerts-log.md) à l'aide de la requête suivante avec une logique d'alerte basée sur le nombre de résultats supérieur à zéro, une période d'évaluation de 5 minutes et une fréquence de 5 minutes. Le débit du volume d’ingestion a atteint 80 % du seuil : `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"`. Le débit du volume d’ingestion a atteint le seuil : `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"`. |
+| Votre espace de travail a atteint le [débit d’ingestion de données](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | La limite par défaut du débit d’ingestion de données envoyées à partir de ressources Azure à l’aide des paramètres de diagnostic est d’environ 6 Go/min par espace de travail. Il s’agit d’une valeur approximative dans la mesure où la taille réelle peut varier d’un type de données à l’autre en fonction de la longueur du journal et de son taux de compression. Cette limite ne s’applique pas aux données envoyées à partir d’agents ou de l’API de collecteur de données. Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table Operation de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en envoyant un e-mail à LAIngestionRate@microsoft.com ou en effectuant une demande de support. L’événement à rechercher indiquant une limite de débit d’ingestion de données peut être trouvé par la requête `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Limite quotidienne de niveau tarifaire hérité Gratuit atteinte |Attendez le jour suivant pour que la collecte redémarre automatiquement ou passez à un niveau tarifaire payant.|
 |Abonnement Azure à l’état interrompu pour la raison suivante :<br> Fin de l’essai gratuit<br> Expiration du Pass Azure<br> Limite de dépense mensuelle atteinte (par exemple, sur un abonnement MSDN ou Visual Studio)|Passer à un abonnement payant<br> Supprimer la limite ou attendre sa réinitialisation|
 

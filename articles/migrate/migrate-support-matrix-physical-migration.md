@@ -4,12 +4,12 @@ description: Découvrez la prise en charge pour la migration de serveurs physiqu
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051132"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535446"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -45,7 +45,7 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **Service de mobilité** | L’agent du service Mobilité doit être installé sur chaque machine que vous souhaitez migrer.
 **Démarrage UEFI** | La machine migrée dans Azure est automatiquement convertie en machine virtuelle Azure de démarrage du BIOS. Seul un serveur exécutant Windows Server 2012 ou version ultérieure est pris en charge.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
 **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.
-**Disque cible** | Les machines peuvent être migrées seulement vers des disques managés (disques HDD standard, disques SSD Premium) dans Azure.
+**Disque cible** | Les machines peuvent être migrées seulement vers des disques managés (disques HDD standard, disques SSD standard, disques SSD Premium) dans Azure.
 **Taille du disque** | Disque de système d’exploitation de 2 To ; 8 To pour des disques de données.
 **Limites du disque** |  Jusqu’à 63 disques par machine.
 **Disques/volumes chiffrés** |  Les machines avec des disques/volumes chiffrés ne sont pas prises en charge pour la migration.

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837307"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505335"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -29,6 +29,16 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="august-2020"></a>Août 2020
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Conception mobile pour le site web Video Indexer
+
+L’expérience du site web Video Indexer prend désormais en charge les appareils mobiles. L’expérience utilisateur s’adapte à la taille de votre écran mobile (à l’exception des interfaces utilisateur de personnalisation). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Améliorations de l’accessibilité et résolution des bogues 
+
+Dans le cadre des directives WCAG (Web Content Accessibility Guidelines), l’expérience du site web Video Indexer est alignée avec la classe C, conformément aux normes d’accessibilité de Microsoft. Plusieurs bogues et améliorations liés à la navigation au clavier, à l’accès par programme et au lecteur d’écran ont été résolus. 
 
 ## <a name="july-2020"></a>Juillet 2020
 

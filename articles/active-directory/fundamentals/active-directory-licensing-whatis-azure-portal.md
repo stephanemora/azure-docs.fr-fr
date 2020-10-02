@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797268"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565053"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
-Les services cloud payants Microsoft, comme Office 365, Enterprise Mobility + Security, Dynamics 365 et d’autres produits similaires, requièrent des licences. Ces licences sont affectées à chaque utilisateur qui a besoin d’accéder à ces services. Pour gérer les licences, les administrateurs utilisent l’un des portails de gestion (Office ou Azure) et des applets de commande PowerShell. Azure Active Directory (Azure AD) est l’infrastructure de base qui prend en charge la gestion de tous les services cloud Microsoft. Azure AD stocke des informations sur les états d’affectation de licence pour les utilisateurs.
+Les services cloud payants Microsoft, comme Microsoft 365, Enterprise Mobility + Security, Dynamics 365 et d’autres produits similaires, requièrent des licences. Ces licences sont affectées à chaque utilisateur qui a besoin d’accéder à ces services. Pour gérer les licences, les administrateurs utilisent l’un des portails de gestion (Office ou Azure) et des applets de commande PowerShell. Azure Active Directory (Azure AD) est l’infrastructure de base qui prend en charge la gestion de tous les services cloud Microsoft. Azure AD stocke des informations sur les états d’affectation de licence pour les utilisateurs.
 
 Jusqu’à présent, les licences ne pouvaient être affectées qu’au niveau de chaque utilisateur, ce qui pouvait rendre difficile la gestion à grande échelle. Par exemple, pour ajouter ou supprimer des licences utilisateur en raison d’évolutions de l’organisation, par exemple l’arrivée ou le départ d’utilisateurs dans l’organisation ou dans un service, l’administrateur devait souvent écrire un script PowerShell complexe. Ce script permet d’effectuer des appels individuels au service cloud.
 
@@ -45,9 +45,9 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Les licences peuvent être affectées à n’importe quel groupe de sécurité dans Azure AD. Les groupes de sécurité peuvent être synchronisés en local à l’aide d’Azure AD Connect. Vous pouvez également créer des groupes de sécurité directement dans Azure AD (ils sont également appelé groupes cloud purs) ou automatiquement avec la fonctionnalité de groupe dynamique d’Azure AD.
 
-- Lorsqu’une licence de produit est affectée à un groupe, l’administrateur peut désactiver un ou plusieurs plans de services dans le produit. En règle générale, cette affectation a lieu lorsque l’organisation n’est pas encore prête à utiliser un service inclus dans un produit. Par exemple, l’administrateur peut affecter Office 365 à un service, mais désactiver temporairement le service Yammer.
+- Lorsqu’une licence de produit est affectée à un groupe, l’administrateur peut désactiver un ou plusieurs plans de services dans le produit. En règle générale, cette affectation a lieu lorsque l’organisation n’est pas encore prête à utiliser un service inclus dans un produit. Par exemple, l’administrateur peut affecter Microsoft 365 à un service, mais désactiver temporairement le service Yammer.
 
-- Tous les services de cloud computing Microsoft nécessitant des licences au niveau des utilisateurs sont pris en charge. Cette prise en charge comprend tous les produits Office 365, Enterprise Mobility + Security et Dynamics 365.
+- Tous les services de cloud computing Microsoft nécessitant des licences au niveau des utilisateurs sont pris en charge. Cette prise en charge comprend tous les produits Microsoft 365, Enterprise Mobility + Security et Dynamics 365.
 
 - Pour le moment, les licences basées sur les groupes sont uniquement accessibles via le [portail Azure](https://portal.azure.com). Si vous utilisez principalement d'autres portails pour la gestion des utilisateurs et des groupes, comme le [Centre d'administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
 

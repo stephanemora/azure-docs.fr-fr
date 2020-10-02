@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130770"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440641"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -159,7 +159,7 @@ L’activité de copie offre trois possibilités de détecter, d’ignorer et de
     Par exemple : Copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 >[!NOTE]
->- Pour charger des données dans SQL Data Warehouse avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant les règles de rejet « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.
+>- Pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant les règles de rejet « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.
 >- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée de sorte à appeler [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée pour appeler une [procédure stockée à partir d’un récepteur SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 

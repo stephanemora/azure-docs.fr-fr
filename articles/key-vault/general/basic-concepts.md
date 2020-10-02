@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378999"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983294"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
-Azure Key Vault est un outil permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe ou de certificats. Un coffre est un groupe logique de secrets.
+Azure Key Vault est un service cloud permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe, de certificats ou de clés de chiffrement. Le service Key Vault prend en charge deux types de conteneurs : les coffres et les pools HSM managés. Les coffres prennent en charge le stockage des clés logicielles et sauvegardées avec HSM, les secrets et les certificats. Les pools HSM managés prennent uniquement en charge les clés sauvegardées avec HSM. Pour plus d’informations, consultez [Vue d’ensemble de l’API REST Azure Key Vault](about-keys-secrets-certificates.md).
 
 Voici d’autres termes importants :
 
@@ -28,6 +28,12 @@ Voici d’autres termes importants :
 - **Propriétaire de coffre** : un propriétaire de coffre peut créer un coffre de clés, et bénéficier d’un accès et d’un contrôle complets à celui-ci. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accède aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, et effectuer les tâches associées.
 
 - **Consommateur de coffre** : un consommateur de coffre peut effectuer des actions sur les ressources à l’intérieur du coffre de clés quand le propriétaire du coffre lui accorde l’accès de consommateur. Les actions disponibles varient selon les autorisations accordées.
+
+- **Administrateur du HSM managé** : Les utilisateurs qui se voient attribuer le rôle d’administrateur ont un contrôle total sur un pool HSM managé. Ils peuvent créer des attributions de rôles supplémentaires afin de déléguer l’accès contrôlé à d’autres utilisateurs.
+
+- **Responsable/Utilisateur du chiffrement du HSM managé** : rôles intégrés généralement attribués aux utilisateurs ou aux principaux de service effectuant des opérations de chiffrement à l’aide de clés dans le HSM managé. L’utilisateur du chiffrement peut créer des clés, mais il ne peut pas les supprimer.
+
+- **Chiffrement du service du HSM managé** : rôle intégré généralement attribué à une identité de service managé de comptes de service (compte de stockage, par exemple) pour le chiffrement des données au repos à l’aide d’une clé gérée par le client.
 
 - **Ressource** : une ressource est un élément gérable disponible par le biais d’Azure. Il peut s’agir par exemple de machines virtuelles, de comptes de stockage, d’applications web, de bases de données et de réseaux virtuels. Mais il en existe bien d’autres encore.
 
@@ -59,7 +65,7 @@ Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut perm
 | --- | --- | --- |
 | Développeur d’une application Azure |« Je souhaite écrire une application pour Azure, qui utilise des clés pour la signature et le chiffrement. Mais ces clés doivent être externes à mon application, afin que la solution soit adaptée à une application répartie au niveau géographique. <br/><br/>Je souhaite protéger ces clés et secrets, sans avoir à écrire le code moi-même, et je veux qu’ils soient faciles à utiliser pour moi à partir de mes applications, avec des performances optimales. et je veux qu’ils soient faciles à utiliser à partir de mes applications, tout en offrant des performances optimales. » |√ Les clés sont stockées dans un coffre et appelées par un URI, si nécessaire.<br/><br/> √ Les clés sont protégées par Azure, à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériel.<br/><br/> √ Les clés sont traitées dans des modules de sécurité matériels situés dans les mêmes centres de données Azure que les applications. Cette méthode garantit une meilleure fiabilité et une latence plus faible que si les clés résidaient dans un emplacement séparé, par exemple localement. |
 | Développeur de logiciels SaaS (Software as a service) |« Je ne veux pas prendre la responsabilité des clés et secrets de mes clients. <br/><br/>Je veux que les clients détiennent et gèrent eux-mêmes leurs clés, afin de pouvoir me concentrer sur ce que je fais le mieux, c’est-à-dire fournir les principales fonctionnalités logicielles. » |√ Les clients peuvent importer leurs propres clés dans Azure et les gérer. Quand une application SaaS doit effectuer des opérations de chiffrement à l’aide des clés des clients, Key Vault s’en charge à sa place. L’application ne voit pas les clés des clients. |
-| Responsable de la sécurité |« Je veux être sûr que nos applications sont conformes à la norme FIPS 140-2HSM de niveau 2 pour la gestion sécurisée des clés. <br/><br/>Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation. <br/><br/>Et bien que nous utilisions plusieurs ressources et services Azure, je souhaite gérer les clés à partir d’un emplacement unique dans Azure. » |√ Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2.<br/><br/>√ Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés.<br/><br/>√ L’utilisation de la clé est consignée en temps quasi réel.<br/><br/>√ Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure, des régions qui sont prises en charge et des applications qui les utilisent. |
+| Responsable de la sécurité |« Je veux être sûr que nos applications sont conformes à la norme FIPS 140-2HSM de niveau 2 ou de niveau 3 pour la gestion sécurisée des clés. <br/><br/>Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation. <br/><br/>Et bien que nous utilisions plusieurs ressources et services Azure, je souhaite gérer les clés à partir d’un emplacement unique dans Azure. » |√ Choisissez les **coffres** pour les HSM validés conformes à la norme FIPS 140-2 de niveau 2.<br/>√ Choisissez les **pools HSM managés** pour les HSM validés conformes à la norme FIPS 140-2 de niveau 3.<br/><br/>√ Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés.<br/>√ L’utilisation de la clé est consignée en temps quasi réel.<br/><br/>√ Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure, des régions qui sont prises en charge et des applications qui les utilisent. |
 
 Toute personne disposant d’un abonnement Azure peut créer et utiliser des coffres de clés. Bien que Key Vault procure des avantages aux développeurs et aux administrateurs de sécurité, il peut être implémenté et géré par l’administrateur d’une organisation qui gère d’autres services Azure. Par exemple, cet administrateur peut se connecter avec un abonnement Azure, créer un coffre pour l’organisation dans lequel stocker les clés et avoir la responsabilité de tâches opérationnelles comme celles-ci :
 
@@ -77,7 +83,8 @@ Les développeurs peuvent également gérer les clés directement à l’aide d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à [sécuriser votre coffre de clés](secure-your-key-vault.md).
+- Apprenez à [sécuriser votre coffre de clés](secure-your-key-vault.md).
+- Découvrez comment [sécuriser vos pools HSM managés](../managed-hsm/access-control.md)
 
 <!--Image references-->
 [1]: ../media/key-vault-whatis/AzureKeyVault_overview.png
