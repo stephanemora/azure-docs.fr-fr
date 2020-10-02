@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des classeurs Azure Monitor
-description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
+description: Découvrez comment les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799563"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977559"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -43,12 +43,13 @@ Les classeurs sont actuellement compatibles avec les sources de données suivant
 
 Les classeurs fournissent un ensemble complet de fonctionnalités pour la visualisation de vos données. Pour obtenir des exemples détaillés de chaque type de visualisation, vous pouvez consulter les exemples de liens ci-dessous :
 
-* [Text](workbooks-visualizations.md#text)
-* [Graphiques](workbooks-visualizations.md#charts)
-* [Grilles](workbooks-visualizations.md#grids)
-* [Vignettes](workbooks-visualizations.md#tiles)
-* [Arborescences](workbooks-visualizations.md#trees)
-* [Graphes](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Graphiques](workbooks-chart-visualizations.md)
+* [Grilles](workbooks-grid-visualizations.md)
+* [Vignettes](workbooks-tile-visualizations.md)
+* [Arborescences](workbooks-tree-visualizations.md)
+* [Graphes](workbooks-graph-visualizations.md)
+* [Barre composite](workbooks-composite-bar.md)
 
 ![Exemples de visualisations de classeur](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ Dans le cas de ce classeur particulier, l’expérience est interactive. Vous po
 
 ### <a name="editing-mode"></a>Mode édition
 
-Pour comprendre comment ce modèle de classeur est assemblé, vous devez basculer en mode édition en sélectionnant **Modifier**. 
+Pour comprendre comment ce modèle de classeur est assemblé, vous devez basculer en mode édition en sélectionnant **Modifier**.
 
-![Capture d’écran du modèle d’analyse d’échec de l’application](./media/workbooks-overview/edit.png)
+![Capture d’écran du bouton Modifier dans les classeurs.](./media/workbooks-overview/edit.png)
 
 Une fois que vous êtes passé en mode édition, vous remarquerez un certain nombre de zones **Modifier** à de chaque aspect individuel de votre classeur.
 

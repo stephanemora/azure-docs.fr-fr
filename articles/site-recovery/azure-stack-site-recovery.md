@@ -3,12 +3,12 @@ title: Répliquer des machines virtuelles Azure Stack à Azure en utilisant Azur
 description: Découvrez comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack avec le service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131606"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564307"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -36,7 +36,7 @@ Une fois ces étapes terminées, vous pouvez exécuter un basculement complet ve
 
 ## <a name="architecture"></a>Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Le diagramme montre des coffres Recovery Services pour deux locataires dans des clouds associés à des abonnements de locataire sur une infrastructure Azure Stack commune.](./media/azure-stack-site-recovery/architecture.png)
 
 **Lieu** | **Composant** |**Détails**
 --- | --- | ---

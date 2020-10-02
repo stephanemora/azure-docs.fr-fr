@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279582"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087007"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Facteurs affectant les performances d’Azure AD Connect
 
@@ -41,7 +41,7 @@ L’objectif de ce document est de décrire les facteurs qui impactent les perfo
 
 Le diagramme ci-dessous illustre l’architecture générale d’un moteur de provisionnement connecté à une seule forêt, mais la connexion à plusieurs forêts est également prise en charge. Cette architecture montre les interactions entre les divers composants.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Le diagramme montre comment les annuaires connectés et le moteur de provisionnement Azure AD Connect interagissent, y compris l’espace de connecteur et les composants Metaverse dans une base de données SQL. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 Le moteur de provisionnement se connecte à chaque forêt Active Directory et à Azure AD. Importer est le processus consistant à obtenir des informations de chaque annuaire. Exporter fait référence à la mise à jour des annuaires à partir du moteur de provisionnement. Synchroniser est l’opération qui évalue les règles de transfert des objets au sein du moteur de provisionnement. Pour approfondir vos connaissances, consultez [Azure AD Connect Sync : présentation de l'architecture](./concept-azure-ad-connect-sync-architecture.md).
 

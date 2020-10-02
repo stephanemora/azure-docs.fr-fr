@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976223"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -27,8 +27,6 @@ Les valeurs figurant dans cet article s’appliquent à des passerelles VPN (pas
 * Pour les passerelles redondantes interzone, consultez l’article [À propos des passerelles redondantes pour les Zones de disponibilité](about-zone-redundant-vnet-gateways.md).
 
 * Pour le service Virtual WAN, consultez l’article [À propos du WAN virtuel](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Types de passerelle
 
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Passerelles de réseau local
 
- Une passerelle de réseau local diffère d'une passerelle de réseau virtuel. Lorsque vous créez une configuration de passerelle VPN, la passerelle du réseau local représente généralement votre emplacement local. Dans le modèle de déploiement classique, la passerelle de réseau local a été appelée Site local.
+Une passerelle de réseau local diffère d'une passerelle de réseau virtuel. Lorsque vous créez une configuration de passerelle VPN, la passerelle du réseau local représente généralement votre réseau et l’appareil VPN correspondant. Dans le modèle de déploiement classique, la passerelle de réseau local a été appelée Site local.
 
-Vous donnez un nom à la passerelle de réseau local (l’adresse IP publique du périphérique VPN local) et spécifiez les préfixes d’adresse qui se situent dans l’emplacement local. Azure examine les préfixes d’adresse de destination pour le trafic réseau, consulte la configuration que vous avez spécifiée pour votre passerelle de réseau local, et route les paquets en conséquence. Vous spécifiez également des passerelles de réseau local pour les configurations avec interconnexion de réseaux virtuels qui utilisent une connexion de passerelle VPN.
+Vous donnez un nom ou nom de domaine complet à la passerelle de réseau local (l’adresse IP publique de l’appareil VPN local) et spécifiez les préfixes d’adresse qui se situent dans l’emplacement local. Azure examine les préfixes d’adresse de destination pour le trafic réseau, consulte la configuration que vous avez spécifiée pour votre passerelle de réseau local, et route les paquets en conséquence. Si vous utilisez Border Gateway Protocol (BGP) sur votre périphérique VPN, vous devez fournir l’adresse IP du pair BGP de votre périphérique VPN et le numéro de système autonome (ASN) de votre réseau local. Vous spécifiez également des passerelles de réseau local pour les configurations avec interconnexion de réseaux virtuels qui utilisent une connexion de passerelle VPN.
 
 L’exemple PowerShell suivant crée une nouvelle passerelle de réseau local :
 

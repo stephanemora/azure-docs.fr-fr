@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 71bcb72b645c574eedd24ff868751f366738e73d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976499"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Résilience et reprise d’activité après sinistre dans Azure SignalR Service
 
@@ -42,7 +42,7 @@ Mais lorsqu’un client est connecté, il est toujours routé vers le serveur d�
 
 Le diagramme ci-dessous illustre cette topologie :
 
-![Topologie](media/signalr-concept-disaster-recovery/topology.png)
+![Le diagramme montre deux régions, chacune avec un serveur d’applications et un service SignalR, où chaque serveur est associé au service SignalR dans sa région comme principal et avec le service dans l’autre région comme secondaire.](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurer les serveurs d’applications avec plusieurs instances du service SignalR
 

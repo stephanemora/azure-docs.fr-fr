@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640512"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604136"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -29,7 +29,7 @@ Dans l’environnement de travail moderne, il est crucial de pouvoir sécuriser 
 
 De nombreuses entreprises pensent contrôler et protéger leurs ressources tant qu’elles se trouvent dans les limites de leur réseau d’entreprise. En réalité, dans l’environnement de travail numérique d’aujourd’hui, ces limites ont été étendues par les appareils mobiles, et les ressources et services dans le cloud. La gestion de la protection des identités des utilisateurs et des données qu’ils stockent sur leurs appareils et applications est devenue complexe.
 
-Vous utilisez peut-être déjà Azure AD pour gérer les utilisateurs dans le cloud qui doivent accéder aux applications Office 365 et autres applications SaaS, ainsi qu’aux applications web hébergées localement. Si vous avez déjà Azure AD, vous pouvez l’utiliser comme point de contrôle pour autoriser un accès fluide et sécurisé à vos applications locales. Ou bien, vous vous demandez encore peut-être s’il faut migrer vers le cloud. Dans ce cas, vous pouvez commencer votre parcours vers le cloud en implémentant le proxy d’application et en prenant les premières mesures pour créer une base d’identités solide.
+Vous utilisez peut-être déjà Azure AD pour gérer les utilisateurs dans le cloud qui doivent accéder aux applications Microsoft 365 et autres applications SaaS, ainsi qu’aux applications web hébergées localement. Si vous avez déjà Azure AD, vous pouvez l’utiliser comme point de contrôle pour autoriser un accès fluide et sécurisé à vos applications locales. Ou bien, vous vous demandez encore peut-être s’il faut migrer vers le cloud. Dans ce cas, vous pouvez commencer votre parcours vers le cloud en implémentant le proxy d’application et en prenant les premières mesures pour créer une base d’identités solide.
 
 La liste ci-dessous, bien que non exhaustive, illustre certaines possibilités que vous offre le proxy d’application quand vous l’implémentez dans un scénario de coexistence hybride :
 
@@ -53,7 +53,7 @@ Avant, votre plan de contrôle pour protéger les ressources internes contre les
 * Authentification des utilisateurs sur les serveurs web dans le réseau de périmètre
 * Gestion de l’accès VPN pour les utilisateurs distants avec la distribution et la configuration des logiciels clients VPN. Gestion des serveurs joints à un domaine dans la zone DMZ, qui peut être vulnérable aux attaques extérieures.
 
-Aujourd’hui, parce que nous évoluons dans un environnement massivement tourné vers le cloud, Azure AD apparaît comme la meilleure option pour contrôler qui et quoi accède à votre réseau. Le proxy d’application Azure AD s’intègre aux technologies cloud et d’authentification modernes, comme les applications SaaS et les fournisseurs d’identité. Cette intégration permet aux utilisateurs d’accéder aux applications où qu’ils soient. Non seulement le proxy d’application convient mieux à l’environnement de travail numérique d’aujourd’hui, mais il est plus sécurisé que les solutions de VPN et de proxy inverse, et plus facile à implémenter. Les utilisateurs distants peuvent accéder aux applications locales de la même manière qu’ils accèdent aux applications Office 365 et aux autres applications SaaS intégrées à Azure AD. Vous n’avez pas besoin de modifier ou de mettre à jour vos applications pour qu’elles fonctionnent avec le Proxy d’application. Par ailleurs, le proxy d’application ne vous oblige pas à ouvrir des connexions entrantes dans votre pare-feu. Avec le proxy d’application, vous avez simplement à le configurer et à l’oublier.
+Aujourd’hui, parce que nous évoluons dans un environnement massivement tourné vers le cloud, Azure AD apparaît comme la meilleure option pour contrôler qui et quoi accède à votre réseau. Le proxy d’application Azure AD s’intègre aux technologies cloud et d’authentification modernes, comme les applications SaaS et les fournisseurs d’identité. Cette intégration permet aux utilisateurs d’accéder aux applications où qu’ils soient. Non seulement le proxy d’application convient mieux à l’environnement de travail numérique d’aujourd’hui, mais il est plus sécurisé que les solutions de VPN et de proxy inverse, et plus facile à implémenter. Les utilisateurs distants peuvent accéder aux applications locales de la même manière qu’ils accèdent aux applications Microsoft et aux autres applications SaaS intégrées à Azure AD. Vous n’avez pas besoin de modifier ou de mettre à jour vos applications pour qu’elles fonctionnent avec le Proxy d’application. Par ailleurs, le proxy d’application ne vous oblige pas à ouvrir des connexions entrantes dans votre pare-feu. Avec le proxy d’application, vous avez simplement à le configurer et à l’oublier.
 
 ## <a name="the-future-of-remote-access"></a>L’accès à distance, demain
 
@@ -72,7 +72,7 @@ Le proxy d’application Azure AD vous permet d’assurer le suivi des utilisate
 
 ### <a name="an-overview-of-how-app-proxy-works"></a>Vue d’ensemble du fonctionnement du proxy d’application
 
-Le proxy d’application est un service Azure AD que vous configurez dans le portail Azure. Il vous permet de publier un point de terminaison d’URL HTTP/HTTPS public externe dans le cloud Azure, qui se connecte à une URL de serveur d’applications interne dans votre organisation. Ces applications web locales peuvent être intégrées à Azure AD pour prendre en charge l’authentification unique. Les utilisateurs finaux peuvent accéder aux applications web locales de la même manière qu’ils accèdent aux application Office 365 et autres applications SaaS.
+Le proxy d’application est un service Azure AD que vous configurez dans le portail Azure. Il vous permet de publier un point de terminaison d’URL HTTP/HTTPS public externe dans le cloud Azure, qui se connecte à une URL de serveur d’applications interne dans votre organisation. Ces applications web locales peuvent être intégrées à Azure AD pour prendre en charge l’authentification unique. Les utilisateurs finaux peuvent accéder aux applications web locales de la même manière qu’ils accèdent aux applications Microsoft 365 et autres applications SaaS.
 
 Cette fonctionnalité comprend les composants suivants : le service de proxy d’application, qui s’exécute dans le cloud, le connecteur de proxy d’application, qui est un agent léger s’exécutant sur un serveur local, et Azure AD, qui est le fournisseur d’identité. Les trois composants fonctionnent ensemble pour fournir à l’utilisateur une expérience d’authentification unique afin d’accéder aux applications web locales.
 
@@ -195,8 +195,8 @@ Si vous utilisez actuellement Azure AD pour gérer les utilisateurs dans un scé
 Les organisations doivent commencer à utiliser le proxy d’application dès aujourd'hui pour bénéficier des avantages suivants :
 
 * Publier des applications locales en externe sans avoir à gérer un VPN traditionnel ou d’autres solutions de publication web locales et approche de zone DMZ
-* Authentification unique sur toutes les applications, qu’il s’agisse d’application Office 365 ou autres applications SaaS ou d’applications locales
-* Sécurité à l’échelle du cloud où Azure AD s’appuie sur la télémétrie Office 365 pour empêcher les accès non autorisés
+* Authentification unique sur toutes les applications, qu’il s’agisse d’application Microsoft 365 ou autres applications SaaS ou d’applications locales
+* Sécurité à l’échelle du cloud où Azure AD s’appuie sur la télémétrie Microsoft 365 pour empêcher les accès non autorisés
 * Intégration d’Intune pour assurer l’authentification du trafic d’entreprise
 * Centralisation de la gestion des comptes d’utilisateur
 * Mises à jour automatiques pour assurer l’installation des derniers correctifs de sécurité

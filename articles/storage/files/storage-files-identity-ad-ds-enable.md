@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535074"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061476"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Première partie : activer l’authentification AD DS pour vos partages de fichiers Azure 
 
@@ -28,7 +28,7 @@ Les applets de commande du module PowerShell AzFilesHybrid effectuent les modifi
 
 ### <a name="download-azfileshybrid-module"></a>Télécharger le module AzFilesHybrid
 
-- [Télécharger et décompresser le module AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (module en disponibilité générale : v0.2.0+)
+- [Téléchargez et décompressez le module AzFilesHybrid (module GA : v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Notez que le chiffrement Kerberos 256 AES est pris en charge sur la v0.2.2 et les versions ultérieures. Si vous avez activé la fonctionnalité avec une version de AzFilesHybrid inférieure à la v0.2.2 et souhaitez la mettre à jour pour prendre en charge le chiffrement Kerberos 256 AES, consultez [cet article](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 - Installez et exécutez le module dans un appareil dont le domaine est joint à AD DS en local avec des informations d’identification AD DS et qui dispose des autorisations nécessaires pour créer un compte d’ouverture de session du service ou un compte d’ordinateur dans l’instance AD cible.
 -  Exécutez le script à l’aide des informations d’identification AD DS en local synchronisées à votre Azure AD. Les informations d’identification AD DS en local doivent avoir les autorisations du rôle Azure Propriétaire du compte de stockage ou Contributeur.
 

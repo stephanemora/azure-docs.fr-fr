@@ -3,12 +3,12 @@ title: Résoudre les problèmes liés à Azure Event Hubs pour Apache Kafka
 description: Cet article explique comment résoudre les problèmes liés à Azure Event Hubs pour Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090567"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061425"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guide de dépannage Apache Kafka pour Event Hubs
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer lors de l’utilisation d’Event Hubs pour Apache Kafka. 
@@ -55,7 +55,7 @@ Vérifiez les éléments suivants si vous rencontrez des problèmes lors de l’
 - **Authentification SASL** : faire coopérer votre infrastructure avec le protocole d’authentification SASL requis par Event Hubs peut être plus difficile que prévu. Vérifiez si vous pouvez résoudre les problèmes de configuration à l’aide des ressources de votre infrastructure sur l’authentification SASL. 
 
 ## <a name="limits"></a>limites
-Apache Kafka et Event Hubs Kafka. Dans la plupart des cas, Event Hubs Kafka affiche les mêmes valeurs par défaut, les mêmes propriétés, les mêmes codes d’erreur et le même comportement général qu’Apache Kafka. Les instances où ces deux écosystèmes diffèrent de façon explicite (là où Event Hubs impose une limite, contrairement à Kafka) sont répertoriées ci-dessous :
+Apache Kafka et Event Hubs Kafka. Dans la plupart des cas, l’interface d’Azure Event Hubs Kafka affiche les mêmes valeurs par défaut, les mêmes propriétés, les mêmes codes d’erreur et le même comportement général qu’Apache Kafka. Les instances où ces deux écosystèmes diffèrent de façon explicite (là où Event Hubs impose une limite, contrairement à Kafka) sont répertoriées ci-dessous :
 
 - La longueur maximale de la propriété `group.id` est de 256 caractères
 - La taille maximale de `offset.metadata.max.bytes` est de 1024 octets

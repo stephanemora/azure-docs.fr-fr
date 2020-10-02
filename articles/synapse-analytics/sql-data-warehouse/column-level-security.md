@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208091"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986220"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 
@@ -28,9 +28,9 @@ Depuis la publication de cette vidéo, la [sécurité au niveau des lignes](/sql
 
 La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité de votre application, ce qui vous permet de limiter l'accès aux colonnes afin de protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. La base de données applique les restrictions d'accès à chaque tentative d'accès aux données à partir d'un niveau quelconque. Cette restriction renforce la fiabilité et la robustesse de votre sécurité en réduisant la surface d'exposition de votre système de sécurité global. En outre, la sécurité au niveau des colonnes élimine la nécessité d'ajouter des vues pour filtrer les colonnes afin d'imposer des restrictions d'accès aux utilisateurs.
 
-Vous pouvez implémenter la sécurité au niveau des colonnes à l'aide de l'instruction T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Avec ce mécanisme, l’authentification SQL et AAD (Azure Active Directory) sont toutes deux prises en charge.
+Vous pouvez implémenter la sécurité au niveau des colonnes à l'aide de l'instruction T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Avec ce mécanisme, l’authentification SQL et AAD (Azure AD) sont toutes deux prises en charge.
 
-![sécurité au niveau des colonnes](./media/column-level-security/cls.png)
+![Le diagramme montre une table schématique avec la première colonne présentant un cadenas fermé en en-tête et des cellules de couleur orange alors que les autres colonnes sont des cellules blanches.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Syntaxe
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c39a07ceac4d36bf3ef7394927589b53da7d789
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977001"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Guide pratique pour créer des alertes pour Update Management
 
@@ -56,7 +56,7 @@ Effectuez les étapes ci-dessous pour configurer des alertes afin de vous inform
 
 9. Définissez le champ **Gravité** sur **Information (gravité 2)** pour une exécution réussie, ou sur **Information (gravité 1)** pour une exécution ayant échoué.
 
-    ![Configurer la logique du signal](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![Capture d’écran montrant la section Définir les détails de l’alerte avec les champs Nom de la règle d’alerte, Description et Gravité en surbrillance.](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. Sélectionnez **Oui** pour activer la règle d’alerte.
 

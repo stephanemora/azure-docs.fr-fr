@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533994"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017929"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutoriel : Configurer l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors
 L’objectif de ce tutoriel est d’illustrer les étapes de l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors Employee Central. 
@@ -40,7 +40,7 @@ Vous pouvez configurer l’application SAP SuccessFactors Writeback pour écrire
 
 Cette solution de provisionnement d’utilisateurs SuccessFactors Writeback est idéale pour :
 
-* Les organisations qui utilisent Office 365 et qui souhaitent écrire en différé vers SuccessFactors Employee Central des attributs faisant autorité gérés par le service informatique (par exemple, l’adresse e-mail, le numéro de téléphone ou le nom d’utilisateur).
+* Les organisations qui utilisent Microsoft 365 et qui souhaitent écrire en différé vers SuccessFactors Employee Central des attributs faisant autorité gérés par le service informatique (par exemple, l’adresse e-mail, le numéro de téléphone ou le nom d’utilisateur).
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuration de SuccessFactors pour l’intégration
 

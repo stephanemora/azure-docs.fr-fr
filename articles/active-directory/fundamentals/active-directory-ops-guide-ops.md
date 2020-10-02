@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321954"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601303"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Guide de référence des opérations générales Azure Active Directory
 
@@ -125,9 +125,9 @@ Si votre organisation n’a pas mis en place de programme pour surveiller les mo
 
 ### <a name="notifications"></a>Notifications
 
-Microsoft envoie des e-mails aux administrateurs pour les informer des diverses modifications apportées au service, des mises à jour de configuration requises et des erreurs qui nécessitent une intervention de l’administrateur. Il est important que les clients définissent une adresse e-mail pour que les notifications soient envoyées aux membres d’équipe qui peuvent les comprendre et agir en conséquence. Nous vous recommandons d’ajouter plusieurs destinataires au [Centre de messages Office 365](/office365/admin/manage/message-center) et d’exiger que les notifications (y compris les notifications d’Azure AD Connect Health) soient envoyées à une liste de distribution ou une boîte aux lettres partagée. Si vous ne disposez que d’un compte d’administrateur général avec une adresse e-mail, veillez à configurer au moins deux comptes pouvant recevoir des e-mails.
+Microsoft envoie des e-mails aux administrateurs pour les informer des diverses modifications apportées au service, des mises à jour de configuration requises et des erreurs qui nécessitent une intervention de l’administrateur. Il est important que les clients définissent une adresse e-mail pour que les notifications soient envoyées aux membres d’équipe qui peuvent les comprendre et agir en conséquence. Nous vous recommandons d’ajouter plusieurs destinataires au [Centre de messages](/office365/admin/manage/message-center) et d’exiger que les notifications (y compris les notifications d’Azure AD Connect Health) soient envoyées à une liste de distribution ou une boîte aux lettres partagée. Si vous ne disposez que d’un compte d’administrateur général avec une adresse e-mail, veillez à configurer au moins deux comptes pouvant recevoir des e-mails.
 
-Azure AD utilise deux adresses « De » : <o365mc@email2.microsoft.com>, qui envoie les notifications du Centre de messages Office 365, et <azure-noreply@microsoft.com>, qui envoie les notifications concernant :
+Azure AD utilise deux adresses « De » : <o365mc@email2.microsoft.com>, qui envoie les notifications du Centre de messages, et <azure-noreply@microsoft.com>, qui envoie les notifications concernant :
 
 - [Révisions d’accès Azure AD](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Reportez-vous au tableau suivant pour connaître le type de notifications qui so
 | Source de la notification | Contenu | Emplacement |
 |:-|:-|:-|
 | Contact technique | Erreurs de synchronisation | Portail Azure - Panneau Propriétés |
-| Centre de messages Office 365 | Avis d’incidents et de dégradation des services d’identité et des services backend O365 | Portail Office |
+| Centre de messages | Avis d’incidents et de dégradation des services d’identité et des services backend Microsoft 365 | Portail Office |
 | Synthèse hebdomadaire Identity Protection | Synthèse Identity Protection | Panneau Azure AD Identity Protection |
 | Azure AD Connect Health | Notifications d’alerte | Portail Azure - Panneau Azure AD Connect Health |
 | Notifications des applications d’entreprise | Notifications signalant l’expiration prochaine des certificats et les erreurs d’approvisionnement | Portail Azure - Panneau Application (chaque application possède son propre paramètre d’adresse e-mail) |
 
 #### <a name="notifications-recommended-reading"></a>Notifications sur les lectures recommandées
 
-- [Modifier l’adresse, le contact technique et d’autres informations - Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Modifier l’adresse, le contact technique et d’autres informations](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Surface d’exposition opérationnelle
 

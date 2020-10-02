@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606133"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531142"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilisation de modèles de colonne dans les flux de données de mappage
 
@@ -27,17 +27,17 @@ Les modèles de colonne sont actuellement disponibles dans les transformations d
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modèles de colonne dans une colonne dérivée et une agrégation
 
-Pour ajouter un modèle de colonne dans une colonne dérivée, ou l’onglet Agrégats d’une transformation d’agrégation, cliquez sur l’icône représentant un signe plus, à droite d’une colonne existante. Sélectionnez **Ajouter un modèle de colonne**. 
+Pour ajouter un modèle de colonne dans une transformation de colonne, agrégation ou fenêtre dérivée, cliquez sur **Ajouter** au-dessus de la liste des colonnes ou sur l’icône plus en regard d’une colonne dérivée existante. Choisissez **Ajouter un modèle de colonne**.
 
-![modèles de colonne](media/data-flow/columnpattern.png "Modèles de colonne")
+![modèles de colonne](media/data-flow/add-column-pattern.png "Modèles de colonne")
 
 Utilisez le [Générateur d’expressions](concepts-data-flow-expression-builder.md) pour entrer la condition de correspondance. Créez une expression booléenne qui correspond aux colonnes basées sur le `name`, `type`, `stream` et `position` de la colonne. Le modèle affecte toute colonne, dérivée ou définie, où la condition retourne la valeur true.
 
 Les deux zones d’expression sous la condition de correspondance indiquent les nouveaux noms et les valeurs des colonnes affectées. Utilisez `$$` pour référencer la valeur existante du champ correspondant. La zone d’expression de gauche définit le nom, et la zone d’expression de droite précise la valeur.
 
-![modèles de colonne](media/data-flow/columnpattern2.png "Modèles de colonne")
+![modèles de colonne](media/data-flow/edit-column-pattern.png "Modèles de colonne")
 
-Le modèle de colonne ci-dessus associe chaque colonne de type double et crée une colonne d’agrégation par correspondance. Le nom de la nouvelle colonne correspond au nom de la colonne correspondante, concaténée avec « _total ». La valeur de la nouvelle colonne est la somme agrégée et arrondie de la valeur double existante.
+Le modèle de colonne ci-dessus associe chaque colonne de type double et crée une colonne dérivée par correspondance. En indiquant `$$` comme champ de nom de colonne, chaque colonne correspondante est mise à jour avec le même nom. La valeur de chaque colonne correspond à la valeur existante arrondie à deux décimales.
 
 Pour vérifier que votre condition de correspondance est correcte, vous pouvez valider le schéma de sortie des colonnes définies dans l’onglet **Inspecter**, ou obtenir une capture instantanée des données dans l’onglet **Aperçu des données**. 
 

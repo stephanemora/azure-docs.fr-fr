@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320645"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705484"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
@@ -102,7 +102,7 @@ Vous obtenez des points lorsque vous configurez des fonctionnalités de sécurit
 
 Pour consulter votre historique de score, rendez-vous dans le [Centre de sécurité Microsoft 365](https://security.microsoft.com/) et passez en revue votre score sécurisé Microsoft global. Vous pouvez examiner les modifications apportées à votre score sécurisé global en cliquant sur Afficher l’historique. Choisissez une date spécifique pour déterminer les contrôles qui ont été activés ce jour et les points que vous avez gagnés pour chacun d’eux.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Quel est le lien entre les degrés de sécurisation Identity Secure Score et Office 365 Secure Score ?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Quel est le lien entre les degrés de sécurisation Identity Secure Score et Microsoft 365 Secure Score ?
 
 Le [score sécurisé Microsoft](/office365/securitycompliance/microsoft-secure-score) comporte cinq catégories distinctes de contrôle et de score :
 

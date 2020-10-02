@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981330"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -228,7 +228,7 @@ Une fois que vous voyez les vignettes de surveillance, vos circuits ExpressRoute
 
 La page NPM contient une page pour ExpressRoute qui présente une vue d’ensemble de l’intégrité des circuits et des peerings ExpressRoute.
 
-![tableau de bord](./media/how-to-npm/dashboard.png)
+![Capture d’écran montrant un tableau de bord avec une vue d’ensemble de l’intégrité des circuits ExpressRoute et des peerings.](./media/how-to-npm/dashboard.png)
 
 ### <a name="list-of-circuits"></a><a name="circuits"></a>Liste des circuits
 

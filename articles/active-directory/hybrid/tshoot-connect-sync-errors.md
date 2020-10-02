@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1279ef9b8767ba05f329678429dff40f9bfed640
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280111"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016416"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -106,17 +106,17 @@ Les rapports d’erreurs de synchronisation dans Azure AD Connect Health pour la
 >
 
 #### <a name="related-articles"></a>Articles connexes
-* [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.microsoft.com/kb/2647098)
+* [Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>Description
 Azure AD tente d’effectuer une correspondance souple pour deux objets. Il est possible que deux objets avec des valeurs de « type d’objet » différentes (par exemple, utilisateur, groupe, contact etc.), aient les mêmes valeurs pour les attributs utilisés pour effectuer la correspondance souple. Comme la duplication de ces attributs n’est pas autorisée dans Azure AD, l’opération peut entraîner une erreur de synchronisation « ObjectTypeMismatch ».
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Exemples de scénarios pour l’erreur ObjectTypeMismatch
-* Un groupe de sécurité activé pour la messagerie est créé dans Office 365. L’administrateur ajoute un nouvel utilisateur ou un nouveau contact à l’Active Directory local (qui n’est pas encore synchronisé à Azure AD) avec la même valeur pour l’attribut ProxyAddresses que pour le groupe Office 365.
+* Un groupe de sécurité activé pour la messagerie est créé dans Microsoft 365. L’administrateur ajoute un nouvel utilisateur ou un nouveau contact à l’Active Directory local (qui n’est pas encore synchronisé à Azure AD) avec la même valeur pour l’attribut ProxyAddresses que pour le groupe Microsoft 365.
 
 #### <a name="example-case"></a>Exemple de scénario
-1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Office 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com. Ce groupe est assigné à la valeur d’attribut ProxyAddresses de **smtp : tax\@contoso.com**
+1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Microsoft 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com. Ce groupe est assigné à la valeur d’attribut ProxyAddresses de **smtp : tax\@contoso.com**
 2. Un nouvel utilisateur rejoint Contoso.com et un compte est créé pour l’utilisateur local avec l’attribut proxyAddress en tant que **smtp : tax\@contoso.com**
 3. Lorsqu’Azure AD Connect synchronise le nouveau compte d’utilisateur, il obtient l’erreur « ObjectTypeMismatch ».
 
@@ -164,7 +164,7 @@ La raison la plus courante pour l’erreur AttributeValueMustBeUnique est que de
 4. Si vous avez apporté la modification dans l’Active Directory local, laissez Azure AD Connect synchroniser la modification pour corriger l’erreur.
 
 #### <a name="related-articles"></a>Articles connexes
--[Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Office 365](https://support.microsoft.com/kb/2647098)
+-[Les attributs en double ou non valides empêchent la synchronisation d’annuaires dans Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Échecs de validation de données
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -179,7 +179,7 @@ b. L’attribut UserPrincipalName ne suit pas le format requis.
 a. Assurez-vous que l’attribut userPrincipalName utilise des caractères pris en charge ainsi que le format requis.
 
 #### <a name="related-articles"></a>Articles connexes
-* [Préparation de l’approvisionnement d’utilisateurs via la synchronisation d’annuaires sur Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Préparation de l’approvisionnement d’utilisateurs via la synchronisation d’annuaires sur Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Description

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783652"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602929"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -100,22 +100,31 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
 1. Pour spécifier ce qui se passe après la fin d’une révision, développez la section **Paramètres de saisie semi-automatique**.
 
-    ![Créer une révision d’accès : paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings.png)
+    ![Créer une révision d’accès : paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à la ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
+2. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à la ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
 
-1. Utilisez la liste **Le réviseur ne doit pas répondre** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
+3. Utilisez la liste **Si les réviseurs ne répondent pas** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
 
     - **Aucune modification** : laisser l’accès de l’utilisateur inchangé
     - **Supprimer l’accès** : supprimer l’accès de l’utilisateur
     - **Approuver l’accès** : approuver l’accès de l’utilisateur
     - **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
 
+    ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings-preview-new.png)
+
+4. (Préversion) Utilisez l’Action à appliquer aux utilisateurs refusés pour spécifier ce qui arrive aux utilisateurs invités s’ils sont refusés.
+    - **L’option 1** supprimera l’accès à l’utilisateur refusé au groupe ou à l’application en cours de révision ; il sera toujours en mesure de se connecter au locataire. 
+    - **L’option 2** empêchera les utilisateurs non autorisés de se connecter au locataire, même s’ils ont accès à d’autres ressources. En cas d’erreur ou si un administrateur décide de réactiver l’accès, cela est possible dans les 30 jours suivant la désactivation de l’utilisateur. Si aucune action n’est effectuée sur les utilisateurs désactivés, ils seront supprimés du locataire.
+
+Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisateurs invités qui n’ont plus accès aux ressources de votre organisation, lisez l’article intitulé [Utiliser Azure AD Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources.](access-reviews-external-users.md).
+
+>[!NOTE]
+> L’action à appliquer aux utilisateurs refusés ne fonctionne que si vous avez précédemment étendu une révision aux utilisateurs invités uniquement (voir la section **Créer une ou plusieurs révisions d’accès**, étape 8)
+
 ### <a name="advanced-settings"></a>Paramètres avancés
 
 1. Pour spécifier d’autres paramètres, développez la section **Paramètres avancés**.
-
-    ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings-preview.png)
 
 1. Définissez **Afficher les recommandations** sur **Activer** pour montrer aux réviseurs les recommandations du système basées sur les informations des accès de l’utilisateur.
 

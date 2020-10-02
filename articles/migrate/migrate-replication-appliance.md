@@ -3,12 +3,12 @@ title: Appliance de réplication Azure Migrate
 description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMWare basée sur un agent.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122096"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532118"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 
@@ -129,7 +129,7 @@ Serveur de traitement | Le serveur de traitement reçoit les données de réplic
     - Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.
 5. Les données de réplication se trouvent tout d’abord dans un compte de stockage de cache dans Azure. Ces journaux sont traités et les données sont stockées dans un disque managé Azure.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![Le diagramme illustre l’architecture du processus de réplication.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Mises à niveau d’appliance
 

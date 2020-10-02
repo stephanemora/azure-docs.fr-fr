@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179349"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052662"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Pour offrir à vos utilisateurs le meilleur compromis entre sécurité et simpli
     * Activez l’authentification unique (SSO) entre les applications en utilisant des [appareils managés](../devices/overview.md) ou l’[authentification unique transparente](../hybrid/how-to-connect-sso.md).
     * Si la réauthentification est requise, utilisez une [stratégie d’accès conditionnel pour la fréquence de connexion](../conditional-access/howto-conditional-access-session-lifetime.md).
     * Pour les utilisateurs qui se connectent à partir d’appareils non managés ou d’appareils mobiles, utilisez l’accès conditionnel pour appliquer des stratégies de fréquence de connexion et de session de navigateur persistante.
-* Si vous avez des licences Applications Office 365 ou Azure AD Free :
+* Si vous avez des licences Applications Microsoft 365 ou Azure AD Free :
     * Activez l’authentification unique (SSO) entre les applications en utilisant des [appareils managés](../devices/overview.md) ou l’[authentification unique transparente](../hybrid/how-to-connect-sso.md).
     * Gardez l’option *Rester connecté* activée et recommandez à vos utilisateurs de l’accepter.
 * Pour les scénarios d’appareils mobiles, assurez-vous que vos utilisateurs utilisent l’application Microsoft Authenticator. Cette application est utilisée en tant que répartiteur pour d’autres applications Azure AD fédérées, et réduit les invites d’authentification sur l’appareil.
@@ -123,13 +123,13 @@ Pour configurer des stratégies d’accès conditionnel pour la fréquence de co
 
 Pour vérifier les durées de vie des jetons, [utilisez Azure AD PowerShell pour rechercher les stratégies Azure AD existantes](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Désactivez les stratégies qui sont appliquées.
 
-Si plusieurs paramètres sont activés dans votre locataire, nous vous recommandons d’effectuer leur mise à jour en fonction des licences que vous avez. Par exemple, si vous avez des licences Azure AD Premium, vous devez utiliser uniquement les stratégies d’accès conditionnel *Fréquence de connexion* et *Session de navigateur persistante*. Si vous avez des licences Applications Office 365 ou Azure AD Free, vous devez choisir la configuration *Rester connecté ?* .
+Si plusieurs paramètres sont activés dans votre locataire, nous vous recommandons d’effectuer leur mise à jour en fonction des licences que vous avez. Par exemple, si vous avez des licences Azure AD Premium, vous devez utiliser uniquement les stratégies d’accès conditionnel *Fréquence de connexion* et *Session de navigateur persistante*. Si vous avez des licences Applications Microsoft 365 ou Azure AD Free, vous devez choisir la configuration *Rester connecté ?* .
 
 Si vous avez activé les durées de vie des jetons configurables, cette fonctionnalité sera bientôt supprimée. Prévoyez une migration vers une stratégie d’accès conditionnel.
 
 Le tableau suivant récapitule les recommandations par licence :
 
-|              | Azure AD Free et Applications Office 365 | Azure AD Premium |
+|              | Applications Azure AD Free et Microsoft 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Jonction Azure AD](../devices/concept-azure-ad-join.md) ou [Jonction Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md), ou [Authentification unique transparente](../hybrid/how-to-connect-sso.md) pour les appareils non managés. | Jonction Azure AD<br />Jonction Azure AD hybride |
 | **Paramètres de réauthentification** | Rester connecté                  | Utiliser des stratégies d’accès conditionnel pour la fréquence de connexion et la session de navigateur persistante |

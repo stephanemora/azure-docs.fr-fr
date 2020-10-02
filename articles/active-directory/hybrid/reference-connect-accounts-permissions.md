@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccffe5e6e12d828acb4ced46bf3abf36113c588
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276488"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662339"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -149,7 +149,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
 | Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/tutorial-enable-sspr-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](how-to-connect-device-writeback.md). |
-| Écriture différée de groupe |Vous permet de récrire **Groupes Office 365** sur une forêt avec Exchange installé.|
+| Écriture différée de groupe |Vous permet de récrire **Groupes Microsoft 365** sur une forêt avec Exchange installé.|
 
 ## <a name="upgrade"></a>Mettre à niveau
 Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous devez disposer des autorisations suivantes :

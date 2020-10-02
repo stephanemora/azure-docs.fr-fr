@@ -1,25 +1,22 @@
 ---
-title: Configurer une connexion à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
+title: Configurer une connexion à Azure SQL Database à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
+description: Découvrez comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971530"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée (version préliminaire)
-
-> [!IMPORTANT] 
-> La prise en charge de la configuration d’une connexion à une source de données à l’aide d’une identité managée fait actuellement l’objet d’une préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production.
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
 
 Cette page explique comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée au lieu de fournir des informations d’identification dans la chaîne de connexion de l’objet source de données.
 
@@ -97,7 +94,7 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 ### <a name="5---create-the-data-source"></a>5 – Créer la source de données
 
-L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
+L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.models.datasource) prennent également en charge la chaîne de connexion des identités managées. Voici un exemple de création d’une source de données pour indexer des données à partir d’une instance Azure SQL Database à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
 Lors de la création d’une source de données à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), la source de données doit avoir les propriétés requises suivantes :
 

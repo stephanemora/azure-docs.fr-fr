@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9a1745aa0e78dafca70ea90d4a5ac92f340312b3
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053573"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706924"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -38,21 +38,25 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Paramètres régionaux  | Langage                          | Personnalisations                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabe (Émirats arabes unis)                      | Non                                                |
+| `ar-AE` | Arabe (Émirats arabes unis)     | Modèle de langage                                    |
 | `ar-BH` | Arabe (Bahreïn), standard moderne | Modèle de langage                                    |
 | `ar-EG` | Arabe (Égypte)                    | Modèle de langage                                    |
 | `ar-IL` | Arabe (Israël)                   | Non                                                |
-| `ar-JO` | Arabe (Jordanie)                   | Non                                                |
-| `ar-KW` | Arabe (Koweït)                   | Non                                                |
-| `ar-LB` | Arabe (Liban)                  | Non                                                |
-| `ar-PS` | Arabe (Autorité palestinienne)                | Non                                                |
-| `ar-QA` | Arabe (Qatar)                    | Non                                                |
-| `ar-SA` | Arabe (Arabie saoudite)             | Non                                                |
+| `ar-IQ` | Arabe (Irak)                     | Modèle de langage                                    |
+| `ar-JO` | Arabe (Jordanie)                   | Modèle de langage                                    |
+| `ar-KW` | Arabe (Koweït)                   | Modèle de langage                                    |
+| `ar-LB` | Arabe (Liban)                  | Modèle de langage                                    |
+| `ar-OM` | Arabe (Oman)                     | Modèle de langage                                    |
+| `ar-PS` | Arabe (État de Palestine)       | Non                                                |
+| `ar-QA` | Arabe (Qatar)                    | Modèle de langage                                    |
+| `ar-SA` | Arabe (Arabie saoudite)             | Modèle de langage                                    |
 | `ar-SY` | Arabe (Syrie)                    | Modèle de langage                                    |
-| `ca-ES` | Catalan                           | Modèle de langage                                    |
+| `bg-BG` | Bulgare (Bulgarie)              | Modèle de langage                                    |
+| `ca-ES` | Catalan (Espagne)                   | Modèle de langage                                    |
 | `cs-CZ` | Tchèque (République tchèque)            | Modèle de langage                                    | 
 | `da-DK` | Danois (Danemark)                  | Modèle de langage                                    |
 | `de-DE` | Allemand (Allemagne)                  | Modèle acoustique<br>Modèle de langage<br>Prononcer |
+| `el-GR` | Grec (Grèce)                    | Modèle de langage                                    |
 | `en-AU` | Anglais (Australie)               | Modèle acoustique<br>Modèle de langage                  |
 | `en-CA` | Anglais (Canada)                  | Modèle acoustique<br>Modèle de langage                  |
 | `en-GB` | Anglais (Royaume-Uni)          | Modèle acoustique<br>Modèle de langage<br>Prononcer |
@@ -84,27 +88,36 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | Espagnol (Salvador)             | Modèle de langage                                    | 
 | `es-US` | Espagnol (États-Unis)                     | Modèle de langage                                    | 
 | `es-UY` | Espagnol (Uruguay)                 | Modèle de langage                                    | 
-| `es-VE` | Espagnol (Venezuela)               | Modèle de langage                                    | 
+| `es-VE` | Espagnol (Venezuela)               | Modèle de langage                                    |
+| `et-EE` | Estonien (Estonie)                 | Modèle de langage                                    | 
 | `fi-FI` | Finnois (Finlande)                 | Modèle de langage                                    |
 | `fr-CA` | Français (Canada)                   | Modèle acoustique<br>Modèle de langage                  |
 | `fr-FR` | Français (France)                   | Modèle acoustique<br>Modèle de langage<br>Prononcer |
+| `ga-IE` | Irlandais (Irlande)                    | Modèle de langage                                    |
 | `gu-IN` | Goudjrati (Inde)                 | Modèle de langage                                    |
 | `hi-IN` | Hindi (Inde)                     | Modèle acoustique<br>Modèle de langage                  |
+| `hr-HR` | Croate (Croatie)                | Modèle de langage                                    |
 | `hu-HU` | Hongrois (Hongrie)               | Modèle de langage                                    | 
 | `it-IT` | Italien (Italie)                   | Modèle acoustique<br>Modèle de langage<br>Prononcer |
 | `ja-JP` | Japonais (Japon)                  | Modèle de langage                                    |
 | `ko-KR` | Coréen (Corée)                    | Modèle de langage                                    |
+| `lt-LT` | Lituanien (Lituanie)            | Modèle de langage                                    |
+| `lv-LV` | Letton (Lettonie)                  | Modèle de langage                                    |
 | `mr-IN` | Marathi (Inde)                   | Modèle de langage                                    |
+| `mt-MT` | Maltais (Malte)                    | Modèle de langage                                    |
 | `nb-NO` | Norvégien( Bokmål) (Norvège)       | Modèle de langage                                    |
 | `nl-NL` | Néerlandais (Pays-Bas)               | Modèle de langage                                    |
 | `pl-PL` | Polonais (Pologne)                   | Modèle de langage                                    |
 | `pt-BR` | Portugais (Brésil)               | Modèle acoustique<br>Modèle de langage<br>Prononcer |
 | `pt-PT` | Portugais (Portugal)             | Modèle de langage                                    |
+| `ro-RO` | Roumain (Roumanie)                | Modèle de langage                                    |
 | `ru-RU` | Russe (Russie)                  | Modèle acoustique<br>Modèle de langage                  |
+| `sk-SK` | Slovaque (Slovaquie)                 | Modèle de langage                                    |
+| `sl-SI` | Slovène (Slovénie)              | Modèle de langage                                    |
 | `sv-SE` | Suédois (Suède)                  | Modèle de langage                                    |
 | `ta-IN` | Tamoul (Inde)                     | Modèle de langage                                    |
 | `te-IN` | Télougou (Inde)                    | Modèle de langage                                    |
-| `th-TH` | Thaï (Thaïlande)                   | Non                                                |
+| `th-TH` | Thaï (Thaïlande)                   | Modèle de langage                                    |
 | `tr-TR` | Turc (Turquie)                  | Modèle de langage                                    |
 | `zh-CN` | Chinois (mandarin, simplifié)    | Modèle acoustique<br>Modèle de langage                  |
 | `zh-HK` | Chinois (cantonais, traditionnel)  | Modèle de langage                                    |
@@ -376,5 +389,5 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
+* [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
 * [Découvrir comment utiliser la reconnaissance vocale en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

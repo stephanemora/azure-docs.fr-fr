@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987583"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gérer les runbooks dans Azure Automation
 
@@ -293,7 +293,7 @@ Le résumé affiche un nombre et une représentation graphique de l’état de c
 
 Lorsque vous cliquez sur la vignette, la page Tâches s’affiche avec un récapitulatif de toutes les tâches exécutées. Cette page indique l’état, le nom du runbook, l’heure de début et l’heure de fin de chaque tâche.
 
-![Page Tâches de compte Automation](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Capture d’écran de la page Tâches.":::
 
 Vous pouvez filtrer la liste des tâches en sélectionnant **Filtrer les tâches**. Filtrez en fonction d’un runbook spécifique, d’un état de tâche ou d’un choix dans la liste déroulante, puis indiquez un intervalle de temps pour la recherche.
 
@@ -301,7 +301,7 @@ Vous pouvez filtrer la liste des tâches en sélectionnant **Filtrer les tâches
 
 Vous pouvez aussi afficher un résumé détaillé des tâches d’un runbook en sélectionnant le runbook dans la page Runbooks de votre compte Automation, puis en sélectionnant **Tâches**. Cette action affiche la page Tâches. De là, vous pouvez cliquer sur un enregistrement de tâche pour en afficher les détails et la sortie.
 
-![Page Tâches de compte Automation](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Capture d’écran de la page Tâches.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Récupérer des états de tâches avec PowerShell
 

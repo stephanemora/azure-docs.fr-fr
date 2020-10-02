@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796967"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975293"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
@@ -51,7 +51,7 @@ La configuration suivante est effectuée par AKS.
 
 Vous trouverez ci-dessous une topologie de réseau déployée dans des clusters AKS par défaut, qui utilise un `outboundType` `loadBalancer`.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![Le diagramme illustre les IP entrante et sortante, où l’IP entrante dirige le trafic vers un équilibreur de charge, qui dirige le trafic vers et depuis un cluster interne et un autre trafic vers l’IP sortante, qui dirige le trafic vers Internet, MCR, les services Azure requis et le plan de contrôle AKS.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Type de sortie userDefinedRouting
 

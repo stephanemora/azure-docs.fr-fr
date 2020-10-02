@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986246"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -29,7 +29,7 @@ Ces journaux de flux peuvent être difficiles à analyser et à exploiter manuel
 
 Dans cet article, nous allons configurer une solution qui vous permet de visualiser les journaux d’activité des flux de groupe de sécurité réseau à l’aide de la Suite Elastic.  Un plug-in d’entrée Logstash collecte les journaux de flux directement à partir de l’objet blob de stockage configuré pour contenir les journaux de flux. Ensuite, à l’aide de la Suite Elastic, les journaux de flux sont indexés et utilisés pour créer un tableau de bord Kibana permettant de visualiser les informations.
 
-![scénario][scenario]
+![Le diagramme illustre un scénario qui vous permet de visualiser les journaux de distribution de groupes de sécurité réseau à l’aide de la Suite Elastic.][scenario]
 
 ## <a name="steps"></a>Étapes
 
@@ -215,27 +215,27 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 1. Flux par décision/direction dans le temps : graphiques chronologiques indiquant le nombre de flux sur une période de temps. Vous pouvez modifier l’unité de temps et l’étendue de ces deux visualisations. Le graphique de flux par décision affiche la proportion de décisions d’autorisation ou de refus, tandis que celui du flux par direction affiche la proportion du trafic entrant et sortant. Grâce à ces éléments visuels, vous pouvez examiner les tendances du trafic au fil du temps et identifier les pics ou les modèles inhabituels.
 
-   ![figure 2][2]
+   ![Capture d’écran montrant un exemple de tableau de bord avec des flux par décision et sens dans le temps.][2]
 
 2. Flux par port source/de destination : graphiques à secteurs montrant la répartition des flux en fonction de leurs ports respectifs. Grâce à cette vue, vous pouvez visualiser les ports les plus fréquemment utilisés. Si vous cliquez sur un port spécifique dans le graphique à secteurs, le reste du tableau de bord filtre les flux selon ce port.
 
-   ![figure 3][3]
+   ![Capture d’écran montrant un exemple de tableau de bord avec flux par destination et port source.][3]
 
 3. Nombre de flux et date du premier journal : mesures indiquant le nombre de flux enregistrés et la date du plus ancien journal capturé.
 
-   ![figure 4][4]
+   ![Capture d’écran montrant un exemple de tableau de bord avec le nombre de flux et la première heure de journalisation.][4]
 
 4. Flux par groupe de sécurité réseau et par règle : graphique à barres montrant la répartition des flux au sein de chaque groupe de sécurité réseau, ainsi que la répartition des règles au sein de ces derniers. À partir de ces données, vous pouvez identifier le groupe de sécurité réseau et les règles qui ont généré le plus de trafic.
 
-   ![figure 5][5]
+   ![Capture d’écran montrant un exemple de tableau de bord avec des flux par groupe de sécurité réseau et règle.][5]
 
 5. 10 principales adresses IP source/de destination : graphiques à barres indiquant les 10 principales adresses IP source et de destination. Vous pouvez ajuster ces graphiques pour afficher un nombre plus ou moins important d’adresses IP. À partir de ces données, vous pouvez identifier les adresses IP les plus fréquemment utilisées, ainsi que la décision de trafic (autorisation ou refus) prise par rapport à chacune d’entre elles.
 
-   ![figure 6][6]
+   ![Capture d’écran montrant un exemple de tableau de bord avec des les dix principales adresses IP de source et de destination.][6]
 
 6. Tuples de flux : ce tableau affiche les informations contenues dans chaque tuple du flux, ainsi que ses groupes de sécurité réseau et ses règles correspondants.
 
-   ![figure 7][7]
+   ![Capture d’écran montrant les tuples de flux dans une table.][7]
 
 À l’aide de la barre de requête située en haut du tableau de bord, vous pouvez filtrer le tableau de bord en fonction de n’importe quel paramètre des flux, tel que l’ID d’abonnement, les groupes de ressources, la règle ou toute autre variable d’intérêt. Pour plus d’informations sur les requêtes et les filtres de Kibana, reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 

@@ -3,17 +3,19 @@ title: Configurer des appareils pour des proxys réseau - Azure IoT Edge | Micro
 description: Découvrez comment configurer le runtime Azure IoT Edge et les modules IoT Edge accessibles sur Internet pour communiquer via un serveur proxy.
 author: kgremban
 ms.author: kgremban
-ms.date: 3/10/2020
-ms.topic: conceptual
+ms.date: 09/03/2020
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- contperfq1
+ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687196"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500366"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -21,27 +23,27 @@ Les appareils IoT Edge envoient des requêtes HTTPS pour communiquer avec IoT Hu
 
 Cet article vous montre la procédure en quatre étapes à suivre pour configurer et gérer un appareil IoT Edge derrière un serveur proxy :
 
-1. **Installez le runtime IoT Edge sur votre appareil.**
+1. [**Installer le runtime IoT Edge sur votre appareil**](#install-the-runtime-through-a-proxy)
 
-   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour des instructions détaillées, consultez la section [Installez le runtime IoT Edge sur votre appareil](#install-the-runtime-through-a-proxy) de cet article. Pour les appareils Windows, le script d’installation fournit également une option [d’installation hors connexion](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation).
+   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour les appareils Windows, le script d’installation fournit également une option [d’installation hors connexion](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation).
 
-   Vous n’effectuerez le processus décrit dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge. Vous devez disposer des mêmes connexions lorsque vous mettez à jour le runtime IoT Edge.
+   Vous n’effectuerez la configuration décrite dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge. Vous devez disposer des mêmes connexions lorsque vous mettez à jour le runtime IoT Edge.
 
-2. **Configurez le démon Docker et le démon IoT Edge sur votre appareil.**
+2. [**Configurer le démon Docker et le démon IoT Edge sur votre appareil**](#configure-the-daemons)
 
-   IoT Edge utilise deux démons sur l’appareil et les deux doivent envoyer des requêtes web via le serveur proxy. Le démon IoT Edge est responsable des communications avec IoT Hub. Le démon Moby est responsable de la gestion des conteneurs. Il communique donc avec les registres de conteneur. Pour des instructions détaillées, consultez la section [Configurer les démons](#configure-the-daemons) de cet article.
+   IoT Edge utilise deux démons sur l’appareil et les deux doivent envoyer des requêtes web via le serveur proxy. Le démon IoT Edge est responsable des communications avec IoT Hub. Le démon Moby est responsable de la gestion des conteneurs. Il communique donc avec les registres de conteneur.
 
-   Vous n’effectuerez le processus décrit dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge.
+   Vous n’effectuerez la configuration décrite dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge.
 
-3. **Configurez les propriétés de l’agent IoT Edge dans le fichier config.yaml de votre appareil.**
+3. [**Configurer les propriétés de l’agent IoT Edge dans le fichier config.yaml de votre appareil**](#configure-the-iot-edge-agent)
 
-   Le démon IoT Edge commence par démarrer le module edgeAgent, puis le module edgeAgent devient responsable de la récupération des manifestes de déploiement à partir d’IoT Hub ainsi que du démarrage de tous les autres modules. Afin que l’agent IoT Edge puisse établir la connexion initiale à IoT Hub, configurez manuellement les variables d’environnement du module edgeAgent directement sur l’appareil. Une fois la première connexion effectuée, vous pouvez configurer le module edgeAgent à distance. Pour des instructions détaillées, consultez la section [Configurer l’agent IoT Edge](#configure-the-iot-edge-agent) de cet article.
+   Le démon IoT Edge démarre initialement le module edgeAgent. Ensuite, le module edgeAgent récupère le manifeste de déploiement à partir de IoT Hub et démarre tous les autres modules. Afin que l’agent IoT Edge puisse établir la connexion initiale à IoT Hub, configurez manuellement les variables d’environnement du module edgeAgent directement sur l’appareil. Une fois la première connexion effectuée, vous pouvez configurer le module edgeAgent à distance.
 
-   Vous n’effectuerez le processus décrit dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge.
+   Vous n’effectuerez la configuration décrite dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge.
 
-4. **Pour tous vos futurs déploiements de module, définissez des variables d’environnement pour chaque module communiquant via le proxy.**
+4. [**Pour tous vos futurs déploiements de module, définissez des variables d’environnement pour chaque module communiquant via le proxy**](#configure-deployment-manifests)
 
-   Une fois votre appareil IoT Edge configuré et connecté à IoT Hub via le serveur proxy, vous devez maintenir la connexion de tous les futurs déploiements de module. Pour des instructions détaillées, consultez la section [Configurer les manifestes de déploiement](#configure-deployment-manifests) de cet article.
+   Une fois votre appareil IoT Edge configuré et connecté à IoT Hub via le serveur proxy, vous devez maintenir la connexion de tous les futurs déploiements de module.
 
    Cette étape est un processus continu à effectuer à distance afin que chaque nouvelle mise à jour de module ou de déploiement conserve la capacité de l’appareil à communiquer via le serveur proxy.
 
@@ -205,7 +207,7 @@ Une fois que vous avez configuré votre appareil IoT Edge pour communiquer via v
 
 Vous devez toujours configurer les deux modules de runtime, edgeAgent et edgeHub, pour communiquer via le serveur proxy afin qu’ils puissent conserver une connexion avec IoT Hub. Si vous supprimez les informations de proxy du module edgeAgent, vous ne pouvez rétablir la connexion qu’en modifiant le fichier config.yaml sur l’appareil, comme décrit dans la section précédente.
 
-Outre les modules edgeAgent et edgeHub, d’autres modules peuvent nécessiter la configuration du proxy. Il s’agit des modules qui doivent accéder aux ressources Azure en plus d’IoT Hub, comme le stockage Blob, et pour lesquels la variable HTTPS_PROXY doit être spécifiée pour ce module dans le fichier manifeste de déploiement.
+Outre les modules edgeAgent et edgeHub, d’autres modules peuvent nécessiter la configuration du proxy. Les modules qui doivent accéder aux ressources Azure en plus d’IoT Hub, comme le stockage Blob, et pour lesquels la variable HTTPS_PROXY doit être spécifiée dans le fichier manifeste de déploiement.
 
 La procédure suivante s’applique tout au long de la durée de vie de l’appareil IoT Edge.
 
@@ -221,7 +223,7 @@ Ajoutez la variable d’environnement **https_proxy** aux définitions du module
 
 ![Définir la variable d’environnement https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
-Tous les autres modules que vous ajoutez à un manifeste de déploiement suivent le même modèle. La page où vous définissez le nom et l’image du module contient une section de variables d’environnement.
+Tous les autres modules que vous ajoutez à un manifeste de déploiement suivent le même modèle.
 
 ### <a name="json-deployment-manifest-files"></a>Fichiers de manifeste de déploiement JSON
 

@@ -5,32 +5,31 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051168"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970665"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Résidence des données et données client pour Azure Multi-Factor Authentication
 
-Les données client sont stockées par Azure AD dans un emplacement géographique en fonction de l’adresse fournie par votre organisation lors de l’abonnement à un service Microsoft Online tel qu’Office 365 ou Azure. Pour obtenir des informations sur le lieu de stockage des données client, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) du Centre de gestion de la confidentialité Microsoft.
+Les données client sont stockées par Azure AD dans un emplacement géographique en fonction de l’adresse fournie par votre organisation lors de l’abonnement à un service Microsoft Online tel que Microsoft 365 ou Azure. Pour obtenir des informations sur le lieu de stockage des données client, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) du Centre de gestion de la confidentialité Microsoft.
 
 Azure Multi-Factor Authentication basé sur le cloud et Azure Multi-Factor Authentication Server traitent et stockent un certain nombre de données personnelles et de données organisationnelles. Cet article présente ces données et indique où elles sont stockées.
 
-Les activités Multi-Factor Authentication suivantes proviennent actuellement des centres de données américains, sauf indication contraire :
+Le service Azure Multi-Factor Authentication dispose de centres de données aux États-Unis, en Europe et en Asie-Pacifique. Les activités suivantes proviennent des centres de données régionaux, sauf mention contraire :
 
-* Les authentifications à deux facteurs s’appuyant sur des appels téléphoniques ou des SMS sont généralement issues de centres de données des États-Unis et sont routées par des fournisseurs globaux.
-    * Les requêtes d'authentification d'utilisateurs à usage général provenant d'autres régions comme l'Europe ou l'Australie sont actuellement traitées par les centres de données de cette région. D'autres événements tels que les réinitialisations de mots de passe en libre-service, les événements Azure B2C ou les scénarios hybrides utilisant l'extension NPS ou l'adaptateur AD FS, sont tous actuellement traités par les centres de données américains.
-* Les notifications Push qui utilisent l’application Microsoft Authenticator proviennent des centres de données des États-Unis. En outre, des services spécifiques des fournisseurs d’appareils peuvent également provenir d’autres régions.
-* Actuellement, les codes OATH sont généralement validés aux États-Unis.
-    * Ici aussi, les événements d'authentification d'utilisateurs à usage général provenant d'autres régions comme l'Europe ou l'Australie sont traités par les centres de données de cette région. D'autres événements sont actuellement traités par les centres de données américains.
+* Les authentifications multifacteur s’appuyant sur des appels téléphoniques sont issues de centres de données des États-Unis et sont routées par des fournisseurs globaux.
+* Les requêtes d'authentification d'utilisateurs à usage général provenant d'autres régions comme l'Europe ou l'Australie sont actuellement traitées à l’emplacement de l’utilisateur.
+* Les notifications Push qui utilisent l’application Microsoft Authenticator proviennent des centres de données régionaux selon l’emplacement de l’utilisateur.
+    * Les services spécifiques aux fournisseurs d’appareils, comme les notifications push Apple, peuvent se trouver en dehors de l’emplacement de l’utilisateur.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Données personnelles stockées par Azure Multi-Factor Authentication
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607527"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089511"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -81,7 +81,7 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 
 Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer les attributs suivants :
 
-- `kind` peut être `range` ou `hash`. La fonctionnalité d’index de plage fournit toutes les fonctionnalités d’un index de hachage. Nous vous recommandons donc d’utiliser un index de plage.
+- `kind` peut être `range` ou `hash`. La prise en charge des index de hachage est limitée aux filtres d’égalité. La fonctionnalité d’index de plage fournit toutes les fonctionnalités des index de hachage, ainsi que le tri efficace, les filtres de plage et les fonctions système. Nous recommandons toujours d’utiliser un index de plage.
 
 - `precision` est un nombre défini au niveau de l’index pour les chemins inclus. La valeur `-1` indique la précision maximale. Nous vous recommandons de toujours définir cette valeur sur `-1`.
 

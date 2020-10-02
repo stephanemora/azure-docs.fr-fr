@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672655"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601382"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -64,7 +64,7 @@ Tous les utilisateurs et opérateurs peuvent tirer profit de l’utilisation d�
 * Station de travail hautement sensible, telle qu’un terminal de paiement SWIFT
 * Station de travail contenant des secrets industriels
 
-Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), la [feuille de route d’Office 365](https://aka.ms/o365secroadmap) et la [feuille de route de sécurisation de l’accès privilégié](https://aka.ms/sparoadmap)).
+Pour réduire les risques, vous devriez implémenter des contrôles de sécurité plus élevés sur les stations de travail privilégiées qui utilisent ces comptes. Pour plus d’informations, consultez le [Guide de déploiement des fonctionnalités d’Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), la [feuille de route de Microsoft 365](https://aka.ms/o365secroadmap) et la [feuille de route de sécurisation de l’accès privilégié](https://aka.ms/sparoadmap)).
 
 ## <a name="why-use-dedicated-workstations"></a>Pourquoi utiliser des stations de travail dédiées ?
 
@@ -73,7 +73,7 @@ Bien qu’il soit possible d’ajouter des dispositifs de sécurité à un appar
 Avec le nombre croissant de vecteurs d’attaque utilisant les messageries électroniques et la navigation sur le web, il est de plus en plus difficile d’être sûr qu’un appareil est digne de confiance. Ce guide part du principe qu’une station de travail dédiée est isolée des tâches de productivité, de navigation et de messagerie standard. La suppression des applications de productivité, de navigation sur le web et de messagerie d’un appareil peut nuire à la productivité. Toutefois, cette stratégie de protection est généralement acceptable dans les scénarios où les tâches à accomplir ne nécessitent pas explicitement ces applications et où le risque d’un incident de sécurité est élevé.
 
 > [!NOTE]
-> La navigation sur le web fait ici référence à l’accès général à des sites web arbitraires, qui peut être une activité à haut risque. Ce type de navigation se distingue de l’utilisation d’un navigateur web pour accéder à un petit nombre de sites web d’administration connus pour des services comme Azure, Office 365, ceux d’autres fournisseurs de cloud et les applications SaaS.
+> La navigation sur le web fait ici référence à l’accès général à des sites web arbitraires, qui peut être une activité à haut risque. Ce type de navigation se distingue de l’utilisation d’un navigateur web pour accéder à un petit nombre de sites web d’administration connus pour des services comme Azure, Microsoft 365, ceux d’autres fournisseurs de cloud et les applications SaaS.
 
 Les stratégies d’imbrication renforcent la sécurité en augmentant le nombre et les types de contrôles qui dissuadent les pirates d’accéder à des ressources sensibles. Le modèle décrit dans cet article utilise une conception à plusieurs niveaux de privilège et restreint les privilèges d’administration à des appareils spécifiques.
 

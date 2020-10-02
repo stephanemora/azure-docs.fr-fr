@@ -4,12 +4,12 @@ description: Pour comprendre ce que sont les règles d’action dans Azure Monit
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983135"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -44,11 +44,11 @@ Vous pouvez accéder à la fonctionnalité en sélectionnant **Gérer les action
 
 Sélectionnez **+ Nouvelle règle d’action**.
 
-![Ajouter une nouvelle règle d’action](media/alerts-action-rules/action-rules-new-rule.png)
+![Capture d’écran montrant la page Gérer les actions avec le bouton Nouvelle règle d’action mis en surbrillance.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Vous pouvez également créer une règle d’action tout en configurant une règle d’alerte.
 
-![Ajouter une nouvelle règle d’action](media/alerts-action-rules/action-rules-alert-rule.png)
+![Capture d’écran montrant la page Créer une règle avec le bouton Créer une règle d’action mis en surbrillance.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Vous devez maintenant voir la page de flux pour la création de règles d’action. Configurez les éléments suivants :
 
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Les alertes de journal créées avec l’option [nombre de résultats](alerts-unified-log.md) génèrent une seule instance d’alerte via le résultat de la recherche (qui peut s’étendre sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre **Contexte de l’alerte (charge utile)**, il agit sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2, décrit précédemment, si les résultats de la recherche pour l’alerte de journal générée contiennent **Computer-01** et **Computer-02**, la notification entière est supprimée. Aucune notification n’est générée pour **Computer-02**.
 
-![Règles d’action et alertes de journal (nombre de résultats)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Le diagramme montre les règles d’action et les alertes de journal avec une seule instance d’alerte mise en surbrillance.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Pour utiliser au mieux les alertes de journal avec des règles d’action, créez des alertes de journal avec l’option [mesure de métrique](alerts-unified-log.md). Des instances d’alerte distinctes sont générées par cette option, en fonction du champ de groupe défini. Ainsi, dans le scénario 2, des instances d’alerte distinctes sont générées pour **Computer-01** et **Computer-02**. En raison de la règle d’action décrite dans le scénario, seule la notification pour **Computer-01** est supprimée. La notification pour **Computer-02** continue à se déclencher normalement.
 
@@ -272,7 +272,7 @@ Après avoir défini une étendue lors de la configuration d’une règle d’ac
 * Sur-ensemble : Par exemple, la règle d’action que vous définissez est sur un groupe de ressources, et la règle d’action qui chevauche se trouve sur l’abonnement qui contient le groupe de ressources.
 * Intersection : Par exemple, la règle d’action que vous définissez est sur **VM1** et **VM2**, et la règle d’action qui chevauche est sur **VM2** et **VM3**.
 
-![Règles d’action qui se chevauchent](media/alerts-action-rules/action-rules-overlapping.png)
+![Capture d’écran montrant la page Nouvelle règle d’action avec les règles d’action qui se chevauchent affichées dans les Règles d’action définies dans la même fenêtre d’étendue.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Lors de la configuration d’une règle d’alerte, est-il possible de savoir s’il y a déjà des règles d’action définies qui pourraient avoir une influence sur la règle d’alerte que je suis en train de définir ?
 

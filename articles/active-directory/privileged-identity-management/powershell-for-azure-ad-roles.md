@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421907"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707898"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
@@ -30,7 +30,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
 > [!Note]
 > Notre module PowerShell officiel est pris en charge uniquement si vous utilisez la nouvelle version d’Azure AD Privileged Identity Management. Accédez à Privileged Identity Management et vérifiez que la bannière suivante apparaît dans le panneau Démarrage rapide.
 > [![vérifiez votre version de Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png "Sélectionnez Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Si cette bannière n’apparaît pas, veuillez patienter, car nous sommes actuellement en phase de déploiement de cette expérience mise à jour qui sera disponible dans les prochaines semaines.
-> Les applets de commande PowerShell Privileged Identity Management sont prises en charge via le module Azure AD en préversion. Si vous utilisiez un module différent et que ce module renvoie à présent un message d’erreur, commencez à utiliser ce nouveau module. Si vous avez des systèmes de production basés sur un autre module, contactez pim_preview@microsoft.com
+> Les applets de commande PowerShell Privileged Identity Management sont prises en charge via le module Azure AD en préversion. Si vous utilisiez un module différent et que ce module renvoie à présent un message d’erreur, commencez à utiliser ce nouveau module. Si vous avez des systèmes de production basés sur un autre module, contactez [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com).
 
 ## <a name="installation-and-setup"></a>Installation et configuration
 
@@ -54,7 +54,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
     ![Rechercher l’ID d’organisation dans les propriétés de l’organisation Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Les sections suivantes sont des exemples simples qui peuvent vous aider à démarrer. Vous trouverez plus d’informations sur les applets de commande suivantes sur https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management. Toutefois, vous devez remplacer « azureResources » dans le paramètre providerID par « aadRoles ». Vous devez également vous souvenir d’utiliser l’ID de votre organisation Azure AD en tant que paramètre resourceId.
+> Les sections suivantes sont des exemples simples qui peuvent vous aider à démarrer. Vous trouverez plus d’informations sur les applets de commande suivantes sur [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true). Toutefois, vous devez remplacer « azureResources » dans le paramètre providerID par « aadRoles ». Vous devez également vous souvenir d’utiliser l’ID de locataire pour votre organisation Azure AD en tant que paramètre resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Récupération des définitions de rôles
 
@@ -135,7 +135,7 @@ Cette applet de commande est presque identique à l’applet de commande permett
 Utilisez l’applet de commande suivante pour obtenir tous les paramètres de rôles dans votre organisation Azure AD.
 
 ```powershell
-Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'"
 ```
 
 Il existe quatre objets principaux dans le paramètre. Seuls trois de ces objets sont actuellement utilisés par PIM. Les paramètres UserMemberSettings sont des paramètres d’activation, les paramètres AdminEligibleSettings sont des paramètres d’attribution pour les attributions éligibles, et les paramètres AdminmemberSettings sont des paramètres d’attribution pour les attributions actives.
@@ -145,14 +145,16 @@ Il existe quatre objets principaux dans le paramètre. Seuls trois de ces objets
 Pour mettre à jour le paramètre de rôle, vous devez obtenir l’objet de paramètre existant pour un rôle particulier et y apporter des modifications :
 
 ```powershell
-$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-$setting.UserMemberSetting.justificationRule = '{"required":false}'
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq 'tenant id' and RoleDefinitionId eq 'role id'"
+$settinga = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting
+$settinga.RuleIdentifier = "JustificationRule"
+$settinga.Setting = '{"required":false}'
 ```
 
 Vous pouvez ensuite continuer et appliquer le paramètre à l’un des objets d’un rôle particulier, comme indiqué ci-dessous. Ici, l’ID est l’ID de paramètre de rôle qui peut être récupéré à partir du résultat de l’applet de commande qui liste les paramètres de rôle.
 
 ```powershell
-Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $setting 
+Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a9-bb32-71916d9aeadf' -ResourceId '3f5887ed-dd6e-4821-8bde-c813ec508cf9' -RoleDefinitionId '2387ced3-4e95-4c36-a915-73d803f93702' -UserMemberSettings $settinga 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

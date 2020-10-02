@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271003"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052379"
 ---
 # <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
@@ -66,7 +66,13 @@ Les expressions de mappage d’attributs peuvent avoir un maximum de 10 000 cara
 - L’approvisionnement de groupes imbriqués n’est pas pris en charge. 
 - L’approvisionnement de locataires B2C n’est pas pris en charge en raison de la taille des locataires. 
 
-**L’intervalle d’approvisionnement est fixe** Le [temps](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre les cycles d’approvisionnement n’est pas configurable actuellement. 
+**Le provisionnement automatique n’est pas disponible sur mon application OIDC**
+
+Si vous créez une inscription d’application, le principal de service correspondant dans les applications d’entreprise n’est pas activé pour le provisionnement automatique d’utilisateurs. Vous devez soit demander l’ajout de l’application à la Galerie, si elle est destinée à être utilisée par plusieurs organisations, soit créer une deuxième application hors Galerie pour le provisionnement. 
+
+**L’intervalle de provisionnement est fixe**
+
+Le [temps](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre les cycles de provisionnement n’est actuellement pas configurable. 
 
 **Les modifications ne se déplacent pas de l’application cible vers Azure AD**
 

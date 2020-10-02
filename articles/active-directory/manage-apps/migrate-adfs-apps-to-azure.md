@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641362"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600943"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -35,7 +35,7 @@ Si vous disposez d’un annuaire local qui contient des comptes d’utilisateur,
 
 Les utilisateurs peuvent également s’authentifier directement auprès de votre instance Active Directory locale. AD FS est un service d’identité local basé sur des normes. Il étend la capacité à utiliser la fonctionnalité d’authentification unique (SSO) entre partenaires commerciaux approuvés sans obliger les utilisateurs à se connecter séparément à chaque application. C’est ce que l’on appelle la fédération.
 
-De nombreuses organisations disposent d’applications SaaS (Software as a Service) ou métiers personnalisées (LoB), fédérées directement dans AD FS, et des applications Office 365 et Azure AD. 
+De nombreuses organisations disposent d’applications SaaS (Software as a Service) ou métiers personnalisées (LoB), fédérées directement dans AD FS, et des applications Microsoft 365 et Azure AD. 
 
 ![Applications directement connectées localement](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 

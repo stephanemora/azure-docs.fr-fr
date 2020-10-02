@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321716"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601362"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -95,7 +95,7 @@ Les mots de passe en eux-mêmes ne sont pas suffisamment sécurisés pour empêc
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Résilience de l’authentification pour des pannes locales
 
-Outre les avantages de la simplicité et de l’activation de la détection des informations d’identification divulguées, la synchronisation du hachage de mot de passe (PHS) d’Azure AD et Azure MFA permettent aux utilisateurs d’accéder aux applications SaaS et à Office 365 en dépit des pannes locales dues à des cyberattaques, comme [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Il est également possible d’activer la synchronisation du hachage de mot de passe en combinaison avec la fédération. L’activation de la synchronisation du hachage de mot de passe permet un basculement de secours de l’authentification quand les services de fédération ne sont pas disponibles.
+Outre les avantages de la simplicité et de l’activation de la détection des informations d’identification divulguées, la synchronisation du hachage de mot de passe (PHS) d’Azure AD et Azure MFA permettent aux utilisateurs d’accéder aux applications SaaS et à Microsoft 365 en dépit des pannes locales dues à des cyberattaques, comme [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Il est également possible d’activer la synchronisation du hachage de mot de passe en combinaison avec la fédération. L’activation de la synchronisation du hachage de mot de passe permet un basculement de secours de l’authentification quand les services de fédération ne sont pas disponibles.
 
 Si votre organisation locale ne dispose pas d’une stratégie de résilience en cas de panne ou si elle en a une qui n’est pas intégrée à Azure AD, vous devez déployer la synchronisation du hachage de mot de passe Azure AD et définir un plan de reprise d’activité incluant la synchronisation du hachage de mot de passe. L’activation de la synchronisation du hachage de mot de passe d’Azure AD permettra aux utilisateurs de s’authentifier auprès d’Azure AD si votre annuaire Active Directory local n’est pas disponible.
 
@@ -249,7 +249,7 @@ L’accès conditionnel est un outil essentiel pour améliorer l’attitude de v
 - Disposer un petit ensemble de stratégies principales qui peuvent s’appliquer à plusieurs applications
 - Définir des groupes d’exceptions vides et les ajouter aux stratégies pour disposer d’une stratégie d’exception
 - Prévoir des comptes [d’urgence](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sans contrôles MFA
-- Veiller à garantir une expérience cohérente entre les applications clientes Office 365 (par exemple Teams, OneDrive Entreprise, Outlook, etc.) en implémentant le même ensemble de contrôles pour des services comme Exchange Online et SharePoint Online
+- Veiller à garantir une expérience cohérente entre les applications clientes Microsoft 365 (par exemple Teams, OneDrive, Outlook, etc.) en implémentant le même ensemble de contrôles pour des services comme Exchange Online et SharePoint Online
 - L’affectation aux stratégies doit être implémentée via des groupes et non pas via des personnes individuelles
 - Effectuez des revues régulières des groupes d’exceptions utilisés dans les stratégies de façon à limiter le temps pendant lequel les utilisateurs sont en dehors de l’attitude de sécurité. Si vous avez Azure AD P2, vous pouvez utiliser les révisions d’accès pour automatiser le processus.
 
@@ -302,7 +302,7 @@ Vous trouverez ci-dessous une liste d’applications avec des permissions qu’i
 
 | Ressource | Autorisation |
 | :- | :- |
-| Office 365 Exchange Online | EAS.AccessAsUser.All |
+| Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
 | API Microsoft Graph | Mail.Read |
@@ -339,7 +339,7 @@ Vous trouverez ci-dessous les paramètres des utilisateurs et des groupes qui pe
 
 #### <a name="group-settings"></a>Suppression de groupe
 
-**Gestion des groupes en libre-service / Les utilisateurs peuvent créer des groupes de sécurité / Groupes O365.** S’il n’y a actuellement pas d’initiative en libre-service pour les groupes dans le cloud, les clients peuvent décider de la désactiver jusqu’à ce qu’ils soient prêts à utiliser cette fonctionnalité.
+**Gestion des groupes en libre-service / Les utilisateurs peuvent créer des groupes de sécurité / Groupes Microsoft 365.** S’il n’y a actuellement pas d’initiative en libre-service pour les groupes dans le cloud, les clients peuvent décider de la désactiver jusqu’à ce qu’ils soient prêts à utiliser cette fonctionnalité.
 
 #### <a name="groups-recommended-reading"></a>Lectures recommandées pour les groupes
 

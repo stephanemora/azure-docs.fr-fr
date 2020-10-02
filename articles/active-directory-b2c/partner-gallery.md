@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049862"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706696"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ Notre réseau de partenaires ISV étend les fonctionnalités de nos solutions et
 | ![Logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) est un service de vérification d’ID, qui permet de vérifier l’ID automatisé en temps réel et de protéger les données client. |
 | ![Logo](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) est un fournisseur de solutions de profilage et de validation d’identité qui vérifie l’identification des utilisateurs et fournit des évaluations de risques complètes basées sur l’appareil de l’utilisateur. |
 | ![Logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) est un ID de document et une solution de vérification de biométrie faciale qui permet aux entreprises de répondre au exigences *de connaître la clientèle*  et d’identités en temps réel.  |
+| ![Logo](./media/partner-gallery/saviynt-logo.png) | La plateforme native cloud [Saviynt](./partner-saviynt.md) utilise l’analytique intelligente et fournit une intégration interapplication pour simplifier la modernisation informatique et améliorer la sécurité, la gouvernance et la conformité. La modernisation des entreprises change la façon dont les entreprises examinent les demandes d’accès, effectuent les révisions d’accès, analysent les rapports et rationalisent les campagnes de certification.  |
 | ![Logo](./media/partner-gallery/trusona-logo.png) | L’intégration avec [Trusona](./partner-trusona.md) vous aide à sécuriser vos connexions, et permet l’authentification sans mot de passe, l’authentification multifacteur et l’analyse de licence numérique.|
 | ![Logo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) fournit plusieurs solutions qui permettent l’authentification multifacteur (MFA) par l’envoi par SMS d’un mot de passe à usage unique (OTP), d’un mot de passe à usage unique et durée définie (TOTP) ou de notifications Push, et aident à se conformer aux normes SCA pour la directive 2 sur les services de paiement (PSD2).|
 | ![Logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) est un fournisseur de solutions de vérification et confirmation d’identité basées sur le modèle de saisie de l’utilisateur, qui forcent l’authentification multifacteur et aident à se conformer aux normes SCA pour la directive 2 sur les services de paiement (PSD2). |

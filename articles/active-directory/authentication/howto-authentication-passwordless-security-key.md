@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116595"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526950"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 
@@ -32,15 +32,15 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Activer la [préversion de l’inscription d’informations de sécurité combinée](concept-registration-mfa-sspr-combined.md)
 - [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles
-- WebAuthN nécessite Windows 10 version 1809 ou plus**
+- WebAuthN nécessite Windows 10 version 1903 ou plus**
 
 Pour utiliser des clés de sécurité pour la connexion aux services et applications web, vous devez disposer d’un navigateur qui prend en charge le protocole WebAuthN. Il s’agit notamment de Microsoft Edge, Chrome, Firefox et Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
 
-Les appareils joints à Azure AD que vous utilisez pour exécuter des pilotes doivent exécuter Windows 10 version 1809 ou ultérieure. Vous bénéficierez de la meilleure expérience sur Windows 10 version 1903 ou ultérieure.
+Les appareils joints à Azure AD que vous utilisez pour exécuter des pilotes doivent exécuter Windows 10 version 1909 ou ultérieure. Vous bénéficierez de la meilleure expérience sur Windows 10 version 1903 ou ultérieure.
 
-Les appareils joints à Azure AD Hybride doivent exécuter Windows 10 Insider Build 18945 ou une version ultérieure.
+Les appareils de jointure Azure AD Hybride doivent exécuter Windows 10 version 2004 ou ultérieure.
 
 ## <a name="enable-passwordless-authentication-method"></a>Activer les méthodes d’authentification sans mot de passe
 
@@ -73,7 +73,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 
 ## <a name="sign-in-with-passwordless-credential"></a>Se connecter avec les informations d’identification sans mot de passe
 
-Dans l’exemple ci-dessous, un utilisateur a déjà approvisionné sa clé de sécurité FIDO2. L’utilisateur peut choisir de se connecter en ligne avec sa clé de sécurité FIDO2 depuis un navigateur pris en charge sur Windows 10 version 1809 ou ultérieure.
+Dans l’exemple ci-dessous, un utilisateur a déjà approvisionné sa clé de sécurité FIDO2. L’utilisateur peut choisir de se connecter en ligne avec sa clé de sécurité FIDO2 depuis un navigateur pris en charge sur Windows 10 version 1903 ou ultérieure.
 
 ![Connexion par clé de sécurité dans Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

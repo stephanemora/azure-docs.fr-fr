@@ -1,6 +1,6 @@
 ---
-title: Autorisations de rôle administrateur personnalisé disponibles - Azure AD | Microsoft Docs
-description: Autorisations de rôle d’administrateur personnalisées pour la délégation de la gestion des identités.
+title: Autorisations de rôle personnalisées pour l’inscription d’applications - Azure AD | Microsoft Docs
+description: Déléguez les autorisations de rôle d’administrateur personnalisé pour gérer les inscriptions d’applications.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967684"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Les sous-types et les autorisations d’inscription de l’application dans Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’inscription d’application pour les rôles personnalisés dans Azure Active Directory
 
 Cet article contient les autorisations d’inscription d’application actuellement disponibles pour les définitions de rôle personnalisées dans Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Autorisations pour la gestion des applications mono-annuaires
+## <a name="permissions-for-managing-single-tenant-applications"></a>Autorisations pour la gestion des applications à locataire unique
 
-Lorsque vous choisissez les autorisations pour votre rôle personnalisé, vous avez la possibilité d’accorder l’accès uniquement pour gérer les applications mono-annuaires. Les applications mono-annuaires sont seulement disponibles pour les utilisateurs de l’organisation Azure AD dans laquelle l’application est inscrite. Les applications mono-annuaires sont définies comme ayant des **types de comptes pris en charge** qui sont définis sur « Comptes dans cet annuaire d’organisation uniquement ». Dans l’API Graph, la propriété signInAudience est définie sur « AzureADMyOrg » pour les applications mono-annuaires.
+Lorsque vous choisissez les autorisations pour votre rôle personnalisé, vous avez la possibilité d’accorder l’accès uniquement pour gérer les applications à locataire unique. Les applications monolocataires sont uniquement disponibles pour les utilisateurs de l’organisation Azure AD dans laquelle l’application est inscrite. Les applications monolocataires sont définies comme ayant des **types de comptes pris en charge** définis sur « Comptes dans ce répertoire d’organisation uniquement ». Dans l’API Graph, les applications monolocataires ont la propriété signInAudience définie sur « AzureADMyOrg ».
 
-Pour accorder l’accès uniquement à la gestion des applications mono-annuaires, utilisez les autorisations ci-dessous avec le sous-type **applications.myOrganization**. Par exemple, microsoft.directory/applications.myOrganization/basic/update.
+Pour accorder l’accès uniquement à la gestion des applications à locataire unique, utilisez les autorisations ci-dessous avec le sous-type **applications.myOrganization**. Par exemple, microsoft.directory/applications.myOrganization/basic/update.
 
 Consultez la [vue d’ensemble des rôles personnalisés](roles-custom-overview.md) pour obtenir une explication des termes généraux du sous-type, de l’autorisation et du jeu de propriétés. Les informations suivantes sont spécifiques aux inscriptions d’applications.
 
@@ -95,7 +95,7 @@ Octroie les mêmes autorisations que microsoft.directory/applications/standard/r
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
-Capacité de mettre à jour toutes les propriétés des applications multi-annuaires et mono-annuaires.
+Capacité de mettre à jour toutes les propriétés des applications multi-locataires et mono-locataires.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -103,7 +103,7 @@ Octroie les mêmes autorisations que microsoft.directory/applications/allPropert
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Capacité de mettre à jour la propriété (signInAudience) des types de comptes pris en charge dans les applications multi-annuaires et mono-annuaires.
+Capacité de mettre à jour la propriété (signInAudience) des types de comptes pris en charge dans les applications à locataires multiples et à locataire unique.
 
 ![Cette autorisation accorde l’accès à la propriété des types de compte pris en charge dans l’inscription de l’application sur la page d’authentification](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Possibilité de mettre à jour les propriétés des certificats et des secrets c
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directory/applications.myOrganization/credentials/update
 
-Octroie les mêmes autorisations que microsoft.directory/applications/credentials/update, mais uniquement pour les applications à un seul annuaire.
+Octroie les mêmes autorisations que microsoft.directory/applications/credentials/update, mais uniquement pour les applications à locataire unique.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 

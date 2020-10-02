@@ -1,22 +1,25 @@
 ---
-title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs
-description: Résolution des problèmes liés à Azure Files sous Windows. Consultez les problèmes courants liés à Azure Files lorsque vous vous connectez à partir de clients Windows et découvrez les résolutions possibles.
+title: Résoudre les problèmes liés à Azure Files sous Windows
+description: Résolution des problèmes liés à Azure Files sous Windows. Consultez les problèmes courants liés à Azure Files lorsque vous vous connectez à partir de clients Windows et découvrez les résolutions possibles. Uniquement pour les partages SMB
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269367"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707609"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
 Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
+
+> [!IMPORTANT]
+> Le contenu de cet article s’applique uniquement aux partages SMB. Pour plus d’informations sur les partages NFS, consultez [Résoudre les problèmes des partages de fichiers NFS Azure](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
@@ -50,7 +53,12 @@ Si les utilisateurs accèdent au partage de fichiers Azure à l’aide de l’au
 
 ### <a name="solution-for-cause-3"></a>Solution pour la cause 3
 
-Pour mettre à jour les autorisations au niveau du partage, consultez [Assigner des autorisations d’accès à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Vérifiez que les autorisations sont configurées correctement :
+
+- **Active Directory (AD)** , voir [Affecter des autorisations au niveau du partage à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    Les attributions d’autorisations au niveau du partage sont prises en charge pour les groupes et les utilisateurs qui ont été synchronisés d’Active Directory (AD) à Azure Active Directory (Azure AD) à l’aide d’Azure AD Connect.  Vérifiez que les groupes et utilisateurs auxquels des autorisations au niveau du partage sont affectées ne sont pas des groupes « cloud uniquement » non pris en charge.
+- **Azure Active Directory Domain Services (Azure AD DS)** , voir [Assigner des autorisations d’accès à une identité](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Les messages « Erreur 53 », « Erreur 67 » ou « Erreur 87 » s’affichent lorsque vous montez ou démontez un partage de fichiers Azure
@@ -317,18 +325,6 @@ Activez Azure AD DS sur le locataire Azure AD de l’abonnement sur lequel vo
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>L’erreur Erreur système 1359 est survenue. Une erreur interne est survenue lors de l’accès SMB aux partages de fichiers avec l’authentification Azure Active Directory Domain Services (Azure AD DS) activée
-
-### <a name="cause"></a>Cause
-
-L’erreur Erreur système 1359 est survenue. Une erreur interne se produit lorsque vous essayez de vous connecter à votre partage de fichiers avec l’authentification Azure AD DS activée sur une instance Azure AD DS avec un nom DNS de domaine commençant par un caractère numérique. Par exemple, si le nom DNS de domaine Azure AD DS est « 1domain », vous obtiendrez cette erreur lors de la tentative de montage du partage de fichiers à l’aide des informations d’identification Azure AD. 
-
-### <a name="solution"></a>Solution
-
-Actuellement, vous pouvez envisager de redéployer votre instance Azure AD DS à l’aide d’un nouveau nom DNS de domaine qui s’applique aux règles ci-dessous :
-- Les noms ne peuvent pas commencer par un caractère numérique.
-- Les noms doivent comprendre entre 3 et 63 caractères.
-
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Impossible de monter Azure Files avec les informations d’identification AD 
 
 ### <a name="self-diagnostics-steps"></a>Étapes des autodiagnostics
@@ -373,6 +369,18 @@ Cette erreur peut se produire si un contrôleur de domaine titulaire du rôle FS
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erreur : « Impossible de lier les paramètres positionnels, car aucun nom n’a été fourni »
 
 Cette erreur est probablement déclenchée par une erreur de syntaxe dans la commande Join-AzStorageAccountforAuth.  Vérifiez que la commande ne contient pas de fautes de frappe ou d’erreurs syntaxe, et que la version la plus récente du module AzFilesHybrid (https://github.com/Azure-Samples/azure-files-samples/releases) est installée.  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Prise en charge de l’authentification AD DS locale Azure Files pour le chiffrement Kerberos AES 256
+
+Nous avons introduit la prise en charge du chiffrement Kerberos AES 256 pour l’authentification AD DS locale Azure Files avec le [module AzFilesHybrid v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Si vous avez activé l’authentification AD DS avec une version de module antérieure à la v0.2.2, vous devez télécharger le module AzFilesHybrid le plus récent (v0.2.2+) et exécuter la commande PowerShell ci-dessous. Si vous n’avez pas encore activé l’authentification AD DS sur votre compte de stockage, vous pouvez suivre ces [instructions](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) pour l’activation. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

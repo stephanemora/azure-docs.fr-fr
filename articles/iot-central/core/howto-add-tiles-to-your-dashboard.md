@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022866"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985313"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 
@@ -33,7 +33,7 @@ Une fois que vous avez sélectionné **Modifier** ou **Nouveau**, le tableau de 
 1. Dans la liste déroulante **Appareils**, sélectionnez un ou plusieurs appareils à afficher sur la vignette. Vous voyez maintenant les données de télémétrie, propriétés et commandes disponibles à partir des appareils.
 1. Sélectionnez **Température** dans la section des données de télémétrie, puis **Ajouter une vignette**. La vignette s’affiche maintenant dans le tableau de bord où vous pouvez modifier la visualisation, redimensionner la vignette et la configurer :
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Ajouter une vignette de télémétrie de température au tableau de bord":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
 
 Lorsque vous avez terminé d’ajouter des vignettes au tableau de bord ou de les personnaliser, sélectionnez **Enregistrer**.
 
@@ -75,11 +75,23 @@ Pour les vignettes affichant des valeurs agrégées, sélectionnez l’icône d�
 
 Pour les graphiques en courbes, à barres et à secteurs, vous pouvez personnaliser la couleur des différentes valeurs de télémétrie. Sélectionnez l’icône de palette en regard des données de télémétrie que vous souhaitez personnaliser :
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Modifier la couleur d’une valeur de télémétrie":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
 
 Pour les vignettes affichant des propriétés de chaîne ou des valeurs de télémétrie, vous pouvez choisir comment afficher le texte. Par exemple, si l’appareil stocke une URL dans une propriété de chaîne, vous pouvez l’afficher sous forme de lien sur lequel vous pouvez cliquer. Si l’URL fait référence à une image, vous pouvez restituer celle-ci dans une vignette de dernière valeur connue ou de propriété. Pour modifier la manière dont une chaîne s’affiche, dans la configuration de la vignette, sélectionnez l’icône d’engrenage en regard du type de télémétrie ou de la propriété  :
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Modifier la manière dont une chaîne s’affiche sur une vignette":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
+
+Pour les vignettes **KPI**, **Dernière valeur connue**, et **Propriété**, vous pouvez utiliser la mise en forme conditionnelle pour personnaliser la couleur de la vignette en fonction de sa valeur actuelle. Pour ajouter une mise en forme conditionnelle, sélectionnez **Configurer** sur la vignette, puis sélectionnez l’icône **Mise en forme conditionnelle** en regard de la valeur à personnaliser :
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
+
+Ajoutez vos règles de mise en forme conditionnelle :
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
+
+La capture d’écran suivante montre l’effet de la règle de mise en forme conditionnelle :
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Tableau de bord des applications basées sur le modèle d’application personnalisée":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

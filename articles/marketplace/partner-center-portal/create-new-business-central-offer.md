@@ -3,16 +3,16 @@ title: Créer une offre Dynamics 365 Business Central – Marketplace commercia
 description: Découvrez les étapes et les considérations relatives à la création d’une offre Dynamics 365 Business Central dans la place de marché commerciale Microsoft dans l’Espace partenaires. Vous pouvez répertorier ou vendre votre offre sur la Place de marché Azure ou via le programme Fournisseur de solutions Cloud (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527086"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -71,9 +71,7 @@ Collectez des informations de contact client en connectant votre système de ges
 
 ### <a name="test-drive"></a>Test drive
 
-Une version d’évaluation est un bon moyen de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’« essayer avant de l’acheter », ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. Pour plus d’informations, commencez par [Qu’est-ce qu’un test drive](../what-is-test-drive.md).
-
-Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher.
+À ce stade, les offres Dynamics 365 Business Central ne prennent pas en charge les versions d'évaluation. Pour supprimer les versions d'évaluation de votre offre, désactivez la case à cocher **Activer une version d’évaluation**.
 
 ### <a name="customer-leads"></a>Prospects
 

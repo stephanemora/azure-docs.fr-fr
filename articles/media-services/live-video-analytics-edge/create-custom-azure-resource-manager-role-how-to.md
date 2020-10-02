@@ -3,12 +3,12 @@ title: Créer un rôle Azure Resource Manager personnalisé et l’affecter à u
 description: Cet article explique comment créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal de service pour Live Video Analytics sur IoT Edge, à l’aide de Microsoft Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043177"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526576"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Créer un rôle Azure Resource Manager personnalisé et l’affecter à un principal du service
 
@@ -43,7 +43,7 @@ Si vous n’avez pas de compte Media Services, procédez comme suit pour en cré
 1. Accédez à [Cloud Shell](https://shell.azure.com/).
 1. Sélectionnez « Bash » en tant qu’environnement dans la liste déroulante figurant sur le côté gauche de la fenêtre Cloud Shell.
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![La capture d’écran montre Bash sélectionné dans la fenêtre de l’interpréteur de commandes.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Définissez votre abonnement Azure en tant que compte par défaut à l’aide du modèle de commande suivant :
     
     ```

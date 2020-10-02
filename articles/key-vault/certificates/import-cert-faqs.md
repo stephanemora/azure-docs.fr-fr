@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588819"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651844"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Questions fréquentes (FAQ) sur l’importation de certificats Azure Key Vault
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur les stratégies d’accès liées aux certificats
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Comment résoudre le problème « Type d’erreur : Conflit lors de la création d’un certificat » ?
     
-Le nom de chaque certificat doit être unique. Un certificat portant le même nom qu’un autre peut être dans un état de suppression réversible. En outre, selon la [composition d’un certificat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) dans Azure Key Vault, s’il existe une autre clé ou un autre secret dans le coffre de clés portant le même nom que la clé ou le secret que vous essayez de spécifier pour votre certificat, l’opération de création du certificat échoue et vous devez supprimer cette clé ou ce secret, ou utiliser un autre nom pour votre certificat. 
+Le nom de chaque certificat doit être unique. Un certificat portant le même nom peut être dans un état de suppression réversible. En outre, selon la [composition d’un certificat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), quand un nouveau certificat est créé, il crée un secret adressable portant le même nom. Ainsi, il existe une autre clé ou un autre secret dans le coffre de clés portant le même nom que la clé ou le secret que vous essayez de spécifier pour votre certificat, l’opération de création du certificat échoue et vous devez supprimer cette clé ou ce secret, ou utiliser un autre nom pour votre certificat. 
 
 Pour plus d’informations, consultez [Opération Obtenir un certificat supprimé](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

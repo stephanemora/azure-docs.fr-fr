@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641175"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706666"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparer les solutions d’accès à distance
 
@@ -59,7 +59,7 @@ Le proxy d’application Azure AD offre des avantages uniques par rapport à des
    - Des fonctionnalités telles que l’accès conditionnel et l’authentification multifacteur faciles à activer
 - Aucun composant dans la zone démilitarisée
 - Aucune connexion entrante nécessaire
-- Une page Mes applications à laquelle vos utilisateurs peuvent accéder pour toutes leurs applications, y compris les applications SaaS intégrées à Azure AD, les applications O365 et vos applications web locales. 
+- Une page Mes applications à laquelle vos utilisateurs peuvent accéder pour toutes leurs applications, y compris les applications SaaS intégrées à Azure AD, les applications Microsoft 365 et vos applications web locales. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

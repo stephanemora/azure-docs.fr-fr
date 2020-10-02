@@ -2,15 +2,15 @@
 title: Dépannage du débogueur de capture instantanée d’Azure Application Insights
 description: Cet article décrit les étapes de résolution des problèmes et donne des informations afin d’aider les développeurs qui rencontrent des difficultés à activer ou utiliser le Débogueur de capture instantanée Application Insights.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671407"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707830"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé le Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.
@@ -31,6 +31,30 @@ Si cela ne résout pas le problème, consultez les étapes de dépannage manuel 
 ## <a name="verify-the-instrumentation-key"></a>Vérifier la clé d’instrumentation
 
 Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre application publiée. En règle générale, la clé d’instrumentation est lue à partir du fichier ApplicationInsights.config. Vérifiez que la valeur est identique à la clé d’instrumentation de la ressource Application Insights que vous voyez dans le portail.
+
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Vérifier les paramètres du client SSL (ASP.NET)
+
+Si vous avez une application ASP.NET hébergée dans Azure App Service ou IIS sur une machine virtuelle, votre application risque d’échouer à se connecter au service Débogueur de capture instantanée en raison d’un protocole de sécurité SSL manquant.
+[Le point de terminaison Débogueur de capture instantanée nécessite la version 1.2 du protocole TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). L’ensemble des protocoles de sécurité SSL est l’un des quirks activés par la valeur httpRuntime targetFramework dans la section system.web de web.config. Si la valeur de httpRuntime targetFramework est 4.5.2 ou inférieure, TLS 1.2 n’est pas inclus par défaut.
+
+> [!NOTE]
+> La valeur httpRuntime targetFramework est indépendante de la version cible du framework cible utilisée lors de la génération de votre application.
+
+Pour vérifier le paramètre, ouvrez votre fichier web.config et recherchez la section system.web. Assurez-vous que le `targetFramework` pour `httpRuntime` est défini sur 4.6 ou une version ultérieure.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> La modification de la valeur httpRuntime targetFramework modifie les quirks du runtime appliquées à votre application et peut entraîner d’autres changements de comportement subtils. Veillez à tester soigneusement votre application après avoir apporté cette modification. Pour obtenir la liste complète des modifications de compatibilité, consultez https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Si le targetFramework est 4.7 ou une version ultérieure, Windows détermine les protocoles disponibles. Dans Azure App Service, TLS 1.2 est disponible. Toutefois, si vous utilisez votre propre machine virtuelle, vous devrez peut-être activer TLS 1.2 dans le système d’exploitation.
 
 ## <a name="preview-versions-of-net-core"></a>Préversions de .NET Core
 Si l’application utilise une préversion de .NET Core et que Débogueur de capture instantanée a été activé par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) dans le portail, alors Débogueur de capture instantanée peut ne pas démarrer. Suivez d’abord les instructions dans [Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) à l’application ***en plus*** de l’activation par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f451b39d2757425a50a186a8212042cf887b136b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423267"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662303"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -160,7 +160,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 
 *Exemple*
 
-Cette définition de déclencheur vérifie tous les jours les e-mails dans la boîte de réception d’un compte Office 365 Outlook :
+Cette définition de déclencheur vérifie tous les jours les e-mails dans la boîte de réception d’un compte professionnel ou scolaire :
 
 ```json
 "When_a_new_email_arrives": {
@@ -1101,7 +1101,7 @@ Cette action exécute du code qui obtient le nom de votre application logique et
 
 *Exemple 2*
 
-Cette action exécute le code dans une application logique qui se déclenche lorsqu’un nouvel e-mail arrive sur un compte Office 365 Outlook. L’application logique utilise également une action Envoyer un e-mail d’approbation, qui transfère le contenu de l’e-mail reçu ainsi qu’une requête d’approbation.
+Cette action exécute le code dans une application logique qui se déclenche lorsqu’un nouvel e-mail arrive sur un compte professionnel ou scolaire. L’application logique utilise également une action Envoyer un e-mail d’approbation, qui transfère le contenu de l’e-mail reçu ainsi qu’une requête d’approbation.
 
 Le code extrait les adresses e-mail à partir de la propriété `Body` du déclencheur, et renvoie les adresses avec la valeur de la propriété `SelectedOption` à partir de l’action d’approbation. L’action inclut de manière explicite l’action Envoyer un e-mail d’approbation en tant que dépendance dans l’attribut `explicitDependencies` > `actions`.
 

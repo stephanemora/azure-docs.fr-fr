@@ -3,12 +3,12 @@ title: Analyse de l’usage avec Azure Application Insights | Microsoft Docs
 description: Comprenez vos utilisateurs et ce qu’ils font avec votre application.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800209"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532101"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
@@ -54,7 +54,7 @@ Découvrez quand des personnes utilisent votre application, les pages qui les in
 
 Les rapports Utilisateurs et sessions filtrent vos données par pages ou événements personnalisés, et les segmentent par propriétés telles que l’emplacement, l’environnement et la page. Vous pouvez également ajouter vos propres filtres.
 
-![Utilisateurs](./media/usage-overview/users.png)  
+![Capture d’écran montrant la page Vue d’ensemble des utilisateurs pour une société fictive.](./media/usage-overview/users.png)  
 
 Aperçu des modèles intéressants appropriés dans le jeu de données.  
 
@@ -71,7 +71,7 @@ La rétention vous permet de comprendre la fréquence à laquelle vos utilisateu
 - Formuler des hypothèses en fonction des données utilisateur réel 
 - Déterminer si la rétention est un problème dans votre produit 
 
-![Rétention](./media/usage-overview/retention.png) 
+![Capture d’écran montrant la page Vue d’ensemble de la rétention avec des informations sur la fréquence à laquelle les utilisateurs reviennent pour utiliser leur application.](./media/usage-overview/retention.png) 
 
 Les commandes de rétention en haut vous permettent de définir des événements spécifiques et un intervalle de temps pour calculer la rétention. Le graphique au centre fournit une représentation visuelle du pourcentage de rétention globale sur l’intervalle de temps spécifié. Le graphique en bas représente la rétention sur une période de temps donnée. Ce niveau de détail vous permet de comprendre de manière plus approfondie ce que font vos utilisateurs et ce qui les peut amener à revenir.  
 
@@ -110,7 +110,7 @@ En savoir plus sur les [événements personnalisés](./api-custom-events-metrics
 ### <a name="slice-and-dice-events"></a>Segmenter et traiter les événements
 
 Dans les outils Utilisateurs, Sessions et Événements, vous pouvez segmenter et traiter des événements personnalisés par utilisateur, nom d’événement et propriétés.
-![Utilisateurs](./media/usage-overview/users.png)  
+![Capture d’écran montrant la page Vue d’ensemble des utilisateurs pour une société fictive.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Concevoir la télémétrie avec l’application
 

@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c9cd790edcb186ed2f80d467076512cd558ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253390"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601960"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel
 
 Les appareils mobiles sont régulièrement utilisés pour effectuer des tâches aussi bien personnelles que professionnelles. Tout en veillant à ce que le personnel puisse être productif, les organisations veulent également empêcher la perte de données depuis des applications potentiellement non sécurisées. Avec l’accès conditionnel, les organisations peuvent limiter l’accès aux seules applications clientes approuvées (avec une authentification moderne).
 
-Cet article présente deux scénarios permettant de configurer des stratégies d’accès conditionnel pour des ressources comme Office 365, Exchange Online et SharePoint Online.
+Cet article présente deux scénarios permettant de configurer des stratégies d’accès conditionnel pour des ressources comme Microsoft 365, Exchange Online et SharePoint Online.
 
-- [Scénario 1 : Les applications Office 365 demandent une application cliente approuvée](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [Scénario 1 : Les applications Microsoft 365 demandent une application cliente approuvée](#scenario-1-microsoft-365-apps-require-an-approved-client-app)
 - [Scénario 2 : Exchange Online et SharePoint Online demandent une application cliente approuvée](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 Dans l’accès conditionnel, on parle de nécessité d’une application cliente approuvée pour cette fonctionnalité. Pour obtenir la liste des applications clientes approuvées, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md#require-approved-client-app).
@@ -32,9 +32,9 @@ Dans l’accès conditionnel, on parle de nécessité d’une application client
 > [!NOTE]
 > Pour exiger des applications clientes approuvées pour les appareils iOS et Android, ces derniers doivent d’abord s’inscrire auprès d'Azure AD.
 
-## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Scénario 1 : Les applications Office 365 demandent une application cliente approuvée
+## <a name="scenario-1-microsoft-365-apps-require-an-approved-client-app"></a>Scénario 1 : Les applications Microsoft 365 demandent une application cliente approuvée
 
-Dans ce scénario, Contoso a décidé que les utilisateurs se servant d’appareils mobiles peuvent accéder à tous les services Office 365, à condition qu’ils utilisent des applications clientes approuvées, comme Outlook Mobile, OneDrive et Microsoft Teams. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+Dans ce scénario, Contoso a décidé que les utilisateurs se servant d’appareils mobiles peuvent accéder à tous les services Microsoft 365, à condition qu’ils utilisent des applications clientes approuvées, comme Outlook Mobile, OneDrive et Microsoft Teams. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
 
 Les organisations doivent effectuer les trois étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles.
 

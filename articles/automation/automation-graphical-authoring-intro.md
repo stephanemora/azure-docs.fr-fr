@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186331"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987320"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Créer des runbooks graphiques dans Azure Automation
 
@@ -61,7 +61,7 @@ Sélectionnez une activité sur le canevas pour configurer ses propriétés et s
 
 Un jeu de paramètres définit les paramètres obligatoires et facultatifs qui acceptent des valeurs pour une applet de commande particulière. Toutes les cmdlets ont au moins un jeu de paramètres ; certaines en ont plusieurs. Si une applet de commande a plusieurs jeux de paramètres, vous devez d’abord sélectionner celui qui doit être utilisé pour pouvoir configurer les paramètres. Vous pouvez changer le jeu de paramètres utilisé par une activité en sélectionnant **Jeu de paramètres** et en choisissant un autre jeu. Dans ce cas, toutes les valeurs de paramètres que vous avez déjà configurées sont perdues.
 
-Dans l’exemple suivant, la cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) contient trois jeux de paramètres. L’exemple utilise un seul jeu de paramètres appelé **ListVirtualMachineInResourceGroupParamSet**, avec un seul paramètre facultatif, pour retourner toutes les machines virtuelles d’un groupe de ressources. L’exemple utilise aussi le jeu de paramètres **GetVirtualMachineInResourceGroupParamSet** pour spécifier la machine virtuelle à retourner. Ce jeu comporte deux paramètres obligatoires et un paramètre facultatif.
+Dans l’exemple suivant, la cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) contient trois jeux de paramètres. L’exemple utilise un seul jeu de paramètres appelé **ListVirtualMachineInResourceGroupParamSet**, avec un seul paramètre facultatif, pour retourner toutes les machines virtuelles d’un groupe de ressources. L’exemple utilise aussi le jeu de paramètres **GetVirtualMachineInResourceGroupParamSet** pour spécifier la machine virtuelle à retourner. Ce jeu comporte deux paramètres obligatoires et un paramètre facultatif.
 
 ![Jeu de paramètres](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ La fonctionnalité Nouvelles tentatives permet à une activité de s’exécuter
 
 Lorsque vous activez les nouvelles tentatives pour une activité, vous pouvez définir un délai et une condition. Le délai correspond au temps (exprimé en secondes ou minutes) d’attente du Runbook avant la nouvelle exécution de l’activité. Si vous ne spécifiez pas de délai, l’activité s’exécute à nouveau immédiatement après son achèvement.
 
-![Délai de nouvelle tentative d’activité](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Capture d’écran des paramètres de la fonctionnalité Activer les nouvelles tentatives.":::
 
 La condition de nouvelle tentative est une expression PowerShell qui est évaluée après chaque exécution de l’activité. Si l’expression correspond à True, l’activité s’exécute à nouveau. Si l’expression correspond à False, l’activité n’est pas réexécutée et le runbook passe à l’activité suivante.
 
-![Délai de nouvelle tentative d’activité](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Capture d’écran des paramètres de la fonctionnalité Activer les nouvelles tentatives.":::
 
 La condition de nouvelle tentative peut utiliser une variable nommée `RetryData` qui donne accès aux informations sur les nouvelles tentatives d’activité. Cette variable possède les propriétés indiquées dans le tableau suivant :
 
@@ -435,4 +435,4 @@ Vous avez la possibilité de rétablir la version publiée d’un runbook. Cette
 * Pour commencer à utiliser des runbooks graphiques, consultez [Tutoriel : Créer un runbook graphique](learn/automation-tutorial-runbook-graphical.md).
 * Pour en savoir plus sur les types de runbook, leurs avantages et leurs limites, consultez [Types de runbooks Azure Automation](automation-runbook-types.md).
 * Pour comprendre les mécanismes d’authentification à l’aide du compte d’identification Automation, consultez [Compte d’identification](automation-security-overview.md#run-as-account).
-* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

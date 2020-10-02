@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975511"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -59,7 +59,7 @@ Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l�
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 et derniers Service Packs |64 bits |Standard, Datacenter, Essentials  |
 
-Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) en cas de déploiement sur des machines virtuelles Hyper-V.
+Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](/system-center/dpm/deduplicate-dpm-storage) en cas de déploiement sur des machines virtuelles Hyper-V.
 
 > [!NOTE]
 > Le serveur de sauvegarde Azure est conçu pour s’exécuter sur un serveur dédié spécialisé. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
@@ -80,7 +80,7 @@ Que vous envoyiez des données de sauvegarde vers Azure ou que vous les conservi
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
 
-L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
+L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md#geo-redundant-storage), [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et [redondant interzone](../storage/common/storage-redundancy.md#zone-redundant-storage), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour modifier le paramètre de réplication du stockage :
 
@@ -89,7 +89,7 @@ Pour modifier le paramètre de réplication du stockage :
 
 3. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
 
-     ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Définir la configuration de stockage du nouveau coffre](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>Package logiciel
 
@@ -199,7 +199,7 @@ Une fois le processus d’extraction terminé, cochez la case pour lancer le fic
 
     ![Indiquer un emplacement d’installation des fichiers](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage).
 5. Fournissez un mot de passe fort pour les comptes d’utilisateur local restreints et sélectionnez **Suivant**.
 
     ![Fournir un mot de passe fort](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -362,7 +362,7 @@ Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](b
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez obtenir dans ce [document](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019) des informations détaillées sur la préparation de votre environnement pour DPM. Ce dernier contient également des informations relatives aux configurations prises en charge sur lesquelles Azure Backup Server peut être déployé et utilisé. Vous pouvez utiliser une série de [cmdlets PowerShell](/powershell/module/dataprotectionmanager/) pour effectuer diverses opérations.
+Vous pouvez obtenir dans ce [document](/system-center/dpm/prepare-environment-for-dpm) des informations détaillées sur la préparation de votre environnement pour DPM. Ce dernier contient également des informations relatives aux configurations prises en charge sur lesquelles Azure Backup Server peut être déployé et utilisé. Vous pouvez utiliser une série de [cmdlets PowerShell](/powershell/module/dataprotectionmanager/) pour effectuer diverses opérations.
 
 Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion de protection de charge de travail à l’aide du serveur Microsoft Azure Backup.
 

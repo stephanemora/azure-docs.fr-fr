@@ -1,19 +1,19 @@
 ---
 title: Outils de performance Linux
 titleSuffix: Azure Kubernetes Service
-description: Découvrir comment résoudre les problèmes courants liés à l’utilisation d’AKS (Azure Kubernetes Service)
+description: Découvrez comment utiliser les outils d'analyse des performances Linux résoudre les problèmes courants liés à l’utilisation d’AKS (Azure Kubernetes Service).
 services: container-service
 author: alexeldeib
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
-ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74f65780594c7bc938ed6d59437473c4363e5848
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982040"
 ---
 # <a name="linux-performance-troubleshooting"></a>Résolution des problèmes de performances Linux
 

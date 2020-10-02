@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207371"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986233"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
 Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse des passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles. Il est possible de l’appeler par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle ou de la connexion et retourne les résultats appropriés. La demande est une transaction en cours d’exécution longue. Les résultats sont retournés lorsque le diagnostic est terminé.
 
-![portail][2]
+![Capture d’écran montrant les diagnostics VPN Network Watcher.][2]
 
 ## <a name="results"></a>Résultats
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642382"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603337"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -28,7 +28,7 @@ Avec l’authentification unique (SSO), l’utilisateur accède à l’ensemble 
 
 Lorsque les utilisateurs s’authentifient auprès d’applications dans Azure Active Directory (Azure AD), l’authentification unique (SSO) constitue la méthode la plus sécurisée et la plus pratique. 
 
-De nombreuses organisations s’appuient sur des applications SaaS, comme Office 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Avant, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chacune des applications SaaS, et les utilisateurs devaient mémoriser un mot de passe pour chacune de ces applications.
+De nombreuses organisations s’appuient sur des applications SaaS, comme Microsoft 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Avant, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chacune des applications SaaS, et les utilisateurs devaient mémoriser un mot de passe pour chacune de ces applications.
 
 La Place de marché Azure propose plus de 3 000 applications avec connexion SSO préintégrée, ce qui facilite leur intégration dans les locataires.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447245"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561821"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Vue d’ensemble des options d’authentification basée sur l’identité Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -78,6 +78,7 @@ Le tableau suivant récapitule les scénarios d’authentification de partages d
 - L’authentification Azure AD DS et AD DS en local ne prend pas en charge l’authentification par rapport à des comptes d’ordinateur. Vous pouvez envisager d’utiliser un compte d’ouverture de session de service à la place.
 - Ni l’authentification Azure AD DS, ni l’authentification AD DS locale n’est prise en charge par rapport aux appareils joints à Azure AD ou aux appareils inscrits auprès d’Azure AD.
 - Les partages de fichiers Azure prennent uniquement en charge l’authentification basée sur l’identité par rapport à l’un des services de domaine suivants, [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) ou [Active Directory Domain Services (AD DS) local](#ad-ds).
+- Aucune méthode d’authentification basée sur l’identité n’est prise en charge avec le système NFS (Network File System), qui est en préversion.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Avantages de l’authentification basée sur l’identité
 L’authentification basée sur l’identité pour Azure Files offre plusieurs avantages par rapport à l’utilisation de l’authentification par clé partagée :

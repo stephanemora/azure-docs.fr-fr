@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320033"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705365"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Répondre rapidement aux identités sécurisées avec Azure AD
 
@@ -42,13 +42,12 @@ Ce guide part du principe que vos identités cloud ou hybrides ont déjà été 
 
 Les éléments qui assurent la sécurisation d’une infrastructure d’identité sont nombreux. Cependant, la liste de vérification qui suit se concentre sur la sécurisation des utilisateurs qui travaillent à distance. La sécurisation de votre identité ne constitue qu’une partie de votre sécurité globale. Vous devez également penser à la protection des données, des applications et des appareils.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Instructions pour les clients Azure AD Free ou Office 365.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Instructions pour les clients Azure AD Free, Office 365 ou Microsoft 365.
 
-Les utilisateurs de l’application Azure AD Free ou Office 365 doivent appliquer un certain nombre de recommandations pour protéger leurs identités utilisateur. Le tableau fournit les principales actions à entreprendre pour les abonnements de licence suivants :
+Les utilisateurs de l’application Azure AD Free, Office 365 ou Microsoft 365 doivent appliquer un certain nombre de recommandations pour protéger leurs identités utilisateur. Le tableau fournit les principales actions à entreprendre pour les abonnements de licence suivants :
 
-- Office 365 (O365 E1, E3, E5, F1, A1, A3, A5)
-- Office 365 Business (Essentials, Business, Business Premium)
-- Microsoft 365 (M365 Business, A1)
+- Office 365 (Office 365 E1, E3, E5, F1, A1, A3, A5)
+- Microsoft 365 (Business Basic, Applications pour les entreprises, Business standard, Business Premium, A1)
 - Azure AD Free (inclus avec Azure, Dynamics 365, Intune et Power Platform)
 
 | Action recommandée | Detail |
@@ -90,7 +89,7 @@ Le tableau fournit les principales actions à entreprendre pour les abonnements 
 | [Intégrer des applications SaaS prises en charge à Azure AD à partir de la galerie et activer l’authentification unique](../manage-apps/add-application-portal.md) | Azure AD a une galerie qui contient des milliers d’applications préintégrées. Certaines applications utilisées par votre organisation sont probablement dans la galerie, accessible directement à partir du portail Azure. Fournir un accès à distance aux applications SaaS d’entreprise de façon sécurisée avec une expérience utilisateur améliorée (SSO) |
 | [Automatiser l’attribution et la désattribution des utilisateurs dans les applications SaaS](../app-provisioning/user-provisioning.md) (le cas échéant) | Créez automatiquement des identités et des rôles d’utilisateur dans les applications cloud (SaaS) auxquelles les utilisateurs doivent accéder. En plus de créer des identités utilisateur, l’attribution automatique d’utilisateurs comprend la maintenance et la suppression des identités utilisateur en cas de modification de l’état ou des rôles, ce qui accroît le niveau de sécurité de votre organisation. |
 | [Activer l’accès conditionnel - Basé sur l’appareil](../conditional-access/require-managed-devices.md) | Améliorez la sécurité et l’expérience utilisateur avec l’accès conditionnel basé sur l’appareil. Cette étape garantit que les utilisateurs ne pourront accéder aux ressources qu’à partir d’appareils qui répondent à vos standards de sécurité et de conformité. Ces appareils sont également appelés « appareils gérés ». Les appareils gérés peuvent être des appareils conformes à Intune ou joints à Azure AD Hybride. |
-| [Activer la protection par mot de passe](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Empêchez les utilisateurs d’utiliser des mots de passe faibles et faciles à deviner. |
+| [Activer la Protection par mot de passe](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Empêchez les utilisateurs d’utiliser des mots de passe faibles et faciles à deviner. |
 | [Désigner plusieurs administrateurs généraux](../users-groups-roles/directory-emergency-access.md) | Attribuez au moins deux comptes d’administrateur général permanents exclusivement cloud à utiliser en cas d’urgence. Ces comptes ne sont pas utilisés quotidiennement et doivent avoir des mots de passe longs et complexes. Les comptes « Break Glass » vous permettent d’accéder au service en cas d’urgence. |
 | [Utiliser des rôles d’administrateur non généraux si possible](../users-groups-roles/directory-assign-admin-roles.md) | Donnez à vos administrateurs uniquement l’accès dont ils ont besoin et uniquement aux zones auxquelles ils doivent accéder. Les administrateurs ne doivent pas nécessairement tous être des administrateurs généraux. |
 | [Activer l’aide de Microsoft sur les mots de passe](https://www.microsoft.com/research/publication/password-guidance/) | Cessez de demander aux utilisateurs de changer leur mot de passe selon un calendrier défini et désactivez les exigences de complexité pour que vos utilisateurs soient plus aptes à retenir leur mot de passe et le garde en lieu sûr. |
@@ -122,7 +121,7 @@ Le tableau fournit les principales actions à entreprendre pour les abonnements 
 | [Intégrer des applications SaaS prises en charge à Azure AD à partir de la galerie et activer l’authentification unique](../manage-apps/add-application-portal.md) | Azure AD a une galerie qui contient des milliers d’applications préintégrées. Certaines applications utilisées par votre organisation sont probablement dans la galerie, accessible directement à partir du portail Azure. Fournir un accès à distance aux applications SaaS d’entreprise de façon sécurisée avec une expérience utilisateur améliorée (SSO) |
 | [Automatiser l’attribution et la désattribution des utilisateurs dans les applications SaaS](../app-provisioning/user-provisioning.md) (le cas échéant) | Créez automatiquement des identités et des rôles d’utilisateur dans les applications cloud (SaaS) auxquelles les utilisateurs doivent accéder. En plus de créer des identités utilisateur, l’attribution automatique d’utilisateurs comprend la maintenance et la suppression des identités utilisateur en cas de modification de l’état ou des rôles, ce qui accroît le niveau de sécurité de votre organisation. |
 | [Activer l’accès conditionnel - Basé sur l’appareil](../conditional-access/require-managed-devices.md) | Améliorez la sécurité et l’expérience utilisateur avec l’accès conditionnel basé sur l’appareil. Cette étape garantit que les utilisateurs ne pourront accéder aux ressources qu’à partir d’appareils qui répondent à vos standards de sécurité et de conformité. Ces appareils sont également appelés « appareils gérés ». Les appareils gérés peuvent être des appareils conformes à Intune ou joints à Azure AD Hybride. |
-| [Activer la protection par mot de passe](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Empêchez les utilisateurs d’utiliser des mots de passe faibles et faciles à deviner. |
+| [Activer la Protection par mot de passe](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Empêchez les utilisateurs d’utiliser des mots de passe faibles et faciles à deviner. |
 | [Désigner plusieurs administrateurs généraux](../users-groups-roles/directory-emergency-access.md) | Attribuez au moins deux comptes d’administrateur général permanents exclusivement cloud à utiliser en cas d’urgence. Ces comptes ne sont pas utilisés quotidiennement et doivent avoir des mots de passe longs et complexes. Les comptes « Break Glass » vous permettent d’accéder au service en cas d’urgence. |
 | [Utiliser des rôles d’administrateur non généraux si possible](../users-groups-roles/directory-assign-admin-roles.md) | Donnez à vos administrateurs uniquement l’accès dont ils ont besoin et uniquement aux zones auxquelles ils doivent accéder. Les administrateurs ne doivent pas nécessairement tous être des administrateurs généraux. |
 | [Activer l’aide de Microsoft sur les mots de passe](https://www.microsoft.com/research/publication/password-guidance/) | Cessez de demander aux utilisateurs de changer leur mot de passe selon un calendrier défini et désactivez les exigences de complexité pour que vos utilisateurs soient plus aptes à retenir leur mot de passe et le garde en lieu sûr. |

@@ -1,6 +1,6 @@
 ---
 title: Configurer des applications SaaS pour une collaboration B2B - Azure AD
-description: Code et exemples PowerShell pour Azure Active Directory B2B Collaboration
+description: Découvrez comment configurer des applications SaaS pour la collaboration Azure Active Directory B2B et afficher les ressources supplémentaires disponibles.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907291"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705508"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurer des applications SaaS pour B2B Collaboration
 
@@ -105,5 +105,5 @@ Consultez les articles suivants sur Azure AD B2B Collaboration :
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Groupes dynamiques et B2B Collaboration](use-dynamic-groups.md)
 - [Mappage des revendications utilisateur B2B Collaboration](claims-mapping.md)
-- [Partage externe d’Office 365](o365-external-user.md)
+- [Partage externe Microsoft 365](o365-external-user.md)
 

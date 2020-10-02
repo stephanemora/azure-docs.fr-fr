@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189914"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983248"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Fonctionnalités des données client d’Azure Key Vault
 
-Azure Key Vault reçoit des données client lors de la création ou de la mise à jour des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés. Ces données client sont directement visibles dans le portail Azure et via l’API REST. Vous pouvez modifier ou supprimer les données client via la mise à jour ou la suppression de l’objet qui les contient.
+Azure Key Vault reçoit des données client lors de la création ou de la mise à jour des coffres, des pools HSM gérés, des clés, des secrets, des certificats et des comptes de stockage gérés. Ces données client sont directement visibles dans le portail Azure et via l’API REST. Vous pouvez modifier ou supprimer les données client via la mise à jour ou la suppression de l’objet qui les contient.
 
 Des journaux d’activité d’accès système sont générés quand un utilisateur ou une application accède à Key Vault. Les journaux d’activité d’accès détaillés sont disponibles pour les clients avec Azure Insights.
 
@@ -52,7 +52,7 @@ Les journaux de diagnostic d’Azure Key Vault contenant des données personnell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Journalisation Azure Key Vault](logging.md)
+- [Journalisation d’Azure Key Vault](logging.md)
 
 - [Vue d’ensemble de la suppression réversible d’Azure Key Vault](soft-delete-cli.md)
 

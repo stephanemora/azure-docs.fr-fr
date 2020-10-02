@@ -1,14 +1,14 @@
 ---
 title: Restaurer des bases de données SQL Server sur une machine virtuelle Azure
-description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
+description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377979"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985400"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Avant de restaurer une base de données, notez les points suivants :
 - Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure.
 - Le serveur de destination doit être inscrit auprès du même coffre que la source.
 - Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Les bases de données compatibles avec la [capture des changements de données (CDC)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) doivent être restaurées en utilisant l’option [Restaurer en tant que fichiers](#restore-as-files).
+- Les bases de données compatibles avec la [capture des changements de données (CDC)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) doivent être restaurées en utilisant l’option [Restaurer en tant que fichiers](#restore-as-files).
 - Avant de restaurer la base de données « master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage **-m AzureWorkloadBackup**.
   - La valeur de **-m** est le nom du client.
   - Seul le nom du client spécifié peut ouvrir la connexion.
@@ -168,6 +168,51 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
 Si la taille totale de la chaîne des fichiers dans une base de données dépasse une [limite spécifique](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différent, de sorte que vous ne pouvez pas définir le chemin de restauration cible pendant l’opération de restauration. Au lieu de cela, les fichiers seront restaurés vers le chemin d’accès SQL par défaut.
 
   ![Restaurer une base de données avec des fichiers volumineux](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>Restauration interrégion
+
+parmi les options de restauration, la restauration entre régions (CRR) vous permet de restaurer des bases de données SQL hébergées sur des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure.
+
+Pour intégrer la fonctionnalité à la préversion, lisez la [section Avant de commencer](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Pour voir si la CRR est activée, suivez les instructions indiquées dans [Configurer la restauration interrégion](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Afficher les éléments de sauvegarde dans la région secondaire
+
+Si la CRR est activée, vous pouvez afficher les éléments de sauvegarde dans la région secondaire.
+
+1. À partir du portail, accédez à **Coffre Recovery Services** > **Éléments de sauvegarde**.
+1. Cliquez sur **Région secondaire** pour afficher les éléments de la région secondaire.
+
+>[!NOTE]
+>Seuls les types de gestion des sauvegardes prenant en charge la fonctionnalité CRR s’affichent dans la liste. Actuellement, seule la prise en charge de la restauration de données de région secondaire vers une région secondaire est autorisée.
+
+![Éléments de sauvegarde dans la région secondaire](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Bases de données dans la région secondaire](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Restaurer dans la région secondaire
+
+L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire.
+
+![Où et comment restaurer](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>Le réseau virtuel de la région secondaire doit être attribué de manière unique et ne peut être utilisé pour aucune autre machine virtuelle de ce groupe de ressources.
+
+![Déclencher la notification de restauration en cours](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Une fois la restauration déclenchée et au cours de la phase de transfert des données, le travail de restauration ne peut pas être annulé.
+>- Les rôles Azure nécessaires à la restauration dans la région secondaire sont les mêmes que ceux de la région primaire.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Surveillance des travaux de restauration de la région secondaire
+
+1. À partir du portail, accédez à **Coffre Recovery Services** > **Travaux de sauvegarde**.
+1. Cliquez sur **Région secondaire** pour afficher les éléments de la région secondaire.
+
+    ![Travaux de sauvegarde filtrés](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

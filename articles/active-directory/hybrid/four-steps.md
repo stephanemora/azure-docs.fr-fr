@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279327"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600794"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -46,7 +46,7 @@ Azure AD permet aux administrateurs d’[ajouter des applications](../manage-app
 Lorsque des applications sont ajoutées à la galerie Azure AD, les utilisateurs peuvent voir les applications qui leur sont attribuées, et rechercher et demander d’autres applications si nécessaire. Azure AD propose aux utilisateurs [plusieurs méthodes](../manage-apps/end-user-experiences.md) d’accès à leurs applications :
 
 * Panneau d’accès/Mes applications
-* Lanceur d’applications Office 365
+* Lanceur d’applications Microsoft 365
 * Authentification directe pour les applications fédérées
 * Liens d’authentification directe
 
@@ -115,7 +115,7 @@ Les organisations disposant d’Active Directory en local doivent étendre leur 
 
 La méthode la plus simple et recommandée d’activation de l’authentification cloud pour les objets d’annuaire local dans Azure AD consiste à activer la [synchronisation de hachage du mot de passe](./how-to-connect-password-hash-synchronization.md). Certaines organisations peuvent également envisager d’activer l’[authentification directe](./how-to-connect-pta-quick-start.md).
 
-Que vous choisissiez la synchronisation de hachage du mot de passe ou l’authentification directe, n’oubliez pas d’activer l’[authentification unique transparente](./how-to-connect-sso.md) pour permettre aux utilisateurs d’accéder aux applications cloud sans saisir constamment leurs nom d’utilisateur et mot de passe dans l’application lorsqu’ils utilisent des appareils Windows 7 et 8 sur votre réseau d’entreprise. Sans l’authentification unique, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit également créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Office 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application. La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance.
+Que vous choisissiez la synchronisation de hachage du mot de passe ou l’authentification directe, n’oubliez pas d’activer l’[authentification unique transparente](./how-to-connect-sso.md) pour permettre aux utilisateurs d’accéder aux applications cloud sans saisir constamment leurs nom d’utilisateur et mot de passe dans l’application lorsqu’ils utilisent des appareils Windows 7 et 8 sur votre réseau d’entreprise. Sans l’authentification unique, les utilisateurs doivent mémoriser des mots de passe spécifiques aux applications et se connecter à chaque application. L’équipe informatique doit également créer et mettre à jour les comptes d’utilisateur pour chaque application, comme Microsoft 365, Box et Salesforce. Les utilisateurs doivent mémoriser leurs mots de passe et passer du temps à se connecter à chaque application. La fourniture d’un mécanisme d’authentification unique standardisé à l’échelle de l’entreprise est essentielle pour une meilleure expérience utilisateur, réduire les risques, la possibilité de signaler et la gouvernance.
 
 Pour les organisations qui utilisent déjà AD FS ou un autre fournisseur d’authentification local, le basculement vers Azure AD comme fournisseur d’identité peut réduire la complexité et améliorer la disponibilité. Sauf si vous rencontrez des cas d’usage spécifiques de fédération, nous vous recommandons de migrer de l’authentification fédérée vers la synchronisation de hachage du mot de passe ou l’authentification directe et l’authentification unique transparente ou l’authentification directe et l’authentification unique transparente pour tirer profit des avantages d’empreinte locale réduite et de la flexibilité du cloud avec de meilleures expériences utilisateurs. Pour plus d’informations, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ L’attribution d’utilisateurs à des applications est plus précise à l’ai
 * Basé sur des attributs utilisant l’appartenance à un groupe dynamique
 * Délégation aux propriétaires d’application
 
-Azure AD fournit la possibilité de gérer l’accès aux ressources à l’aide de groupes de sécurité et de groupes Office 365. Ces groupes peuvent être gérés par un propriétaire du groupe qui peut approuver ou refuser des requêtes d’appartenance et déléguer le contrôle de l’appartenance au groupe. Également appelée [gestion de groupes en libre-service](../users-groups-roles/groups-self-service-management.md), cette fonctionnalité permet de gagner du temps en permettant aux propriétaires de groupe qui n’ont pas un rôle d’administrateur de créer et gérer des groupes sans avoir à demander aux administrateurs de gérer leurs requêtes.
+Azure AD fournit la possibilité de gérer l’accès aux ressources à l’aide de groupes de sécurité et de groupes Microsoft 365. Ces groupes peuvent être gérés par un propriétaire du groupe qui peut approuver ou refuser des requêtes d’appartenance et déléguer le contrôle de l’appartenance au groupe. Également appelée [gestion de groupes en libre-service](../users-groups-roles/groups-self-service-management.md), cette fonctionnalité permet de gagner du temps en permettant aux propriétaires de groupe qui n’ont pas un rôle d’administrateur de créer et gérer des groupes sans avoir à demander aux administrateurs de gérer leurs requêtes.
 
 ## <a name="step-4---operationalize-your-insights"></a>Étape 4 - Rendre vos informations opérationnelles
 

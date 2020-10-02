@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605322"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706808"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Comptes multirégion avec une seule région d’écriture (panne de région de lecture)
 
 - Pendant une panne de la région de lecture, les comptes Azure Cosmos utilisant un niveau de cohérence ou une cohérence forte avec au moins trois régions de lecture restent hautement disponibles pour les lectures et les écritures.
-- Les comptes Azure Cosmos utilisant une cohérence forte avec deux régions de lecture ou moins (incluant la région de lecture et d’écriture) perdent la disponibilité en écriture en cas de défaillance de la région de lecture, mais assurent la disponibilité de la lecture pour les régions restantes.
+- Les comptes Azure Cosmos utilisant une cohérence forte avec deux régions de lecture ou moins (incluant la région de lecture et d’écriture) perdent la disponibilité en lecture/écriture en cas de défaillance de la région de lecture.
 - La région impactée est automatiquement déconnectée et marquée comme étant hors connexion. Les [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigent les appels de lecture vers la prochaine région disponible dans la liste des régions préférées.
 - Si aucune des régions dans la liste des régions préférées n'est disponible, les appels sont automatiquement acheminés vers la zone d’écriture en cours.
 - Aucune modification n’est nécessaire dans le code de votre application pour gérer la panne de la région de lecture. Lorsque la région de lecture impactée est de nouveau en ligne, elle se synchronise automatiquement avec la région d’écriture active et est à nouveau disponible pour le traitement des requêtes de lecture.
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Vous pouvez activer des zones de disponibilité à l'aide du portail Azure lorsque vous créez un compte Azure Cosmos. Lorsque vous créez un compte, activez la **géo-redondance**, les **écritures multirégions**, puis choisissez une région où les zones de disponibilité sont prises en charge :
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Activer les zones de disponibilité à l’aide du portail Azure"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Partitionnement physique"::: 
 
 ## <a name="building-highly-available-applications"></a>Génération d’applications hautement disponibles
 

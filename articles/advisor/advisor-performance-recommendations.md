@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653305"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651584"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -63,6 +63,8 @@ Advisor identifie les tables qui n’ont pas de [statistiques de table](../synap
 
 L’analyse d’Advisor peut indiquer que votre application qui se connecte à un serveur MySQL ne gère peut-être pas efficacement les connexions. Cette condition peut entraîner une consommation inutile des ressources et une latence globale élevée des applications. Pour améliorer la gestion des connexions, nous vous recommandons de réduire le nombre de connexions à courte durée de vie et d’éliminer les connexions inactives non nécessaires. Vous pouvez apporter ces améliorations en configurant un regroupement de connexions côté serveur, comme ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Mettre à jour votre SDK Gestion du calcul vers la dernière version
+Advisor identifie les abonnements qui ont des opérations utilisant des versions obsolètes du kit de développement logiciel (SDK) de gestion des calculs. Cela peut avoir un impact sur la sécurité et les performances de vos charges de travail et, par conséquent, Advisor vous recommande de basculer vers la dernière version du kit de développement logiciel (SDK) de gestion des calculs. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Effectuer un scale-up pour optimiser l’utilisation du cache sur vos tables Azure Synapse Analytics et ainsi améliorer les performances de requête
 

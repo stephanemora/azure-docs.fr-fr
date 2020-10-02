@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400311"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033011"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -163,7 +163,17 @@ Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé prin
 | Délai d’expiration maximal d’un jeton de ressource | 24 h par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
 | Variation d’horloge maximale pour l’autorisation de jeton| 15 min |
 
-Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture. 
+Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture.
+
+## <a name="metadata-request-limits"></a>Limites des requêtes de métadonnées
+
+Azure Cosmos DB gère les métadonnées système pour chaque compte. Ces métadonnées vous permettent d’énumérer les collections, les bases de données, d’autres ressources Azure Cosmos DB et leurs configurations gratuitement.
+
+| Ressource | Limite par défaut |
+| --- | --- |
+|Taux maximal de création de collections par minute| 5|
+|Taux maximal de création de bases de données par minute|   5|
+|Débit de mise à jour approvisionné maximal par minute| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites du débit approvisionné en mode de mise à l’échelle automatique
 

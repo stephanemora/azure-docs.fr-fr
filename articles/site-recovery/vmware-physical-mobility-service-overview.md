@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 19d6933497b469148687dc9c5012513ab7d0314b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047205"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530061"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
@@ -37,7 +37,7 @@ L’installation Push fait partie intégrante du travail exécuté à partir du 
 
 - Vérifiez que tous les [prérequis](vmware-azure-install-mobility-service.md) de l’installation push sont satisfaits.
 - Assurez-vous que toutes les configurations de serveur répondent aux critères de la [matrice de prise en charge de la récupération d'urgence des machines virtuelles VMware et des serveurs physiques sur Azure](vmware-physical-azure-support-matrix.md).
-- À partir de la [version 9.36](https://support.microsoft.com/help/4578241/), pour SUSE Linux Enterprise Server 11 SP4, vérifiez que le programme d’installation le plus récent est [disponible sur le serveur de configuration et le serveur de processus avec montée en puissance parallèle](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
+- À partir de la version 9.36, pour SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7, vérifiez que le programme d’installation le plus récent est [disponible sur le serveur de configuration et le serveur de processus Scale-out](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
 
 Le workflow de l’installation push est décrit dans les sections suivantes :
 
@@ -85,15 +85,15 @@ Pendant l’installation push du service Mobility, les étapes suivantes sont ef
 
 1. Surveillez l’installation dans **Progression de l’installation**. Au terme de l’installation, sélectionnez **Passer à la configuration** pour inscrire le service auprès du serveur de configuration.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Page d’inscription du service Mobility":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Page de l’option d’installation du service Mobility":::
 
 1. Dans **Détails du serveur de configuration**, spécifiez l’adresse IP et la phrase secrète que vous avez configurées.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Page d’inscription du service Mobility":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Page de l’option d’installation du service Mobility":::
 
 1. Sélectionnez **Inscrire** pour terminer l’inscription.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Page d’inscription finale du service Mobility":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Page de l’option d’installation du service Mobility":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installer le service Mobility à l'aide d'une invite de commandes
 
@@ -202,30 +202,62 @@ Accédez au dossier _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_
 Fichier d’installation | Système d’exploitation (64 bits uniquement)
 --- | ---
 `Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1
+[À télécharger et à placer manuellement dans ce dossier](#rhel-5-or-centos-5-server) | Red Hat Enterprise Linux (RHEL) 5 </br> CentOS 5
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
+`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 8 </br> CentOS 8
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Inclut SP2 et SP3.
-[À télécharger et à placer manuellement dans ce dossier](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
+[À télécharger et à placer manuellement dans ce dossier](#suse-11-sp3-server) | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
+`Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15 
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
+`Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7 
+`Microsoft-ASR_UA_version_OL8-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 8
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Serveur Ubuntu Linux 16.04 LTS
-`Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
+`Microsoft-ASR_UA_version_UBUNTU-18.04-64_GA_date_release.tar.gz` | Serveur Ubuntu Linux 18.04 LTS
+`Microsoft-ASR_UA_version_UBUNTU-20.04-64_GA_date_release.tar.gz` | Serveur Ubuntu Linux 20.04 LTS
+[À télécharger et à placer manuellement dans ce dossier](#debian-7-server) | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+`Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
 
-### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Télécharger la dernière version du programme d’installation de l’agent de mobilité pour le serveur SUSE 11 SP3
+## <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server"></a>Télécharger la dernière version du programme d’installation de l’agent de mobilité pour le serveur SUSE 11 SP3, RHEL 5, Debian 7
 
-**condition préalable à la mise à jour ou à la protection des ordinateurs SUSE Linux Enterprise Server 11 SP3** à partir de la [version 9.36](https://support.microsoft.com/help/4578241/) :
+### <a name="suse-11-sp3-server"></a>Serveur SUSE 11 SP3
+
+**condition préalable à la mise à jour ou à la protection des ordinateurs SUSE Linux Enterprise Server 11 SP3** à partir de la version 9.36 :
 
 1. Vérifiez que le dernier programme d’installation de l’agent de mobilité est téléchargé à partir du Centre de téléchargement Microsoft et placé dans le référentiel du programme d’installation push sur le serveur de configuration et tous les serveurs de processus de montée en puissance parallèle
-2. [Téléchargez](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) le programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3.
-3. Accédez au serveur de configuration, copiez le programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3 dans les chemins d’accès suivants :
-    1. INSTALL_DIR\home\svsystems\pushinstallsvc\repository
-    1.  INSTALL_DIR\home\svsystems\admin\web\sw folders
-4. Accédez à présent aux serveurs de traitement de montée en puissance parallèle et copiez le programme d’installation dans les deux chemins d’accès mentionnés dans la troisième étape.
-5. **Par exemple**, si le chemin d’installation est C:\Program Files (x86) \Microsoft Azure Site Recovery, les répertoires mentionnés ci-dessus seront :
+2. [Téléchargez](site-recovery-whats-new.md) le dernier programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3. La dernière version de l’agent de mobilité est la [9.37](https://support.microsoft.com/help/4582666/)
+3. Accédez au serveur de configuration, copiez le programme d’installation de l’agent SUSE Linux Enterprise Server 11 SP3 dans le chemin d'accès INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+1. Après la copie du programme d’installation le plus récent, redémarrez le service InMage PushInstall. 
+1. À présent, accédez aux serveurs de traitement de processus avec montée en charge associés, répétez les étapes 3 et 4.
+1. **Par exemple**, si le chemin d’installation est C:\Program Files (x86) \Microsoft Azure Site Recovery, les répertoires mentionnés ci-dessus seront :
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
-    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\admin\web\sw path
+
+### <a name="rhel-5-or-centos-5-server"></a>Serveur RHEL 5 ou CentOS 5
+
+**condition préalable à la mise à jour ou à la protection des ordinateurs RHEL 5** à partir de la version 9.36 :
+
+1. Vérifiez que le dernier programme d’installation de l’agent de mobilité est téléchargé à partir du Centre de téléchargement Microsoft et placé dans le référentiel du programme d’installation push sur le serveur de configuration et tous les serveurs de processus de montée en puissance parallèle
+2. [Téléchargez](site-recovery-whats-new.md) le programme d'installation de l’agent RHEL 5 ou CentOS 5 le plus récent. La dernière version de l’agent de mobilité est la [9.37](https://support.microsoft.com/help/4582666/)
+3. Accédez au serveur de configuration, copiez le programme d'installation de l’agent RHEL 5 ou CentOS 5 dans le chemin d’accès INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+1. Après la copie du programme d’installation le plus récent, redémarrez le service InMage PushInstall. 
+1. À présent, accédez aux serveurs de traitement de processus avec montée en charge associés, répétez les étapes 3 et 4.
+1. **Par exemple**, si le chemin d’installation est C:\Program Files (x86) \Microsoft Azure Site Recovery, les répertoires mentionnés ci-dessus seront :
+    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+
+## <a name="debian-7-server"></a>Serveur Debian 7
+
+**condition préalable à la mise à jour ou à la protection des ordinateurs Debian 7** à partir de la version 9.36 :
+
+1. Vérifiez que le dernier programme d’installation de l’agent de mobilité est téléchargé à partir du Centre de téléchargement Microsoft et placé dans le référentiel du programme d’installation push sur le serveur de configuration et tous les serveurs de processus de montée en puissance parallèle
+2. [Téléchargez](site-recovery-whats-new.md) le programme d’installation de l’agent Debian 7 le plus récent. La dernière version de l’agent de mobilité est la [9.37](https://support.microsoft.com/help/4582666/)
+3. Accédez au serveur de configuration, copiez le programme d’installation de l’agent Debian 7 dans le chemin d'accès INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+1. Après la copie du programme d’installation le plus récent, redémarrez le service InMage PushInstall. 
+1. À présent, accédez aux serveurs de traitement de processus avec montée en charge associés, répétez les étapes 3 et 4.
+1. **Par exemple**, si le chemin d’installation est C:\Program Files (x86) \Microsoft Azure Site Recovery, les répertoires mentionnés ci-dessus seront :
+    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>Étapes suivantes
 

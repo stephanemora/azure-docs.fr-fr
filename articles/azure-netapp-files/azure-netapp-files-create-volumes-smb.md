@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950372"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988320"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -74,15 +74,17 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     Consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
     
-<!--
-* Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). The user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.   
+* Vous pouvez activer le chiffrement AES pour un volume SMB en activant la case à cocher **Chiffrement AES** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). Azure NetApp Files prend en charge les types de chiffrement DES, Kerberos AES 128 et Kerberos AES 256 (du moins sécurisé au plus sécurisé). Si vous activez le chiffrement AES, les informations d’identification de l’utilisateur utilisées pour rejoindre Active Directory doivent avoir l’option de compte correspondante la plus élevée activée correspondant aux fonctionnalités activées pour votre instance Active Directory.    
 
-    For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
+    Par exemple, si votre instance Active Directory n’a que la fonction AES-128, vous devez activer l’option de compte AES-128 pour les informations d’identification de l’utilisateur. Si votre instance Active Directory possède la fonction AES-256, vous devez activer l’option de compte AES-256 (qui prend également en charge AES-128). Si votre instance Active Directory n’a pas de fonctionnalité de chiffrement Kerberos, Azure NetApp Files utilise DES par défaut.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
+    Vous pouvez activer les options de compte dans les propriétés des utilisateurs et ordinateurs Active Directory dans la console de gestion Microsoft (MMC) :   
 
-    ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
--->
+    ![MMC des utilisateurs et ordinateurs Active Directory](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
+* Azure NetApp Files prend en charge la [signature LDAP](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), qui permet la transmission sécurisée du trafic LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ciblés. Si vous suivez les conseils de l’avis de sécurite Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) pour la signature LDAP, vous devez activer la fonctionnalité de signature LDAP dans Azure NetApp Files en activant la case à cocher **Signature LDAP** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). 
+
+    La configuration de [Liaison de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) n’a aucun effet sur le service Azure NetApp Files. 
 
 Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) pour Azure NetApp Files. 
 
@@ -160,8 +162,56 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
         Si vous utilisez Azure NetApp Files avec Azure Active Directory Domain Services, le chemin d’accès de l’unité d’organisation est `OU=AADDC Computers` lorsque vous configurez Active Directory pour votre compte NetApp.
 
+    ![Rejoindre Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+
+    * **Chiffrement AES**   
+        Activez cette case à cocher pour activer le chiffrement AES pour un volume SMB. Voir [Configuration requise pour les connexions Active Directory](#requirements-for-active-directory-connections) pour les exigences. 
+
+        ![Chiffrement AES Active Directory](../media/azure-netapp-files/active-directory-aes-encryption.png)
+
+        La fonctionnalité de **Chiffrement AES** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+        
+        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+
+    * **Signature LDAP**   
+        Cochez cette case pour activer la signature LDAP. Cette fonctionnalité permet de sécuriser les recherches LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory Domain Services](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services) spécifiés par l’utilisateur. Pour plus d’informations, consultez [ADV190023 | Instructions de Microsoft pour activer la liaison de canal LDAP et la signature LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+
+        ![Signature LDAP Active Directory](../media/azure-netapp-files/active-directory-ldap-signing.png) 
+
+        Actuellement, la fonctionnalité **Signature LDAP** est uniquement disponible en tant que préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+        
+        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+
      * **Utilisateurs de stratégie de sauvegarde**  
         Vous pouvez inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files.  
+
+        ![Utilisateurs de stratégie de sauvegarde Active Directory](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
         La fonctionnalité **Utilisateurs de stratégie de sauvegarde** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
 
@@ -178,17 +228,17 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Vous pouvez également utiliser les commandes Azure CLI [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) et [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+        Vous pouvez également utiliser les [commandes Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
 
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
-    ![Rejoindre Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        ![Informations d’identification Active Directory](../media/azure-netapp-files/active-directory-credentials.png)
 
 3. Cliquez sur **Joindre**.  
 
     La connexion Active Directory créée s’affiche.
 
-    ![Connexions Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Connexions Active Directory créées](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
 ## <a name="add-an-smb-volume"></a>Ajouter un volume SMB
 
@@ -230,7 +280,7 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
+    * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, indiquez si vous souhaitez masquer le chemin d'accès de l’instantané, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 
         Pour plus d’informations sur la création d’une stratégie d’instantané, consultez [Gérer les stratégies d’instantané](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 

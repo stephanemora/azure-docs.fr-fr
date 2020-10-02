@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400022"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976251"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -99,7 +99,7 @@ Dans la **Figure 2**, il y a deux hubs : **Hub1** et **Hub2**.
 
 **Figure 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Workflow du scénario
 
@@ -113,9 +113,11 @@ Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
    
    Vous n’avez pas à connecter les VNets 5, 6, 7 et 8 directement aux hubs virtuels. Assurez-vous que les NSG dans les VNets 5, 6, 7 et 8 autorisent le trafic pour la branche (VPN/ER/P2S) ou aux réseaux virtuels connectés à leurs réseaux virtuels distants. Par exemple, les VNets 5 et 6 doivent garantir que les NSG autorisent le trafic pour les préfixes d’adresses locaux et les VNets 7 et 8 qui sont connectés au Hub 2 distant.
 
+Virtual WAN ne prend pas en charge un scénario où les VNets 5, 6 se connectent au hub virtuel et communiquent via une adresse IP NVA du VNet 2 ; par conséquent, il est nécessaire de connecter les VNets 5, 6 au VNet 2 et de même les VNets 7, 8 au VNet 4.
+
 2. Ajoutez une entrée d’itinéraire statique agrégé pour les VNets 2, 5 et 6 à la table de routage par défaut du Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemple":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figure 1":::
 
 3. Configurez un itinéraire statique pour les VNets 5 et 6 dans la connexion de réseau virtuel de VNet 2. Pour configurer la configuration du routage pour une connexion de réseau virtuel, consultez [routage de hub virtuel](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -127,7 +129,7 @@ Cela entraîne des modifications de configuration de routage, comme l’illustre
 
 **Figure 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figure 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figure 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

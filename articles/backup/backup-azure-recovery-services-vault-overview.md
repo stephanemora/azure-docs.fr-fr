@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble des coffres Recovery Services
-description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
+description: Une vue d’ensemble des coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889615"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975158"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -30,7 +30,7 @@ Un coffre Recovery Services est une entité qui stocke les sauvegardes et les po
 
 - La Sauvegarde Azure gère automatiquement le stockage du coffre. Découvrez comment les [paramètres de stockage peuvent être modifiés](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Pour en savoir plus sur la redondance du stockage, consultez les articles suivants sur la redondance [géographique](../storage/common/storage-redundancy.md) et la redondance [locale](../storage/common/storage-redundancy.md).
+- Pour en savoir plus sur la redondance du stockage, consultez les articles suivants sur la redondance [géographique](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) et [zonale](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Paramètres de chiffrement dans le coffre Recovery Services
 

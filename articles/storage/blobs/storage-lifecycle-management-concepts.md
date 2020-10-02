@@ -3,18 +3,18 @@ title: Gestion du cycle de vie de Stockage Azure
 description: Découvrez comment créer des règles de stratégie du cycle de vie pour faire passer les données vieillissantes du niveau de stockage chaud à froid et aux niveaux d’archivage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 09/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1bf8fbfb6d2c141a2b18c3599631f6383883908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell, references_regions
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074421"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707762"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -33,7 +33,7 @@ Considérez un scénario où des données sont sollicitées fréquemment durant 
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes d’usage général v2 (GPv2), les comptes de stockage Blob et les comptes de stockage d’objets Blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes d’usage général v2 (GPv2), les comptes de stockage Blob et les comptes de stockage d’objets Blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -51,7 +51,7 @@ Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jo
 > [!NOTE]
 > Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions pour les services Microsoft approuvés. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.  
+Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -64,54 +64,68 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage. 
+1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage. 
 
-3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
+1. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
 
-4. Sélectionnez l’onglet **Mode Liste**.
+1. Sélectionnez l’onglet **Mode Liste**.
 
-5. Sélectionnez **Ajouter une règle**, puis remplissez les champs de formulaire **Ensemble d’actions**. Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas été modifiés depuis 30 jours.
+1. Sélectionnez **Ajouter une règle** et nommez votre règle dans le formulaire **Détails**. Vous pouvez également définir les l’**Étendue de la règle**, le **Type d’objet blob** et le **Sous-type d’objet blob**. L’exemple suivant définit l’étendue pour filtrer les objets blob. Cela entraîne l’ajout de l’onglet **Jeu de filtres**.
 
-   ![Page Lifecycle management action set (Ensemble d’actions de gestion du cycle de vie) du Portail Microsoft Azure](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
 
-6. Sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. Ensuite, sélectionnez **Parcourir** pour spécifier un conteneur et un dossier pour définir le filtre.
+1. Sélectionnez **Objets blob de base** pour définir les conditions de votre règle. Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas été modifiés depuis 30 jours.
 
-   ![Page Lifecycle management action set (Jeu de filtres de gestion du cycle de vie) du Portail Microsoft Azure](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
 
-8. Sélectionnez **Vérifier + ajouter** pour passer en revue les paramètres de stratégie.
+   L’option **Dernier accès** est disponible en préversion dans les régions suivantes :
 
-9. Sélectionnez **Ajouter** pour ajouter la stratégie.
+    - France Centre
+    - Est du Canada
+    - Centre du Canada
+
+   > [!IMPORTANT]
+   > La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
+   
+   Pour utiliser l’option **Dernier accès**, sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure. Pour plus d’informations sur l’option **Dernier accès**, consultez [Déplacer des données en fonction de la date du dernier accès (préversion)](#move-data-based-on-last-accessed-date-preview).
+
+1. Si vous avez sélectionné **Limiter les objets blob avec des filtres** dans la page **Détails**, sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. L’exemple suivant filtre sur les objets blob dans le conteneur *mylifecyclecontainer* qui commencent par « log ».
+
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gestion du cycle de vie - Ajouter une page Détails de la règle dans le Portail Azure":::
+
+1. Sélectionnez **Ajouter** pour ajouter la stratégie.
 
 #### <a name="azure-portal-code-view"></a>Mode Code du Portail Microsoft Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage.
+1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage.
 
-3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
+1. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
-4. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code**.
+1. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code**.
 
    ```json
    {
      "rules": [
        {
-         "name": "ruleFoo",
          "enabled": true,
+         "name": "move-to-cool",
          "type": "Lifecycle",
          "definition": {
-           "filters": {
-             "blobTypes": [ "blockBlob" ],
-             "prefixMatch": [ "container1/foo" ]
-           },
            "actions": {
              "baseBlob": {
-               "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-               "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-               "delete": { "daysAfterModificationGreaterThan": 2555 }
-             },
-             "snapshot": {
-               "delete": { "daysAfterCreationGreaterThan": 90 }
+               "tierToCool": {
+                 "daysAfterModificationGreaterThan": 30
+               }
              }
+           },
+           "filters": {
+             "blobTypes": [
+               "blockBlob"
+             ],
+             "prefixMatch": [
+               "mylifecyclecontainer/log"
+             ]
            }
          }
        }
@@ -119,9 +133,9 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
    }
    ```
 
-5. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
-6. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
+1. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -197,7 +211,7 @@ Vous pouvez définir une gestion du cycle de vie à l’aide de modèles Azure R
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Stratégie
 
 Une stratégie de gestion du cycle de vie est un ensemble de règles dans un document JSON :
 
@@ -229,7 +243,7 @@ Chaque règle au sein de la stratégie a plusieurs paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes | Obligatoire |
 |----------------|----------------|-------|----------|
-| `name`         | String |Un nom de règle peut compter jusqu’à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| `name`         | String |Un nom de règle peut compter jusqu’à 256 caractères alphanumériques. Les noms de règle respectent la casse. Ils doivent être uniques dans la stratégie. | True |
 | `enabled`      | Boolean | Valeur booléenne facultative pour permettre la désactivation temporaire d’une règle. La valeur par défaut est true. | False | 
 | `type`         | Une valeur enum | Le type valide actuel est `Lifecycle`. | True |
 | `definition`   | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
@@ -240,10 +254,10 @@ Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’
 
 ### <a name="sample-rule"></a>Exemple de règle
 
-L’exemple de règle suivant filtre le compte pour exécuter les actions sur des objets existant à l’intérieur de `container1` et commençant par `foo`.  
+L’exemple de règle suivant filtre le compte pour exécuter les actions sur des objets existant à l’intérieur de `container1` et commençant par `foo`.
 
 >[!NOTE]
->- La gestion du cycle de vie ne prend en charge que le type d’objet blob de blocs.<br>
+>- La gestion du cycle de vie prend en charge les types objets blob de bloc et d’ajout.<br>
 >- La gestion du cycle de vie n’affecte pas les conteneurs système comme $logs et $web.
 
 - Niveau objet blob sur accès froid 30 jours après la dernière modification
@@ -287,8 +301,8 @@ Les filtres sont les suivants :
 
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | Oui |
-| prefixMatch | Un ensemble de chaînes pour les préfixes à mettre en correspondance. Chaque règle peut définir jusqu’à 10 préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous `https://myaccount.blob.core.windows.net/container1/foo/...` pour une règle, prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets blob au sein du compte de stockage.  | Non |
+| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob` et `appendBlob`. Seule la suppression est prise en charge pour `appendBlob`, le niveau défini n’est pas pris en charge. | Oui |
+| prefixMatch | Un ensemble de chaînes pour les préfixes à mettre en correspondance. Chaque règle peut définir jusqu’à 10 préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous `https://myaccount.blob.core.windows.net/container1/foo/...` pour une règle, prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 | blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
 
 > [!NOTE]
@@ -300,21 +314,23 @@ Des actions sont appliquées aux objets blob filtrés lorsque la condition d’e
 
 La gestion du cycle de vie prend en charge la hiérarchisation et la suppression des objets blob ainsi que la suppression des instantanés d’objets blob. Définissez au moins une action pour chaque règle sur les objets blob ou les instantanés d’objets blob.
 
-| Action        | Objet blob de base                                   | Instantané      |
-|---------------|---------------------------------------------|---------------|
-| tierToCool    | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
-| tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
-| supprimer        | Prise en charge                                   | Prise en charge     |
+| Action                      | Objet blob de base                                   | Instantané      |
+|-----------------------------|---------------------------------------------|---------------|
+| tierToCool                  | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
+| enableAutoTierToHotFromCool | Prend actuellement en charge les objets blob au niveau froid        | Non pris en charge |
+| tierToArchive               | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
+| supprimer                      | Pris en charge pour `blockBlob` et `appendBlob`  | Prise en charge     |
 
 >[!NOTE]
 >Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
 
 Les conditions d’exécution sont basées sur l’âge. L’objet blob de base utilise l’heure de dernière modification pour suivre l’âge, tandis que les instantanés d’objets blob utilisent l’heure de création des instantanés.
 
-| Condition d’exécution d’action             | Valeur de la condition                          | Description                             |
-|----------------------------------|------------------------------------------|-----------------------------------------|
-| daysAfterModificationGreaterThan | Nombre entier indiquant l’âge en jours | Condition pour les actions des objets blob de base     |
-| daysAfterCreationGreaterThan     | Nombre entier indiquant l’âge en jours | Condition pour les actions des instantanés d’objet blob |
+| Condition d’exécution d’action               | Valeur de la condition                          | Description                                                                      |
+|------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
+| daysAfterModificationGreaterThan   | Nombre entier indiquant l’âge en jours | Condition pour les actions des objets blob de base                                              |
+| daysAfterCreationGreaterThan       | Nombre entier indiquant l’âge en jours | Condition pour les actions des instantanés d’objet blob                                          |
+| daysAfterLastAccessTimeGreaterThan | Nombre entier indiquant l’âge en jours | (préversion) La condition pour les actions de base de l’objet blob lorsque l’heure du dernier accès est activée |
 
 ## <a name="examples"></a>Exemples
 
@@ -347,6 +363,71 @@ Cet exemple montre comment déplacer des objets blob de blocs ayant le préfixe 
   ]
 }
 ```
+
+### <a name="move-data-based-on-last-accessed-date-preview"></a>Déplacer les données en fonction de la date du dernier accès (préversion)
+
+Vous pouvez activer le suivi de l’heure du dernier accès pour conserver un enregistrement de la dernière lecture ou écriture de votre objet blob. Vous pouvez utiliser l’heure de dernier accès comme filtre pour gérer la hiérarchisation et la rétention de vos données d’objet blob.
+
+L’option **Dernier accès** est disponible en préversion dans les régions suivantes :
+
+ - France Centre
+ - Est du Canada
+ - Centre du Canada
+
+> [!IMPORTANT]
+> La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
+
+Pour utiliser l’option **Dernier accès**, sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure.
+
+#### <a name="how-last-access-time-tracking-works"></a>Fonctionnement du suivi de l’heure du dernier accès
+
+Lorsque le suivi de l’heure du dernier accès est activé, la propriété d’objet blob appelée `LastAccessTime` est mise à jour lors de la lecture ou de l’écriture d’un objet blob. Une opération [Obtenir un objet blob](/rest/api/storageservices/get-blob) est considérée comme une opération d’accès. [Obtenir les propriétés d’objets blob](/rest/api/storageservices/get-blob-properties), [Obtenir des métadonnées d’objets blob](/rest/api/storageservices/get-blob-metadata) et [Obtenir des étiquettes d’objet blob](/rest/api/storageservices/get-blob-tags) ne sont pas des opérations d’accès et ne mettent donc pas à jour l’heure du dernier accès.
+
+Pour réduire l’impact sur la latence d’accès en lecture, seule la première lecture des dernières 24 heures met à jour l’heure du dernier accès. Les lectures suivantes dans la même période de 24 heures ne mettent pas à jour l’heure du dernier accès. Si un objet blob est modifié entre des lectures, l’heure du dernier accès est la plus récente des deux valeurs.
+
+Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas fait l’objet d’accès depuis 30 jours. La propriété `enableAutoTierToHotFromCool` est une valeur booléenne qui indique si un objet blob doit être automatiquement hiérarchisé de froid à chaud s’il fait l’objet d’un accès à nouveau après avoir été hiérarchisé en froid.
+
+```json
+{
+  "enabled": true,
+  "name": "last-accessed-thirty-days-ago",
+  "type": "Lifecycle",
+  "definition": {
+    "actions": {
+      "baseBlob": {
+        "enableAutoTierToHotFromCool": true,
+        "tierToCool": {
+          "daysAfterLastAccessTimeGreaterThan": 30
+        }
+      }
+    },
+    "filters": {
+      "blobTypes": [
+        "blockBlob"
+      ],
+      "prefixMatch": [
+        "mylifecyclecontainer/log"
+      ]
+    }
+  }
+}
+```
+
+#### <a name="storage-account-support"></a>Prise en charge du compte de stockage
+
+Le suivi de l’heure du dernier accès est disponible pour les types de comptes de stockage suivants :
+
+ - Comptes de stockage universel v2
+ - Comptes de stockage d’objets blob de blocs
+ - Comptes de stockage d’objets blob
+
+Si votre compte de stockage est un compte v1 à usage général, utilisez le Portail Azure pour effectuer une mise à niveau vers un compte v2 à usage général.
+
+Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont pas encore pris en charge.
+
+#### <a name="pricing-and-billing"></a>Tarification et facturation
+
+Chaque mise à jour de l’heure du dernier accès est considérée comme une [opération différente](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### <a name="archive-data-after-ingest"></a>Archiver les données après leur ingestion
 
@@ -470,13 +551,16 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
-**J’ai créé une stratégie. Pourquoi les actions ne s’exécutent-elles pas immédiatement ?**  
-La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez configuré une stratégie, jusqu’à 24 heures peuvent s’écouler avant que certaines actions s’exécutent pour la première fois.  
+**J’ai créé une stratégie. Pourquoi les actions ne s’exécutent-elles pas immédiatement ?**
 
-**Si je mets à jour une stratégie existante, combien de temps dois-je attendre avant que les actions soient effectuées ?**  
-Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution des actions de la stratégie peut prendre jusqu’à 48 heures.   
+La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez configuré une stratégie, jusqu’à 24 heures peuvent s’écouler avant que certaines actions s’exécutent pour la première fois.
 
-**J’ai réactivé manuellement un blob archivé. Comment puis-je empêcher son renvoi temporaire au niveau Archives ?**  
+**Si je mets à jour une stratégie existante, combien de temps dois-je attendre avant que les actions soient effectuées ?**
+
+Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution des actions de la stratégie peut prendre jusqu’à 48 heures.
+
+**J’ai réactivé manuellement un blob archivé. Comment puis-je empêcher son renvoi temporaire au niveau Archives ?**
+
 Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’heure de sa dernière modification ne change pas. Si vous réactivez manuellement un blob archivé à un chaud, il est renvoyé au niveau archive par le moteur de gestion du cycle de vie. Désactivez la règle qui affecte temporairement cet objet BLOB pour empêcher son archivage. Réactivez la règle lorsque le BLOB peut être renvoyé en toute sécurité au niveau archive. Vous pouvez aussi copier le blob vers un autre emplacement s’il doit rester en permanence au niveau chaud ou froid.
 
 ## <a name="next-steps"></a>Étapes suivantes

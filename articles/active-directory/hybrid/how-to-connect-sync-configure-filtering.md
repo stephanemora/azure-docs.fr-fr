@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061504"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084836"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
-L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
+L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Microsoft 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
 
 Toutefois, dans certains cas, vous devez apporter certaines modifications à la configuration par défaut. Voici quelques exemples :
 
 * Vous prévoyez d’utiliser la [topologie multi-annuaire Azure AD](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Vous devez alors appliquer un filtre pour déterminer les objets qui sont synchronisés avec un annuaire Azure AD spécifique.
-* Vous exécutez un pilote pour Azure ou Office 365 et souhaitez uniquement disposer d’un sous-ensemble d’utilisateurs dans Azure AD. Dans le petit pilote, il n’est pas impératif de disposer d’une liste d’adresses globale complète pour illustrer la fonctionnalité.
+* Vous exécutez un pilote pour Azure ou Microsoft 365 et souhaitez uniquement disposer d’un sous-ensemble d’utilisateurs dans Azure AD. Dans le petit pilote, il n’est pas impératif de disposer d’une liste d’adresses globale complète pour illustrer la fonctionnalité.
 * Vous disposez d’un grand nombre de comptes de service et d’autres comptes non personnels dont vous ne voulez pas dans Azure AD.
 * Pour des raisons de conformité, vous ne supprimez aucun compte d’utilisateur local. Vous vous contentez de les désactiver. Toutefois, vous souhaitez qu’Azure AD ne comporte que des comptes actifs.
 
@@ -217,7 +217,7 @@ Le filtrage entrant utilise la configuration par défaut dans laquelle l’attri
 Dans le cadre du filtrage entrant, vous utilisez les possibilités de **l’étendue** pour déterminer les objets à synchroniser ou non. C’est à ce stade que vous réalisez des ajustements en fonction des besoins particuliers de votre organisation. Le module d’étendue dispose d’un **groupe** et d’une **clause** pour déterminer les cas dans lesquels une règle de synchronisation figure dans l’étendue. Un groupe contient une ou plusieurs clauses. Il existe un « AND » logique entre plusieurs clauses, et un « OR » logique entre plusieurs groupes.
 
 Intéressons-nous à un exemple :  
-![Portée](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Capture d’écran montrant un exemple d’ajout de filtres d’étendue.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Voici la lecture qu’il faut en faire **(service = Informatique) OU (service = Ventes et c = US)** .
 
 Dans les exemples et étapes ci-après, vous vous servez de l’objet utilisateur en guise d’exemple, mais vous pouvez l’utiliser pour tous les types d’objets.
@@ -275,7 +275,7 @@ Dans cet exemple, vous modifiez le filtrage afin que seuls les utilisateurs dont
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins** .
 2. Lancez **Éditeur de règles de synchronisation** à partir du menu **Démarrer**.
 3. Sous **Type de règles**, cliquez sur **Sortant**.
-4. Selon la version de Connect que vous utilisez, trouvez la règle nommée **Out to AAD – User Join** ou **Out to AAD - User Join SOAInAD**, puis cliquez sur **Modifier**.
+4. Selon la version de Connect que vous utilisez, trouvez la règle nommée **Out to Azure AD – User Join** ou **Out to Azure AD - User Join SOAInAD**, puis cliquez sur **Modifier**.
 5. Dans la fenêtre contextuelle, sélectionnez **Oui** pour créer une copie de la règle.
 6. Sur la page **Description**, redéfinissez la zone **Précédence** sur une valeur inutilisée, telle que 50.
 7. Dans la barre de navigation gauche, cliquez sur **Filtre d’étendue**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **mail**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez **\@contoso.com**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **userPrincipalName**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez **\@contoso.com**.
@@ -300,7 +300,7 @@ Après la synchronisation, toutes les modifications sont indexées pour l’expo
 
 1. Démarrez une invite de commandes, puis accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Exécutez `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   Le nom du connecteur figure dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
+   Le nom du connecteur figure dans le service de synchronisation. Le nom est similaire à « contoso.com – Azure AD » pour Azure AD.
 3. Exécutez `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Vous disposez maintenant d’un fichier dans %temp% nommé export.csv qui peuvent être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
 5. Apportez les modifications nécessaires aux données ou à la configuration, puis réexécutez ces opérations (importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient conformes à vos attentes.

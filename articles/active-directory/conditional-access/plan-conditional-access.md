@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049925"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561531"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -448,7 +448,7 @@ Si vous devez restaurer les stratégies que vous venez d’implémenter, utilise
 
 Utilisez les options de gestion suivantes pour contrôler et gérer vos stratégies d’accès conditionnel :
 
-![gérer-accès](media/plan-conditional-access/manage-access.png)
+![Capture d’écran montrant les options MANAGE pour les stratégies d’accès conditionnel, y compris les emplacements nommés, les contrôles personnalisés, les conditions d’utilisation, la connectivité VPN et les stratégies classiques sélectionnées.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Emplacements nommés

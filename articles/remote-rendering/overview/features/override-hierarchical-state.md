@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884168"
 ---
 # <a name="hierarchical-state-override"></a>Remplacement d’état hiérarchique
 
@@ -31,20 +31,27 @@ Voici l’ensemble fixe d’états qui peuvent être remplacés :
 * **`Hidden`**  : Les maillages respectifs dans le graphe de la scène sont masqués ou affichés.
 * **`Tint color`**  : Un objet rendu peut être teinté avec sa propre couleur et son propre poids de teinte. L’image ci-dessous illustre la teinte de couleur de la jante d’une roue.
   
-  ![Teinte de couleur](./media/color-tint.png)
+  ![Couleur de teinte utilisée pour rendre un objet vert](./media/color-tint.png)
 
 * **`See-through`**  : La géométrie est rendue de manière semi-transparente, par exemple pour révéler les parties internes d’un objet. L’image suivante illustre le rendu de la voiture tout entière en mode semi-transparent, à l’exception de l’étrier de frein rouge :
 
-  ![Semi-transparent](./media/see-through.png)
+  ![Mode de transparence utilisé pour rendre les objets sélectionnés transparents](./media/see-through.png)
 
   > [!IMPORTANT]
   > L’effet semi-transparent ne fonctionne qu’avec le [mode de rendu](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
 * **`Selected`**  : La géométrie est rendue avec un [contour de sélection](outlines.md).
 
-  ![Contour de sélection](./media/selection-outline.png)
+  ![Option de contour utilisée pour mettre en surbrillance une partie sélectionnée](./media/selection-outline.png)
 
 * **`DisableCollision`**  : La géométrie est exempte de [requêtes spatiales](spatial-queries.md). Comme l'indicateur **`Hidden`** n'affecte pas l'indicateur d'état des collisions, ces deux indicateurs sont souvent définis ensemble.
+
+* **`UseCutPlaneFilterMask`**  : Utilisez un masque de bits de filtre individuel pour contrôler la sélection du plan de coupe. Cet indicateur détermine si le masque de filtre individuel doit être utilisé ou hérité de son parent. Le masque de bits de filtre lui-même est défini via la propriété `CutPlaneFilterMask`. Pour plus d’informations sur le fonctionnement du filtrage, reportez-vous au paragraphe [Plans de coupe sélectifs](cut-planes.md#selective-cut-planes).
+![Plans de coupe sélectifs](./media/selective-cut-planes.png)
+
+
+> [!TIP]
+> Comme alternative à la désactivation de la visibilité et des requêtes spatiales pour un sous-graphique complet, l’état `enabled` d’un objet de jeu peut être activé/désactivé. Si une hiérarchie est désactivée, ce réglage a la priorité sur tout `HierarchicalStateOverrideComponent`.
 
 ## <a name="hierarchical-overrides"></a>Remplacements hiérarchiques
 
@@ -95,6 +102,11 @@ Le remplacement de `tint color` est légèrement spécial en ce sens qu'il exist
 Une instance de `HierarchicalStateOverrideComponent` n’ajoute pas beaucoup de surcharge d’exécution en elle-même. Toutefois, il est toujours conseillé de limiter le nombre de composants actifs. Par exemple, pour implémenter un système de sélection qui met en surbrillance l’objet choisi, il est recommandé de supprimer le composant lorsque la mise en surbrillance est supprimée. Si les composants sont conservés avec des fonctionnalités neutres, le nombre de composants peut vite grimper.
 
 Le rendu transparent place davantage de charge de travail sur les GPU du serveur que le rendu standard. Si une grande partie du graphe de la scène passe en mode *semi-transparent*, avec de nombreuses couches de géométrie visibles, il peut en résulter un goulot d’étranglement au niveau des performances. Il en est de même pour les objets avec [contours de sélection](../../overview/features/outlines.md#performance).
+
+## <a name="api-documentation"></a>Documentation de l’API
+
+* [Classe C# HierarchicalStateOverrideComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Classe C++ HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

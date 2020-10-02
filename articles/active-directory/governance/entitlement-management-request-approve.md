@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798356"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979786"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -48,6 +48,22 @@ Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les demandes d’ac
 1. Dans le menu de gauche, cliquez sur **Approbations** pour afficher la liste des demandes d’accès en attente d’approbation.
 
 1. Dans l’onglet **En attente**, recherchez la demande.
+
+## <a name="view-requestors-answers-to-questions-preview"></a>Afficher les réponses du demandeur aux questions (préversion)
+
+1. Accédez à l’onglet **Approbations** dans Mon accès.
+
+1. Accédez à la demande que vous souhaitez approuver, puis cliquez sur **Détails**. Vous pouvez également cliquer sur **Approuver** ou **Refuser** si vous êtes prêt à prendre une décision.
+
+1. Cliquez sur **Détails de la demande**.
+
+     ![Portail Mon Accès - Demande d’accès - Clic sur les détails de la demande](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. Les informations fournies par le demandeur se trouvent au bas du panneau.
+
+     ![Portail Mon Accès - Demande d’accès](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. En fonction des informations fournies par le demandeur, vous pouvez approuver ou refuser la demande. Consultez les étapes de la rubrique Approuver ou refuser une demande pour obtenir de l’aide.
 
 ## <a name="approve-or-deny-request"></a>Approuver ou refuser la demande
 

@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904919"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707643"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Résoudre les problèmes liés à Azure Files dans Linux (SMB)
 
 Cet article liste les problèmes courants liés à Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes. 
 
 En plus des étapes de dépannage présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) pour vérifier que le client Linux dispose des prérequis. Azfilediagnostics automatise la détection de la plupart des problèmes mentionnés dans cet article. Il vous aide à configurer votre environnement pour obtenir des performances optimales. Vous pouvez également trouver ces informations dans l’[utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). L’utilitaire de résolution des problèmes indique les étapes pour vous aider en cas de problèmes de connexion, de mappage et de montage de partages Azure Files.
+
+> [!IMPORTANT]
+> Le contenu de cet article s’applique uniquement aux partages SMB. Pour plus d’informations sur les partages NFS, consultez [Résoudre les problèmes des partages de fichiers NFS Azure](storage-troubleshooting-files-nfs.md).
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Connexion ou montage impossible d’un partage de fichiers Azure
 

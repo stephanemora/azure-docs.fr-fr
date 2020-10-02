@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459217"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561599"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :
@@ -329,7 +329,7 @@ La propriété __position__ contient les informations de taille et d’emplaceme
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unités de grille](./media/azure-portal-dashboards-structure/grid-units.png)
+![Capture d’écran montrant une vue rapprochée de la grille, avec une unité de grille carrée mise en surbrillance.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>Objet metadata
 Chaque partie a une propriété metadata ; un objet n’a qu’une seule propriété obligatoire appelée __type__. Cette chaîne indique au portail quelle partie afficher. Notre exemple de tableau de bord utilise ces types de parties de contrôle :

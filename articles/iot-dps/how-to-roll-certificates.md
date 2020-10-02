@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299258"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531404"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 
@@ -20,14 +20,14 @@ Pendant le cycle de vie de votre solution IoT, vous devrez renouveler des certif
 
 Le renouvellement des certificats est une bonne pratique en matière de sécurité qui contribue à sécuriser votre système en cas de violation. Dans le cadre de la [méthodologie consistant à envisager les failles](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft préconise de mettre en place des processus de sécurité réactifs en même temps que des mesures préventives. Vous devez inclure le renouvellement de vos certificats d’appareil dans ces processus de sécurité. La fréquence à laquelle vous renouvelez vos certificats dépend des exigences de sécurité de votre solution. Les clients qui disposent de solutions impliquant des données extrêmement sensibles renouvellent leurs certificats quotidiennement, tandis que les autres clients ne renouvellent leurs certificats que tous les deux ans.
 
-Le renouvellement des certificats d’appareil implique la mise à jour du certificat stocké sur l’appareil et dans IoT Hub. Par la suite, l’appareil peut se reprovisionner lui-même dans le IoT Hub à l’aide du processus normal de [provisionnement automatique](concepts-auto-provisioning.md) avec le service Device Provisioning.
+Le renouvellement des certificats d’appareil implique la mise à jour du certificat stocké sur l’appareil et dans IoT Hub. Par la suite, l’appareil peut se reprovisionner lui-même dans le IoT Hub à l’aide du processus normal de [provisionnement](about-iot-dps.md#provisioning-process) avec le service Device Provisioning (DPS).
 
 
 ## <a name="obtain-new-certificates"></a>Obtenir de nouveau certificats
 
 Vous disposez de nombreuses méthodes pour obtenir de nouveaux certificats pour vos appareils IoT. Vous pouvez obtenir des certificats auprès du fabricant des appareils, générer vos propres certificats ou déléguer la création de certificats à un tiers. 
 
-Les certificats sont signés les uns par les autres de manière à former une chaîne d’approbation entre un certificat d’autorité de certification racine et un [certificat feuille](concepts-security.md#end-entity-leaf-certificate). Le certificat de signature est le certificat utilisé pour signer le certificat feuille à la fin de la chaîne d’approbation. Un certificat de signature peut être un certificat d’autorité de certification racine ou un certificat intermédiaire dans la chaîne d’approbation. Pour plus d’informations, consultez la section [Certificats X.509](concepts-security.md#x509-certificates).
+Les certificats sont signés les uns par les autres de manière à former une chaîne d’approbation entre un certificat d’autorité de certification racine et un [certificat feuille](concepts-x509-attestation.md#end-entity-leaf-certificate). Le certificat de signature est le certificat utilisé pour signer le certificat feuille à la fin de la chaîne d’approbation. Un certificat de signature peut être un certificat d’autorité de certification racine ou un certificat intermédiaire dans la chaîne d’approbation. Pour plus d’informations, consultez la section [Certificats X.509](concepts-x509-attestation.md#x509-certificates).
  
 Vous disposez de deux méthodes pour obtenir un certificat de signature. La première méthode, qui est recommandée pour les systèmes de production, consiste à acquérir un certificat de signature auprès d’une autorité de certification racine. Cette méthode enchaîne la sécurité à une source approuvée. 
 
@@ -36,7 +36,7 @@ La seconde méthode consiste à créer vos propres certificats X.509 à l’aide
 
 ## <a name="roll-the-certificate-on-the-device"></a>Renouveler le certificat sur l’appareil
 
-Les certificats figurant sur un appareil doivent toujours être stockés dans un endroit sûr, comme un [module de sécurité matériel (HSM)](concepts-device.md#hardware-security-module). La méthode que vous appliquez pour renouveler les certificats d’appareil dépend de la façon dont ces derniers ont été créés et installés à l’origine. 
+Les certificats figurant sur un appareil doivent toujours être stockés dans un endroit sûr, comme un [module de sécurité matériel (HSM)](concepts-service.md#hardware-security-module). La méthode que vous appliquez pour renouveler les certificats d’appareil dépend de la façon dont ces derniers ont été créés et installés à l’origine. 
 
 Si vous avez obtenu vos certificats auprès d’un tiers, vous devez étudier la manière dont celui-ci renouvelle ses certificats. Ce processus peut être inclus dans l’accord que vous avez conclu avec le tiers, ou prendre la forme d’un service distinct offert par le tiers. 
 
@@ -75,7 +75,7 @@ Si vous renouvelez des certificats suite à une violation de la sécurité, vous
 
     Exécutez cette procédure à la fois pour le certificat principal et pour le certificat secondaire s’ils sont tous deux compromis.
 
-    ![Gestion des inscriptions individuelles](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Gérer les inscriptions individuelles avec une violation de la sécurité](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant qu’une inscription d’appareil y existe pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
 
@@ -96,7 +96,7 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 2. Cliquez sur **Certificat secondaire**, puis cliquez sur l’icône de dossier afin de sélectionner le nouveau certificat à charger pour l’entrée d’inscription. Cliquez sur **Enregistrer**.
 
-    ![Gestion des inscriptions individuelles à l’aide du certificat secondaire](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Gestion des inscriptions individuelles à l’aide de l’expiration du certificat secondaire](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. Par la suite, une fois que le certificat principal a expiré, revenez et supprimez ce certificat en cliquant sur le bouton **Delete current certificate** (Supprimer le certificat actuel).
 
@@ -118,7 +118,7 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
 5. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine. Ensuite, cliquez sur **Enregistrer**. 
 
-    ![Sélection du nouveau certificat d’autorité de certification racine](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Sélectionner le nouveau certificat d’autorité de certification racine pour un certificat compromis](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant que des inscriptions d’appareil y existent pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
 
@@ -136,9 +136,9 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
 2. Cliquez sur **Intermediate Certificate** (Certificat intermédiaire), puis sur **Delete current certificate** (Supprimer le certificat actuel). Cliquez sur l’icône de dossier afin d’accéder au nouveau certificat intermédiaire à charger pour le groupe d’inscription. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Exécutez cette procédure à la fois pour le certificat principal et pour le certificat secondaire s’ils sont tous deux compromis.
 
-    Ce nouveau certificat intermédiaire doit être signé par un certificat d’autorité de certification racine vérifié qui a déjà été ajouté au service de provisionnement. Pour plus d’informations, consultez la section [Certificats X.509](concepts-security.md#x509-certificates).
+    Ce nouveau certificat intermédiaire doit être signé par un certificat d’autorité de certification racine vérifié qui a déjà été ajouté au service de provisionnement. Pour plus d’informations, consultez la section [Certificats X.509](concepts-x509-attestation.md#x509-certificates).
 
-    ![Gestion des inscriptions individuelles](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Gérer les inscriptions individuelles pour un intermédiaire compromis](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant que des inscriptions d’appareil y existent pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
@@ -164,7 +164,7 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 3. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine sous la configuration **Certificat secondaire**. Ensuite, cliquez sur **Enregistrer**. 
 
-    ![Sélection du nouveau certificat d’autorité de certification racine](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Sélectionner le nouveau certificat d’autorité de certification racine pour l’expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. Par la suite, lorsque le certificat principal arrivera à expiration, cliquez sur l’onglet **Certificats** pour votre instance de service de provisionnement des appareils. Cliquez sur le certificat expiré dans la liste, puis cliquez sur le bouton **Supprimer**. Confirmez la suppression en entrant le nom du certificat, puis cliquez sur **OK**.
 
@@ -179,9 +179,9 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 2. Cliquez sur **Certificat secondaire**, puis cliquez sur l’icône de dossier afin de sélectionner le nouveau certificat à charger pour l’entrée d’inscription. Cliquez sur **Enregistrer**.
 
-    Ce nouveau certificat intermédiaire doit être signé par un certificat d’autorité de certification racine vérifié qui a déjà été ajouté au service de provisionnement. Pour plus d’informations, consultez la section [Certificats X.509](concepts-security.md#x509-certificates).
+    Ce nouveau certificat intermédiaire doit être signé par un certificat d’autorité de certification racine vérifié qui a déjà été ajouté au service de provisionnement. Pour plus d’informations, consultez la section [Certificats X.509](concepts-x509-attestation.md#x509-certificates).
 
-   ![Gestion des inscriptions individuelles à l’aide du certificat secondaire](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Gérer les groupes d’inscription à l’aide du certificat secondaire arrivant à expiration](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. Par la suite, une fois que le certificat principal a expiré, revenez et supprimez ce certificat en cliquant sur le bouton **Delete current certificate** (Supprimer le certificat actuel).
 
@@ -208,6 +208,6 @@ Une fois qu’un certificat est inclus dans une entrée d’inscription désacti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les certificats X.509 dans le service Device Provisioning, consultez le concept [Sécurité](concepts-security.md). 
+- Pour plus d’informations sur les certificats X.509 dans le service Device Provisioning, consultez [Attestation de certificat X.509](concepts-x509-attestation.md) 
 - Pour savoir comment effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec le service Azure IoT Hub Device Provisioning, consultez la procédure [Configurer des certificats d’autorité de certification vérifiés](how-to-verify-certificates.md).
 - Pour savoir comment utiliser le portail pour créer un groupe d’inscription, consultez [Gérer les inscriptions d’appareils avec le portail Azure](how-to-manage-enrollments.md).

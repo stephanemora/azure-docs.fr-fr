@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123406"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973099"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -36,15 +36,15 @@ Votre nouvelle application de fonction est prête à être utilisée. Créez ens
 
 1. Dans votre application de fonction, sélectionnez **Fonctions**, puis **+ Ajouter**. 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Ajoutez une fonction dans le portail Azure." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 1. Sélectionnez le modèle **Déclencheur de minuteur**. 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Sélectionnez le déclencheur de minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 1. Configurez le nouveau déclencheur avec les paramètres spécifié dans le tableau situé sous l’image, puis sélectionnez **Créer une fonction**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Sélectionnez le déclencheur de minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Application de fonction créée avec succès." border="true":::
     
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
@@ -55,11 +55,11 @@ Votre nouvelle application de fonction est prête à être utilisée. Créez ens
 
 1. Dans votre fonction, sélectionnez **Code + test**, puis développez les journaux.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Testez le déclencheur de minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 1. Vérifiez l’exécution en consultant les informations écrites dans les journaux.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Affichez le déclencheur de minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 À présent, vous pouvez modifier la planification de la fonction afin qu’elle s’exécute une fois par heure plutôt que toutes les minutes.
 
@@ -69,11 +69,11 @@ Votre nouvelle application de fonction est prête à être utilisée. Créez ens
 
 1. Sélectionnez **Minuteur (myTimer)** .
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Mettez à jour la planification du minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 1. Mettez à jour la valeur **Planification** sur `0 0 */1 * * *`, puis sélectionnez **Enregistrer**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Les fonctions mettent à jour la planification du minuteur dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Application de fonction créée avec succès." border="true":::
 
 Vous disposez maintenant d’une fonction qui s’exécute toutes les heures, à l’heure pile.
 

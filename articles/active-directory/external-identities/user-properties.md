@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907103"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705467"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
@@ -104,11 +104,11 @@ Il est possible de désactiver les limitations par défaut afin qu’un utilisat
 ![Capture d’écran montrant l’option Utilisateurs externes dans les paramètres utilisateur](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Puis-je rendre les utilisateurs invités visibles dans la liste d’adresses globale Exchange ?
-Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Pour plus d’informations, consultez **Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?** dans [Gérer l’accès invité dans les groupes Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Pour plus d’informations, consultez **Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?** dans [Gérer l’accès invité dans les groupes Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Puis-je mettre à jour l’adresse de messagerie d’un utilisateur invité ?
 
-Si un utilisateur invité accepte votre invitation et qu’il modifie par la suite son adresse e-mail, le nouvel e-mail n’est pas automatiquement synchronisé avec l’objet utilisateur invité dans votre annuaire. La propriété de messagerie est créée via [Microsoft API Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Vous pouvez mettre à jour la propriété de messagerie via le centre d’administration Exchange ou [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), et la modification apparaît dans l’objet utilisateur invité Azure AD.
+Si un utilisateur invité accepte votre invitation et qu’il modifie par la suite son adresse e-mail, le nouvel e-mail n’est pas automatiquement synchronisé avec l’objet utilisateur invité dans votre annuaire. La propriété de messagerie est créée via [Microsoft API Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Vous pouvez mettre à jour la propriété de messagerie via l’API Microsoft Graph, le centre d’administration Exchange ou [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modification sera reflétée dans l’objet utilisateur invité Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

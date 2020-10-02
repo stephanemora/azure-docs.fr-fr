@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: 9dc63de56a71ab07f513efefe2cf068f6a7be7b0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.date: 09/08/2020
+ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276046"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500400"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -814,7 +814,7 @@ Ce tableau identifie les types d’authentification disponibles sur les déclenc
 | [Certificat client](#client-certificate-authentication) | Gestion des API Azure, Azure App Service, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Brut](#raw-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identité gérée](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP |
+| [Identité gérée](#managed-identity-authentication) | Gestion des API Azure, Azure App Service, Azure Functions, HTTP, Webhook HTTP |
 |||
 
 <a name="basic-authentication"></a>

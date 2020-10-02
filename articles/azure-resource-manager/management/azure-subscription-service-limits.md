@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 87018f58a59c34c5027ca63102e4c5ca841e652b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971042"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -26,6 +26,9 @@ Pour en savoir plus sur la tarification Azure, consultez [Tarification Azure](ht
 > Lorsque la limite peut être ajustée, les tables incluent des en-têtes **Limite par défaut** et **Limite maximale**. La limite peut être augmentée au-dessus de la limite par défaut, mais pas au-delà de la limite maximale.
 >
 > Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne gratuitement](../templates/error-resource-quota.md).
+>
+> Les termes *limite non stricte* et *limite inconditionnelle* sont souvent utilisés de manière informelle pour décrire la limite actuelle, la limite ajustable (non stricte) et la limite maximale (inconditionnelle). Si une limite n’est pas réglable, il n’y a pas de limite non stricte, uniquement une limite inconditionnelle.
+>
 
 Les [abonnements d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p) ne permettent pas de bénéficier d’augmentations de la limite ou du quota. Si vous disposez d’un [abonnement d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p), vous pouvez le mettre à niveau vers un abonnement avec [paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/). Pour en savoir plus, consultez [Mettre à niveau votre abonnement d'essai gratuit Azure vers un abonnement avec paiement à l’utilisation](../../cost-management-billing/manage/upgrade-azure-subscription.md) et [FAQ sur l’abonnement d’essai gratuit](https://azure.microsoft.com/free/free-account-faq).
 
@@ -74,6 +77,10 @@ Les limites App Service suivantes incluent celles de Web Apps, Mobile Apps et AP
 ## <a name="automation-limits"></a>Limites du service Automation
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Limites du Cache Azure pour Redis
 
@@ -232,10 +239,6 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## <a name="identity-manager-limits"></a>Limites d'Identity Manager
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
-
 ## <a name="iot-central-limits"></a>Limites d’IoT Central
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
 
@@ -250,6 +253,11 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 ## <a name="key-vault-limits"></a>Limites du coffre de clés
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## <a name="managed-identity-limits"></a>Limites d’identité gérée
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
+
 
 ## <a name="media-services-limits"></a>Limites de Media Services
 

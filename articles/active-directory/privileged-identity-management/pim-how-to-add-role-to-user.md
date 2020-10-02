@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421380"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985168"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Attribuer des rôles dans Azure AD dans Privileged Identity Management
 
@@ -75,6 +75,30 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
     ![Nouvelle affectation - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Affecter un rôle avec une étendue restreinte
+
+Pour certains rôles, l’étendue des autorisations accordées peut être limitée à une unité d’administration, un principal de service ou une application unique. Cette procédure est un exemple si vous attribuez un rôle qui a l’étendue d’une unité administrative. Pour obtenir la liste des rôles prenant en charge l’étendue via une unité administrative, voir [Attribuer des rôles dont l’étendue est délimitée à une unité administrative](../users-groups-roles/roles-admin-units-assign-roles.md). Cette fonctionnalité est actuellement déployée dans les organisations Azure AD.
+
+1. connectez-vous au [Centre d'administration Azure Active Directory](https://aad.portal.azure.com) avec les autorisations Administrateur de rôle privilégié.
+
+1. Sélectionnez **Azure Active Directory** > **Rôles et administrateurs**.
+
+1. Sélectionnez **Administrateur d’utilisateurs**.
+
+    ![La commande Ajouter une attribution est disponible lorsque vous ouvrez un rôle dans le portail](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Sélectionnez **Ajouter des affectations**.
+
+    ![Quand un rôle prend en charge l’étendue, vous pouvez sélectionner une étendue](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. Sur la page **Ajouter des affectations**, vous pouvez :
+
+   - Sélectionner un utilisateur ou un groupe à affecter au rôle
+   - Sélectionner l’étendue du rôle (dans ce cas, unités administratives)
+   - Sélectionner une unité administrative pour l’étendue
+
+Pour plus d’informations sur la création d’unités administratives, voir [Ajouter et supprimer des unités administratives](../users-groups-roles/roles-admin-units-manage.md).
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Mettre à jour ou supprimer une attribution de rôle existante
 
 Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle existante.
@@ -101,7 +125,7 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
 1. Sélectionnez **Rôles** ou **Membres**.
 
-    ![Rôles Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![rôles Azure AD ouverts](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Sélectionnez **Ajouter un membre** pour ouvrir **Ajouter des membres managés**.
 
@@ -111,7 +135,7 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
 1. Sélectionnez **Sélectionner des membres**, sélectionnez les utilisateurs que vous souhaitez assigner au rôle, puis sélectionnez **Sélectionner**.
 
-    ![Sélectionnez un rôle](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Sélectionner un utilisateur ou un groupe à affecter](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Sous **Ajouter des membres managés**, sélectionnez **OK** pour ajouter l’utilisateur au rôle.
 
@@ -169,7 +193,7 @@ Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle d'admi
 
 1. Dans le message qui vous invite à confirmer la suppression, sélectionnez **Oui**.
 
-    ![Supprimer un rôle](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confirmer la suppression](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     L’attribution de rôle est supprimée.
 

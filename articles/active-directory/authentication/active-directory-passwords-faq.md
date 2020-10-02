@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716331"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052378"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Foire aux questions concernant la réinitialisation du mot de passe en libre-service
 
@@ -104,7 +104,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > * Vérifiez que les données d’authentification dans l’annuaire sont mises en forme correctement, par exemple +1 4255551234 ou *user\@contoso.com*. 
 * **Q :  Quelles langues sont prises en charge pour la réinitialisation de mot de passe ?**
 
-  > **R :** L’interface utilisateur pour la réinitialisation du mot de passe, les SMS et les appels vocaux sont localisés dans les mêmes langues que celles prises en charge dans Office 365.
+  > **R :** L’interface utilisateur pour la réinitialisation du mot de passe, les SMS et les appels vocaux sont localisés dans les mêmes langues que celles prises en charge dans Microsoft 365.
   >
   >
 * **Q :  Quelles parties de l'expérience de réinitialisation de mot de passe sont personnalisées lorsque je configure des éléments de personnalisation de l'organisation sous l'onglet Configurer de mon annuaire ?**

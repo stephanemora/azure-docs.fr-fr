@@ -3,12 +3,12 @@ title: Préparer le serveur DPM pour sauvegarder des charges de travail
 description: Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021032"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975453"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -61,7 +61,7 @@ Vous pouvez choisir entre le stockage géoredondant et le stockage localement re
 
 - Par défaut, votre archivage utilise un stockage géo-redondant.
 - Si vous utilisez Azure comme sauvegarde principale, conservez l’option de stockage géoredondant. Si vous souhaitez une option plus économique, mais moins durable, suivez la procédure ci-dessous pour configurer le stockage localement redondant.
-- Pour en savoir plus sur le [stockage Azure](../storage/common/storage-redundancy.md) et les options de stockage [géoredondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md).
+- Pour en savoir plus sur le [stockage Azure](../storage/common/storage-redundancy.md) et les options de stockage [géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage), [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et [redondant interzone](../storage/common/storage-redundancy.md#zone-redundant-storage).
 - Modifiez les paramètres de stockage avant la sauvegarde initiale. Si vous avez déjà sauvegardé un élément, arrêtez la sauvegarde dans le coffre avant de modifier les paramètres de stockage.
 
 Pour modifier le paramètre de réplication du stockage :
@@ -165,7 +165,7 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
 
 7. Sélectionnez **Inscrire** pour inscrire le serveur DPM dans le coffre.
 
-Une fois le serveur correctement inscrit dans le coffre, vous êtes prêt à démarrer la sauvegarde sur Microsoft Azure. Vous devez configurer le groupe de protection dans la console DPM pour sauvegarder les charges de travail sur Azure. [Découvrez comment](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) déployer des groupes de protection.
+Une fois le serveur correctement inscrit dans le coffre, vous êtes prêt à démarrer la sauvegarde sur Microsoft Azure. Vous devez configurer le groupe de protection dans la console DPM pour sauvegarder les charges de travail sur Azure. [Découvrez comment](/system-center/dpm/create-dpm-protection-groups) déployer des groupes de protection.
 
 ## <a name="troubleshoot-vault-credentials"></a>Résoudre les problèmes d’informations d’identification de coffre
 

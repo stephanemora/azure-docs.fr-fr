@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065486"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052628"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -48,9 +48,9 @@ Dans le tableau ci-dessous, tout élément marqué comme corrigé signifie que l
 ## <a name="flags-to-alter-the-scim-behavior"></a>Indicateurs permettant de modifier le comportement de SCIM
 Utilisez les indicateurs ci-dessous dans l’URL du locataire de votre application afin de modifier le comportement de client SCIM par défaut.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Indicateurs SCIM pour comportement ultérieur.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Indicateurs SCIM pour comportement ultérieur.&quot;:::
 
-* Utilisez l’URL suivante pour mettre à jour le comportement des PATCH et garantir la conformité SCIM (par exemple, actif en tant que valeur booléenne et suppressions appropriées d’appartenance à un groupe). Ce comportement est actuellement disponible uniquement lorsque vous utilisez l’indicateur, mais il deviendra le comportement par défaut au cours des prochains mois.
+* Utilisez l’URL suivante pour mettre à jour le comportement des PATCH et garantir la conformité SCIM (par exemple, actif en tant que valeur booléenne et suppressions appropriées d’appartenance à un groupe). Ce comportement est actuellement disponible uniquement lorsque vous utilisez l’indicateur, mais il deviendra le comportement par défaut au cours des prochains mois. Notez que cet indicateur de préversion ne fonctionne actuellement pas avec l’approvisionnement à la demande. 
   * **URL (conforme à SCIM) :** AzureAdScimPatch062020
   * **Références RFC SCIM :** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
@@ -58,29 +58,29 @@ Utilisez les indicateurs ci-dessous dans l’URL du locataire de votre applicati
   ```json
    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "remove",
-            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+            &quot;op&quot;: &quot;remove&quot;,
+            &quot;path&quot;: &quot;members[value eq \&quot;16b083c0-f1e8-4544-b6ee-27a28dc98761\&quot;]&quot;
         }
     ]
    }
 
     PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "add",
-            "path": "members",
-            "value": [
+            &quot;op&quot;: &quot;add&quot;,
+            &quot;path&quot;: &quot;members&quot;,
+            &quot;value&quot;: [
                 {
-                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                    &quot;value&quot;: &quot;10263a6910a84ef9a581dd9b8dcc0eae&quot;
                 }
             ]
         }
@@ -89,25 +89,25 @@ Utilisez les indicateurs ci-dessous dans l’URL du locataire de votre applicati
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "someone@contoso.com"
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].value&quot;,
+            &quot;value&quot;: &quot;someone@contoso.com&quot;
         },
         {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].primary",
-            "value": true
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].primary&quot;,
+            &quot;value&quot;: true
         },
         {
-            "op": "replace",
-            "value": {
-                "active": false,
-                "userName": "someone"
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;value&quot;: {
+                &quot;active&quot;: false,
+                &quot;userName&quot;: &quot;someone&quot;
             }
         }
     ]
@@ -115,28 +115,28 @@ Utilisez les indicateurs ci-dessous dans l’URL du locataire de votre applicati
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "replace",
-            "path": "active",
-            "value": false
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;active&quot;,
+            &quot;value&quot;: false
         }
     ]
     }
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
+            &quot;op&quot;: &quot;add&quot;,
+            &quot;path&quot;: &quot;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department&quot;,
+            &quot;value&quot;: &quot;Tech Infrastructure"
         }
     ]
     }

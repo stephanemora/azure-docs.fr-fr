@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce qu’un appareil joint Azure AD ?
-description: Découvrez comment la gestion d’identité des appareils peut vous aider à gérer les appareils qui accèdent aux ressources de votre environnement.
+description: Découvrez les appareils joints Azure AD et comment la gestion d’identité des appareils peut vous aider à gérer les appareils qui accèdent aux ressources de votre environnement.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923728"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601450"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -58,7 +58,7 @@ Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne
 
 - Vous souhaitez passer à une infrastructure cloud avec Azure AD et un système de gestion des appareils mobiles comme Intune.
 - Vous ne pouvez pas utiliser de jonction de domaine locale, par exemple, si vous avez besoin de contrôler des appareils mobiles, tels que des tablettes et des téléphones.
-- Vos utilisateurs ont principalement besoin d’accéder à Office 365 ou d’autres applications SaaS intégrées à Azure AD.
+- Vos utilisateurs ont principalement besoin d’accéder à Microsoft 365 ou d’autres applications SaaS intégrées à Azure AD.
 - Vous souhaitez gérer un groupe d’utilisateurs dans Azure AD et non dans un répertoire Active Directory. Par exemple, ce scénario peut concerner les travailleurs saisonniers, les prestataires ou les étudiants.
 - Vous souhaitez fournir des fonctionnalités de jonction aux travailleurs dans des succursales distantes avec une infrastructure locale limitée.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: ce017d1ac92e3aabe7ad0e36b2e8b87dc04b34f6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445938"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603048"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accélérer l’analytique en temps réel des Big Data au moyen du connecteur Apache Spark-Azure Cosmos DB
 
@@ -245,9 +245,9 @@ spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2
 
 ```
 
-### <a name="using-jupyter-notebooks"></a>Utilisation de blocs-notes Jupyter
+### <a name="using-jupyter-notebooks"></a>Utilisation de notebooks Jupyter
 
-Si vous utilisez des blocs-notes Jupyter au sein d’HDInsight, vous pouvez utiliser la cellule `%%configure` spark-magic pour spécifier les coordonnées maven du connecteur.
+Si vous utilisez des notebooks Jupyter au sein d’HDInsight, vous pouvez utiliser la cellule `%%configure` spark-magic pour spécifier les coordonnées maven du connecteur.
 
 ```python
 { "name":"Spark-to-Cosmos_DB_Connector",

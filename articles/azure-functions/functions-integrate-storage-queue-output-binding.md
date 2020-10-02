@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210843"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982019"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -38,7 +38,7 @@ Dans cette section, l’interface utilisateur du portail vous permet d’ajouter
 
 1. Sélectionnez le type de liaison **Azure Queue Storage output** (Sortie de Stockage File d’attente Azure), puis ajoutez les paramètres indiqués dans le tableau qui suit cette capture d’écran : 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Création d’une liaison de sortie pour votre fonction." border="true":::
     
     | Paramètre      |  Valeur suggérée   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ Dans cette section, vous ajoutez le code qui écrit un message dans la file d’
 1. Après avoir enregistré les modifications de code, sélectionnez **Test** (Tester).
 1. Vérifiez que votre test correspond à l’image ci-dessous, puis sélectionnez **Run** (Exécuter). 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Test de la liaison de stockage de file d’attente dans le portail Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Création d’une liaison de sortie pour votre fonction." border="true":::
 
     Notez que **Corps de la demande** contient la valeur `name`*Azure*. Cette valeur s’affiche dans le message de file d’attente qui est créé lorsque la fonction est appelée.
     
@@ -111,11 +111,11 @@ Une nouvelle file d’attente nommée **outqueue** est créée dans votre compte
 
 1. Sous **Application settings** (Paramètres de l’application), sélectionnez **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Localisation du compte de stockage connecté à AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Création d’une liaison de sortie pour votre fonction." border="true":::
 
 1. Localisez et notez le nom du compte.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Localisation du compte de stockage connecté à AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Création d’une liaison de sortie pour votre fonction." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Analyser la file d’attente de sortie
 

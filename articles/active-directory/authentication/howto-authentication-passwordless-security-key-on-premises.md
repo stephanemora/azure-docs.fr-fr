@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716994"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706334"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory (préversion)
 
@@ -46,7 +46,7 @@ Les organisations doivent effectuer les étapes permettant d’[activer la conne
 
 Les organisations doivent également présenter la configuration logicielle suivante.
 
-- Les appareils doivent exécuter Windows 10 Insider Build 18945 ou une version ultérieure.
+- Les appareils doivent exécuter Windows 10 version 2004 ou ultérieure.
 - Vous devez disposer de la version 1.4.32.0 ou ultérieure d’[Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Pour plus d’informations sur les options d’authentification hybride Azure AD disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../hybrid/choose-ad-authn.md) et [Sélectionner le type d’installation à utiliser pour Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Les correctifs logiciels suivants doivent être installés sur vos contrôleurs de domaine Windows Server :
@@ -57,7 +57,7 @@ Les organisations doivent également présenter la configuration logicielle suiv
 
 Le scénario prend en charge l’authentification unique (SSO) dans les deux scénarios suivants :
 
-- Pour les ressources cloud telles qu’Office 365 et d’autres applications compatibles SAML.
+- Pour les ressources cloud telles que Microsoft 365 et d’autres applications compatibles SAML.
 - Pour les ressources locales et l’Authentification Windows intégrée sur les sites web. Les ressources peuvent inclure des sites web et des sites SharePoint qui requièrent une authentification IIS et/ou des ressources qui utilisent l’authentification NTLM.
 
 ### <a name="unsupported-scenarios"></a>Scénarios non pris en charge

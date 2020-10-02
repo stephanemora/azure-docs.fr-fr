@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586560"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601076"
 ---
 # <a name="point-in-time-snapshot"></a>Capture instantanée à un point dans le temps
 
@@ -23,31 +23,29 @@ Azure App Configuration conserve un enregistrement des modifications apportées 
 
 Vous pouvez utiliser le portail Azure ou CLI pour récupérer les paires clé-valeur précédentes. Dans Azure CLI, utilisez `az appconfig revision list` en ajoutant les paramètres permettant de récupérer les valeurs requises.  Spécifiez l’instance Azure App Configuration en fournissant le nom du magasin (`--name <app-config-store-name>`) ou en utilisant une chaîne de connexion (`--connection-string <your-connection-string>`). Limitez la sortie en spécifiant un point dans le temps (`--datetime`) et en spécifiant le nombre maximal d’éléments à retourner (`--top`).
 
-Si Azure CLI n’est pas installé localement, vous pouvez éventuellement utiliser Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Si Azure CLI n’est pas installé localement, vous pouvez éventuellement utiliser [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 Récupérez toutes les modifications enregistrées qui ont été apportées à vos paires clé-valeur.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Récupérez toutes les modifications enregistrées qui ont été apportées à la clé `environment` et aux étiquettes `test` et `prod`.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Récupérez toutes les modifications enregistrées qui ont été apportées à l’espace de clé hiérarchique `environment:prod`.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Récupérez toutes les modifications enregistrées qui ont été apportées à la clé `color` à un point dans le temps.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 

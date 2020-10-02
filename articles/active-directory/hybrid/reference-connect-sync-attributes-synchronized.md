@@ -16,19 +16,19 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00037704558d0029223b3c99154d0d60757612f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279429"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016076"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
 Les attributs sont regroupés selon l’application Azure AD associée.
 
 ## <a name="attributes-to-synchronize"></a>Attributs à synchroniser
-Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ces attributs contiennent des données sensibles ou personnelles, comme dans cet exemple :  
+Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Microsoft 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ces attributs contiennent des données sensibles ou personnelles, comme dans cet exemple :  
 ![mauvais attributs](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 Dans ce cas, commencez par la liste des attributs dans cette rubrique et identifiez ceux qui contiennent des informations sensibles ou personnelles et ne peuvent pas être synchronisés. Ensuite, désélectionnez ces attributs lors de l’installation à l’aide de [l’application Azure AD et du filtrage des attributs](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
@@ -38,7 +38,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365 Apps for enterprise
 | Nom de l'attribut | Utilisateur | Commentaire |
 | --- |:---:| --- |
 | accountEnabled |X |Détermine si un compte est activé. |
@@ -375,7 +375,7 @@ Ce groupe est un ensemble d'attributs utilisés comme attributs nécessaires au 
 * Yammer (seul l’utilisateur est consommé)
 * [Scénarios de collaboration transorganisationnelle B2B (Business-to-Business) hybride proposés par des ressources comme SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Office 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base. Notez que l’authentification unique ou le provisionnement de certaines applications tierces requièrent la configuration de la synchronisation des attributs en plus des attributs décrits ici. Les spécifications de l’application sont décrites dans le [tutoriel sur l’application SaaS](../saas-apps/tutorial-list.md) pour chaque application.
+Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire Azure AD n’est pas utilisé pour prendre en charge Microsoft 365, Dynamics ou Intune. Il comporte un petit ensemble d’attributs de base. Notez que l’authentification unique ou le provisionnement de certaines applications tierces requièrent la configuration de la synchronisation des attributs en plus des attributs décrits ici. Les spécifications de l’application sont décrites dans le [tutoriel sur l’application SaaS](../saas-apps/tutorial-list.md) pour chaque application.
 
 | Nom de l'attribut | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |

@@ -4,12 +4,12 @@ description: Écrire une application console Node.js pour des WebSockets de conn
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386297"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527409"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans Node.js
 
@@ -52,7 +52,7 @@ Pour envoyer des messages à Relay, écrivez une application console Node.js.
 2. Exécutez l’application cliente : à partir d’un type d’invite de commandes Node.js `node sender.js`, puis entrez du texte.
 3. Vérifiez que la console d’application de serveur renvoie le texte entré dans l’application cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Fenêtres de console testant les applications serveur et clientes.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Vous avez créé une application de connexions hybrides complète avec Node.js : félicitations !
 

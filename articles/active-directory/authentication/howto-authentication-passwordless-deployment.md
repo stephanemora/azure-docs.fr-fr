@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717147"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527001"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -160,7 +160,7 @@ Vous devez activer le paramètre **Clés de sécurité FIDO2 compatibles**. Micr
 -    Windows 10 version 1809 prend en charge la connexion FIDO2 et peut nécessiter le déploiement d’un logiciel du fabricant de la clé FIDO2. Nous vous recommandons d’utiliser la version 1903 ou une version ultérieure. 
 
 **Pour les appareils joints à un domaine Azure Active Directory hybride** : 
--    Windows 10 Insider Build 18945 ou version ultérieure
+-    Windows 10 version 2004 ou ultérieure
 -    Serveurs de domaine entièrement corrigés exécutant Windows Server 2016 ou 2019.
 -    Version la plus récente d’Azure AD Connect
 

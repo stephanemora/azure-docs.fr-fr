@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983094"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -111,7 +111,7 @@ Pour bien comprendre les conditions dans lesquelles des règles d’alerte peuve
 
 1. Dans le portail Azure, sélectionnez **Surveiller** > **Alertes**. Dans l’angle supérieur gauche de la fenêtre, sélectionnez **Gérer les règles d'alerte**.
 
-    ![Gérer les règles d’alerte](media/alerts-activity-log/manage-alert-rules.png)
+    ![Capture d’écran montrant le journal d’activité avec la zone de recherche mise en surbrillance.](media/alerts-activity-log/manage-alert-rules.png)
 
     La liste des règles disponibles s’affiche.
 

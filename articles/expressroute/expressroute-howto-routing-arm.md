@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute : Configurer le peering : PowerShell'
-description: Cet article vous guide tout au long des étapes de création et d’approvisionnement du peering privé, public et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des peerings pour votre circuit.
+description: Découvrez comment créer et gérer la configuration du routage d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: e1f1a36e84567a56ddb25366f96d1b2dba1d82fb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2c29dc051780b15fb55d446d3f4002c3870fb529
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395568"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968383"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de PowerShell
 
@@ -36,7 +36,7 @@ Ces instructions s'appliquent uniquement aux circuits créés avec des fournisse
 > 
 > 
 
-Vous pouvez configurer le peering privé et le peering Microsoft pour un circuit ExpressRoute (le peering public Azure est déconseillé pour les nouveaux circuits). Les peerings peuvent être configurés dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md). Pour obtenir des informations sur le peering public, consultez [Peering public ExpressRoute](about-public-peering.md).
+Vous pouvez configurer le peering privé et le peering Microsoft pour un circuit ExpressRoute (le peering public Azure est déprécié pour les nouveaux circuits). Les peerings peuvent être configurés dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md). Pour obtenir des informations sur le peering public, consultez [Peering public ExpressRoute](about-public-peering.md).
 
 ## <a name="configuration-prerequisites"></a>Prérequis de configuration
 

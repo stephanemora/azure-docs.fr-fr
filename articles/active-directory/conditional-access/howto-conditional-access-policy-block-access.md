@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049262"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601586"
 ---
 # <a name="conditional-access-block-access"></a>Accès conditionnel : Bloquer l’accès
 
@@ -40,7 +40,7 @@ Les stratégies d’accès conditionnel sont des outils puissants. Nous vous rec
 
 Les étapes suivantes vont permettre de créer des stratégies d’accès conditionnel pour bloquer l’accès à toutes les applications à l’exception d’[Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si les utilisateurs ne sont pas sur un réseau approuvé. Ces stratégies sont mises en [mode rapport seul](howto-conditional-access-insights-reporting.md) pour commencer afin que les administrateurs puissent déterminer l’impact qu’elles auront sur les utilisateurs existants. Lorsque les administrateurs sont sûrs que les stratégies s’appliquent comme prévu, ils peuvent les **activer**.
 
-La première stratégie bloque l’accès à toutes les applications à l’exception des applications Office 365 si l’emplacement n’est pas approuvé.
+La première stratégie bloque l’accès à toutes les applications à l’exception des applications Microsoft 365 si l’emplacement n’est pas approuvé.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
@@ -64,7 +64,7 @@ La première stratégie bloque l’accès à toutes les applications à l’exce
 1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Rapport seul**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
 
-Une deuxième stratégie est créée ci-dessous pour exiger l’authentification multifacteur ou un appareil conforme pour les utilisateurs d’Office 365.
+Une deuxième stratégie est créée ci-dessous pour exiger l’authentification multifacteur ou un appareil conforme pour les utilisateurs de Microsoft 365.
 
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.

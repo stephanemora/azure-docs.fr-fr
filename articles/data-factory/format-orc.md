@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417723"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531727"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Format ORC dans Azure Data Factory
 
@@ -82,7 +82,16 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propriété type de la source d’activité de copie doit être définie sur **OrcSink**. | Oui      |
+| formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres d’écriture ORC** ci-dessous. |    Non      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
+
+**Paramètres d’écriture ORC** pris en charge sous `formatSettings` :
+
+| Propriété      | Description                                                  | Obligatoire                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | Le type de formatSettings doit être défini sur **OrcWriteSettings**. | Oui                                                   |
+| maxRowsPerFile | Lorsque vous écrivez des données dans un dossier, vous pouvez choisir d’écrire dans plusieurs fichiers et de spécifier le nombre maximal de lignes par fichier.  | Non |
+| fileNamePrefix | Applicable lorsque `maxRowsPerFile` est configuré.<br> Spécifiez le préfixe du nom de fichier lors de l’écriture de données dans plusieurs fichiers, ce qui a généré ce modèle : `<fileNamePrefix>_00000.<fileExtension>`. S’il n’est pas spécifié, le préfixe du nom de fichier est généré automatiquement. Cette propriété ne s’applique pas lorsque la source est un magasin basé sur des fichiers ou un [magasin de données partition-option-enabled](copy-activity-performance-features.md).  | Non |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Utilisation du runtime d’intégration auto-hébergé
 

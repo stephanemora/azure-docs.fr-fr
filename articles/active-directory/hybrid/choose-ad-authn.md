@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279344"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602368"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -86,7 +86,7 @@ Détails relatifs aux questions de décision :
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Authentification cloud : Synchronisation de hachage de mot de passe
 
-* **Effort**. La synchronisation de hachage du mot de passe nécessite le moins d’effort en matière de déploiement, de maintenance et d’infrastructure.  Ce niveau d’effort s’applique généralement aux organisations dont les utilisateurs se connectent uniquement à Office 365, à des applications SaaS et à d’autres ressources Azure AD basées sur Active Directory. Une fois activée, la synchronisation de hachage du mot de passe fait partie du processus de synchronisation Azure AD Connect et s’exécute toutes les deux minutes.
+* **Effort**. La synchronisation de hachage du mot de passe nécessite le moins d’effort en matière de déploiement, de maintenance et d’infrastructure.  Ce niveau d’effort s’applique généralement aux organisations dont les utilisateurs se connectent uniquement à Microsoft 365, à des applications SaaS et à d’autres ressources Azure AD basées sur Active Directory. Une fois activée, la synchronisation de hachage du mot de passe fait partie du processus de synchronisation Azure AD Connect et s’exécute toutes les deux minutes.
 
 * **Expérience utilisateur**. Pour améliorer l’expérience de connexion des utilisateurs, déployez l’authentification unique transparente avec synchronisation de hachage du mot de passe. L’authentification unique transparente élimine les invites inutiles quand les utilisateurs sont connectés.
 
@@ -203,7 +203,7 @@ Utilisez ou activez la synchronisation de hachage du mot de passe, quelle que so
 
 2. **Survie à une panne locale**.  Les conséquences d’une panne locale à la suite d’une cyberattaque ou d’un sinistre peuvent être considérables, de l’atteinte à l’image de marque à la paralysie de l’organisation si celle-ci ne parvient pas à gérer l’attaque. Récemment, de nombreuses organisations ont été victimes d’attaques menées par des programmes malveillants, notamment des ransomwares (rançongiciels), qui ont provoqué la mise hors service de leurs serveurs locaux. Lorsque Microsoft aide les clients à gérer ces types d’attaques, deux catégories d’organisations se dégagent :
 
-   * Les organisations qui utilisaient précédemment la synchronisation de hachage de mot de passe en plus de l’authentification fédérée ou directe ont modifié leur méthode d’authentification principale pour utiliser la synchronisation de hachage de mot de passe. Ils étaient de nouveau en ligne après quelques heures. En accédant aux e-mails par le biais d’Office 365, elles ont pu résoudre les problèmes et accéder à d’autres charges de travail sur le cloud.
+   * Les organisations qui utilisaient précédemment la synchronisation de hachage de mot de passe en plus de l’authentification fédérée ou directe ont modifié leur méthode d’authentification principale pour utiliser la synchronisation de hachage de mot de passe. Ils étaient de nouveau en ligne après quelques heures. En accédant aux e-mails par le biais de Microsoft 365, elles ont pu résoudre les problèmes et accéder à d’autres charges de travail sur le cloud.
 
    * Les organisations n’ayant pas auparavant activé la synchronisation de hachage du mot de passe ont dû faire appel à des systèmes de messagerie externes non fiables pour la communication et la résolution des problèmes. Dans ce cas, il leur a fallu des semaines pour restaurer leur infrastructure d’identité locale, avant que les utilisateurs ne puissent se connecter à nouveau aux applications basées sur le Cloud.
 

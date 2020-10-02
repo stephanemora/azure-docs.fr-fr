@@ -3,12 +3,12 @@ title: Mettre à jour une affectation à partir du portail
 description: Découvrez le mécanisme de mise à jour d’une attribution de blueprint existante dans Azure Blueprints à partir du portail Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051421"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651374"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -26,17 +26,17 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 
 1. Dans la liste des blueprints, sélectionnez l’affectation de blueprint. Utilisez ensuite sur le bouton **Mettre à jour l’affectation** OU cliquez avec le bouton droit sur l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Mettre à jour une affectation de blueprint existante" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
 
 1. La page **Affecter le blueprint** se charge préremplie avec toutes les valeurs de l’attribution d’origine. Vous pouvez modifier la **version de définition du blueprint**, l’état **Verrouiller l’affectation**, ainsi que tous les paramètres dynamiques qui existent dans la définition du blueprint. Sélectionnez **Attribuer** une fois que vous terminé les modifications.
 
 1. Dans la page de détails de l’affectation mise à jour, examinez le nouvel état. Dans cet exemple, nous avons ajouté **Verrouillage** à l’affectation.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Affectation de blueprint Mise à jour – Mode de verrouillage modifié" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
 
 1. Explorez les détails des autres **Opérations d’affectation** dans la liste déroulante. Le tableau **Ressources gérées** s’actualise en fonction de l’opération d’affectation sélectionnée.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Opérations d’affectation d’une affectation de blueprint" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Règles de mise à jour des affectations
 

@@ -1,6 +1,6 @@
 ---
 title: Problèmes de connexion à une application Microsoft | Microsoft Docs
-description: Résoudre les problèmes courants liés à la connexion aux applications internes Microsoft (comme Office 365) à l’aide d’Azure AD
+description: Résoudre les problèmes courants liés à la connexion aux applications internes Microsoft (comme Microsoft 365) à l’aide d’Azure AD.
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759281"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707949"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
-Les applications Microsoft (comme Office 365 Exchange, SharePoint, Yammer, etc.) sont affectées et gérées un peu différemment des applications SaaS tierces et des autres applications que vous intégrez à Azure AD pour l’authentification unique.
+Les applications Microsoft (comme Exchange, SharePoint, Yammer, etc.) sont affectées et gérées un peu différemment des applications SaaS tierces et des autres applications que vous intégrez à Azure AD pour l’authentification unique.
 
 Il existe trois méthodes principales pour se connecter à une application publiée par Microsoft.
 
--   Pour les applications faisant partie d’Office 365 ou d’autres suites payantes, les utilisateurs peuvent obtenir un accès via **l’attribution de licence** directement dans leur compte d’utilisateur ou via un groupe à l’aide de la fonctionnalité d’attribution de licence de groupe.
+-   Pour les applications faisant partie de Microsoft 365 ou d’autres suites payantes, les utilisateurs peuvent obtenir un accès via **l’attribution de licence** directement dans leur compte d’utilisateur ou via un groupe à l’aide de la fonctionnalité d’attribution de licence de groupe.
 
 -   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent obtenir un accès via le **consentement de l’utilisateur**. Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
 

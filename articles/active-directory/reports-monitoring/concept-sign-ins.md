@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228764"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603592"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -147,13 +147,13 @@ Commencez par réduire les données signalées jusqu’au niveau qui vous convie
 |SMTP authentifié| |Utilisé par les clients POP et IMAP pour envoyer des e-mails.|
 |Découverte automatique| |Utilisé par les clients Outlook et EAS pour rechercher des boîtes aux lettres dans Exchange Online et s’y connecter.|
 |Exchange ActiveSync| |Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été utilisé.|
-|Browser|![Vérification](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide de navigateurs web|
-|Exchange ActiveSync| | Affiche toutes les tentatives de connexion d’utilisateurs avec des applications clientes utilisant Exchange ActiceSync pour se connecter à Exchange Online|
+|Browser|![Coche](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide de navigateurs web|
+|Exchange ActiveSync| | Affiche toutes les tentatives de connexion d’utilisateurs avec des applications clientes utilisant Exchange ActiveSync pour se connecter à Exchange Online|
 |Exchange Online PowerShell| |Utilisé pour se connecter à Exchange Online à l’aide de PowerShell à distance. Si vous bloquez l’authentification de base pour Exchange Online PowerShell, vous devez utiliser le module Exchange Online PowerShell pour vous connecter. Pour obtenir des instructions, consultez [Se connecter à Exchange Online PowerShell à l’aide de l’authentification multifacteur](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |Interface de programmation utilisée par Outlook, Outlook pour Mac et des applications tierces.|
 |IMAP4| |Un client de messagerie hérité qui utilise IMAP pour récupérer le courrier électronique.|
 |MAPI sur HTTP| |Utilisé par Outlook 2010 et versions ultérieures.|
-|Applications mobiles et clients de bureau|![Vérification](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide d’applications mobiles et de clients de bureau.|
+|Applications mobiles et clients de bureau|![Coche bleue](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide d’applications mobiles et de clients de bureau.|
 |Carnet d’adresses en mode hors connexion| |Copie des collections de listes d’adresses téléchargées et utilisées par Outlook.|
 |Outlook Anywhere (RPC sur HTTP)| |Utilisé par Outlook 2016 et versions antérieures.|
 |Service Outlook| |Utilisé par l’application Courrier et Calendrier pour Windows 10.|
@@ -269,11 +269,11 @@ Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applicati
 
 L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.
 
-## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
+## <a name="microsoft-365-activity-logs"></a>Journaux d’activité Microsoft 365
 
-Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). N’oubliez pas que les journaux d’activité d’Office 365 et d’Azure AD partagent un nombre important de ressources de répertoire. Seul le centre d’administration Microsoft 365 fournit une vue complète des journaux d’activité d’Office 365. 
+Vous pouvez consulter les journaux d’activité Microsoft 365 dans le [centre d’administration Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). N’oubliez pas que les journaux d’activité de Microsoft 365 et d’Azure AD partagent un nombre important de ressources de répertoire. Seul le centre d’administration Microsoft 365 fournit une vue complète des journaux d’activité d’Microsoft 365. 
 
-Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 en utilisant les [API de gestion Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Vous pouvez également accéder par programme aux journaux d’activité de Microsoft 365 en utilisant les [API de gestion Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

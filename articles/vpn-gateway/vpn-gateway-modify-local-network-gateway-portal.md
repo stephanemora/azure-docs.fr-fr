@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57288d49fdfa193e9ebebe5f2ce4d24327997980
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392474"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983171"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modifier les paramètres de la passerelle du réseau local à l’aide du portail Azure
 
@@ -27,18 +27,63 @@ Avant de supprimer la connexion, vous pouvez télécharger la configuration de v
 >
 >
 
+## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>Configuration de la passerelle de réseau local
+
+La capture d’écran ci-dessous montre la page **Configuration** d’une ressource de passerelle de réseau local utilisant un point de terminaison d’adresse IP publique :
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/ip-address.png" alt-text="Configurer une passerelle de réseau local - Adresse IP":::
+
+Il s’agit de la même page de configuration avec un point de terminaison de nom de domaine complet :
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="Configurer une passerelle de réseau local - Adresse IP":::
+
+## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>Modifier l’adresse IP de la passerelle
+
+Si le périphérique VPN auquel vous souhaitez vous connecter a changé son adresse IP publique, vous devez modifier la passerelle de réseau local pour refléter cette modification.
+
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Dans la zone **Adresse IP**, modifiez l’adresse IP.
+3. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
+
+## <a name="modify-the-gateway-fqdn"></a><a name="fqdn"></a>Modifier le nom de domaine complet de la passerelle
+
+Si le périphérique VPN auquel vous souhaitez vous connecter a changé son nom de domaine complet (FQDN), vous devez modifier la passerelle de réseau local pour refléter cette modification.
+
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Dans la zone **Nom de domaine complet**, modifiez le nom de domaine.
+3. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
+
+> ![REMARQUE] Vous ne pouvez pas modifier une passerelle de réseau local entre un point de terminaison FQDN et un point de terminaison d’adresse IP. Vous devez supprimer toutes les connexions associées à cette passerelle de réseau local, en créer une nouvelle avec le nouveau point de terminaison (adresse IP ou nom de domaine complet), puis recréer les connexions.
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Modifier les préfixes d’adresse IP
 
-Lorsque vous modifiez des préfixes d’adresse IP, la procédure à suivre varie selon que votre passerelle de réseau local dispose d’une connexion.
+### <a name="to-add-additional-address-prefixes"></a>Pour ajouter des préfixes d’adresses :
 
-[!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Ajoutez l’espace d’adressage IP dans la zone *Ajouter une autre plage d’adresses*.
+3. Cliquez sur **Save** pour enregistrer vos paramètres.
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modifier l’adresse IP de la passerelle
+### <a name="to-remove-address-prefixes"></a>Pour supprimer des préfixes d’adresses :
 
-Si le périphérique VPN auquel vous souhaitez vous connecter a changé son adresse IP publique, vous devez modifier la passerelle de réseau local pour refléter cette modification. Lorsque vous modifiez l’adresse IP publique, la procédure à suivre varie selon que votre passerelle de réseau local dispose d’une connexion.
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Cliquez sur **'...'** sur la ligne contenant le préfixe à supprimer.
+3. Cliquez sur **Supprimer**.
+4. Cliquez sur **Save** pour enregistrer vos paramètres.
 
-[!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
+## <a name="modify-bgp-settings"></a><a name="bgp"></a>Modifier les paramètres de BGP
+
+### <a name="to-add-or-update-bgp-settings"></a>Pour ajouter ou mettre à jour les paramètres de BGP :
+
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Sélectionnez **Configurer les paramètres de BGP** pour afficher ou mettre à jour les configurations BGP pour cette passerelle de réseau local
+3. Ajouter ou mettre à jour le numéro de système autonome ou l’adresse IP du pair BGP dans les champs correspondants
+4. Cliquez sur **Save** pour enregistrer vos paramètres.
+
+### <a name="to-remove-bgp-settings"></a>Pour supprimer les paramètres BGP :
+
+1. Sur la ressource de la passerelle de réseau local, dans la section **Paramètres** , cliquez sur **Configuration**.
+2. Désactivez **« Configurer les paramètres de BGP »** pour supprimer l’adresse IP d’ASN BGP et de pair BGP existante
+3. Cliquez sur **Save** pour enregistrer vos paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

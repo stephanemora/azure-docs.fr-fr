@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557511"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651320"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -22,9 +22,9 @@ De nombreuses erreurs sont dues à l’affectation d’un blueprint à une éten
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche et utilisez la zone de recherche pour filtrer les affectations de blueprints afin d’identifier celle qui a échoué. Vous pouvez également trier la table des affectations d’après la colonne **État de l’approvisionnement** pour regrouper toutes les affectations ayant échoué.
 
-1. Cliquez sur le blueprint ayant l’état _Échec_, ou cliquez avec le bouton droit et sélectionnez **Voir les détails de l’affectation**.
+1. Sélectionnez le blueprint ayant l’état _Échec_, ou cliquez avec le bouton droit et sélectionnez **Voir les détails de l’affectation**.
 
-1. Une bannière rouge signalant que l’affectation a échoué figure en haut de la page d’affectation de blueprint. Cliquez n’importe où sur la bannière pour obtenir plus de détails.
+1. Une bannière rouge signalant que l’affectation a échoué figure en haut de la page d’affectation de blueprint. Sélectionnez n’importe où sur la bannière pour obtenir plus de détails.
 
 Il est courant que l’erreur soit due à un artefact et non au blueprint lui-même. Si un artefact crée un coffre de clés, mais que la stratégie Azure empêche la création du coffre de clés, l’affectation entière échoue.
 

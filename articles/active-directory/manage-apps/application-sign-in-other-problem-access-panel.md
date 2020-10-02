@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231178"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707966"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
 
@@ -27,13 +27,13 @@ Pour plus d’informations sur l’utilisation d’Azure AD en tant que fourniss
 Ces applications sont configurées pour le compte de l’utilisateur dans le portail Azure AD. Pour que l’application soit visible dans Mes applications, elle doit être correctement configurée et attribuée à l’utilisateur ou à un groupe dont est membre l’utilisateur. 
 
 Les types d’applications que peut voir l’utilisateur tombent dans les catégories suivantes :
--   Applications Microsoft 365 et Office 365
+-   Applications Microsoft 365
 -   Applications Microsoft et tierces configurées avec l’authentification unique (SSO) basée sur la fédération
 -   Applications à authentification unique (SSO) par mot de passe
 -   Applications avec solutions d’authentification unique (SSO) existantes
 
 Voici quelques éléments à vérifier si une application s’affiche ou non.
-- Assurez-vous que l’application est ajoutée à Azure AD et que l’utilisateur est affecté. Pour en savoir plus, consultez la [série de démarrages rapides sur la gestion des applications](view-applications-portal.md).
+- Assurez-vous que l’application est ajoutée à Azure AD et que l’utilisateur est affecté. Pour en savoir plus, consultez la [série de démarrages rapides sur la gestion des applications](add-application-portal.md).
 - Si une application a été récemment ajoutée, demandez à l’utilisateur de se déconnecter, puis de se reconnecter. 
 - Si l’application nécessite une licence, comme Office, assurez-vous que la licence appropriée est attribuée à l’utilisateur.
 - Le temps nécessaire aux changements de licence peut varier en fonction de la taille et de la complexité du groupe.
@@ -163,7 +163,7 @@ Pour affecter une licence à un utilisateur, procédez comme suit :
 11. Sélectionnez le bouton **Attribuer** pour attribuer ces licences à cet utilisateur.
 
 ## <a name="troubleshooting-deep-links"></a>Résolution des problèmes de liens profonds
-Les liens profonds ou URL d’accès utilisateur sont des liens que vos utilisateurs peuvent utiliser pour accéder à leurs applications à authentification unique par mot de passe directement à partir des barres d’URL de leurs navigateurs. En accédant à ce lien, les utilisateurs sont automatiquement connectés à l’application sans devoir accéder à Mes applications d’abord. Le lien est le même que celui dont les utilisateurs se servent pour accéder à ces applications à partir du lanceur d’applications Office 365.
+Les liens profonds ou URL d’accès utilisateur sont des liens que vos utilisateurs peuvent utiliser pour accéder à leurs applications à authentification unique par mot de passe directement à partir des barres d’URL de leurs navigateurs. En accédant à ce lien, les utilisateurs sont automatiquement connectés à l’application sans devoir accéder à Mes applications d’abord. Le lien est le même que celui dont les utilisateurs se servent pour accéder à ces applications à partir du lanceur d’applications Microsoft 365.
 
 ### <a name="checking-the-deep-link"></a>Vérification du lien profond
 

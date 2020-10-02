@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985521"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -48,7 +48,7 @@ Sauvegarde Azure active la protection des données pour différentes charges de 
 
 ### <a name="management-plane"></a>Plan de gestion
 
-* **Contrôle d’accès** – Le coffre Recovery Services fournit les fonctionnalités de gestion et est accessible par le biais du portail Azure, du SDK, de l’interface CLI et même des API REST. Il s’agit également d’une limite RBAC, qui vous permet de limiter l’accès aux sauvegardes uniquement aux administrateurs de sauvegarde autorisés.
+* **Contrôle d’accès** : Les coffres (Recovery Services et coffres de sauvegarde) fournissent les fonctionnalités de gestion et sont accessibles via le Portail Azure, le Centre de sauvegarde, les tableaux de bord du coffre, le kit de développement logiciel (SDK), l’interface CLI et même les API REST. Il s’agit également d’une limite RBAC, qui vous permet de limiter l’accès aux sauvegardes uniquement aux administrateurs de sauvegarde autorisés.
 
 * **Gestion des stratégies** – Les stratégies de sauvegarde Azure dans chaque coffre définissent le moment où les sauvegardes doivent être déclenchées et la durée pendant laquelle elles doivent être conservées. Vous pouvez également gérer ces stratégies et les appliquer à plusieurs éléments.
 
@@ -58,7 +58,7 @@ Sauvegarde Azure active la protection des données pour différentes charges de 
 
 ## <a name="vault-considerations"></a>Considérations sur le coffre
 
-Sauvegarde Azure utilise les coffres Recovery Services pour orchestrer et gérer les sauvegardes. Elle utilise également ces coffres pour stocker les données sauvegardées. Une conception efficace des abonnements aide les organisations à établir une structure pour organiser et gérer les ressources dans Azure pour soutenir les priorités de l’entreprise. Respectez les consignes suivantes lorsque vous créez un coffre :  
+Sauvegarde Azure utilise des coffres (Recovery Services et Sauvegarde) pour orchestrer et gérer les sauvegardes. Elle utilise également ces coffres pour stocker les données sauvegardées. Une conception efficace des abonnements aide les organisations à établir une structure pour organiser et gérer les ressources dans Azure pour soutenir les priorités de l’entreprise. Respectez les consignes suivantes lorsque vous créez un coffre :  
 
 ### <a name="align-to-subscription-design-strategy"></a>Aligner sur la stratégie de conception d’abonnement
 
@@ -71,7 +71,8 @@ Vous pouvez utiliser un coffre unique ou plusieurs coffres pour organiser et gé
 * Si vos charges de travail sont toutes gérées par un seul abonnement et une seule ressource, vous pouvez utiliser un coffre unique pour surveiller et gérer votre espace de sauvegarde.
 
 * Si vos charges de travail sont réparties entre les abonnements, vous pouvez créer plusieurs coffres, un ou plusieurs par abonnement.
-  * Pour simplifier l’analyse des activités opérationnelles sur l’ensemble des coffres, abonnements et locataires, vous pouvez utiliser l’Explorateur de sauvegarde et les rapports. [Pour plus d’informations, consultez](monitor-azure-backup-with-backup-explorer.md) pour obtenir une vue agrégée.
+  * Le Centre de sauvegarde vous permet de disposer d’un seul volet pour gérer toutes les tâches liées à la sauvegarde. [En savoir plus ici]().
+  * Vous pouvez personnaliser vos vues avec des modèles de classeur. L’Explorateur de sauvegarde est un modèle de ce type pour les machines virtuelles Azure. [En savoir plus ici](monitor-azure-backup-with-backup-explorer.md).
   * Si vous avez besoin d’une stratégie cohérente dans les coffres, vous pouvez utiliser une stratégie Azure pour propager la stratégie de sauvegarde dans plusieurs coffres. Vous pouvez écrire une [définition de stratégie Azure](../governance/policy/concepts/definition-structure.md) personnalisée qui utilise l’effet [« deployifnotexists »](../governance/policy/concepts/effects.md#deployifnotexists) pour propager une stratégie de sauvegarde dans plusieurs coffres. Vous pouvez [attribuer](../governance/policy/assign-policy-portal.md) cette définition Azure Policy à un domaine particulier (abonnement ou RG), de sorte qu’elle déploie une ressource de « politique de sauvegarde » dans tous les coffres Recovery services dans le cadre de l’attribution Azure Policy. Les paramètres de la stratégie de sauvegarde (par exemple, la fréquence de sauvegarde, la rétention, etc.) doivent être spécifiés par l’utilisateur en tant que paramètres dans l’affectation de la stratégie Azure.
 
 * À mesure que l’encombrement de votre organisation augmente, vous souhaiterez peut-être déplacer les charges de travail entre les abonnements pour les raisons suivantes : aligner par stratégie de sauvegarde, consolider les coffres,compromis sur une redondance moindre pour économiser sur les coûts (passage de GRS à LRS).  Sauvegarde Azure permet de déplacer un coffre de Recovery Services entre les abonnements Azure, ou vers un autre groupe de ressources au sein du même abonnement. [En savoir plus ici](backup-azure-move-recovery-services-vault.md).

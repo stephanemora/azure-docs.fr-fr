@@ -3,12 +3,12 @@ title: Sauvegarder des ordinateurs Windows en utilisant l’agent MARS
 description: Utilisez l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des ordinateurs Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182086"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052220"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Sauvegarder les fichiers et dossiers de Windows Server sur Azure
 
@@ -125,7 +125,7 @@ Pour activer la limitation de bande passante :
 1. Sous l’onglet **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**.
 
     ![Configurer la limitation de bande passante pour les opérations de sauvegarde](./media/backup-configure-vault/throttling-dialog.png)
-1. Spécifiez la bande passante autorisée pendant et en dehors des heures de travail. Les valeurs de bande passante s'échelonnent de 512 Kbits/s à 1 023 Mbits/s. Sélectionnez ensuite **OK**.
+1. Spécifiez la bande passante autorisée pendant et en dehors des heures de travail. Les valeurs de bande passante s'échelonnent de 512 kbit/s à 1 023 Mbit/s. Sélectionnez ensuite **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 

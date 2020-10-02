@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294388"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531387"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement 
 
@@ -43,7 +43,7 @@ Pour déprovisionner un appareil inscrit individuellement :
 
 
 ## <a name="enrollment-groups"></a>Groupes d’inscription
-Avec l’attestation X.509, les appareils peuvent également être provisionnés par le biais d’un groupe d’inscription. Les groupes d’inscription sont configurés avec un certificat de signature (certificat intermédiaire ou certificat d’autorité de certification racine) et ils contrôlent l’accès au service de provisionnement pour les appareils dont la chaîne de certificats contient ce certificat. Pour en savoir plus sur les groupes d’inscription et les certificats X.509 avec le service de provisionnement, consultez [Certificats X.509](concepts-security.md#x509-certificates). 
+Avec l’attestation X.509, les appareils peuvent également être provisionnés par le biais d’un groupe d’inscription. Les groupes d’inscription sont configurés avec un certificat de signature (certificat intermédiaire ou certificat d’autorité de certification racine) et ils contrôlent l’accès au service de provisionnement pour les appareils dont la chaîne de certificats contient ce certificat. Pour en savoir plus sur les groupes d’inscription et les certificats X.509 avec le service de provisionnement, consultez [Attestation de certificat X.509](concepts-x509-attestation.md). 
 
 Pour voir la liste des appareils qui ont été provisionnés par le biais d’un groupe d’inscription, vous pouvez afficher les détails du groupe d’inscription. C’est une manière simple de savoir dans quel hub IoT chaque appareil a été provisionné. Pour afficher la liste des appareils 
 

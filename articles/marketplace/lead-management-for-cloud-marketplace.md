@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606888"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032705"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gestion des prospects pour le marketplace commercial
 
 Les clients sont au centre de toute entreprise prospère. Dans la transformation actuelle de l’acquisition des produits, les responsables marketing doivent s’attacher à établir un lien direct avec les clients et à nouer une relation. C’est pourquoi la génération de prospects de haute qualité est un outil essentiel pour votre cycle de vente. Une fois votre offre publiée dans l'[Espace partenaires](https://partner.microsoft.com/), des outils vous permettent de recevoir systématiquement les informations de contact des clients qui manifestent leur l’intérêt pour votre produit ou qui le déploient sur la Place de marché. 
 
-## <a name="what-are-leads-in-the-marketplace"></a>Que sont les prospects sur la Place de marché ?
+## <a name="what-are-leads-in-the-commercial-marketplace"></a>Que sont les prospects dans la Place de marché commerciale ?
 
-Les prospects comptent parmi les clients qui sont intéressés par vos produits ou qui les déploient à partir de la Place de marché. Que votre produit soit publié sur la Place de marché Azure ou sur AppSource, vous pouvez recevoir les prospects une fois qu’il est correctement configuré entre votre système CRM et vos référencements dans l'Espace partenaires. 
+Les prospects comptent parmi les clients qui sont intéressés par vos produits ou qui les déploient à partir de la Place de marché commerciale. Une fois que vous avez connecté votre CRM à votre annonce dans l’espace partenaires, vous pouvez recevoir des prospects de la Place de marché Azure et des clients AppSource.
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Comment connecter votre système CRM à l'Espace partenaires
 
-Pour vous permettre de commencer à obtenir des prospects, le connecteur Gestion des prospects de l'Espace partenaires a été conçu pour se connecter facilement à plusieurs systèmes CRM disponibles à partir de vos informations CRM. Vous pouvez désormais exploiter facilement les prospects générés par la Place de marché, sans avoir à consentir de lourds efforts d’ingénierie pour opérer l’intégration avec un système externe.
+Le connecteur Gestion des prospects de l'Espace partenaires a été conçu pour se connecter facilement à plusieurs systèmes CRM disponibles à partir de vos informations CRM. Vous pouvez désormais exploiter facilement les prospects générés par la Place de marché, sans avoir à consentir de lourds efforts d’ingénierie pour opérer l’intégration avec un système externe.
 
 Voici les instructions pas à pas pour vous connecter à chacune des destinations de prospects possibles :
 
@@ -38,17 +38,17 @@ Voici les instructions pas à pas pour vous connecter à chacune des destination
 
 **Point de terminaison HTTPS** - Consultez [Configurer la gestion des prospects à l’aide d’un point de terminaison HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) pour savoir comment configurer votre point de terminaison HTTPS afin d'obtenir des prospects.
 
-Une fois que vous avez correctement configuré votre destination de prospect et que vous avez publié votre offre, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. Il est important de s’assurer que vos paramètres de prospects restent à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois qu’une modification intervient de votre côté.
+Une fois que vous avez correctement configuré votre destination de prospect et que vous avez demandé à publier votre offre, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. Il est important de s’assurer que vos paramètres de prospects restent à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois qu’une modification intervient de votre côté.
 
 ### <a name="what-are-the-next-steps"></a>Quelles sont les étapes suivantes ?
 
-Une fois les paramètres techniques configurés, vous devez incorporer ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous communiquer vos commentaires et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché.
+Une fois les paramètres techniques configurés, vous devez incorporer ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous communiquer vos commentaires et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché commerciale.
 
 ## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Erreurs courantes de configuration des prospects au moment de publier dans l’Espace partenaires
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. Vérifiez les paramètres de compte Dynamics CRM. LastCRMError : Impossible de se connecter à Dynamics CRM, LastCRMException :** 
 
-> Si l’authentification O365 a été sélectionnée, vérifiez la validité du compte d’utilisateur et du mot de passe. Si AAD a été sélectionné, vérifiez que l’ID de locataire, l’ID d’application et la clé secrète de l’application correspondent à ce qui a été configuré dans AAD. Suivez les instructions [ici](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Si le nom d’utilisateur/mot de passe du compte est valide, vérifiez que celui-ci a accès à Dynamics 365 et qu’une licence lui est attribuée (étapes 11 à 15 si vous utilisez Azure Active Directory ou les paramètres de sécurité si vous utilisez un utilisateur Office). 
+> Si l’authentification Microsoft 365 a été sélectionnée, vérifiez la validité du compte d’utilisateur et du mot de passe. Si Azure Active Directory a été sélectionné, vérifiez que l’ID de locataire, l’ID d’application et la clé secrète de l’application correspondent à ce qui a été configuré dans Azure Active Directory. Suivez les instructions [ici](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Si le nom d’utilisateur/mot de passe du compte est valide, vérifiez que celui-ci a accès à Dynamics 365 et qu’une licence lui est attribuée (étapes 11 à 15 si vous utilisez Azure Active Directory ou les paramètres de sécurité si vous utilisez un utilisateur Office). 
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. L’utilisateur ne dispose pas d’autorisations de création pour l’attribut leadsourcecode dans l’entité prospect** 
 
@@ -56,7 +56,7 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Locataire introuvable. Cette instance peut se produire s’il n’existe aucun abonnement actif pour le locataire.**  
 
-> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory, à partir d’[ici](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> L’ID de répertoire fourni dans la section de gestion des prospects n’est pas un répertoire valide. Procurez-vous l’ID de répertoire en suivant les instructions fournies à l’étape 2 (sous Azure Active Directory) [ici](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : SecLib::RetrievePrivilegeForUser en échec - aucun rôle attribué à l’utilisateur.**  
 
@@ -76,7 +76,7 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : Le canal de demande a dépassé le délai de réponse après 00:02:00. Augmentez la valeur de délai d’attente passée à l’appel de Request ou augmentez la valeur de SendTimeout de la liaison. Le temps alloué à cette opération fait peut-être partie d’un délai d’attente plus long.**  
 
-> Résolution : Connectez-vous à l'Espace partenaires, puis dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez qu’il s’agit d’une instance Dynamics CRM valide.
+> Résolution : Connectez-vous à l'Espace partenaires, puis dans Configuration de l’offre >> Prospects >> URL, vérifiez qu’il s’agit d’une instance Dynamics CRM valide.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

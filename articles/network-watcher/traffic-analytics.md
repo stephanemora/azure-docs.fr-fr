@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967509"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -339,7 +339,7 @@ Distribution du trafic par passerelle d’application et équilibreur de charge,
  - Identification du sous-réseau qui communique avec la passerelle d’application ou l’équilibreur de charge. Si vous remarquez des conversations inattendues, vous pouvez corriger la configuration.
  - Si des réseaux non autorisés communiquent avec une passerelle d’application ou un équilibreur de charge, vous pouvez résoudre le problème en configurant des règles de Groupe de sécurité réseau pour bloquer les réseaux non autorisés. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Capture d’écran montrant une topologie de sous-réseau avec distribution du trafic vers un sous-réseau Application Gateway pour les flux.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Afficher les ports et les machines virtuelles recevant le trafic d’Internet
 

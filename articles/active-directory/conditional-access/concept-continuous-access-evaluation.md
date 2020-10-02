@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e4cf561ced97acfee0953dcc667bbb500f293c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394226"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601756"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -48,26 +48,26 @@ L’évaluation continue de l’accès est implémentée en permettant à des se
 - Un administrateur révoque explicitement tous les jetons d’actualisation d’un utilisateur
 - Risque utilisateur élevé détecté par Azure AD Identity Protection
 
-Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes O365 quelques minutes après la survenance de l’un de ces événements critiques. 
+Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Évaluation de la stratégie d’accès conditionnel (préversion)
 
 Exchange et SharePoint sont en mesure de synchroniser des stratégies d’accès conditionnel clés afin qu’elles puissent être évaluées dans le service lui-même.
 
-Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches de l’organisation à partir d’applications clientes O365 ou de SharePoint Online immédiatement après des changements d’emplacement réseau.
+Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches de l’organisation à partir d’applications clientes Microsoft 365 ou de SharePoint Online immédiatement après des changements d’emplacement réseau.
 
 > [!NOTE]
 > Les combinaisons de fournisseurs d’applications et de ressources ne sont pas toutes prises en charge. Consultez le tableau ci-dessous. Office fait référence à Word, Excel et PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Prise en charge | Prise en charge | Non pris en charge | Non pris en charge | Prise en charge |
-| Exchange Online | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Prise en charge | Non pris en charge | Non pris en charge | Prise en charge |
+| **Exchange Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
 | | Applications web Office | Applications Win32 Office | Office pour iOS | Office pour Android | Office pour Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
-| Exchange Online | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
+| **Exchange Online** | Prise en charge | Prise en charge | Non pris en charge | Prise en charge | Prise en charge |
 
 ### <a name="client-side-claim-challenge"></a>Contestation de revendication côté client
 

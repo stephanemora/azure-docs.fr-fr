@@ -4,14 +4,13 @@ description: Découvrez comment déployer des conteneurs dans Azure Container In
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927434"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657000"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -31,6 +30,9 @@ Azure Container Registry offre des [options d’authentification](../container-r
 
 > [!NOTE]
 > Vous ne pouvez pas vous authentifier auprès d’Azure Container Registry pour extraire des images pendant le déploiement d’un groupe de conteneurs à l’aide d’une [identité managée](container-instances-managed-identity.md) configurée dans le même groupe de conteneurs.
+
+> [!NOTE]
+> Vous ne pouvez pas extraire des images [Azure Container Registry](../container-registry/container-registry-vnet.md) déployées dans un réseau virtuel Azure à ce stade.
 
 Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre. 
 

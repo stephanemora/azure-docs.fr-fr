@@ -2,18 +2,18 @@
 title: Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure avec Azure Site Recovery
 description: Fournit une vue d’ensemble de la mise en réseau en vue d’une réplication des machines virtuelles Azure avec Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
-ms.author: sutalasi
-ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131387"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527375"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -35,7 +35,7 @@ Si vous utilisez Azure ExpressRoute ou une connexion VPN de votre réseau local 
 
 ![environnement client](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Les réseaux sont généralement protégés à l’aide de pare-feu et de groupes de sécurité réseau. Les pare-feu se servent d’une liste verte basée sur l’adresse IP ou l’URL pour contrôler la connectivité réseau. Les groupes de sécurité réseau appliquent des règles qui utilise les plages d’adresses IP pour contrôler la connectivité réseau.
+Les réseaux sont généralement protégés à l’aide de pare-feu et de groupes de sécurité réseau. Les balises de service doivent être utilisées pour contrôler la connectivité réseau. Les groupes de sécurité réseau doivent autoriser plusieurs balises de service à contrôler la connectivité sortante.
 
 >[!IMPORTANT]
 > L’utilisation d’un proxy authentifié pour contrôler la connectivité réseau n’est pas pris en charge par Site Recovery, et la réplication ne peut pas être activée.
@@ -45,6 +45,8 @@ Les réseaux sont généralement protégés à l’aide de pare-feu et de groupe
 
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez ces URL Site Recovery :
 
+>[!NOTE]
+> La mise en liste verte basée sur l’adresse IP ne doit pas être exécutée pour contrôler la connectivité sortante.
 
 **URL** | **Détails**
 --- | ---

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3d46df8847a5865c42438ea36245ead0f1e6e528
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950829"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088797"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -67,7 +67,7 @@ Pour créer une métrique qui suit des demandes effectuées avec clé partagée 
 
 Une fois que vous avez configuré la métrique, les demandes adressées à votre compte de stockage commencent à s’afficher sur le graphique. L’illustration suivante montre les demandes autorisées avec une clé partagée ou effectuées avec un jeton SAP. Les demandes sont agrégées par jour au cours des 30 derniers jours.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Capture d’écran montrant les demandes agrégées autorisées avec une clé partagée":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
 Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes autorisées avec une clé partagée sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 1. Sous **Détails de la catégorie**, dans la section du **journal**, choisissez **StorageRead**, **StorageWrite**et **StorageDelete** pour journaliser toutes les demandes de données adressées au service sélectionné.
 1. Sous **Détails de la destination**, sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment créer un paramètre de diagnostic pour la journalisation des demandes":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
 Vous pouvez créer un paramètre de diagnostic pour chaque type de ressource Stockage Azure dans votre compte de stockage.
 
@@ -133,7 +133,7 @@ Pour désactiver l’autorisation avec clé partagée pour un compte de stockage
 1. Localisez le paramètre **Configuration** sous **Paramètres**.
 1. Définissez **Autoriser l’accès avec clé partagée** sur **Désactivé**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Capture d’écran montrant comment désactiver l’accès avec clé partagée pour un compte":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -213,10 +213,10 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 
 | Outil Azure | Autorisation Azure AD pour l’accès au service Stockage Azure |
 |-|-|
-| Portail Azure | Pris en charge. Pour plus d’informations sur l’autorisation avec votre compte Azure AD à partir du portail Azure, consultez [Choisir comment autoriser l’accès à des données de blob ou de file d’attente dans le portail Azure](storage-access-blobs-queues-portal.md). |
+| Portail Azure | Pris en charge. Pour plus d’informations sur l’autorisation avec votre compte Azure AD à partir du portail Azure, consultez [Choisir comment autoriser l’accès à des données de blob dans le portail Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Opération prise en charge pour le stockage blob. Pour plus d’informations sur l’autorisation des opérations AzCopy, consultez [Choisir comment vous allez fournir des informations d’identification d’autorisation](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) dans la documentation AzCopy. |
 | Explorateur de stockage Azure | Pris en charge uniquement pour le stockage Slob et Azure Data Lake Storage Gen2. L’accès Azure AD au stockage de file d’attente n’est pas pris en charge. Veillez à sélectionner le locataires Azure AD approprié. Pour plus d’informations, consultez [Prise en main de l’Explorateur Stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure). |
-| Azure PowerShell | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes PowerShell avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Pris en charge. Pour plus d’informations sur l’autorisation des commandes PowerShell pour les opérations d’objet blob ou de file d’attente avec Azure AD, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-active-directory-powershell.md) ou [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données de la file d’attente](../queues/authorize-active-directory-powershell.md). |
 | Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |

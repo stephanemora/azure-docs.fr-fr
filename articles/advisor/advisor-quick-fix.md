@@ -4,12 +4,12 @@ description: Effectuer une correction en bloc à l’aide d’un correctif rapid
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518060"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968587"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Application d’un correctif rapide pour Advisor
 Un **correctif rapide** offre un moyen plus rapide et plus facile de corriger les recommandations dans plusieurs ressources. Il permet d’apporter des corrections en bloc aux ressources et d’optimiser vos abonnements plus rapidement grâce à une correction à grande échelle.
@@ -20,13 +20,13 @@ Cette fonctionnalité est disponible uniquement pour certaines recommandations d
 
 1. Dans la liste des recommandations portant l’étiquette **Correctif rapide**, cliquez sur la recommandation.
 
-   ![Correctif rapide Advisor](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Capture d’écran d’Azure Advisor montrant des étiquettes Correctif rapide dans les recommandations.}":::
    
    *Les prix indiqués dans l’image sont fournis uniquement à titre d’exemple*
 
 2. Dans la page Détails de la recommandation, vous verrez la liste des ressources pour lesquelles vous avez cette recommandation. Sélectionnez toutes les ressources que vous souhaitez corriger.
 
-   ![Correctif rapide Advisor](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="{Capture d’écran d’Azure Advisor montrant des étiquettes Correctif rapide dans les recommandations.}":::
    
    *Les prix indiqués dans l’image sont fournis uniquement à titre d’exemple*
 

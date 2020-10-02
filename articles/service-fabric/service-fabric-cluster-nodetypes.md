@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261109"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561888"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 
@@ -32,7 +32,7 @@ Quand vous effectuez un scale-out d’un groupe identique, une nouvelle instance
 
 Si vous avez déployé votre cluster dans le portail Azure ou si vous avez utilisé l’exemple de modèle Azure Resource Manager, toutes les ressources d’un groupe de ressources sont répertoriées. Vous pouvez voir les équilibreurs de charge de chaque groupe identique ou type de nœud. Le nom d’un équilibreur de charge utilise le format suivant : **LB-&lt;nom du type de nœud&gt;** . La figure suivante en propose un exemple (LB-sfcluster4doc-0) :
 
-![Ressources][Resources]
+![Capture d’écran montrant un groupe de ressources avec deux équilibreurs de charge mis en surbrillance.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Extension de machine virtuelle Service Fabric
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986369"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Créer une ressource ExpressRoute Direct à l’aide du portail Azure
 
@@ -47,7 +47,7 @@ Vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré
 
 1. Ensuite, renseignez les champs de la page **Configuration**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Page Configuration":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Page De base":::
 
     * **Emplacement du peering** : emplacement du peering où vous allez vous connecter à la ressource ExpressRoute Direct. Pour plus d’informations sur les emplacements de peering, consultez [Emplacements ExpressRoute](expressroute-locations-providers.md).
    * **Bande passante** : bande passante de paire de ports que vous voulez réserver. ExpressRoute Direct prend en charge les deux options de bande passante de 10 Go et de 100 Go. Si la bande passante souhaitée n’est pas disponible à l’emplacement de peering spécifié, [ouvrez une demande de support dans le portail Azure](https://aka.ms/azsupt).
@@ -61,7 +61,7 @@ Vérifiez que le fournisseur de ressources **Microsoft.Network** est enregistré
 
 1. Spécifiez des étiquettes de ressource, puis sélectionnez **Vérifier + créer** pour valider les paramètres de ressource ExpressRoute Direct.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Vérifier et créer":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Page De base":::
 
 1. Sélectionnez **Create** (Créer). Un message vous informe que votre déploiement est en cours. L’état s’affiche sur cette page à mesure que les ressources sont créées. 
 
@@ -71,11 +71,11 @@ Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’a
 
 1. Dans la page **Vue d’ensemble** des ressources ExpressRoute Direct, dans la section **Liens**, sélectionnez **link1**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Lien 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Page De base" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Basculez le paramètre **État d’administration** sur **Activé**, puis sélectionnez **Enregistrer**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="État d’administration":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Page De base":::
 
     >[!IMPORTANT]
     >La facturation commence quand l’état d’administration est activé sur l’un des liens.
@@ -97,15 +97,15 @@ Les étapes suivantes vous permettent de créer un circuit ExpressRoute à parti
 
 1. Dans la section **Paramètres** d’ExpressRoute Direct, sélectionnez **Circuits**, puis **+Ajouter**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Ajouter" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Page De base" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Configurez les paramètres de la page **Configuration**.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Page Configuration":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Page De base":::
 
 1. Spécifiez des étiquettes de ressource, puis sélectionnez **Vérifier + créer** afin de valider les valeurs avant de créer la ressource.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Vérifier et créer":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Page De base":::
 
 1. Sélectionnez **Create** (Créer). Un message vous informe que votre déploiement est en cours. L’état s’affiche sur cette page à mesure que les ressources sont créées. 
 

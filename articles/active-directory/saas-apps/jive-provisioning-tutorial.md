@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fec959ee34f9491b6510390d4b390e652690897e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547084"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983122"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutoriel : Configurer Jive pour l’approvisionnement automatique d’utilisateurs
 
@@ -63,7 +63,7 @@ Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à 
 
 1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
-    ![approvisionnement](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran montrant la page d’approvisionnement Jive, avec le Mode d’approvisionnement défini sur Automatique et d’autres valeurs que vous pouvez définir.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    

@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018125"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970232"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -107,7 +107,7 @@ Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
 
-L’option de réplication du stockage du coffre Recovery Services vous permet de choisir entre un stockage géoredondant et un stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez un stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md) et [localement redondant](../storage/common/storage-redundancy.md), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
+L’option de réplication du stockage du coffre Recovery Services vous permet de choisir entre un stockage géoredondant et un stockage localement redondant. Par défaut, les coffres Recovery Services utilisent le stockage géoredondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez un stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/common/storage-redundancy.md#geo-redundant-storage), [localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et [redondant interzone](../storage/common/storage-redundancy.md#zone-redundant-storage), consultez l’article [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour modifier le paramètre de réplication du stockage :
 
@@ -243,7 +243,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
     ![Indiquer un emplacement d’installation des fichiers](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. Dans l’écran **Paramètres de sécurité**, fournissez un mot de passe fort pour les comptes utilisateur locaux restreints, puis sélectionnez **Suivant**.
 

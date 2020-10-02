@@ -3,12 +3,13 @@ title: Options de mise en réseau d’Azure Functions
 description: Vue d’ensemble de toutes les options de mise en réseau disponibles dans Azure Functions.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385940"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530084"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -86,7 +87,7 @@ Vous pouvez utiliser des fonctions de déclencheur non-HTTP à partir d’un ré
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium avec déclencheurs de réseau virtuel
 
-En cas d’exécution dans un plan Premium, vous pouvez connecter des fonctions de déclencheur non-HTTP à des services s’exécutant au sein d’un réseau virtuel. Pour ce faire, vous devez activer la prise en charge des déclencheurs de réseau virtuel pour votre application de fonction. Le paramètre de **prise en charge des déclencheurs de réseau virtuel** se trouve dans le [portail Azure](https://portal.azure.com), sous **Configuration** > **Paramètres d’exécution de la fonction**.
+En cas d’exécution dans un plan Premium, vous pouvez connecter des fonctions de déclencheur non-HTTP à des services s’exécutant au sein d’un réseau virtuel. Pour ce faire, vous devez activer la prise en charge des déclencheurs de réseau virtuel pour votre application de fonction. Le paramètre de **Surveillance d’échelle en temps réel** se trouve dans le [portail Azure](https://portal.azure.com), sous **Configuration** > **Paramètres d’exécution de la fonction**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

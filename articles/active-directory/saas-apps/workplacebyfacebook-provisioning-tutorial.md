@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973877"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -89,7 +89,7 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
 5. Sous la section **Informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Vous serez redirigé vers la page d’autorisation de Workplace by Facebook. Entrez le nom d’utilisateur Workplace by Facebook, puis cliquez sur le bouton **Continuer**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Workplace by Facebook. Si la connexion échoue, vérifiez que votre compte Workplace by Facebook dispose des autorisations d’administrateur et réessayez.
 
-    ![approvisionnement](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur avec une option Autoriser.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![autoriser](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
@@ -125,8 +125,16 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extension:facebook:auth_method:1.0:auth_method|Chaîne|
+   |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Boolean|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Entier|
+
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 ## <a name="troubleshooting-tips"></a>Conseils de dépannage
 *  Si la création d’un utilisateur n’aboutit pas et qu’il existe un événement de journal d’audit doté du code « 1789003 », cela signifie que l’utilisateur provient d’un domaine non vérifié.
+
+## <a name="change-log"></a>Journal des modifications
+
+* 09/10/2020 : ajout de la prise en charge des attributs d’entreprise « division », « organization », « costCenter » et « employeeNumber ». Ajout de la prise en charge des attributs personnalisés « startDate », « auth_method » et « frontline »
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

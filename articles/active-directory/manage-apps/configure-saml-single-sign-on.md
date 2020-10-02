@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640478"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605139"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurer l’authentification unique SAML
 
@@ -27,7 +27,7 @@ Avec la [série de guides de démarrage rapide](view-applications-portal.md) sur
 
 L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la configuration de l’authentification unique peuvent être simples ou complexes selon l’application utilisée. Certaines applications peuvent être configurées avec quelques actions seulement. D’autres nécessitent une configuration approfondie. Pour être efficace rapidement, suivez la [série de guides de démarrage rapide](view-applications-portal.md) sur la gestion des applications. Si l’application que vous ajoutez est simple, vous n’avez probablement pas besoin de lire cet article. Si l’application que vous ajoutez demande une configuration personnalisée pour l’authentification unique SAML, cet article vous concerne.
 
-La [série de guides de démarrage rapide](view-applications-portal.md) inclut un article sur la configuration de l’authentification unique. Il vous explique comment accéder à la page de configuration SAML pour une application. La page de configuration SAML comprend cinq sections, qui sont traitées en détail dans cet article.
+La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) inclut un article sur la configuration de l’authentification unique. Il vous explique comment accéder à la page de configuration SAML pour une application. La page de configuration SAML comprend cinq sections, qui sont traitées en détail dans cet article.
 
 > [!IMPORTANT] 
 > Dans certains cas, l’option **Authentification unique** n’est pas disponible pour une application sous **Applications d’entreprise**. 
@@ -42,23 +42,22 @@ La [série de guides de démarrage rapide](view-applications-portal.md) inclut u
 Les valeurs doivent vous être communiquées par le fournisseur de l’application. Vous pouvez entrer manuellement les valeurs ou charger un fichier de métadonnées pour extraire la valeur des champs.
 
 > [!TIP]
-> De nombreuses applications ont déjà été préconfigurées pour fonctionner avec Azure AD. Ces applications sont listées dans la galerie d’applications que vous pouvez parcourir quand vous ajoutez une application à votre locataire Azure AD. La [série de guides de démarrage rapide](view-applications-portal.md) vous guide tout au long du processus. Vous trouverez des procédures d’installation détaillées pour les applications de la galerie. Pour accéder aux étapes, vous pouvez cliquer sur le lien de la page de configuration SAML pour l’application comme décrit dans la série de guides de démarrage rapide. Vous pouvez également parcourir une liste complète des tutoriels de configuration d’application en consultant les [tutoriels relatifs à la configuration des applications SaaS](../saas-apps/tutorial-list.md).
+> De nombreuses applications ont déjà été préconfigurées pour fonctionner avec Azure AD. Ces applications sont listées dans la galerie d’applications que vous pouvez parcourir quand vous ajoutez une application à votre locataire Azure AD. La [série de guides de démarrage rapide](add-application-portal-setup-sso.md) vous guide tout au long du processus. Vous trouverez des procédures d’installation détaillées pour les applications de la galerie. Pour accéder aux étapes, vous pouvez cliquer sur le lien de la page de configuration SAML pour l’application comme décrit dans la série de guides de démarrage rapide. Vous pouvez également parcourir une liste complète des tutoriels de configuration d’application en consultant les [tutoriels relatifs à la configuration des applications SaaS](../saas-apps/tutorial-list.md).
 
 | Paramètre de la configuration SAML de base | Initiée par le fournisseur de service | Initiée par le fournisseur d’identité | Description |
 |:--|:--|:--|:--|
 | **Identificateur (ID d'entité)** | Requis pour certaines applications | Requis pour certaines applications | Identifie l’application de manière unique. Azure AD envoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML. L’application est censée le valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application. Entrez une URL dont le modèle est le suivant : « https://<subdomain>.contoso.com ». *Cette valeur correspond à l’élément **Émetteur** dans la demande SAML **AuthnRequest** envoyée par l’application.* |
 | **URL de réponse** | Obligatoire | Obligatoire | Spécifie l’adresse à laquelle l’application s’attend à recevoir le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). Vous pouvez utiliser les champs URL de réponse supplémentaires pour spécifier plusieurs URL de réponse. Par exemple, vous pourriez avoir besoin d'URL de réponse supplémentaires pour plusieurs sous-domaines. Ou, à des fins de test, vous pouvez spécifier simultanément plusieurs URL de réponse (hôte local et URL publiques). |
-| **URL d’authentification** | Obligatoire | Ne pas spécifier | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou de Mes applications Azure AD. Quand elle est vide, Azure AD effectue une authentification initiée par le fournisseur d’identité quand un utilisateur lance l’application à partir d’Office 365, de Mes applications Azure AD ou de l’URL d’authentification unique Azure AD.|
+| **URL d’authentification** | Obligatoire | Ne pas spécifier | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir de Microsoft 365 ou de Mes applications Azure AD. Quand elle est vide, Azure AD effectue une authentification initiée par le fournisseur d’identité quand un utilisateur lance l’application à partir de Microsoft 365, de Mes applications Azure AD ou de l’URL d’authentification unique Azure AD.|
 | **État de relais** | Facultatif | Facultatif | Indique à l’application où rediriger l’utilisateur une fois l’authentification terminée. En règle générale, la valeur est une URL valide pour l’application. Toutefois, certaines applications utilisent ce champ différemment. Pour plus d’informations, consultez le fournisseur de l’application.
 | **URL de déconnexion** | Facultatif | Facultatif | Utilisé pour renvoyer les réponses de déconnexion SAML à l’application.
-
 
 ## <a name="user-attributes-and-claims"></a>Attributs utilisateur et revendications 
 
 Lorsqu’un utilisateur s’authentifie auprès de l’application, Azure AD émet pour l’application un jeton SAML contenant des informations (ou des revendications) sur l’utilisateur qui l’identifient de façon unique. Par défaut, ces informations incluent le nom d’utilisateur, son adresse e-mail, son prénom et son nom. Vous devrez peut-être personnaliser ces revendications si, par exemple, l'application nécessite des valeurs de revendications spécifiques ou un format **Nom** autre que le nom d'utilisateur. 
 
 > [!IMPORTANT]
-> De nombreuses applications sont déjà préconfigurées dans la galerie d’applications, et vous n’avez pas à vous soucier de la définition des revendications d’utilisateur et de groupe. La [série de guides de démarrage rapide](view-applications-portal.md) vous explique les procédures d’ajout et de configuration d’applications.
+> De nombreuses applications sont déjà préconfigurées dans la galerie d’applications, et vous n’avez pas à vous soucier de la définition des revendications d’utilisateur et de groupe. La [série de guides de démarrage rapide](add-application-portal.md) vous explique les procédures d’ajout et de configuration d’applications.
 
 
 La valeur **Identificateur unique de l’utilisateur (ID de nom)** est importante. Il s’agit d’une revendication requise. La valeur par défaut est *user.userprincipalname*. L’identificateur d’utilisateur identifie de façon unique chaque utilisateur au sein de l’application. Par exemple, si l’adresse e-mail est le nom d’utilisateur et l’identificateur unique, définissez la valeur sur *user.mail*.
@@ -80,7 +79,7 @@ Vous pouvez ajouter de nouvelles revendications. Pour plus d’informations à c
 Azure AD utilise un certificat pour signer les jetons SAML qu’il envoie à l’application. Vous aurez besoin de ce certificat pour configurer l’approbation entre Azure AD et l’application. Pour plus d’informations sur le format du certificat, consultez la documentation SAML de l’application. Pour plus d’informations, consultez [Gérer des certificats pour l’authentification unique fédérée](manage-certificates-for-federated-single-sign-on.md) et [Options avancées de signature de certificats dans le jeton SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> De nombreuses applications sont déjà préconfigurées dans la galerie d’applications, et vous n’avez pas à vous soucier des certificats. La [série de guides de démarrage rapide](view-applications-portal.md) vous explique les procédures d’ajout et de configuration d’applications.
+> De nombreuses applications sont déjà préconfigurées dans la galerie d’applications, et vous n’avez pas à vous soucier des certificats. La [série de guides de démarrage rapide](add-application-portal.md) vous explique les procédures d’ajout et de configuration d’applications.
 
 Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 ou Raw directement à partir de la page principale **Configurer l’authentification unique avec SAML**. Vous pouvez également le récupérer en téléchargeant le fichier XML de métadonnées de l’application ou en utilisant l’URL des métadonnées de fédération de l’application. Pour afficher, créer ou télécharger vos certificats (actifs ou inactifs), procédez comme suit.
 

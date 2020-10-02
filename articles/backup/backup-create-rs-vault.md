@@ -1,15 +1,15 @@
 ---
 title: Créer et configurer des coffres Recovery Services
-description: Dans cet article, découvrez comment créer et configurer des coffres Recovery Services stockant les sauvegardes et points de récupération.
+description: Dans cet article, découvrez comment créer et configurer des coffres Recovery Services stockant les sauvegardes et points de récupération. Découvrez comment utiliser la restauration inter-région pour restaurer dans une région secondaire.
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177191"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981515"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -30,34 +30,45 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
 
 1. Choisissez le type de réplication de stockage, puis sélectionnez **Enregistrer**.
 
-     ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Définir la configuration de stockage du nouveau coffre](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
    - Sinon, choisissez l’option **Redondant en local** qui réduit les coûts de stockage Azure.
-   - Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md) et [locale](../storage/common/storage-redundancy.md).
+   - Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md#geo-redundant-storage) et [locale](../storage/common/storage-redundancy.md#locally-redundant-storage).
+   - Si vous avez besoin de la disponibilité des données sans temps d’arrêt dans une région, pour garantir la résidence des données, choisissez le [stockage redondant dans une zone](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >Les paramètres de réplication de stockage pour le coffre ne sont pas pertinents pour la sauvegarde de partage de fichiers Azure, car la solution actuelle est basée sur une capture instantanée et aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage de fichiers sauvegardé.
 
 ## <a name="set-cross-region-restore"></a>Définir la restauration interrégion
 
-Parmi les options de restauration, la fonction de restauration interrégion (CRR) vous permet de restaurer des machines virtuelles Azure dans une région secondaire, qui est une [région jumelée Azure](../best-practices-availability-paired-regions.md). Cette option vous permet d’effectuer les opérations suivantes :
+L’option de restauration **Restauration inter-région (CRR)** vous permet de restaurer des données dans une [région jumelée Azure](../best-practices-availability-paired-regions.md) secondaire.
+
+Elle prend en charge les sources de données suivantes :
+
+- Machines virtuelles Azure
+- Bases de données SQL hébergées sur des machines virtuelles Azure
+- Bases de données SAP HANA hébergées sur des machines virtuelles Azure
+
+L’utilisation de la restauration inter-région vous permet d’effectuer les opérations suivantes :
 
 - effectuer des recherches dans le cadre d’un audit ou d’une condition de conformité
-- restaurer la machine virtuelle ou son disque en cas de sinistre dans la région primaire.
+- restaurer les données en cas de sinistre dans la région primaire
+
+Lors de la restauration d’une machine virtuelle, vous pouvez restaurer la machine virtuelle ou son disque. Si vous effectuez une restauration à partir de bases de données SQL/SAP HANA hébergées sur des machines virtuelles Azure, vous pouvez restaurer des bases de données ou leurs fichiers.
 
 Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration interrégion** dans le volet **Configuration de la sauvegarde**.
 
-Dans le cadre de ce processus, les implications tarifaires sont liées au niveau de stockage.
+Étant donné que ce processus se trouve au niveau du stockage, il y a des [implications en termes de tarification](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
 >Avant de commencer :
 >
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
->- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure.
+>- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure et tous les clouds souverains.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
->- Actuellement, la CRR est prise en charge uniquement pour Type de gestion des sauvegardes : Machine virtuelle Azure ARM (les machines virtuelles Azure classiques ne sont pas prises en charge).  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
+>- Actuellement, CRR pour les machines virtuelles Azure est pris en charge uniquement pour les machines virtuelles Azure Resource Manager. Les machines virtuelles Azure classiques ne sont pas prises en charge.  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
 >- Actuellement, la Restauration inter-régions ne peut pas être rétablie sur le GRS ou le LRS une fois la protection initiée pour la première fois.
 
 ### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
@@ -69,15 +80,13 @@ Un coffre créé avec la redondance GRS comprend l’option permettant de confi
 1. À partir du portail, accédez à Coffre Recovery Services > Paramètres > Propriétés.
 2. Sélectionnez **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
 
-   ![Avant de sélectionner Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Activer la restauration interrégion](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-   ![Après avoir sélectionner Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+Pour plus d’informations sur la sauvegarde et la restauration avec CRR, consultez les articles suivants :
 
-Découvrez comment [afficher les éléments de sauvegarde dans la région secondaire](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
-
-Découvrez comment [restaurer dans la région secondaire](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Découvrez comment [surveiller les travaux de restauration de la région secondaire](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Restauration interrégion pour les machines virtuelles Azure](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Restauration interrégion pour les bases de données SQL](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Restauration interrégion pour les bases de données SAP HANA](sap-hana-db-restore.md#cross-region-restore)
 
 ## <a name="set-encryption-settings"></a>Définir les paramètres de chiffrement
 

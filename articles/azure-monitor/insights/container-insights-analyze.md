@@ -3,12 +3,12 @@ title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft 
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166635"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988125"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -161,7 +161,7 @@ Les nœuds virtuels Azure Container Instances qui exécutent le système d’exp
 
 À partir d’un nœud développé, vous pouvez explorer le pod ou le conteneur qui s’exécute sur le nœud jusqu’au contrôleur pour afficher les données de performances filtrées pour ce contrôleur. Sélectionnez la valeur sous la colonne **Contrôleur** du nœud spécifique.
 
-![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/container-insights-analyze/drill-down-node-controller.png)
+![Capture d’écran montrant le nœud jusqu’au contrôleur dans l’affichage des performances](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Sélectionnez des contrôleurs ou des conteneurs en haut de la page pour examiner l’état et l’utilisation des ressources pour ces objets. Pour afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%* , qui est une valeur de type données numérique représentant une valeur non définie ou non représentable.
 

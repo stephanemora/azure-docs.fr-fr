@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373502"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981456"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du r�
 
 Pour activer le réglage automatique sur un [serveur](logical-servers.md) dans Azure SQL Database, accédez au serveur dans le portail Azure, puis sélectionnez **Paramétrage automatique** dans le menu.
 
-![Serveur](./media/automatic-tuning-enable/server.png)
+![Capture d’écran montrant le Paramétrage automatique dans le Portail Azure, où vous pouvez appliquer des options pour un serveur.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Notez que l’option **DROP_INDEX** n’est pas actuellement compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise.
@@ -77,7 +77,7 @@ Pour activer le réglage automatique sur une **base de données unique**, accéd
 
 Des paramètres de réglage automatique individuels peuvent être configurés séparément pour chaque base de données. Vous pouvez configurer manuellement une option de réglage automatique individuelle ou spécifier qu’une option hérite de ses paramètres du serveur.
 
-![Base de données](./media/automatic-tuning-enable/database.png)
+![Capture d’écran montrant le Paramétrage automatique dans le Portail Azure, où vous pouvez appliquer des options pour une base de données unique.](./media/automatic-tuning-enable/database.png)
 
 Notez que l’option DROP_INDEX n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
 

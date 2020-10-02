@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717436"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052679"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -37,7 +37,7 @@ La réécriture du mot de passe fournit les fonctionnalités suivantes :
 
 * **Application de stratégies de mot de passe AD DS (Active Directory Domain Services) locales** : quand un utilisateur réinitialise son mot de passe, celui-ci fait l’objet d’une vérification pour garantir qu’il répond à votre stratégie AD DS locale avant d’être validé dans l’annuaire. Cette vérification porte sur l’historique, la complexité, l’âge, les filtres de mot de passe et toute autre restriction de mot de passe définie dans AD DS.
 * **Le retour d’informations immédiat** :  L’écriture différée de mot de passe est une opération synchrone. Les utilisateurs sont notifiés immédiatement si leur mot de passe ne respecte pas la stratégie définie, ou s’il ne peut pas être réinitialisé ou changé pour une raison quelconque.
-* **La prise en charge de la modification des mots de passe à partir du panneau d’accès et d’Office 365** : quand des utilisateurs fédérés ou disposant de la synchronisation du code de hachage de mot de passe changent leurs mots de passe (arrivés ou non à expiration), ces derniers sont réécrits dans AD DS.
+* **La prise en charge de la modification des mots de passe à partir du panneau d’accès et de Microsoft 365** : quand des utilisateurs fédérés ou disposant de la synchronisation du code de hachage de mot de passe changent leurs mots de passe (arrivés ou non à expiration), ces derniers sont réécrits dans AD DS.
 * **La prise en charge de la réécriture du mot de passe lorsqu’un administrateur le réinitialise depuis le portail Azure** : quand un administrateur réinitialise le mot de passe d’un utilisateur dans le [portail Azure](https://portal.azure.com), si cet utilisateur est fédéré ou s’il dispose de la synchronisation du code de hachage de mot de passe, le mot de passe est réécrit localement. Actuellement, cette fonctionnalité n’est pas prise en charge dans le portail d’administration Office.
 * **Absence de règles de pare-feu obligatoires entrantes** : la réécriture de mot de passe utilise un relais Microsoft Azure Service Bus comme canal de communication sous-jacent. Toutes les communications sont sortantes sur le port 443.
 

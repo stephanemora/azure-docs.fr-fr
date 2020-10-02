@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 03bd97e487e28695133d7d69a71c0dbc90d5d605
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563974"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986012"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -31,12 +31,13 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | Déclencheurs par flux de travail | 10 | Lors de l’utilisation du mode Code, et non du concepteur |
 | Limite de cas de basculement d’étendue | 25 | |
 | Variables par workflow | 250 | |
-| Caractères par expression | 8 192 | |
-| Taille maximale de `trackedProperties` | 16 000 caractères |
 | Nom pour `action` ou `trigger` | 80 caractères | |
+| Caractères par expression | 8 192 | |
 | Longueur de `description` | 256 caractères | |
-| Valeur maximale pour `parameters` | 50 | |
-| Valeur maximale pour `outputs` | 10 | |
+| Nombre maximal de `parameters` | 50 | |
+| Nombre maximal de `outputs` | 10 | |
+| Taille maximale de `trackedProperties` | 16 000 caractères |
+| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères <p>Pour une limite de 100 000 caractères, créez vos applications logiques avec Visual Studio Code et l’[extension **Azure Logic Apps** en préversion](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -240,7 +241,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | Standard |
+| Artefact | Gratuit | De base | standard |
 |----------|------|-------|----------|
 | Contrats commerciaux EDI | 10 | 1 | 1 000 |
 | Partenaires commerciaux EDI | 25 | 2 | 1 000 |
@@ -266,7 +267,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
 |------------------|------|-------|----------|-------|
 | appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
@@ -359,6 +360,7 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 | États-Unis - partie centrale méridionale | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Inde Sud | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asie Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Suisse Nord | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
 | Émirats arabes unis Centre | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | Sud du Royaume-Uni | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Ouest du Royaume-Uni | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
@@ -420,6 +422,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 | États-Unis - partie centrale méridionale | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92, 13.73.244.224 - 13.73.244.255 |
 | Inde Sud | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
 | Asie Sud-Est | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69, 13.67.15.32 - 13.67.15.63 |
+| Suisse Nord | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255, 51.107.86.217, 51.103.142.22 |
 | Émirats arabes unis Centre | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.28, 20.45.67.45, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
 | Sud du Royaume-Uni | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150, 51.105.77.96 - 51.105.77.127 |
 | Ouest du Royaume-Uni | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185, 51.140.212.224 - 51.140.212.255 |

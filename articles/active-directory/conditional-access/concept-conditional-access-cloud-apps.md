@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948400"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602062"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -55,9 +55,9 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -69,7 +69,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 
 ### <a name="office-365-preview"></a>Office 365 (préversion)
 
-Office 365 fournit des services de collaboration et de productivité informatiques comme Exchange, SharePoint et Microsoft Teams. Les services cloud Office 365 sont profondément intégrés pour garantir des expériences fluides et collaboratives. Cette intégration peut entraîner une confusion lors de la création de stratégies, car certaines applications, telles que Microsoft Teams, ont des dépendances par rapport à d’autres, comme SharePoint ou Exchange.
+Microsoft 365 fournit des services de collaboration et de productivité informatiques comme Exchange, SharePoint et Microsoft Teams. Les services cloud Microsoft 365 sont profondément intégrés pour garantir des expériences fluides et collaboratives. Cette intégration peut entraîner une confusion lors de la création de stratégies, car certaines applications, telles que Microsoft Teams, ont des dépendances par rapport à d’autres, comme SharePoint ou Exchange.
 
 L’application Office 365 (préversion) permet de cibler ces services en même temps. Pour éviter les problèmes de [dépendances de service](service-dependencies.md), nous vous conseillons d’utiliser la nouvelle application Office 365 (préversion) plutôt que de cibler les applications cloud individuellement. Le ciblage de ce groupe d’applications permet d’éviter les problèmes pouvant survenir en raison de stratégies et de dépendances incohérentes.
 
@@ -82,10 +82,10 @@ Applications clés incluses dans l’application cliente Office 365 (préversio
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Service de recherche Office 365
-   - Office 365 Yammer
+   - Exchange Online
+   - SharePoint Online
+   - Service de recherche Microsoft 365
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com

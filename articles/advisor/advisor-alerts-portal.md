@@ -3,12 +3,12 @@ title: Créer des alertes Azure Advisor pour les nouvelles suggestions à l’ai
 description: Créer des alertes Azure Advisor pour les nouvelles recommandations
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973662"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Créer des alertes Azure Advisor pour les nouvelles suggestions à l’aide du Portail Azure 
 
@@ -63,8 +63,7 @@ Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des
 
 8. Dans la section Détails de l’alerte, donnez un nom à votre alerte et spécifiez une brève description. Si vous souhaitez que votre alerte soit activée, laissez l’option **Activer la règle lors de sa création** définie sur **Oui**. Sélectionnez ensuite le groupe de ressources dans lequel vous souhaitez enregistrer votre alerte. Cela n’aura pas d’impact sur l’étendue de ciblage de la recommandation. 
 
-    ![Bannière Azure Advisor](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Capture d’écran de la section Détails de l’alerte.":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configurer les alertes de recommandation pour utiliser un webhook
@@ -188,11 +187,11 @@ Voici quelques-uns des autres champs importants que vous pouvez utiliser :
 
 1. Dans le **portail**, sélectionnez **Azure Advisor**.
 
-    ![Bannière Azure Advisor](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Capture d’écran de la section Détails de l’alerte.":::
 
 2. Dans la section **Surveillance** du menu de gauche, sélectionnez **Alertes**.
 
-    ![Bannière Azure Advisor](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Capture d’écran de la section Détails de l’alerte.":::
 
 3. Pour modifier une alerte, cliquez sur le nom de l’alerte pour ouvrir l’alerte, puis modifiez les champs de votre choix.
 

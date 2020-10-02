@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect : Historique de publication des versions | Microsoft Docs'
-description: Cet article répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync
+description: Cet article répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d790c7c4c8d184999ff073e97613d663988c34e7
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275944"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604068"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -208,13 +208,13 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 - De nouveaux outils de résolution des problèmes permettent de corriger les scénarios « utilisateur non synchronisé », « groupe non synchronisé » ou « membre de groupe non synchronisé ».
-- Ajout d’une prise en charge des clouds nationaux dans le script de résolution des problèmes d’Azure AD Connect 
+- Ajout d’une prise en charge des clouds nationaux dans le script de résolution des problèmes d’Azure AD Connect.
 - Les clients doivent être informés que les points de terminaison WMI dépréciés pour MIIS_Service sont désormais supprimés. Toutes les opérations WMI doivent à présent être effectuées par le biais des applets de commande PS.
-- Amélioration de la sécurité en réinitialisant la délégation contrainte sur l’objet AZUREADSSOACC
+- Amélioration de la sécurité en réinitialisant la délégation contrainte sur l’objet AZUREADSSOACC.
 - Lors de l’ajout ou de la modification d’une règle de synchronisation, si des attributs sont utilisés dans la règle et qu’ils se trouvent dans le schéma du connecteur, mais ne sont pas ajoutés au connecteur, ces attributs sont automatiquement ajoutés au connecteur. Il en va de même pour le type d’objet affecté par la règle. Si quelque chose est ajouté au connecteur, le connecteur sera marqué pour une importation complète au cours du prochain cycle de synchronisation.
 - L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge dans les nouveaux déploiements d’Azure AD Connect. Cette version n’aura pas d’impact sur les déploiements en cours d’Azure AD Connect à l’aide d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur.
 - Dans le gestionnaire de synchronisation, une synchronisation complète est exécutée lors de la création, de la modification ou de la suppression d’une règle. Une fenêtre contextuelle s’affiche pour toute modification de règle, notifiant l’utilisateur que l’importation complète ou la synchronisation totale va être exécutée.
-- Ajout d’étapes d’atténuation pour les erreurs de mot de passe à la page Connecteurs > Propriétés > Connectivité
+- Ajout d’étapes d’atténuation pour les erreurs de mot de passe à la page Connecteurs > Propriétés > Connectivité.
 - Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées via l’Assistant Azure AD Connect.
 - Ajout d’une nouvelle erreur pour les problèmes liés à la stratégie de mot de passe d’un utilisateur.
 - Prévention d’une erreur de configuration du filtrage de groupe par les filtres de domaine et d’UO. Le filtrage de groupe affiche une erreur lorsque le domaine ou l’unité d’organisation du groupe entré est déjà filtré et empêche l’utilisateur de poursuivre tant que le problème n’est pas résolu.
@@ -233,7 +233,7 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 - Les fenêtres contextuelles d’aide s’affichent désormais sur le focus clavier.
 - Pour la mise à niveau automatique, si une application en conflit s’exécute pendant 6 heures, il y a possibilité de la supprimer et de poursuivre la mise à niveau.
 - Limitation du nombre d’attributs qu’un client peut sélectionner à 100 par objet lors de la sélection des extensions d’annuaire. De cette façon, l’erreur ne peut pas se produire pendant l’exportation, car Azure présente un maximum de 100 attributs d’extension par objet.
-- Correction d’un bogue permettant de renforcer le script de connectivité AD
+- Correction d’un bogue permettant de renforcer le script de connectivité AD.
 - Correction d’un bogue permettant de consolider l’installation d’Azure AD Connect sur une machine qui utilise un service WCF de canaux nommés.
 - Amélioration des diagnostics et de la résolution des problèmes liés aux stratégies de groupe qui n’autorisent pas le démarrage du service ADSync lors de l’installation initiale.
 - Correction d’un bogue responsable de l’écriture incorrecte du nom d’affichage d’un ordinateur Windows.
@@ -244,7 +244,7 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Il existe un problème connu lié à la mise à niveau d’Azure AD Connect d’une version antérieure vers 1.3.21.0, où le portail Office 365 ne reflète pas la version mise à jour même si Azure AD Connect a été mis à niveau avec succès.
+>Il existe un problème connu lié à la mise à niveau d’Azure AD Connect d’une version antérieure vers 1.3.21.0, où le portail Microsoft 365 ne reflète pas la version mise à jour même si Azure AD Connect a été mis à niveau avec succès.
 >
 > Pour résoudre ce problème, vous devez importer le module **AdSync**, puis exécuter l’applet de commande PowerShell `Set-ADSyncDirSyncConfiguration` sur le serveur Azure AD Connect.  Vous pouvez procéder comme suit :
 >

@@ -16,19 +16,19 @@ ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7305fe8ee96697c5c8b2172e32a2a97e5bd6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b543cf4655d0b961a144e9180385a532ae4216d6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358427"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657105"
 ---
 # <a name="more-details-about-features-in-preview"></a>Plus de détails sur les fonctionnalités de la version préliminaire
 Cette rubrique décrit l’utilisation des fonctionnalités disponibles dans la version préliminaire.
 
 ## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API du point de terminaison V2 pour la synchronisation Azure AD Connect (préversion publique) 
 
-Nous avons déployé un nouveau point de terminaison (API) pour Azure AD Connect, qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison V2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend également en charge la synchronisation de groupes comptant jusqu’à 250 000 membres. L’utilisation de ce point de terminaison vous permet également de mettre à jour des groupes unifiés O365, sans limite d’appartenance maximale, sur votre Active Directory local, quand l’écriture différée de groupe est activée.   Pour plus d’informations, consultez [API du point de terminaison V2 pour la synchronisation Azure AD Connect (préversion publique)](how-to-connect-sync-endpoint-api-v2.md).
+Nous avons déployé un nouveau point de terminaison (API) pour Azure AD Connect, qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison V2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend également en charge la synchronisation de groupes comptant jusqu’à 250 000 membres. L’utilisation de ce point de terminaison vous permet également de mettre à jour des groupes unifiés Microsoft 365, sans limite d’appartenance maximale, sur votre Active Directory local, quand l’écriture différée de groupe est activée. Pour plus d’informations, consultez [API du point de terminaison V2 pour la synchronisation Azure AD Connect (préversion publique)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Écriture différée de l’utilisateur
 > [!IMPORTANT]

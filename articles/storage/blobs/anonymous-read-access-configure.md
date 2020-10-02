@@ -6,15 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.subservice: blobs
+ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534309"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087352"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
@@ -52,7 +53,10 @@ Le fait d’interdire l’accès public pour le compte de stockage empêche l’
 
 Pour autoriser ou interdire l’accès public pour un compte de stockage, configurez la propriété **AllowBlobPublicAccess** du compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
-La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **true**.
+> [!NOTE]
+> La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **true**.
+>
+> La propriété **AllowBlobPublicAccess** est actuellement disponible uniquement pour les comptes de stockage dans le cloud public Azure.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -203,7 +207,7 @@ Pour mettre à jour le niveau d’accès public pour un ou plusieurs conteneurs 
 
 Quand l’accès public est interdit pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous essayez de définir le niveau d’accès public du conteneur, vous verrez que le paramètre est désactivé, car l’accès public est interdit pour le compte.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant que la définition du niveau d’accès public du conteneur est bloquée quand l’accès public est interdit":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant comment autoriser ou interdire l’accès public aux objets blob pour le compte":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

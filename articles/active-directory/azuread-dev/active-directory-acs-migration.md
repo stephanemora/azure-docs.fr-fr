@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117785"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706249"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procédure : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -173,7 +173,7 @@ Malheureusement, il n’existe aucun service qui fournisse toutes ces fonctionna
 
 #### <a name="migrate-to-azure-active-directory"></a>Migration vers Azure Active Directory
 
-L’une des solutions envisageables consiste à intégrer vos applications et services directement dans Azure Active Directory. Azure Active Directory est le fournisseur d’identité basé sur le cloud pour les comptes professionnels ou scolaires Microsoft. Azure Active Directory est le fournisseur d’identité pour Office 365 et Azure, entre autres. Il fournit des fonctions d’authentification fédérée semblables à Access Control Service, mais ne prend pas en charge toutes les fonctionnalités d’Access Control Service. 
+L’une des solutions envisageables consiste à intégrer vos applications et services directement dans Azure Active Directory. Azure Active Directory est le fournisseur d’identité basé sur le cloud pour les comptes professionnels ou scolaires Microsoft. Azure Active Directory est le fournisseur d’identité pour Microsoft 365 et Azure, entre autres. Il fournit des fonctions d’authentification fédérée semblables à Access Control Service, mais ne prend pas en charge toutes les fonctionnalités d’Access Control Service. 
 
 Le principal exemple concerne la fédération avec des fournisseurs d’identité sociale, tels que Facebook, Google et Yahoo. Si vos utilisateurs se connectent avec ces types d’informations d’identification, Azure Active Directory n’est pas pour vous. 
 
@@ -316,7 +316,7 @@ Les identités de service dans Access Control Service servent généralement à 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migration vers Azure Active Directory
 
-Notre recommandation pour ce type de flux d’authentification consiste à migrer vers [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure Active Directory est le fournisseur d’identité basé sur le cloud pour les comptes professionnels ou scolaires Microsoft. Azure Active Directory est le fournisseur d’identité pour Office 365 et Azure, entre autres. 
+Notre recommandation pour ce type de flux d’authentification consiste à migrer vers [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure Active Directory est le fournisseur d’identité basé sur le cloud pour les comptes professionnels ou scolaires Microsoft. Azure Active Directory est le fournisseur d’identité pour Microsoft 365 et Azure, entre autres. 
 
 Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serveur, grâce à l’implémentation de l’octroi d’informations d’identification de client OAuth dans Azure Active Directory. Le tableau suivant compare les fonctionnalités d’Access Control Service dans l’authentification de serveur à serveur à celles qui sont disponibles dans Azure Active Directory.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235689"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706348"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -50,7 +50,7 @@ L’intégration de l’application RH cloud avec l’approvisionnement d’util
 - nécessitent un approvisionnement d’utilisateurs direct de l’application RH cloud vers Active Directory ou Azure AD ;
 - exigent que les utilisateurs soient approvisionnés à l’aide des données obtenues à partir de l’application RH cloud ;
 - ont besoin de joindre, de déplacer et de laisser les utilisateurs à synchroniser avec une ou plusieurs unités d’organisation, domaines et forêts Active Directory seulement sur la base d’informations de modifications détectées dans l’application RH cloud ;
-- utilisent Office 365 pour les e-mails.
+- Utilisez Microsoft 365 pour la messagerie électronique.
 
 ## <a name="learn"></a>Découvrir
 
@@ -61,14 +61,14 @@ L’approvisionnement des utilisateurs crée une base pour la gouvernance contin
 Cet article utilise les termes suivants :
 
 - **Système source** : référentiel d’utilisateurs à partir duquel Azure AD approvisionne. C’est le cas, par exemple, d’une application RH cloud telle que Workday ou SuccessFactors.
-- **Système cible** : référentiel d’utilisateurs vers lequel Azure AD approvisionne. Active Directory, Azure AD, Office 365 ou d’autres applications SaaS en sont des exemples.
+- **Système cible** : référentiel d’utilisateurs vers lequel Azure AD approvisionne. Active Directory, Azure AD, Microsoft 365 ou d’autres applications SaaS en sont des exemples.
 - **Processus entrants-changements de poste-sortants :** terme utilisé pour les nouvelles embauches, les transferts et les licenciements avec une application RH cloud comme système d’enregistrement. Le processus se termine lorsque le service approvisionne correctement les attributs nécessaires sur le système cible.
 
 ### <a name="key-benefits"></a>Principaux avantages
 
 Cette fonctionnalité d’approvisionnement informatique axé sur les ressources humaines offre les avantages significatifs suivants pour l’entreprise :
 
-- **Augmenter la productivité :** vous pouvez désormais automatiser l’attribution de comptes d’utilisateur et de licences Office 365 et fournir un accès aux groupes de clés. L’automatisation des attributions offre aux nouveaux employés un accès immédiat à leurs outils de travail et augmente la productivité.
+- **Augmenter la productivité :** vous pouvez désormais automatiser l’attribution de comptes d’utilisateur et de licences Microsoft 365 et fournir un accès aux groupes de clés. L’automatisation des attributions offre aux nouveaux employés un accès immédiat à leurs outils de travail et augmente la productivité.
 - **Gérer le risque :** vous pouvez augmenter la sécurité en automatisant les changements, en fonction du statut des employés ou des appartenances aux groupes grâce aux données transmises à partir de l’application RH cloud. L’automatisation des modifications permet de s’assurer que les identités des utilisateurs et l’accès aux applications clés sont automatiquement mis à jour lorsque les utilisateurs sont transférés ou quittent l’organisation.
 - **Conformité et gouvernance des adresses :** Azure AD prend en charge les journaux d’audit natifs pour les demandes d’approvisionnement d’utilisateurs effectuées par les applications des systèmes source et cible. Lors d’audit, vous pouvez effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
 - **Gérer les coûts :** l’approvisionnement automatique réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’approvisionnement manuel. Cela réduit le besoin de solutions d’approvisionnement d’utilisateurs personnalisées créées au fil du temps à l’aide de plateformes héritées et obsolètes.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377860"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707405"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accès à distance aux applications locales par le bais du service Proxy d'application Azure AD
 
@@ -24,7 +24,7 @@ Le proxy d’application Azure Active Directory offre un accès à distance séc
 
 Le Proxy d’application Azure AD est :
 
-- **Simple à utiliser**. Les utilisateurs peuvent accéder aux applications locales de la même manière qu’ils accèdent à O365 et à d’autres applications SaaS intégrées à Azure AD. Vous n’avez pas besoin de modifier ou de mettre à jour vos applications pour qu’elles fonctionnent avec le Proxy d’application.
+- **Simple à utiliser**. Les utilisateurs peuvent accéder aux applications locales de la même manière qu’ils accèdent aux applications Microsoft 365 et aux autres applications SaaS intégrées à Azure AD. Vous n’avez pas besoin de modifier ou de mettre à jour vos applications pour qu’elles fonctionnent avec le Proxy d’application.
 
 - **Sécurisé**. Les applications locales peuvent utiliser les contrôles d’autorisation et les analyses de sécurité d’Azure. Par exemple, les applications locales peuvent utiliser l’accès conditionnel et la vérification en deux étapes. Proxy d’application ne vous oblige à ouvrir les connexions entrantes par le biais de votre pare-feu.
 
