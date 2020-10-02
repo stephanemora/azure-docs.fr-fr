@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: 72978636b878aac9120b356e7be5fe5c978d1738
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 237ca1f0041283bb86b24ad456ab781dc13eeb86
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499787"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980515"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Comment utiliser Azure CLI et l’extension IoT afin de gérer le Service IoT Hub Device Provisioning
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) est un outil en ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure, telles que IoT Edge. Azure CLI est disponible sur Windows, Linux et Mac OS. Azure CLI vous permet de gérer les ressources Azure IoT Hub, les instances du service Device Provisioning et les hubs liés prêts à l’utilisation.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) est un outil en ligne de commande open source et multiplateforme, destiné à la gestion des ressources Azure, telles que IoT Edge. Azure CLI est disponible sous Windows, Linux et macOS. Azure CLI vous permet de gérer les ressources Azure IoT Hub, les instances du service Device Provisioning et les hubs liés prêts à l’utilisation.
 
 L’extension IoT enrichit Azure CLI avec des fonctionnalités telles que la gestion des appareils, et toutes les fonctionnalités de IoT Edge.
 
@@ -53,7 +53,7 @@ Effectuez les étapes d’installation décrites précédemment avant de commenc
 az login
 ```
 
-![login](./media/how-to-manage-dps-with-cli/login.jpg)
+![Capture d'écran d'une fenêtre d'invite de commandes qui exécute la commande az login.](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Créer un groupe de ressources IoTHubBlogDemo dans eastus
 

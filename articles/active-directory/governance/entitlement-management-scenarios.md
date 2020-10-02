@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707218"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979509"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scénarios courants de la gestion des droits d’utilisation Azure AD
 
@@ -119,24 +119,24 @@ Il y a plusieurs façons de configurer la gestion des droits d’utilisation pou
 1. [Regardez la vidéo : Gestion quotidienne : Les choses ont changé](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Ouvrir le package d’accès
 1. [Ouvrir les paramètres de cycle de vie](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Mettre à jour les paramètres d’expiration](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Mettre à jour les paramètres d’expiration](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Gestionnaire de package d’accès : Mettre à jour la manière dont l’accès est approuvé pour un projet
 
 1. [Regardez la vidéo : Gestion quotidienne : Les choses ont changé](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Ouvrir une stratégie existante de paramètres de demande et d’approbation](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Mettre à jour les paramètres d’approbation](entitlement-management-access-package-request-policy.md#approval)
+1. [Ouvrir une stratégie existante de paramètres de demande](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Mettre à jour les paramètres d’approbation](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>Gestionnaire de package d’accès : Mettre à jour les personnes d’un projet
 
 1. [Regardez la vidéo : Gestion quotidienne : Les choses ont changé](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Supprimer les utilisateurs qui n’ont plus besoin d’un accès](entitlement-management-access-package-assignments.md)
-1. [Ouvrir une stratégie existante de paramètres de demande et d’approbation](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Ouvrir une stratégie existante de paramètres de demande](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Ajouter des utilisateurs qui ont besoin d’un accès](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Gestionnaire de package d’accès : Affecter directement des utilisateurs spécifiques à un package d’accès
 
-1. [Si les utilisateurs ont besoin de différents paramètres de cycle de vie, ajouter une nouvelle stratégie au package d’accès](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Si les utilisateurs ont besoin de différents paramètres de cycle de vie, ajouter une nouvelle stratégie au package d’accès](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Affecter directement des utilisateurs spécifiques au package d’accès](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Affectations et rapports

@@ -10,6 +10,10 @@
       href: language-support.md
     - name: Prise en charge de la région
       href: regions.md
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Quotas et limites
+      href: speech-services-quotas-and-limits.md
     - name: Nouveautés dans la documentation
       href: whats-new.md
 - name: Reconnaissance vocale
@@ -144,7 +148,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Informations de référence
+    - name: Référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
@@ -347,6 +351,8 @@
       items:
         - name: "Qu’est-ce qu’un Assistant vocal\_?"
           href: voice-assistants.md
+        - name: Exemples d’assistant vocal (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
     - name: Commandes personnalisées
       items:
         - name: Présentation des commandes personnalisées
@@ -459,11 +465,58 @@
       items:
         - name: API REST de reconnaissance de l’orateur
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Hosting
+- name: Outils
   items:
-    - name: Documentation sur l’hébergement
-      href: index-hosting.yml
-    - name: Guides pratiques
+    - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+      items:
+        - name: Vue d’ensemble du SDK Speech
+          href: speech-sdk.md
+        - name: Configurer le SDK Speech
+          href: quickstarts/setup-platform.md
+        - name: Notes de publication du Kit de développement logiciel (SDK) Speech
+          href: releasenotes.md
+        - name: Informations de référence
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: C#
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+    - name: Interface CLI Speech
+      displayName: SPX
+      items:
+        - name: Vue d’ensemble de l’interface CLI Speech
+          displayName: What is SPX?
+          href: spx-overview.md
+        - name: Bases de l’interface CLI Speech
+          displayName: SPX basics
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Vue d’ensemble de Speech Studio
+          href: 'https://speech.microsoft.com'
+        - name: Créer une application de commandes personnalisées avec Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
+- name: Déployer
+  items:
+    - name: Activation de la journalisation
+      href: how-to-use-logging.md
+    - name: Suivre l’utilisation de la mémoire
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Configurer OpenSSL pour Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Configurer RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Conteneurs
       items:
         - name: Installer et exécuter des conteneurs Speech
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Conteneurs Speech sur des instances de conteneur Azure
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: Ressources
-      items:
         - name: Questions fréquentes (FAQ) sur les conteneurs
           href: speech-container-faq.md
-- name: Kit de développement logiciel (SDK) de reconnaissance vocale
-  items:
-    - name: Vue d’ensemble du SDK Speech
-      href: speech-sdk.md
-    - name: Configurer le SDK Speech
-      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-      href: quickstarts/setup-platform.md
-    - name: Guides pratiques
-      items:
-        - name: Activation de la journalisation
-          href: how-to-use-logging.md
-        - name: Suivre l’utilisation de la mémoire
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Configurer OpenSSL pour Linux
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-          href: how-to-configure-openssl-linux.md
-        - name: Configurer RHEL/CentOS 7
-          href: how-to-configure-rhel-centos-7.md
-          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
-    - name: Exemples
-      items:
-        - name: Exemples du SDK Speech (GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Exemples du SDK d’appareils Speech (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: Exemples d’assistant vocal (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: Informations de référence
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: C#
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: Notes de publication du Kit de développement logiciel (SDK) Speech
-          href: releasenotes.md
 - name: Appareils
   items:
     - name: Documentation sur Speech Devices
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: Obtenir le SDK d’appareils Speech
           href: get-speech-devices-sdk.md
+        - name: Exemples du SDK d’appareils Speech (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Matériel
       items:
         - name: Recommandations sur le réseau de microphones
@@ -560,23 +570,6 @@
       items:
         - name: Notes de publication du SDK d’appareils Speech
           href: devices-sdk-release-notes.md
-- name: Outils
-  items:
-    - name: Interface CLI Speech
-      displayName: SPX
-      items:
-        - name: "Qu’est-ce que l’interface CLI Speech\_?"
-          displayName: What is SPX?
-          href: spx-overview.md
-        - name: Bases de l’interface CLI Speech
-          displayName: SPX basics
-          href: spx-basics.md
-    - name: Speech Studio
-      items:
-        - name: "Qu’est-ce que Speech Studio\_?"
-          href: 'https://speech.microsoft.com'
-        - name: Créer une application de commandes personnalisées avec Speech Studio
-          href: quickstart-custom-speech-commands-create-new.md
 - name: Migration
   items:
     - name: À partir de la reconnaissance vocale Bing
@@ -595,12 +588,8 @@
     - name: Clouds souverains
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Quotas et limites
-      href: speech-services-quotas-and-limits.md
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Chiffrement

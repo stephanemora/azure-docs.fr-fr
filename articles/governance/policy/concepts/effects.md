@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079657"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425532"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -156,7 +156,8 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
   - Si **details.type** est un type de ressource sous la ressource de condition **if**, la stratégie envoie des requêtes pour les ressources de ce **type** dans l’étendue de la ressource évaluée. Sinon, la stratégie envoie des requêtes dans le même groupe de ressources que la ressource évaluée.
 - **Name** (facultatif)
   - Spécifie le nom exact de la ressource à tester et amène la stratégie à extraire une ressource spécifique au lieu de toutes les ressources du type spécifié.
-  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`. Toutefois, un effet [audit](#audit) doit être considéré à la place.
+  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`, ou `[field('fullName')]` pour une ressource enfant.
+    Toutefois, un effet [audit](#audit) doit être considéré à la place.
 - **ResourceGroupName** (facultatif)
   - Permet l’évaluation de la ressource connexe provenant d’un groupe de ressources différent.
   - Ne s’applique pas si **type** est une ressource qui serait située sous la ressource de condition **if**.
@@ -277,7 +278,7 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
   - Commence par tenter d’extraire une ressource sous la ressource de condition **if**, puis effectue une requête dans le même groupe de ressources que la ressource de condition **if**.
 - **Name** (facultatif)
   - Spécifie le nom exact de la ressource à tester et amène la stratégie à extraire une ressource spécifique au lieu de toutes les ressources du type spécifié.
-  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`.
+  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`, ou `[field('fullName')]` pour une ressource enfant.
 - **ResourceGroupName** (facultatif)
   - Permet l’évaluation de la ressource connexe provenant d’un groupe de ressources différent.
   - Ne s’applique pas si **type** est une ressource qui serait située sous la ressource de condition **if**.

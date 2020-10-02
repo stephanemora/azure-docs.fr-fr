@@ -1,6 +1,6 @@
 ---
-title: Gestion du consentement pour les applications et évaluation des demandes de consentement - Azure AD
-description: Apprenez à gérer les demandes de consentement lorsque le consentement de l’utilisateur est désactivé ou limité, puis à évaluer une demande de consentement de l’administrateur au niveau du locataire pour une application.
+title: Gestion du consentement pour les applications et évaluation des demandes de consentement dans Azure Active Directory
+description: Apprenez à gérer les demandes de consentement lorsque le consentement de l’utilisateur est désactivé ou limité, puis à évaluer une demande de consentement de l’administrateur au niveau du locataire pour une application dans Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f7dc1d4b0f6678f02c4f5d152edf2ae9af063d1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392440"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420453"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
@@ -76,7 +75,7 @@ La liste suivante fournit quelques recommandations à prendre en compte lors de 
 
 * **Comprendre les autorisations demandées.**
 
-   Les autorisations demandées par l’application sont listées dans l’[invite de consentement](../develop/application-consent-experience.md). Développez le titre de l’autorisation pour en voir la description. La description des autorisations d’application se termine généralement par « sans utilisateur connecté ». La description des autorisations déléguées se termine généralement par « pour le compte de l’utilisateur connecté ». Les autorisations pour l’API Microsoft Graph sont décrites dans [Informations de référence sur les autorisations Microsoft Graph]- consultez la documentation d’autres API pour comprendre les autorisations qu’elles exposent.
+   Les autorisations demandées par l’application sont listées dans l’[invite de consentement](../develop/application-consent-experience.md). Développez le titre de l’autorisation pour en voir la description. La description des autorisations d’application se termine généralement par « sans utilisateur connecté ». La description des autorisations déléguées se termine généralement par « pour le compte de l’utilisateur connecté ». Les autorisations pour l’API Microsoft Graph sont décrites dans [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) – consultez la documentation d’autres API pour comprendre les autorisations qu’elles exposent.
 
    Si vous ne comprenez pas une autorisation demandée, *n’accordez pas de consentement*.
 
@@ -95,39 +94,29 @@ La liste suivante fournit quelques recommandations à prendre en compte lors de 
 ## <a name="granting-consent-as-an-administrator"></a>Octroi de consentement en tant qu’administrateur
 
 ### <a name="granting-tenant-wide-admin-consent"></a>Octroi de consentement de l’administrateur au niveau du locataire
-
 Pour des instructions pas à pas sur l’octroi d’un consentement de l’administrateur au niveau du locataire en utilisant le portail Azure, Azure AD PowerShell ou l’invite de consentement elle-même, consultez [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md).
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Octroi de consentement pour le compte d’un utilisateur spécifique
-
 Au lieu d’accorder un consentement pour toute l’organisation, un administrateur peut également utiliser l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) pour accorder un consentement aux autorisations déléguées pour le compte d’un seul utilisateur. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitation de l’accès utilisateur aux applications
-
 L’accès des utilisateurs aux applications peut quand même être limité même si le consentement de l’administrateur au niveau du locataire a été accordé. Pour plus d’informations sur la façon de demander l’attribution d’utilisateurs à une application, consultez [Méthodes pour attribuer des utilisateurs et des groupes](methods-for-assigning-users-and-groups.md).
 
 Pour une vue d’ensemble plus générale comprenant comment gérer d’autres scénarios complexes, consultez [Utilisation d’Azure AD pour la gestion des accès aux applications](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
-
 La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour plus d’informations sur le consentement de l’application et sur les conditions pour donner ou refuser ce consentement, consultez la section [Comprendre le consentement de l’utilisateur et de l’administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
-Pour **désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire**, procédez comme suit :
+Pour désactiver toutes les futures opérations de consentement de l’utilisateur dans l’ensemble de votre annuaire, procédez comme suit :
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-4.  Cliquez sur **Utilisateurs et groupes** dans le menu de navigation.
-5.  Cliquez sur **Paramètres utilisateur**.
+4.  Sélectionnez **Utilisateurs et groupes** dans le menu de navigation.
+5.  Sélectionnez **Paramètres utilisateur**.
 6.  Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-[Cinq étapes pour sécuriser votre infrastructure d’identité](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
-
-[Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
-
-[Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)
-
-[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
-
-[Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Cinq étapes pour sécuriser votre infrastructure d’identité](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
+* [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)
+* [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)

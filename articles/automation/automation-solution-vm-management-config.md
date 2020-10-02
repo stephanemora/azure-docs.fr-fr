@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987202"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurer Start/Stop VMs during off-hours
 
@@ -139,17 +139,17 @@ Pour modifier les notifications par e-mail une fois la solution Start/Stop VMs d
 
 1. Dans le portail Azure, accédez à **Surveiller**, puis **Groupes d'actions**. Sélectionnez le groupe d’actions nommé **StartStop_VM_Notication**.
 
-    ![Page Automation Update Management](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Capture d’écran montrant la page Analyse – Groupes d’actions.":::
 
 2. Dans la page StartStop_VM_Notification, cliquez sur **Modifier les détails** sous **Détails**. La page E-mail/SMS/Push/Voix s’ouvre. Mettez à jour l’adresse e-mail, puis cliquez sur **OK** pour enregistrer vos modifications.
 
-    ![Page Automation Update Management](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Capture d’écran montrant la page Analyse – Groupes d’actions.":::
 
     Vous pouvez également ajouter des actions supplémentaires au groupe d’actions. Pour plus d’informations sur les groupes d’actions, consultez [Groupes d’actions](../azure-monitor/platform/action-groups.md).
 
 Voici un exemple d’e-mail envoyé lorsque la solution arrête les machines virtuelles.
 
-![Page Automation Update Management](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Capture d’écran montrant la page Analyse – Groupes d’actions.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Ajouter ou exclure des machines virtuelles
 

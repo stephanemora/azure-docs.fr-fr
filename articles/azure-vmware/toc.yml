@@ -4,22 +4,36 @@
   items:
     - name: À propos d’Azure VMware Solution
       href: introduction.md
-- name: Tutoriels
+- name: Démarrage rapide
   items:
-    - name: 1 - Planification réseau
+    - name: Processus de prédéploiement
+      href: production-ready-deployment-steps.md
+    - name: Check-list pour le prédéploiement
+      href: pre-deployment-checklist.md
+    - name: 1 - Déployer Azure VMware Solution
+      href: deploy-azure-vmware-solution.md
+    - name: 2 - Se connecter localement
+      href: azure-vmware-solution-on-premises.md
+    - name: 3 - Déployer et configurer VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
+- name: Didacticiels
+  items:
+    - name: 1 - Check-list pour la planification réseau
       href: tutorial-network-checklist.md
     - name: 2 - Créer un cloud privé
       href: tutorial-create-private-cloud.md
-    - name: 3 - Configurer le réseau
-      href: tutorial-configure-networking.md
-    - name: 4 - Accéder à un cloud privé
+    - name: 3 - Accéder à un cloud privé
       href: tutorial-access-private-cloud.md
-    - name: 5 - Mettre à l’échelle un cloud privé
-      href: tutorial-scale-private-cloud.md
-    - name: 6 - Créer un segment réseau NSX-T
+    - name: 4 - Configurer les réseaux
+      href: tutorial-configure-networking.md
+    - name: 5 - Créer un segment réseau NSX-T
       href: tutorial-nsx-t-network-segment.md
-    - name: 7 - Appairer un environnement local à un cloud privé
+    - name: 6 - Appairer un environnement local à un cloud privé
       href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 7 - Déployer et configurer VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
+    - name: 8 - Mettre à l’échelle un cloud privé
+      href: tutorial-scale-private-cloud.md
 - name: Concepts
   items:
     - name: Clusters et clouds privés
@@ -31,11 +45,9 @@
     - name: Accès et identité pour les clouds privés
       href: concepts-identity.md
     - name: Contrôle d’accès en fonction du rôle
-      href: concepts-rbac.md
+      href: concepts-role-based-access-control.md
     - name: Mises à niveau de clouds privés
       href: concepts-upgrades.md
-    - name: Superviser et réparer des clouds privés
-      href: concepts-monitor-repair-private-cloud.md
 - name: Guides pratiques
   items:
     - name: Activer Azure VMware Solution
@@ -44,46 +56,34 @@
       href: reserved-instance.md
     - name: Évaluation de la migration
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
-    - name: Configurer HCX
-      href: hybrid-cloud-extension-installation.md
     - name: "Gérer\_DHCP"
       href: manage-dhcp.md
-    - name: Récupération d'urgence
-      href: disaster-recovery.md
-    - name: Déployer une machine virtuelle par le biais de la bibliothèque de contenu
-      href: deploy-vm-content-library.md
+    - name: Déployer la reprise d’activité pour les machines virtuelles
+      href: disaster-recovery-for-virtual-machines.md
+    - name: Déployer une machine virtuelle via la bibliothèque de contenu
+      href: tutorial-deploy-vm-content-library.md
     - name: Intégration native Azure
       items:
         - name: Gestion des API
           href: concepts-api-management.md
         - name: Hub-and-spoke
-          href: concepts-avs-hub-and-spoke-integration.md
+          href: concepts-hub-and-spoke.md
         - name: Azure Backup Server
           items:
             - name: Configurer un serveur de sauvegarde
-              href: set-up-mabs-for-avs.md
+              href: set-up-backup-server-for-azure-vmware-solution.md
             - name: Sauvegarder des machines virtuelles de cloud privé avec le serveur de sauvegarde
-              href: backup-avs-vms-with-mabs.md
+              href: backup-azure-vmware-solution-virtual-machines.md
         - name: Gestion de cycle de vie des machines virtuelles
           href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
-          href: protect-avs-web-apps-with-app-gateway.md
+          href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Traffic Manager
-          href: deploy-traffic-manager-to-balance-avs-workloads.md
-        - name: NetApp Files
-          href: net-app-files.md
-    - name: GitHub Enterprise Server
-      href: github-enterprise-server.md
+          href: deploy-traffic-manager-balance-workloads.md
     - name: Solutions VMware
       items:
         - name: Configurer des opérations vRealize
-          href: vrealize-operations-for-avs.md
-    - name: Écosystème VMware
-      items:
-        - name: Solutions de sauvegarde pour les machines virtuelles
-          href: ecosystem-back-up-vms.md
-- name: Informations de référence
-  items: null
+          href: vrealize-operations-for-azure-vmware-solution.md
 - name: Ressources
   items:
     - name: Dépannage

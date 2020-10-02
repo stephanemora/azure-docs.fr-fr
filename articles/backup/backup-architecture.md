@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986488"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -35,18 +35,22 @@ Apprenez-en davantage sur [ce que vous pouvez sauvegarder](backup-overview.md) e
 
 ## <a name="where-is-data-backed-up"></a>Où les données sont-elles sauvegardées ?
 
-Sauvegarde Azure stocke les données sauvegardées dans un coffre Recovery Services. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
+Sauvegarde Azure stocke les données sauvegardées dans des coffres Recovery Services et des coffres Sauvegarde. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
 
-Les coffres Recovery Services offrent les fonctionnalités suivantes :
+Les coffres présentent les fonctionnalités suivantes :
 
 - Les coffres facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion.
-- Dans chaque abonnement Azure, vous pouvez créer jusqu’à 500 coffres.
 - Vous pouvez superviser les éléments sauvegardés dans un coffre, notamment les machines virtuelles Azure et les ordinateurs locaux.
 - Vous pouvez gérer l’accès au coffre avec le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Vous spécifiez le mode de réplication des données dans le coffre pour la redondance :
-  - **Stockage localement redondant (LRS)**  : Pour vous protéger contre des défaillances de centre de données, vous pouvez utiliser un stockage localement redondant. LRS réplique les données vers une unité d’échelle de stockage. [Plus d’informations](../storage/common/storage-redundancy.md)
-  - **Stockage géo-redondant (GRS)**  : Pour vous protéger contre des pannes régionales, vous pouvez utiliser un stockage géoredondant. Celui-ci réplique vos données dans une région secondaire. [Plus d’informations](../storage/common/storage-redundancy.md)
+  - **Stockage localement redondant (LRS)**  : Pour vous protéger contre des défaillances de centre de données, vous pouvez utiliser un stockage localement redondant. LRS réplique les données vers une unité d’échelle de stockage. [Plus d’informations](../storage/common/storage-redundancy.md#locally-redundant-storage)
+  - **Stockage géo-redondant (GRS)**  : Pour vous protéger contre des pannes régionales, vous pouvez utiliser un stockage géoredondant. Celui-ci réplique vos données dans une région secondaire. [Plus d’informations](../storage/common/storage-redundancy.md#geo-redundant-storage)
+  - **Stockage redondant interzone (ZRS)**  : réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. [En savoir plus](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Par défaut, les coffres Recovery Services utilisent un stockage géoredondant.
+
+Les coffres Recovery Services offrent les fonctionnalités supplémentaires suivantes :
+
+- Dans chaque abonnement Azure, vous pouvez créer jusqu’à 500 coffres.
 
 ## <a name="backup-agents"></a>Agents de sauvegarde
 

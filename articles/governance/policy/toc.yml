@@ -17,6 +17,9 @@
     - name: "Attribuer une stratégie\_- Azure PowerShell"
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Attribuer une stratégie - .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: Attribuer une stratégie - JavaScript
       displayName: 'assign, compliance'
       href: ./assign-policy-javascript.md
@@ -139,6 +142,9 @@
     - name: Créer des stratégies pour les propriétés de tableau
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Exporter les ressources Azure Policy
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: Guest Configuration
       items:
         - name: Créer une stratégie Guest Configuration sur Windows

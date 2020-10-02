@@ -5,15 +5,15 @@ services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: e0c5ab4f6d36a24ff9f59ec373291e00669e1e92
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320117"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426218"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Résoudre des problèmes d’expérience utilisateur dans Azure Data Factory
 
@@ -100,6 +100,16 @@ Si vous voyez une réponse DNS normale, contactez votre support informatique loc
 Si autre chose s’affiche, cela signifie généralement qu’il y a un problème avec votre serveur DNS lors de la résolution du nom DNS. En règle générale, la modification du fournisseur de services Internet (ISP) ou du DNS (par exemple, sur Google DNS 8.8.8.8) peut être une solution de contournement possible. Si le problème persiste, vous pouvez essayer **nslookup datafactory.azure.com** et **nslookup azure.com** pour voir à quel niveau votre résolution DNS a échoué et envoyer toutes les informations à votre support informatique local ou à votre fournisseur de services Internet pour résoudre le problème. S’ils pensent que le problème se trouve toujours du côté de Microsoft, envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
 
 ![Réponse de la commande 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
+
+## <a name="change-linked-service-type-in-datasets"></a>Modifier le type de service lié dans les jeux de données
+
+Le jeu de données de format de fichier peut être utilisé avec tous les connecteurs basés sur des fichiers. Par exemple, vous pouvez configurer un jeu de données Parquet sur Azure Blob ou Azure Data Lake Storage Gen2. Notez que chaque connecteur prend en charge différents jeux de paramètres liés au magasin de données sur l’activité, et avec un modèle d’application différent. 
+
+Dans l’interface utilisateur de création ADF, lorsque vous utilisez un jeu de données de format de fichier dans une activité (notamment les activités Copy, Lookup, GetMetadata, Delete) et que dans le jeu de données, vous souhaitez pointer vers un service lié de type différent de celui de la version actuelle (par exemple, passer du système de fichiers à ADLS Gen2), le message d’avertissement suivant s’affiche. Pour vous assurer qu’il s’agit d’un commutateur approprié, à la suite de votre consentement, les pipelines et les activités qui font référence à ce jeu de données sont modifiés pour utiliser également le nouveau type, et tous les paramètres de magasin de données existants incompatibles avec le nouveau type sont effacés car ils ne s’appliquent plus.
+
+Pour en savoir plus sur les paramètres de stockage de données pris en charge pour chaque connecteur, vous pouvez accéder à l’article du connecteur correspondant-> propriétés de l’activité de copie pour afficher la liste détaillée des propriétés. Consultez [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md).
+
+![Message d'avertissement](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

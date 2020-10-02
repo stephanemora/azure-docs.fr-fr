@@ -407,7 +407,7 @@
           href: ps-template.md
         - name: Se connecter à une machine virtuelle
           href: connect-logon.md
-        - name: Se connecter à des machines virtuelles Linux
+        - name: SSH sur des machines virtuelles Linux
           displayName: ssh keygen ssk-key putty
           items:
             - name: Sur le portail
@@ -595,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: FAQ relative au chiffrement de disque
               href: disk-encryption-faq.md
-            - name: "Chiffrement de disque - version précédente (Azure\_AD)"
+            - name: Chiffrement de disque - version précédente
               items:
                 - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md

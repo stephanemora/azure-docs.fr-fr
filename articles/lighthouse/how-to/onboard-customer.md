@@ -3,12 +3,12 @@ title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
 ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719051"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483794"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -19,7 +19,7 @@ Cet article explique comment, en tant que fournisseur de services, vous pouvez i
 
 Vous pouvez répéter le processus d’intégration pour plusieurs clients. Lorsqu'un utilisateur disposant des autorisations appropriées se connecte à votre locataire gérant, il peut être autorisé à accéder aux étendues de location du client pour effectuer des opérations de gestion sans avoir à se connecter individuellement à chaque locataire du client.
 
-Pour suivre votre impact sur les engagements client et recevoir une reconnaissance, associez votre ID Microsoft Partner Network (MPN) à au moins un compte d’utilisateur qui a accès à tous vos abonnements intégrés. Vous devez effectuer cette association dans le locataire de votre fournisseur de services. Par souci de simplicité, nous vous recommandons de créer un compte de principal du service dans votre locataire qui est associé à votre ID MPN et de lui accorder un accès Lecteur pour chaque client que vous intégrez. Pour plus d’informations, consultez [Lier un ID partenaire à vos comptes Azure](../../cost-management-billing/manage/link-partner-id.md).
+Pour suivre votre impact sur les engagements client et recevoir une reconnaissance, associez votre ID Microsoft Partner Network (MPN) à au moins un compte d’utilisateur qui a accès à tous vos abonnements intégrés. Vous devez effectuer cette association dans le locataire de votre fournisseur de services. Nous vous recommandons de créer un compte de principal de service dans votre locataire associé à votre ID MPN, puis d’inclure ce principal de service chaque fois que vous intégrez un client. Pour plus d’informations, consultez [Lier votre ID de partenaire pour activer le crédit Partenaires sur des ressources déléguées](partner-earned-credit.md).
 
 > [!NOTE]
 > Les clients peuvent également être intégrés à Azure Lighthouse lorsqu'ils achètent une offre de service géré (public ou privé) que vous [publiez sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée sur la Place de marché Azure.

@@ -172,7 +172,7 @@
           href: connect-azure-stack.md
     - name: Activer l’analytique du comportement des utilisateurs et des entités
       href: enable-entity-behavior-analytics.md
-    - name: Utiliser plusieurs locataires (MSSP)
+    - name: Gérer plusieurs locataires (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Utiliser les incidents dans plusieurs espaces de travail
       href: multiple-workspace-view.md

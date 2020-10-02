@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 60ca3723831b1d47e5c20f292394386df08ebdd1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380383"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420436"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -104,7 +104,7 @@ Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou apr�
 
 ## <a name="selecting-an-online-store"></a>Sélection d’un magasin en ligne
 
-Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du public cible. Pour plus d’informations sur la sélection d’un magasin en ligne, consultez [Sélection d’un magasin en ligne](determine-your-listing-type.md#selecting-an-online-store).
+Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft AppSource, la Place de marché Azure ou les deux. Chaque magasin en ligne répond aux exigences uniques des clients. AppSource est destiné aux solutions métier, et la Place de marché Azure aux solutions informatiques. Votre type d’offre, vos fonctionnalités de transaction et vos catégories déterminent l’emplacement de publication de votre offre. Les catégories et sous-catégories sont mappées à chaque magasin en ligne en fonction du type de votre solution. Pour plus d’informations sur la sélection d’un magasin en ligne, consultez [Sélection d’un magasin en ligne](determine-your-listing-type.md#selecting-an-online-store).
 
 ## <a name="legal-contracts"></a>Contrats juridiques
 

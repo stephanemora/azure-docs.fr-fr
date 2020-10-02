@@ -3,12 +3,12 @@ title: Prise en charge de la migration VMware dans Azure Migrate
 description: Découvrez la prise en charge de la migration VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 430b491780e10840274f16315b159a8095c11889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051115"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612535"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -41,7 +41,7 @@ Le tableau récapitule les exigences de l’hyperviseur VMware.
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5 ou 6.7.
 **Hôte ESXI VMware vSphere** | Version 5.5, 6.0, 6.5 ou 6.7.
-**Autorisations vCenter Server** | La migration sans agent utilise l’[appliance Migrate](migrate-appliance.md). L’appliance a besoin des autorisations suivantes dans vCenter Server :<br/><br/> - **Datastore.Browse** : Autoriser l’exploration des fichiers journaux des machines virtuelles pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **Datastore.LowLevelFileOperations** : Autoriser les opérations de lecture/écriture/suppression/renommage dans l’explorateur de magasin de données pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking** : Autoriser l’activation ou la désactivation du suivi des modifications des disques de machine virtuelle pour extraire les blocs de données modifiés entre les instantanés.<br/><br/> - **VirtualMachine.Configuration.DiskLease** : Autoriser les opérations de bail de disque pour une machine virtuelle, à lire le disque en utilisant VDDK (vSphere Virtual Disk Development Kit) VMware vSphere.<br/><br/> - **VirtualMachine.Provisioning.DiskAccess** : (plus spécifiquement pour vSphere 6.0 et versions ultérieures) Autoriser l’ouverture d’un disque sur une machine virtuelle pour un accès en lecture aléatoire sur le disque à l’aide du kit VDDK.<br/><br/> - **VirtualMachine.Provisioning.ReadOnlyDiskAccess** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.VirtualMachineDownload** : Autorise les opérations de lecture sur les fichiers associés à une machine virtuelle, à télécharger les journaux et à résoudre les problèmes en cas d’échec.<br/><br/> - **VirtualMachine.SnapshotManagement.\*** : Autoriser la création et la gestion des instantanés de machines virtuelles pour la réplication.<br/><br/> - **Virtual Machine.Interaction.Power Off** : Autoriser la mise hors tension de la machine virtuelle pendant la migration vers Azure.
+**Autorisations vCenter Server** | La migration sans agent utilise l’[appliance Migrate](migrate-appliance.md). L’appliance a besoin des autorisations suivantes dans vCenter Server :<br/><br/> - **Datastore.Browse** : Autoriser l’exploration des fichiers journaux des machines virtuelles pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **Datastore.FileManagement** : Autoriser les opérations de lecture/écriture/suppression/renommage dans l’explorateur de magasin de données pour résoudre les problèmes de création et de suppression des instantanés.<br/><br/> - **VirtualMachine.Config.ChangeTracking** : Autoriser l’activation ou la désactivation du suivi des modifications des disques de machine virtuelle pour extraire les blocs de données modifiés entre les instantanés.<br/><br/> - **VirtualMachine.Config.DiskLease** : Autoriser les opérations de bail de disque pour une machine virtuelle, à lire le disque en utilisant VDDK (vSphere Virtual Disk Development Kit) VMware vSphere.<br/><br/> - **VirtualMachine.Provisioning.DiskAccess** : (plus spécifiquement pour vSphere 6.0 et versions ultérieures) Autoriser l’ouverture d’un disque sur une machine virtuelle pour un accès en lecture aléatoire sur le disque à l’aide du kit VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** : Autoriser l’ouverture d’un disque sur une machine virtuelle pour lire le disque avec VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** : Autorise les opérations de lecture sur les fichiers associés à une machine virtuelle, à télécharger les journaux et à résoudre les problèmes en cas d’échec.<br/><br/> - **VirtualMachine.State.\***  : Autoriser la création et la gestion des instantanés de machines virtuelles pour la réplication.<br/><br/> - **Virtual Machine.Interact.PowerOff** : Autoriser la mise hors tension de la machine virtuelle pendant la migration vers Azure.
 
 
 
@@ -68,7 +68,7 @@ Le tableau récapitule les exigences de la migration sans agent concernant les m
 **Storage vMotion** | Non pris en charge. La réplication ne fonctionne pas si une machine virtuelle utilise Storage vMotion.
 **Cartes réseau associées** | Non pris en charge.
 **IPv6** | Non pris en charge.
-**Disque cible** | Les machines virtuelles peuvent être migrées seulement vers des disques managés (disques durs standard, disques SSD Premium) dans Azure.
+**Disque cible** | Les machines virtuelles peuvent uniquement être migrées vers des disques managés (disques HDD standard, disques SSD standard, disques SSD premium) dans Azure.
 **Réplication simultanée** | 300 machines virtuelles par VCenter Server. Si vous en avez plus, migrez-les par lots de 300.
 
 
@@ -118,7 +118,7 @@ Le tableau résume la prise en charge de machines virtuelles VMware pour les mac
 **Service de mobilité** | L’agent du service Mobilité doit être installé sur chaque machine virtuelle que vous voulez migrer.
 **Démarrage UEFI** | Pris en charge.
 **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.
-**Disque cible** | Les machines virtuelles peuvent être migrées seulement vers des disques managés (disques durs standard, disques SSD Premium) dans Azure.
+**Disque cible** | Les machines virtuelles peuvent uniquement être migrées vers des disques managés (disques HDD standard, disques SSD standard, disques SSD premium) dans Azure.
 **Taille du disque** | Disque de système d’exploitation de 2 To ; 8 To pour des disques de données.
 **Limites du disque** |  Jusqu'à 63 disques par machine virtuelle.
 **Disques/volumes chiffrés** | Les machines virtuelles avec des disques/volumes chiffrés ne sont pas prises en charge pour la migration.

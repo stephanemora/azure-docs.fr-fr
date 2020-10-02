@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200131"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053451"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
 
@@ -112,13 +112,17 @@ Il s’agit d’erreurs liées à des données dont la taille dépasse la taille
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Description de l’erreur :** La taille d’un partage de fichiers Azure est limitée à 5 To de données. Cette limite a été dépassée pour certains partages.
+**Description de l’erreur :** Le partage de fichiers Azure limite un partage à 5 Tio de données, et les partages de fichiers volumineux ne sont pas activés sur le compte de stockage. Cette limite a été dépassée pour certains partages.
 
 **Résolution suggérée :** Dans la page **Connexion et copie** de l’interface utilisateur web locale, téléchargez et consultez les fichiers d’erreur.
 
-Identifiez les dossiers qui rencontrent ce problème dans les journaux d’erreur et vérifiez que la taille des fichiers présents dans ce dossier est inférieure à 5 To.
-
-
+- Identifiez les dossiers qui rencontrent ce problème dans les journaux d'erreur et vérifiez que la taille des fichiers présents dans ce dossier est inférieure à 5 Tio.
+- La limite de 5 Tio ne s'applique pas à un compte de stockage qui autorise les partages de fichiers volumineux. Cependant, des partages de fichiers volumineux doivent être configurés lorsque vous passez votre commande. 
+  - Contactez le [Support Microsoft](data-box-disk-contact-microsoft-support.md) et demandez une nouvelle étiquette d'expédition.
+  - [Activez les partages de fichiers volumineux sur le compte de stockage.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Développez les partages de fichiers sur le compte de stockage](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) et définissez le quota sur 100 Tio.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Erreurs liées à la limite de taille des objets ou des fichiers
 
 Il s’agit d’erreurs liées à des données dépassant la taille maximale d’objet ou de fichier autorisée dans Azure. 

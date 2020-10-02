@@ -1,27 +1,29 @@
 ---
-title: Restauration dans le temps pour les objets blob de blocs (préversion)
+title: Restauration dans le temps pour les objets blob de blocs
 titleSuffix: Azure Storage
 description: La restauration dans le temps pour les objets blob en blocs offre une protection contre la suppression ou les altérations accidentelles en vous permettant de restaurer un compte de stockage à son état précédent à un moment donné.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068300"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987037"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauration dans le temps pour les objets blob de blocs (préversion)
+# <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
 La limite de restauration dans le temps offre une protection contre les suppressions ou altérations accidentelles en vous permettant de restaurer des données d’objet blob de blocs à un état antérieur. La limite de restauration dans le temps est utile dans les scénarios où un utilisateur ou une application supprime accidentellement des données ou lorsqu’une erreur d’application endommage les données. La restauration dans le temps permet également de tester des scénarios qui nécessitent le rétablissement d’un jeu de données à un état connu avant d’exécuter d’autres tests.
 
-Pour savoir comment activer la restauration jusqu’à une date et heure pour un compte de stockage, consultez [Activer la restauration dans le temps pour les objets blob en blocs (préversion)](point-in-time-restore-manage.md).
+La limite de restauration dans le temps est prise en charge pour les comptes de stockage v2 à usage général uniquement. Seules les données des niveaux d’accès chaud et froid peuvent être restaurées dans le cadre d’une limite de restauration dans le temps.
+
+Pour savoir comment activer la restauration jusqu’à une date et heure pour un compte de stockage, consultez [Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs](point-in-time-restore-manage.md).
 
 ## <a name="how-point-in-time-restore-works"></a>Fonctionnement de la restauration dans le temps
 
@@ -48,17 +50,15 @@ Gardez à l’esprit les limitations suivantes sur les opérations de restaurati
 > Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container) au cours de la restauration dans le temps en préversion, ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Pendant la préversion, au lieu de supprimer un conteneur, supprimez les objets blob individuels si vous souhaitez les restaurer.
+> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur, supprimez chacun des objets blob si vous souhaitez les restaurer.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Conditions préalables pour une restauration dans le temps
 
-La limite de restauration dans le temps nécessite que les fonctionnalités de stockage Azure suivantes soient activées :
+La limite de restauration dans le temps implique que les fonctionnalités Stockage Azure suivantes soient activées avant la restauration :
 
 - [Suppression réversible](soft-delete-overview.md)
-- [Flux de modification (préversion)](storage-blob-change-feed.md)
-- [Gestion des versions d’objets blob](versioning-overview.md)
-
-Activez ces fonctionnalités pour le compte de stockage avant d’activer la restauration dans le temps. Veillez à vous inscrire pour les préversions du flux de modification et des versions d’objets blob avant de les activer.
+- [Flux de modification](storage-blob-change-feed.md)
+- [Contrôle de version des blobs](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Période de rétention pour une restauration dans le temps
 
@@ -72,83 +72,17 @@ La période de rétention pour la restauration dans le temps doit être inférie
 
 Pour lancer une opération de restauration, un client doit disposer d’autorisations en écriture sur tous les conteneurs du compte de stockage. Pour autoriser une opération de restauration avec Azure Active Directory (Azure AD), attribuez le rôle **Contributeur de comptes de stockage** au principal de sécurité au niveau du compte de stockage, du groupe de ressources ou de l’abonnement.
 
-## <a name="about-the-preview"></a>À propos de la préversion
+## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
-La limite de restauration dans le temps est prise en charge pour les comptes de stockage v2 à usage général uniquement. Seules les données des niveaux d’accès chaud et froid peuvent être restaurées dans le cadre d’une limite de restauration dans le temps.
+La restauration jusqu’à une date et heure pour les objets blob de blocs présente les limitations et les problèmes connus suivants :
 
-Les régions suivantes prennent en charge la restauration dans le temps en préversion :
-
-- Centre du Canada
-- Est du Canada
-- France Centre
-
-La préversion présente les limitations suivantes :
-
-- La restauration des objets blob de blocs Premium n’est pas prise en charge.
-- La restauration d’objets blob dans le niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud.
+- Seuls les objets blob de blocs d’un compte de stockage v2 standard à usage général peuvent être restaurés dans le cadre d’une opération de restauration jusqu’à une date et heure. Les objets blob d’ajout, les objets blob de pages et les objets blob de blocs Premium ne sont pas restaurés. Si vous avez supprimé un conteneur au cours de la période de rétention, ce conteneur ne sera pas restauré lors de l’opération de restauration jusqu’à une date et heure. Pour en savoir plus sur la protection des conteneurs contre la suppression, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
+- Seuls les objets blob de blocs des niveaux chaud ou froid peuvent être restaurés lors d’une opération de restauration jusqu’à une date et heure. La restauration d’objets blob de blocs du niveau archive n’est pas prise en charge. Par exemple, si un objet blob a été déplacé du niveau d’accès chaud au niveau de stockage archive il y a deux jours et qu’une opération de restauration restaure un point d’il y a trois jours, l’objet blob n’est pas restauré vers le niveau d’accès chaud. Pour restaurer un objet blob archivé, commencez par le déplacer en dehors du niveau archive.
+- Si un objet blob de blocs présent dans l’étendue à restaurer dispose d’un bail actif, l’opération de restauration jusqu’à une date et heure échoue. Arrêtez tout bail actif avant de lancer l’opération de restauration.
 - La restauration d’espaces de noms plats et hiérarchiques Azure Data Lake Storage Gen2 n’est pas prise en charge.
-- La restauration de comptes de stockage à l’aide de clés fournies par le client n’est pas prise en charge.
 
 > [!IMPORTANT]
-> La préversion de la restauration dans le temps est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
-
-### <a name="register-for-the-preview"></a>S’inscrire pour la préversion
-
-Pour vous inscrire à la préversion, exécutez les commandes suivantes :
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Vérifier l’état de l’inscription
-
-L’inscription à la limite de restauration dans le temps est automatique et prend moins de 10 minutes. Pour vérifier l’état de votre inscription, exécutez les commandes suivantes :
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Si vous restaurez des objets blob de blocs à un point antérieur au 22 septembre 2020, les limitations de la restauration jusqu’à une date et heure seront appliquées. Microsoft vous recommande de choisir un point de restauration égal ou postérieur au 22 septembre 2020 pour tirer parti de la fonctionnalité de restauration jusqu’à une date et heure généralement disponible.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -158,13 +92,9 @@ Pour estimer le coût d’une opération de restauration, consultez le journal d
 
 Pour plus d’informations sur la tarification pour la restauration dans le passé, consultez [Tarification des objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="ask-questions-or-provide-feedback"></a>Poser des questions ou envoyer des commentaires
-
-Pour poser des questions sur la préversion de la restauration dans le temps ou fournir des commentaires, contactez Microsoft à l’adresse pitrdiscussion@microsoft.com.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Activer et gérer une restauration dans le temps pour les objets blob de blocs (préversion)](point-in-time-restore-manage.md)
-- [Prise en charge du flux de modification dans Stockage Blob Azure (préversion)](storage-blob-change-feed.md)
+- [Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs](point-in-time-restore-manage.md)
+- [Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)
 - [Activer la suppression réversible pour les objets blob](soft-delete-enable.md)
 - [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)

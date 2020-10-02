@@ -224,6 +224,8 @@
           href: troubleshoot-performance-virtual-machine-linux-windows.md
         - name: Diagnostics des performances
           href: performance-diagnostics.md
+        - name: Résoudre les problèmes de processeur élevé d’une machine virtuelle Windows Azure
+          href: troubleshoot-high-cpu-issues-azure-windows-vm.md
     - name: PerfInsights
       items:
         - name: Windows
@@ -299,7 +301,7 @@
   items:
     - name: Windows
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../windows/disk-encryption-overview.md
         - name: Dépanner
           href: ../windows/disk-encryption-troubleshooting.md

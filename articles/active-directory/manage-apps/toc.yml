@@ -57,10 +57,16 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Authentification unique
       items:
-        - name: Options d’authentification unique
-          href: sso-options.md
         - name: Planifier un déploiement de l’authentification unique
           href: plan-sso-deployment.md
+        - name: Options d’authentification unique
+          href: sso-options.md
+        - name: Authentification unique SAML
+          href: configure-saml-single-sign-on.md
+        - name: Authentification unique par mot de passe
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Authentification unique par lien
+          href: configure-linked-sign-on.md
         - name: SSO en un clic
           href: one-click-sso-tutorial.md
     - name: Sécurité des applications
@@ -102,14 +108,6 @@
 - name: Guides pratiques
   expanded: false
   items:
-    - name: Configurer l’authentification unique
-      items:
-        - name: Configurer l’authentification unique SAML
-          href: configure-saml-single-sign-on.md
-        - name: Configurer l’authentification par mot de passe
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Configurer l’authentification liée
-          href: configure-linked-sign-on.md
     - name: Affecter des utilisateurs et gérer l’accès aux applications
       items:
         - name: Configurer le consentement de l’utilisateur

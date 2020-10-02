@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798492"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979898"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -80,6 +80,12 @@ Une fois que vous avez trouvé le package d’accès dans le portail Mon Accès,
 Si vous demandez l’accès à un package d’accès auquel plusieurs stratégies s’appliquent, il pourra vous être demandé de sélectionner une stratégie. Par exemple, un gestionnaire de package d’accès peut configurer un package d’accès avec deux stratégies pour deux groupes d’employés internes. La première stratégie peut autoriser l’accès pendant 60 jours et nécessiter une approbation. La deuxième stratégie peut autoriser l’accès pendant 2 jours et ne nécessiter aucune approbation. Si vous rencontrez ce scénario, vous devez sélectionner la stratégie que vous souhaitez utiliser.
 
 ![Portail Mon Accès – Demander l’accès – plusieurs stratégies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Renseigner les informations relatives au demandeur
+
+Vous pouvez demander à accéder à un package d’accès qui requiert une justification métier et des informations supplémentaires sur le demandeur avant de vous autoriser à accéder au package d’accès. Renseignez toutes les informations relatives au demander pour accéder au package d’accès.
+
+![Portail Mon accès - Demander l’accès - Renseigner les informations relatives au demandeur](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Resoumettre une demande
 

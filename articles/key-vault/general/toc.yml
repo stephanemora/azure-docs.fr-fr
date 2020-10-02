@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: Sécurité
       items:
+        - name: Concepts de base de l’authentification Key Vault
+          href: authentication-fundamentals.md
         - name: Sécurité d’Azure Key Vault
           href: overview-security.md
         - name: Bonnes pratiques relatives à utilisation d’un coffre de clés - Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: Suppression réversible
       items:
+        - name: Récupération Key Vault (suppression réversible et protection contre le vidage)
+          href: key-vault-recovery.md
         - name: Utiliser la suppression réversible avec CLI
           href: soft-delete-cli.md
         - name: Utiliser la suppression réversible avec Power​Shell

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029312"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611911"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -22,13 +22,17 @@ Pour protéger vos groupes de machines virtuelles identiques contre les défaill
 
 ## <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
-Lorsque vous déployez un groupe identique dans une ou plusieurs zones depuis la version d’API *2017-12-01*, vous avez la possibilité de déployer avec « max spreading » (répartition max.) ou « static 5 fault domain spreading » (répartition statique sur 5 domaines d’erreur). Avec « max spreading » (répartition max), le groupe identique répartit vos machines virtuelles sur autant de domaines d’erreur possibles au sein de chaque zone. Cette répartition peut s’effectuer sur plus ou moins de cinq domaines d’erreur par zone. Avec « static 5 fault domain spreading » (répartition statique sur 5 domaines d’erreur), le groupe identique répartit vos machines virtuelles dans exactement cinq domaines d’erreur par zone. Si le groupe identique ne parvient pas à trouver cinq domaines d’erreur distincts par zone pour satisfaire la requête de répartition, la requête échoue.
+Lorsque vous déployez un groupe identique régional (non zonal) dans une ou plusieurs zones en tant que version d’API *2017-12-01*, vos options de disponibilité sont les suivantes :
+- Diffusion maximale (platformFaultDomainCount = 1)
+- Diffusion fixe statique (platformFaultDomainCount = 5)
+- Diffusion alignée sur les domaines d’erreur de disque de stockage (platforFaultDomainCount = 2 ou 3)
+
+Avec « max spreading » (répartition max), le groupe identique répartit vos machines virtuelles sur autant de domaines d’erreur possibles au sein de chaque zone. Cette répartition peut s’effectuer sur plus ou moins de cinq domaines d’erreur par zone. Avec une diffusion fixe statique, le groupe identique répartit vos machines virtuelles dans exactement cinq domaines d’erreur par zone. Si le groupe identique ne parvient pas à trouver cinq domaines d’erreur distincts par zone pour satisfaire la requête de répartition, la requête échoue.
 
 **Nous vous recommandons de déployer avec « max spreading » (répartition max.) pour la plupart des charges de travail**, car cette approche fournit la meilleure répartition dans la plupart des cas. Si vous avez besoin que les réplica soient répartis sur des unités matérielles d’isolation distinctes, nous vous recommandons de les répartir sur plusieurs zones de disponibilité et d’utiliser « max spreading » (répartition max.) au sein de chaque zone.
 
-Avec « max spreading » (répartition max.), un seul domaine d’erreur s’affiche dans la vue d’instance de machine virtuelle ainsi que dans les métadonnées de l’instance, quel que soit le nombre de domaines d’erreur sur lesquels les machines virtuelles sont réparties. La répartition dans chaque zone est implicite.
-
-Pour utiliser « max spreading » (répartition max.), définissez la valeur *platformFaultDomainCount* sur *1*. Pour utiliser « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur), définissez la valeur *platformFaultDomainCount* sur *5*. Dans la version d’API *2017-12-01*, *platformFaultDomainCount* est défini sur *1* par défaut pour les groupes identiques de zone unique et inter-zones. Actuellement, seul « static five fault domain spreading » (répartition statique sur cinq domaines d’erreur) est pris en charge pour les groupes identiques régionaux (non-zonaux).
+> [!NOTE]
+> Avec « max spreading » (répartition max.), un seul domaine d’erreur s’affiche dans la vue d’instance de machine virtuelle ainsi que dans les métadonnées de l’instance, quel que soit le nombre de domaines d’erreur sur lesquels les machines virtuelles sont réparties. La répartition dans chaque zone est implicite.
 
 ### <a name="placement-groups"></a>Groupes de placement
 
@@ -46,7 +50,7 @@ Enfin, pour les groupes identiques déployés sur plusieurs zones, vous avez ég
 
 Il est possible que les machines virtuelles du groupe identique soient correctement créées, mais que le déploiement d’extensions sur ces machines virtuelles échoue. Ces machines virtuelles avec des erreurs d’extension sont toujours comptabilisées lorsque l’équilibre d’un groupe identique est évalué. Par exemple, un groupe identique composé de 3 machines virtuelles en zone 1, 3 machines virtuelles en zone 2 et 3 machines virtuelles en zone 3 est considéré comme étant équilibré même si toutes les extensions ont échoué en zone 1 et toutes les extensions ont réussi en zones 2 et 3.
 
-Avec « best effort zone balance » (meilleur équilibre des zones), le groupe identique tente d’effectuer un scale-in et un scale-out tout en maintenant l’équilibre. Toutefois, si pour une raison quelconque cela n’est pas possible (par exemple, si une zone tombe en panne, le groupe identique ne peut pas créer de nouvelle machine virtuelle dans cette zone), le groupe identique autorise un déséquilibre temporaire pour effectuer correctement un scale-in ou un scale-out. Lors des tentatives suivantes d’augmentation de la taille des instances, le groupe identique ajoute des machines virtuelles aux zones qui ont besoin de davantage de machines virtuelles pour équilibrer le groupe identique. De même, lors des tentatives suivantes de scale-in, le groupe identique retire des machines virtuelles aux zones qui ont besoin de moins de machines virtuelles pour équilibrer le groupe identique. Avec « strict zone balance » (équilibre des zones strict), toute tentative du groupe identique pour effectuer un scale-in ou un scale-out échoue si cela crée un déséquilibre.
+Avec « best effort zone balance » (meilleur équilibre des zones), le groupe identique tente de diminuer et d’augmenter la taille des instances tout en maintenant l’équilibre. Toutefois, si pour une raison quelconque cela n’est pas possible (par exemple, si une zone tombe en panne, le groupe identique ne peut pas créer de nouvelle machine virtuelle dans cette zone), le groupe identique autorise un déséquilibre temporaire pour effectuer correctement un scale-in ou un scale-out. Lors des tentatives suivantes d’augmentation de la taille des instances, le groupe identique ajoute des machines virtuelles aux zones qui ont besoin de davantage de machines virtuelles pour équilibrer le groupe identique. De même, lors des tentatives suivantes de diminution de la taille des instances, le groupe identique retire des machines virtuelles aux zones qui ont besoin de moins de machines virtuelles pour équilibrer le groupe identique. Avec « strict zone balance » (équilibre des zones strict), toute tentative du groupe identique pour diminuer et augmenter la taille des instances échoue si cela crée un déséquilibre.
 
 Pour utiliser « best effort zone balance » (meilleur équilibre des zones), définissez *zoneBalance* sur *false*. Il s’agit du paramètre par défaut dans la version d’API *2017-12-01*. Pour utiliser « strict zone balance » (équilibre des zones strict), définissez la valeur *zoneBalance* sur *true*.
 
@@ -54,7 +58,7 @@ Pour utiliser « best effort zone balance » (meilleur équilibre des zones), d�
 
 Quand vous déployez un groupe de machines virtuelles identiques, vous pouvez utiliser une seule zone de disponibilité dans une région, ou bien plusieurs zones.
 
-Quand vous créez un groupe identique dans une zone unique, vous contrôlez la zone dans laquelle toutes ces instances de machine virtuelle s’exécutent, et le groupe identique est géré et automatiquement mis à l’échelle dans cette zone uniquement. Un groupe identique redondant interzone permet de créer un groupe identique unique qui couvre plusieurs zones. Au fur et à mesure que les instances de machine virtuelle sont créées, elles sont, par défaut, uniformément réparties sur les différentes zones. En cas d’interruption dans l’une de ces zones, le groupe identique n’effectue pas automatiquement de scale-out pour augmenter la capacité. Une meilleure pratique serait de configurer des règles de mise à l’échelle automatique en fonction de l’utilisation du processeur ou de la mémoire. Les règles de mise à l’échelle automatique permettraient au groupe identique de réagir en cas de perte d’instances de machine virtuelle dans cette zone en augmentant la taille des instances dans les zones opérationnelles restantes.
+Quand vous créez un groupe identique dans une zone unique, vous contrôlez la zone dans laquelle toutes ces instances de machine virtuelle s’exécutent, et le groupe identique est géré et automatiquement mis à l’échelle dans cette zone uniquement. Un groupe identique redondant interzone permet de créer un groupe identique unique qui couvre plusieurs zones. Au fur et à mesure que les instances de machine virtuelle sont créées, elles sont, par défaut, uniformément réparties sur les différentes zones. En cas d’interruption dans l’une de ces zones, le groupe identique ne se met pas automatiquement à l’échelle pour augmenter la capacité. Une meilleure pratique serait de configurer des règles de mise à l’échelle automatique en fonction de l’utilisation du processeur ou de la mémoire. Les règles de mise à l’échelle automatique permettraient au groupe identique de réagir en cas de perte d’instances de machine virtuelle dans cette zone en augmentant la taille des instances dans les zones opérationnelles restantes.
 
 Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-region.md). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
@@ -209,7 +213,7 @@ Pour créer un groupe identique redondant interzone, spécifiez plusieurs valeur
 }
 ```
 
-Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzones. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
+Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes interzone. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour obtenir un exemple complet de groupe identique redondant interzone et de ressources réseau, consultez [cet exemple de modèle Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

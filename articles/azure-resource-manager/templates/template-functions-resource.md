@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 5a685255385d54fa21d672d0267fb4ad5ff5037b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378421"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468672"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -101,6 +101,12 @@ L’exemple suivant retourne l’ID de la ressource pour un verrou de groupe de 
     }
 }
 ```
+
+Une définition de stratégie personnalisée déployée sur un groupe d’administration est implémentée en tant que ressource d’extension. Pour créer et affecter une stratégie, déployez le modèle suivant dans un groupe d’administration.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Les définitions de stratégie intégrées sont des ressources de niveau locataire. Pour obtenir un exemple de déploiement d’une définition de stratégie intégrée, consultez [tenantResourceId](#tenantresourceid).
 
 <a id="listkeys"></a>
 <a id="list"></a>
@@ -343,7 +349,7 @@ Détermine si un type de ressource prend en charge les zones pour une région.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace | Oui | string | Espace de noms du fournisseur du type de ressource pour lequel la prise en charge des zones doit être vérifiée. |
+| espacedenoms_fournisseur | Oui | string | Espace de noms du fournisseur du type de ressource pour lequel la prise en charge des zones doit être vérifiée. |
 | resourceType | Oui | string | Type de ressource pour lequel la prise en charge des zones doit être vérifiée. |
 | location | Oui | string | Région pour laquelle la prise en charge des zones doit être vérifiée. |
 | numberOfZones | Non | entier | Nombre de zones logiques à retourner. La valeur par défaut est 1. Le nombre doit être un entier positif compris entre 1 et 3.  Utilisez 1 pour les ressources à une seule zone. Pour les ressources multizones, la valeur doit être inférieure ou égale au nombre de zones prises en charge. |
@@ -845,23 +851,27 @@ Lorsque le modèle est déployé à l’échelle d’un groupe de ressources, l�
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Lorsqu’il est utilisé dans un [déploiement au niveau de l’abonnement](deploy-to-subscription.md), l’ID de la ressource est retourné au format suivant :
+Vous pouvez utiliser la fonction resourceId pour d’autres étendues de déploiement, mais le format de l’ID change.
+
+Si vous utilisez la fonction resourceId lors du déploiement sur un abonnement, l’ID de ressource est retourné au format suivant :
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Lorsqu’il est utilisé dans un [déploiement au niveau groupe d’administration](deploy-to-management-group.md) ou au niveau locataire, l’ID de la ressource est retourné au format suivant :
+Si vous utilisez la fonction resourceId lors du déploiement sur un client ou un groupe d’administration, l’ID de ressource est retourné au format suivant :
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Pour obtenir l’ID dans d’autres formats, voir :
+Pour éviter toute confusion, nous vous recommandons de ne pas utiliser la fonction resourceId lorsque vous travaillez avec des ressources déployées sur l’abonnement, le groupe d’administration ou le locataire. Utilisez plutôt la fonction ID conçue pour l’étendue.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+Pour les [ressources au niveau de l’abonnement](deploy-to-subscription.md), utilisez la fonction [subscriptionResourceId](#subscriptionresourceid).
+
+Pour les [ressources au niveau du groupe d’administration](deploy-to-management-group.md), utilisez la fonction [extensionResourceId](#extensionresourceid) pour référencer une ressource qui est implémentée en tant qu’extension d’un groupe d’administration. Par exemple, des définitions de stratégie personnalisée déployées sur un groupe d’administration sont des extensions de celui-ci. Utilisez la fonction [tenantResourceId](#tenantresourceid) pour référencer les ressources déployées sur le locataire, mais disponibles dans votre groupe d’administration. Par exemple, les définitions de stratégie intégrées sont implémentées en tant que ressources au niveau locataire.
+
+Pour les [ressources au niveau locataire](deploy-to-tenant.md), utilisez la fonction [tenantResourceId](#tenantresourceid). Utilisez la fonction tenantResourceId pour les définitions de stratégie intégrées, car elles sont implémentées au niveau locataire.
 
 ### <a name="remarks"></a>Notes
 
@@ -1124,6 +1134,44 @@ L'identificateur est retourné au format suivant :
 ### <a name="remarks"></a>Notes
 
 Cette fonction permet de récupérer l’ID d’une ressource déployée sur le tenant. L’ID retourné diffère des valeurs retournées par d’autres fonctions d’ID de ressource en ce qu’il n’inclut pas de valeurs de groupe de ressources ou d’abonnement.
+
+### <a name="tenantresourceid-example"></a>Exemple tenantResourceId
+
+Les définitions de stratégie intégrées sont des ressources de niveau locataire. Pour déployer une attribution de stratégie qui fait référence à une définition de stratégie intégrée, utilisez la fonction tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

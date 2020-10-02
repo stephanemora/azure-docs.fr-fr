@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055632"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468706"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -174,6 +174,42 @@ Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs
 | Parmi les appareils qui équipent *Room 123* (la salle 123), retournez les appareils MxChip qui remplissent le rôle d’Operator (opérateur) | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Récupérez les jumeaux qui présentent une relation nommée *Contains* (Contient) avec un autre jumeau dont l’ID est *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Récupérez toutes les salles de ce modèle de salle qui sont contenues dans *floor11* (l’étage11) | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+
+## <a name="reference-expressions-and-conditions"></a>Référence : Expressions et conditions
+
+Cette section contient des informations de référence sur les opérateurs et les fonctions disponibles lors de l’écriture de requêtes Azure Digital Twins.
+
+### <a name="operators"></a>Opérateurs
+
+Les opérateurs suivants sont pris en charge :
+
+| Famille | Opérateurs |
+| --- | --- |
+| Logical |AND, OR, NOT |
+| Comparaison |=, !=, <, >, <=, >= |
+| Contient | IN, NIN |
+
+### <a name="functions"></a>Fonctions
+
+Les fonctions de vérification et de conversion de type suivantes sont prises en charge :
+
+| Fonction | Description |
+| -------- | ----------- |
+| IS_DEFINED | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété. Uniquement pris en charge lorsque la valeur est de type primitif. Exemples de types primitifs : chaîne, booléen, numérique ou `null`. DateHeure, les types d'objets et les tableaux ne sont pas pris en charge. |
+| IS_OF_MODEL | Retourne une valeur booléenne indiquant si le jumeau spécifié correspond au type de modèle spécifié. |
+| IS_BOOL | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type booléen. |
+| IS_NUMBER | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type nombre. |
+| IS_STRING | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type chaîne. |
+| IS_NULL | Retourne une valeur booléenne indiquant si l’expression spécifiée est de type null. |
+| IS_PRIMITIVE | Retourne une valeur booléenne indiquant si l’expression spécifiée est de type primitif (chaîne, booléen, numérique ou `null`). |
+| IS_OBJECT | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type objet JSON. |
+
+Les fonctions de chaîne suivantes sont prises en charge :
+
+| Fonction | Description |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne commence par la seconde. |
+| ENDS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
 
 ## <a name="run-queries-with-an-api-call"></a>Exécuter des requêtes avec un appel d’API
 

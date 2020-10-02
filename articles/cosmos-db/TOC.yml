@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Types de conflits et stratégies de résolution
-          displayName: 'last write wins, custom, multi master, multi-master'
+          displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Diffusion mondiale - sous le capot
           href: global-dist-under-the-hood.md
@@ -584,7 +584,7 @@
         - name: Chiffrement des données
           href: database-encryption-at-rest.md
         - name: Sécuriser l’accès aux données
-          displayName: 'master key, resource token, users, roles'
+          displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
         - name: Pare-feu IP
           href: firewall-support.md
@@ -620,7 +620,7 @@
   items:
     - name: API Cassandra
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce que l’API Cassandra dans Cosmos DB\_?"
               href: cassandra-introduction.md
@@ -977,7 +977,7 @@
           href: how-to-move-regions.md
     - name: Diffusion mondiale
       items:
-        - name: Configurer le multimaître
+        - name: Configurer les écritures multirégions
           href: how-to-multi-master.md
         - name: Gérer des niveaux de cohérence
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'

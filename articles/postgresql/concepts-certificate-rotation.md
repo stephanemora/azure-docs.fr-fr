@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707677"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978911"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour le serveur unique Azure Database pour PostgreSQL
 
@@ -126,5 +126,8 @@ Les certificats utilisés par Azure Database pour PostgreSQL sont fournis par de
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. Existe-t-il une requête côté serveur pour vérifier si SSL est utilisé ?
 Pour vérifier si vous utilisez une connexion SSL pour vous connecter au serveur, consultez [Vérification SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-### <a name="13-what-if-i-have-further-questions"></a>13. Que se passe-t-il si j’ai d’autres questions ?
+### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. Une action est-elle nécessaire si je dispose déjà de DigiCertGlobalRootG2 dans mon fichier de certificat ?
+Non. Aucune action n'est nécessaire si votre fichier de certificat contient déjà **DigiCertGlobalRootG2**.
+
+### <a name="14-what-if-i-have-further-questions"></a>14. Que se passe-t-il si j’ai d’autres questions ?
 Si vous avez des questions, posez-les aux experts de la communauté dans [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Si vous avez un plan de support et que vous avez besoin d’une aide technique, [contactez-nous](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

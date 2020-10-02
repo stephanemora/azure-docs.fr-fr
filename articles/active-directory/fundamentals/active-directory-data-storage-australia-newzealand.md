@@ -1,6 +1,6 @@
 ---
-title: Stockage de données d’identité pour les clients australiens - Azure AD
-description: Découvrez où Azure Active Directory stocke les données relatives à l’identité de ses clients australiens.
+title: Stockage de données client pour les clients australiens et néo-zélandais – Azure AD
+description: Découvrez où Azure Active Directory stocke les données client pour les clients australiens et néo-zélandais.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edc53152fe532a071de744db77d5c08d799c445a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0bbd31bf47c7ce7ae75a6934da0ea769698ef187
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318520"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565105"
 ---
 # <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Stockage de données client pour les clients australiens et néo-zélandais dans Azure Active Directory
 

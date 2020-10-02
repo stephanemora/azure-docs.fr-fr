@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure DB pour PostgreSQL\_?"
       href: overview.md
+    - name: "Quelle option de déploiement PostgreSQL choisir\_?"
+      href: overview-postgres-choose-server-options.md
     - name: Mises à jour de service
       items:
         - name: Expiration du certificat racine SSL
@@ -79,7 +81,7 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Concevoir une base de données
           items:

@@ -3,12 +3,12 @@ title: Niveaux de service Premium et Standard d’Azure Service Bus
 description: Cet article décrit les niveaux de service Standard et Premium d’Azure Service Bus. Compare ces niveaux de service et indique les différences techniques.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386348"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90966795"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -72,7 +72,7 @@ Un certain nombre de facteurs doivent être pris en compte pour déterminer le n
     - Si l’utilisation du processeur est ***inférieure à 20 %***, vous pourrez peut-être ***réduire*** le nombre d’unités de messagerie allouées à votre espace de noms.
     - Si l’utilisation du processeur est ***supérieure à 70 %***, votre application profitera d’une ***augmentation*** du nombre d’unités de messagerie allouées à votre espace de noms.
 
-Le processus de mise à l’échelle des ressources allouées à un espace de noms Service Bus peut être automatisé à l’aide de [Runbooks Azure Automation](../automation/automation-quickstart-create-runbook.md).
+Pour configurer un espace de noms Service Bus afin qu'il se mette automatiquement à l'échelle (augmentation ou diminution des unités de messagerie), consultez [Mettre automatiquement à jour les unités de messagerie](automate-update-messaging-units.md).
 
 > [!NOTE]
 > La **mise à l’échelle** des ressources allouées à l’espace de noms peut être préemptive ou réactive.
@@ -96,10 +96,9 @@ Vous pouvez également créer des [espaces de noms Premium à l’aide de modèl
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les liens suivants :
 
-* [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (billet de blog))](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (Channel9))](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Service Bus messaging: flexible data delivery in the cloud (Messagerie Service Bus : service flexible de distribution de données dans le cloud)](service-bus-messaging-overview.md)
-* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Mettre automatiquement à jour les unités de messagerie](automate-update-messaging-units.md)
+- [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (billet de blog))](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium Messaging (Présentation de la messagerie Azure Service Bus Premium (Channel9))](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

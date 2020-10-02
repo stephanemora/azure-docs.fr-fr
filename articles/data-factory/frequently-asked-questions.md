@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187288"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440505"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -190,7 +190,7 @@ Quand Microsoft fournit une aide ou une assistance au dépannage pour des flux d
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Comment accéder à des données à l’aide des 90 autres types de jeux de données dans Data Factory ?
 
-La fonctionnalité de mappage de flux de données autorise actuellement Azure SQL Database, Azure SQL Data Warehouse, les fichiers texte délimités à partir de Stockage Blob Azure ou Azure Data Lake Storage Gen2, et les fichiers Parquet à partir du stockage d’objets blob ou Data Lake Storage Gen2 en mode natif pour la source et le récepteur. 
+La fonctionnalité de mappage de flux de données autorise actuellement Azure SQL Database, Azure Synapse Analytics (anciennement Azure SQL Data Warehouse), les fichiers texte délimités à partir de Stockage Blob Azure ou Azure Data Lake Storage Gen2, et les fichiers Parquet à partir du stockage d’objets blob ou Data Lake Storage Gen2 en mode natif pour la source et le récepteur. 
 
 Utilisez l’activité de copie pour indexer les données des autres connecteurs, puis exécutez une activité de flux de données pour transformer les données une fois qu’elles ont été indexées. Par exemple, votre pipeline copiera tout d’abord dans le stockage d’objets blob, puis une activité de flux de données utilisera un jeu de données dans la source pour transformer ces données.
 

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553493"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442664"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse Analytics à l’aide du Portail Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553493"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide du Portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
+Cet article explique comment configurer des alertes pour des bases de données dans Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
 
 > [!NOTE]
 > Pour obtenir des instructions spécifiques sur Azure SQL Managed Instance, consultez [Créer des alertes pour Azure SQL Managed Instance](../managed-instance/alerts-create.md).

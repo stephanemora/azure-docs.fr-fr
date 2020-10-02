@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 062b2cac093c3049f65dd485e280776602c06e4b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279718"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658513"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -117,15 +117,15 @@ Dans une topologie de forêt de ressources de comptes, vous avez une ou plusieur
 
 Dans ce scénario, une (ou plusieurs) forêt de ressources approuve toutes les forêts de comptes. Cette forêt de ressources a généralement un schéma Active Directory étendu avec Exchange et Lync. Tous les services Exchange et Lync, et d’autres services partagés, sont situés dans cette forêt. Les utilisateurs ont un compte d’utilisateur désactivé dans cette forêt et la boîte aux lettres est liée à la forêt de comptes.
 
-## <a name="office-365-and-topology-considerations"></a>Considérations sur Office 365 et la topologie
-Certaines charges de travail Office 365 ont certaines restrictions quant aux topologies prises en charge :
+## <a name="microsoft-365-and-topology-considerations"></a>Considérations sur Microsoft 365 et la topologie
+Certaines charges de travail Microsoft 365 imposent des restrictions aux topologies prises en charge :
 
 | Charge de travail | Restrictions |
 | --------- | --------- |
 | Exchange Online | Pour plus d’informations sur les topologies hybrides prises en charge par Exchange Online, consultez [Déploiements hybrides avec plusieurs forêts Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
 | Skype Entreprise | Lorsque vous utilisez plusieurs forêts locales, seule la topologie de forêt de ressources de comptes est prise en charge. Pour plus d’informations, consultez la rubrique [Configuration environnementale pour Skype for Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Si vous êtes une plus grande organisation, vous devez envisager d’utiliser la fonctionnalité [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Elle vous permet de définir la région de centre de données dans laquelle se trouvent les ressources de l’utilisateur.
+Si vous êtes une plus grande organisation, vous devez envisager d’utiliser la fonctionnalité [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Elle vous permet de définir la région de centre de données dans laquelle se trouvent les ressources de l’utilisateur.
 
 ## <a name="staging-server"></a>Serveur de test
 ![Serveur intermédiaire dans une topologie](./media/plan-connect-topologies/MultiForestStaging.png)

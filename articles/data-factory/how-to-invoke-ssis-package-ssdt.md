@@ -11,13 +11,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 006b7db9f63f5ba74fee936383206b18c42aa038
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 09/06/2020
+ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041848"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504942"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Exécuter des packages SSIS dans Azure à partir de SSDT
 
@@ -57,7 +57,7 @@ Pour les projets SSIS existants, vous pouvez les activer pour Azure en procédan
 
    ![Sélectionner la configuration Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. L’activation pour Azure de vos projets SSIS existants implique que vous définissiez leur version de serveur cible en tant que version la plus récente prise en charge par Azure-SSIS IR. Actuellement, Azure-SSIS IR a un niveau de compatibilité par défaut de 140, qui correspond à **SQL Server 2017**. Vérifiez que vos packages ne contiennent pas d’autres composants qui ne sont pas pris en charge sur SQL Server 2017. Veillez également à ce que tous les composants supplémentaires compatibles aient également été installés sur votre runtime d’intégration Azure-SSIS via des configurations personnalisées, voir [Personnalisation de votre runtime d’intégration Azure-SSIS](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Sélectionnez le bouton **Suivant** pour continuer.
+3. L’activation pour Azure de vos projets SSIS existants implique que vous définissiez leur version de serveur cible en tant que version la plus récente prise en charge par Azure-SSIS IR. Azure-SSIS IR est actuellement basé sur **SQL Server 2017**. Vérifiez que vos packages ne contiennent pas d’autres composants qui ne sont pas pris en charge sur SQL Server 2017. Veillez également à ce que tous les composants supplémentaires compatibles aient également été installés sur votre runtime d’intégration Azure-SSIS via des configurations personnalisées, voir [Personnalisation de votre runtime d’intégration Azure-SSIS](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Sélectionnez le bouton **Suivant** pour continuer.
 
    ![Changer la version du serveur cible](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 

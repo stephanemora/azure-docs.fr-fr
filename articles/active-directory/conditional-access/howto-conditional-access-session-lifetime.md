@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948264"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601671"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -44,7 +44,7 @@ Le paramètre de fréquence de connexion fonctionne avec les applications qui on
 - Word, Excel, PowerPoint Online
 - OneNote Online
 - Office.com
-- Portail d’administration O365
+- Portail d’administration Microsoft 365
 - Exchange Online
 - SharePoint et OneDrive
 - Client web Teams

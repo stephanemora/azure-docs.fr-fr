@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540000"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980672"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Vue d’ensemble de la fonctionnalité Outil de modélisation des menaces
 
@@ -122,7 +122,7 @@ Placez le curseur sur **Ouvrir un modèle** pour afficher deux options : **Ouvr
 
 Quand vous sélectionnez **Feedback, Suggestions and Issues** (Commentaires, suggestions et problèmes), vous accédez au forum MSDN sur les outils SDL. Vous pouvez lire les avis d’autres utilisateurs sur l’outil, y compris les solutions de contournement et de nouvelles idées.
 
-![Commentaires](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Capture d’écran montrant un bouton avec les commentaires de texte, les suggestions et les problèmes.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Mode création
 
@@ -158,7 +158,7 @@ Vous pouvez connecter des éléments de deux manières :
 
 Si vous créez un modèle de menaces et oubliez de connecter les flux de données aux éléments, une notification s’affiche. Vous pouvez ignorer le message, ou bien suivre les instructions pour résoudre le problème. 
 
-![Messages](./media/threat-modeling-tool-feature-overview/messages.png)
+![Capture d’écran montrant un connecteur de modèle de menace non connecté aux éléments, avec le message généré par ce problème.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notes
 
@@ -196,7 +196,7 @@ Comme le montre l’image précédente, vous pouvez changer les informations gé
 
 Après avoir changé les priorités et mis à jour l’état de chaque menace générée, vous pouvez enregistrer le fichier et/ou imprimer un rapport. Accédez à **Report** (Rapport) > **Create Full Report** (Créer un rapport complet). Attribuez un nom au rapport. Vous devez obtenir un graphique similaire à l’image suivante :
 
-![Rapport](./media/threat-modeling-tool-feature-overview/report.png)
+![Capture d’écran montrant un exemple de rapport de modélisation des menaces, notamment un résumé, des schémas et d’autres informations.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

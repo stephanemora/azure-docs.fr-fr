@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1387c8525ec14b1db330252b78474bba66db8b5b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276131"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658742"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -53,7 +53,7 @@ Vérifiez que les prérequis suivants sont remplis :
     
 * **Activer l’authentification moderne** : Vous devez activer [l’authentification moderne](/office365/enterprise/modern-auth-for-office-2013-and-2016) sur votre locataire pour que cette fonctionnalité fonctionne.
 
-* **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
+* **Utiliser les dernières versions de clients Microsoft 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Microsoft 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 

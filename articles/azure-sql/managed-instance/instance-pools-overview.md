@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708839"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658724"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Qu’est-ce qu’un pool Azure SQL Managed Instance (préversion) ?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Il existe plusieurs limitations de ressources concernant les pools d’instances
 - Outre les limites au niveau de l’instance, il existe également deux limites imposées *au niveau du pool d’instances* :
   - Taille de stockage totale par pool (8 To).
   - Nombre total de bases de données par pool (100).
+- Vous ne pouvez pas définir l’administrateur AAD pour les instances déployées à l’intérieur du pool d’instances. Vous ne pouvez donc pas utiliser l’authentification AAD.
 
 L’allocation de stockage totale et le nombre de bases de données sur toutes les instances doivent être inférieurs ou égaux aux limites exposées par les pools d’instances.
 

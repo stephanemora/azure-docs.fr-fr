@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd1d03edad2e13d3460fb2e7a635bb198ac5c1bf
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279616"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657158"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -47,7 +47,7 @@ Azure AD prend en charge les méthodes d’authentification suivantes :
    * **Authentification directe (PTA)** : cette option est similaire à la synchronisation de hachage de mot de passe, mais elle permet une validation simple du mot de passe à l’aide d’agents de logiciel sur site pour les organisations disposant de stratégies de conformité et de sécurité renforcées.
 * **Authentification fédérée** : quand vous choisissez cette méthode d’authentification, Azure AD délègue le processus d’authentification à un système d’authentification approuvée distinct, par exemple AD FS ou un système de fédération tiers, pour valider la connexion de l’utilisateur. 
 
-Pour la plupart des organisations qui souhaitent juste activer l’authentification utilisateur pour Office 365, les applications SaaS et d’autres ressources basées sur Azure AD, l’option de synchronisation de hachage de mot de passe par défaut est recommandée.
+Pour la plupart des organisations qui souhaitent simplement permettre aux utilisateurs de se connecter à Microsoft 365, aux applications SaaS et à d'autres ressources basées sur Azure AD, nous recommandons l'option de synchronisation de hachage de mot de passe par défaut.
  
 Pour plus d’informations sur le choix d’une méthode d’authentification, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](./choose-ad-authn.md).
 
@@ -139,12 +139,12 @@ La page de connexion AD Azure répertorie le(s) suffixe(s) UPN défini(s) pour A
 Vous pouvez cliquer sur le bouton Actualiser pour extraire à nouveau le dernier état des domaines personnalisés à partir d’Azure AD.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Sélection d’un attribut pour le nom d’utilisateur principal dans Azure AD
-L’attribut userPrincipalName est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Vous devez vérifier les domaines (également nommés « Suffixe UPN ») utilisés dans Azure AD avant la synchronisation des utilisateurs.
+L'attribut userPrincipalName est utilisé par les utilisateurs lorsqu'ils se connectent à Azure AD et Microsoft 365. Vous devez vérifier les domaines (également nommés « Suffixe UPN ») utilisés dans Azure AD avant la synchronisation des utilisateurs.
 
 Nous vous recommandons fortement de conserver l’userPrincipalName de l’attribut par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut (par exemple une adresse de messagerie électronique) comme attribut contenant l’ID de connexion. Il s’agit de l’ID secondaire. La valeur de l’attribut ID secondaire doit suivre la norme RFC 822. Vous pouvez utiliser un ID secondaire avec l’authentification unique par mot de passe et avec l’authentification unique de fédération comme solution de connexion.
 
 > [!NOTE]
-> L’utilisation d’un ID secondaire n’est pas compatible avec toutes les charges de travail Office 365. Pour plus d’informations, consultez [Configuration d’un ID secondaire de connexion](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> L'utilisation d'un ID secondaire n'est pas compatible avec certaines charges de travail Microsoft 365. Pour plus d’informations, consultez [Configuration d’un ID secondaire de connexion](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 

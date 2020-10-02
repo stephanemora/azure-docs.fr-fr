@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292789"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441491"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotection d’Azure vers votre site local
 
@@ -46,6 +46,9 @@ Activez la réplication. Vous pouvez reprotéger des machines virtuelles spécif
 
 - Si vous reprotégez un plan de récupération, vous devez fournir les valeurs pour chaque machine protégée.
 - Si les machines virtuelles appartiennent à un groupe de réplication pour assurer la cohérence de plusieurs machines virtuelles, elles peuvent uniquement être reprotégées à l’aide d’un plan de récupération. Les machines virtuelles d’un groupe de réplication doivent utiliser le même serveur cible maître
+
+>[!NOTE]
+>La quantité de données envoyées à partir d’Azure à la source ancienne lors de la reprotection peut être comprise entre 0 et la somme des tailles de disque de toutes les machines protégées. Elle ne peut pas être calculée.
 
 ### <a name="before-you-start"></a>Avant de commencer
 

@@ -1,6 +1,6 @@
 ---
 title: Paramètres de ressources des classeurs Azure Monitor
-description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
+description: Découvrez comment utiliser les paramètres de ressources pour choisir des ressources dans les classeurs. Utilisez les paramètres des ressources pour définir l’étendue à partir de laquelle les données sont extraites.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972848"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 

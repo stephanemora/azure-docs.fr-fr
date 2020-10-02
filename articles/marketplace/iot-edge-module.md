@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816250"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420606"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -30,7 +30,7 @@ Avec les [modules IoT Edge sur la Place de marché Microsoft Azure](https://azur
 
 ## <a name="what-is-an-iot-edge-module"></a>Qu’est-ce qu’un module IoT Edge ?
 
-Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de modules. Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple Azure Stream Analytics), des services tiers ou votre propre code spécifique à la solution. Pour en savoir plus sur les modules IoT Edge, consultez [Présentation des modules Azure IoT Edge](../iot-edge/iot-edge-modules.md).
+Azure IoT Edge vous permet de déployer et de gérer la logique métier sur la périphérie sous la forme de modules. Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. Pour en savoir plus sur les modules IoT Edge, consultez [Présentation des modules Azure IoT Edge](../iot-edge/iot-edge-modules.md).
 
 **Quelle est la différence entre un type d’offre Conteneur et un type d’offre Module IoT Edge ?**
 
@@ -40,7 +40,7 @@ Le type d’offre Module IoT Edge est un type spécifique de conteneur s’exéc
 
 **Sélection du magasin en ligne approprié**
 
-Les modules IoT Edge sont uniquement publiés sur la Place de marché Microsoft Azure. AppSource ne s’applique pas. Pour plus d’informations sur les différences entre les magasins en ligne et leur public cible, consultez [Déterminer votre option de publication](determine-your-listing-type.md).
+Les modules IoT Edge sont uniquement publiés sur la Place de marché Microsoft Azure. AppSource ne s’applique pas. Pour plus d’informations sur les différences entre les magasins en ligne, consultez [Déterminer votre option de publication](determine-your-listing-type.md).
 
 **Options de facturation**
 
@@ -75,6 +75,5 @@ Les principales exigences techniques pour qu’un module IoT Edge soit certifié
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprenez-en davantage](https://azuremarketplace.microsoft.com/sell) sur la Place de marché commerciale.
 - Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
 - [Créez une offre de module IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) dans l’Espace partenaires.

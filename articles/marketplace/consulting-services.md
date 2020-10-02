@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814720"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419752"
 ---
 # <a name="consulting-service-offers"></a>Offre de services de conseil
 
@@ -22,16 +22,16 @@ Les offres de services de conseil sont des engagements spécifiques pour le clie
 
 ## <a name="compare-consulting-services"></a>Comparer les services de conseil
 
-Les magasins en ligne de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure, sont adaptées aux publics et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque magasin en ligne propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux magasins en ligne, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
+Les magasins en ligne de la Place de marché commerciale, Microsoft AppSource et la Place de marché Azure, sont adaptées aux types de solutions et aux produits cloud pour aider les clients à trouver ce dont ils ont besoin. Chaque magasin en ligne propose des options de publication spécialisées destinées à optimiser votre investissement. Pour en savoir plus sur la différence entre les deux magasins en ligne, consultez [Comparaison entre Microsoft AppSource et la Place de marché Azure](comparing-appsource-azure-marketplace.md).
 
 Les offres de services de conseil qui sont basées sur Dynamics 365, Power Apps et Power BI peuvent être listées sur AppSource. Pour plus d’informations, téléchargez le fichier PDF [Instructions de référencement des services de conseil Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Les offres de services de conseil et de services gérés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles [Publier une offre de services de conseil Azure](./partner-center-portal/create-consulting-service-offer.md) et [Publier une offre de services gérés sur la Place de marché Azure](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> Les services de conseil de la Place de marché Azure doivent se concentrer sur les offres destinées à un public technique et mettre en évidence les services et solutions techniques d’Azure.
+> Les services de conseil de la Place de marché Azure doivent se concentrer sur les solutions et services techniques Azure.
 >
-> Les services de conseil dans AppSource doivent se concentrer sur les offres destinées aux utilisateurs disposant d’une expertise dans la fourniture de solutions de qualité pour Dynamics 365, Power BI ou Power Apps.
+> Les services de conseil d’AppSource doivent se concentrer sur les solutions d’entreprise pour Dynamics 365, Power BI ou Power Apps.
  
 > [!TIP]
 > Pour publier sur la Place de marché Azure, dans la liste déroulante **Produit principal** de l’Espace partenaires, sélectionnez **Azure**.
@@ -131,7 +131,7 @@ Les offres doivent correspondre au moins à l’un des cinq types de services su
 > * **En personne** : sur place dans les locaux d’un client ou d’un partenaire.
 > * **Virtuellement** : par téléconférence, conférence web ou implémentation à distance.
 
-Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive pour votre public cible. 
+Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive. 
 
 ### <a name="the-listing-title"></a>Titre du référencement
 
@@ -171,9 +171,5 @@ Voici quelques conseils pour se démarquer :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne l’avez pas déjà fait, découvrez comment [développer votre activité dans le cloud avec la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
-
-Pour vous inscrire à l’Espace partenaires et commencer à travailler dessus :
-
-* [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
-* Pour plus d’informations, consultez [Créer une offre de services de conseil](./partner-center-portal/create-consulting-service-offer.md).
+- [Développer votre activité avec la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
+- [Créer une offre de services de conseil](./partner-center-portal/create-consulting-service-offer.md)

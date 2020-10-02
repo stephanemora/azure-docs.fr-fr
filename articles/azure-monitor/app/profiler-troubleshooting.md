@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049780"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979386"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -79,12 +79,12 @@ Pour que Profiler fonctionne correctement :
    1. Dans le menu **Outils**, sélectionnez **Tableau de bord WebJobs**.  
       Le volet **WebJobs** s’ouvre. 
    
-      ![profiler-webjob]   
+      ![Capture d’écran montrant le volet WebJobs, qui affiche le nom, l’état et l’heure de la dernière exécution des travaux.][profiler-webjob]   
    
    1. Pour voir les détails de la tâche web, notamment le journal, sélectionnez le lien **ApplicationInsightsProfiler3**.  
      Le volet **Détails de la tâche web continue** s’ouvre.
 
-      ![profiler-webjob-log]
+      ![Capture d’écran montrant le volet Détails de la tâche web.][profiler-webjob-log]
 
 Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre équipe pour obtenir de l’aide, serviceprofilerhelp@microsoft.com. 
     

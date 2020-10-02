@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086623378b64aecb91c4e70e6e69bb13453f7681
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be03996f3f88efeb02893f815162a04d6a1e8aa6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078643"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979941"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher les demandes d’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -29,7 +29,7 @@ Dans la gestion des droits d’utilisation Azure AD, vous pouvez voir qui a dema
 
 ## <a name="view-requests"></a>Afficher les requêtes
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs, gestionnaire de package d'accès ou gestionnaire d’affectation de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
